@@ -1,0 +1,82 @@
+
+{%- extends "invenio_theme/frontpage.html" %}
+
+{# TODO (UI): prepare a proper initial title page !!! #}
+
+{%- block page_header %}
+{%- endblock page_header %}
+
+{%- block page_body %}
+
+    {%- block intro_section %}
+    {%- endblock intro_section %}
+
+    {%- block bypasslinks %}
+    {%- endblock bypasslinks %}
+
+    {%- block top_banner %}
+    {%- endblock top_banner %}
+
+    {%- block grid_section %}
+        <div class="backdrop">
+        <div class="ui stackable container">
+        <div class="ui one column centered grid">
+            {% block main_column %}
+                <div class="ui eleven wide computer sixteen wide tablet centered column">
+
+                {% block main_column_content %}
+                    {%- block frontpage_search %}
+                        <div id="frontpage-search-bar"
+                             class="ui container fluid frontpage-header masthead center aligned borderless segment cover-page">
+                        <div class="ui container grid rel-mt-2">
+                        <div class="sixteen wide column center aligned">
+                            {%- block frontpage_title %}
+                                <div class="ui text container">
+                                    <div class="ui header">
+                                        {%- if config.THEME_FRONTPAGE_LOGO %}
+                                            <img class="ui medium image frontpage-logo"
+                                                 src="{{ url_for('static', filename=config.THEME_FRONTPAGE_LOGO) }}"
+                                                 alt="{{ _(config.THEME_SITENAME) }}"/>
+                                        {%- else %}
+                                            <a class="logo" href="/">{{ _(config.THEME_SITENAME) }}</a>
+                                        {%- endif %}
+                                    </div>
+                                    <div class="ui label purple">
+                                        <h1 class="ui header  medium">{{ _(config.THEME_FRONTPAGE_TITLE) }}</h1>
+                                    </div>
+                                </div>
+                            {%- endblock frontpage_title %}
+                            {%- block frontpage_form %}
+                                <div class="row rel-mt-5">
+                                    <div class="sixteen wide mobile four wide computer column"></div>
+                                    <div class="sixteen wide mobile eight wide computer column center aligned">
+                                        <form action="/search" class="ui form" role="search">
+                                            <div class="ui fluid big action input">
+                                                <input type="text" name="q" class="form-control"
+                                                       placeholder="{{ _('Search') }}">
+                                                <button type="submit" class="ui icon search button"
+                                                        aria-label="{{ _('Search') }}"><i class="search icon"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="ui divider hidden"></div>
+                            {%- endblock frontpage_form %}
+                        </div>
+                        </div>
+                        </div>
+                    {%- endblock frontpage_search %}
+                {% endblock main_column_content %}
+
+                </div>
+            {% endblock main_column %}
+        </div>
+        </div>
+        </div>
+    {%- endblock grid_section %}
+
+{%- block bottom_section %}
+{%- endblock bottom_section %}
+
+{%- endblock page_body %}

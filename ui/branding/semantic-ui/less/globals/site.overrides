@@ -1,0 +1,4 @@
+//
+// overrides for css styles. To reference a font/image from the assets directory, use:
+// url("~@less/fonts/your-font-name") or url("~@less/images/your-image-name")
+//

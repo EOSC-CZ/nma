@@ -1,0 +1,3158 @@
+{
+    "model": {
+        "type": "model",
+        "custom-fields": [],
+        "permissions": {
+            "presets": [
+                "read_only"
+            ],
+            "generate": true,
+            "extra-code": "",
+            "module": "datasets.services.records.permissions",
+            "class": "datasets.services.records.permissions.DatasetsPermissionPolicy",
+            "base-classes": [
+                "invenio_records_permissions.RecordPermissionPolicy"
+            ],
+            "imports": []
+        },
+        "marshmallow": {
+            "imports": [],
+            "generate": true,
+            "base-classes": [
+                "nr_metadata.datacite.services.records.schema.DataCiteRecordSchema"
+            ],
+            "module": "datasets.services.records.schema",
+            "class": "datasets.services.records.schema.DatasetsSchema",
+            "extra-code": ""
+        },
+        "searchable": true,
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "generate": true,
+                "base-classes": [
+                    "nr_metadata.datacite.services.records.ui_schema.DataCiteRecordUISchema"
+                ],
+                "module": "datasets.services.records.ui_schema",
+                "class": "datasets.services.records.ui_schema.DatasetsUISchema",
+                "extra-code": ""
+            },
+            "module": "datasets.models",
+            "file": "datasets/models/ui.json",
+            "alias": "datasets"
+        },
+        "pid": {
+            "type": "dtsts",
+            "generate": true,
+            "module": "datasets.records.api",
+            "provider-class": "datasets.records.api.DatasetsIdProvider",
+            "provider-base-classes": [
+                "invenio_pidstore.providers.recordid_v2.RecordIdProviderV2"
+            ],
+            "field-class": "invenio_records_resources.records.systemfields.pid.PIDField",
+            "context-class": "invenio_records_resources.records.systemfields.pid.PIDFieldContext",
+            "field-args": [
+                "create=True"
+            ],
+            "imports": [],
+            "extra-code": ""
+        },
+        "resource-config": {
+            "base-html-url": "/datasets/",
+            "generate": true,
+            "base-url": "/datasets/",
+            "config-key": "DATASETS_RECORD_RESOURCE_CONFIG",
+            "module": "datasets.resources.records.config",
+            "class": "datasets.resources.records.config.DatasetsResourceConfig",
+            "extra-code": "",
+            "base-classes": [
+                "invenio_records_resources.resources.RecordResourceConfig"
+            ],
+            "imports": [],
+            "additional-args": []
+        },
+        "module": {
+            "qualified": "datasets",
+            "alias": "datasets",
+            "path": "datasets",
+            "base": "datasets",
+            "base-upper": "DATASETS",
+            "base-title": "Datasets",
+            "kebab-module": "datasets",
+            "prefix": "Datasets",
+            "prefix-upper": "DATASETS",
+            "prefix-snake": "datasets",
+            "suffix": "datasets",
+            "suffix-upper": "DATASETS",
+            "suffix-snake": "datasets"
+        },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
+        },
+        "files": {
+            "type": "file",
+            "properties": {
+                "id": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "created": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "updated": {
+                    "type": "date",
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "marshmallow": {
+                        "read": true,
+                        "write": false
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "$schema": {
+                    "type": "keyword",
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    },
+                    "ui": {
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        }
+                    },
+                    "sample": {
+                        "skip": true
+                    }
+                },
+                "caption": {
+                    "type": "keyword"
+                }
+            },
+            "marshmallow": {
+                "imports": [
+                    {
+                        "import": "invenio_records_resources.services.files.schema.FileSchema",
+                        "alias": "InvenioFileSchema"
+                    }
+                ],
+                "base-classes": [
+                    "InvenioFileSchema"
+                ]
+            },
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
+        "sample": {
+            "file": "data/sample_data.yaml"
+        },
+        "ext-resource": {
+            "generate": true,
+            "skip": false
+        },
+        "model-name": "Datasets",
+        "search-options": {
+            "generate": true,
+            "module": "datasets.services.records.search",
+            "extra-code": "",
+            "class": "datasets.services.records.search.DatasetsSearchOptions",
+            "base-classes": [
+                "invenio_records_resources.services.SearchOptions{InvenioSearchOptions}"
+            ],
+            "imports": [],
+            "fields": {},
+            "sort-options-field": "sort_options"
+        },
+        "config": {
+            "generate": true,
+            "module": "datasets.config",
+            "extra_code": "",
+            "imports": []
+        },
+        "ext": {
+            "generate": true,
+            "module": "datasets.ext",
+            "class": "datasets.ext.DatasetsExt",
+            "base-classes": [],
+            "extra_code": "",
+            "alias": "datasets",
+            "imports": []
+        },
+        "api-blueprint": {
+            "generate": true,
+            "alias": "datasets",
+            "extra_code": "",
+            "module": "datasets.views.records.api",
+            "function": "datasets.views.records.api.create_api_blueprint",
+            "imports": []
+        },
+        "app-blueprint": {
+            "generate": true,
+            "alias": "datasets",
+            "extra_code": "",
+            "module": "datasets.views.records.app",
+            "function": "datasets.views.records.app.create_app_blueprint",
+            "imports": []
+        },
+        "facets": {
+            "generate": true,
+            "module": "datasets.services.records.facets",
+            "extra-code": "",
+            "groups": true
+        },
+        "record": {
+            "generate": true,
+            "module": "datasets.records.api",
+            "class": "datasets.records.api.DatasetsRecord",
+            "base-classes": [
+                "invenio_records_resources.records.api.Record{InvenioRecord}"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "fields": {}
+        },
+        "resource": {
+            "generate": true,
+            "config-key": "DATASETS_RECORD_RESOURCE_CLASS",
+            "module": "datasets.resources.records.resource",
+            "class": "datasets.resources.records.resource.DatasetsResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "base-classes": [
+                "invenio_records_resources.resources.RecordResource"
+            ],
+            "imports": [],
+            "additional-args": []
+        },
+        "saved-model": {
+            "file": "datasets/models/records.json",
+            "module": "datasets.models",
+            "alias": "datasets"
+        },
+        "proxy": {
+            "module": "datasets.proxies",
+            "generate": true
+        },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "datasets",
+            "version": "1.0.0",
+            "module": "datasets.records.jsonschemas",
+            "name": "datasets-1.0.0.json",
+            "file": "datasets/records/jsonschemas/datasets-1.0.0.json"
+        },
+        "record-dumper": {
+            "generate": true,
+            "module": "datasets.records.dumpers.dumper",
+            "class": "datasets.records.dumpers.dumper.DatasetsDumper",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.SearchDumper"
+            ],
+            "extra-code": "",
+            "extensions": [
+                "{{datasets.records.dumpers.edtf.DatasetsEDTFIntervalDumperExt}}()",
+                "{{datasets.records.dumpers.multilingual.MultilingualSearchDumperExt}}()"
+            ],
+            "imports": []
+        },
+        "record-metadata": {
+            "generate": true,
+            "module": "datasets.records.models",
+            "class": "datasets.records.models.DatasetsMetadata",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_records.models.RecordMetadataBase"
+            ],
+            "extra-code": "",
+            "imports": [],
+            "table": "datasets_metadata",
+            "alias": "datasets",
+            "use-versioning": true,
+            "alembic": "datasets.alembic"
+        },
+        "service-config": {
+            "generate": true,
+            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
+            "module": "datasets.services.records.config",
+            "class": "datasets.services.records.config.DatasetsServiceConfig",
+            "extra-code": "",
+            "service-id": "datasets",
+            "base-classes": [
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
+                "invenio_records_resources.services.RecordServiceConfig{InvenioRecordServiceConfig}"
+            ],
+            "components": [
+                "{{oarepo_runtime.services.files.FilesComponent}}",
+                "{{invenio_records_resources.services.records.components.DataComponent}}"
+            ],
+            "additional-args": []
+        },
+        "service": {
+            "generate": true,
+            "config-key": "DATASETS_RECORD_SERVICE_CLASS",
+            "proxy": "current_service",
+            "module": "datasets.services.records.service",
+            "class": "datasets.services.records.service.DatasetsService",
+            "extra-code": "",
+            "base-classes": [
+                "invenio_records_resources.services.RecordService{InvenioRecordService}"
+            ],
+            "imports": [],
+            "additional-args": []
+        },
+        "json-serializer": {
+            "module": "datasets.resources.records.ui",
+            "class": "datasets.resources.records.ui.DatasetsUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
+            "schema-context-args": {
+                "\"object_key\"": "\"ui\"",
+                "\"identity\"": "{{ flask.g{g.identity} }}"
+            }
+        },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "datasets.records.api.DatasetsRecord",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": []
+        },
+        "translations": {
+            "module": "datasets.translations",
+            "alias": "datasets"
+        },
+        "mapping": {
+            "generate": true,
+            "alias": "datasets",
+            "module": "datasets.records.mappings",
+            "index": "datasets-datasets-1.0.0",
+            "file": "datasets/records/mappings/os-v2/datasets/datasets-1.0.0.json"
+        },
+        "edtf-interval-dumper": {
+            "generate": true,
+            "module": "datasets.records.dumpers.edtf",
+            "class": "datasets.records.dumpers.edtf.DatasetsEDTFIntervalDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "record-list": {
+            "generate": true,
+            "module": "datasets.services.records.results",
+            "class": "datasets.services.records.results.DatasetsRecordList",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordList"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "record-item": {
+            "generate": true,
+            "module": "datasets.services.records.results",
+            "class": "datasets.services.records.results.DatasetsRecordItem",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordItem"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "multilingual-dumper": {
+            "generate": true,
+            "module": "datasets.records.dumpers.multilingual",
+            "class": "datasets.records.dumpers.multilingual.MultilingualSearchDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.multilingual_dumper.MultilingualDumper"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "sortable": [],
+        "properties": {
+            "$schema": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "created": {
+                "type": "datetime",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "id": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "metadata": {
+                "type": "object",
+                "ui": {
+                    "marshmallow": {
+                        "generate": false,
+                        "class": "nr_metadata.datacite.services.records.ui_schema.NRDataCiteMetadataUISchema",
+                        "module": "datasets.services.records.ui_schema",
+                        "extra-code": "",
+                        "base-classes": [
+                            "marshmallow.Schema"
+                        ]
+                    }
+                },
+                "marshmallow": {
+                    "generate": false,
+                    "class": "nr_metadata.datacite.services.records.schema.NRDataCiteMetadataSchema",
+                    "module": "datasets.services.records.schema",
+                    "extra-code": "",
+                    "base-classes": [
+                        "marshmallow.Schema"
+                    ]
+                },
+                "properties": {
+                    "alternateIdentifiers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.AlternateIdentifierUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.AlternateIdentifierSchema"
+                            },
+                            "properties": {
+                                "alternateIdentifier": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "alternateIdentifierType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "container": {
+                        "type": "object",
+                        "ui": {
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.ContainerUISchema"
+                            }
+                        },
+                        "marshmallow": {
+                            "generate": false,
+                            "class": "nr_metadata.datacite.services.records.schema_datatypes.ContainerSchema"
+                        },
+                        "properties": {
+                            "firstPage": {
+                                "type": "keyword",
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                }
+                            },
+                            "title": {
+                                "type": "keyword",
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                }
+                            },
+                            "type": {
+                                "type": "keyword",
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "contributors": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.ContributorUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.ContributorSchema"
+                            },
+                            "properties": {
+                                "affiliation": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.AffiliationUISchema"
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.schema_datatypes.AffiliationSchema"
+                                        },
+                                        "properties": {
+                                            "affiliationIdentifier": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "affiliationIdentifierScheme": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "schemeUri": {
+                                                "type": "url",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "contributorType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "ContactPerson",
+                                        "DataCollector",
+                                        "DataCurator",
+                                        "DataManager",
+                                        "Distributor",
+                                        "Editor",
+                                        "HostingInstitution",
+                                        "Producer",
+                                        "ProjectLeader",
+                                        "ProjectManager",
+                                        "ProjectMember",
+                                        "RegistrationAgency",
+                                        "RegistrationAuthority",
+                                        "RelatedPerson",
+                                        "Researcher",
+                                        "ResearchGroup",
+                                        "RightsHolder",
+                                        "Sponsor",
+                                        "Supervisor",
+                                        "WorkPackageLeader",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "familyName": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "givenName": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "lang": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "name": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "nameIdentifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.NameIdentifierUISchema"
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.schema_datatypes.NameIdentifierSchema"
+                                        },
+                                        "properties": {
+                                            "nameIdentifier": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "nameIdentifierScheme": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "schemeUri": {
+                                                "type": "url",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "nameType": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "Organizational",
+                                        "Personal"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "creators": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.CreatorUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.CreatorSchema"
+                            },
+                            "properties": {
+                                "affiliation": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.AffiliationUISchema"
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.schema_datatypes.AffiliationSchema"
+                                        },
+                                        "properties": {
+                                            "affiliationIdentifier": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "affiliationIdentifierScheme": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "schemeUri": {
+                                                "type": "url",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "familyName": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "givenName": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "lang": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "name": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "nameIdentifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.NameIdentifierUISchema"
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.schema_datatypes.NameIdentifierSchema"
+                                        },
+                                        "properties": {
+                                            "nameIdentifier": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "nameIdentifierScheme": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "schemeUri": {
+                                                "type": "url",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "nameType": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "Organizational",
+                                        "Personal"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "dates": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.DateUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.DateSchema"
+                            },
+                            "properties": {
+                                "date": {
+                                    "type": "edtf",
+                                    "required": true,
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    },
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                },
+                                "dateInformation": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "dateType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "Accepted",
+                                        "Available",
+                                        "Copyrighted",
+                                        "Collected",
+                                        "Created",
+                                        "Issued",
+                                        "Submitted",
+                                        "Updated",
+                                        "Valid",
+                                        "Withdrawn",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.DescriptionUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.DescriptionSchema"
+                            },
+                            "properties": {
+                                "description": {
+                                    "type": "fulltext",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "descriptionType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "Abstract",
+                                        "Methods",
+                                        "SeriesInformation",
+                                        "TableOfContents",
+                                        "TechnicalInfo",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "lang": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "doi": {
+                        "type": "keyword",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "read": false,
+                                "write": false
+                            }
+                        }
+                    },
+                    "formats": {
+                        "type": "array",
+                        "items": {
+                            "type": "keyword",
+                            "marshmallow": {
+                                "read": false,
+                                "write": false
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                }
+                            }
+                        }
+                    },
+                    "fundingReferences": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.FundingReferenceUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.FundingReferenceSchema"
+                            },
+                            "properties": {
+                                "awardNumber": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "awardTitle": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "awardUri": {
+                                    "type": "url",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "funderIdentifier": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "funderIdentifierType": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "ISNI",
+                                        "GRID",
+                                        "Crossref Funder ID",
+                                        "ROR",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "funderName": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "geoLocations": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.GeoLocationUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationSchema"
+                            },
+                            "properties": {
+                                "geoLocationBox": {
+                                    "type": "object",
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.GeoLocationBoxUISchema"
+                                        }
+                                    },
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationBoxSchema"
+                                    },
+                                    "properties": {
+                                        "eastBoundLongitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "marshmallow": {
+                                                "read": false,
+                                                "write": false,
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                }
+                                            }
+                                        },
+                                        "northBoundLatitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "marshmallow": {
+                                                "read": false,
+                                                "write": false,
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                }
+                                            }
+                                        },
+                                        "southBoundLatitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "marshmallow": {
+                                                "read": false,
+                                                "write": false,
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                }
+                                            }
+                                        },
+                                        "westBoundLongitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "marshmallow": {
+                                                "read": false,
+                                                "write": false,
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "geoLocationPlace": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "geoLocationPoint": {
+                                    "type": "object",
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.GeoLocationPointUISchema"
+                                        }
+                                    },
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationPointSchema"
+                                    },
+                                    "properties": {
+                                        "pointLatitude": {
+                                            "type": "float",
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "marshmallow": {
+                                                "read": false,
+                                                "write": false,
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                }
+                                            }
+                                        },
+                                        "pointLongitude": {
+                                            "type": "float",
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "marshmallow": {
+                                                "read": false,
+                                                "write": false,
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "geoLocationPolygons": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.GeoLocationPolygonUISchema"
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationPolygonSchema"
+                                        },
+                                        "properties": {
+                                            "inPolygonPoint": {
+                                                "type": "object",
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.GeoLocationPointUISchema"
+                                                    }
+                                                },
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationPointSchema"
+                                                },
+                                                "properties": {
+                                                    "pointLatitude": {
+                                                        "type": "float",
+                                                        "minimum": -90.0,
+                                                        "maximum": 90.0,
+                                                        "marshmallow": {
+                                                            "read": false,
+                                                            "write": false,
+                                                            "validators": [
+                                                                "ma.validate.Range(min=-90.0, max=90.0)"
+                                                            ]
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            }
+                                                        }
+                                                    },
+                                                    "pointLongitude": {
+                                                        "type": "float",
+                                                        "minimum": -180.0,
+                                                        "maximum": 180.0,
+                                                        "marshmallow": {
+                                                            "read": false,
+                                                            "write": false,
+                                                            "validators": [
+                                                                "ma.validate.Range(min=-180.0, max=180.0)"
+                                                            ]
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "polygonPoints": {
+                                                "type": "array",
+                                                "required": true,
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.GeoLocationPointUISchema"
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationPointSchema"
+                                                    },
+                                                    "properties": {
+                                                        "pointLatitude": {
+                                                            "type": "float",
+                                                            "minimum": -90.0,
+                                                            "maximum": 90.0,
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false,
+                                                                "validators": [
+                                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                                ]
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "pointLongitude": {
+                                                            "type": "float",
+                                                            "minimum": -180.0,
+                                                            "maximum": 180.0,
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false,
+                                                                "validators": [
+                                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                                ]
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "language": {
+                        "type": "keyword",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "read": false,
+                                "write": false
+                            }
+                        }
+                    },
+                    "publicationYear": {
+                        "type": "keyword",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "read": false,
+                                "write": false
+                            }
+                        }
+                    },
+                    "publisher": {
+                        "type": "object",
+                        "ui": {
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.PublisherUISchema"
+                            }
+                        },
+                        "marshmallow": {
+                            "generate": false,
+                            "class": "nr_metadata.datacite.services.records.schema_datatypes.PublisherSchema"
+                        },
+                        "properties": {
+                            "lang": {
+                                "type": "keyword",
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                }
+                            },
+                            "name": {
+                                "type": "keyword",
+                                "required": true,
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                }
+                            },
+                            "publisherIdentifier": {
+                                "type": "keyword",
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                }
+                            },
+                            "publisherIdentifierScheme": {
+                                "type": "keyword",
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                }
+                            },
+                            "schemeURI": {
+                                "type": "url",
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "relatedIdentifiers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.RelatedIdentifierUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.RelatedIdentifierSchema"
+                            },
+                            "properties": {
+                                "relatedIdentifier": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "relatedIdentifierType": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "ARK",
+                                        "arXiv",
+                                        "bibcode",
+                                        "DOI",
+                                        "EAN13",
+                                        "EISSN",
+                                        "Handle",
+                                        "IGSN",
+                                        "ISBN",
+                                        "ISSN",
+                                        "ISTC",
+                                        "LISSN",
+                                        "LSID",
+                                        "PMID",
+                                        "PURL",
+                                        "UPC",
+                                        "URL",
+                                        "URN",
+                                        "w3id"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "relatedMetadataScheme": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "relationType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "IsCitedBy",
+                                        "Cites",
+                                        "IsCollectedBy",
+                                        "Collects",
+                                        "IsSupplementTo",
+                                        "IsSupplementedBy",
+                                        "IsContinuedBy",
+                                        "Continues",
+                                        "IsDescribedBy",
+                                        "Describes",
+                                        "HasMetadata",
+                                        "IsMetadataFor",
+                                        "HasVersion",
+                                        "IsVersionOf",
+                                        "IsNewVersionOf",
+                                        "IsPartOf",
+                                        "IsPreviousVersionOf",
+                                        "IsPublishedIn",
+                                        "HasPart",
+                                        "IsReferencedBy",
+                                        "References",
+                                        "IsDocumentedBy",
+                                        "Documents",
+                                        "IsCompiledBy",
+                                        "Compiles",
+                                        "IsVariantFormOf",
+                                        "IsOriginalFormOf",
+                                        "IsIdenticalTo",
+                                        "IsReviewedBy",
+                                        "Reviews",
+                                        "IsDerivedFrom",
+                                        "IsSourceOf",
+                                        "IsRequiredBy",
+                                        "Requires",
+                                        "IsObsoletedBy",
+                                        "Obsoletes"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "resourceTypeGeneral": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "schemeType": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "schemeUri": {
+                                    "type": "url",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "relatedItems": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.RelatedItemUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.RelatedItemSchema"
+                            },
+                            "properties": {
+                                "contributors": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.ContributorUISchema"
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.schema_datatypes.ContributorSchema"
+                                        },
+                                        "properties": {
+                                            "affiliation": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.AffiliationUISchema"
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "nr_metadata.datacite.services.records.schema_datatypes.AffiliationSchema"
+                                                    },
+                                                    "properties": {
+                                                        "affiliationIdentifier": {
+                                                            "type": "keyword",
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "affiliationIdentifierScheme": {
+                                                            "type": "keyword",
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "name": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "schemeUri": {
+                                                            "type": "url",
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "contributorType": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "enum": [
+                                                    "ContactPerson",
+                                                    "DataCollector",
+                                                    "DataCurator",
+                                                    "DataManager",
+                                                    "Distributor",
+                                                    "Editor",
+                                                    "HostingInstitution",
+                                                    "Producer",
+                                                    "ProjectLeader",
+                                                    "ProjectManager",
+                                                    "ProjectMember",
+                                                    "RegistrationAgency",
+                                                    "RegistrationAuthority",
+                                                    "RelatedPerson",
+                                                    "Researcher",
+                                                    "ResearchGroup",
+                                                    "RightsHolder",
+                                                    "Sponsor",
+                                                    "Supervisor",
+                                                    "WorkPackageLeader",
+                                                    "Other"
+                                                ],
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "familyName": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "givenName": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "lang": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "nameIdentifiers": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.NameIdentifierUISchema"
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "nr_metadata.datacite.services.records.schema_datatypes.NameIdentifierSchema"
+                                                    },
+                                                    "properties": {
+                                                        "nameIdentifier": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "nameIdentifierScheme": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "schemeUri": {
+                                                            "type": "url",
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "nameType": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "enum": [
+                                                    "Organizational",
+                                                    "Personal"
+                                                ],
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "creators": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.CreatorUISchema"
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.schema_datatypes.CreatorSchema"
+                                        },
+                                        "properties": {
+                                            "affiliation": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.AffiliationUISchema"
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "nr_metadata.datacite.services.records.schema_datatypes.AffiliationSchema"
+                                                    },
+                                                    "properties": {
+                                                        "affiliationIdentifier": {
+                                                            "type": "keyword",
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "affiliationIdentifierScheme": {
+                                                            "type": "keyword",
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "name": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "schemeUri": {
+                                                            "type": "url",
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "familyName": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "givenName": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "lang": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "nameIdentifiers": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.NameIdentifierUISchema"
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "nr_metadata.datacite.services.records.schema_datatypes.NameIdentifierSchema"
+                                                    },
+                                                    "properties": {
+                                                        "nameIdentifier": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "nameIdentifierScheme": {
+                                                            "type": "keyword",
+                                                            "required": true,
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        },
+                                                        "schemeUri": {
+                                                            "type": "url",
+                                                            "marshmallow": {
+                                                                "read": false,
+                                                                "write": false
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "read": false,
+                                                                    "write": false
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "nameType": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "enum": [
+                                                    "Organizational",
+                                                    "Personal"
+                                                ],
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "edition": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "firstPage": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "issue": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "lastPage": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "number": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "numberType": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "Article",
+                                        "Chapter",
+                                        "Report",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "publicationYear": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "publisher": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "relatedItemIdentifier": {
+                                    "type": "object",
+                                    "required": true,
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.RelatedItemIdentifierUISchema"
+                                        }
+                                    },
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "nr_metadata.datacite.services.records.schema_datatypes.RelatedItemIdentifierSchema"
+                                    },
+                                    "properties": {
+                                        "relatedItemIdentifier": {
+                                            "type": "keyword",
+                                            "required": true,
+                                            "marshmallow": {
+                                                "read": false,
+                                                "write": false
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                }
+                                            }
+                                        },
+                                        "relatedItemIdentifierType": {
+                                            "type": "keyword",
+                                            "required": true,
+                                            "marshmallow": {
+                                                "read": false,
+                                                "write": false
+                                            },
+                                            "enum": [
+                                                "ARK",
+                                                "arXiv",
+                                                "bibcode",
+                                                "DOI",
+                                                "EAN13",
+                                                "EISSN",
+                                                "Handle",
+                                                "IGSN",
+                                                "ISBN",
+                                                "ISSN",
+                                                "ISTC",
+                                                "LISSN",
+                                                "LSID",
+                                                "PMID",
+                                                "PURL",
+                                                "UPC",
+                                                "URL",
+                                                "URN",
+                                                "w3id"
+                                            ],
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "relatedItemType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "titles": {
+                                    "type": "array",
+                                    "required": true,
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.RelatedItemTitleUISchema"
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "nr_metadata.datacite.services.records.schema_datatypes.RelatedItemTitleSchema"
+                                        },
+                                        "properties": {
+                                            "lang": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "type": "fulltext",
+                                                "required": true,
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            },
+                                            "titleType": {
+                                                "type": "keyword",
+                                                "marshmallow": {
+                                                    "read": false,
+                                                    "write": false
+                                                },
+                                                "enum": [
+                                                    "AlternativeTitle",
+                                                    "Subtitle",
+                                                    "TranslatedTitle",
+                                                    "Other"
+                                                ],
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "read": false,
+                                                        "write": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "volume": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "rightsList": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.RightsUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.RightsSchema"
+                            },
+                            "properties": {
+                                "lang": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "rights": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "rightsIdentifier": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "rightsIdentifierScheme": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "rightsUri": {
+                                    "type": "url",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "schemeUri": {
+                                    "type": "url",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schemaVersion": {
+                        "type": "keyword",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "read": false,
+                                "write": false
+                            }
+                        }
+                    },
+                    "sizes": {
+                        "type": "array",
+                        "items": {
+                            "type": "keyword",
+                            "marshmallow": {
+                                "read": false,
+                                "write": false
+                            },
+                            "ui": {
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                }
+                            }
+                        }
+                    },
+                    "subjects": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.SubjectUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.SubjectSchema"
+                            },
+                            "properties": {
+                                "classificationCode": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "lang": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "schemeUri": {
+                                    "type": "url",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "subject": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "subjectScheme": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "valueUri": {
+                                    "type": "url",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "titles": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.TitleUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.TitleSchema"
+                            },
+                            "properties": {
+                                "lang": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "title": {
+                                    "type": "fulltext",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "titleType": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "AlternativeTitle",
+                                        "Subtitle",
+                                        "TranslatedTitle",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "types": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.ResourceTypeUISchema"
+                                }
+                            },
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.schema_datatypes.ResourceTypeSchema"
+                            },
+                            "properties": {
+                                "resourceType": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "resourceTypeGeneral": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "url": {
+                        "type": "url",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "read": false,
+                                "write": false
+                            }
+                        }
+                    },
+                    "version": {
+                        "type": "keyword",
+                        "marshmallow": {
+                            "read": false,
+                            "write": false
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "read": false,
+                                "write": false
+                            }
+                        }
+                    }
+                }
+            },
+            "updated": {
+                "type": "datetime",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            }
+        }
+    }
+}

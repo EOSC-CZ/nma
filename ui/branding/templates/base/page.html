@@ -1,0 +1,17 @@
+
+{% extends "invenio_theme/page.html" %}
+
+{%- block css %}
+  {{super()}}
+
+  {{ webpack['components.css']}}
+  {{ webpack['branding.css'] }}
+{%- endblock css %}
+
+{%- block javascript %}
+
+  {{super()}}
+  {{ webpack['components.js']}}
+
+{%- endblock javascript %}
+

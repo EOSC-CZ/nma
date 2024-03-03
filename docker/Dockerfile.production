@@ -1,0 +1,44 @@
+ARG OAREPO_DEVELOPMENT_IMAGE=oarepo/oarepo-base-development:12
+ARG OAREPO_PRODUCTION_IMAGE=oarepo/oarepo-base-production:12
+ARG BUILDPLATFORM=linux/amd64
+
+FROM --platform=$BUILDPLATFORM $OAREPO_DEVELOPMENT_IMAGE as production-build
+
+COPY . /repository
+
+# build the repository
+WORKDIR /repository
+RUN rm -rf .nrp .pdm-build .venv
+RUN PYTHON=`which python3` ./nrp build --override-config venv_dir=/invenio/venv --override-config invenio_instance_path=/invenio/instance
+
+# cleanup
+RUN rm -rf .nrp .pdm-build .venv
+RUN find . -name "__pycache__" -type d -exec rm -rf {} +
+
+
+FROM --platform=$BUILDPLATFORM ${OAREPO_PRODUCTION_IMAGE} as production
+
+LABEL maintainer="" \
+    org.opencontainers.image.authors="" \
+    org.opencontainers.image.title="nma" \
+    org.opencontainers.image.url="" \
+    org.opencontainers.image.source="" \
+    org.opencontainers.image.documentation=""
+
+
+# copy build from production build - just the final directories, not the whole build
+
+COPY --from=production-build /invenio /invenio
+COPY --from=production-build /repository /repository
+
+# copy uwsgi.ini - keep the path the same as in invenio
+RUN mkdir -p /opt/invenio/src/uwsgi/
+
+COPY ./docker/development.crt /development.crt
+COPY ./docker/development.key /development.key
+
+COPY ./docker/uwsgi.ini /opt/invenio/src/uwsgi/uwsgi.ini
+
+ENV PATH=/invenio/venv/bin:${PATH}
+
+ENTRYPOINT [ "sh", "-c" ]
