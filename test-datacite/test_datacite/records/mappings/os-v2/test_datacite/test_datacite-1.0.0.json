@@ -1,0 +1,714 @@
+{
+    "mappings": {
+        "properties": {
+            "$schema": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "created": {
+                "type": "date",
+                "format": "strict_date_time||strict_date_time_no_millis||basic_date_time||basic_date_time_no_millis||basic_date||strict_date||strict_date_hour_minute_second||strict_date_hour_minute_second_fraction"
+            },
+            "id": {
+                "type": "keyword",
+                "ignore_above": 1024
+            },
+            "metadata": {
+                "type": "object",
+                "properties": {
+                    "alternateIdentifiers": {
+                        "type": "object",
+                        "properties": {
+                            "alternateIdentifier": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "alternateIdentifierType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "container": {
+                        "type": "object",
+                        "properties": {
+                            "firstPage": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "title": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "type": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "contributors": {
+                        "type": "object",
+                        "properties": {
+                            "affiliation": {
+                                "type": "object",
+                                "properties": {
+                                    "affiliationIdentifier": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "affiliationIdentifierScheme": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "name": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "schemeURI": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    }
+                                }
+                            },
+                            "contributorType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "familyName": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "givenName": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "lang": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "name": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "nameIdentifiers": {
+                                "type": "object",
+                                "properties": {
+                                    "nameIdentifier": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "nameIdentifierScheme": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "schemeURI": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    }
+                                }
+                            },
+                            "nameType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "creators": {
+                        "type": "object",
+                        "properties": {
+                            "affiliation": {
+                                "type": "object",
+                                "properties": {
+                                    "affiliationIdentifier": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "affiliationIdentifierScheme": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "name": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "schemeURI": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    }
+                                }
+                            },
+                            "familyName": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "givenName": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "lang": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "name": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "nameIdentifiers": {
+                                "type": "object",
+                                "properties": {
+                                    "nameIdentifier": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "nameIdentifierScheme": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "schemeURI": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    }
+                                }
+                            },
+                            "nameType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "dates": {
+                        "type": "object",
+                        "properties": {
+                            "date": {
+                                "type": "date",
+                                "format": "strict_date_time||strict_date_time_no_millis||strict_date||yyyy-MM||yyyy"
+                            },
+                            "dateInformation": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "dateType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "descriptions": {
+                        "type": "object",
+                        "properties": {
+                            "description": {
+                                "type": "text"
+                            },
+                            "descriptionType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "lang": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "doi": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "formats": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "fundingReferences": {
+                        "type": "object",
+                        "properties": {
+                            "awardNumber": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "awardTitle": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "awardURI": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "funderIdentifier": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "funderIdentifierType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "funderName": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "geoLocations": {
+                        "type": "object",
+                        "properties": {
+                            "geoLocationBox": {
+                                "type": "object",
+                                "properties": {
+                                    "eastBoundLongitude": {
+                                        "type": "float"
+                                    },
+                                    "northBoundLatitude": {
+                                        "type": "float"
+                                    },
+                                    "southBoundLatitude": {
+                                        "type": "float"
+                                    },
+                                    "westBoundLongitude": {
+                                        "type": "float"
+                                    }
+                                }
+                            },
+                            "geoLocationPlace": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "geoLocationPoint": {
+                                "type": "object",
+                                "properties": {
+                                    "pointLatitude": {
+                                        "type": "float"
+                                    },
+                                    "pointLongitude": {
+                                        "type": "float"
+                                    }
+                                }
+                            },
+                            "geoLocationPolygons": {
+                                "type": "object",
+                                "properties": {
+                                    "inPolygonPoint": {
+                                        "type": "object",
+                                        "properties": {
+                                            "pointLatitude": {
+                                                "type": "float"
+                                            },
+                                            "pointLongitude": {
+                                                "type": "float"
+                                            }
+                                        }
+                                    },
+                                    "polygonPoints": {
+                                        "type": "object",
+                                        "properties": {
+                                            "pointLatitude": {
+                                                "type": "float"
+                                            },
+                                            "pointLongitude": {
+                                                "type": "float"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "language": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "publicationYear": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "publisher": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "name": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "publisherIdentifier": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "publisherIdentifierScheme": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "schemeURI": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "relatedIdentifiers": {
+                        "type": "object",
+                        "properties": {
+                            "relatedIdentifier": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "relatedIdentifierType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "relatedMetadataScheme": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "relationType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "resourceTypeGeneral": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "schemeType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "schemeURI": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "relatedItems": {
+                        "type": "object",
+                        "properties": {
+                            "contributors": {
+                                "type": "object",
+                                "properties": {
+                                    "affiliation": {
+                                        "type": "object",
+                                        "properties": {
+                                            "affiliationIdentifier": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "affiliationIdentifierScheme": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "schemeURI": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
+                                    },
+                                    "contributorType": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "familyName": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "givenName": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "lang": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "name": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "nameIdentifiers": {
+                                        "type": "object",
+                                        "properties": {
+                                            "nameIdentifier": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "nameIdentifierScheme": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "schemeURI": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
+                                    },
+                                    "nameType": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    }
+                                }
+                            },
+                            "creators": {
+                                "type": "object",
+                                "properties": {
+                                    "affiliation": {
+                                        "type": "object",
+                                        "properties": {
+                                            "affiliationIdentifier": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "affiliationIdentifierScheme": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "schemeURI": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
+                                    },
+                                    "familyName": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "givenName": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "lang": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "name": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "nameIdentifiers": {
+                                        "type": "object",
+                                        "properties": {
+                                            "nameIdentifier": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "nameIdentifierScheme": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "schemeURI": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
+                                    },
+                                    "nameType": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    }
+                                }
+                            },
+                            "edition": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "firstPage": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "issue": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "lastPage": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "number": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "numberType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "publicationYear": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "publisher": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "relatedItemIdentifier": {
+                                "type": "object",
+                                "properties": {
+                                    "relatedItemIdentifier": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "relatedItemIdentifierType": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    }
+                                }
+                            },
+                            "relatedItemType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "relatedMetadataScheme": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "relationType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "resourceTypeGeneral": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "schemeType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "schemeURI": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "titles": {
+                                "type": "object",
+                                "properties": {
+                                    "lang": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "title": {
+                                        "type": "text"
+                                    },
+                                    "titleType": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    }
+                                }
+                            },
+                            "volume": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "rightsList": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "rights": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "rightsIdentifier": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "rightsIdentifierScheme": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "rightsURI": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "schemeURI": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "schemaVersion": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "sizes": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "subjects": {
+                        "type": "object",
+                        "properties": {
+                            "classificationCode": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "lang": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "schemeURI": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "subject": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "subjectScheme": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "valueURI": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "titles": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "title": {
+                                "type": "text"
+                            },
+                            "titleType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "types": {
+                        "type": "object",
+                        "properties": {
+                            "resourceType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "resourceTypeGeneral": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
+                    "url": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    },
+                    "version": {
+                        "type": "keyword",
+                        "ignore_above": 1024
+                    }
+                }
+            },
+            "updated": {
+                "type": "date",
+                "format": "strict_date_time||strict_date_time_no_millis||basic_date_time||basic_date_time_no_millis||basic_date||strict_date||strict_date_hour_minute_second||strict_date_hour_minute_second_fraction"
+            }
+        }
+    }
+}

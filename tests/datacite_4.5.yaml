@@ -1,0 +1,93 @@
+DataCiteMetadata:
+  $id: DataCiteMetadata
+  marshmallow:
+    class: test_datacite.services.records.schema.NRDataCiteMetadataSchema
+  ui:
+    marshmallow:
+      class: test_datacite.services.records.ui_schema.NRDataCiteMetadataUISchema
+
+  properties:
+    doi:
+      type: keyword
+
+    url:
+      type: url
+
+    types[]:
+      use: "datacite-datatypes#ResourceType"
+
+    creators[]:
+      "use": "datacite-datatypes#Creator"
+
+    titles[]:
+      use: "datacite-datatypes#Title"
+
+    publisher:
+      use: "datacite-datatypes#Publisher"
+
+    publicationYear:
+      type: keyword
+
+    subjects[]:
+      use: "datacite-datatypes#Subject"
+
+    contributors[]:
+      use: "datacite-datatypes#Contributor"
+
+    dates[]:
+      use: "datacite-datatypes#Date"
+
+    language:
+      type: keyword
+
+    alternateIdentifiers[]:
+      use: "datacite-datatypes#AlternateIdentifier"
+
+    relatedIdentifiers[]:
+      use: "datacite-datatypes#RelatedIdentifier"
+
+    relatedItems[]:
+      use: "datacite-datatypes#RelatedItem"
+
+
+    sizes[]:
+      type: keyword
+
+    formats[]:
+      type: keyword
+
+    version:
+      type: keyword
+
+    rightsList[]:
+      use: "datacite-datatypes#Rights"
+
+    descriptions[]:
+      use: "datacite-datatypes#Description"
+
+    geoLocations[]:
+      use: "datacite-datatypes#GeoLocation"
+
+    fundingReferences[]:
+      use: "datacite-datatypes#FundingReference"
+
+    schemaVersion:
+      type: keyword
+
+    container:
+      use: "datacite-datatypes#Container"
+
+
+
+DataCiteModel:
+  $id: DataCiteModel
+  marshmallow:
+    class: test_datacite.services.records.schema.DataCiteRecordSchema
+  ui:
+    marshmallow:
+      class: test_datacite.services.records.ui_schema.DataCiteRecordUISchema
+  use: [invenio]
+
+  properties:
+    metadata:
+      use: ['datacite#DataCiteMetadata']

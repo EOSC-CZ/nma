@@ -1,0 +1,674 @@
+{
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "id": {
+            "type": "string"
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "alternateIdentifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "alternateIdentifier": {
+                                "type": "string"
+                            },
+                            "alternateIdentifierType": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "container": {
+                    "type": "object",
+                    "properties": {
+                        "firstPage": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "contributors": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "affiliation": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "affiliationIdentifier": {
+                                            "type": "string"
+                                        },
+                                        "affiliationIdentifierScheme": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "schemeURI": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "contributorType": {
+                                "type": "string"
+                            },
+                            "familyName": {
+                                "type": "string"
+                            },
+                            "givenName": {
+                                "type": "string"
+                            },
+                            "lang": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "nameIdentifiers": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "nameIdentifier": {
+                                            "type": "string"
+                                        },
+                                        "nameIdentifierScheme": {
+                                            "type": "string"
+                                        },
+                                        "schemeURI": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "nameType": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "creators": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "affiliation": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "affiliationIdentifier": {
+                                            "type": "string"
+                                        },
+                                        "affiliationIdentifierScheme": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "schemeURI": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "familyName": {
+                                "type": "string"
+                            },
+                            "givenName": {
+                                "type": "string"
+                            },
+                            "lang": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "nameIdentifiers": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "nameIdentifier": {
+                                            "type": "string"
+                                        },
+                                        "nameIdentifierScheme": {
+                                            "type": "string"
+                                        },
+                                        "schemeURI": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "nameType": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "dates": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "date": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "dateInformation": {
+                                "type": "string"
+                            },
+                            "dateType": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "descriptions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "description": {
+                                "type": "string"
+                            },
+                            "descriptionType": {
+                                "type": "string"
+                            },
+                            "lang": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "doi": {
+                    "type": "string"
+                },
+                "formats": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "fundingReferences": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "awardNumber": {
+                                "type": "string"
+                            },
+                            "awardTitle": {
+                                "type": "string"
+                            },
+                            "awardURI": {
+                                "type": "string"
+                            },
+                            "funderIdentifier": {
+                                "type": "string"
+                            },
+                            "funderIdentifierType": {
+                                "type": "string"
+                            },
+                            "funderName": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "geoLocations": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "geoLocationBox": {
+                                "type": "object",
+                                "properties": {
+                                    "eastBoundLongitude": {
+                                        "type": "number"
+                                    },
+                                    "northBoundLatitude": {
+                                        "type": "number"
+                                    },
+                                    "southBoundLatitude": {
+                                        "type": "number"
+                                    },
+                                    "westBoundLongitude": {
+                                        "type": "number"
+                                    }
+                                }
+                            },
+                            "geoLocationPlace": {
+                                "type": "string"
+                            },
+                            "geoLocationPoint": {
+                                "type": "object",
+                                "properties": {
+                                    "pointLatitude": {
+                                        "type": "number"
+                                    },
+                                    "pointLongitude": {
+                                        "type": "number"
+                                    }
+                                }
+                            },
+                            "geoLocationPolygons": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "inPolygonPoint": {
+                                            "type": "object",
+                                            "properties": {
+                                                "pointLatitude": {
+                                                    "type": "number"
+                                                },
+                                                "pointLongitude": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        },
+                                        "polygonPoints": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "pointLatitude": {
+                                                        "type": "number"
+                                                    },
+                                                    "pointLongitude": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "language": {
+                    "type": "string"
+                },
+                "publicationYear": {
+                    "type": "string"
+                },
+                "publisher": {
+                    "type": "object",
+                    "properties": {
+                        "lang": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "publisherIdentifier": {
+                            "type": "string"
+                        },
+                        "publisherIdentifierScheme": {
+                            "type": "string"
+                        },
+                        "schemeURI": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "relatedIdentifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "relatedIdentifier": {
+                                "type": "string"
+                            },
+                            "relatedIdentifierType": {
+                                "type": "string"
+                            },
+                            "relatedMetadataScheme": {
+                                "type": "string"
+                            },
+                            "relationType": {
+                                "type": "string"
+                            },
+                            "resourceTypeGeneral": {
+                                "type": "string"
+                            },
+                            "schemeType": {
+                                "type": "string"
+                            },
+                            "schemeURI": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "relatedItems": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "contributors": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "affiliation": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "affiliationIdentifier": {
+                                                        "type": "string"
+                                                    },
+                                                    "affiliationIdentifierScheme": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "schemeURI": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "contributorType": {
+                                            "type": "string"
+                                        },
+                                        "familyName": {
+                                            "type": "string"
+                                        },
+                                        "givenName": {
+                                            "type": "string"
+                                        },
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "nameIdentifiers": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "nameIdentifier": {
+                                                        "type": "string"
+                                                    },
+                                                    "nameIdentifierScheme": {
+                                                        "type": "string"
+                                                    },
+                                                    "schemeURI": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "nameType": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "creators": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "affiliation": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "affiliationIdentifier": {
+                                                        "type": "string"
+                                                    },
+                                                    "affiliationIdentifierScheme": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "schemeURI": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "familyName": {
+                                            "type": "string"
+                                        },
+                                        "givenName": {
+                                            "type": "string"
+                                        },
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "nameIdentifiers": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "nameIdentifier": {
+                                                        "type": "string"
+                                                    },
+                                                    "nameIdentifierScheme": {
+                                                        "type": "string"
+                                                    },
+                                                    "schemeURI": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "nameType": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "edition": {
+                                "type": "string"
+                            },
+                            "firstPage": {
+                                "type": "string"
+                            },
+                            "issue": {
+                                "type": "string"
+                            },
+                            "lastPage": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "type": "string"
+                            },
+                            "numberType": {
+                                "type": "string"
+                            },
+                            "publicationYear": {
+                                "type": "string"
+                            },
+                            "publisher": {
+                                "type": "string"
+                            },
+                            "relatedItemIdentifier": {
+                                "type": "object",
+                                "properties": {
+                                    "relatedItemIdentifier": {
+                                        "type": "string"
+                                    },
+                                    "relatedItemIdentifierType": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "relatedItemType": {
+                                "type": "string"
+                            },
+                            "relatedMetadataScheme": {
+                                "type": "string"
+                            },
+                            "relationType": {
+                                "type": "string"
+                            },
+                            "resourceTypeGeneral": {
+                                "type": "string"
+                            },
+                            "schemeType": {
+                                "type": "string"
+                            },
+                            "schemeURI": {
+                                "type": "string"
+                            },
+                            "titles": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "titleType": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "volume": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "rightsList": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "rights": {
+                                "type": "string"
+                            },
+                            "rightsIdentifier": {
+                                "type": "string"
+                            },
+                            "rightsIdentifierScheme": {
+                                "type": "string"
+                            },
+                            "rightsURI": {
+                                "type": "string"
+                            },
+                            "schemeURI": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "schemaVersion": {
+                    "type": "string"
+                },
+                "sizes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subjects": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "classificationCode": {
+                                "type": "string"
+                            },
+                            "lang": {
+                                "type": "string"
+                            },
+                            "schemeURI": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "subjectScheme": {
+                                "type": "string"
+                            },
+                            "valueURI": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "titles": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "titleType": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "types": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "resourceType": {
+                                "type": "string"
+                            },
+                            "resourceTypeGeneral": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "updated": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

@@ -14,7 +14,7 @@ dependencies = [
     "oarepo==12.*",
     "python-dotenv",
 ]
-requires-python = ">=3.9,<3.11"
+
 
 [project.entry-points."invenio_assets.webpack"]
 branding = "ui.branding.webpack:theme"
@@ -65,8 +65,12 @@ datasets = "datasets.models:ui.json"
 
 [project.optional-dependencies]
 tests = [
-    "pytest-invenio>=1.4.11",
-]
+   "pytest-invenio[opensearch2]",
+        "black",
+        "isort",
+        "autoflake"
+    ]
+
 
 [build-system]
 requires = [

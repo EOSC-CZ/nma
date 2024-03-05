@@ -1,0 +1,1864 @@
+{
+    "model": {
+        "type": "model",
+        "marshmallow": {
+            "imports": [],
+            "class": "test_datacite.services.records.schema.DataCiteRecordSchema",
+            "base-classes": [
+                "oarepo_runtime.services.schema.marshmallow.BaseRecordSchema"
+            ],
+            "generate": true,
+            "module": "test_datacite.services.records.schema",
+            "extra-code": ""
+        },
+        "searchable": true,
+        "ui": {
+            "marshmallow": {
+                "imports": [],
+                "class": "test_datacite.services.records.ui_schema.DataCiteRecordUISchema",
+                "base-classes": [
+                    "oarepo_runtime.services.schema.ui.InvenioUISchema"
+                ],
+                "generate": true,
+                "module": "test_datacite.services.records.ui_schema",
+                "extra-code": ""
+            },
+            "module": "test_datacite.models",
+            "file": "test_datacite/models/ui.json",
+            "alias": "test_datacite"
+        },
+        "service-config": {
+            "components": [
+                "{{invenio_records_resources.services.records.components.DataComponent}}"
+            ],
+            "generate": true,
+            "config-key": "TEST_DATACITE_RECORD_SERVICE_CONFIG",
+            "module": "test_datacite.services.records.config",
+            "class": "test_datacite.services.records.config.TestDataciteServiceConfig",
+            "extra-code": "",
+            "service-id": "test_datacite",
+            "base-classes": [
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
+                "invenio_records_resources.services.RecordServiceConfig{InvenioRecordServiceConfig}"
+            ],
+            "additional-args": []
+        },
+        "module": {
+            "qualified": "test_datacite",
+            "alias": "test_datacite",
+            "path": "test_datacite",
+            "base": "test_datacite",
+            "base-upper": "TEST_DATACITE",
+            "base-title": "Test_datacite",
+            "kebab-module": "test-datacite",
+            "prefix": "TestDatacite",
+            "prefix-upper": "TESTDATACITE",
+            "prefix-snake": "test_datacite",
+            "suffix": "test_datacite",
+            "suffix-upper": "TEST_DATACITE",
+            "suffix-snake": "test_datacite"
+        },
+        "tests": {
+            "extra-fixtures": [],
+            "extra-code": "",
+            "module": "tests"
+        },
+        "sample": {
+            "file": "data/sample_data.yaml"
+        },
+        "model-name": "Test_Datacite",
+        "ext-resource": {
+            "generate": true,
+            "skip": false
+        },
+        "search-options": {
+            "generate": true,
+            "module": "test_datacite.services.records.search",
+            "extra-code": "",
+            "class": "test_datacite.services.records.search.TestDataciteSearchOptions",
+            "base-classes": [
+                "invenio_records_resources.services.SearchOptions{InvenioSearchOptions}"
+            ],
+            "imports": [],
+            "fields": {},
+            "sort-options-field": "sort_options"
+        },
+        "config": {
+            "generate": true,
+            "module": "test_datacite.config",
+            "extra_code": "",
+            "imports": []
+        },
+        "ext": {
+            "generate": true,
+            "module": "test_datacite.ext",
+            "class": "test_datacite.ext.Test_dataciteExt",
+            "base-classes": [],
+            "extra_code": "",
+            "alias": "test_datacite",
+            "imports": []
+        },
+        "api-blueprint": {
+            "generate": true,
+            "alias": "test_datacite",
+            "extra_code": "",
+            "module": "test_datacite.views.records.api",
+            "function": "test_datacite.views.records.api.create_api_blueprint",
+            "imports": []
+        },
+        "app-blueprint": {
+            "generate": true,
+            "alias": "test_datacite",
+            "extra_code": "",
+            "module": "test_datacite.views.records.app",
+            "function": "test_datacite.views.records.app.create_app_blueprint",
+            "imports": []
+        },
+        "facets": {
+            "generate": true,
+            "module": "test_datacite.services.records.facets",
+            "extra-code": "",
+            "groups": true
+        },
+        "record": {
+            "generate": true,
+            "module": "test_datacite.records.api",
+            "class": "test_datacite.records.api.TestDataciteRecord",
+            "base-classes": [
+                "invenio_records_resources.records.api.Record{InvenioRecord}"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "fields": {}
+        },
+        "resource": {
+            "generate": true,
+            "config-key": "TEST_DATACITE_RECORD_RESOURCE_CLASS",
+            "module": "test_datacite.resources.records.resource",
+            "class": "test_datacite.resources.records.resource.TestDataciteResource",
+            "proxy": "current_resource",
+            "extra-code": "",
+            "base-classes": [
+                "invenio_records_resources.resources.RecordResource"
+            ],
+            "imports": [],
+            "additional-args": []
+        },
+        "resource-config": {
+            "generate": true,
+            "base-url": "/test-datacite/",
+            "base-html-url": "/test-datacite/",
+            "config-key": "TEST_DATACITE_RECORD_RESOURCE_CONFIG",
+            "module": "test_datacite.resources.records.config",
+            "class": "test_datacite.resources.records.config.TestDataciteResourceConfig",
+            "extra-code": "",
+            "base-classes": [
+                "invenio_records_resources.resources.RecordResourceConfig"
+            ],
+            "imports": [],
+            "additional-args": []
+        },
+        "saved-model": {
+            "file": "test_datacite/models/records.json",
+            "module": "test_datacite.models",
+            "alias": "test_datacite"
+        },
+        "proxy": {
+            "module": "test_datacite.proxies",
+            "generate": true
+        },
+        "translations": {
+            "module": "test_datacite.translations",
+            "alias": "test_datacite"
+        },
+        "json-schema-settings": {
+            "generate": true,
+            "alias": "test_datacite",
+            "version": "1.0.0",
+            "module": "test_datacite.records.jsonschemas",
+            "name": "test_datacite-1.0.0.json",
+            "file": "test_datacite/records/jsonschemas/test_datacite-1.0.0.json"
+        },
+        "pid": {
+            "generate": true,
+            "type": "tsttct",
+            "module": "test_datacite.records.api",
+            "provider-class": "test_datacite.records.api.TestDataciteIdProvider",
+            "provider-base-classes": [
+                "invenio_pidstore.providers.recordid_v2.RecordIdProviderV2"
+            ],
+            "field-class": "invenio_records_resources.records.systemfields.pid.PIDField",
+            "context-class": "invenio_records_resources.records.systemfields.pid.PIDFieldContext",
+            "field-args": [
+                "create=True"
+            ],
+            "imports": [],
+            "extra-code": ""
+        },
+        "record-dumper": {
+            "generate": true,
+            "module": "test_datacite.records.dumpers.dumper",
+            "class": "test_datacite.records.dumpers.dumper.TestDataciteDumper",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.SearchDumper"
+            ],
+            "extra-code": "",
+            "extensions": [
+                "{{test_datacite.records.dumpers.multilingual.MultilingualSearchDumperExt}}()",
+                "{{test_datacite.records.dumpers.edtf.TestDataciteEDTFIntervalDumperExt}}()"
+            ],
+            "imports": []
+        },
+        "record-metadata": {
+            "generate": true,
+            "module": "test_datacite.records.models",
+            "class": "test_datacite.records.models.TestDataciteMetadata",
+            "base-classes": [
+                "invenio_db.db{db.Model}",
+                "invenio_records.models.RecordMetadataBase"
+            ],
+            "extra-code": "",
+            "imports": [],
+            "table": "test_datacite_metadata",
+            "alias": "test_datacite",
+            "use-versioning": true,
+            "alembic": "test_datacite.alembic"
+        },
+        "service": {
+            "generate": true,
+            "config-key": "TEST_DATACITE_RECORD_SERVICE_CLASS",
+            "proxy": "current_service",
+            "module": "test_datacite.services.records.service",
+            "class": "test_datacite.services.records.service.TestDataciteService",
+            "extra-code": "",
+            "base-classes": [
+                "invenio_records_resources.services.RecordService{InvenioRecordService}"
+            ],
+            "imports": [],
+            "additional-args": []
+        },
+        "json-serializer": {
+            "module": "test_datacite.resources.records.ui",
+            "class": "test_datacite.resources.records.ui.TestDataciteUIJSONSerializer",
+            "base-classes": [
+                "oarepo_runtime.resources.LocalizedUIJSONSerializer"
+            ],
+            "imports": [],
+            "extra-code": "",
+            "generate": true,
+            "list_schema_cls": "flask_resources.BaseListSchema",
+            "format_serializer_cls": "flask_resources.serializers.JSONSerializer",
+            "schema-context-args": {
+                "\"object_key\"": "\"ui\"",
+                "\"identity\"": "{{ flask.g{g.identity} }}"
+            }
+        },
+        "multilingual-dumper": {
+            "generate": true,
+            "module": "test_datacite.records.dumpers.multilingual",
+            "class": "test_datacite.records.dumpers.multilingual.MultilingualSearchDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.multilingual_dumper.MultilingualDumper"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "mapping": {
+            "generate": true,
+            "alias": "test_datacite",
+            "module": "test_datacite.records.mappings",
+            "index": "test_datacite-test_datacite-1.0.0",
+            "file": "test_datacite/records/mappings/os-v2/test_datacite/test_datacite-1.0.0.json"
+        },
+        "permissions": {
+            "generate": true,
+            "presets": [
+                "everyone"
+            ],
+            "extra-code": "",
+            "module": "test_datacite.services.records.permissions",
+            "class": "test_datacite.services.records.permissions.TestDatacitePermissionPolicy",
+            "base-classes": [
+                "invenio_records_permissions.RecordPermissionPolicy"
+            ],
+            "imports": []
+        },
+        "edtf-interval-dumper": {
+            "generate": true,
+            "module": "test_datacite.records.dumpers.edtf",
+            "class": "test_datacite.records.dumpers.edtf.TestDataciteEDTFIntervalDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.edtf_interval.EDTFIntervalDumperExt"
+            ],
+            "extra-code": "",
+            "extensions": [],
+            "imports": []
+        },
+        "record-list": {
+            "generate": true,
+            "module": "test_datacite.services.records.results",
+            "class": "test_datacite.services.records.results.TestDataciteRecordList",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordList"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "record-item": {
+            "generate": true,
+            "module": "test_datacite.services.records.results",
+            "class": "test_datacite.services.records.results.TestDataciteRecordItem",
+            "extra-code": "",
+            "base-classes": [
+                "oarepo_runtime.services.results.RecordItem"
+            ],
+            "components": [],
+            "imports": []
+        },
+        "sortable": [],
+        "properties": {
+            "$schema": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "created": {
+                "type": "datetime",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "id": {
+                "type": "keyword",
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "sample": {
+                    "skip": true
+                }
+            },
+            "metadata": {
+                "type": "object",
+                "ui": {
+                    "marshmallow": {
+                        "class": "test_datacite.services.records.ui_schema.NRDataCiteMetadataUISchema",
+                        "generate": true,
+                        "module": "test_datacite.services.records.ui_schema",
+                        "extra-code": "",
+                        "base-classes": [
+                            "marshmallow.Schema"
+                        ]
+                    }
+                },
+                "marshmallow": {
+                    "class": "test_datacite.services.records.schema.NRDataCiteMetadataSchema",
+                    "module": "test_datacite.services.records.schema",
+                    "generate": true,
+                    "extra-code": "",
+                    "base-classes": [
+                        "marshmallow.Schema"
+                    ]
+                },
+                "properties": {
+                    "alternateIdentifiers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.AlternateIdentifierUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.AlternateIdentifierSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "alternateIdentifier": {
+                                    "type": "keyword",
+                                    "required": true
+                                },
+                                "alternateIdentifierType": {
+                                    "type": "keyword",
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "container": {
+                        "type": "object",
+                        "ui": {
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.ui_schema_datatypes.ContainerUISchema",
+                                "generate": true
+                            }
+                        },
+                        "marshmallow": {
+                            "class": "test_datacite.services.records.schema_datatypes.ContainerSchema",
+                            "generate": true
+                        },
+                        "properties": {
+                            "firstPage": {
+                                "type": "keyword"
+                            },
+                            "title": {
+                                "type": "keyword"
+                            },
+                            "type": {
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "contributors": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.ContributorUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.ContributorSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "affiliation": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "class": "test_datacite.services.records.ui_schema_datatypes.AffiliationUISchema",
+                                                "generate": true
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.schema_datatypes.AffiliationSchema",
+                                            "generate": true
+                                        },
+                                        "properties": {
+                                            "affiliationIdentifier": {
+                                                "type": "keyword"
+                                            },
+                                            "affiliationIdentifierScheme": {
+                                                "type": "keyword"
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true
+                                            },
+                                            "schemeURI": {
+                                                "type": "url"
+                                            }
+                                        }
+                                    }
+                                },
+                                "contributorType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "ContactPerson",
+                                        "DataCollector",
+                                        "DataCurator",
+                                        "DataManager",
+                                        "Distributor",
+                                        "Editor",
+                                        "HostingInstitution",
+                                        "Producer",
+                                        "ProjectLeader",
+                                        "ProjectManager",
+                                        "ProjectMember",
+                                        "RegistrationAgency",
+                                        "RegistrationAuthority",
+                                        "RelatedPerson",
+                                        "Researcher",
+                                        "ResearchGroup",
+                                        "RightsHolder",
+                                        "Sponsor",
+                                        "Supervisor",
+                                        "WorkPackageLeader",
+                                        "Other"
+                                    ]
+                                },
+                                "familyName": {
+                                    "type": "keyword"
+                                },
+                                "givenName": {
+                                    "type": "keyword"
+                                },
+                                "lang": {
+                                    "type": "keyword"
+                                },
+                                "name": {
+                                    "type": "keyword",
+                                    "required": true
+                                },
+                                "nameIdentifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "class": "test_datacite.services.records.ui_schema_datatypes.NameIdentifierUISchema",
+                                                "generate": true
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.schema_datatypes.NameIdentifierSchema",
+                                            "generate": true
+                                        },
+                                        "properties": {
+                                            "nameIdentifier": {
+                                                "type": "keyword",
+                                                "required": true
+                                            },
+                                            "nameIdentifierScheme": {
+                                                "type": "keyword",
+                                                "required": true
+                                            },
+                                            "schemeURI": {
+                                                "type": "url"
+                                            }
+                                        }
+                                    }
+                                },
+                                "nameType": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "Organizational",
+                                        "Personal"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "creators": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.CreatorUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.CreatorSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "affiliation": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "class": "test_datacite.services.records.ui_schema_datatypes.AffiliationUISchema",
+                                                "generate": false
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.schema_datatypes.AffiliationSchema",
+                                            "generate": false
+                                        },
+                                        "properties": {
+                                            "affiliationIdentifier": {
+                                                "type": "keyword"
+                                            },
+                                            "affiliationIdentifierScheme": {
+                                                "type": "keyword"
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true
+                                            },
+                                            "schemeURI": {
+                                                "type": "url"
+                                            }
+                                        }
+                                    }
+                                },
+                                "familyName": {
+                                    "type": "keyword"
+                                },
+                                "givenName": {
+                                    "type": "keyword"
+                                },
+                                "lang": {
+                                    "type": "keyword"
+                                },
+                                "name": {
+                                    "type": "keyword",
+                                    "required": true
+                                },
+                                "nameIdentifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "class": "test_datacite.services.records.ui_schema_datatypes.NameIdentifierUISchema",
+                                                "generate": false
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.schema_datatypes.NameIdentifierSchema",
+                                            "generate": false
+                                        },
+                                        "properties": {
+                                            "nameIdentifier": {
+                                                "type": "keyword",
+                                                "required": true
+                                            },
+                                            "nameIdentifierScheme": {
+                                                "type": "keyword",
+                                                "required": true
+                                            },
+                                            "schemeURI": {
+                                                "type": "url"
+                                            }
+                                        }
+                                    }
+                                },
+                                "nameType": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "Organizational",
+                                        "Personal"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "dates": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.DateUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.DateSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "date": {
+                                    "type": "edtf",
+                                    "required": true
+                                },
+                                "dateInformation": {
+                                    "type": "keyword"
+                                },
+                                "dateType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "Accepted",
+                                        "Available",
+                                        "Copyrighted",
+                                        "Collected",
+                                        "Created",
+                                        "Issued",
+                                        "Submitted",
+                                        "Updated",
+                                        "Valid",
+                                        "Withdrawn",
+                                        "Other"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "descriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.DescriptionUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.DescriptionSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "description": {
+                                    "type": "fulltext",
+                                    "required": true
+                                },
+                                "descriptionType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "Abstract",
+                                        "Methods",
+                                        "SeriesInformation",
+                                        "TableOfContents",
+                                        "TechnicalInfo",
+                                        "Other"
+                                    ]
+                                },
+                                "lang": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    },
+                    "doi": {
+                        "type": "keyword"
+                    },
+                    "formats": {
+                        "type": "array",
+                        "items": {
+                            "type": "keyword"
+                        }
+                    },
+                    "fundingReferences": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.FundingReferenceUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.FundingReferenceSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "awardNumber": {
+                                    "type": "keyword"
+                                },
+                                "awardTitle": {
+                                    "type": "keyword"
+                                },
+                                "awardURI": {
+                                    "type": "url"
+                                },
+                                "funderIdentifier": {
+                                    "type": "keyword"
+                                },
+                                "funderIdentifierType": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "ISNI",
+                                        "GRID",
+                                        "Crossref Funder ID",
+                                        "ROR",
+                                        "Other"
+                                    ]
+                                },
+                                "funderName": {
+                                    "type": "keyword",
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "geoLocations": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.GeoLocationUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.GeoLocationSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "geoLocationBox": {
+                                    "type": "object",
+                                    "ui": {
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.ui_schema_datatypes.GeoLocationBoxUISchema",
+                                            "generate": true
+                                        }
+                                    },
+                                    "marshmallow": {
+                                        "class": "test_datacite.services.records.schema_datatypes.GeoLocationBoxSchema",
+                                        "generate": true
+                                    },
+                                    "properties": {
+                                        "eastBoundLongitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            }
+                                        },
+                                        "northBoundLatitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            }
+                                        },
+                                        "southBoundLatitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            }
+                                        },
+                                        "westBoundLongitude": {
+                                            "type": "float",
+                                            "required": true,
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "geoLocationPlace": {
+                                    "type": "keyword"
+                                },
+                                "geoLocationPoint": {
+                                    "type": "object",
+                                    "ui": {
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.ui_schema_datatypes.GeoLocationPointUISchema",
+                                            "generate": true
+                                        }
+                                    },
+                                    "marshmallow": {
+                                        "class": "test_datacite.services.records.schema_datatypes.GeoLocationPointSchema",
+                                        "generate": true
+                                    },
+                                    "properties": {
+                                        "pointLatitude": {
+                                            "type": "float",
+                                            "minimum": -90.0,
+                                            "maximum": 90.0,
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                ]
+                                            }
+                                        },
+                                        "pointLongitude": {
+                                            "type": "float",
+                                            "minimum": -180.0,
+                                            "maximum": 180.0,
+                                            "marshmallow": {
+                                                "validators": [
+                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "geoLocationPolygons": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "class": "test_datacite.services.records.ui_schema_datatypes.GeoLocationPolygonUISchema",
+                                                "generate": true
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.schema_datatypes.GeoLocationPolygonSchema",
+                                            "generate": true
+                                        },
+                                        "properties": {
+                                            "inPolygonPoint": {
+                                                "type": "object",
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "class": "test_datacite.services.records.ui_schema_datatypes.GeoLocationPointUISchema",
+                                                        "generate": false
+                                                    }
+                                                },
+                                                "marshmallow": {
+                                                    "class": "test_datacite.services.records.schema_datatypes.GeoLocationPointSchema",
+                                                    "generate": false
+                                                },
+                                                "properties": {
+                                                    "pointLatitude": {
+                                                        "type": "float",
+                                                        "minimum": -90.0,
+                                                        "maximum": 90.0,
+                                                        "marshmallow": {
+                                                            "validators": [
+                                                                "ma.validate.Range(min=-90.0, max=90.0)"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "pointLongitude": {
+                                                        "type": "float",
+                                                        "minimum": -180.0,
+                                                        "maximum": 180.0,
+                                                        "marshmallow": {
+                                                            "validators": [
+                                                                "ma.validate.Range(min=-180.0, max=180.0)"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "polygonPoints": {
+                                                "type": "array",
+                                                "required": true,
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "class": "test_datacite.services.records.ui_schema_datatypes.GeoLocationPointUISchema",
+                                                            "generate": false
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "class": "test_datacite.services.records.schema_datatypes.GeoLocationPointSchema",
+                                                        "generate": false
+                                                    },
+                                                    "properties": {
+                                                        "pointLatitude": {
+                                                            "type": "float",
+                                                            "minimum": -90.0,
+                                                            "maximum": 90.0,
+                                                            "marshmallow": {
+                                                                "validators": [
+                                                                    "ma.validate.Range(min=-90.0, max=90.0)"
+                                                                ]
+                                                            }
+                                                        },
+                                                        "pointLongitude": {
+                                                            "type": "float",
+                                                            "minimum": -180.0,
+                                                            "maximum": 180.0,
+                                                            "marshmallow": {
+                                                                "validators": [
+                                                                    "ma.validate.Range(min=-180.0, max=180.0)"
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "language": {
+                        "type": "keyword"
+                    },
+                    "publicationYear": {
+                        "type": "keyword"
+                    },
+                    "publisher": {
+                        "type": "object",
+                        "ui": {
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.ui_schema_datatypes.PublisherUISchema",
+                                "generate": true
+                            }
+                        },
+                        "marshmallow": {
+                            "class": "test_datacite.services.records.schema_datatypes.PublisherSchema",
+                            "generate": true
+                        },
+                        "properties": {
+                            "lang": {
+                                "type": "keyword"
+                            },
+                            "name": {
+                                "type": "keyword",
+                                "required": true
+                            },
+                            "publisherIdentifier": {
+                                "type": "keyword"
+                            },
+                            "publisherIdentifierScheme": {
+                                "type": "keyword"
+                            },
+                            "schemeURI": {
+                                "type": "url"
+                            }
+                        }
+                    },
+                    "relatedIdentifiers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.RelatedIdentifierUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.RelatedIdentifierSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "relatedIdentifier": {
+                                    "type": "keyword"
+                                },
+                                "relatedIdentifierType": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "ARK",
+                                        "arXiv",
+                                        "bibcode",
+                                        "DOI",
+                                        "EAN13",
+                                        "EISSN",
+                                        "Handle",
+                                        "IGSN",
+                                        "ISBN",
+                                        "ISSN",
+                                        "ISTC",
+                                        "LISSN",
+                                        "LSID",
+                                        "PMID",
+                                        "PURL",
+                                        "UPC",
+                                        "URL",
+                                        "URN",
+                                        "w3id"
+                                    ]
+                                },
+                                "relatedMetadataScheme": {
+                                    "type": "keyword"
+                                },
+                                "relationType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "IsCitedBy",
+                                        "Cites",
+                                        "IsCollectedBy",
+                                        "Collects",
+                                        "IsSupplementTo",
+                                        "IsSupplementedBy",
+                                        "IsContinuedBy",
+                                        "Continues",
+                                        "IsDescribedBy",
+                                        "Describes",
+                                        "HasMetadata",
+                                        "IsMetadataFor",
+                                        "HasVersion",
+                                        "IsVersionOf",
+                                        "IsNewVersionOf",
+                                        "IsPartOf",
+                                        "IsPreviousVersionOf",
+                                        "IsPublishedIn",
+                                        "HasPart",
+                                        "IsReferencedBy",
+                                        "References",
+                                        "IsDocumentedBy",
+                                        "Documents",
+                                        "IsCompiledBy",
+                                        "Compiles",
+                                        "IsVariantFormOf",
+                                        "IsOriginalFormOf",
+                                        "IsIdenticalTo",
+                                        "IsReviewedBy",
+                                        "Reviews",
+                                        "IsDerivedFrom",
+                                        "IsSourceOf",
+                                        "IsRequiredBy",
+                                        "Requires",
+                                        "IsObsoletedBy",
+                                        "Obsoletes"
+                                    ]
+                                },
+                                "resourceTypeGeneral": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ]
+                                },
+                                "schemeType": {
+                                    "type": "keyword"
+                                },
+                                "schemeURI": {
+                                    "type": "url"
+                                }
+                            }
+                        }
+                    },
+                    "relatedItems": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.RelatedItemUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.RelatedItemSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "contributors": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "class": "test_datacite.services.records.ui_schema_datatypes.ContributorUISchema",
+                                                "generate": false
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.schema_datatypes.ContributorSchema",
+                                            "generate": false
+                                        },
+                                        "properties": {
+                                            "affiliation": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "class": "test_datacite.services.records.ui_schema_datatypes.AffiliationUISchema",
+                                                            "generate": false
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "class": "test_datacite.services.records.schema_datatypes.AffiliationSchema",
+                                                        "generate": false
+                                                    },
+                                                    "properties": {
+                                                        "affiliationIdentifier": {
+                                                            "type": "keyword"
+                                                        },
+                                                        "affiliationIdentifierScheme": {
+                                                            "type": "keyword"
+                                                        },
+                                                        "name": {
+                                                            "type": "keyword",
+                                                            "required": true
+                                                        },
+                                                        "schemeURI": {
+                                                            "type": "url"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "contributorType": {
+                                                "type": "keyword",
+                                                "required": true,
+                                                "enum": [
+                                                    "ContactPerson",
+                                                    "DataCollector",
+                                                    "DataCurator",
+                                                    "DataManager",
+                                                    "Distributor",
+                                                    "Editor",
+                                                    "HostingInstitution",
+                                                    "Producer",
+                                                    "ProjectLeader",
+                                                    "ProjectManager",
+                                                    "ProjectMember",
+                                                    "RegistrationAgency",
+                                                    "RegistrationAuthority",
+                                                    "RelatedPerson",
+                                                    "Researcher",
+                                                    "ResearchGroup",
+                                                    "RightsHolder",
+                                                    "Sponsor",
+                                                    "Supervisor",
+                                                    "WorkPackageLeader",
+                                                    "Other"
+                                                ]
+                                            },
+                                            "familyName": {
+                                                "type": "keyword"
+                                            },
+                                            "givenName": {
+                                                "type": "keyword"
+                                            },
+                                            "lang": {
+                                                "type": "keyword"
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true
+                                            },
+                                            "nameIdentifiers": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "class": "test_datacite.services.records.ui_schema_datatypes.NameIdentifierUISchema",
+                                                            "generate": false
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "class": "test_datacite.services.records.schema_datatypes.NameIdentifierSchema",
+                                                        "generate": false
+                                                    },
+                                                    "properties": {
+                                                        "nameIdentifier": {
+                                                            "type": "keyword",
+                                                            "required": true
+                                                        },
+                                                        "nameIdentifierScheme": {
+                                                            "type": "keyword",
+                                                            "required": true
+                                                        },
+                                                        "schemeURI": {
+                                                            "type": "url"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "nameType": {
+                                                "type": "keyword",
+                                                "enum": [
+                                                    "Organizational",
+                                                    "Personal"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "creators": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "class": "test_datacite.services.records.ui_schema_datatypes.CreatorUISchema",
+                                                "generate": false
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.schema_datatypes.CreatorSchema",
+                                            "generate": false
+                                        },
+                                        "properties": {
+                                            "affiliation": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "class": "test_datacite.services.records.ui_schema_datatypes.AffiliationUISchema",
+                                                            "generate": false
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "class": "test_datacite.services.records.schema_datatypes.AffiliationSchema",
+                                                        "generate": false
+                                                    },
+                                                    "properties": {
+                                                        "affiliationIdentifier": {
+                                                            "type": "keyword"
+                                                        },
+                                                        "affiliationIdentifierScheme": {
+                                                            "type": "keyword"
+                                                        },
+                                                        "name": {
+                                                            "type": "keyword",
+                                                            "required": true
+                                                        },
+                                                        "schemeURI": {
+                                                            "type": "url"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "familyName": {
+                                                "type": "keyword"
+                                            },
+                                            "givenName": {
+                                                "type": "keyword"
+                                            },
+                                            "lang": {
+                                                "type": "keyword"
+                                            },
+                                            "name": {
+                                                "type": "keyword",
+                                                "required": true
+                                            },
+                                            "nameIdentifiers": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "ui": {
+                                                        "marshmallow": {
+                                                            "class": "test_datacite.services.records.ui_schema_datatypes.NameIdentifierUISchema",
+                                                            "generate": false
+                                                        }
+                                                    },
+                                                    "marshmallow": {
+                                                        "class": "test_datacite.services.records.schema_datatypes.NameIdentifierSchema",
+                                                        "generate": false
+                                                    },
+                                                    "properties": {
+                                                        "nameIdentifier": {
+                                                            "type": "keyword",
+                                                            "required": true
+                                                        },
+                                                        "nameIdentifierScheme": {
+                                                            "type": "keyword",
+                                                            "required": true
+                                                        },
+                                                        "schemeURI": {
+                                                            "type": "url"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "nameType": {
+                                                "type": "keyword",
+                                                "enum": [
+                                                    "Organizational",
+                                                    "Personal"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "edition": {
+                                    "type": "keyword"
+                                },
+                                "firstPage": {
+                                    "type": "keyword"
+                                },
+                                "issue": {
+                                    "type": "keyword"
+                                },
+                                "lastPage": {
+                                    "type": "keyword"
+                                },
+                                "number": {
+                                    "type": "keyword"
+                                },
+                                "numberType": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "Article",
+                                        "Chapter",
+                                        "Report",
+                                        "Other"
+                                    ]
+                                },
+                                "publicationYear": {
+                                    "type": "keyword"
+                                },
+                                "publisher": {
+                                    "type": "keyword"
+                                },
+                                "relatedItemIdentifier": {
+                                    "type": "object",
+                                    "required": true,
+                                    "ui": {
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.ui_schema_datatypes.RelatedItemIdentifierUISchema",
+                                            "generate": true
+                                        }
+                                    },
+                                    "marshmallow": {
+                                        "class": "test_datacite.services.records.schema_datatypes.RelatedItemIdentifierSchema",
+                                        "generate": true
+                                    },
+                                    "properties": {
+                                        "relatedItemIdentifier": {
+                                            "type": "keyword",
+                                            "required": true
+                                        },
+                                        "relatedItemIdentifierType": {
+                                            "type": "keyword",
+                                            "required": true,
+                                            "enum": [
+                                                "ARK",
+                                                "arXiv",
+                                                "bibcode",
+                                                "DOI",
+                                                "EAN13",
+                                                "EISSN",
+                                                "Handle",
+                                                "IGSN",
+                                                "ISBN",
+                                                "ISSN",
+                                                "ISTC",
+                                                "LISSN",
+                                                "LSID",
+                                                "PMID",
+                                                "PURL",
+                                                "UPC",
+                                                "URL",
+                                                "URN",
+                                                "w3id"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "relatedItemType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ]
+                                },
+                                "relatedMetadataScheme": {
+                                    "type": "keyword"
+                                },
+                                "relationType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "IsCitedBy",
+                                        "Cites",
+                                        "IsCollectedBy",
+                                        "Collects",
+                                        "IsSupplementTo",
+                                        "IsSupplementedBy",
+                                        "IsContinuedBy",
+                                        "Continues",
+                                        "IsDescribedBy",
+                                        "Describes",
+                                        "HasMetadata",
+                                        "IsMetadataFor",
+                                        "HasVersion",
+                                        "IsVersionOf",
+                                        "IsNewVersionOf",
+                                        "IsPartOf",
+                                        "IsPreviousVersionOf",
+                                        "IsPublishedIn",
+                                        "HasPart",
+                                        "IsReferencedBy",
+                                        "References",
+                                        "IsDocumentedBy",
+                                        "Documents",
+                                        "IsCompiledBy",
+                                        "Compiles",
+                                        "IsVariantFormOf",
+                                        "IsOriginalFormOf",
+                                        "IsIdenticalTo",
+                                        "IsReviewedBy",
+                                        "Reviews",
+                                        "IsDerivedFrom",
+                                        "IsSourceOf",
+                                        "IsRequiredBy",
+                                        "Requires",
+                                        "IsObsoletedBy",
+                                        "Obsoletes"
+                                    ]
+                                },
+                                "resourceTypeGeneral": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ]
+                                },
+                                "schemeType": {
+                                    "type": "keyword"
+                                },
+                                "schemeURI": {
+                                    "type": "url"
+                                },
+                                "titles": {
+                                    "type": "array",
+                                    "required": true,
+                                    "items": {
+                                        "type": "object",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "class": "test_datacite.services.records.ui_schema_datatypes.RelatedItemTitleUISchema",
+                                                "generate": true
+                                            }
+                                        },
+                                        "marshmallow": {
+                                            "class": "test_datacite.services.records.schema_datatypes.RelatedItemTitleSchema",
+                                            "generate": true
+                                        },
+                                        "properties": {
+                                            "lang": {
+                                                "type": "keyword"
+                                            },
+                                            "title": {
+                                                "type": "fulltext",
+                                                "required": true
+                                            },
+                                            "titleType": {
+                                                "type": "keyword",
+                                                "enum": [
+                                                    "AlternativeTitle",
+                                                    "Subtitle",
+                                                    "TranslatedTitle",
+                                                    "Other"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "volume": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    },
+                    "rightsList": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.RightsUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.RightsSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "lang": {
+                                    "type": "keyword"
+                                },
+                                "rights": {
+                                    "type": "keyword"
+                                },
+                                "rightsIdentifier": {
+                                    "type": "keyword"
+                                },
+                                "rightsIdentifierScheme": {
+                                    "type": "keyword"
+                                },
+                                "rightsURI": {
+                                    "type": "url"
+                                },
+                                "schemeURI": {
+                                    "type": "url"
+                                }
+                            }
+                        }
+                    },
+                    "schemaVersion": {
+                        "type": "keyword"
+                    },
+                    "sizes": {
+                        "type": "array",
+                        "items": {
+                            "type": "keyword"
+                        }
+                    },
+                    "subjects": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.SubjectUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.SubjectSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "classificationCode": {
+                                    "type": "keyword"
+                                },
+                                "lang": {
+                                    "type": "keyword"
+                                },
+                                "schemeURI": {
+                                    "type": "url"
+                                },
+                                "subject": {
+                                    "type": "keyword",
+                                    "required": true
+                                },
+                                "subjectScheme": {
+                                    "type": "keyword"
+                                },
+                                "valueURI": {
+                                    "type": "url"
+                                }
+                            }
+                        }
+                    },
+                    "titles": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.TitleUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.TitleSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "lang": {
+                                    "type": "keyword"
+                                },
+                                "title": {
+                                    "type": "fulltext",
+                                    "required": true
+                                },
+                                "titleType": {
+                                    "type": "keyword",
+                                    "enum": [
+                                        "AlternativeTitle",
+                                        "Subtitle",
+                                        "TranslatedTitle",
+                                        "Other"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "types": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "ui": {
+                                "marshmallow": {
+                                    "class": "test_datacite.services.records.ui_schema_datatypes.ResourceTypeUISchema",
+                                    "generate": true
+                                }
+                            },
+                            "marshmallow": {
+                                "class": "test_datacite.services.records.schema_datatypes.ResourceTypeSchema",
+                                "generate": true
+                            },
+                            "properties": {
+                                "resourceType": {
+                                    "type": "keyword"
+                                },
+                                "resourceTypeGeneral": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "url": {
+                        "type": "url"
+                    },
+                    "version": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "updated": {
+                "type": "datetime",
+                "facets": {
+                    "searchable": true,
+                    "facet": false
+                },
+                "ui": {
+                    "marshmallow": {
+                        "read": false,
+                        "write": false
+                    }
+                },
+                "marshmallow": {
+                    "read": false,
+                    "write": false
+                },
+                "sample": {
+                    "skip": true
+                }
+            }
+        }
+    }
+}
