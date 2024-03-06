@@ -1,11 +1,20 @@
 import pytest
 from invenio_app.factory import create_app as _create_app
-
+from invenio_search.proxies import current_search
 
 @pytest.fixture(scope="module")
 def extra_entry_points():
     """Extra entry points to load the mock_module features."""
     return {"invenio_i18n.translations": ["1000-test = tests"]}
+
+@pytest.fixture(scope="module")
+def destroy_indices(app):
+    from invenio_search.proxies import current_search_client
+
+    with app.app_context():
+        for index in current_search_client.indices.get_mapping().keys():
+            print(index)
+            current_search_client.indices.delete(index=index, ignore=[400, 404])
 
 
 @pytest.fixture(scope="module")

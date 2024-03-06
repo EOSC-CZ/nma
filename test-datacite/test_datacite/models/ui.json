@@ -1619,6 +1619,40 @@
                 }
             }
         },
+        "oai": {
+            "detail": false,
+            "input": false,
+            "help": "oai.help",
+            "label": "oai.label",
+            "hint": "oai.hint",
+            "children": {
+                "harvest": {
+                    "detail": false,
+                    "input": false,
+                    "help": "oai/harvest.help",
+                    "label": "oai/harvest.label",
+                    "hint": "oai/harvest.hint",
+                    "children": {
+                        "datestamp": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "oai/harvest/datestamp.help",
+                            "label": "oai/harvest/datestamp.label",
+                            "hint": "oai/harvest/datestamp.hint",
+                            "facet": "oai_harvest_datestamp"
+                        },
+                        "identifier": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "oai/harvest/identifier.help",
+                            "label": "oai/harvest/identifier.label",
+                            "hint": "oai/harvest/identifier.hint",
+                            "facet": "oai_harvest_identifier"
+                        }
+                    }
+                }
+            }
+        },
         "updated": {
             "detail": "datetime",
             "input": "datetime",

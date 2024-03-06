@@ -1839,6 +1839,42 @@
                     }
                 }
             },
+            "oai": {
+                "type": "object",
+                "marshmallow": {
+                    "generate": true,
+                    "class": "test_datacite.services.records.schema.OaiSchema"
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "class": "test_datacite.services.records.ui_schema.OaiUISchema"
+                    }
+                },
+                "properties": {
+                    "harvest": {
+                        "type": "object",
+                        "marshmallow": {
+                            "generate": true,
+                            "class": "test_datacite.services.records.schema.HarvestSchema"
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "test_datacite.services.records.ui_schema.HarvestUISchema"
+                            }
+                        },
+                        "properties": {
+                            "datestamp": {
+                                "type": "keyword"
+                            },
+                            "identifier": {
+                                "type": "keyword"
+                            }
+                        }
+                    }
+                }
+            },
             "updated": {
                 "type": "datetime",
                 "facets": {

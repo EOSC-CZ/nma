@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-03-05T15:35:54.003943\n"
-"PO-Revision-Date: 2024-03-05T15:35:54.003947\n"
+"POT-Creation-Date: 2024-03-06T10:18:26.117320\n"
+"PO-Revision-Date: 2024-03-06T10:18:26.117324\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2547,6 +2547,42 @@ msgid "metadata/version.label"
 msgstr ""
 
 msgid "metadata/version.hint"
+msgstr ""
+
+msgid "oai.help"
+msgstr ""
+
+msgid "oai.label"
+msgstr ""
+
+msgid "oai.hint"
+msgstr ""
+
+msgid "oai/harvest.help"
+msgstr ""
+
+msgid "oai/harvest.label"
+msgstr ""
+
+msgid "oai/harvest.hint"
+msgstr ""
+
+msgid "oai/harvest/datestamp.help"
+msgstr ""
+
+msgid "oai/harvest/datestamp.label"
+msgstr ""
+
+msgid "oai/harvest/datestamp.hint"
+msgstr ""
+
+msgid "oai/harvest/identifier.help"
+msgstr ""
+
+msgid "oai/harvest/identifier.label"
+msgstr ""
+
+msgid "oai/harvest/identifier.hint"
 msgstr ""
 
 msgid "updated.help"

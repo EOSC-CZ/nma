@@ -1,6 +1,7 @@
 import marshmallow as ma
 from marshmallow import Schema
 from marshmallow import fields as ma_fields
+from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
 from oarepo_runtime.services.schema.ui import InvenioUISchema
 from test_datacite.services.records.ui_schema_datatypes import (
     AlternateIdentifierUISchema,
@@ -26,6 +27,24 @@ class DataCiteRecordUISchema(InvenioUISchema):
         unknown = ma.RAISE
 
     metadata = ma_fields.Nested(lambda: NRDataCiteMetadataUISchema())
+
+    oai = ma_fields.Nested(lambda: OaiUISchema())
+
+
+class OaiUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    harvest = ma_fields.Nested(lambda: HarvestUISchema())
+
+
+class HarvestUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    datestamp = ma_fields.String()
+
+    identifier = ma_fields.String()
 
 
 class NRDataCiteMetadataUISchema(Schema):

@@ -141,5 +141,7 @@ class TestDataciteSearchOptions(InvenioSearchOptions):
         "metadata_types_resourceTypeGeneral": facets.metadata_types_resourceTypeGeneral,
         "metadata_url": facets.metadata_url,
         "metadata_version": facets.metadata_version,
+        "oai_harvest_datestamp": facets.oai_harvest_datestamp,
+        "oai_harvest_identifier": facets.oai_harvest_identifier,
         **getattr(InvenioSearchOptions, "facets", {}),
     }

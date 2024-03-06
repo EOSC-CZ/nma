@@ -1,5 +1,6 @@
 import marshmallow as ma
 from edtf import Date as EDTFDate
+from edtf import EDTFObject
 from marshmallow import fields as ma_fields
 from marshmallow.validate import OneOf
 from marshmallow_utils.fields import TrimmedString
@@ -308,7 +309,7 @@ class DateSchema(DictOnlySchema):
         unknown = ma.RAISE
 
     date = TrimmedString(
-        required=True, validate=[CachedMultilayerEDTFValidator(types=(EDTFDate,))]
+        required=True, validate=[CachedMultilayerEDTFValidator(types=(EDTFDate, EDTFObject))]
     )
 
     dateInformation = ma_fields.String()

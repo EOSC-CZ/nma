@@ -91,3 +91,9 @@ DataCiteModel:
   properties:
     metadata:
       use: ['datacite#DataCiteMetadata']
+    oai:
+      properties:
+        harvest:
+          properties:
+            identifier: keyword
+            datestamp: keyword

@@ -19,6 +19,7 @@ record:
     properties:
       use:
       - ./datasets-files.yaml
+      - ./datasets-harvest.yaml
     use:
     - invenio_files
   module:
