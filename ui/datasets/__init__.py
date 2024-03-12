@@ -25,8 +25,16 @@ class DatasetsResourceConfig(RecordsUIResourceConfig):
         "detail": "datasets.Detail",
         "search": "datasets.Search",
         "edit": "datasets.Deposit",
-        "create":"datasets.Deposit",
+        "create": "datasets.Deposit",
     }
+    
+    def search_active_facets(self, api_config, identity):
+        return [
+            k
+            for k in self.search_available_facets(api_config, identity).keys()
+            # TODO: replace with a more generic `item.filterable` attribute check
+            if not k.startswith("metadata_abstract")
+        ]
 
 
 class DatasetsResource(RecordsUIResource):
