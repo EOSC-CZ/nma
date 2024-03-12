@@ -1,0 +1,89 @@
+{#def metadata, ui, record, extra_context #}
+<h1 style="margin-bottom: 1em">{{ metadata.title }}</h1>
+
+<dl class="ui very basic table">
+
+    <Field label={_('metadata/additionalTitles.label')}>
+       <AdditionalTitles data={metadata.additionalTitles}></AdditionalTitles>
+    </Field>
+        <dt>{{ _('People') }}</dt>
+    <dd>
+        <People  metadata={metadata} search_link={record.links.search_link}></People>
+    </dd>
+    <Field label={ _('metadata/dateAvailable.label') }>{{metadata.dateAvailable}}</Field>
+    <Field label={ _('metadata/dateModified.label') }>{{metadata.dateModified}}</Field>
+
+    <Field label={ _('metadata/languages.label') }>
+        <VocabularyArray vocabulary={metadata.languages} search_link={record.links.search_link} searchFacet="metadata_languages" vocabulary_type="languages"></VocabularyArray>
+    </Field>
+     <Field label={ _('metadata/resourceType.label') }>
+        <VocabularyItem vocabulary={metadata.resourceType} search_link={record.links.search_link} searchFacet="metadata_resourceType" vocabulary_type="resource-type"></VocabularyItem>
+    </Field>
+    {% if metadata.thesis %}
+        <Field label={ _('metadata/thesis/dateDefended.label') }>{{metadata.thesis.dateDefended}}</Field>
+    {% endif %}
+
+    <Field label={ _('metadata/subjects.label') }>
+        <Subjects subjects={metadata.subjects} search_link={record.links.search_link}></Subjects>
+    </Field>
+
+    <Field label={ _('metadata/abstract.label') }>
+        <Multilingual data={metadata.abstract}></Multilingual>
+    </Field>
+
+        {% if metadata.thesis %}
+          <Field label={ _('metadata/thesis/degreeGrantors.label') }>
+            <TaxonomyArray taxonomy={metadata.thesis.degreeGrantors} search_link={record.links.search_link} searchFacet="metadata_thesis_degreeGrantors" vocabulary_type="institutions"></TaxonomyArray>
+        </Field>
+        <Field label={ _('metadata/thesis/studyFields.label') }>
+            <Array data={metadata.thesis.studyFields}></Array>
+        </Field>
+
+    {% endif %}
+<Field label={_('metadata/accessibility.label')}>{{metadata.accessibility}}</Field>
+ <Field label={ _('metadata/publishers.label') }>
+        <Array data={metadata.publishers}></Array>
+    </Field>
+    <Field label={ _('metadata/accessRights.label') }>
+        <VocabularyItem vocabulary={metadata.accessRights} search_link={record.links.search_link} searchFacet="metadata_accessRights" vocabulary_type="access-rights"></VocabularyItem>
+       </Field>
+    <Field label={ _('metadata/rights.label') }>
+        <VocabularyArray vocabulary={metadata.rights} search_link={record.links.search_link} searchFacet="metadata_rights" vocabulary_type="licenses"></VocabularyArray>
+    </Field>
+
+    <Field label={ _('metadata/events.label') }>
+        <NrEvents data={metadata.events}></NrEvents>
+    </Field>
+    <Field label={ _('metadata/externalLocation.label') }>
+        <NrExternalLocation data={metadata.externalLocation}></NrExternalLocation>
+    </Field>
+    {% if metadata.fundingReferences %}
+    <Field label={ _('metadata/fundingReferences.label') }>
+    <FundingReference funders={metadata.fundingReferences} search_link={record.links.search_link}></FundingReference>
+    </Field>
+    {% endif %}
+    {% if metadata.relatedItems %}
+    <Field label= {_('metadata/relatedItems.label')}><RelatedItems relatedItems={metadata.relatedItems} search_link={record.links.search_link}></RelatedItems></Field>
+    {% endif %}
+    <Field label={ _('metadata/geoLocations.label') }>
+        <NrGeolocation data={metadata.geoLocations}></NrGeolocation>
+    </Field>
+    <Field label={ _('metadata/methods.label') }>
+        <Multilingual data={metadata.methods}></Multilingual>
+    </Field>
+    <Field label={ _('metadata/notes.label') }>
+            <Array data={metadata.notes}></Array>
+        </Field>
+    <Field label={ _('metadata/series.label') }>
+        <NrSeries data={metadata.series}></NrSeries>
+    </Field>
+    <Field label={ _('metadata/subjectCategories.label') }>
+        <VocabularyArray vocabulary={metadata.subjectCategories} search_link={record.links.search_link} searchFacet="metadata_subjectCategories" vocabulary_type="subject-categories"></VocabularyArray>
+    </Field>
+    <Field label={ _('metadata/technicalInfo.label') }>
+        <Multilingual data={metadata.technicalInfo}></Multilingual>
+    </Field>
+
+    <Field label={ _('metadata/version.label') }>{{metadata.version}}</Field>
+</dl>
+

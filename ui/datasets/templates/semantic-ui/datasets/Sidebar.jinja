@@ -1,0 +1,73 @@
+{#def metadata, record #}
+<section aria-label="{{_('Collection')}}" class="ui segment">
+  <h2 class="ui small header detail-sidebar-header">{{_('Collection')}}</h2>
+  {{metadata.collection}}
+</section>
+<section aria-label="{{_('metadata/objectIdentifiers.label')}}" class="ui segment">
+  <h2 class="ui small header detail-sidebar-header">{{_('metadata/objectIdentifiers.label')}}</h2>
+  <div class="ui link list">
+    <div class="item">
+      <i class="external alternate icon"></i>
+      <div class="content">
+      {% set _data = {
+           "href": metadata.originalRecord,
+          "title": _('metadata/originalRecord.label'),
+          "label": _('metadata/originalRecord.label')
+} %}
+        <URL className="link" data = {_data}></URL>
+    </div>
+    </div>
+  </div>
+</section>
+<section id="export-record" aria-label="{{_('Export')}}" class="ui segment exports">
+  <h2 class="ui small header detail-sidebar-header">{{_('Export')}}</h2>
+  <div id="recordExportDownload">
+    <div class="ui grid">
+      <div class="eleven wide column">
+        <div
+          role="listbox"
+          aria-expanded="false"
+          class="ui fluid selection dropdown"
+          tabindex="0"
+        >
+          <div
+            aria-atomic="true"
+            aria-live="polite"
+            role="alert"
+            class="divider text"
+          >
+            JSON
+          </div>
+          <i aria-hidden="true" class="dropdown icon"></i>
+          <div class="menu transition">
+            <div
+              style="pointer-events: all;"
+              role="option"
+              aria-checked="true"
+              aria-selected="true"
+              class="active selected item"
+            >
+              <span class="text">JSON</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="five wide column pl-0">
+        <a
+          href="{{record.links.export_path}}/json"
+          title="Download file"
+          class="ui fluid button"
+          role="button"
+        >
+          Export
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-label="API Links" class="ui segment">
+  <h2 class="ui small header detail-sidebar-header">{{_('API')}} {{_('Links')}}</h2>
+    <SidebarApiLinks links={record.links}></SidebarApiLinks>
+
+</section>
