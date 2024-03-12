@@ -1,0 +1,7 @@
+// unreasonable min width of 14em for the drop down,
+// breaks the layout on small screens and protrudes outside of the container
+@media all and (max-width: @tabletBreakpoint) {
+  .ui.dropdown {
+    min-width: 0 !important;
+  }
+}

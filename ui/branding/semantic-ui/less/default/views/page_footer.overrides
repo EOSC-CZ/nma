@@ -1,0 +1,13 @@
+.ui.page-footer {
+  border-top: 1px solid @green;
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+  .footer-top {
+    color: white;
+  }
+  .footer-bottom {
+    color: white;
+  }
+}
