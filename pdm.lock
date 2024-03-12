@@ -2885,7 +2885,7 @@ files = [
 
 [[package]]
 name = "nr-metadata"
-version = "2.0.12"
+version = "2.0.15"
 requires_python = ">=3.9"
 summary = "\"Generated metadata files for the Czech National Repository\""
 groups = ["default"]
@@ -2895,8 +2895,8 @@ dependencies = [
     "oarepo-vocabularies>=2.0.0",
 ]
 files = [
-    {file = "nr-metadata-2.0.12.tar.gz", hash = "sha256:7ffe550b66b2873feb11e8de5f231c7ea2313837828e99c32a02d9316c432a7d"},
-    {file = "nr_metadata-2.0.12-py2.py3-none-any.whl", hash = "sha256:3627b8e52699657a5934693bf06e5fa76db324fb0c13c689c654f7ae59eb954e"},
+    {file = "nr-metadata-2.0.15.tar.gz", hash = "sha256:7e989b0adaacb19648f4909829e71f900bbd69b4d0eb526cbd74b876e7779602"},
+    {file = "nr_metadata-2.0.15-py2.py3-none-any.whl", hash = "sha256:f6cb1c1cc76cfa36033b345be11ef15dfa4871859ed7f08aa9e8d62155444f1d"},
 ]
 
 [[package]]
@@ -3149,7 +3149,7 @@ files = [
 
 [[package]]
 name = "oarepo-runtime"
-version = "1.5.15"
+version = "1.5.17"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
@@ -3162,13 +3162,13 @@ dependencies = [
     "tqdm",
 ]
 files = [
-    {file = "oarepo-runtime-1.5.15.tar.gz", hash = "sha256:7f6c319d5f7a06da4cee333b665868eedc5424369a78a7ca136354609b0b2db6"},
-    {file = "oarepo_runtime-1.5.15-py3-none-any.whl", hash = "sha256:d40e65761dd81c8d5e760f13d5fcf4f24e276e8422c21b28aebdbf89273de074"},
+    {file = "oarepo-runtime-1.5.17.tar.gz", hash = "sha256:25176065391ae247ad5aa35cc19f1e6fa766fecb0ba6abd079b811ea7bbfeec5"},
+    {file = "oarepo_runtime-1.5.17-py3-none-any.whl", hash = "sha256:f5306bb839e3102d7810e589f25d5e7fdbd350b92617cf40b4ec90c2933922a6"},
 ]
 
 [[package]]
 name = "oarepo-ui"
-version = "5.1.2"
+version = "5.1.5"
 requires_python = ">=3.6"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3180,13 +3180,13 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo-ui-5.1.2.tar.gz", hash = "sha256:3d90a8ea88379db2962f72b150466a769fc4a273e5f07a3f90d79ccf1fe9d372"},
-    {file = "oarepo_ui-5.1.2-py2.py3-none-any.whl", hash = "sha256:1d4e959782bbc9db6e49d740e185a09354a871439238ee401c3b23ecfd8ea577"},
+    {file = "oarepo-ui-5.1.5.tar.gz", hash = "sha256:3a551c3f9933af6d0e61cff3f0a1aa923dcd7609df11a898ce87e7bedd708ac3"},
+    {file = "oarepo_ui-5.1.5-py2.py3-none-any.whl", hash = "sha256:a77f9f0f8a1c9af6ad0fbe419c3d62be5d5e1ea2b57eb9ed889645f99615f1c3"},
 ]
 
 [[package]]
 name = "oarepo-vocabularies"
-version = "2.0.76"
+version = "2.0.79"
 summary = "Support for custom fields and hierarchy on Invenio vocabularies"
 groups = ["default"]
 dependencies = [
@@ -3197,8 +3197,8 @@ dependencies = [
     "openpyxl",
 ]
 files = [
-    {file = "oarepo-vocabularies-2.0.76.tar.gz", hash = "sha256:d4f4352d2a03be3fa3950628edeefcb34326617bee30003a0bed99e5b0932ea3"},
-    {file = "oarepo_vocabularies-2.0.76-py3-none-any.whl", hash = "sha256:bb3c8278f05ea4d073452919c33b239c219de0a88921571821708b8c342faf49"},
+    {file = "oarepo-vocabularies-2.0.79.tar.gz", hash = "sha256:2c27741faa849f039e54b7a96651dacf3154d0bd5d3b0697a973f5827014557c"},
+    {file = "oarepo_vocabularies-2.0.79-py3-none-any.whl", hash = "sha256:d5ffc831595cb0cefcd0c67633433b821b5a676f769c3818f2602fab00f9d03c"},
 ]
 
 [[package]]
@@ -3261,13 +3261,13 @@ files = [
 
 [[package]]
 name = "packaging"
-version = "23.2"
+version = "24.0"
 requires_python = ">=3.7"
 summary = "Core utilities for Python packages"
 groups = ["default"]
 files = [
-    {file = "packaging-23.2-py3-none-any.whl", hash = "sha256:8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7"},
-    {file = "packaging-23.2.tar.gz", hash = "sha256:048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"},
+    {file = "packaging-24.0-py3-none-any.whl", hash = "sha256:2ddfb553fdf02fb784c234c7ba6ccc288296ceabec964ad2eae3777778130bc5"},
+    {file = "packaging-24.0.tar.gz", hash = "sha256:eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"},
 ]
 
 [[package]]

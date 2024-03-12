@@ -8,10 +8,10 @@ jinja2-simple-tags==0.6.1
 jinjax==0.31
 json5==0.9.22
 langcodes==3.3.0
-nr-metadata==2.0.12
-oarepo-runtime==1.5.15
-oarepo-ui==5.1.2
-oarepo-vocabularies==2.0.76
+nr-metadata==2.0.15
+oarepo-runtime==1.5.17
+oarepo-ui==5.1.5
+oarepo-vocabularies==2.0.79
 openpyxl==3.1.2
 python-dotenv==1.0.1
 tqdm==4.66.2
