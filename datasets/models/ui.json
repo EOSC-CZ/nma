@@ -151,13 +151,13 @@
                                             "hint": "metadata/contributors/affiliation/name.hint",
                                             "facet": "metadata_contributors_affiliation_name"
                                         },
-                                        "schemeUri": {
+                                        "schemeURI": {
                                             "detail": "url",
                                             "input": "url",
-                                            "help": "metadata/contributors/affiliation/schemeUri.help",
-                                            "label": "metadata/contributors/affiliation/schemeUri.label",
-                                            "hint": "metadata/contributors/affiliation/schemeUri.hint",
-                                            "facet": "metadata_contributors_affiliation_schemeUri"
+                                            "help": "metadata/contributors/affiliation/schemeURI.help",
+                                            "label": "metadata/contributors/affiliation/schemeURI.label",
+                                            "hint": "metadata/contributors/affiliation/schemeURI.hint",
+                                            "facet": "metadata_contributors_affiliation_schemeURI"
                                         }
                                     }
                                 }
@@ -232,13 +232,13 @@
                                             "hint": "metadata/contributors/nameIdentifiers/nameIdentifierScheme.hint",
                                             "facet": "metadata_contributors_nameIdentifiers_nameIdentifierScheme"
                                         },
-                                        "schemeUri": {
+                                        "schemeURI": {
                                             "detail": "url",
                                             "input": "url",
-                                            "help": "metadata/contributors/nameIdentifiers/schemeUri.help",
-                                            "label": "metadata/contributors/nameIdentifiers/schemeUri.label",
-                                            "hint": "metadata/contributors/nameIdentifiers/schemeUri.hint",
-                                            "facet": "metadata_contributors_nameIdentifiers_schemeUri"
+                                            "help": "metadata/contributors/nameIdentifiers/schemeURI.help",
+                                            "label": "metadata/contributors/nameIdentifiers/schemeURI.label",
+                                            "hint": "metadata/contributors/nameIdentifiers/schemeURI.hint",
+                                            "facet": "metadata_contributors_nameIdentifiers_schemeURI"
                                         }
                                     }
                                 }
@@ -305,13 +305,13 @@
                                             "hint": "metadata/creators/affiliation/name.hint",
                                             "facet": "metadata_creators_affiliation_name"
                                         },
-                                        "schemeUri": {
+                                        "schemeURI": {
                                             "detail": "url",
                                             "input": "url",
-                                            "help": "metadata/creators/affiliation/schemeUri.help",
-                                            "label": "metadata/creators/affiliation/schemeUri.label",
-                                            "hint": "metadata/creators/affiliation/schemeUri.hint",
-                                            "facet": "metadata_creators_affiliation_schemeUri"
+                                            "help": "metadata/creators/affiliation/schemeURI.help",
+                                            "label": "metadata/creators/affiliation/schemeURI.label",
+                                            "hint": "metadata/creators/affiliation/schemeURI.hint",
+                                            "facet": "metadata_creators_affiliation_schemeURI"
                                         }
                                     }
                                 }
@@ -377,13 +377,13 @@
                                             "hint": "metadata/creators/nameIdentifiers/nameIdentifierScheme.hint",
                                             "facet": "metadata_creators_nameIdentifiers_nameIdentifierScheme"
                                         },
-                                        "schemeUri": {
+                                        "schemeURI": {
                                             "detail": "url",
                                             "input": "url",
-                                            "help": "metadata/creators/nameIdentifiers/schemeUri.help",
-                                            "label": "metadata/creators/nameIdentifiers/schemeUri.label",
-                                            "hint": "metadata/creators/nameIdentifiers/schemeUri.hint",
-                                            "facet": "metadata_creators_nameIdentifiers_schemeUri"
+                                            "help": "metadata/creators/nameIdentifiers/schemeURI.help",
+                                            "label": "metadata/creators/nameIdentifiers/schemeURI.label",
+                                            "hint": "metadata/creators/nameIdentifiers/schemeURI.hint",
+                                            "facet": "metadata_creators_nameIdentifiers_schemeURI"
                                         }
                                     }
                                 }
@@ -533,13 +533,13 @@
                                 "hint": "metadata/fundingReferences/awardTitle.hint",
                                 "facet": "metadata_fundingReferences_awardTitle"
                             },
-                            "awardUri": {
+                            "awardURI": {
                                 "detail": "url",
                                 "input": "url",
-                                "help": "metadata/fundingReferences/awardUri.help",
-                                "label": "metadata/fundingReferences/awardUri.label",
-                                "hint": "metadata/fundingReferences/awardUri.hint",
-                                "facet": "metadata_fundingReferences_awardUri"
+                                "help": "metadata/fundingReferences/awardURI.help",
+                                "label": "metadata/fundingReferences/awardURI.label",
+                                "hint": "metadata/fundingReferences/awardURI.hint",
+                                "facet": "metadata_fundingReferences_awardURI"
                             },
                             "funderIdentifier": {
                                 "detail": "keyword",
@@ -861,13 +861,13 @@
                                 "hint": "metadata/relatedIdentifiers/schemeType.hint",
                                 "facet": "metadata_relatedIdentifiers_schemeType"
                             },
-                            "schemeUri": {
+                            "schemeURI": {
                                 "detail": "url",
                                 "input": "url",
-                                "help": "metadata/relatedIdentifiers/schemeUri.help",
-                                "label": "metadata/relatedIdentifiers/schemeUri.label",
-                                "hint": "metadata/relatedIdentifiers/schemeUri.hint",
-                                "facet": "metadata_relatedIdentifiers_schemeUri"
+                                "help": "metadata/relatedIdentifiers/schemeURI.help",
+                                "label": "metadata/relatedIdentifiers/schemeURI.label",
+                                "hint": "metadata/relatedIdentifiers/schemeURI.hint",
+                                "facet": "metadata_relatedIdentifiers_schemeURI"
                             }
                         }
                     }
@@ -935,13 +935,13 @@
                                                         "hint": "metadata/relatedItems/contributors/affiliation/name.hint",
                                                         "facet": "metadata_relatedItems_contributors_affiliation_name"
                                                     },
-                                                    "schemeUri": {
+                                                    "schemeURI": {
                                                         "detail": "url",
                                                         "input": "url",
-                                                        "help": "metadata/relatedItems/contributors/affiliation/schemeUri.help",
-                                                        "label": "metadata/relatedItems/contributors/affiliation/schemeUri.label",
-                                                        "hint": "metadata/relatedItems/contributors/affiliation/schemeUri.hint",
-                                                        "facet": "metadata_relatedItems_contributors_affiliation_schemeUri"
+                                                        "help": "metadata/relatedItems/contributors/affiliation/schemeURI.help",
+                                                        "label": "metadata/relatedItems/contributors/affiliation/schemeURI.label",
+                                                        "hint": "metadata/relatedItems/contributors/affiliation/schemeURI.hint",
+                                                        "facet": "metadata_relatedItems_contributors_affiliation_schemeURI"
                                                     }
                                                 }
                                             }
@@ -1016,13 +1016,13 @@
                                                         "hint": "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.hint",
                                                         "facet": "metadata_relatedItems_contributors_nameIdentifiers_nameIdentifierScheme"
                                                     },
-                                                    "schemeUri": {
+                                                    "schemeURI": {
                                                         "detail": "url",
                                                         "input": "url",
-                                                        "help": "metadata/relatedItems/contributors/nameIdentifiers/schemeUri.help",
-                                                        "label": "metadata/relatedItems/contributors/nameIdentifiers/schemeUri.label",
-                                                        "hint": "metadata/relatedItems/contributors/nameIdentifiers/schemeUri.hint",
-                                                        "facet": "metadata_relatedItems_contributors_nameIdentifiers_schemeUri"
+                                                        "help": "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.help",
+                                                        "label": "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.label",
+                                                        "hint": "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.hint",
+                                                        "facet": "metadata_relatedItems_contributors_nameIdentifiers_schemeURI"
                                                     }
                                                 }
                                             }
@@ -1089,13 +1089,13 @@
                                                         "hint": "metadata/relatedItems/creators/affiliation/name.hint",
                                                         "facet": "metadata_relatedItems_creators_affiliation_name"
                                                     },
-                                                    "schemeUri": {
+                                                    "schemeURI": {
                                                         "detail": "url",
                                                         "input": "url",
-                                                        "help": "metadata/relatedItems/creators/affiliation/schemeUri.help",
-                                                        "label": "metadata/relatedItems/creators/affiliation/schemeUri.label",
-                                                        "hint": "metadata/relatedItems/creators/affiliation/schemeUri.hint",
-                                                        "facet": "metadata_relatedItems_creators_affiliation_schemeUri"
+                                                        "help": "metadata/relatedItems/creators/affiliation/schemeURI.help",
+                                                        "label": "metadata/relatedItems/creators/affiliation/schemeURI.label",
+                                                        "hint": "metadata/relatedItems/creators/affiliation/schemeURI.hint",
+                                                        "facet": "metadata_relatedItems_creators_affiliation_schemeURI"
                                                     }
                                                 }
                                             }
@@ -1161,13 +1161,13 @@
                                                         "hint": "metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.hint",
                                                         "facet": "metadata_relatedItems_creators_nameIdentifiers_nameIdentifierScheme"
                                                     },
-                                                    "schemeUri": {
+                                                    "schemeURI": {
                                                         "detail": "url",
                                                         "input": "url",
-                                                        "help": "metadata/relatedItems/creators/nameIdentifiers/schemeUri.help",
-                                                        "label": "metadata/relatedItems/creators/nameIdentifiers/schemeUri.label",
-                                                        "hint": "metadata/relatedItems/creators/nameIdentifiers/schemeUri.hint",
-                                                        "facet": "metadata_relatedItems_creators_nameIdentifiers_schemeUri"
+                                                        "help": "metadata/relatedItems/creators/nameIdentifiers/schemeURI.help",
+                                                        "label": "metadata/relatedItems/creators/nameIdentifiers/schemeURI.label",
+                                                        "hint": "metadata/relatedItems/creators/nameIdentifiers/schemeURI.hint",
+                                                        "facet": "metadata_relatedItems_creators_nameIdentifiers_schemeURI"
                                                     }
                                                 }
                                             }
@@ -1284,6 +1284,48 @@
                                 "enum": "metadata/relatedItems/relatedItemType.enum",
                                 "facet": "metadata_relatedItems_relatedItemType"
                             },
+                            "relatedMetadataScheme": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/relatedItems/relatedMetadataScheme.help",
+                                "label": "metadata/relatedItems/relatedMetadataScheme.label",
+                                "hint": "metadata/relatedItems/relatedMetadataScheme.hint",
+                                "facet": "metadata_relatedItems_relatedMetadataScheme"
+                            },
+                            "relationType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/relatedItems/relationType.help",
+                                "label": "metadata/relatedItems/relationType.label",
+                                "hint": "metadata/relatedItems/relationType.hint",
+                                "enum": "metadata/relatedItems/relationType.enum",
+                                "facet": "metadata_relatedItems_relationType"
+                            },
+                            "resourceTypeGeneral": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/relatedItems/resourceTypeGeneral.help",
+                                "label": "metadata/relatedItems/resourceTypeGeneral.label",
+                                "hint": "metadata/relatedItems/resourceTypeGeneral.hint",
+                                "enum": "metadata/relatedItems/resourceTypeGeneral.enum",
+                                "facet": "metadata_relatedItems_resourceTypeGeneral"
+                            },
+                            "schemeType": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/relatedItems/schemeType.help",
+                                "label": "metadata/relatedItems/schemeType.label",
+                                "hint": "metadata/relatedItems/schemeType.hint",
+                                "facet": "metadata_relatedItems_schemeType"
+                            },
+                            "schemeURI": {
+                                "detail": "url",
+                                "input": "url",
+                                "help": "metadata/relatedItems/schemeURI.help",
+                                "label": "metadata/relatedItems/schemeURI.label",
+                                "hint": "metadata/relatedItems/schemeURI.hint",
+                                "facet": "metadata_relatedItems_schemeURI"
+                            },
                             "titles": {
                                 "detail": "array",
                                 "input": "array",
@@ -1380,21 +1422,21 @@
                                 "hint": "metadata/rightsList/rightsIdentifierScheme.hint",
                                 "facet": "metadata_rightsList_rightsIdentifierScheme"
                             },
-                            "rightsUri": {
+                            "rightsURI": {
                                 "detail": "url",
                                 "input": "url",
-                                "help": "metadata/rightsList/rightsUri.help",
-                                "label": "metadata/rightsList/rightsUri.label",
-                                "hint": "metadata/rightsList/rightsUri.hint",
-                                "facet": "metadata_rightsList_rightsUri"
+                                "help": "metadata/rightsList/rightsURI.help",
+                                "label": "metadata/rightsList/rightsURI.label",
+                                "hint": "metadata/rightsList/rightsURI.hint",
+                                "facet": "metadata_rightsList_rightsURI"
                             },
-                            "schemeUri": {
+                            "schemeURI": {
                                 "detail": "url",
                                 "input": "url",
-                                "help": "metadata/rightsList/schemeUri.help",
-                                "label": "metadata/rightsList/schemeUri.label",
-                                "hint": "metadata/rightsList/schemeUri.hint",
-                                "facet": "metadata_rightsList_schemeUri"
+                                "help": "metadata/rightsList/schemeURI.help",
+                                "label": "metadata/rightsList/schemeURI.label",
+                                "hint": "metadata/rightsList/schemeURI.hint",
+                                "facet": "metadata_rightsList_schemeURI"
                             }
                         }
                     }
@@ -1451,13 +1493,13 @@
                                 "hint": "metadata/subjects/lang.hint",
                                 "facet": "metadata_subjects_lang"
                             },
-                            "schemeUri": {
+                            "schemeURI": {
                                 "detail": "url",
                                 "input": "url",
-                                "help": "metadata/subjects/schemeUri.help",
-                                "label": "metadata/subjects/schemeUri.label",
-                                "hint": "metadata/subjects/schemeUri.hint",
-                                "facet": "metadata_subjects_schemeUri"
+                                "help": "metadata/subjects/schemeURI.help",
+                                "label": "metadata/subjects/schemeURI.label",
+                                "hint": "metadata/subjects/schemeURI.hint",
+                                "facet": "metadata_subjects_schemeURI"
                             },
                             "subject": {
                                 "detail": "keyword",
@@ -1475,13 +1517,13 @@
                                 "hint": "metadata/subjects/subjectScheme.hint",
                                 "facet": "metadata_subjects_subjectScheme"
                             },
-                            "valueUri": {
+                            "valueURI": {
                                 "detail": "url",
                                 "input": "url",
-                                "help": "metadata/subjects/valueUri.help",
-                                "label": "metadata/subjects/valueUri.label",
-                                "hint": "metadata/subjects/valueUri.hint",
-                                "facet": "metadata_subjects_valueUri"
+                                "help": "metadata/subjects/valueURI.help",
+                                "label": "metadata/subjects/valueURI.label",
+                                "hint": "metadata/subjects/valueURI.hint",
+                                "facet": "metadata_subjects_valueURI"
                             }
                         }
                     }

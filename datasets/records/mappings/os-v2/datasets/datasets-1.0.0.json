@@ -64,7 +64,7 @@
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
-                                    "schemeUri": {
+                                    "schemeURI": {
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     }
@@ -101,7 +101,7 @@
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
-                                    "schemeUri": {
+                                    "schemeURI": {
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     }
@@ -131,7 +131,7 @@
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
-                                    "schemeUri": {
+                                    "schemeURI": {
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     }
@@ -164,7 +164,7 @@
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
-                                    "schemeUri": {
+                                    "schemeURI": {
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     }
@@ -228,7 +228,7 @@
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
-                            "awardUri": {
+                            "awardURI": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
@@ -370,7 +370,7 @@
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
-                            "schemeUri": {
+                            "schemeURI": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             }
@@ -397,7 +397,7 @@
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "schemeUri": {
+                                            "schemeURI": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -434,7 +434,7 @@
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "schemeUri": {
+                                            "schemeURI": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -464,7 +464,7 @@
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "schemeUri": {
+                                            "schemeURI": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -497,7 +497,7 @@
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "schemeUri": {
+                                            "schemeURI": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             }
@@ -558,6 +558,26 @@
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
+                            "relatedMetadataScheme": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "relationType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "resourceTypeGeneral": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "schemeType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "schemeURI": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
                             "titles": {
                                 "type": "object",
                                 "properties": {
@@ -599,11 +619,11 @@
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
-                            "rightsUri": {
+                            "rightsURI": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
-                            "schemeUri": {
+                            "schemeURI": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             }
@@ -628,7 +648,7 @@
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
-                            "schemeUri": {
+                            "schemeURI": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
@@ -640,7 +660,7 @@
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
-                            "valueUri": {
+                            "valueURI": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             }
