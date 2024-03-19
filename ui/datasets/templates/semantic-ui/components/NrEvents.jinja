@@ -1,0 +1,12 @@
+{#def data #}
+{% if data %}
+<dl class='detail-subfields ui list'>
+    {% for event in data %}
+    <div class="item">
+        <div class="content">
+            {{event.eventNameOriginal}} {% if event.eventNameAlternate %} ({{ event.eventNameAlternate[0] }}) {% endif -%} @ {{event.eventLocation.place}} ({{event.eventLocation.country.title}}) {{ _('on') }} {{event.eventDate}}
+        </div>
+    </div>
+    {% endfor %}
+</dl>
+{% endif %}

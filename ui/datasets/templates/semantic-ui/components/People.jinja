@@ -1,0 +1,30 @@
+{#def metadata, search_link #}
+{% set metadata_dict = metadata | to_dict %}
+{% set creators = metadata_dict['creators'] %}
+{% set contributors = metadata_dict['contributors'] %}
+
+<div class="ui double separated">
+   <div role="list" class="ui horizontal separated creatibutors list">
+
+            {% for person in creators %}
+                <Person person={person} search_link={search_link} searchFacet="metadata_creators_name"></Person>
+            {% endfor %}
+    </div>
+     {% if contributors %}
+        <div class="double separator"></div>
+            <div role="list" class="ui horizontal separated creatibutors list">
+
+                {% for name, matches in contributors | groupby('name') %}
+                  {% set roles= matches |  map(attribute='role') | select('defined') | list %}
+                  <Person person={matches[0]} search_link={search_link} searchFacet="metadata_contributors_name" roles ={roles}></Person>
+
+                {% endfor %}
+            </div>
+        {% endif %}
+
+ </div>
+
+
+
+
+

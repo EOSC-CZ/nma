@@ -1,0 +1,13 @@
+{#def funders, search_link #}
+
+<dl class='detail-subfields'>
+
+    {% for funder in funders %}
+        <Field label={_('metadata/fundingReferences/projectID.label')}> {{funder.projectID}}</Field>
+        <Field label={_('metadata/fundingReferences/projectName.label')}>{{funder.projectName}}</Field>
+        <Field label={_('metadata/fundingReferences/fundingProgram.label')}>{{funder.fundingProgram}}</Field>
+        <Field label={_('metadata/fundingReferences/funder.label')}>
+            <VocabularyItem vocabulary={funder.funder} search_link={search_link} searchFacet="metadata_fundingReferences" vocabulary_type="funders"></VocabularyItem>
+        </Field>
+    {% endfor %}
+</dl>

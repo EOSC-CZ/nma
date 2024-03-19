@@ -1,0 +1,12 @@
+{#def publisher, search_link #}
+
+{# {% if publisher['publisherIdentifier'] %}
+<DefinitionLink href={publisher['publisherIdentifier']}> </DefinitionLink>
+{% endif %} #}
+{% set data = {
+"value": publisher.name,
+"title": _("Find more records from this publisher"),
+"label": publisher.name
+} %}
+{% set searchFacet = "metadata_publisher_name" %}
+<SearchLink search_link={search_link} className="subject-link" searchFacet={searchFacet} data={data}></SearchLink>

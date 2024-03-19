@@ -1,0 +1,9 @@
+{#def data #}
+{% if data %}
+<dl class='detail-subfields'>
+    {% for series in data %}
+    <Field label={_('metadata/series/seriesTitle.label')}>{{series.seriesTitle}}</Field>
+    <Field label={_('metadata/series/seriesVolume.label')}>{{series.seriesVolume}}</Field>
+    {% endfor %}
+</dl>
+{% endif %}

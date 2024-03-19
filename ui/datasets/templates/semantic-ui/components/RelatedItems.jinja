@@ -1,0 +1,48 @@
+{#def relatedItems, search_link #}
+<dl class='detail-subfields'>
+    {% for ri in relatedItems %}
+    <Field label={_('metadata/relatedItems/itemTitle.label')}>{{ri.itemTitle}}</Field>
+    
+    <dt>{{ _('metadata/relatedItems/itemCreators.label') }}</dt>
+    <dd>
+        <div class="ui list">
+        {% for person in ri.itemCreators %}
+            <div class="item">
+                <Person person={person} search_link={search_link} searchFacet="metadata_creators_fullName"></Person>
+            </div>
+        {% endfor %}
+        </div>
+    </dd>
+    <dt>{{_('metadata/relatedItems/itemContributors.label')}}</dt>
+    <dd>
+        <div class="ui list">
+        {% for fullName, matches in ri.itemContributors | groupby('fullName') %}
+            <div class="item">
+                {% set roles= matches |  map(attribute='role') | select('defined') | list %}
+                <Person person={matches[0]} search_link={search_link} searchFacet="metadata_contributors_fullName" roles={roles}></Person>
+            </div>
+        {% endfor %}
+        </div>
+    </dd>
+    <Field label={_('metadata/relatedItems/itemPIDs.label')}><NrObjectPid pids={ri.itemPIDs}></NrObjectPid></Field>
+    <dt>{{_('metadata/relatedItems/itemURL.label')}}</dt>
+    <dd>
+        <URL className="ui" label= data={{"label":ri.itemURL, "href": ri.itemURL}}></URL>
+    </dd>
+    <Field label={_('metadata/relatedItems/itemYear.label')}>{{ri.itemYear}}</Field>
+    <Field label={_('metadata/relatedItems/itemVolume.label')}>{{ri.itemVolume}}</Field>
+
+<Field label={_('metadata/relatedItems/itemIssue.label')}>{{ri.itemIssue}}</Field>
+<Field label={_('metadata/relatedItems/itemVolume.label')}>{{ri.itemVolume}}</Field>
+<Field label={_('metadata/relatedItems/itemStartPage.label')}>{{ri.itemStartPage}}</Field>
+<Field label={_('metadata/relatedItems/itemEndPage.label')}>{{ri.itemEndPage}}</Field>
+<Field label={_('metadata/relatedItems/itemPublisher.label')}>{{ri.itemPublisher}}</Field>
+<Field label={_('metadata/relatedItems/itemRelationType.label')}>
+    <VocabularyItem vocabulary={ri.itemRelationType} search_link={search_link} searchFacet="metadata_relatedItems_itemRelationType" vocabulary_type="item-relation-types"></VocabularyItem>
+</Field>
+<Field label={_('metadata/relatedItems/itemResourceType.label')}>
+    <VocabularyItem vocabulary={ri.itemResourceType} search_link={search_link} searchFacet="metadata_resourceType" vocabulary_type="resource-types"></VocabularyItem>
+</Field>
+
+    {% endfor %}
+</dl>

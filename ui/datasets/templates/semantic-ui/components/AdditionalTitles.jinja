@@ -1,0 +1,9 @@
+{#def data #}
+{% for title in data %}
+    <span title="{{ title.lang }}">
+        <div class="ui green basic label lang-tag">
+        {{ title.lang | upper }}
+        </div>
+        {{ title.title }}
+    </span>
+{% endfor %}
