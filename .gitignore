@@ -8,3 +8,4 @@ node_modules
 .pdm-build
 .vscode
 .env
+jsconfig.json

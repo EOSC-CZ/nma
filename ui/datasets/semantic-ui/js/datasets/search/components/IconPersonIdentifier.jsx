@@ -24,7 +24,7 @@ IconIdentifier.propTypes = {
 };
 
 export const IconPersonIdentifier = ({ identifier, personName }) => {
-  const { scheme, identifier: value } = identifier;
+  const { nameIdentifierScheme: scheme, nameIdentifier: value } = identifier;
   let link = null;
   let linkTitle = null;
   let icon = null;
@@ -41,7 +41,7 @@ export const IconPersonIdentifier = ({ identifier, personName }) => {
     case "orcid":
       return (
         <IconIdentifier
-          link={`https://orcid.org/${value}`}
+          link={value}
           linkTitle={`${personName}: ${i18next.t("ORCID profile")}`}
           icon="/static/images/identifiers/orcid-og-image.png"
           alt="ORCID logo"
@@ -50,7 +50,7 @@ export const IconPersonIdentifier = ({ identifier, personName }) => {
     case "scopusid":
       return (
         <IconIdentifier
-          link={`https://www.scopus.com/authid/detail.uri?authorId=${value}`}
+          link={value}
           linkTitle={`${personName}: ${i18next.t("Scopus ID profile")}`}
           icon="/static/images/scopus.svg"
           alt="ScopusID logo"
@@ -59,7 +59,7 @@ export const IconPersonIdentifier = ({ identifier, personName }) => {
     case "ror":
       return (
         <IconIdentifier
-          link={`https://ror.org/${value}`}
+          link={value}
           linkTitle={`${personName}: ${i18next.t("ROR profile")}`}
           //   TODO: add correct icon
           icon="/static/images/orcid.png"
@@ -69,7 +69,7 @@ export const IconPersonIdentifier = ({ identifier, personName }) => {
     case "researcherid":
       return (
         <IconIdentifier
-          link={`https://www.webofscience.com/wos/author/record/${value}`}
+          link={value}
           linkTitle={`${personName}: ${i18next.t("WOS Researcher ID")}`}
           //   TODO: add correct icon
           icon="/static/images/orcid.png"
@@ -79,7 +79,7 @@ export const IconPersonIdentifier = ({ identifier, personName }) => {
     case "doi":
       return (
         <IconIdentifier
-          link={`https://doi.org/{value}`}
+          link={value}
           linkTitle={`${personName}: ${i18next.t("DOI profile")}`}
           //   TODO: add correct icon
           icon="/static/images/orcid.png"
@@ -89,7 +89,7 @@ export const IconPersonIdentifier = ({ identifier, personName }) => {
     case "gnd":
       return (
         <IconIdentifier
-          link={`https://d-nb.info/gnd/${value}`}
+          link={value}
           linkTitle={`${personName}: ${i18next.t("GND profile")}`}
           //   TODO: add correct icon
           icon="/static/images/orcid.png"
@@ -103,8 +103,8 @@ export const IconPersonIdentifier = ({ identifier, personName }) => {
 
 IconPersonIdentifier.propTypes = {
   identifier: PropTypes.shape({
-    scheme: PropTypes.string,
-    identifier: PropTypes.string,
+    identifierScheme: PropTypes.string,
+    nameIdentifier: PropTypes.string,
   }),
   personName: PropTypes.string,
 };

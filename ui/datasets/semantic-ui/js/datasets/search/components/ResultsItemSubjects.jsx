@@ -8,8 +8,8 @@ import { SearchFacetLink } from "./SearchFacetLink";
 const SubjectElement = ({ searchUrl, subject }) => (
   <SearchFacetLink
     searchUrl={searchUrl}
-    searchFacet={`metadata_subjects_subject_${subject.subject.lang}_keyword`}
-    value={subject.subject.value}
+    searchFacet={"metadata_subjects_subject"}
+    value={subject.subject}
     title={i18next.t("Find more records with this subject")}
     className="subject-link"
   />
@@ -26,18 +26,20 @@ export function ResultsItemSubjects({
   maxCount = 6,
   ...rest
 }) {
-  const langGroups = _groupBy(subjects, "subject.lang");
+  const langGroups = _groupBy(subjects, "lang");
 
   return Object.entries(langGroups).map(([lang, values]) => (
     <div className="ui separated" key={lang}>
-      <Label className="green basic lang-tag">{lang}</Label>
+      {/* <Label className="green basic lang-tag">{lang}</Label> */}
       <List horizontal className="separated subjects">
         {values.slice(0, maxCount).map((sub) => (
           <List.Item
-            key={`${sub.subject.lang}-${sub.subject.value}-${sub.valueURI}`}
+            key={`${sub.lang}-${sub.subject}-${sub.valueURI}`}
           >
             <List.Content verticalAlign="middle">
-              <SubjectElement searchUrl={searchUrl} subject={sub} />
+              <Label size="small" color="teal" basic>
+                {lang}&nbsp;<SubjectElement searchUrl={searchUrl} subject={sub} />
+              </Label>
             </List.Content>
           </List.Item>
         ))}

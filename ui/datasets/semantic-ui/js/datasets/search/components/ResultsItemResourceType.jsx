@@ -9,12 +9,12 @@ export const ResultsItemResourceType = ({
 }) => (
   <SearchFacetLink
     searchUrl={searchUrl}
-    searchFacet="metadata_resourceType"
-    value={resourceType.id}
+    searchFacet="metadata_types_resourceTypeGeneral"
+    value={resourceType.resourceTypeGeneral}
     title={`${i18next.t("Find all records")} ${i18next.t(
-      "by this document type"
+      "by this dataset type"
     )}`}
-    label={resourceType.title || "No resource type"}
+    label={resourceType.resourceTypeGeneral || "No resource type"}
     className="resource-type-link"
   />
 );

@@ -16,7 +16,7 @@ const CreatibutorSearchLink = ({
 }) => (
   <SearchFacetLink
     searchUrl={searchUrl}
-    searchFacet={`metadata_${searchField}_fullName`}
+    searchFacet={`metadata_${searchField}_name`}
     value={personName}
     className={`${searchField}-link`}
     title={`${personName}: ${i18next.t("Find more records by this person")}`}
@@ -33,7 +33,7 @@ CreatibutorSearchLink.propTypes = {
 const CreatibutorIcons = ({ personName = "No name", identifiers = [] }) =>
   identifiers.map((i) => (
     <IconPersonIdentifier
-      key={`${i.scheme}:${i.identifier}`}
+      key={`${i.nameIdentifierScheme}:${i.nameIdentifier}`}
       identifier={i}
       personName={personName}
     />
@@ -55,22 +55,22 @@ export function ResultsItemCreatibutors({
   const uniqueContributors = _toPairs(
     _groupBy(
       contributors.slice(0, maxContributors),
-      ({ fullName, authorityIdentifiers = [] }) => {
+      ({ name, nameIdentifiers = [] }) => {
         const idKeys = _join(
-          authorityIdentifiers.map((i) => `${i.scheme}:${i.identifier}`),
+          nameIdentifiers.map((i) => `${i.nameIdentifierScheme}:${i.nameIdentifier}`),
           ";"
         );
-        return `${fullName}-${idKeys}`;
+        return `${name}-${idKeys}`;
       }
     )
   ).map(([groupKey, entries]) => ({
     id: groupKey,
-    fullName: entries[0].fullName,
-    authorityIdentifiers: entries[0].authorityIdentifiers,
-    roles: _join(
-      entries.filter(({ role }) => role).map(({ role }) => role.title),
-      ", "
-    ),
+    name: entries[0].name,
+    nameIdentifiers: entries[0].nameIdentifiers,
+    // roles: _join(
+    //   entries.filter(({ role }) => role).map(({ role }) => role.title),
+    //   ", "
+    // ),
   }));
 
   return (
@@ -78,38 +78,39 @@ export function ResultsItemCreatibutors({
       <List horizontal className="separated creators inline">
         {creators
           .slice(0, maxCreators)
-          .map(({ fullName, authorityIdentifiers }) => (
+          .map(({ name, nameIdentifiers }, index) => (
             <List.Item
               as="span"
               className={`creatibutor-wrap separated ${className}`}
-              key={fullName}
+              key={index}
             >
               <CreatibutorSearchLink
-                personName={fullName}
+                personName={name}
                 searchUrl={searchUrl}
               />
               <CreatibutorIcons
-                personName={fullName}
-                identifiers={authorityIdentifiers}
+                personName={name}
+                identifiers={nameIdentifiers}
               />
             </List.Item>
           ))}
       </List>
       {uniqueContributors.length > 0 && <DoubleSeparator />}
       <List horizontal className="separated contributors inline">
-        {uniqueContributors.map(({ id, fullName, identifiers, roles }) => (
+        {uniqueContributors.map(({ id, name, nameIdentifiers, roles }, index) => (
           <List.Item
             as="span"
             className={`creatibutor-wrap separated ${className}`}
-            key={id}
+            key={index} 
+            // TODO: id doesnt exist
           >
             <CreatibutorSearchLink
-              personName={fullName}
+              personName={name}
               searchUrl={searchUrl}
               searchField="contributors"
             />
-            <CreatibutorIcons personName={fullName} identifiers={identifiers} />
-            {roles && <span className="contributor-role">({roles})</span>}
+            <CreatibutorIcons personName={name} identifiers={nameIdentifiers} />
+            {/* {roles && <span className="contributor-role">({roles})</span>} TODO: dont exist */}
           </List.Item>
         ))}
       </List>

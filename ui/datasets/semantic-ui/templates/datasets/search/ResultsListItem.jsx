@@ -4,15 +4,15 @@ import Overridable from "react-overridable";
 import _get from "lodash/get";
 import _join from "lodash/join";
 import _truncate from "lodash/truncate";
+import _find from "lodash/find";
 import { Grid, Item, Label, List, Icon } from "semantic-ui-react";
 import { withState, buildUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import { i18next } from "@translations/i18next";
 import {
-  ResultsItemAccessStatus,
+  ResultsItemRights,
   ResultsItemSubjects,
   ResultsItemCreatibutors,
-  ResultsItemLicense,
   DoubleSeparator,
   ResultsItemResourceType,
 } from "@datasets_search";
@@ -39,11 +39,10 @@ const ItemSubheader = ({
   creators,
   contributors,
   publicationDate,
-  languages,
+  language,
   version,
   resourceType,
   thesis,
-  subjects,
   searchUrl,
 }) => {
   const isThesisDefended = thesis?.dateDefended;
@@ -66,16 +65,16 @@ const ItemSubheader = ({
             >
               {publicationDate} (v{version})
             </span>
-            <DoubleSeparator />
-            <span
-              aria-label={i18next.t("Languages")}
-              title={i18next.t("Languages")}
-            >
-              {_join(
-                languages.map((l) => l.title),
-                ", "
-              )}
-            </span>
+            {/* {language && 
+            <>
+              <DoubleSeparator />
+              <span
+                aria-label={i18next.t("Language")}
+                title={i18next.t("Language")}
+              >
+                {language}
+              </span>
+            </>} */}
           </Grid.Row>
           <Grid.Row>
             <ResultsItemResourceType
@@ -94,9 +93,6 @@ const ItemSubheader = ({
               </Label>
             )}
           </Grid.Row>
-          <Grid.Row>
-            <ResultsItemSubjects searchUrl={searchUrl} subjects={subjects} />
-          </Grid.Row>
         </Grid.Column>
       </Grid>
     </Item.Meta>
@@ -107,32 +103,23 @@ ItemSubheader.propTypes = {
   creators: PropTypes.array,
   contributors: PropTypes.array,
   publicationDate: PropTypes.string,
-  languages: PropTypes.array,
+  language: PropTypes.string,
   version: PropTypes.number,
   resourceType: PropTypes.object,
   thesis: PropTypes.object,
-  subjects: PropTypes.array,
   searchUrl: PropTypes.string,
 };
 
-const ItemExtraInfo = ({ createdDate, publishers }) => {
+const ItemExtraInfo = ({ createdDate, language, publisher }) => {
   return (
     <Item.Extra>
       <div>
         <small>
           <p>
-            {createdDate && (
-              <>
-                {i18next.t("Uploaded on")} <span>{createdDate}</span>
-              </>
-            )}
-            {createdDate && publishers.length > 0 && " | "}
-            {publishers.length > 0 && (
-              <>
-                {i18next.t("Published in: ")}{" "}
-                <span>{_join(publishers, ", ")}</span>
-              </>
-            )}
+            {createdDate && <span>{createdDate}</span>}
+            {language && <span className="left-tab">{language.toUpperCase()}</span>}
+            {publisher && <span className="left-tab">{publisher.name}</span>}
+            <span className="left-tab">{i18next.t("National Metadata Repository")}</span>
           </p>
         </small>
       </div>
@@ -142,31 +129,26 @@ const ItemExtraInfo = ({ createdDate, publishers }) => {
 
 ItemExtraInfo.propTypes = {
   createdDate: PropTypes.string,
-  publishers: PropTypes.array,
+  language: PropTypes.string,
+  publisher: PropTypes.object,
 };
 
-const ItemSidebarIcons = ({ accessStatus, rights }) => {
+const ItemSidebarIcons = ({ rights }) => {
   return (
     <Item.Extra className="labels-actions">
-      <List>
-        {accessStatus && (
-          <List.Item>
-            <ResultsItemAccessStatus status={accessStatus} />
+      <List horizontal>
+        {rights.map(right => (
+          <List.Item key={right.rights}>
+            <ResultsItemRights right={right} />
           </List.Item>
-        )}
-        {rights && (
-          <List.Item>
-            <ResultsItemLicense rights={rights} />
-          </List.Item>
-        )}
+        ))}
       </List>
     </Item.Extra>
   );
 };
 
 ItemSidebarIcons.propTypes = {
-  accessStatus: PropTypes.object,
-  rights: PropTypes.object,
+  rights: PropTypes.array,
 };
 
 export const ResultsListItemComponent = ({
@@ -177,34 +159,36 @@ export const ResultsListItemComponent = ({
 }) => {
   const searchAppConfig = useContext(SearchConfigurationContext);
 
-  const accessRights = _get(result, "metadata.accessRights");
+  console.log("SearchResult", result);
+  console.log("SearchAppConfig", searchAppConfig);
+
+  const accessRights = _get(result, "metadata.rightsList"); // fix
   const createdDate = _get(result, "created", "No creation date found.");
   const creators = result.metadata?.creators;
   const contributors = _get(result, "metadata.contributors", []);
 
-  const rights = _get(result, "metadata.rights");
-
   const descriptionStripped = _get(
     result,
-    "metadata.abstract[0].value",
+    "metadata.descriptions[0].description",
     i18next.t("No description")
   );
 
-  const languages = _get(result, "metadata.languages", []);
+  const language = _get(result, "metadata.language");
+  console.log("Language", language);
 
-  const publicationDate = _get(
+  const publicationDate = _find(_get(
     result,
-    "metadata.dateAvailable",
-    i18next.t("No publication date found.")
-  );
-  const resourceType = _get(result, "metadata.resourceType");
+    "metadata.dates",
+    []
+  ), (date) => date.dateType.toLowerCase() === "issued").date ?? i18next.t("No publication date found.");
+  const resourceTypeGeneral = _get(result, "metadata.types[0]"); // TODO: can there be more than one?
   const subjects = _get(result, "metadata.subjects", []);
-  const title = _get(result, "metadata.title", "No title");
-  const version = _get(result, "revision_id", null);
-  const versions = _get(result, "versions");
+  const title = _get(result, "metadata.titles[0].title", "No title");
+  const version = _get(result, "revision_id", null); // TODO: revision_id or metadata.version?
+  const versions = _get(result, "versions"); // TODO: What is this??
 
-  const thesis = _get(result, "metadata.thesis");
-  const publishers = _get(result, "metadata.publishers", []);
+  const thesis = _get(result, "metadata.thesis"); // TODO: Remove??
+  const publisher = _get(result, "metadata.publisher"); // TODO: only one
 
   const filters =
     currentQueryState && Object.fromEntries(currentQueryState.filters);
@@ -220,14 +204,13 @@ export const ResultsListItemComponent = ({
       creators={creators}
       descriptionStripped={descriptionStripped}
       publicationDate={publicationDate}
-      publishers={publishers}
-      resourceType={resourceType}
+      publisher={publisher}
+      resourceType={resourceTypeGeneral}
       subjects={subjects}
-      languages={languages}
+      language={language}
       title={title}
       version={version}
       versions={versions}
-      rights={rights}
       thesis={thesis}
       allVersionsVisible={allVersionsVisible}
       numOtherVersions={numOtherVersions}
@@ -235,11 +218,9 @@ export const ResultsListItemComponent = ({
       <Item key={result.id}>
         <Item.Content>
           <Grid>
-            <Grid.Row columns={2}>
-              <Grid.Column className="results-list item-side">
-                <ItemSidebarIcons rights={rights} accessStatus={accessRights} />
-              </Grid.Column>
-              <Grid.Column className="results-list item-main">
+            <Grid.Row >
+              <Grid.Row className="results-list item-main">
+                {accessRights && <ItemSidebarIcons rights={accessRights} />}
                 <ItemHeader
                   title={title}
                   searchUrl={searchAppConfig.ui_endpoint}
@@ -249,21 +230,22 @@ export const ResultsListItemComponent = ({
                   creators={creators}
                   contributors={contributors}
                   publicationDate={publicationDate}
-                  languages={languages}
+                  language={language}
                   version={version}
-                  resourceType={resourceType}
+                  resourceType={resourceTypeGeneral}
                   thesis={thesis}
-                  subjects={subjects}
                   searchUrl={searchAppConfig.ui_endpoint}
                 />
                 <Item.Description>
-                  {_truncate(descriptionStripped, { length: 350 })}
+                  {_truncate(descriptionStripped, { length: 350 })} 
                 </Item.Description>
+                <ResultsItemSubjects searchUrl={searchAppConfig.ui_endpoint} subjects={subjects} />
                 <ItemExtraInfo
                   createdDate={createdDate}
-                  publishers={publishers}
+                  language={language}
+                  publishers={publisher}
                 />
-              </Grid.Column>
+              </Grid.Row>
             </Grid.Row>
           </Grid>
         </Item.Content>
