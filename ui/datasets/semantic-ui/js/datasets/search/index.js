@@ -1,31 +1,15 @@
-import * as React from "react";
 import {
   createSearchAppsInit,
   parseSearchAppConfigs,
   SearchappSearchbarElement,
 } from "@js/oarepo_ui";
-import {
-  ResultsGridItemWithState,
-  ResultsListItemWithState,
-  EmptyResultsElement,
-} from "./components";
-import { parametrize } from "react-overridable";
-const [searchAppConfig, ...otherSearchAppConfigs] = parseSearchAppConfigs();
+
+const [searchAppConfig, ..._] = parseSearchAppConfigs();
 const { overridableIdPrefix } = searchAppConfig;
 
-console.log("searchAppConfig", searchAppConfig);
-
-const ResultsListItemWithConfig = parametrize(ResultsListItemWithState, {
-  appName: overridableIdPrefix,
-});
-const ResultsGridItemWithConfig = parametrize(ResultsGridItemWithState, {
-  appName: overridableIdPrefix,
-});
+export * from "./components";
 
 export const componentOverrides = {
-  // [`${overridableIdPrefix}.EmptyResults.element`]: EmptyResultsElement,
-  [`${overridableIdPrefix}.ResultsGrid.item`]: ResultsGridItemWithConfig,
-  [`${overridableIdPrefix}.ResultsList.item`]: ResultsListItemWithConfig,
   [`${overridableIdPrefix}.SearchBar.element`]: SearchappSearchbarElement,
 };
 
