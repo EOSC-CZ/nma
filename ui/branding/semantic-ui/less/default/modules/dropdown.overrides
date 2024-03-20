@@ -5,3 +5,11 @@
     min-width: 0 !important;
   }
 }
+
+.ui.dropdown.language-selector {
+  border-radius: 20px;
+
+  .menu {
+    border-radius: 0 0 20px 20px;
+  }
+}

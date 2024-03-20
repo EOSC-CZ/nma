@@ -10,7 +10,7 @@
 @pink: #FF5B7F;
 @black: #040305;
 @lightGrey: #E4E4E3;
-@grey: darken(@lightGrey, 20%);
+@grey: #333333;
 
 
 @navbar_background_color: #fff;

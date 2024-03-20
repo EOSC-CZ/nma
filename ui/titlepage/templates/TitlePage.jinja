@@ -26,11 +26,9 @@
       {%- block frontpage_search %}
       {%- block frontpage_title %}
       <div class="ui text container centered">
-        <div class="ui header">
-          <a class="logo" href="/">{{ _(config.THEME_SITENAME)|upper }}</a>
-        </div>
+        <h1 class="ui header">{{ _(config.THEME_SITENAME)|upper }}</h1>
         <div class="ui label pink">
-          <h1 class="ui header  medium">{{ _(config.THEME_FRONTPAGE_TITLE)|upper }}</h1>
+          <h6 class="ui header" style="color: white;">{{ _(config.THEME_FRONTPAGE_TITLE)|upper }}</h6>
         </div>
       </div>
       {%- endblock frontpage_title %}
@@ -47,7 +45,7 @@
           </form>
         </div>
       </div>
-      <div class="ui divider hidden"></div>
+      <hr class="ui divider hidden">
       {%- endblock frontpage_form %}
       {%- endblock frontpage_search %}
       {% endblock main_column_content %}
