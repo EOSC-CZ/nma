@@ -6,28 +6,29 @@
       Site Colors
 --------------------*/
 @brandColor: hsl(0deg, 0%, 100% / 50%);
-@green: #23d26e;
-@blue: #0478f0;
-@grey: darken(@lightGrey, 50);
-@lightGrey: #e8e6e6;
+@teal: #008691;
+@pink: #FF5B7F;
+@black: #040305;
+@lightGrey: #E4E4E3;
+@grey: darken(@lightGrey, 20%);
 
-@navbar_background_image: url("../../../static/images/background.png");
+
 @navbar_background_color: #fff;
 
-@borderColor: @green;
+@borderColor: @grey;
 
 /*-------------------
     Brand Colors
 --------------------*/
 
-@primaryColor: @green;
-@secondaryColor: @blue;
+@primaryColor: @teal;
+@secondaryColor: @pink;
 
-@lightPrimaryColor: lighten(@green, 50);
-@lightSecondaryColor: lighten(@blue, 50);
+@lightPrimaryColor: lighten(@teal, 50%);
+@lightSecondaryColor: lighten(@pink, 50%);
 
 @selectionBackground: @lightGrey;
-@celledBorderColor: @green;
+@celledBorderColor: @teal;
 
 @linkHoverUnderline: underline;
-@highlightHeaderColor: #ededed;
+@highlightHeaderColor: @lightGrey;

@@ -11,7 +11,7 @@
     .item.active {
       background-color: @primaryColor;
       color: @white;
-      border: 1px solid @green;
+      border: 1px solid @teal;
 
       &:hover {
         background-color: @primaryColorHover;

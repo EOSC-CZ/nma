@@ -1,7 +1,7 @@
 .ui.label {
   &.language {
     padding: @languageVerticalPadding @languageHorizontalPadding;
-    color: @green;
+    color: @teal;
     font-weight: @languageFontWeight;
     margin-right: @languageMarginRight;
     position: relative;
