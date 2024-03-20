@@ -2,7 +2,7 @@
 {% for pid in pids %}
 <div class="item">
 
-    <{{ 'a href={url} target="_blank"'.format(url=pid.url) if pid.url else 'span' }}  class="ui label green image">
+    <{{ 'a href={url} target="_blank"'.format(url=pid.url) if pid.url else 'span' }}  class="ui label teal image">
         <i class="external alternate icon"></i>
         {{scheme}}
         <div class="detail">

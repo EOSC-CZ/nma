@@ -5,7 +5,7 @@
     <div class="ui multilingual-tabs">
         <div class="ui compact text menu separated">
             {% for item in data %}
-                <a class="green item {{'active' if loop.first else ''}}" data-tab="{{loop.index}}-{{item.lang|e}}">{{item.lang|upper}}</a>
+                <a class="teal item {{'active' if loop.first else ''}}" data-tab="{{loop.index}}-{{item.lang|e}}">{{item.lang|upper}}</a>
                 {% if not loop.last %}
                 <div class="separator"><div class="vertical-bar"></div></div>
                 {% endif %}

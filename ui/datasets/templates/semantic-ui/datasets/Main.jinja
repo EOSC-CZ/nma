@@ -38,9 +38,17 @@
         <Subjects subjects={metadata.subjects} search_link={record.links.search_link}></Subjects>
     </Field>
 
+    {% set abstracts = metadata.descriptions|selectattr("descriptionType", "eq", "Abstract")|list %}
     <Field label={ _('metadata/abstract.label') }>
-        <Multilingual data={metadata.descriptions}></Multilingual>
+        <Multilingual data={abstracts}></Multilingual>
     </Field>
+
+    {% set other_descriptions = metadata.descriptions|selectattr("descriptionType", "ne", "Abstract")|list %}
+    {% for description in abstracts %}
+    <AccordionField label={description.descriptionType}>
+        <p>{{description.description}}</p>
+    </AccordionField>
+    {% endfor %}
 
     {# {% if metadata.thesis %}
     <Field label={ _('metadata/thesis/degreeGrantors.label') }>

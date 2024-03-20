@@ -85,7 +85,7 @@ const ItemSubheader = ({
               <Label pointing="left" size="mini" basic>
                 <Icon
                   name={isThesisDefended ? "check circle" : "remove circle"}
-                  color={isThesisDefended ? "green" : "red"}
+                  color={isThesisDefended ? "teal" : "red"}
                 />{" "}
                 {isThesisDefended
                   ? i18next.t("defended")

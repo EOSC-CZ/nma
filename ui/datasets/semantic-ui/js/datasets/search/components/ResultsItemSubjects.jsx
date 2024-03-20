@@ -30,7 +30,7 @@ export function ResultsItemSubjects({
 
   return Object.entries(langGroups).map(([lang, values]) => (
     <div className="ui separated" key={lang}>
-      {/* <Label className="green basic lang-tag">{lang}</Label> */}
+      {/* <Label className="teal basic lang-tag">{lang}</Label> */}
       <List horizontal className="separated subjects">
         {values.slice(0, maxCount).map((sub) => (
           <List.Item
