@@ -7,15 +7,16 @@
 --------------------*/
 @brandColor: hsl(0deg, 0%, 100% / 50%);
 @teal: #008691;
-@pink: #FF5B7F;
+@pink: #ff5b7f;
 @black: #040305;
-@lightGrey: #E4E4E3;
+@lightGrey: #e4e4e3;
 @grey: #333333;
-
 
 @navbar_background_color: #fff;
 
 @borderColor: @grey;
+
+@highlightHeaderColor: @lightGrey;
 
 /*-------------------
     Brand Colors
@@ -30,5 +31,17 @@
 @selectionBackground: @lightGrey;
 @celledBorderColor: @teal;
 
+/*-------------------
+       Links
+--------------------*/
+
+@linkColor: @teal;
 @linkHoverUnderline: underline;
-@highlightHeaderColor: @lightGrey;
+@linkHoverColor: darken(saturate(@linkColor, 20), 15, relative);
+
+/*-------------------
+    Focused Input
+--------------------*/
+
+/* Used on inputs, textarea etc */
+@focusedFormBorderColor: #85B7D9;
