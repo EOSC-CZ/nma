@@ -19,7 +19,9 @@ class DatasetsRecord(InvenioRecord):
 
     schema = ConstantField("$schema", "local://datasets-1.0.0.json")
 
-    index = IndexField("datasets-datasets-1.0.0")
+    index = IndexField(
+        "datasets-datasets-1.0.0",
+    )
 
     pid = PIDField(
         provider=DatasetsIdProvider, context_cls=PIDFieldContext, create=True

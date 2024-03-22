@@ -1,7 +1,6 @@
 {
     "model": {
         "type": "model",
-        "custom-fields": [],
         "permissions": {
             "presets": [
                 "read_only"
@@ -26,6 +25,7 @@
             "extra-code": ""
         },
         "searchable": true,
+        "custom-fields": [],
         "ui": {
             "marshmallow": {
                 "imports": [],
@@ -40,6 +40,23 @@
             "module": "datasets.models",
             "file": "datasets/models/ui.json",
             "alias": "datasets"
+        },
+        "service-config": {
+            "components": [
+                "{{invenio_records_resources.services.records.components.DataComponent}}",
+                "{{oarepo_runtime.services.files.FilesComponent}}"
+            ],
+            "generate": true,
+            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
+            "module": "datasets.services.records.config",
+            "class": "datasets.services.records.config.DatasetsServiceConfig",
+            "extra-code": "",
+            "service-id": "datasets",
+            "base-classes": [
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
+                "invenio_records_resources.services.RecordServiceConfig{InvenioRecordServiceConfig}"
+            ],
+            "additional-args": []
         },
         "pid": {
             "type": "dtsts",
@@ -270,6 +287,19 @@
             "module": "datasets.proxies",
             "generate": true
         },
+        "files-field": {
+            "generate": true,
+            "field-class": "invenio_records_resources.records.systemfields.FilesField",
+            "file-class": "datasets.records.api.DatasetsRecord",
+            "field-args": [
+                "store=False"
+            ],
+            "imports": []
+        },
+        "translations": {
+            "module": "datasets.translations",
+            "alias": "datasets"
+        },
         "json-schema-settings": {
             "generate": true,
             "alias": "datasets",
@@ -287,8 +317,8 @@
             ],
             "extra-code": "",
             "extensions": [
-                "{{datasets.records.dumpers.edtf.DatasetsEDTFIntervalDumperExt}}()",
-                "{{datasets.records.dumpers.multilingual.MultilingualSearchDumperExt}}()"
+                "{{datasets.records.dumpers.multilingual.MultilingualSearchDumperExt}}()",
+                "{{datasets.records.dumpers.edtf.DatasetsEDTFIntervalDumperExt}}()"
             ],
             "imports": []
         },
@@ -306,23 +336,6 @@
             "alias": "datasets",
             "use-versioning": true,
             "alembic": "datasets.alembic"
-        },
-        "service-config": {
-            "generate": true,
-            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
-            "module": "datasets.services.records.config",
-            "class": "datasets.services.records.config.DatasetsServiceConfig",
-            "extra-code": "",
-            "service-id": "datasets",
-            "base-classes": [
-                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
-                "invenio_records_resources.services.RecordServiceConfig{InvenioRecordServiceConfig}"
-            ],
-            "components": [
-                "{{oarepo_runtime.services.files.FilesComponent}}",
-                "{{invenio_records_resources.services.records.components.DataComponent}}"
-            ],
-            "additional-args": []
         },
         "service": {
             "generate": true,
@@ -353,25 +366,24 @@
                 "\"identity\"": "{{ flask.g{g.identity} }}"
             }
         },
-        "files-field": {
+        "multilingual-dumper": {
             "generate": true,
-            "field-class": "invenio_records_resources.records.systemfields.FilesField",
-            "file-class": "datasets.records.api.DatasetsRecord",
-            "field-args": [
-                "store=False"
+            "module": "datasets.records.dumpers.multilingual",
+            "class": "datasets.records.dumpers.multilingual.MultilingualSearchDumperExt",
+            "base-classes": [
+                "oarepo_runtime.records.dumpers.multilingual_dumper.MultilingualDumper"
             ],
+            "extra-code": "",
+            "extensions": [],
             "imports": []
-        },
-        "translations": {
-            "module": "datasets.translations",
-            "alias": "datasets"
         },
         "mapping": {
             "generate": true,
             "alias": "datasets",
             "module": "datasets.records.mappings",
             "index": "datasets-datasets-1.0.0",
-            "file": "datasets/records/mappings/os-v2/datasets/datasets-1.0.0.json"
+            "file": "datasets/records/mappings/os-v2/datasets/datasets-1.0.0.json",
+            "index-field-args": []
         },
         "edtf-interval-dumper": {
             "generate": true,
@@ -404,17 +416,6 @@
                 "oarepo_runtime.services.results.RecordItem"
             ],
             "components": [],
-            "imports": []
-        },
-        "multilingual-dumper": {
-            "generate": true,
-            "module": "datasets.records.dumpers.multilingual",
-            "class": "datasets.records.dumpers.multilingual.MultilingualSearchDumperExt",
-            "base-classes": [
-                "oarepo_runtime.records.dumpers.multilingual_dumper.MultilingualDumper"
-            ],
-            "extra-code": "",
-            "extensions": [],
             "imports": []
         },
         "sortable": [],
@@ -672,7 +673,7 @@
                                                     }
                                                 }
                                             },
-                                            "schemeUri": {
+                                            "schemeURI": {
                                                 "type": "url",
                                                 "marshmallow": {
                                                     "read": false,
@@ -821,7 +822,7 @@
                                                     }
                                                 }
                                             },
-                                            "schemeUri": {
+                                            "schemeURI": {
                                                 "type": "url",
                                                 "marshmallow": {
                                                     "read": false,
@@ -927,7 +928,7 @@
                                                     }
                                                 }
                                             },
-                                            "schemeUri": {
+                                            "schemeURI": {
                                                 "type": "url",
                                                 "marshmallow": {
                                                     "read": false,
@@ -1039,7 +1040,7 @@
                                                     }
                                                 }
                                             },
-                                            "schemeUri": {
+                                            "schemeURI": {
                                                 "type": "url",
                                                 "marshmallow": {
                                                     "read": false,
@@ -1091,7 +1092,7 @@
                             },
                             "properties": {
                                 "date": {
-                                    "type": "edtf",
+                                    "type": "edtf-time",
                                     "required": true,
                                     "ui": {
                                         "marshmallow": {
@@ -1284,7 +1285,7 @@
                                         }
                                     }
                                 },
-                                "awardUri": {
+                                "awardURI": {
                                     "type": "url",
                                     "marshmallow": {
                                         "read": false,
@@ -1936,7 +1937,7 @@
                                         }
                                     }
                                 },
-                                "schemeUri": {
+                                "schemeURI": {
                                     "type": "url",
                                     "marshmallow": {
                                         "read": false,
@@ -2037,7 +2038,7 @@
                                                                 }
                                                             }
                                                         },
-                                                        "schemeUri": {
+                                                        "schemeURI": {
                                                             "type": "url",
                                                             "marshmallow": {
                                                                 "read": false,
@@ -2186,7 +2187,7 @@
                                                                 }
                                                             }
                                                         },
-                                                        "schemeUri": {
+                                                        "schemeURI": {
                                                             "type": "url",
                                                             "marshmallow": {
                                                                 "read": false,
@@ -2292,7 +2293,7 @@
                                                                 }
                                                             }
                                                         },
-                                                        "schemeUri": {
+                                                        "schemeURI": {
                                                             "type": "url",
                                                             "marshmallow": {
                                                                 "read": false,
@@ -2404,7 +2405,7 @@
                                                                 }
                                                             }
                                                         },
-                                                        "schemeUri": {
+                                                        "schemeURI": {
                                                             "type": "url",
                                                             "marshmallow": {
                                                                 "read": false,
@@ -2661,6 +2662,142 @@
                                         }
                                     }
                                 },
+                                "relatedMetadataScheme": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "relationType": {
+                                    "type": "keyword",
+                                    "required": true,
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "IsCitedBy",
+                                        "Cites",
+                                        "IsCollectedBy",
+                                        "Collects",
+                                        "IsSupplementTo",
+                                        "IsSupplementedBy",
+                                        "IsContinuedBy",
+                                        "Continues",
+                                        "IsDescribedBy",
+                                        "Describes",
+                                        "HasMetadata",
+                                        "IsMetadataFor",
+                                        "HasVersion",
+                                        "IsVersionOf",
+                                        "IsNewVersionOf",
+                                        "IsPartOf",
+                                        "IsPreviousVersionOf",
+                                        "IsPublishedIn",
+                                        "HasPart",
+                                        "IsReferencedBy",
+                                        "References",
+                                        "IsDocumentedBy",
+                                        "Documents",
+                                        "IsCompiledBy",
+                                        "Compiles",
+                                        "IsVariantFormOf",
+                                        "IsOriginalFormOf",
+                                        "IsIdenticalTo",
+                                        "IsReviewedBy",
+                                        "Reviews",
+                                        "IsDerivedFrom",
+                                        "IsSourceOf",
+                                        "IsRequiredBy",
+                                        "Requires",
+                                        "IsObsoletedBy",
+                                        "Obsoletes"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "resourceTypeGeneral": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "enum": [
+                                        "Audiovisual",
+                                        "Book",
+                                        "BookChapter",
+                                        "Collection",
+                                        "ComputationalNotebook",
+                                        "ConferencePaper",
+                                        "ConferenceProceeding",
+                                        "DataPaper",
+                                        "Dataset",
+                                        "Dissertation",
+                                        "Event",
+                                        "Image",
+                                        "Instrument",
+                                        "InteractiveResource",
+                                        "Journal",
+                                        "JournalArticle",
+                                        "Model",
+                                        "OutputManagementPlan",
+                                        "PeerReview",
+                                        "PhysicalObject",
+                                        "Preprint",
+                                        "Report",
+                                        "Service",
+                                        "Software",
+                                        "Sound",
+                                        "Standard",
+                                        "StudyRegistration",
+                                        "Text",
+                                        "Workflow",
+                                        "Other"
+                                    ],
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "schemeType": {
+                                    "type": "keyword",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
+                                "schemeURI": {
+                                    "type": "url",
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "read": false,
+                                            "write": false
+                                        }
+                                    }
+                                },
                                 "titles": {
                                     "type": "array",
                                     "required": true,
@@ -2809,7 +2946,7 @@
                                         }
                                     }
                                 },
-                                "rightsUri": {
+                                "rightsURI": {
                                     "type": "url",
                                     "marshmallow": {
                                         "read": false,
@@ -2822,7 +2959,7 @@
                                         }
                                     }
                                 },
-                                "schemeUri": {
+                                "schemeURI": {
                                     "type": "url",
                                     "marshmallow": {
                                         "read": false,
@@ -2908,7 +3045,7 @@
                                         }
                                     }
                                 },
-                                "schemeUri": {
+                                "schemeURI": {
                                     "type": "url",
                                     "marshmallow": {
                                         "read": false,
@@ -2948,7 +3085,7 @@
                                         }
                                     }
                                 },
-                                "valueUri": {
+                                "valueURI": {
                                     "type": "url",
                                     "marshmallow": {
                                         "read": false,
@@ -3128,6 +3265,46 @@
                             "marshmallow": {
                                 "read": false,
                                 "write": false
+                            }
+                        }
+                    }
+                }
+            },
+            "oai": {
+                "type": "object",
+                "marshmallow": {
+                    "generate": true,
+                    "class": "datasets.services.records.schema.OaiSchema"
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "class": "datasets.services.records.ui_schema.OaiUISchema"
+                    }
+                },
+                "properties": {
+                    "harvest": {
+                        "type": "object",
+                        "marshmallow": {
+                            "generate": true,
+                            "class": "datasets.services.records.schema.HarvestSchema"
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "datasets.services.records.ui_schema.HarvestUISchema"
+                            }
+                        },
+                        "properties": {
+                            "datestamp": {
+                                "type": "keyword",
+                                "label.cs": "Datum poslední změny",
+                                "label.en": "Datestamp"
+                            },
+                            "identifier": {
+                                "type": "keyword",
+                                "label.cs": "OAI identifikátor",
+                                "label.en": "OAI identifier"
                             }
                         }
                     }

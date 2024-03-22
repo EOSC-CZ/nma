@@ -7,14 +7,16 @@ authors = []
 dependencies = [
     "deepmerge>=1.1.0",
     "json5",
+    "langdetect",
     "nr-metadata",
+    "oarepo-oai-pmh-harvester",
     "oarepo-runtime",
     "oarepo-ui",
     "oarepo-vocabularies",
     "oarepo==12.*",
     "python-dotenv",
 ]
-
+requires-python = ">=3.9,<3.11"
 
 [project.entry-points."invenio_assets.webpack"]
 branding = "ui.branding.webpack:theme"
@@ -65,12 +67,12 @@ datasets = "datasets.models:ui.json"
 
 [project.optional-dependencies]
 tests = [
-   "pytest-invenio[opensearch2]",
-        "black",
-        "isort",
-        "autoflake"
-    ]
-
+    "autoflake",
+    "black",
+    "isort",
+    "pytest-invenio>=1.4.11",
+    "pytest-invenio[opensearch2]",
+]
 
 [build-system]
 requires = [

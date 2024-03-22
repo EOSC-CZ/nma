@@ -2,7 +2,6 @@ from oarepo_runtime.datastreams import (
     StreamEntry,
 )
 
-from langdetect import detect
 from oarepo_oaipmh_harvester.transformers.rule import (
     OAIRuleTransformer,
     matches,
@@ -72,8 +71,7 @@ def transform_type(md, entry, value):
 
 @matches("date")
 def transform_date(md, entry, value):
-    # if value.endswith("Z"):
-    #     value = value[:-1]
+
     md.setdefault("dates", []).append({"date": value, "dateType": "Issued"})
 
 @matches("publisher")

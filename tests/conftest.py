@@ -1,6 +1,5 @@
 import pytest
 from invenio_app.factory import create_app as _create_app
-from invenio_search.proxies import current_search
 
 @pytest.fixture(scope="module")
 def extra_entry_points():
@@ -35,7 +34,6 @@ def app_config(app_config):
     app_config["DATASTREAMS_TRANSFORMERS"] = {
         "lindat_transformer": "common.oai.transformers.lindat:LinDatTransformer"
     }
-    # app_config["SQLALCHEMY_ENGINE_OPTIONS"] = {"echo": True}
     return app_config
 
 
