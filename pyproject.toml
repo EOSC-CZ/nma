@@ -7,7 +7,9 @@ authors = []
 dependencies = [
     "deepmerge>=1.1.0",
     "json5",
+    "langdetect",
     "nr-metadata",
+    "oarepo-oai-pmh-harvester",
     "oarepo-runtime",
     "oarepo-ui",
     "oarepo-vocabularies",
@@ -65,7 +67,11 @@ datasets = "datasets.models:ui.json"
 
 [project.optional-dependencies]
 tests = [
+    "autoflake",
+    "black",
+    "isort",
     "pytest-invenio>=1.4.11",
+    "pytest-invenio[opensearch2]",
 ]
 
 [build-system]

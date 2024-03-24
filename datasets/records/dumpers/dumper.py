@@ -7,4 +7,4 @@ from datasets.records.dumpers.multilingual import MultilingualSearchDumperExt
 class DatasetsDumper(SearchDumper):
     """DatasetsRecord opensearch dumper."""
 
-    extensions = [DatasetsEDTFIntervalDumperExt(), MultilingualSearchDumperExt()]
+    extensions = [MultilingualSearchDumperExt(), DatasetsEDTFIntervalDumperExt()]

@@ -36,6 +36,8 @@ record:
   use:
   - invenio
   - ./datasets-custom_fields.yaml
+  - ./datasets-harvest.yaml
+
 runtime-dependencies: {}
 settings:
   i18n-languages:

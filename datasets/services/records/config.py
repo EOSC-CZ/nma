@@ -38,8 +38,8 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceC
     components = [
         *PermissionsPresetsConfigMixin.components,
         *InvenioRecordServiceConfig.components,
-        FilesComponent,
         DataComponent,
+        FilesComponent,
     ]
 
     model = "datasets"

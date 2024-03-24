@@ -41,9 +41,9 @@ metadata_contributors_affiliation_name = TermsFacet(
     label=_("metadata/contributors/affiliation/name.label"),
 )
 
-metadata_contributors_affiliation_schemeUri = TermsFacet(
-    field="metadata.contributors.affiliation.schemeUri",
-    label=_("metadata/contributors/affiliation/schemeUri.label"),
+metadata_contributors_affiliation_schemeURI = TermsFacet(
+    field="metadata.contributors.affiliation.schemeURI",
+    label=_("metadata/contributors/affiliation/schemeURI.label"),
 )
 
 metadata_contributors_contributorType = TermsFacet(
@@ -79,9 +79,9 @@ metadata_contributors_nameIdentifiers_nameIdentifierScheme = TermsFacet(
     label=_("metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"),
 )
 
-metadata_contributors_nameIdentifiers_schemeUri = TermsFacet(
-    field="metadata.contributors.nameIdentifiers.schemeUri",
-    label=_("metadata/contributors/nameIdentifiers/schemeUri.label"),
+metadata_contributors_nameIdentifiers_schemeURI = TermsFacet(
+    field="metadata.contributors.nameIdentifiers.schemeURI",
+    label=_("metadata/contributors/nameIdentifiers/schemeURI.label"),
 )
 
 metadata_contributors_nameType = TermsFacet(
@@ -104,9 +104,9 @@ metadata_creators_affiliation_name = TermsFacet(
     label=_("metadata/creators/affiliation/name.label"),
 )
 
-metadata_creators_affiliation_schemeUri = TermsFacet(
-    field="metadata.creators.affiliation.schemeUri",
-    label=_("metadata/creators/affiliation/schemeUri.label"),
+metadata_creators_affiliation_schemeURI = TermsFacet(
+    field="metadata.creators.affiliation.schemeURI",
+    label=_("metadata/creators/affiliation/schemeURI.label"),
 )
 
 metadata_creators_familyName = TermsFacet(
@@ -135,9 +135,9 @@ metadata_creators_nameIdentifiers_nameIdentifierScheme = TermsFacet(
     label=_("metadata/creators/nameIdentifiers/nameIdentifierScheme.label"),
 )
 
-metadata_creators_nameIdentifiers_schemeUri = TermsFacet(
-    field="metadata.creators.nameIdentifiers.schemeUri",
-    label=_("metadata/creators/nameIdentifiers/schemeUri.label"),
+metadata_creators_nameIdentifiers_schemeURI = TermsFacet(
+    field="metadata.creators.nameIdentifiers.schemeURI",
+    label=_("metadata/creators/nameIdentifiers/schemeURI.label"),
 )
 
 metadata_creators_nameType = TermsFacet(
@@ -182,9 +182,9 @@ metadata_fundingReferences_awardTitle = TermsFacet(
     label=_("metadata/fundingReferences/awardTitle.label"),
 )
 
-metadata_fundingReferences_awardUri = TermsFacet(
-    field="metadata.fundingReferences.awardUri",
-    label=_("metadata/fundingReferences/awardUri.label"),
+metadata_fundingReferences_awardURI = TermsFacet(
+    field="metadata.fundingReferences.awardURI",
+    label=_("metadata/fundingReferences/awardURI.label"),
 )
 
 metadata_fundingReferences_funderIdentifier = TermsFacet(
@@ -325,9 +325,9 @@ metadata_relatedIdentifiers_schemeType = TermsFacet(
     label=_("metadata/relatedIdentifiers/schemeType.label"),
 )
 
-metadata_relatedIdentifiers_schemeUri = TermsFacet(
-    field="metadata.relatedIdentifiers.schemeUri",
-    label=_("metadata/relatedIdentifiers/schemeUri.label"),
+metadata_relatedIdentifiers_schemeURI = TermsFacet(
+    field="metadata.relatedIdentifiers.schemeURI",
+    label=_("metadata/relatedIdentifiers/schemeURI.label"),
 )
 
 metadata_relatedItems_contributors_affiliation_affiliationIdentifier = TermsFacet(
@@ -349,9 +349,9 @@ metadata_relatedItems_contributors_affiliation_name = TermsFacet(
     label=_("metadata/relatedItems/contributors/affiliation/name.label"),
 )
 
-metadata_relatedItems_contributors_affiliation_schemeUri = TermsFacet(
-    field="metadata.relatedItems.contributors.affiliation.schemeUri",
-    label=_("metadata/relatedItems/contributors/affiliation/schemeUri.label"),
+metadata_relatedItems_contributors_affiliation_schemeURI = TermsFacet(
+    field="metadata.relatedItems.contributors.affiliation.schemeURI",
+    label=_("metadata/relatedItems/contributors/affiliation/schemeURI.label"),
 )
 
 metadata_relatedItems_contributors_contributorType = TermsFacet(
@@ -391,9 +391,9 @@ metadata_relatedItems_contributors_nameIdentifiers_nameIdentifierScheme = TermsF
     ),
 )
 
-metadata_relatedItems_contributors_nameIdentifiers_schemeUri = TermsFacet(
-    field="metadata.relatedItems.contributors.nameIdentifiers.schemeUri",
-    label=_("metadata/relatedItems/contributors/nameIdentifiers/schemeUri.label"),
+metadata_relatedItems_contributors_nameIdentifiers_schemeURI = TermsFacet(
+    field="metadata.relatedItems.contributors.nameIdentifiers.schemeURI",
+    label=_("metadata/relatedItems/contributors/nameIdentifiers/schemeURI.label"),
 )
 
 metadata_relatedItems_contributors_nameType = TermsFacet(
@@ -418,9 +418,9 @@ metadata_relatedItems_creators_affiliation_name = TermsFacet(
     label=_("metadata/relatedItems/creators/affiliation/name.label"),
 )
 
-metadata_relatedItems_creators_affiliation_schemeUri = TermsFacet(
-    field="metadata.relatedItems.creators.affiliation.schemeUri",
-    label=_("metadata/relatedItems/creators/affiliation/schemeUri.label"),
+metadata_relatedItems_creators_affiliation_schemeURI = TermsFacet(
+    field="metadata.relatedItems.creators.affiliation.schemeURI",
+    label=_("metadata/relatedItems/creators/affiliation/schemeURI.label"),
 )
 
 metadata_relatedItems_creators_familyName = TermsFacet(
@@ -455,9 +455,9 @@ metadata_relatedItems_creators_nameIdentifiers_nameIdentifierScheme = TermsFacet
     ),
 )
 
-metadata_relatedItems_creators_nameIdentifiers_schemeUri = TermsFacet(
-    field="metadata.relatedItems.creators.nameIdentifiers.schemeUri",
-    label=_("metadata/relatedItems/creators/nameIdentifiers/schemeUri.label"),
+metadata_relatedItems_creators_nameIdentifiers_schemeURI = TermsFacet(
+    field="metadata.relatedItems.creators.nameIdentifiers.schemeURI",
+    label=_("metadata/relatedItems/creators/nameIdentifiers/schemeURI.label"),
 )
 
 metadata_relatedItems_creators_nameType = TermsFacet(
@@ -520,6 +520,31 @@ metadata_relatedItems_relatedItemType = TermsFacet(
     label=_("metadata/relatedItems/relatedItemType.label"),
 )
 
+metadata_relatedItems_relatedMetadataScheme = TermsFacet(
+    field="metadata.relatedItems.relatedMetadataScheme",
+    label=_("metadata/relatedItems/relatedMetadataScheme.label"),
+)
+
+metadata_relatedItems_relationType = TermsFacet(
+    field="metadata.relatedItems.relationType",
+    label=_("metadata/relatedItems/relationType.label"),
+)
+
+metadata_relatedItems_resourceTypeGeneral = TermsFacet(
+    field="metadata.relatedItems.resourceTypeGeneral",
+    label=_("metadata/relatedItems/resourceTypeGeneral.label"),
+)
+
+metadata_relatedItems_schemeType = TermsFacet(
+    field="metadata.relatedItems.schemeType",
+    label=_("metadata/relatedItems/schemeType.label"),
+)
+
+metadata_relatedItems_schemeURI = TermsFacet(
+    field="metadata.relatedItems.schemeURI",
+    label=_("metadata/relatedItems/schemeURI.label"),
+)
+
 metadata_relatedItems_titles_lang = TermsFacet(
     field="metadata.relatedItems.titles.lang",
     label=_("metadata/relatedItems/titles/lang.label"),
@@ -552,14 +577,14 @@ metadata_rightsList_rightsIdentifierScheme = TermsFacet(
     label=_("metadata/rightsList/rightsIdentifierScheme.label"),
 )
 
-metadata_rightsList_rightsUri = TermsFacet(
-    field="metadata.rightsList.rightsUri",
-    label=_("metadata/rightsList/rightsUri.label"),
+metadata_rightsList_rightsURI = TermsFacet(
+    field="metadata.rightsList.rightsURI",
+    label=_("metadata/rightsList/rightsURI.label"),
 )
 
-metadata_rightsList_schemeUri = TermsFacet(
-    field="metadata.rightsList.schemeUri",
-    label=_("metadata/rightsList/schemeUri.label"),
+metadata_rightsList_schemeURI = TermsFacet(
+    field="metadata.rightsList.schemeURI",
+    label=_("metadata/rightsList/schemeURI.label"),
 )
 
 metadata_schemaVersion = TermsFacet(
@@ -577,8 +602,8 @@ metadata_subjects_lang = TermsFacet(
     field="metadata.subjects.lang", label=_("metadata/subjects/lang.label")
 )
 
-metadata_subjects_schemeUri = TermsFacet(
-    field="metadata.subjects.schemeUri", label=_("metadata/subjects/schemeUri.label")
+metadata_subjects_schemeURI = TermsFacet(
+    field="metadata.subjects.schemeURI", label=_("metadata/subjects/schemeURI.label")
 )
 
 metadata_subjects_subject = TermsFacet(
@@ -590,8 +615,8 @@ metadata_subjects_subjectScheme = TermsFacet(
     label=_("metadata/subjects/subjectScheme.label"),
 )
 
-metadata_subjects_valueUri = TermsFacet(
-    field="metadata.subjects.valueUri", label=_("metadata/subjects/valueUri.label")
+metadata_subjects_valueURI = TermsFacet(
+    field="metadata.subjects.valueURI", label=_("metadata/subjects/valueURI.label")
 )
 
 metadata_titles_lang = TermsFacet(
@@ -615,4 +640,12 @@ metadata_url = TermsFacet(field="metadata.url", label=_("metadata/url.label"))
 
 metadata_version = TermsFacet(
     field="metadata.version", label=_("metadata/version.label")
+)
+
+oai_harvest_datestamp = TermsFacet(
+    field="oai.harvest.datestamp", label=_("oai/harvest/datestamp.label")
+)
+
+oai_harvest_identifier = TermsFacet(
+    field="oai.harvest.identifier", label=_("oai/harvest/identifier.label")
 )
