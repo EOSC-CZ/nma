@@ -1,6 +1,7 @@
 {
     "model": {
         "type": "model",
+        "custom-fields": [],
         "permissions": {
             "presets": [
                 "read_only"
@@ -25,7 +26,6 @@
             "extra-code": ""
         },
         "searchable": true,
-        "custom-fields": [],
         "ui": {
             "marshmallow": {
                 "imports": [],

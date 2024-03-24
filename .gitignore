@@ -8,4 +8,4 @@ node_modules
 .pdm-build
 .vscode
 .env
-test-datacite
+test-datacite.pdm-python
