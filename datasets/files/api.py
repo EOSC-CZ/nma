@@ -8,5 +8,7 @@ class DatasetsFile(FileRecord):
 
     model_cls = DatasetsFileMetadata
 
-    index = IndexField("datasets_file-datasets_file-1.0.0")
+    index = IndexField(
+        "datasets_file-datasets_file-1.0.0",
+    )
     record_cls = None  # is defined inside the parent record

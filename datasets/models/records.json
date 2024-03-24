@@ -41,6 +41,23 @@
             "file": "datasets/models/ui.json",
             "alias": "datasets"
         },
+        "service-config": {
+            "components": [
+                "{{invenio_records_resources.services.records.components.DataComponent}}",
+                "{{oarepo_runtime.services.files.FilesComponent}}"
+            ],
+            "generate": true,
+            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
+            "module": "datasets.services.records.config",
+            "class": "datasets.services.records.config.DatasetsServiceConfig",
+            "extra-code": "",
+            "service-id": "datasets",
+            "base-classes": [
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
+                "invenio_records_resources.services.RecordServiceConfig{InvenioRecordServiceConfig}"
+            ],
+            "additional-args": []
+        },
         "pid": {
             "type": "dtsts",
             "generate": true,
@@ -320,23 +337,6 @@
             "use-versioning": true,
             "alembic": "datasets.alembic"
         },
-        "service-config": {
-            "generate": true,
-            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
-            "module": "datasets.services.records.config",
-            "class": "datasets.services.records.config.DatasetsServiceConfig",
-            "extra-code": "",
-            "service-id": "datasets",
-            "base-classes": [
-                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
-                "invenio_records_resources.services.RecordServiceConfig{InvenioRecordServiceConfig}"
-            ],
-            "components": [
-                "{{oarepo_runtime.services.files.FilesComponent}}",
-                "{{invenio_records_resources.services.records.components.DataComponent}}"
-            ],
-            "additional-args": []
-        },
         "service": {
             "generate": true,
             "config-key": "DATASETS_RECORD_SERVICE_CLASS",
@@ -382,7 +382,8 @@
             "alias": "datasets",
             "module": "datasets.records.mappings",
             "index": "datasets-datasets-1.0.0",
-            "file": "datasets/records/mappings/os-v2/datasets/datasets-1.0.0.json"
+            "file": "datasets/records/mappings/os-v2/datasets/datasets-1.0.0.json",
+            "index-field-args": []
         },
         "edtf-interval-dumper": {
             "generate": true,
@@ -1091,7 +1092,7 @@
                             },
                             "properties": {
                                 "date": {
-                                    "type": "edtf",
+                                    "type": "edtf-time",
                                     "required": true,
                                     "ui": {
                                         "marshmallow": {
@@ -3264,6 +3265,46 @@
                             "marshmallow": {
                                 "read": false,
                                 "write": false
+                            }
+                        }
+                    }
+                }
+            },
+            "oai": {
+                "type": "object",
+                "marshmallow": {
+                    "generate": true,
+                    "class": "datasets.services.records.schema.OaiSchema"
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "class": "datasets.services.records.ui_schema.OaiUISchema"
+                    }
+                },
+                "properties": {
+                    "harvest": {
+                        "type": "object",
+                        "marshmallow": {
+                            "generate": true,
+                            "class": "datasets.services.records.schema.HarvestSchema"
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "datasets.services.records.ui_schema.HarvestUISchema"
+                            }
+                        },
+                        "properties": {
+                            "datestamp": {
+                                "type": "keyword",
+                                "label.cs": "Datum poslední změny",
+                                "label.en": "Datestamp"
+                            },
+                            "identifier": {
+                                "type": "keyword",
+                                "label.cs": "OAI identifikátor",
+                                "label.en": "OAI identifier"
                             }
                         }
                     }

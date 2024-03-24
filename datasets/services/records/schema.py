@@ -6,6 +6,7 @@ from nr_metadata.datacite.services.records.schema import (
     DataCiteRecordSchema,
     NRDataCiteMetadataSchema,
 )
+from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
 
 
 class DatasetsSchema(DataCiteRecordSchema):
@@ -13,6 +14,8 @@ class DatasetsSchema(DataCiteRecordSchema):
         unknown = ma.RAISE
 
     metadata = ma_fields.Nested(lambda: NRDataCiteMetadataSchema())
+
+    oai = ma_fields.Nested(lambda: OaiSchema())
     files = ma.fields.Nested(
         lambda: FilesOptionsSchema(), load_default={"enabled": True}
     )
@@ -31,6 +34,22 @@ class DatasetsSchema(DataCiteRecordSchema):
             return getattr(obj, attr, default)
         else:
             return get_value(obj, attr, default)
+
+
+class OaiSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    harvest = ma_fields.Nested(lambda: HarvestSchema())
+
+
+class HarvestSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    datestamp = ma_fields.String()
+
+    identifier = ma_fields.String()
 
 
 class FilesOptionsSchema(ma.Schema):

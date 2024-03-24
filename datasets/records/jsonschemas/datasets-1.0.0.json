@@ -666,6 +666,22 @@
                 }
             }
         },
+        "oai": {
+            "type": "object",
+            "properties": {
+                "harvest": {
+                    "type": "object",
+                    "properties": {
+                        "datestamp": {
+                            "type": "string"
+                        },
+                        "identifier": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "updated": {
             "type": "string",
             "format": "date-time"
