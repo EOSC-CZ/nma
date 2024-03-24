@@ -11,7 +11,8 @@ source ~/.envrc.local
 source "$(dirname "$0")/../.venv/bin/activate"
 
 invenio oarepo oai harvester add lindat_dc --name "LINDAT oai_dc harvester" \
-            --url http://lindat.mff.cuni.cz/repository/oai/request? --set hdl_11858_00-097C-0000-0001-486F-D --prefix oai_dc \
+            --url 'http://lindat.mff.cuni.cz/repository/oai/request?' \
+            --set hdl_11858_00-097C-0000-0001-486F-D --prefix oai_dc \
             --loader 'sickle' \
             --transformer lindat_transformer \
             --writer 'service{service=datasets}'
