@@ -1,107 +1,67 @@
-{#def metadata, ui, record, extra_context #}
-<h1 class="ui teal header" style="margin-bottom: 1em">{{ metadata.titles[0].title }}</h1>
+{#def ui, record, extra_context, d #}
+
+{% set md=d.metadata %}
+
+<h1 class="ui teal header" style="margin-bottom: 1em">{{ md.titles.0.title }}</h1>
 
 <dl class="ui very basic table">
 
-    <Field label={_('metadata/additionalTitles.label')}>
-        <AdditionalTitles data={metadata.titles[1:]}></AdditionalTitles>
-    </Field>
-    <dt>{{ _('People') }}</dt>
-    <dd>
-        <People metadata={metadata} search_link={record.links.search_link}></People>
-    </dd>
-    <Field label={ _('metadata/dateAvailable.label') }>{{metadata.dates|selectattr("dateType", "eq",
-        "Issued")|map(attribute="date")|first}}</Field>
-    <Field label={ _('metadata/dateModified.label') }>{{record.updated}}</Field> {# TODO Should I return metadata.dateModified? #}
+    <IField d={md.titles[1:]}>
+        <AdditionalTitles data={md.titles[1:]}></AdditionalTitles>
+    </IField>
 
-    <Field label={ _('metadata/languages.label') }>{{metadata.language}}</Field>
+    <IField label={_('People')}>
+        <People md={md} search_link={record.links.search_link}></People>
+    </IField>
 
-    <Field label={ _('metadata/publishers.label') }>
-        <Publisher publisher={metadata.publisher} search_link={record.links.search_link}></Publisher>
-    </Field>
+    <IField label={_('metadata/dateAvailable.label')}>
+        {{md.dates._filter(dateType="Issued")._select("date")._first()}}
+    </IField>
 
-    <Field label={ _('metadata/resourceType.label') }>{{metadata.types|map(attribute="resourceTypeGeneral")|first}}
-    </Field>
-    {# {% if metadata.thesis %}
-    <Field label={ _('metadata/thesis/dateDefended.label') }>{{metadata.thesis.dateDefended}}</Field>
-    {% endif %} #}
+    <IField d={md.dates._filter(dateType="Modified")._select("date")._first()} />
 
-    {# <Field label={_('metadata/accessibility.label')}>{{metadata.accessibility}}</Field>
-    <Field label={ _('metadata/accessRights.label') }>
-        <VocabularyItem vocabulary={metadata.accessRights} search_link={record.links.search_link} searchFacet="metadata_accessRights" vocabulary_type="access-rights"></VocabularyItem>
-    </Field> #}
-    <Field label={ _('metadata/rights.label') }>
-        <Array data={metadata.rightsList|map(attribute='rights')}></Array>
-    </Field>
+    <IField d={md.language} />
 
-    <Field label={ _('metadata/subjects.label') }>
-        <Subjects subjects={metadata.subjects} search_link={record.links.search_link}></Subjects>
-    </Field>
+    <IField d={md.publisher}>
+        <Publisher publisher={md.publisher} search_link={record.links.search_link}></Publisher>
+    </IField>
+    <IField d={md.types}>
+        {% for it in array(md.types.resourceTypeGeneral, md.types.resourceType) %}
+            {% if not loop.first %}, {% endif %}
+            {{ it }}
+        {% endfor %}
+    </IField>
 
-    {% set abstracts = metadata.descriptions|selectattr("descriptionType", "eq", "Abstract")|list %}
-    <Field label={ _('metadata/abstract.label') }>
-        <Multilingual data={abstracts}></Multilingual>
-    </Field>
+    <IField d={md.accessibility} />
+    <IField d={md.rights} />
 
-    {% set other_descriptions = metadata.descriptions|selectattr("descriptionType", "ne", "Abstract")|list %}
-    {% for description in abstracts %}
-    <AccordionField label={description.descriptionType}>
-        <p>{{description.description}}</p>
-    </AccordionField>
+    <IField d={md.subjects} >
+        <Subjects subjects={md.subjects} search_link={record.links.search_link}></Subjects>
+    </IField>
+
+    {% set abstracts = md.descriptions._filter(descriptionType="Abstract") %}
+    <IField label={_('metadata/abstract.label')}>
+        <Multilingual data={abstracts} field="description" />
+    </IField>
+
+
+    {% for description in array(md.descriptions._filter(descriptionType__ne="Abstract")) %}
+        <AccordionField label={description.descriptionType}>
+            <p>{{description.description}}</p>
+        </AccordionField>
     {% endfor %}
 
-    {# {% if metadata.thesis %}
-    <Field label={ _('metadata/thesis/degreeGrantors.label') }>
-        <TaxonomyArray taxonomy={metadata.thesis.degreeGrantors} search_link={record.links.search_link}
-            searchFacet="metadata_thesis_degreeGrantors" vocabulary_type="institutions"></TaxonomyArray>
-    </Field>
-    <Field label={ _('metadata/thesis/studyFields.label') }>
-        <Array data={metadata.thesis.studyFields}></Array>
-    </Field>
-    {% endif %} #}
+     <IField d={ md.events }>
+        <NrEvents data={md.events}></NrEvents>
+     </IField>
 
-    {# <Field label={ _('metadata/events.label') }>
-        <NrEvents data={metadata.events}></NrEvents>
-    </Field>
-    <Field label={ _('metadata/externalLocation.label') }>
-        <NrExternalLocation data={metadata.externalLocation}></NrExternalLocation>
-    </Field>
-    {% if metadata.fundingReferences %}
-    <Field label={ _('metadata/fundingReferences.label') }>
-        <FundingReference funders={metadata.fundingReferences} search_link={record.links.search_link}>
+    <IField d={ md.externalLocation }>
+        <NrExternalLocation data={md.externalLocation}></NrExternalLocation>
+    </IField>
+    {% if md.fundingReferences %}
+    <IField d={md.fundingReferences}>
+        <FundingReference funders={md.fundingReferences} search_link={record.links.search_link}>
         </FundingReference>
-    </Field>
+    </IField>
     {% endif %}
-    {% if metadata.relatedItems %}
-    <Field label={_('metadata/relatedItems.label')}>
-        <RelatedItems relatedItems={metadata.relatedItems} search_link={record.links.search_link}></RelatedItems>
-    </Field>
-    {% endif %}
-    <Field label={ _('metadata/geoLocations.label') }>
-        <NrGeolocation data={metadata.geoLocations}></NrGeolocation>
-    </Field>
-    <Field label={ _('metadata/methods.label') }>
-        <Multilingual data={metadata.methods}></Multilingual>
-    </Field>
-    <Field label={ _('metadata/notes.label') }>
-        <Array data={metadata.notes}></Array>
-    </Field>
-    <Field label={ _('metadata/series.label') }>
-        <NrSeries data={metadata.series}></NrSeries>
-    </Field>
-    <Field label={ _('metadata/subjectCategories.label') }>
-        <VocabularyArray vocabulary={metadata.subjectCategories} search_link={record.links.search_link}
-            searchFacet="metadata_subjectCategories" vocabulary_type="subject-categories"></VocabularyArray>
-    </Field>
-    <Field label={ _('metadata/technicalInfo.label') }>
-        <Multilingual data={metadata.technicalInfo}></Multilingual>
-    </Field>
-
-    <Field label={ _('metadata/version.label') }>{{metadata.version}}</Field> #}
 </dl>
-
-<pre>{{metadata|pprint}}</pre>
-{#
-<pre>{{extra_context|pprint}}</pre> #}
-{#
-<pre>{{record|pprint}}</pre> #}

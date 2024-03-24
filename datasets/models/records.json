@@ -1,6 +1,7 @@
 {
     "model": {
         "type": "model",
+        "custom-fields": [],
         "permissions": {
             "presets": [
                 "read_only"
@@ -25,7 +26,6 @@
             "extra-code": ""
         },
         "searchable": true,
-        "custom-fields": [],
         "ui": {
             "marshmallow": {
                 "imports": [],
@@ -505,6 +505,8 @@
                 "properties": {
                     "alternateIdentifiers": {
                         "type": "array",
+                        "label.cs": "Alternativní identifikátory",
+                        "label.en": "Alternate identifiers",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -530,7 +532,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Identifikátor",
+                                    "label.en": "Identifier"
                                 },
                                 "alternateIdentifierType": {
                                     "type": "keyword",
@@ -544,7 +548,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ identifikátoru",
+                                    "label.en": "Identifier type"
                                 }
                             }
                         }
@@ -561,6 +567,8 @@
                             "generate": false,
                             "class": "nr_metadata.datacite.services.records.schema_datatypes.ContainerSchema"
                         },
+                        "label.cs": "Kontejner",
+                        "label.en": "Container",
                         "properties": {
                             "firstPage": {
                                 "type": "keyword",
@@ -573,7 +581,9 @@
                                         "read": false,
                                         "write": false
                                     }
-                                }
+                                },
+                                "label.cs": "První strana",
+                                "label.en": "First page"
                             },
                             "title": {
                                 "type": "keyword",
@@ -586,7 +596,9 @@
                                         "read": false,
                                         "write": false
                                     }
-                                }
+                                },
+                                "label.cs": "Název",
+                                "label.en": "Title"
                             },
                             "type": {
                                 "type": "keyword",
@@ -599,12 +611,16 @@
                                         "read": false,
                                         "write": false
                                     }
-                                }
+                                },
+                                "label.cs": "Typ",
+                                "label.en": "Type"
                             }
                         }
                     },
                     "contributors": {
                         "type": "array",
+                        "label.cs": "Přispěvatelé",
+                        "label.en": "Contributors",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -644,7 +660,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Identifikátor afiliace",
+                                                "label.en": "Affiliation identifier"
                                             },
                                             "affiliationIdentifierScheme": {
                                                 "type": "keyword",
@@ -657,7 +675,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Schéma identifikátoru afiliace",
+                                                "label.en": "Affiliation identifier scheme"
                                             },
                                             "name": {
                                                 "type": "keyword",
@@ -671,7 +691,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Název",
+                                                "label.en": "Name"
                                             },
                                             "schemeURI": {
                                                 "type": "url",
@@ -684,7 +706,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "URI schématu",
+                                                "label.en": "Scheme URI"
                                             }
                                         }
                                     }
@@ -724,7 +748,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ přispěvatele",
+                                    "label.en": "Contributor type"
                                 },
                                 "familyName": {
                                     "type": "keyword",
@@ -737,7 +763,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Příjmení",
+                                    "label.en": "Family name"
                                 },
                                 "givenName": {
                                     "type": "keyword",
@@ -750,7 +778,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Křestní jméno",
+                                    "label.en": "Given name"
                                 },
                                 "lang": {
                                     "type": "keyword",
@@ -763,7 +793,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
                                 },
                                 "name": {
                                     "type": "keyword",
@@ -777,7 +809,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Jméno",
+                                    "label.en": "Name"
                                 },
                                 "nameIdentifiers": {
                                     "type": "array",
@@ -806,7 +840,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Identifikátor",
+                                                "label.en": "Identifier"
                                             },
                                             "nameIdentifierScheme": {
                                                 "type": "keyword",
@@ -820,7 +856,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Schéma identifikátoru",
+                                                "label.en": "Identifier scheme"
                                             },
                                             "schemeURI": {
                                                 "type": "url",
@@ -833,7 +871,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "URI schématu",
+                                                "label.en": "Scheme URI"
                                             }
                                         }
                                     }
@@ -853,13 +893,17 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ jména",
+                                    "label.en": "Name type"
                                 }
                             }
                         }
                     },
                     "creators": {
                         "type": "array",
+                        "label.cs": "Autoři",
+                        "label.en": "Authors",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -899,7 +943,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Identifikátor afiliace",
+                                                "label.en": "Affiliation identifier"
                                             },
                                             "affiliationIdentifierScheme": {
                                                 "type": "keyword",
@@ -912,7 +958,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Schéma identifikátoru afiliace",
+                                                "label.en": "Affiliation identifier scheme"
                                             },
                                             "name": {
                                                 "type": "keyword",
@@ -926,7 +974,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Název",
+                                                "label.en": "Name"
                                             },
                                             "schemeURI": {
                                                 "type": "url",
@@ -939,7 +989,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "URI schématu",
+                                                "label.en": "Scheme URI"
                                             }
                                         }
                                     }
@@ -955,7 +1007,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Příjmení",
+                                    "label.en": "Family name"
                                 },
                                 "givenName": {
                                     "type": "keyword",
@@ -968,7 +1022,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Křestní jméno",
+                                    "label.en": "Given name"
                                 },
                                 "lang": {
                                     "type": "keyword",
@@ -981,7 +1037,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
                                 },
                                 "name": {
                                     "type": "keyword",
@@ -995,7 +1053,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Jméno",
+                                    "label.en": "Name"
                                 },
                                 "nameIdentifiers": {
                                     "type": "array",
@@ -1024,7 +1084,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Identifikátor",
+                                                "label.en": "Identifier"
                                             },
                                             "nameIdentifierScheme": {
                                                 "type": "keyword",
@@ -1038,7 +1100,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Schéma identifikátoru",
+                                                "label.en": "Identifier scheme"
                                             },
                                             "schemeURI": {
                                                 "type": "url",
@@ -1051,7 +1115,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "URI schématu",
+                                                "label.en": "Scheme URI"
                                             }
                                         }
                                     }
@@ -1071,13 +1137,17 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ jména",
+                                    "label.en": "Name type"
                                 }
                             }
                         }
                     },
                     "dates": {
                         "type": "array",
+                        "label.cs": "Data",
+                        "label.en": "Dates",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -1103,7 +1173,9 @@
                                     "marshmallow": {
                                         "read": false,
                                         "write": false
-                                    }
+                                    },
+                                    "label.cs": "Datum",
+                                    "label.en": "Date"
                                 },
                                 "dateInformation": {
                                     "type": "keyword",
@@ -1116,7 +1188,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Informace o datu",
+                                    "label.en": "Date information"
                                 },
                                 "dateType": {
                                     "type": "keyword",
@@ -1143,13 +1217,17 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ data",
+                                    "label.en": "Date type"
                                 }
                             }
                         }
                     },
                     "descriptions": {
                         "type": "array",
+                        "label.cs": "Popisy",
+                        "label.en": "Descriptions",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -1175,7 +1253,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Popis",
+                                    "label.en": "Description"
                                 },
                                 "descriptionType": {
                                     "type": "keyword",
@@ -1197,7 +1277,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ popisu",
+                                    "label.en": "Description type"
                                 },
                                 "lang": {
                                     "type": "keyword",
@@ -1210,7 +1292,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
                                 }
                             }
                         }
@@ -1226,10 +1310,14 @@
                                 "read": false,
                                 "write": false
                             }
-                        }
+                        },
+                        "label.cs": "DOI",
+                        "label.en": "DOI"
                     },
                     "formats": {
                         "type": "array",
+                        "label.cs": "Formáty",
+                        "label.en": "Formats",
                         "items": {
                             "type": "keyword",
                             "marshmallow": {
@@ -1246,6 +1334,8 @@
                     },
                     "fundingReferences": {
                         "type": "array",
+                        "label.cs": "Financování",
+                        "label.en": "Funding",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -1270,7 +1360,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Číslo ocenění",
+                                    "label.en": "Award number"
                                 },
                                 "awardTitle": {
                                     "type": "keyword",
@@ -1283,7 +1375,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Název ocenění",
+                                    "label.en": "Award title"
                                 },
                                 "awardURI": {
                                     "type": "url",
@@ -1296,7 +1390,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "URI ocenění",
+                                    "label.en": "Award URI"
                                 },
                                 "funderIdentifier": {
                                     "type": "keyword",
@@ -1309,7 +1405,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Identifikátor funderu",
+                                    "label.en": "Funder identifier"
                                 },
                                 "funderIdentifierType": {
                                     "type": "keyword",
@@ -1329,7 +1427,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ identifikátoru funderu",
+                                    "label.en": "Funder identifier type"
                                 },
                                 "funderName": {
                                     "type": "keyword",
@@ -1343,13 +1443,17 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Název funderu",
+                                    "label.en": "Funder name"
                                 }
                             }
                         }
                     },
                     "geoLocations": {
                         "type": "array",
+                        "label.cs": "Geografické lokace",
+                        "label.en": "GeoLocations",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -1375,6 +1479,8 @@
                                         "generate": false,
                                         "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationBoxSchema"
                                     },
+                                    "label.cs": "Obdélník zeměpisné polohy",
+                                    "label.en": "GeoLocation box",
                                     "properties": {
                                         "eastBoundLongitude": {
                                             "type": "float",
@@ -1393,7 +1499,9 @@
                                                     "read": false,
                                                     "write": false
                                                 }
-                                            }
+                                            },
+                                            "label.cs": "Východní zeměpisná délka",
+                                            "label.en": "East bound longitude"
                                         },
                                         "northBoundLatitude": {
                                             "type": "float",
@@ -1412,7 +1520,9 @@
                                                     "read": false,
                                                     "write": false
                                                 }
-                                            }
+                                            },
+                                            "label.cs": "Severní zeměpisná šířka",
+                                            "label.en": "North bound latitude"
                                         },
                                         "southBoundLatitude": {
                                             "type": "float",
@@ -1431,7 +1541,9 @@
                                                     "read": false,
                                                     "write": false
                                                 }
-                                            }
+                                            },
+                                            "label.cs": "Jižní zeměpisná šířka",
+                                            "label.en": "South bound latitude"
                                         },
                                         "westBoundLongitude": {
                                             "type": "float",
@@ -1450,7 +1562,9 @@
                                                     "read": false,
                                                     "write": false
                                                 }
-                                            }
+                                            },
+                                            "label.cs": "Západní zeměpisná délka",
+                                            "label.en": "West bound longitude"
                                         }
                                     }
                                 },
@@ -1465,7 +1579,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Místo zeměpisné polohy",
+                                    "label.en": "GeoLocation place"
                                 },
                                 "geoLocationPoint": {
                                     "type": "object",
@@ -1479,6 +1595,8 @@
                                         "generate": false,
                                         "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationPointSchema"
                                     },
+                                    "label.cs": "Bod zeměpisné polohy",
+                                    "label.en": "GeoLocation point",
                                     "properties": {
                                         "pointLatitude": {
                                             "type": "float",
@@ -1496,7 +1614,9 @@
                                                     "read": false,
                                                     "write": false
                                                 }
-                                            }
+                                            },
+                                            "label.cs": "Zeměpisná šířka",
+                                            "label.en": "Latitude"
                                         },
                                         "pointLongitude": {
                                             "type": "float",
@@ -1514,7 +1634,9 @@
                                                     "read": false,
                                                     "write": false
                                                 }
-                                            }
+                                            },
+                                            "label.cs": "Zeměpisná délka",
+                                            "label.en": "Longitude"
                                         }
                                     }
                                 },
@@ -1532,6 +1654,8 @@
                                             "generate": false,
                                             "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationPolygonSchema"
                                         },
+                                        "label.cs": "Polygony zeměpisné polohy",
+                                        "label.en": "GeoLocation polygons",
                                         "properties": {
                                             "inPolygonPoint": {
                                                 "type": "object",
@@ -1545,6 +1669,8 @@
                                                     "generate": false,
                                                     "class": "nr_metadata.datacite.services.records.schema_datatypes.GeoLocationPointSchema"
                                                 },
+                                                "label.cs": "Bod uvnitř polygonu",
+                                                "label.en": "In polygon point",
                                                 "properties": {
                                                     "pointLatitude": {
                                                         "type": "float",
@@ -1562,7 +1688,9 @@
                                                                 "read": false,
                                                                 "write": false
                                                             }
-                                                        }
+                                                        },
+                                                        "label.cs": "Zeměpisná šířka",
+                                                        "label.en": "Latitude"
                                                     },
                                                     "pointLongitude": {
                                                         "type": "float",
@@ -1580,13 +1708,17 @@
                                                                 "read": false,
                                                                 "write": false
                                                             }
-                                                        }
+                                                        },
+                                                        "label.cs": "Zeměpisná délka",
+                                                        "label.en": "Longitude"
                                                     }
                                                 }
                                             },
                                             "polygonPoints": {
                                                 "type": "array",
                                                 "required": true,
+                                                "label.cs": "Body polygonu",
+                                                "label.en": "Polygon points",
                                                 "items": {
                                                     "type": "object",
                                                     "ui": {
@@ -1616,7 +1748,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Zeměpisná šířka",
+                                                            "label.en": "Latitude"
                                                         },
                                                         "pointLongitude": {
                                                             "type": "float",
@@ -1634,7 +1768,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Zeměpisná délka",
+                                                            "label.en": "Longitude"
                                                         }
                                                     }
                                                 }
@@ -1656,7 +1792,9 @@
                                 "read": false,
                                 "write": false
                             }
-                        }
+                        },
+                        "label.cs": "Jazyk",
+                        "label.en": "Language"
                     },
                     "publicationYear": {
                         "type": "keyword",
@@ -1669,7 +1807,9 @@
                                 "read": false,
                                 "write": false
                             }
-                        }
+                        },
+                        "label.cs": "Rok publikace",
+                        "label.en": "Publication year"
                     },
                     "publisher": {
                         "type": "object",
@@ -1683,6 +1823,8 @@
                             "generate": false,
                             "class": "nr_metadata.datacite.services.records.schema_datatypes.PublisherSchema"
                         },
+                        "label.cs": "Vydavatel",
+                        "label.en": "Publisher",
                         "properties": {
                             "lang": {
                                 "type": "keyword",
@@ -1695,7 +1837,9 @@
                                         "read": false,
                                         "write": false
                                     }
-                                }
+                                },
+                                "label.cs": "Jazyk",
+                                "label.en": "Language"
                             },
                             "name": {
                                 "type": "keyword",
@@ -1709,7 +1853,9 @@
                                         "read": false,
                                         "write": false
                                     }
-                                }
+                                },
+                                "label.cs": "Název",
+                                "label.en": "Name"
                             },
                             "publisherIdentifier": {
                                 "type": "keyword",
@@ -1722,7 +1868,9 @@
                                         "read": false,
                                         "write": false
                                     }
-                                }
+                                },
+                                "label.cs": "Identifikátor vydavatele",
+                                "label.en": "Publisher identifier"
                             },
                             "publisherIdentifierScheme": {
                                 "type": "keyword",
@@ -1735,7 +1883,9 @@
                                         "read": false,
                                         "write": false
                                     }
-                                }
+                                },
+                                "label.cs": "Schéma identifikátoru vydavatele",
+                                "label.en": "Publisher identifier scheme"
                             },
                             "schemeURI": {
                                 "type": "url",
@@ -1748,12 +1898,16 @@
                                         "read": false,
                                         "write": false
                                     }
-                                }
+                                },
+                                "label.cs": "URI schématu",
+                                "label.en": "Scheme URI"
                             }
                         }
                     },
                     "relatedIdentifiers": {
                         "type": "array",
+                        "label.cs": "Související identifikátory",
+                        "label.en": "Related identifiers",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -1778,7 +1932,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Identifikátor",
+                                    "label.en": "Identifier"
                                 },
                                 "relatedIdentifierType": {
                                     "type": "keyword",
@@ -1812,7 +1968,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ identifikátoru",
+                                    "label.en": "Identifier type"
                                 },
                                 "relatedMetadataScheme": {
                                     "type": "keyword",
@@ -1825,7 +1983,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Schéma metadat",
+                                    "label.en": "Metadata scheme"
                                 },
                                 "relationType": {
                                     "type": "keyword",
@@ -1877,7 +2037,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ vztahu",
+                                    "label.en": "Relation type"
                                 },
                                 "resourceTypeGeneral": {
                                     "type": "keyword",
@@ -1922,7 +2084,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Obecný typ zdroje",
+                                    "label.en": "General resource type"
                                 },
                                 "schemeType": {
                                     "type": "keyword",
@@ -1935,7 +2099,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ schématu",
+                                    "label.en": "Scheme type"
                                 },
                                 "schemeURI": {
                                     "type": "url",
@@ -1948,13 +2114,17 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "URI schématu",
+                                    "label.en": "Scheme URI"
                                 }
                             }
                         }
                     },
                     "relatedItems": {
                         "type": "array",
+                        "label.cs": "Související položky",
+                        "label.en": "Related items",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -1970,6 +2140,8 @@
                             "properties": {
                                 "contributors": {
                                     "type": "array",
+                                    "label.cs": "Přispěvatelé",
+                                    "label.en": "Contributors",
                                     "items": {
                                         "type": "object",
                                         "ui": {
@@ -2009,7 +2181,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Identifikátor afiliace",
+                                                            "label.en": "Affiliation identifier"
                                                         },
                                                         "affiliationIdentifierScheme": {
                                                             "type": "keyword",
@@ -2022,7 +2196,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Schéma identifikátoru afiliace",
+                                                            "label.en": "Affiliation identifier scheme"
                                                         },
                                                         "name": {
                                                             "type": "keyword",
@@ -2036,7 +2212,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Název",
+                                                            "label.en": "Name"
                                                         },
                                                         "schemeURI": {
                                                             "type": "url",
@@ -2049,7 +2227,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "URI schématu",
+                                                            "label.en": "Scheme URI"
                                                         }
                                                     }
                                                 }
@@ -2089,7 +2269,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Typ přispěvatele",
+                                                "label.en": "Contributor type"
                                             },
                                             "familyName": {
                                                 "type": "keyword",
@@ -2102,7 +2284,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Příjmení",
+                                                "label.en": "Family name"
                                             },
                                             "givenName": {
                                                 "type": "keyword",
@@ -2115,7 +2299,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Křestní jméno",
+                                                "label.en": "Given name"
                                             },
                                             "lang": {
                                                 "type": "keyword",
@@ -2128,7 +2314,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Jazyk",
+                                                "label.en": "Language"
                                             },
                                             "name": {
                                                 "type": "keyword",
@@ -2142,7 +2330,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Jméno",
+                                                "label.en": "Name"
                                             },
                                             "nameIdentifiers": {
                                                 "type": "array",
@@ -2171,7 +2361,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Identifikátor",
+                                                            "label.en": "Identifier"
                                                         },
                                                         "nameIdentifierScheme": {
                                                             "type": "keyword",
@@ -2185,7 +2377,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Schéma identifikátoru",
+                                                            "label.en": "Identifier scheme"
                                                         },
                                                         "schemeURI": {
                                                             "type": "url",
@@ -2198,7 +2392,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "URI schématu",
+                                                            "label.en": "Scheme URI"
                                                         }
                                                     }
                                                 }
@@ -2218,13 +2414,17 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Typ jména",
+                                                "label.en": "Name type"
                                             }
                                         }
                                     }
                                 },
                                 "creators": {
                                     "type": "array",
+                                    "label.cs": "Autoři",
+                                    "label.en": "Authors",
                                     "items": {
                                         "type": "object",
                                         "ui": {
@@ -2264,7 +2464,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Identifikátor afiliace",
+                                                            "label.en": "Affiliation identifier"
                                                         },
                                                         "affiliationIdentifierScheme": {
                                                             "type": "keyword",
@@ -2277,7 +2479,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Schéma identifikátoru afiliace",
+                                                            "label.en": "Affiliation identifier scheme"
                                                         },
                                                         "name": {
                                                             "type": "keyword",
@@ -2291,7 +2495,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Název",
+                                                            "label.en": "Name"
                                                         },
                                                         "schemeURI": {
                                                             "type": "url",
@@ -2304,7 +2510,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "URI schématu",
+                                                            "label.en": "Scheme URI"
                                                         }
                                                     }
                                                 }
@@ -2320,7 +2528,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Příjmení",
+                                                "label.en": "Family name"
                                             },
                                             "givenName": {
                                                 "type": "keyword",
@@ -2333,7 +2543,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Křestní jméno",
+                                                "label.en": "Given name"
                                             },
                                             "lang": {
                                                 "type": "keyword",
@@ -2346,7 +2558,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Jazyk",
+                                                "label.en": "Language"
                                             },
                                             "name": {
                                                 "type": "keyword",
@@ -2360,7 +2574,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Jméno",
+                                                "label.en": "Name"
                                             },
                                             "nameIdentifiers": {
                                                 "type": "array",
@@ -2389,7 +2605,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Identifikátor",
+                                                            "label.en": "Identifier"
                                                         },
                                                         "nameIdentifierScheme": {
                                                             "type": "keyword",
@@ -2403,7 +2621,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "Schéma identifikátoru",
+                                                            "label.en": "Identifier scheme"
                                                         },
                                                         "schemeURI": {
                                                             "type": "url",
@@ -2416,7 +2636,9 @@
                                                                     "read": false,
                                                                     "write": false
                                                                 }
-                                                            }
+                                                            },
+                                                            "label.cs": "URI schématu",
+                                                            "label.en": "Scheme URI"
                                                         }
                                                     }
                                                 }
@@ -2436,7 +2658,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Typ jména",
+                                                "label.en": "Name type"
                                             }
                                         }
                                     }
@@ -2452,7 +2676,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Edice",
+                                    "label.en": "Edition"
                                 },
                                 "firstPage": {
                                     "type": "keyword",
@@ -2465,7 +2691,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "První strana",
+                                    "label.en": "First page"
                                 },
                                 "issue": {
                                     "type": "keyword",
@@ -2478,7 +2706,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Číslo",
+                                    "label.en": "Issue"
                                 },
                                 "lastPage": {
                                     "type": "keyword",
@@ -2491,7 +2721,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Poslední strana",
+                                    "label.en": "Last page"
                                 },
                                 "number": {
                                     "type": "keyword",
@@ -2504,7 +2736,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Číslo",
+                                    "label.en": "Number"
                                 },
                                 "numberType": {
                                     "type": "keyword",
@@ -2523,7 +2757,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ čísla",
+                                    "label.en": "Number type"
                                 },
                                 "publicationYear": {
                                     "type": "keyword",
@@ -2536,7 +2772,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Rok publikace",
+                                    "label.en": "Publication year"
                                 },
                                 "publisher": {
                                     "type": "keyword",
@@ -2549,7 +2787,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Vydavatel",
+                                    "label.en": "Publisher"
                                 },
                                 "relatedItemIdentifier": {
                                     "type": "object",
@@ -2564,6 +2804,8 @@
                                         "generate": false,
                                         "class": "nr_metadata.datacite.services.records.schema_datatypes.RelatedItemIdentifierSchema"
                                     },
+                                    "label.cs": "Identifikátor",
+                                    "label.en": "Identifier",
                                     "properties": {
                                         "relatedItemIdentifier": {
                                             "type": "keyword",
@@ -2577,7 +2819,9 @@
                                                     "read": false,
                                                     "write": false
                                                 }
-                                            }
+                                            },
+                                            "label.cs": "Identifikátor",
+                                            "label.en": "Identifier"
                                         },
                                         "relatedItemIdentifierType": {
                                             "type": "keyword",
@@ -2612,7 +2856,9 @@
                                                     "read": false,
                                                     "write": false
                                                 }
-                                            }
+                                            },
+                                            "label.cs": "Typ identifikátoru",
+                                            "label.en": "Identifier type"
                                         }
                                     }
                                 },
@@ -2660,7 +2906,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ zdroje",
+                                    "label.en": "Resource type"
                                 },
                                 "relatedMetadataScheme": {
                                     "type": "keyword",
@@ -2673,7 +2921,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Schéma metadat",
+                                    "label.en": "Metadata scheme"
                                 },
                                 "relationType": {
                                     "type": "keyword",
@@ -2725,7 +2975,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ vztahu",
+                                    "label.en": "Relation type"
                                 },
                                 "resourceTypeGeneral": {
                                     "type": "keyword",
@@ -2770,7 +3022,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Obecný typ zdroje",
+                                    "label.en": "General resource type"
                                 },
                                 "schemeType": {
                                     "type": "keyword",
@@ -2783,7 +3037,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ schématu",
+                                    "label.en": "Scheme type"
                                 },
                                 "schemeURI": {
                                     "type": "url",
@@ -2796,11 +3052,15 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "URI schématu",
+                                    "label.en": "Scheme URI"
                                 },
                                 "titles": {
                                     "type": "array",
                                     "required": true,
+                                    "label.cs": "Názvy",
+                                    "label.en": "Titles",
                                     "items": {
                                         "type": "object",
                                         "ui": {
@@ -2825,7 +3085,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Jazyk",
+                                                "label.en": "Language"
                                             },
                                             "title": {
                                                 "type": "fulltext",
@@ -2839,7 +3101,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Název",
+                                                "label.en": "Title"
                                             },
                                             "titleType": {
                                                 "type": "keyword",
@@ -2858,7 +3122,9 @@
                                                         "read": false,
                                                         "write": false
                                                     }
-                                                }
+                                                },
+                                                "label.cs": "Typ názvu",
+                                                "label.en": "Title type"
                                             }
                                         }
                                     }
@@ -2874,13 +3140,17 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Svazek",
+                                    "label.en": "Volume"
                                 }
                             }
                         }
                     },
                     "rightsList": {
                         "type": "array",
+                        "label.cs": "Práva",
+                        "label.en": "Rights",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -2905,7 +3175,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
                                 },
                                 "rights": {
                                     "type": "keyword",
@@ -2918,7 +3190,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Práva",
+                                    "label.en": "Rights"
                                 },
                                 "rightsIdentifier": {
                                     "type": "keyword",
@@ -2931,7 +3205,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Identifikátor práv",
+                                    "label.en": "Rights identifier"
                                 },
                                 "rightsIdentifierScheme": {
                                     "type": "keyword",
@@ -2944,7 +3220,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Schéma identifikátoru práv",
+                                    "label.en": "Rights identifier scheme"
                                 },
                                 "rightsURI": {
                                     "type": "url",
@@ -2957,7 +3235,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "URI práv",
+                                    "label.en": "Rights URI"
                                 },
                                 "schemeURI": {
                                     "type": "url",
@@ -2970,7 +3250,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "URI schématu",
+                                    "label.en": "Scheme URI"
                                 }
                             }
                         }
@@ -2986,10 +3268,14 @@
                                 "read": false,
                                 "write": false
                             }
-                        }
+                        },
+                        "label.cs": "Verze schématu",
+                        "label.en": "Schema version"
                     },
                     "sizes": {
                         "type": "array",
+                        "label.cs": "Velikosti",
+                        "label.en": "Sizes",
                         "items": {
                             "type": "keyword",
                             "marshmallow": {
@@ -3006,6 +3292,8 @@
                     },
                     "subjects": {
                         "type": "array",
+                        "label.cs": "Témata",
+                        "label.en": "Subjects",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -3030,7 +3318,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Klasifikační kód",
+                                    "label.en": "Classification code"
                                 },
                                 "lang": {
                                     "type": "keyword",
@@ -3043,7 +3333,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
                                 },
                                 "schemeURI": {
                                     "type": "url",
@@ -3056,7 +3348,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "URI schématu",
+                                    "label.en": "Scheme URI"
                                 },
                                 "subject": {
                                     "type": "keyword",
@@ -3070,7 +3364,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Téma",
+                                    "label.en": "Subject"
                                 },
                                 "subjectScheme": {
                                     "type": "keyword",
@@ -3083,7 +3379,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Schéma tématu",
+                                    "label.en": "Subject scheme"
                                 },
                                 "valueURI": {
                                     "type": "url",
@@ -3096,13 +3394,17 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "URI hodnoty",
+                                    "label.en": "Value URI"
                                 }
                             }
                         }
                     },
                     "titles": {
                         "type": "array",
+                        "label.cs": "Názvy",
+                        "label.en": "Titles",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -3127,7 +3429,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Jazyk",
+                                    "label.en": "Language"
                                 },
                                 "title": {
                                     "type": "fulltext",
@@ -3141,7 +3445,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Název",
+                                    "label.en": "Title"
                                 },
                                 "titleType": {
                                     "type": "keyword",
@@ -3160,13 +3466,17 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ názvu",
+                                    "label.en": "Title type"
                                 }
                             }
                         }
                     },
                     "types": {
                         "type": "array",
+                        "label.cs": "Typy zdroje",
+                        "label.en": "Resource types",
                         "items": {
                             "type": "object",
                             "ui": {
@@ -3191,7 +3501,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Typ zdroje",
+                                    "label.en": "Resource type"
                                 },
                                 "resourceTypeGeneral": {
                                     "type": "keyword",
@@ -3237,7 +3549,9 @@
                                             "read": false,
                                             "write": false
                                         }
-                                    }
+                                    },
+                                    "label.cs": "Obecný typ zdroje",
+                                    "label.en": "General resource type"
                                 }
                             }
                         }
@@ -3253,7 +3567,9 @@
                                 "read": false,
                                 "write": false
                             }
-                        }
+                        },
+                        "label.cs": "URL",
+                        "label.en": "URL"
                     },
                     "version": {
                         "type": "keyword",
@@ -3266,7 +3582,9 @@
                                 "read": false,
                                 "write": false
                             }
-                        }
+                        },
+                        "label.cs": "Verze",
+                        "label.en": "Version"
                     }
                 }
             },

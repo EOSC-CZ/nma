@@ -42,6 +42,9 @@ runtime-dependencies: {}
 settings:
   i18n-languages:
   - en
+  - cs
   supported-langs:
     en:
+      text: {}
+    cs:
       text: {}

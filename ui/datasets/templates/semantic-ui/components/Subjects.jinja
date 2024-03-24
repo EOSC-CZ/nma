@@ -1,13 +1,11 @@
 {#def subjects, search_link #}
-{% for lang, subjects in subjects|groupby('lang')%}
-<div class="ui separated">
+
+{% for lang, subjects in array(subjects)|groupby('lang')%}
+    <div class="ui separated">
     <div role="list" class="ui horizontal separated medium subjects list">
         {% for a in subjects %}
         {% set subject = a | to_dict %}
         <div role="listitem" class="item">
-            {# {% if subject['valueURI'] %}
-            <DefinitionLink href={subject['valueURI']}> </DefinitionLink>
-            {% endif %} #}
             {% set data = {
             "value": subject.subject,
             "title": _("Find more records with this subject"),
@@ -15,8 +13,12 @@
             } %}
             {% set searchFacet = "metadata_subjects_subject" %}
             <div class="ui teal tiny basic label">
-                <span>{{lang|upper}} </span>
-                <SearchLink search_link={search_link} className="subject-link" searchFacet={searchFacet} data={data}>
+                {% if lang._has_value %}
+                    <span>{{lang|upper}} </span>
+                {% endif %}
+                <SearchLink
+                    search_link={search_link} className="subject-link"
+                    searchFacet={searchFacet} data={data}>
                 </SearchLink>
             </div>
         </div>

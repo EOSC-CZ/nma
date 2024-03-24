@@ -1,8 +1,5 @@
 {#def publisher, search_link #}
 
-{# {% if publisher['publisherIdentifier'] %}
-<DefinitionLink href={publisher['publisherIdentifier']}> </DefinitionLink>
-{% endif %} #}
 {% set data = {
 "value": publisher.name,
 "title": _("Find more records from this publisher"),

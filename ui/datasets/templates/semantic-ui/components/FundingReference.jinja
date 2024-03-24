@@ -2,12 +2,12 @@
 
 <dl class='detail-subfields'>
 
-    {% for funder in funders %}
-        <Field label={_('metadata/fundingReferences/projectID.label')}> {{funder.projectID}}</Field>
-        <Field label={_('metadata/fundingReferences/projectName.label')}>{{funder.projectName}}</Field>
-        <Field label={_('metadata/fundingReferences/fundingProgram.label')}>{{funder.fundingProgram}}</Field>
-        <Field label={_('metadata/fundingReferences/funder.label')}>
+    {% for funder in array(funders) %}
+        <IField d={ funder.projectID } />
+        <IField d={funder.projectName} />
+        <IField d={funder.fundingProgram} />
+        <IField d={ funder.funder }>
             <VocabularyItem vocabulary={funder.funder} search_link={search_link} searchFacet="metadata_fundingReferences" vocabulary_type="funders"></VocabularyItem>
-        </Field>
+        </IField>
     {% endfor %}
 </dl>

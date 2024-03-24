@@ -1,15 +1,12 @@
 {#def metadata, record #}
-<section aria-label="{{_('Collection')}}" class="ui segment">
-  <h2 class="ui small header detail-sidebar-header">{{_('Collection')}}</h2>
-  {{metadata.collection}}
-</section>
 <section aria-label="{{_('metadata/objectIdentifiers.label')}}" class="ui segment">
   <h2 class="ui small header detail-sidebar-header">{{_('metadata/objectIdentifiers.label')}}</h2>
   <div class="ui link list">
     <div class="item">
       <i class="external alternate icon"></i>
       <div class="content">
-      {% set _data = {
+        TODO: does not work yet !!!
+          {% set _data = {
            "href": metadata.originalRecord,
           "title": _('metadata/originalRecord.label'),
           "label": _('metadata/originalRecord.label')

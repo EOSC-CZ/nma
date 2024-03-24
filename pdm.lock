@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:6a977257fe07695b295679983c142361d2050821c7cced70656007cd03edf090"
+content_hash = "sha256:e27dccb533be2fd01fc6d3766ea4c230733751198e7fc9c051fbadd8f949f15c"
 
 [[package]]
 name = "alembic"
@@ -2361,13 +2361,13 @@ files = [
 
 [[package]]
 name = "json5"
-version = "0.9.22"
+version = "0.9.24"
 requires_python = ">=3.8"
 summary = "A Python implementation of the JSON5 data format."
 groups = ["default"]
 files = [
-    {file = "json5-0.9.22-py3-none-any.whl", hash = "sha256:6621007c70897652f8b5d03885f732771c48d1925591ad989aa80c7e0e5ad32f"},
-    {file = "json5-0.9.22.tar.gz", hash = "sha256:b729bde7650b2196a35903a597d2b704b8fdf8648bfb67368cfb79f1174a17bd"},
+    {file = "json5-0.9.24-py3-none-any.whl", hash = "sha256:4ca101fd5c7cb47960c055ef8f4d0e31e15a7c6c48c3b6f1473fc83b6c462a13"},
+    {file = "json5-0.9.24.tar.gz", hash = "sha256:0c638399421da959a20952782800e5c1a78c14e08e1dc9738fa10d8ec14d58c8"},
 ]
 
 [[package]]
@@ -2523,6 +2523,18 @@ groups = ["default"]
 files = [
     {file = "langcodes-3.3.0-py3-none-any.whl", hash = "sha256:4d89fc9acb6e9c8fdef70bcdf376113a3db09b67285d9e1d534de6d8818e7e69"},
     {file = "langcodes-3.3.0.tar.gz", hash = "sha256:794d07d5a28781231ac335a1561b8442f8648ca07cd518310aeb45d6f0807ef6"},
+]
+
+[[package]]
+name = "langdetect"
+version = "1.0.9"
+summary = "Language detection library ported from Google's language-detection."
+groups = ["default"]
+dependencies = [
+    "six",
+]
+files = [
+    {file = "langdetect-1.0.9.tar.gz", hash = "sha256:cbc1fef89f8d062739774bd51eda3da3274006b3661d199c2655f6b3f6d605a0"},
 ]
 
 [[package]]
@@ -2885,7 +2897,7 @@ files = [
 
 [[package]]
 name = "nr-metadata"
-version = "2.0.15"
+version = "2.0.17"
 requires_python = ">=3.9"
 summary = "\"Generated metadata files for the Czech National Repository\""
 groups = ["default"]
@@ -2895,8 +2907,8 @@ dependencies = [
     "oarepo-vocabularies>=2.0.0",
 ]
 files = [
-    {file = "nr-metadata-2.0.15.tar.gz", hash = "sha256:7e989b0adaacb19648f4909829e71f900bbd69b4d0eb526cbd74b876e7779602"},
-    {file = "nr_metadata-2.0.15-py2.py3-none-any.whl", hash = "sha256:f6cb1c1cc76cfa36033b345be11ef15dfa4871859ed7f08aa9e8d62155444f1d"},
+    {file = "nr-metadata-2.0.17.tar.gz", hash = "sha256:616dff6de34236409e11742ed4b9d93f83bd9019bd79538f9290297c68a16d74"},
+    {file = "nr_metadata-2.0.17-py2.py3-none-any.whl", hash = "sha256:3cd69e982c7440d7a4b9c576c07a655ff0fd9384ff4d87e120388c89fbc6de8c"},
 ]
 
 [[package]]
@@ -3148,8 +3160,26 @@ files = [
 ]
 
 [[package]]
+name = "oarepo-oai-pmh-harvester"
+version = "4.0.45"
+summary = "OAIPMH harvester"
+groups = ["default"]
+dependencies = [
+    "oarepo-runtime>=1.0.0",
+    "oarepo-runtime>=1.4.44",
+    "oarepo-ui>=5.0.89",
+    "pyyaml",
+    "sickle",
+    "tqdm>=4.64.1",
+]
+files = [
+    {file = "oarepo-oai-pmh-harvester-4.0.45.tar.gz", hash = "sha256:5459708faefb8e0a16bdcd7ea1d463dfc77459372d4f1219125d39956383dccb"},
+    {file = "oarepo_oai_pmh_harvester-4.0.45-py3-none-any.whl", hash = "sha256:b3ba7d94ad4018b4227e6bcba0bfd850c8bfaf1f61c5f3d813df8288621cac1b"},
+]
+
+[[package]]
 name = "oarepo-runtime"
-version = "1.5.17"
+version = "1.5.22"
 summary = "A set of runtime extensions of Invenio repository"
 groups = ["default"]
 dependencies = [
@@ -3162,13 +3192,13 @@ dependencies = [
     "tqdm",
 ]
 files = [
-    {file = "oarepo-runtime-1.5.17.tar.gz", hash = "sha256:25176065391ae247ad5aa35cc19f1e6fa766fecb0ba6abd079b811ea7bbfeec5"},
-    {file = "oarepo_runtime-1.5.17-py3-none-any.whl", hash = "sha256:f5306bb839e3102d7810e589f25d5e7fdbd350b92617cf40b4ec90c2933922a6"},
+    {file = "oarepo-runtime-1.5.22.tar.gz", hash = "sha256:edfc25e43672318a5ff2ce4319b3e85d6e6d2d94e034974770e40d1427f141d1"},
+    {file = "oarepo_runtime-1.5.22-py3-none-any.whl", hash = "sha256:7e975f2ffe14b815fc6ff7fc8093a197677b56bf0e534c9f61a792e5f377ae78"},
 ]
 
 [[package]]
 name = "oarepo-ui"
-version = "5.1.5"
+version = "5.1.8"
 requires_python = ">=3.6"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3180,13 +3210,13 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo-ui-5.1.5.tar.gz", hash = "sha256:3a551c3f9933af6d0e61cff3f0a1aa923dcd7609df11a898ce87e7bedd708ac3"},
-    {file = "oarepo_ui-5.1.5-py2.py3-none-any.whl", hash = "sha256:a77f9f0f8a1c9af6ad0fbe419c3d62be5d5e1ea2b57eb9ed889645f99615f1c3"},
+    {file = "oarepo-ui-5.1.8.tar.gz", hash = "sha256:3eb3be6ef27ede1aaabafc914594698a0bac4719d9be30ceced4e94699632815"},
+    {file = "oarepo_ui-5.1.8-py2.py3-none-any.whl", hash = "sha256:6caa5b9ea2d1a88acc465f97b6bfa9c4cb802e18180ed7712874baed2c6cb138"},
 ]
 
 [[package]]
 name = "oarepo-vocabularies"
-version = "2.0.79"
+version = "2.0.80"
 summary = "Support for custom fields and hierarchy on Invenio vocabularies"
 groups = ["default"]
 dependencies = [
@@ -3197,8 +3227,8 @@ dependencies = [
     "openpyxl",
 ]
 files = [
-    {file = "oarepo-vocabularies-2.0.79.tar.gz", hash = "sha256:2c27741faa849f039e54b7a96651dacf3154d0bd5d3b0697a973f5827014557c"},
-    {file = "oarepo_vocabularies-2.0.79-py3-none-any.whl", hash = "sha256:d5ffc831595cb0cefcd0c67633433b821b5a676f769c3818f2602fab00f9d03c"},
+    {file = "oarepo-vocabularies-2.0.80.tar.gz", hash = "sha256:84128013fdb1e67a10adadcc7d0961715e2b98057fea9bc44e9a22865f4ae1a3"},
+    {file = "oarepo_vocabularies-2.0.80-py3-none-any.whl", hash = "sha256:32f42490dbfcc1221396afe1a032bdce1eb10773e3474931d5d9ee1991af20bf"},
 ]
 
 [[package]]
@@ -3895,13 +3925,27 @@ files = [
 
 [[package]]
 name = "setuptools"
-version = "69.1.1"
+version = "69.2.0"
 requires_python = ">=3.8"
 summary = "Easily download, build, install, upgrade, and uninstall Python packages"
 groups = ["default"]
 files = [
-    {file = "setuptools-69.1.1-py3-none-any.whl", hash = "sha256:02fa291a0471b3a18b2b2481ed902af520c69e8ae0919c13da936542754b4c56"},
-    {file = "setuptools-69.1.1.tar.gz", hash = "sha256:5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"},
+    {file = "setuptools-69.2.0-py3-none-any.whl", hash = "sha256:c21c49fb1042386df081cb5d86759792ab89efca84cf114889191cd09aacc80c"},
+    {file = "setuptools-69.2.0.tar.gz", hash = "sha256:0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"},
+]
+
+[[package]]
+name = "sickle"
+version = "0.7.0"
+summary = "A lightweight OAI client library for Python"
+groups = ["default"]
+dependencies = [
+    "lxml>=3.2.3",
+    "requests>=1.1.0",
+]
+files = [
+    {file = "Sickle-0.7.0-py3-none-any.whl", hash = "sha256:6ace7b1d1fc76571fe0dbfefc2c49e5e6c026e2d0dcaae521f4da21e98d4bc85"},
+    {file = "Sickle-0.7.0.tar.gz", hash = "sha256:8944bcda3db0109a361248ef71fef476dd1f11109cdd1a41135527b7992b958b"},
 ]
 
 [[package]]

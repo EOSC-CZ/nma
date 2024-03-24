@@ -1,23 +1,22 @@
-{#def metadata, search_link #}
-{% set metadata_dict = metadata | to_dict %}
-{% set creators = metadata_dict['creators'] %}
-{% set contributors = metadata_dict['contributors'] %}
+{#def md, search_link #}
+
+{% set creators = md.creators %}
+{% set contributors = md.contributors %}
 
 <div class="ui double separated">
    <div role="list" class="ui horizontal separated creatibutors list">
 
-            {% for person in creators %}
+            {% for person in array(creators) %}
                 <Person person={person} search_link={search_link} searchFacet="metadata_creators_name"></Person>
             {% endfor %}
     </div>
-     {% if contributors %}
+     {% if contributors._has_value %}
         <div class="double separator"></div>
             <div role="list" class="ui horizontal separated creatibutors list">
-
-                {% for name, matches in contributors | groupby('name') %}
-                  {% set roles= matches |  map(attribute='role') | select('defined') | list %}
+                {# should find a better way than _ui_value to make sure that this field does not break #}
+                {% for name, matches in array(contributors)._ui_value | groupby('name') %}
+                  {% set roles = matches |  map(attribute='role') | select('defined') | list %}
                   <Person person={matches[0]} search_link={search_link} searchFacet="metadata_contributors_name" roles ={roles}></Person>
-
                 {% endfor %}
             </div>
         {% endif %}

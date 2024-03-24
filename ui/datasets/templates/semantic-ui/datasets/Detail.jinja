@@ -1,4 +1,4 @@
-{# def metadata, extra_context, record, ui #}
+{# def metadata, extra_context, record, ui, d #}
 {%- set title = metadata.title ~ " | " ~ _("National Metadata repository") %}
 
 {% extends "oarepo_ui/detail.html" %}
@@ -8,11 +8,11 @@
 {%- endblock %}
 
 {% block record_main_content %}
-    <Main metadata={metadata} ui={ui} extra_context={extra_context} record={record}/>
+    <Main ui={ui} extra_context={extra_context} record={record} d={d}/>
 {% endblock %}
 
 {% block record_sidebar %}
-    <Sidebar metadata={metadata} ui={ui} extra_context={extra_context} record={record}/>
+    <Sidebar metadata={metadata} ui={ui} extra_context={extra_context} record={record} d={d}/>
 {% endblock record_sidebar %}
 
 {%- block javascript %}

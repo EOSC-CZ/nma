@@ -1,20 +1,10 @@
-{# def data #}
+{# def data, field #}
 
-{% if data %}
-
-    <div class="ui multilingual-tabs">
-        <div class="ui compact text menu separated">
-            {% for item in data %}
-                <a class="teal item {{'active' if loop.first else ''}}" data-tab="{{loop.index}}-{{item.lang|e}}">{{item.lang|upper}}</a>
-                {% if not loop.last %}
-                <div class="separator"><div class="vertical-bar"></div></div>
-                {% endif %}
-            {% endfor %}
-        </div>
-        {% for item in data %}
-        <div class="ui tab {{'active' if loop.first else ''}}" data-tab="{{loop.index}}-{{item.lang|e}}">
-            {{ item.description|e }}
-        </div>
-        {% endfor %}
-    </div>
-{% endif %}
+<div>
+    {% for item in array(data) %}
+        {% if item.lang._has_value %}
+            <div class="ui label">{{ item.lang }}</div>
+        {% endif %}
+        {{ item[field] }}
+    {% endfor %}
+</div>

@@ -1,15 +1,18 @@
 i18n:
-  babel_input_translations: []
+  babel_input_translations:
+  - datasets/translations
   babel_output_translations: i18n/translations
   babel_source_paths:
   - common
   - ui
+  - datasets
   i18next_input_translations: []
   i18next_output_translations: i18n/semantic-ui/translations
   i18next_source_paths:
   - ui
   languages:
   - en
+  - cs
 models:
 - api_prefix: datasets
   base_model: empty
