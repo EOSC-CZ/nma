@@ -18,12 +18,20 @@ RUN find . -name "__pycache__" -type d -exec rm -rf {} +
 
 FROM --platform=$BUILDPLATFORM ${OAREPO_PRODUCTION_IMAGE} as production
 
-LABEL maintainer="" \
-    org.opencontainers.image.authors="" \
-    org.opencontainers.image.title="nma" \
-    org.opencontainers.image.url="" \
-    org.opencontainers.image.source="" \
-    org.opencontainers.image.documentation=""
+ARG REPOSITORY_SITE_ORGANIZATION
+ARG REPOSITORY_SITE_NAME
+ARG REPOSITORY_IMAGE_URL
+ARG REPOSITORY_AUTHOR
+ARG REPOSITORY_GITHUB_URL
+ARG REPOSITORY_URL
+ARG REPOSITORY_DOCUMENTATION
+
+LABEL maintainer="${REPOSITORY_SITE_ORGANIZATION}" \
+    org.opencontainers.image.authors="${REPOSITORY_AUTHOR}" \
+    org.opencontainers.image.title="NMA production image" \
+    org.opencontainers.image.url="${REPOSITORY_IMAGE_URL}" \
+    org.opencontainers.image.source="${REPOSITORY_GITHUB_URL}" \
+    org.opencontainers.image.documentation="${REPOSITORY_DOCUMENTATION}"
 
 
 # copy build from production build - just the final directories, not the whole build
@@ -40,5 +48,12 @@ COPY ./docker/development.key /development.key
 COPY ./docker/uwsgi.ini /opt/invenio/src/uwsgi/uwsgi.ini
 
 ENV PATH=/invenio/venv/bin:${PATH}
+
+
+RUN /invenio/venv/bin/pip install --no-cache-dir uwsgi uwsgi-tools
+
+
+RUN ( echo "Contents of /repository"; ls -lR /repository )
+RUN ( echo "Contents of /invenio"; ls -lR /invenio )
 
 ENTRYPOINT [ "sh", "-c" ]
