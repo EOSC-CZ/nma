@@ -81,17 +81,6 @@ const ItemSubheader = ({
               searchUrl={searchUrl}
               resourceType={resourceType}
             />
-            {thesis && (
-              <Label pointing="left" size="mini" basic>
-                <Icon
-                  name={isThesisDefended ? "check circle" : "remove circle"}
-                  color={isThesisDefended ? "teal" : "red"}
-                />{" "}
-                {isThesisDefended
-                  ? i18next.t("defended")
-                  : i18next.t("not defended")}
-              </Label>
-            )}
           </Grid.Row>
         </Grid.Column>
       </Grid>

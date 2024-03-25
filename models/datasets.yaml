@@ -28,6 +28,9 @@ record:
     - read_only
   pid:
     type: dtsts
+  search-options:
+    base-classes:
+      - oarepo_runtime.services.search.I18nSearchOptions
   properties:
     metadata:
       properties: {}

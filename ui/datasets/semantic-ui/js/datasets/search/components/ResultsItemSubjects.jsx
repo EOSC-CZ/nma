@@ -38,7 +38,7 @@ export function ResultsItemSubjects({
           >
             <List.Content verticalAlign="middle">
               <Label size="small" color="teal" basic>
-                {lang}&nbsp;<SubjectElement searchUrl={searchUrl} subject={sub} />
+                {(lang && lang !== 'undefined') ? lang : ''}&nbsp;<SubjectElement searchUrl={searchUrl} subject={sub} />
               </Label>
             </List.Content>
           </List.Item>

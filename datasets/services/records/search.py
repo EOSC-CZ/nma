@@ -1,25 +1,20 @@
-from invenio_records_resources.services import SearchOptions as InvenioSearchOptions
+from oarepo_runtime.services.search import I18nSearchOptions
 
 from . import facets
 
 
-class DatasetsSearchOptions(InvenioSearchOptions):
+class DatasetsSearchOptions(I18nSearchOptions):
     """DatasetsRecord search options."""
 
     facet_groups = {
         "default": {
-            "metadata_creators_name": facets.metadata_creators_name,
-            "metadata_creators_nameIdentifiers_nameIdentifier": facets.metadata_creators_nameIdentifiers_nameIdentifier,
-            "metadata_creators_nameIdentifiers_nameIdentifierScheme": facets.metadata_creators_nameIdentifiers_nameIdentifierScheme,
-            "metadata_creators_nameIdentifiers_schemeURI": facets.metadata_creators_nameIdentifiers_schemeURI,
-            "metadata_creators_nameType": facets.metadata_creators_nameType,
             "metadata_language": facets.metadata_language,
             "metadata_publisher_name": facets.metadata_publisher_name,
             "metadata_subjects_subject": facets.metadata_subjects_subject,
             "metadata_subjects_subjectScheme": facets.metadata_subjects_subjectScheme,
             "metadata_formats": facets.metadata_formats,
             "metadata_fundingReferences_funderName": facets.metadata_fundingReferences_funderName,
-            **getattr(InvenioSearchOptions, "facet_groups", {}).get("default", {}),
+            **getattr(I18nSearchOptions, "facet_groups", {}).get("default", {}),
         },
     }
 
@@ -158,5 +153,5 @@ class DatasetsSearchOptions(InvenioSearchOptions):
         "metadata_version": facets.metadata_version,
         "oai_harvest_datestamp": facets.oai_harvest_datestamp,
         "oai_harvest_identifier": facets.oai_harvest_identifier,
-        **getattr(InvenioSearchOptions, "facets", {}),
+        **getattr(I18nSearchOptions, "facets", {}),
     }

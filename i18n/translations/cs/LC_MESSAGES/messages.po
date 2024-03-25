@@ -163,7 +163,7 @@ msgstr "Lidé"
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:17
 #: i18n/translations/jinjax_messages.jinja:2
 msgid "metadata/dateAvailable.label"
-msgstr "DAtum zveřejnění"
+msgstr "Datum zveřejnění"
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:43
 #: i18n/translations/jinjax_messages.jinja:3
@@ -207,7 +207,7 @@ msgstr "Zobrazit všechny záznamy"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:9
 msgid "metadata/alternateIdentifiers/alternateIdentifier.label"
-msgstr "Alternativní identifikátor"
+msgstr "Identifikátor"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:14
 msgid "metadata/alternateIdentifiers/alternateIdentifierType.label"
@@ -2990,3 +2990,9 @@ msgstr "Aktualizace"
 
 msgid "updated.hint"
 msgstr ""
+
+msgid "defended"
+msgstr "obhájeno"
+
+msgid "not defended"
+msgstr "neobhájeno"

@@ -91,18 +91,29 @@
         "facets": {
             "facet-groups": {
                 "default": {
-                    "metadata.creators.name": 1,
-                    "metadata.language": 2,
-                    "metadata.publisher.name": 3,
-                    "metadata.subjects.subject": 4,
-                    "metadata.formats": 5,
-                    "metadata.fundingReferences.funderName": 6
+                    "metadata.language": 1,
+                    "metadata.publisher.name": 2,
+                    "metadata.subjects.subject": 3,
+                    "metadata.formats": 4,
+                    "metadata.fundingReferences.funderName": 5
                 }
             },
             "generate": true,
             "module": "datasets.services.records.facets",
             "extra-code": "",
             "groups": true
+        },
+        "search-options": {
+            "base-classes": [
+                "oarepo_runtime.services.search.I18nSearchOptions"
+            ],
+            "generate": true,
+            "module": "datasets.services.records.search",
+            "extra-code": "",
+            "class": "datasets.services.records.search.DatasetsSearchOptions",
+            "imports": [],
+            "fields": {},
+            "sort-options-field": "sort_options"
         },
         "module": {
             "qualified": "datasets",
@@ -221,18 +232,6 @@
             "skip": false
         },
         "model-name": "Datasets",
-        "search-options": {
-            "generate": true,
-            "module": "datasets.services.records.search",
-            "extra-code": "",
-            "class": "datasets.services.records.search.DatasetsSearchOptions",
-            "base-classes": [
-                "invenio_records_resources.services.SearchOptions{InvenioSearchOptions}"
-            ],
-            "imports": [],
-            "fields": {},
-            "sort-options-field": "sort_options"
-        },
         "config": {
             "generate": true,
             "module": "datasets.config",
