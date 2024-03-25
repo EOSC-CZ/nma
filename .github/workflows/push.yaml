@@ -1,0 +1,19 @@
+name: Build, test and publish
+
+on: push
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build11:
+    uses: ./.github/workflows/build.yaml
+    with:
+      oarepo: "11"
+
+  build12:
+    uses: ./.github/workflows/build.yaml
+    with:
+      oarepo: "12"
+
