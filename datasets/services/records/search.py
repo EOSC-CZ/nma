@@ -6,7 +6,22 @@ from . import facets
 class DatasetsSearchOptions(InvenioSearchOptions):
     """DatasetsRecord search options."""
 
-    facet_groups = {}
+    facet_groups = {
+        "default": {
+            "metadata_creators_name": facets.metadata_creators_name,
+            "metadata_creators_nameIdentifiers_nameIdentifier": facets.metadata_creators_nameIdentifiers_nameIdentifier,
+            "metadata_creators_nameIdentifiers_nameIdentifierScheme": facets.metadata_creators_nameIdentifiers_nameIdentifierScheme,
+            "metadata_creators_nameIdentifiers_schemeURI": facets.metadata_creators_nameIdentifiers_schemeURI,
+            "metadata_creators_nameType": facets.metadata_creators_nameType,
+            "metadata_language": facets.metadata_language,
+            "metadata_publisher_name": facets.metadata_publisher_name,
+            "metadata_subjects_subject": facets.metadata_subjects_subject,
+            "metadata_subjects_subjectScheme": facets.metadata_subjects_subjectScheme,
+            "metadata_formats": facets.metadata_formats,
+            "metadata_fundingReferences_funderName": facets.metadata_fundingReferences_funderName,
+            **getattr(InvenioSearchOptions, "facet_groups", {}).get("default", {}),
+        },
+    }
 
     facets = {
         "metadata_alternateIdentifiers_alternateIdentifier": facets.metadata_alternateIdentifiers_alternateIdentifier,

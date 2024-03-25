@@ -3198,7 +3198,7 @@ files = [
 
 [[package]]
 name = "oarepo-ui"
-version = "5.1.8"
+version = "5.1.11"
 requires_python = ">=3.6"
 summary = "UI module for invenio 3.5+"
 groups = ["default"]
@@ -3210,8 +3210,8 @@ dependencies = [
     "oarepo-runtime",
 ]
 files = [
-    {file = "oarepo-ui-5.1.8.tar.gz", hash = "sha256:3eb3be6ef27ede1aaabafc914594698a0bac4719d9be30ceced4e94699632815"},
-    {file = "oarepo_ui-5.1.8-py2.py3-none-any.whl", hash = "sha256:6caa5b9ea2d1a88acc465f97b6bfa9c4cb802e18180ed7712874baed2c6cb138"},
+    {file = "oarepo-ui-5.1.11.tar.gz", hash = "sha256:35bf7e07d84ceeaef358cf33385ee9f9c2a2e50bec4c6255dd023120dd1ce857"},
+    {file = "oarepo_ui-5.1.11-py2.py3-none-any.whl", hash = "sha256:12440e76c02fb3db7a3ba046d41df491593a1dbd8a243a4c480f2e9bc757c37b"},
 ]
 
 [[package]]

@@ -37,6 +37,7 @@ record:
   - invenio
   - ./datasets-custom_fields.yaml
   - ./datasets-harvest.yaml
+  - ./datasets-facets.yaml
 
 runtime-dependencies: {}
 settings:

@@ -88,6 +88,22 @@
             "imports": [],
             "additional-args": []
         },
+        "facets": {
+            "facet-groups": {
+                "default": {
+                    "metadata.creators.name": 1,
+                    "metadata.language": 2,
+                    "metadata.publisher.name": 3,
+                    "metadata.subjects.subject": 4,
+                    "metadata.formats": 5,
+                    "metadata.fundingReferences.funderName": 6
+                }
+            },
+            "generate": true,
+            "module": "datasets.services.records.facets",
+            "extra-code": "",
+            "groups": true
+        },
         "module": {
             "qualified": "datasets",
             "alias": "datasets",
@@ -247,12 +263,6 @@
             "module": "datasets.views.records.app",
             "function": "datasets.views.records.app.create_app_blueprint",
             "imports": []
-        },
-        "facets": {
-            "generate": true,
-            "module": "datasets.services.records.facets",
-            "extra-code": "",
-            "groups": true
         },
         "record": {
             "generate": true,
