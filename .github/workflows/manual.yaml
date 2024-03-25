@@ -1,0 +1,15 @@
+name: Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      oarepo:
+        description: OARepo version (11, 12, ...)
+        required: true
+        default: 11
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yaml
+    with:
+      oarepo: ${{ github.event.inputs.oarepo }}
