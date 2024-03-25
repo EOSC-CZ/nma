@@ -31,6 +31,7 @@ class LinDatTransformer(OAIRuleTransformer):
 
 
 
+
 @matches("right")
 def transform_right(md, entry, value):
     md.setdefault("rightsList", []).append({"rights": value})
@@ -55,6 +56,8 @@ def transform_source(md, entry, value):
 def transform_identifier(md, entry, value):
     id_type = type_alternate_id(value)
     md.setdefault("alternateIdentifiers", []).append({"alternateIdentifier": value, "alternateIdentifierType": id_type})
+    if id_type == "Handle":
+        md["url"] = value
 
 @matches("format")
 def transform_format(md, entry, value):

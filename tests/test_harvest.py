@@ -31,8 +31,14 @@ def test_harvest_lindat(app, db, search_clear):
     run_id = harvest(
         harvester,
         all_records=False,
+        #all_records=True,
         on_background=False,
         identifiers=["oai:lindat.mff.cuni.cz:11858/00-097C-0000-0001-4872-3", "oai:lindat.mff.cuni.cz:11858/00-097C-0000-0001-B098-5"],
+        # identifiers=['oai:lindat.mff.cuni.cz:11858/00-097C-0000-0001-48FA-2','oai:lindat.mff.cuni.cz:11858/00-097C-0000-0001-4901-8', 'oai:lindat.mff.cuni.cz:11858/00-097C-0000-0001-CCCD-0',
+        #              'oai:lindat.mff.cuni.cz:11234/1-1585','oai:lindat.mff.cuni.cz:11234/1-2625',
+        #              'oai:lindat.mff.cuni.cz:11234/1-4755', 'oai:lindat.mff.cuni.cz:11234/1-4914',
+        #              'oai:lindat.mff.cuni.cz:11234/1-5066',
+        #              ],
         title="Test harvest",
     )
     from time import sleep

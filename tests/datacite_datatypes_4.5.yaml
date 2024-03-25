@@ -167,7 +167,7 @@ Date:
       class: test_datacite.services.records.ui_schema_datatypes.DateUISchema
   properties:
     date:
-      type: edtf
+      type: edtf-time
       required: true
     dateType:
       "use": "datacite-datatypes#DateType"
