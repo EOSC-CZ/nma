@@ -1,0 +1,67 @@
+{#def ui, record, extra_context, d #}
+
+{% set md=d.metadata %}
+
+<h1 class="ui teal header" style="margin-bottom: 1em">{{ md.titles.0.title }}</h1>
+
+<dl class="ui very basic table">
+
+    <IField d={md.titles[1:]}>
+        <AdditionalTitles data={md.titles[1:]}></AdditionalTitles>
+    </IField>
+
+    <IField label={_('People')}>
+        <People md={md} search_link={record.links.search_link}></People>
+    </IField>
+
+    <IField label={_('metadata/dateAvailable.label')}>
+        {{md.dates._filter(dateType="Issued")._select("date")._first()}}
+    </IField>
+
+    <IField d={md.dates._filter(dateType="Modified")._select("date")._first()} />
+
+    <IField d={md.language} />
+
+    <IField d={md.publisher}>
+        <Publisher publisher={md.publisher} search_link={record.links.search_link}></Publisher>
+    </IField>
+    <IField d={md.types}>
+        {% for it in array(md.types.resourceTypeGeneral, md.types.resourceType) %}
+            {% if not loop.first %}, {% endif %}
+            {{ it }}
+        {% endfor %}
+    </IField>
+
+    <IField d={md.accessibility} />
+    <IField d={md.rights} />
+
+    <IField d={md.subjects} >
+        <Subjects subjects={md.subjects} search_link={record.links.search_link}></Subjects>
+    </IField>
+
+    {% set abstracts = md.descriptions._filter(descriptionType="Abstract") %}
+    <IField label={_('metadata/abstract.label')}>
+        <Multilingual data={abstracts} field="description" />
+    </IField>
+
+
+    {% for description in array(md.descriptions._filter(descriptionType__ne="Abstract")) %}
+        <AccordionField label={description.descriptionType}>
+            <p>{{description.description}}</p>
+        </AccordionField>
+    {% endfor %}
+
+     <IField d={ md.events }>
+        <NrEvents data={md.events}></NrEvents>
+     </IField>
+
+    <IField d={ md.externalLocation }>
+        <NrExternalLocation data={md.externalLocation}></NrExternalLocation>
+    </IField>
+    {% if md.fundingReferences %}
+    <IField d={md.fundingReferences}>
+        <FundingReference funders={md.fundingReferences} search_link={record.links.search_link}>
+        </FundingReference>
+    </IField>
+    {% endif %}
+</dl>

@@ -3,15 +3,15 @@
 
 {%- block css %}
   {{super()}}
-
   {{ webpack['components.css']}}
   {{ webpack['branding.css'] }}
+  {{ webpack["nr_components.css"] }}
 {%- endblock css %}
 
 {%- block javascript %}
-
   {{super()}}
-  {{ webpack['components.js']}}
-
+  {{ webpack['branding.js'] }}
+  {{ webpack['components.js'] }}
+  {{ webpack["nr_components.js"] }}
 {%- endblock javascript %}
 

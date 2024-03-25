@@ -1,0 +1,13 @@
+{#def funders, search_link #}
+
+<dl class='detail-subfields'>
+
+    {% for funder in array(funders) %}
+        <IField d={ funder.projectID } />
+        <IField d={funder.projectName} />
+        <IField d={funder.fundingProgram} />
+        <IField d={ funder.funder }>
+            <VocabularyItem vocabulary={funder.funder} search_link={search_link} searchFacet="metadata_fundingReferences" vocabulary_type="funders"></VocabularyItem>
+        </IField>
+    {% endfor %}
+</dl>

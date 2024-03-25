@@ -1,0 +1,2595 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2024-03-25T15:09:40.126595\n"
+"PO-Revision-Date: 2024-03-25T15:09:40.126596\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "$schema.help"
+msgstr ""
+
+msgid "$schema.label"
+msgstr ""
+
+msgid "$schema.hint"
+msgstr ""
+
+msgid "created.help"
+msgstr ""
+
+msgid "created.label"
+msgstr ""
+
+msgid "created.hint"
+msgstr ""
+
+msgid "id.help"
+msgstr ""
+
+msgid "id.label"
+msgstr ""
+
+msgid "id.hint"
+msgstr ""
+
+msgid "metadata.help"
+msgstr ""
+
+msgid "metadata.label"
+msgstr ""
+
+msgid "metadata.hint"
+msgstr ""
+
+msgid "metadata/alternateIdentifiers.label"
+msgstr "Alternativní identifikátory"
+
+msgid "metadata/alternateIdentifiers.help"
+msgstr ""
+
+msgid "metadata/alternateIdentifiers.hint"
+msgstr ""
+
+msgid "metadata/alternateIdentifiers/alternateIdentifier.label"
+msgstr "Identifikátor"
+
+msgid "metadata/alternateIdentifiers/alternateIdentifier.help"
+msgstr ""
+
+msgid "metadata/alternateIdentifiers/alternateIdentifier.hint"
+msgstr ""
+
+msgid "metadata/alternateIdentifiers/alternateIdentifierType.label"
+msgstr "Typ identifikátoru"
+
+msgid "metadata/alternateIdentifiers/alternateIdentifierType.help"
+msgstr ""
+
+msgid "metadata/alternateIdentifiers/alternateIdentifierType.hint"
+msgstr ""
+
+msgid "metadata/container.label"
+msgstr "Kontejner"
+
+msgid "metadata/container.help"
+msgstr ""
+
+msgid "metadata/container.hint"
+msgstr ""
+
+msgid "metadata/container/firstPage.label"
+msgstr "První strana"
+
+msgid "metadata/container/firstPage.help"
+msgstr ""
+
+msgid "metadata/container/firstPage.hint"
+msgstr ""
+
+msgid "metadata/container/title.label"
+msgstr "Název"
+
+msgid "metadata/container/title.help"
+msgstr ""
+
+msgid "metadata/container/title.hint"
+msgstr ""
+
+msgid "metadata/container/type.label"
+msgstr "Typ"
+
+msgid "metadata/container/type.help"
+msgstr ""
+
+msgid "metadata/container/type.hint"
+msgstr ""
+
+msgid "metadata/contributors.label"
+msgstr "Přispěvatelé"
+
+msgid "metadata/contributors.help"
+msgstr ""
+
+msgid "metadata/contributors.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation.label"
+msgstr ""
+
+msgid "metadata/contributors/affiliation.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifier.label"
+msgstr "Identifikátor afiliace"
+
+msgid "metadata/contributors/affiliation/affiliationIdentifier.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifier.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.label"
+msgstr "Schéma identifikátoru afiliace"
+
+msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/name.label"
+msgstr "Název"
+
+msgid "metadata/contributors/affiliation/name.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/name.hint"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/contributors/affiliation/schemeURI.help"
+msgstr ""
+
+msgid "metadata/contributors/affiliation/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.label"
+msgstr "Typ přispěvatele"
+
+msgid "metadata/contributors/contributorType.help"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.hint"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ContactPerson"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.DataCollector"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.DataCurator"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.DataManager"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Distributor"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Editor"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.HostingInstitution"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Producer"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ProjectLeader"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ProjectManager"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ProjectMember"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.RegistrationAgency"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.RegistrationAuthority"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.RelatedPerson"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Researcher"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.ResearchGroup"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.RightsHolder"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Sponsor"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Supervisor"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.WorkPackageLeader"
+msgstr ""
+
+msgid "metadata/contributors/contributorType.enum.Other"
+msgstr ""
+
+msgid "metadata/contributors/familyName.label"
+msgstr "Příjmení"
+
+msgid "metadata/contributors/familyName.help"
+msgstr ""
+
+msgid "metadata/contributors/familyName.hint"
+msgstr ""
+
+msgid "metadata/contributors/givenName.label"
+msgstr "Křestní jméno"
+
+msgid "metadata/contributors/givenName.help"
+msgstr ""
+
+msgid "metadata/contributors/givenName.hint"
+msgstr ""
+
+msgid "metadata/contributors/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/contributors/lang.help"
+msgstr ""
+
+msgid "metadata/contributors/lang.hint"
+msgstr ""
+
+msgid "metadata/contributors/name.label"
+msgstr "Jméno"
+
+msgid "metadata/contributors/name.help"
+msgstr ""
+
+msgid "metadata/contributors/name.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers.help"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers.label"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifier.label"
+msgstr "Identifikátor"
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifier.help"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifier.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"
+msgstr "Schéma identifikátoru"
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/contributors/nameIdentifiers/schemeURI.help"
+msgstr ""
+
+msgid "metadata/contributors/nameIdentifiers/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameType.label"
+msgstr "Typ jména"
+
+msgid "metadata/contributors/nameType.help"
+msgstr ""
+
+msgid "metadata/contributors/nameType.hint"
+msgstr ""
+
+msgid "metadata/contributors/nameType.enum.Organizational"
+msgstr ""
+
+msgid "metadata/contributors/nameType.enum.Personal"
+msgstr ""
+
+msgid "metadata/creators.label"
+msgstr "Autoři"
+
+msgid "metadata/creators.help"
+msgstr ""
+
+msgid "metadata/creators.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation.label"
+msgstr ""
+
+msgid "metadata/creators/affiliation.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifier.label"
+msgstr "Identifikátor afiliace"
+
+msgid "metadata/creators/affiliation/affiliationIdentifier.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifier.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifierScheme.label"
+msgstr "Schéma identifikátoru afiliace"
+
+msgid "metadata/creators/affiliation/affiliationIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation/affiliationIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation/name.label"
+msgstr "Název"
+
+msgid "metadata/creators/affiliation/name.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation/name.hint"
+msgstr ""
+
+msgid "metadata/creators/affiliation/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/creators/affiliation/schemeURI.help"
+msgstr ""
+
+msgid "metadata/creators/affiliation/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/creators/familyName.label"
+msgstr "Příjmení"
+
+msgid "metadata/creators/familyName.help"
+msgstr ""
+
+msgid "metadata/creators/familyName.hint"
+msgstr ""
+
+msgid "metadata/creators/givenName.label"
+msgstr "Křestní jméno"
+
+msgid "metadata/creators/givenName.help"
+msgstr ""
+
+msgid "metadata/creators/givenName.hint"
+msgstr ""
+
+msgid "metadata/creators/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/creators/lang.help"
+msgstr ""
+
+msgid "metadata/creators/lang.hint"
+msgstr ""
+
+msgid "metadata/creators/name.label"
+msgstr "Jméno"
+
+msgid "metadata/creators/name.help"
+msgstr ""
+
+msgid "metadata/creators/name.hint"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers.help"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers.label"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers.hint"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifier.label"
+msgstr "Identifikátor"
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifier.help"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifier.hint"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.label"
+msgstr "Schéma identifikátoru"
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/creators/nameIdentifiers/schemeURI.help"
+msgstr ""
+
+msgid "metadata/creators/nameIdentifiers/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/creators/nameType.label"
+msgstr "Typ jména"
+
+msgid "metadata/creators/nameType.help"
+msgstr ""
+
+msgid "metadata/creators/nameType.hint"
+msgstr ""
+
+msgid "metadata/creators/nameType.enum.Organizational"
+msgstr ""
+
+msgid "metadata/creators/nameType.enum.Personal"
+msgstr ""
+
+msgid "metadata/dates.label"
+msgstr "Data"
+
+msgid "metadata/dates.help"
+msgstr ""
+
+msgid "metadata/dates.hint"
+msgstr ""
+
+msgid "metadata/dates/date.label"
+msgstr "Datum"
+
+msgid "metadata/dates/date.help"
+msgstr ""
+
+msgid "metadata/dates/date.hint"
+msgstr ""
+
+msgid "metadata/dates/dateInformation.label"
+msgstr "Informace o datu"
+
+msgid "metadata/dates/dateInformation.help"
+msgstr ""
+
+msgid "metadata/dates/dateInformation.hint"
+msgstr ""
+
+msgid "metadata/dates/dateType.label"
+msgstr "Typ data"
+
+msgid "metadata/dates/dateType.help"
+msgstr ""
+
+msgid "metadata/dates/dateType.hint"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Accepted"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Available"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Copyrighted"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Collected"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Created"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Issued"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Submitted"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Updated"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Valid"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Withdrawn"
+msgstr ""
+
+msgid "metadata/dates/dateType.enum.Other"
+msgstr ""
+
+msgid "metadata/descriptions.label"
+msgstr "Popisy"
+
+msgid "metadata/descriptions.help"
+msgstr ""
+
+msgid "metadata/descriptions.hint"
+msgstr ""
+
+msgid "metadata/descriptions/description.label"
+msgstr "Popis"
+
+msgid "metadata/descriptions/description.help"
+msgstr ""
+
+msgid "metadata/descriptions/description.hint"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.label"
+msgstr "Typ popisu"
+
+msgid "metadata/descriptions/descriptionType.help"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.hint"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.Abstract"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.Methods"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.SeriesInformation"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.TableOfContents"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.TechnicalInfo"
+msgstr ""
+
+msgid "metadata/descriptions/descriptionType.enum.Other"
+msgstr ""
+
+msgid "metadata/descriptions/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/descriptions/lang.help"
+msgstr ""
+
+msgid "metadata/descriptions/lang.hint"
+msgstr ""
+
+msgid "metadata/doi.label"
+msgstr "DOI"
+
+msgid "metadata/doi.help"
+msgstr ""
+
+msgid "metadata/doi.hint"
+msgstr ""
+
+msgid "metadata/formats.label"
+msgstr "Formáty"
+
+msgid "metadata/formats.help"
+msgstr ""
+
+msgid "metadata/formats.hint"
+msgstr ""
+
+msgid "metadata/fundingReferences.label"
+msgstr "Financování"
+
+msgid "metadata/fundingReferences.help"
+msgstr ""
+
+msgid "metadata/fundingReferences.hint"
+msgstr ""
+
+msgid "metadata/fundingReferences/awardNumber.label"
+msgstr "Číslo ocenění"
+
+msgid "metadata/fundingReferences/awardNumber.help"
+msgstr ""
+
+msgid "metadata/fundingReferences/awardNumber.hint"
+msgstr ""
+
+msgid "metadata/fundingReferences/awardTitle.label"
+msgstr "Název ocenění"
+
+msgid "metadata/fundingReferences/awardTitle.help"
+msgstr ""
+
+msgid "metadata/fundingReferences/awardTitle.hint"
+msgstr ""
+
+msgid "metadata/fundingReferences/awardURI.label"
+msgstr "URI ocenění"
+
+msgid "metadata/fundingReferences/awardURI.help"
+msgstr ""
+
+msgid "metadata/fundingReferences/awardURI.hint"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderIdentifier.label"
+msgstr "Identifikátor funderu"
+
+msgid "metadata/fundingReferences/funderIdentifier.help"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderIdentifier.hint"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderIdentifierType.label"
+msgstr "Typ identifikátoru funderu"
+
+msgid "metadata/fundingReferences/funderIdentifierType.help"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderIdentifierType.hint"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderIdentifierType.enum.ISNI"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderIdentifierType.enum.GRID"
+msgstr ""
+
+msgid ""
+"metadata/fundingReferences/funderIdentifierType.enum.Crossref Funder ID"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderIdentifierType.enum.ROR"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderIdentifierType.enum.Other"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderName.label"
+msgstr "Název funderu"
+
+msgid "metadata/fundingReferences/funderName.help"
+msgstr ""
+
+msgid "metadata/fundingReferences/funderName.hint"
+msgstr ""
+
+msgid "metadata/geoLocations.label"
+msgstr "Geografické lokace"
+
+msgid "metadata/geoLocations.help"
+msgstr ""
+
+msgid "metadata/geoLocations.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox.label"
+msgstr "Obdélník zeměpisné polohy"
+
+msgid "metadata/geoLocations/geoLocationBox.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.label"
+msgstr "Východní zeměpisná délka"
+
+msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.label"
+msgstr "Severní zeměpisná šířka"
+
+msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.label"
+msgstr "Jižní zeměpisná šířka"
+
+msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.label"
+msgstr "Západní zeměpisná délka"
+
+msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPlace.label"
+msgstr "Místo zeměpisné polohy"
+
+msgid "metadata/geoLocations/geoLocationPlace.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPlace.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint.label"
+msgstr "Bod zeměpisné polohy"
+
+msgid "metadata/geoLocations/geoLocationPoint.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.label"
+msgstr "Zeměpisná šířka"
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.label"
+msgstr "Zeměpisná délka"
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons.label"
+msgstr "Polygony zeměpisné polohy"
+
+msgid "metadata/geoLocations/geoLocationPolygons.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.label"
+msgstr "Bod uvnitř polygonu"
+
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label"
+msgstr "Zeměpisná šířka"
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.help"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label"
+msgstr "Zeměpisná délka"
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.help"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.hint"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.label"
+msgstr "Body polygonu"
+
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.help"
+msgstr ""
+
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label"
+msgstr "Zeměpisná šířka"
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.help"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.hint"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label"
+msgstr "Zeměpisná délka"
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.help"
+msgstr ""
+
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.hint"
+msgstr ""
+
+msgid "metadata/language.label"
+msgstr "Jazyk"
+
+msgid "metadata/language.help"
+msgstr ""
+
+msgid "metadata/language.hint"
+msgstr ""
+
+msgid "metadata/publicationYear.label"
+msgstr "Rok publikace"
+
+msgid "metadata/publicationYear.help"
+msgstr ""
+
+msgid "metadata/publicationYear.hint"
+msgstr ""
+
+msgid "metadata/publisher.label"
+msgstr "Vydavatel"
+
+msgid "metadata/publisher.help"
+msgstr ""
+
+msgid "metadata/publisher.hint"
+msgstr ""
+
+msgid "metadata/publisher/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/publisher/lang.help"
+msgstr ""
+
+msgid "metadata/publisher/lang.hint"
+msgstr ""
+
+msgid "metadata/publisher/name.label"
+msgstr "Název"
+
+msgid "metadata/publisher/name.help"
+msgstr ""
+
+msgid "metadata/publisher/name.hint"
+msgstr ""
+
+msgid "metadata/publisher/publisherIdentifier.label"
+msgstr "Identifikátor vydavatele"
+
+msgid "metadata/publisher/publisherIdentifier.help"
+msgstr ""
+
+msgid "metadata/publisher/publisherIdentifier.hint"
+msgstr ""
+
+msgid "metadata/publisher/publisherIdentifierScheme.label"
+msgstr "Schéma identifikátoru vydavatele"
+
+msgid "metadata/publisher/publisherIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/publisher/publisherIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/publisher/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/publisher/schemeURI.help"
+msgstr ""
+
+msgid "metadata/publisher/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers.label"
+msgstr "Související identifikátory"
+
+msgid "metadata/relatedIdentifiers.help"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers.hint"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifier.label"
+msgstr "Identifikátor"
+
+msgid "metadata/relatedIdentifiers/relatedIdentifier.help"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifier.hint"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.label"
+msgstr "Typ identifikátoru"
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.help"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.hint"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.ARK"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.arXiv"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.bibcode"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.DOI"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.EAN13"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.EISSN"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.Handle"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.IGSN"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.ISBN"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.ISSN"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.ISTC"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.LISSN"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.LSID"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.PMID"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.PURL"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.UPC"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.URL"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.URN"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.w3id"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedMetadataScheme.label"
+msgstr "Schéma metadat"
+
+msgid "metadata/relatedIdentifiers/relatedMetadataScheme.help"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relatedMetadataScheme.hint"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.label"
+msgstr "Typ vztahu"
+
+msgid "metadata/relatedIdentifiers/relationType.help"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.hint"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsCitedBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.Cites"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsCollectedBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.Collects"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsSupplementTo"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsSupplementedBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsContinuedBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.Continues"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsDescribedBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.Describes"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.HasMetadata"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsMetadataFor"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.HasVersion"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsVersionOf"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsNewVersionOf"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsPartOf"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsPreviousVersionOf"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsPublishedIn"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.HasPart"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsReferencedBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.References"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsDocumentedBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.Documents"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsCompiledBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.Compiles"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsVariantFormOf"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsOriginalFormOf"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsIdenticalTo"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsReviewedBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.Reviews"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsDerivedFrom"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsSourceOf"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsRequiredBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.Requires"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.IsObsoletedBy"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/relationType.enum.Obsoletes"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.label"
+msgstr "Obecný typ zdroje"
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.help"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.hint"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Audiovisual"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Book"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.BookChapter"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Collection"
+msgstr ""
+
+msgid ""
+"metadata/relatedIdentifiers/resourceTypeGeneral.enum.ComputationalNotebook"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.ConferencePaper"
+msgstr ""
+
+msgid ""
+"metadata/relatedIdentifiers/resourceTypeGeneral.enum.ConferenceProceeding"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.DataPaper"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Dataset"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Dissertation"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Event"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Image"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Instrument"
+msgstr ""
+
+msgid ""
+"metadata/relatedIdentifiers/resourceTypeGeneral.enum.InteractiveResource"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Journal"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.JournalArticle"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Model"
+msgstr ""
+
+msgid ""
+"metadata/relatedIdentifiers/resourceTypeGeneral.enum.OutputManagementPlan"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.PeerReview"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.PhysicalObject"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Preprint"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Report"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Service"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Software"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Sound"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Standard"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.StudyRegistration"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Text"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Workflow"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Other"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/schemeType.label"
+msgstr "Typ schématu"
+
+msgid "metadata/relatedIdentifiers/schemeType.help"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/schemeType.hint"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/relatedIdentifiers/schemeURI.help"
+msgstr ""
+
+msgid "metadata/relatedIdentifiers/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/relatedItems.label"
+msgstr "Související položky"
+
+msgid "metadata/relatedItems.help"
+msgstr ""
+
+msgid "metadata/relatedItems.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors.label"
+msgstr "Přispěvatelé"
+
+msgid "metadata/relatedItems/contributors.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/affiliation.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/affiliation.label"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/affiliation.hint"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.label"
+msgstr "Identifikátor afiliace"
+
+msgid ""
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.help"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.hint"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.label"
+msgstr "Schéma identifikátoru afiliace"
+
+msgid ""
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.help"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/affiliation/name.label"
+msgstr "Název"
+
+msgid "metadata/relatedItems/contributors/affiliation/name.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/affiliation/name.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/affiliation/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/relatedItems/contributors/affiliation/schemeURI.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/affiliation/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.label"
+msgstr "Typ přispěvatele"
+
+msgid "metadata/relatedItems/contributors/contributorType.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.ContactPerson"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.DataCollector"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.DataCurator"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.DataManager"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.Distributor"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.Editor"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/contributorType.enum.HostingInstitution"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.Producer"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.ProjectLeader"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.ProjectManager"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.ProjectMember"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/contributorType.enum.RegistrationAgency"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/contributorType.enum.RegistrationAuthority"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.RelatedPerson"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.Researcher"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.ResearchGroup"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.RightsHolder"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.Sponsor"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.Supervisor"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/contributorType.enum.WorkPackageLeader"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/contributorType.enum.Other"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/familyName.label"
+msgstr "Příjmení"
+
+msgid "metadata/relatedItems/contributors/familyName.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/familyName.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/givenName.label"
+msgstr "Křestní jméno"
+
+msgid "metadata/relatedItems/contributors/givenName.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/givenName.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/relatedItems/contributors/lang.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/lang.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/name.label"
+msgstr "Jméno"
+
+msgid "metadata/relatedItems/contributors/name.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/name.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameIdentifiers.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameIdentifiers.label"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameIdentifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.label"
+msgstr "Identifikátor"
+
+msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.hint"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.label"
+msgstr "Schéma identifikátoru"
+
+msgid ""
+"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.help"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameType.label"
+msgstr "Typ jména"
+
+msgid "metadata/relatedItems/contributors/nameType.help"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameType.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameType.enum.Organizational"
+msgstr ""
+
+msgid "metadata/relatedItems/contributors/nameType.enum.Personal"
+msgstr ""
+
+msgid "metadata/relatedItems/creators.label"
+msgstr "Autoři"
+
+msgid "metadata/relatedItems/creators.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/affiliation.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/affiliation.label"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/affiliation.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.label"
+msgstr "Identifikátor afiliace"
+
+msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.hint"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.label"
+msgstr "Schéma identifikátoru afiliace"
+
+msgid ""
+"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.help"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/affiliation/name.label"
+msgstr "Název"
+
+msgid "metadata/relatedItems/creators/affiliation/name.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/affiliation/name.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/affiliation/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/relatedItems/creators/affiliation/schemeURI.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/affiliation/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/familyName.label"
+msgstr "Příjmení"
+
+msgid "metadata/relatedItems/creators/familyName.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/familyName.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/givenName.label"
+msgstr "Křestní jméno"
+
+msgid "metadata/relatedItems/creators/givenName.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/givenName.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/relatedItems/creators/lang.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/lang.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/name.label"
+msgstr "Jméno"
+
+msgid "metadata/relatedItems/creators/name.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/name.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameIdentifiers.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameIdentifiers.label"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameIdentifiers.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.label"
+msgstr "Identifikátor"
+
+msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.hint"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.label"
+msgstr "Schéma identifikátoru"
+
+msgid ""
+"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.help"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameType.label"
+msgstr "Typ jména"
+
+msgid "metadata/relatedItems/creators/nameType.help"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameType.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameType.enum.Organizational"
+msgstr ""
+
+msgid "metadata/relatedItems/creators/nameType.enum.Personal"
+msgstr ""
+
+msgid "metadata/relatedItems/edition.label"
+msgstr "Edice"
+
+msgid "metadata/relatedItems/edition.help"
+msgstr ""
+
+msgid "metadata/relatedItems/edition.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/firstPage.label"
+msgstr "První strana"
+
+msgid "metadata/relatedItems/firstPage.help"
+msgstr ""
+
+msgid "metadata/relatedItems/firstPage.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/issue.label"
+msgstr "Číslo"
+
+msgid "metadata/relatedItems/issue.help"
+msgstr ""
+
+msgid "metadata/relatedItems/issue.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/lastPage.label"
+msgstr "Poslední strana"
+
+msgid "metadata/relatedItems/lastPage.help"
+msgstr ""
+
+msgid "metadata/relatedItems/lastPage.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/number.label"
+msgstr "Číslo"
+
+msgid "metadata/relatedItems/number.help"
+msgstr ""
+
+msgid "metadata/relatedItems/number.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/numberType.label"
+msgstr "Typ čísla"
+
+msgid "metadata/relatedItems/numberType.help"
+msgstr ""
+
+msgid "metadata/relatedItems/numberType.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/numberType.enum.Article"
+msgstr ""
+
+msgid "metadata/relatedItems/numberType.enum.Chapter"
+msgstr ""
+
+msgid "metadata/relatedItems/numberType.enum.Report"
+msgstr ""
+
+msgid "metadata/relatedItems/numberType.enum.Other"
+msgstr ""
+
+msgid "metadata/relatedItems/publicationYear.label"
+msgstr "Rok publikace"
+
+msgid "metadata/relatedItems/publicationYear.help"
+msgstr ""
+
+msgid "metadata/relatedItems/publicationYear.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/publisher.label"
+msgstr "Vydavatel"
+
+msgid "metadata/relatedItems/publisher.help"
+msgstr ""
+
+msgid "metadata/relatedItems/publisher.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemIdentifier.label"
+msgstr "Identifikátor"
+
+msgid "metadata/relatedItems/relatedItemIdentifier.help"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemIdentifier.hint"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.label"
+msgstr "Identifikátor"
+
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.help"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.hint"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.label"
+msgstr "Typ identifikátoru"
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.help"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.hint"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ARK"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.arXiv"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.bibcode"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.DOI"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.EAN13"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.EISSN"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.Handle"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.IGSN"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISBN"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISSN"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISTC"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.LISSN"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.LSID"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.PMID"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.PURL"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.UPC"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.URL"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.URN"
+msgstr ""
+
+msgid ""
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.w3id"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.label"
+msgstr "Typ zdroje"
+
+msgid "metadata/relatedItems/relatedItemType.help"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Audiovisual"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Book"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.BookChapter"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Collection"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.ComputationalNotebook"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.ConferencePaper"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.ConferenceProceeding"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.DataPaper"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Dataset"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Dissertation"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Event"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Image"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Instrument"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.InteractiveResource"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Journal"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.JournalArticle"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Model"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.OutputManagementPlan"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.PeerReview"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.PhysicalObject"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Preprint"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Report"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Service"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Software"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Sound"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Standard"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.StudyRegistration"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Text"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Workflow"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedItemType.enum.Other"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedMetadataScheme.label"
+msgstr "Schéma metadat"
+
+msgid "metadata/relatedItems/relatedMetadataScheme.help"
+msgstr ""
+
+msgid "metadata/relatedItems/relatedMetadataScheme.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.label"
+msgstr "Typ vztahu"
+
+msgid "metadata/relatedItems/relationType.help"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsCitedBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.Cites"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsCollectedBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.Collects"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsSupplementTo"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsSupplementedBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsContinuedBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.Continues"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsDescribedBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.Describes"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.HasMetadata"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsMetadataFor"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.HasVersion"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsVersionOf"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsNewVersionOf"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsPartOf"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsPreviousVersionOf"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsPublishedIn"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.HasPart"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsReferencedBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.References"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsDocumentedBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.Documents"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsCompiledBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.Compiles"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsVariantFormOf"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsOriginalFormOf"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsIdenticalTo"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsReviewedBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.Reviews"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsDerivedFrom"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsSourceOf"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsRequiredBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.Requires"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.IsObsoletedBy"
+msgstr ""
+
+msgid "metadata/relatedItems/relationType.enum.Obsoletes"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.label"
+msgstr "Obecný typ zdroje"
+
+msgid "metadata/relatedItems/resourceTypeGeneral.help"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Audiovisual"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Book"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.BookChapter"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Collection"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.ComputationalNotebook"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.ConferencePaper"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.ConferenceProceeding"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.DataPaper"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Dataset"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Dissertation"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Event"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Image"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Instrument"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.InteractiveResource"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Journal"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.JournalArticle"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Model"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.OutputManagementPlan"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.PeerReview"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.PhysicalObject"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Preprint"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Report"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Service"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Software"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Sound"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Standard"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.StudyRegistration"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Text"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Workflow"
+msgstr ""
+
+msgid "metadata/relatedItems/resourceTypeGeneral.enum.Other"
+msgstr ""
+
+msgid "metadata/relatedItems/schemeType.label"
+msgstr "Typ schématu"
+
+msgid "metadata/relatedItems/schemeType.help"
+msgstr ""
+
+msgid "metadata/relatedItems/schemeType.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/relatedItems/schemeURI.help"
+msgstr ""
+
+msgid "metadata/relatedItems/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/titles.label"
+msgstr "Názvy"
+
+msgid "metadata/relatedItems/titles.help"
+msgstr ""
+
+msgid "metadata/relatedItems/titles.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/relatedItems/titles/lang.help"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/lang.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/title.label"
+msgstr "Název"
+
+msgid "metadata/relatedItems/titles/title.help"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/title.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/titleType.label"
+msgstr "Typ názvu"
+
+msgid "metadata/relatedItems/titles/titleType.help"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/titleType.hint"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/titleType.enum.AlternativeTitle"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/titleType.enum.Subtitle"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/titleType.enum.TranslatedTitle"
+msgstr ""
+
+msgid "metadata/relatedItems/titles/titleType.enum.Other"
+msgstr ""
+
+msgid "metadata/relatedItems/volume.label"
+msgstr "Svazek"
+
+msgid "metadata/relatedItems/volume.help"
+msgstr ""
+
+msgid "metadata/relatedItems/volume.hint"
+msgstr ""
+
+msgid "metadata/rightsList.label"
+msgstr "Práva"
+
+msgid "metadata/rightsList.help"
+msgstr ""
+
+msgid "metadata/rightsList.hint"
+msgstr ""
+
+msgid "metadata/rightsList/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/rightsList/lang.help"
+msgstr ""
+
+msgid "metadata/rightsList/lang.hint"
+msgstr ""
+
+msgid "metadata/rightsList/rights.label"
+msgstr "Práva"
+
+msgid "metadata/rightsList/rights.help"
+msgstr ""
+
+msgid "metadata/rightsList/rights.hint"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifier.label"
+msgstr "Identifikátor práv"
+
+msgid "metadata/rightsList/rightsIdentifier.help"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifier.hint"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifierScheme.label"
+msgstr "Schéma identifikátoru práv"
+
+msgid "metadata/rightsList/rightsIdentifierScheme.help"
+msgstr ""
+
+msgid "metadata/rightsList/rightsIdentifierScheme.hint"
+msgstr ""
+
+msgid "metadata/rightsList/rightsURI.label"
+msgstr "URI práv"
+
+msgid "metadata/rightsList/rightsURI.help"
+msgstr ""
+
+msgid "metadata/rightsList/rightsURI.hint"
+msgstr ""
+
+msgid "metadata/rightsList/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/rightsList/schemeURI.help"
+msgstr ""
+
+msgid "metadata/rightsList/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/schemaVersion.label"
+msgstr "Verze schématu"
+
+msgid "metadata/schemaVersion.help"
+msgstr ""
+
+msgid "metadata/schemaVersion.hint"
+msgstr ""
+
+msgid "metadata/sizes.label"
+msgstr "Velikosti"
+
+msgid "metadata/sizes.help"
+msgstr ""
+
+msgid "metadata/sizes.hint"
+msgstr ""
+
+msgid "metadata/subjects.label"
+msgstr "Témata"
+
+msgid "metadata/subjects.help"
+msgstr ""
+
+msgid "metadata/subjects.hint"
+msgstr ""
+
+msgid "metadata/subjects/classificationCode.label"
+msgstr "Klasifikační kód"
+
+msgid "metadata/subjects/classificationCode.help"
+msgstr ""
+
+msgid "metadata/subjects/classificationCode.hint"
+msgstr ""
+
+msgid "metadata/subjects/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/subjects/lang.help"
+msgstr ""
+
+msgid "metadata/subjects/lang.hint"
+msgstr ""
+
+msgid "metadata/subjects/schemeURI.label"
+msgstr "URI schématu"
+
+msgid "metadata/subjects/schemeURI.help"
+msgstr ""
+
+msgid "metadata/subjects/schemeURI.hint"
+msgstr ""
+
+msgid "metadata/subjects/subject.label"
+msgstr "Téma"
+
+msgid "metadata/subjects/subject.help"
+msgstr ""
+
+msgid "metadata/subjects/subject.hint"
+msgstr ""
+
+msgid "metadata/subjects/subjectScheme.label"
+msgstr "Schéma tématu"
+
+msgid "metadata/subjects/subjectScheme.help"
+msgstr ""
+
+msgid "metadata/subjects/subjectScheme.hint"
+msgstr ""
+
+msgid "metadata/subjects/valueURI.label"
+msgstr "URI hodnoty"
+
+msgid "metadata/subjects/valueURI.help"
+msgstr ""
+
+msgid "metadata/subjects/valueURI.hint"
+msgstr ""
+
+msgid "metadata/titles.label"
+msgstr "Názvy"
+
+msgid "metadata/titles.help"
+msgstr ""
+
+msgid "metadata/titles.hint"
+msgstr ""
+
+msgid "metadata/titles/lang.label"
+msgstr "Jazyk"
+
+msgid "metadata/titles/lang.help"
+msgstr ""
+
+msgid "metadata/titles/lang.hint"
+msgstr ""
+
+msgid "metadata/titles/title.label"
+msgstr "Název"
+
+msgid "metadata/titles/title.help"
+msgstr ""
+
+msgid "metadata/titles/title.hint"
+msgstr ""
+
+msgid "metadata/titles/titleType.label"
+msgstr "Typ názvu"
+
+msgid "metadata/titles/titleType.help"
+msgstr ""
+
+msgid "metadata/titles/titleType.hint"
+msgstr ""
+
+msgid "metadata/titles/titleType.enum.AlternativeTitle"
+msgstr ""
+
+msgid "metadata/titles/titleType.enum.Subtitle"
+msgstr ""
+
+msgid "metadata/titles/titleType.enum.TranslatedTitle"
+msgstr ""
+
+msgid "metadata/titles/titleType.enum.Other"
+msgstr ""
+
+msgid "metadata/types.label"
+msgstr "Typy zdroje"
+
+msgid "metadata/types.help"
+msgstr ""
+
+msgid "metadata/types.hint"
+msgstr ""
+
+msgid "metadata/types/resourceType.label"
+msgstr "Typ zdroje"
+
+msgid "metadata/types/resourceType.help"
+msgstr ""
+
+msgid "metadata/types/resourceType.hint"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.label"
+msgstr "Obecný typ zdroje"
+
+msgid "metadata/types/resourceTypeGeneral.help"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.hint"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Audiovisual"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Book"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.BookChapter"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Collection"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.ComputationalNotebook"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.ConferencePaper"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.ConferenceProceeding"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.DataPaper"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Dataset"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Dissertation"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Event"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Image"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Instrument"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.InteractiveResource"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Journal"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.JournalArticle"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Model"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.OutputManagementPlan"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.PeerReview"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.PhysicalObject"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Preprint"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Report"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Service"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Software"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Sound"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Standard"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.StudyRegistration"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Text"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Workflow"
+msgstr ""
+
+msgid "metadata/types/resourceTypeGeneral.enum.Other"
+msgstr ""
+
+msgid "metadata/url.label"
+msgstr "URL"
+
+msgid "metadata/url.help"
+msgstr ""
+
+msgid "metadata/url.hint"
+msgstr ""
+
+msgid "metadata/version.label"
+msgstr "Verze"
+
+msgid "metadata/version.help"
+msgstr ""
+
+msgid "metadata/version.hint"
+msgstr ""
+
+msgid "oai.help"
+msgstr ""
+
+msgid "oai.label"
+msgstr ""
+
+msgid "oai.hint"
+msgstr ""
+
+msgid "oai/harvest.help"
+msgstr ""
+
+msgid "oai/harvest.label"
+msgstr ""
+
+msgid "oai/harvest.hint"
+msgstr ""
+
+msgid "oai/harvest/datestamp.label"
+msgstr "Datum poslední změny"
+
+msgid "oai/harvest/datestamp.help"
+msgstr ""
+
+msgid "oai/harvest/datestamp.hint"
+msgstr ""
+
+msgid "oai/harvest/identifier.label"
+msgstr "OAI identifikátor"
+
+msgid "oai/harvest/identifier.help"
+msgstr ""
+
+msgid "oai/harvest/identifier.hint"
+msgstr ""
+
+msgid "updated.help"
+msgstr ""
+
+msgid "updated.label"
+msgstr ""
+
+msgid "updated.hint"
+msgstr ""

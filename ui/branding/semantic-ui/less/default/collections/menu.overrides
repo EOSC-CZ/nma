@@ -1,0 +1,198 @@
+/***********************************************
+         Invenio Menu Overrides
+***********************************************/
+
+.ui.menu {
+  &.pagination {
+    box-shadow: none;
+  }
+
+  &.compact {
+    .item.active {
+      background-color: @primaryColor;
+      color: @white;
+      border: 1px solid @teal;
+
+      &:hover {
+        background-color: @primaryColorHover;
+      }
+    }
+
+    &.text > .item {
+      background: none;
+      border: none;
+    }
+  }
+
+  &.vertical {
+    &.computer {
+      @media screen and (min-width: @computerBreakpoint) {
+        display: flex;
+        flex-direction: column;
+
+        > .item {
+          &:first-child {
+            border-radius: @borderRadius @borderRadius 0px 0px;
+          }
+
+          &:last-child {
+            border-radius: 0px 0px @borderRadius @borderRadius;
+          }
+
+          &:only-child {
+            border-radius: @borderRadius;
+          }
+        }
+      }
+    }
+  }
+
+  &.horizontal {
+    &.mobile {
+      @media screen and (max-width: @largestMobileScreen) {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        > .item {
+          flex: 1 0 0;
+          min-width: 0;
+          text-align: center;
+
+          &::before {
+            content: none;
+          }
+
+          &:not(:first-child) {
+            border-left: 1px solid @borderColor;
+          }
+
+          &:first-child {
+            border-radius: @borderRadius 0px 0px @borderRadius;
+          }
+
+          &:last-child {
+            border-radius: 0px @borderRadius @borderRadius 0px;
+          }
+
+          &:only-child {
+            border-radius: @borderRadius;
+          }
+        }
+      }
+    }
+
+    &.tablet {
+      @media screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        > .item {
+          flex: 1 0 0;
+          min-width: 9rem;
+          text-align: center;
+
+          &::before {
+            content: none;
+          }
+
+          &:not(:first-child) {
+            border-left: 1px solid @borderColor;
+          }
+
+          &:first-child {
+            border-radius: @borderRadius 0px 0px @borderRadius;
+          }
+
+          &:last-child {
+            border-radius: 0px @borderRadius @borderRadius 0px;
+          }
+
+          &:only-child {
+            border-radius: @borderRadius;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ui.menu.secondary.pointing {
+  .item.active {
+    border-color: @secondaryColor;
+  }
+}
+
+#invenio-nav.ui.menu {
+  height: @relative75px;
+  position: relative;
+
+  .ui.menu {
+    background-color: transparent;
+    box-shadow: none;
+
+    .ui.dropdown.invenio-plus-menu {
+      padding: 1rem;
+    }
+
+    .item {
+      padding: 0;
+
+      a:not(.ui.button) {
+        padding: 2rem 1rem;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+          color: @white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .item {
+    &.logo {
+      padding-right: 1rem;
+    }
+
+    &.search-bar {
+      padding-right: 1rem;
+    }
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      padding-left: 0;
+    }
+
+    &.right.menu {
+      padding-right: 0;
+      display: flex;
+    }
+  }
+
+  .invenio-plus-menu {
+    padding-right: 15px;
+  }
+
+  #user-profile-dropdown {
+    width: 13em;
+
+    #user-profile-dropdown-btn {
+      width: inherit;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #user-profile-menu.ui.menu {
+      width: inherit;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+}
+
+

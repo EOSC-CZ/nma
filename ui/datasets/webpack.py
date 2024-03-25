@@ -9,10 +9,13 @@ theme = WebpackThemeBundle(
             entry={
                 "datasets_search": "./js/datasets/search/index.js",
                 "datasets_deposit_form": "./js/datasets/forms/index.js",
+                "datasets_detail": "./js/datasets/detail/index.js"
             },
             dependencies={},
             devDependencies={},
-            aliases={},
+            aliases={
+                "@datasets_search": "js/datasets/search",
+            },
         )
     },
 )

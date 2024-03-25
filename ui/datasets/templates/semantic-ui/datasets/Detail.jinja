@@ -1,3 +1,6 @@
+{# def metadata, extra_context, record, ui, d #}
+{%- set title = metadata.title ~ " | " ~ _("National Metadata repository") %}
+
 {% extends "oarepo_ui/detail.html" %}
 
 {%- block head_links %}
@@ -5,9 +8,14 @@
 {%- endblock %}
 
 {% block record_main_content %}
-    Add your main content here
+    <Main ui={ui} extra_context={extra_context} record={record} d={d}/>
 {% endblock %}
 
 {% block record_sidebar %}
-    Add your sidebar content here
+    <Sidebar metadata={metadata} ui={ui} extra_context={extra_context} record={record} d={d}/>
 {% endblock record_sidebar %}
+
+{%- block javascript %}
+{{ super() }}
+{{ webpack['datasets_detail.js'] }}
+{%- endblock %}

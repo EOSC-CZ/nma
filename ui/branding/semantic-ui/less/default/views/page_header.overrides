@@ -1,0 +1,9 @@
+.ui.page-header {
+  // background-image: url("~@less/images/background.png");
+
+  .outer-navbar {
+    background-color: #ffffffaa;
+    background-size: 1024px;
+    border: 0;
+  }
+}

@@ -1,0 +1,7 @@
+{#def label, ui=None #}
+{% if content %}
+<dt class="{% if ui.label_class is defined %}{{ui.label_class}}{% endif %}"
+    style="{% if ui.label_style is defined %}{{ui.label_style}}{% endif %}">{{ label }}</dt>
+<dd class="{% if ui.data_class is defined %}{{ui.data_class}}{% endif %}"
+        style="{% if ui.data_style is defined %}{{ui.data_style}}{% endif %}">{{ content }}</dd>
+{% endif %}

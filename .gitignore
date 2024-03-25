@@ -10,3 +10,4 @@ node_modules
 .env
 test-datacite
 .pdm-python
+jsconfig.json

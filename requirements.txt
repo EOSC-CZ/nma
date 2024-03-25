@@ -9,10 +9,10 @@ jinjax==0.31
 json5==0.9.24
 langcodes==3.3.0
 langdetect==1.0.9
-nr-metadata==2.0.16
+nr-metadata==2.0.17
 oarepo-oai-pmh-harvester==4.0.45
 oarepo-runtime==1.5.22
-oarepo-ui==5.1.7
+oarepo-ui==5.1.11
 oarepo-vocabularies==2.0.80
 openpyxl==3.1.2
 python-dotenv==1.0.1

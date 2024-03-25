@@ -1,0 +1,12 @@
+.main.container {
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+}
+
+.ui.container.cover-page {
+  justify-content: center;
+}
+
+.ui.container.page-subheader-outer {
+  background-color: @highlightHeaderColor;
+}

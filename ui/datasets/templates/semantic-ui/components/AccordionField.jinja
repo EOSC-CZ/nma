@@ -1,0 +1,10 @@
+{#def label #}
+{% if content %}
+<div class="ui fluid accordion">
+  <dt class="title">
+    {{ label }}<i style="display: inline-block; float: right;" class="right floated dropdown icon"></i>
+    <hr class="ui divider">
+  </dt>
+  <dd class="content">{{ content }}</dd>
+</div>
+{% endif %}

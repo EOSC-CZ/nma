@@ -28,6 +28,9 @@ record:
     - read_only
   pid:
     type: dtsts
+  search-options:
+    base-classes:
+      - oarepo_runtime.services.search.I18nSearchOptions
   properties:
     metadata:
       properties: {}
@@ -37,11 +40,15 @@ record:
   - invenio
   - ./datasets-custom_fields.yaml
   - ./datasets-harvest.yaml
+  - ./datasets-facets.yaml
 
 runtime-dependencies: {}
 settings:
   i18n-languages:
   - en
+  - cs
   supported-langs:
     en:
+      text: {}
+    cs:
       text: {}

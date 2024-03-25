@@ -1,0 +1,35 @@
+{% extends "oarepo_ui/header.html" %} 
+
+{%- block navbar_search %}{%- endblock navbar_search %}
+
+{%- block navbar_header %}
+  {%- block brand %}
+    {%- if config.THEME_LOGO %}
+      <a class="logo-link" href="/">
+        <img class="ui image"
+              src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+              alt="{{ _(config.THEME_SITENAME) }}"/>
+      </a>
+    {%- endif %}
+  {%- endblock brand %}
+{%- endblock navbar_header %}
+
+{%- block navbar_nav %}<h1 class="ui grey header">{{ _(config.THEME_SITENAME) }}</h1>{%- endblock navbar_nav %}
+
+{%- block navbar_right %}
+<div class="right menu item">
+  {%- if config.I18N_LANGUAGES %}
+  <form id="language-code-form" class="lang-select"
+      action="{{ url_for('invenio_i18n.set_lang')}}"
+      method="POST">
+    <div>
+      <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector">
+        {% for l in current_i18n.get_locales() %}
+          <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name() }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </form>
+  {%- endif %}
+</div>
+{%- endblock navbar_right %}

@@ -1,0 +1,8 @@
+.column.results-list.item-main {
+    flex: 1;
+}
+    
+.column.results-list.item-side {
+    flex: 0 0 8rem;
+}
+ 

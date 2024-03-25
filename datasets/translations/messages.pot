@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-03-24T09:29:52.459727\n"
-"PO-Revision-Date: 2024-03-24T09:29:52.459728\n"
+"POT-Creation-Date: 2024-03-25T15:09:40.126610\n"
+"PO-Revision-Date: 2024-03-25T15:09:40.126611\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,73 +44,73 @@ msgstr ""
 msgid "metadata.hint"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers.help"
+msgid "metadata/alternateIdentifiers.label"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers.label"
+msgid "metadata/alternateIdentifiers.help"
 msgstr ""
 
 msgid "metadata/alternateIdentifiers.hint"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifier.help"
+msgid "metadata/alternateIdentifiers/alternateIdentifier.label"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifier.label"
+msgid "metadata/alternateIdentifiers/alternateIdentifier.help"
 msgstr ""
 
 msgid "metadata/alternateIdentifiers/alternateIdentifier.hint"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifierType.help"
+msgid "metadata/alternateIdentifiers/alternateIdentifierType.label"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifierType.label"
+msgid "metadata/alternateIdentifiers/alternateIdentifierType.help"
 msgstr ""
 
 msgid "metadata/alternateIdentifiers/alternateIdentifierType.hint"
 msgstr ""
 
-msgid "metadata/container.help"
+msgid "metadata/container.label"
 msgstr ""
 
-msgid "metadata/container.label"
+msgid "metadata/container.help"
 msgstr ""
 
 msgid "metadata/container.hint"
 msgstr ""
 
-msgid "metadata/container/firstPage.help"
+msgid "metadata/container/firstPage.label"
 msgstr ""
 
-msgid "metadata/container/firstPage.label"
+msgid "metadata/container/firstPage.help"
 msgstr ""
 
 msgid "metadata/container/firstPage.hint"
 msgstr ""
 
-msgid "metadata/container/title.help"
+msgid "metadata/container/title.label"
 msgstr ""
 
-msgid "metadata/container/title.label"
+msgid "metadata/container/title.help"
 msgstr ""
 
 msgid "metadata/container/title.hint"
 msgstr ""
 
-msgid "metadata/container/type.help"
+msgid "metadata/container/type.label"
 msgstr ""
 
-msgid "metadata/container/type.label"
+msgid "metadata/container/type.help"
 msgstr ""
 
 msgid "metadata/container/type.hint"
 msgstr ""
 
-msgid "metadata/contributors.help"
+msgid "metadata/contributors.label"
 msgstr ""
 
-msgid "metadata/contributors.label"
+msgid "metadata/contributors.help"
 msgstr ""
 
 msgid "metadata/contributors.hint"
@@ -125,46 +125,46 @@ msgstr ""
 msgid "metadata/contributors/affiliation.hint"
 msgstr ""
 
-msgid "metadata/contributors/affiliation/affiliationIdentifier.help"
+msgid "metadata/contributors/affiliation/affiliationIdentifier.label"
 msgstr ""
 
-msgid "metadata/contributors/affiliation/affiliationIdentifier.label"
+msgid "metadata/contributors/affiliation/affiliationIdentifier.help"
 msgstr ""
 
 msgid "metadata/contributors/affiliation/affiliationIdentifier.hint"
 msgstr ""
 
-msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.help"
+msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.label"
 msgstr ""
 
-msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.label"
+msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.help"
 msgstr ""
 
 msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.hint"
 msgstr ""
 
-msgid "metadata/contributors/affiliation/name.help"
+msgid "metadata/contributors/affiliation/name.label"
 msgstr ""
 
-msgid "metadata/contributors/affiliation/name.label"
+msgid "metadata/contributors/affiliation/name.help"
 msgstr ""
 
 msgid "metadata/contributors/affiliation/name.hint"
 msgstr ""
 
-msgid "metadata/contributors/affiliation/schemeURI.help"
+msgid "metadata/contributors/affiliation/schemeURI.label"
 msgstr ""
 
-msgid "metadata/contributors/affiliation/schemeURI.label"
+msgid "metadata/contributors/affiliation/schemeURI.help"
 msgstr ""
 
 msgid "metadata/contributors/affiliation/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/contributors/contributorType.help"
+msgid "metadata/contributors/contributorType.label"
 msgstr ""
 
-msgid "metadata/contributors/contributorType.label"
+msgid "metadata/contributors/contributorType.help"
 msgstr ""
 
 msgid "metadata/contributors/contributorType.hint"
@@ -233,37 +233,37 @@ msgstr ""
 msgid "metadata/contributors/contributorType.enum.Other"
 msgstr ""
 
-msgid "metadata/contributors/familyName.help"
+msgid "metadata/contributors/familyName.label"
 msgstr ""
 
-msgid "metadata/contributors/familyName.label"
+msgid "metadata/contributors/familyName.help"
 msgstr ""
 
 msgid "metadata/contributors/familyName.hint"
 msgstr ""
 
-msgid "metadata/contributors/givenName.help"
+msgid "metadata/contributors/givenName.label"
 msgstr ""
 
-msgid "metadata/contributors/givenName.label"
+msgid "metadata/contributors/givenName.help"
 msgstr ""
 
 msgid "metadata/contributors/givenName.hint"
 msgstr ""
 
-msgid "metadata/contributors/lang.help"
+msgid "metadata/contributors/lang.label"
 msgstr ""
 
-msgid "metadata/contributors/lang.label"
+msgid "metadata/contributors/lang.help"
 msgstr ""
 
 msgid "metadata/contributors/lang.hint"
 msgstr ""
 
-msgid "metadata/contributors/name.help"
+msgid "metadata/contributors/name.label"
 msgstr ""
 
-msgid "metadata/contributors/name.label"
+msgid "metadata/contributors/name.help"
 msgstr ""
 
 msgid "metadata/contributors/name.hint"
@@ -278,37 +278,37 @@ msgstr ""
 msgid "metadata/contributors/nameIdentifiers.hint"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifier.help"
+msgid "metadata/contributors/nameIdentifiers/nameIdentifier.label"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifier.label"
+msgid "metadata/contributors/nameIdentifiers/nameIdentifier.help"
 msgstr ""
 
 msgid "metadata/contributors/nameIdentifiers/nameIdentifier.hint"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.help"
+msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"
+msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.help"
 msgstr ""
 
 msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.hint"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/schemeURI.help"
+msgid "metadata/contributors/nameIdentifiers/schemeURI.label"
 msgstr ""
 
-msgid "metadata/contributors/nameIdentifiers/schemeURI.label"
+msgid "metadata/contributors/nameIdentifiers/schemeURI.help"
 msgstr ""
 
 msgid "metadata/contributors/nameIdentifiers/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/contributors/nameType.help"
+msgid "metadata/contributors/nameType.label"
 msgstr ""
 
-msgid "metadata/contributors/nameType.label"
+msgid "metadata/contributors/nameType.help"
 msgstr ""
 
 msgid "metadata/contributors/nameType.hint"
@@ -320,10 +320,10 @@ msgstr ""
 msgid "metadata/contributors/nameType.enum.Personal"
 msgstr ""
 
-msgid "metadata/creators.help"
+msgid "metadata/creators.label"
 msgstr ""
 
-msgid "metadata/creators.label"
+msgid "metadata/creators.help"
 msgstr ""
 
 msgid "metadata/creators.hint"
@@ -338,73 +338,73 @@ msgstr ""
 msgid "metadata/creators/affiliation.hint"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifier.help"
+msgid "metadata/creators/affiliation/affiliationIdentifier.label"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifier.label"
+msgid "metadata/creators/affiliation/affiliationIdentifier.help"
 msgstr ""
 
 msgid "metadata/creators/affiliation/affiliationIdentifier.hint"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifierScheme.help"
+msgid "metadata/creators/affiliation/affiliationIdentifierScheme.label"
 msgstr ""
 
-msgid "metadata/creators/affiliation/affiliationIdentifierScheme.label"
+msgid "metadata/creators/affiliation/affiliationIdentifierScheme.help"
 msgstr ""
 
 msgid "metadata/creators/affiliation/affiliationIdentifierScheme.hint"
 msgstr ""
 
-msgid "metadata/creators/affiliation/name.help"
+msgid "metadata/creators/affiliation/name.label"
 msgstr ""
 
-msgid "metadata/creators/affiliation/name.label"
+msgid "metadata/creators/affiliation/name.help"
 msgstr ""
 
 msgid "metadata/creators/affiliation/name.hint"
 msgstr ""
 
-msgid "metadata/creators/affiliation/schemeURI.help"
+msgid "metadata/creators/affiliation/schemeURI.label"
 msgstr ""
 
-msgid "metadata/creators/affiliation/schemeURI.label"
+msgid "metadata/creators/affiliation/schemeURI.help"
 msgstr ""
 
 msgid "metadata/creators/affiliation/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/creators/familyName.help"
+msgid "metadata/creators/familyName.label"
 msgstr ""
 
-msgid "metadata/creators/familyName.label"
+msgid "metadata/creators/familyName.help"
 msgstr ""
 
 msgid "metadata/creators/familyName.hint"
 msgstr ""
 
-msgid "metadata/creators/givenName.help"
+msgid "metadata/creators/givenName.label"
 msgstr ""
 
-msgid "metadata/creators/givenName.label"
+msgid "metadata/creators/givenName.help"
 msgstr ""
 
 msgid "metadata/creators/givenName.hint"
 msgstr ""
 
-msgid "metadata/creators/lang.help"
+msgid "metadata/creators/lang.label"
 msgstr ""
 
-msgid "metadata/creators/lang.label"
+msgid "metadata/creators/lang.help"
 msgstr ""
 
 msgid "metadata/creators/lang.hint"
 msgstr ""
 
-msgid "metadata/creators/name.help"
+msgid "metadata/creators/name.label"
 msgstr ""
 
-msgid "metadata/creators/name.label"
+msgid "metadata/creators/name.help"
 msgstr ""
 
 msgid "metadata/creators/name.hint"
@@ -419,37 +419,37 @@ msgstr ""
 msgid "metadata/creators/nameIdentifiers.hint"
 msgstr ""
 
-msgid "metadata/creators/nameIdentifiers/nameIdentifier.help"
+msgid "metadata/creators/nameIdentifiers/nameIdentifier.label"
 msgstr ""
 
-msgid "metadata/creators/nameIdentifiers/nameIdentifier.label"
+msgid "metadata/creators/nameIdentifiers/nameIdentifier.help"
 msgstr ""
 
 msgid "metadata/creators/nameIdentifiers/nameIdentifier.hint"
 msgstr ""
 
-msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.help"
+msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.label"
 msgstr ""
 
-msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.label"
+msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.help"
 msgstr ""
 
 msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.hint"
 msgstr ""
 
-msgid "metadata/creators/nameIdentifiers/schemeURI.help"
+msgid "metadata/creators/nameIdentifiers/schemeURI.label"
 msgstr ""
 
-msgid "metadata/creators/nameIdentifiers/schemeURI.label"
+msgid "metadata/creators/nameIdentifiers/schemeURI.help"
 msgstr ""
 
 msgid "metadata/creators/nameIdentifiers/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/creators/nameType.help"
+msgid "metadata/creators/nameType.label"
 msgstr ""
 
-msgid "metadata/creators/nameType.label"
+msgid "metadata/creators/nameType.help"
 msgstr ""
 
 msgid "metadata/creators/nameType.hint"
@@ -461,37 +461,37 @@ msgstr ""
 msgid "metadata/creators/nameType.enum.Personal"
 msgstr ""
 
-msgid "metadata/dates.help"
+msgid "metadata/dates.label"
 msgstr ""
 
-msgid "metadata/dates.label"
+msgid "metadata/dates.help"
 msgstr ""
 
 msgid "metadata/dates.hint"
 msgstr ""
 
-msgid "metadata/dates/date.help"
+msgid "metadata/dates/date.label"
 msgstr ""
 
-msgid "metadata/dates/date.label"
+msgid "metadata/dates/date.help"
 msgstr ""
 
 msgid "metadata/dates/date.hint"
 msgstr ""
 
-msgid "metadata/dates/dateInformation.help"
+msgid "metadata/dates/dateInformation.label"
 msgstr ""
 
-msgid "metadata/dates/dateInformation.label"
+msgid "metadata/dates/dateInformation.help"
 msgstr ""
 
 msgid "metadata/dates/dateInformation.hint"
 msgstr ""
 
-msgid "metadata/dates/dateType.help"
+msgid "metadata/dates/dateType.label"
 msgstr ""
 
-msgid "metadata/dates/dateType.label"
+msgid "metadata/dates/dateType.help"
 msgstr ""
 
 msgid "metadata/dates/dateType.hint"
@@ -530,28 +530,28 @@ msgstr ""
 msgid "metadata/dates/dateType.enum.Other"
 msgstr ""
 
-msgid "metadata/descriptions.help"
+msgid "metadata/descriptions.label"
 msgstr ""
 
-msgid "metadata/descriptions.label"
+msgid "metadata/descriptions.help"
 msgstr ""
 
 msgid "metadata/descriptions.hint"
 msgstr ""
 
-msgid "metadata/descriptions/description.help"
+msgid "metadata/descriptions/description.label"
 msgstr ""
 
-msgid "metadata/descriptions/description.label"
+msgid "metadata/descriptions/description.help"
 msgstr ""
 
 msgid "metadata/descriptions/description.hint"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.help"
+msgid "metadata/descriptions/descriptionType.label"
 msgstr ""
 
-msgid "metadata/descriptions/descriptionType.label"
+msgid "metadata/descriptions/descriptionType.help"
 msgstr ""
 
 msgid "metadata/descriptions/descriptionType.hint"
@@ -575,82 +575,82 @@ msgstr ""
 msgid "metadata/descriptions/descriptionType.enum.Other"
 msgstr ""
 
-msgid "metadata/descriptions/lang.help"
+msgid "metadata/descriptions/lang.label"
 msgstr ""
 
-msgid "metadata/descriptions/lang.label"
+msgid "metadata/descriptions/lang.help"
 msgstr ""
 
 msgid "metadata/descriptions/lang.hint"
 msgstr ""
 
-msgid "metadata/doi.help"
+msgid "metadata/doi.label"
 msgstr ""
 
-msgid "metadata/doi.label"
+msgid "metadata/doi.help"
 msgstr ""
 
 msgid "metadata/doi.hint"
 msgstr ""
 
-msgid "metadata/formats.help"
+msgid "metadata/formats.label"
 msgstr ""
 
-msgid "metadata/formats.label"
+msgid "metadata/formats.help"
 msgstr ""
 
 msgid "metadata/formats.hint"
 msgstr ""
 
-msgid "metadata/fundingReferences.help"
+msgid "metadata/fundingReferences.label"
 msgstr ""
 
-msgid "metadata/fundingReferences.label"
+msgid "metadata/fundingReferences.help"
 msgstr ""
 
 msgid "metadata/fundingReferences.hint"
 msgstr ""
 
-msgid "metadata/fundingReferences/awardNumber.help"
+msgid "metadata/fundingReferences/awardNumber.label"
 msgstr ""
 
-msgid "metadata/fundingReferences/awardNumber.label"
+msgid "metadata/fundingReferences/awardNumber.help"
 msgstr ""
 
 msgid "metadata/fundingReferences/awardNumber.hint"
 msgstr ""
 
-msgid "metadata/fundingReferences/awardTitle.help"
+msgid "metadata/fundingReferences/awardTitle.label"
 msgstr ""
 
-msgid "metadata/fundingReferences/awardTitle.label"
+msgid "metadata/fundingReferences/awardTitle.help"
 msgstr ""
 
 msgid "metadata/fundingReferences/awardTitle.hint"
 msgstr ""
 
-msgid "metadata/fundingReferences/awardURI.help"
+msgid "metadata/fundingReferences/awardURI.label"
 msgstr ""
 
-msgid "metadata/fundingReferences/awardURI.label"
+msgid "metadata/fundingReferences/awardURI.help"
 msgstr ""
 
 msgid "metadata/fundingReferences/awardURI.hint"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderIdentifier.help"
+msgid "metadata/fundingReferences/funderIdentifier.label"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderIdentifier.label"
+msgid "metadata/fundingReferences/funderIdentifier.help"
 msgstr ""
 
 msgid "metadata/fundingReferences/funderIdentifier.hint"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderIdentifierType.help"
+msgid "metadata/fundingReferences/funderIdentifierType.label"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderIdentifierType.label"
+msgid "metadata/fundingReferences/funderIdentifierType.help"
 msgstr ""
 
 msgid "metadata/fundingReferences/funderIdentifierType.hint"
@@ -672,100 +672,100 @@ msgstr ""
 msgid "metadata/fundingReferences/funderIdentifierType.enum.Other"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderName.help"
+msgid "metadata/fundingReferences/funderName.label"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderName.label"
+msgid "metadata/fundingReferences/funderName.help"
 msgstr ""
 
 msgid "metadata/fundingReferences/funderName.hint"
 msgstr ""
 
-msgid "metadata/geoLocations.help"
+msgid "metadata/geoLocations.label"
 msgstr ""
 
-msgid "metadata/geoLocations.label"
+msgid "metadata/geoLocations.help"
 msgstr ""
 
 msgid "metadata/geoLocations.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox.help"
+msgid "metadata/geoLocations/geoLocationBox.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox.label"
+msgid "metadata/geoLocations/geoLocationBox.help"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationBox.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.help"
+msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.label"
+msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.help"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.help"
+msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.label"
+msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.help"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.help"
+msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.label"
+msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.help"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.help"
+msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.label"
+msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.help"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPlace.help"
+msgid "metadata/geoLocations/geoLocationPlace.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPlace.label"
+msgid "metadata/geoLocations/geoLocationPlace.help"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationPlace.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint.help"
+msgid "metadata/geoLocations/geoLocationPoint.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint.label"
+msgid "metadata/geoLocations/geoLocationPoint.help"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationPoint.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.help"
+msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.label"
+msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.help"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.help"
+msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.label"
+msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.help"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.hint"
@@ -780,17 +780,13 @@ msgstr ""
 msgid "metadata/geoLocations/geoLocationPolygons.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.help"
-msgstr ""
-
 msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.hint"
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.help"
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.hint"
 msgstr ""
 
 msgid ""
@@ -798,11 +794,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.hint"
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.help"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.help"
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.hint"
 msgstr ""
 
 msgid ""
@@ -810,20 +806,20 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.hint"
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.help"
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.hint"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint"
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.help"
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint"
 msgstr ""
 
 msgid ""
@@ -831,11 +827,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.hint"
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.help"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.help"
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.hint"
 msgstr ""
 
 msgid ""
@@ -843,103 +839,107 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.hint"
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.help"
 msgstr ""
 
-msgid "metadata/language.help"
+msgid ""
+"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.hint"
 msgstr ""
 
 msgid "metadata/language.label"
 msgstr ""
 
-msgid "metadata/language.hint"
+msgid "metadata/language.help"
 msgstr ""
 
-msgid "metadata/publicationYear.help"
+msgid "metadata/language.hint"
 msgstr ""
 
 msgid "metadata/publicationYear.label"
 msgstr ""
 
-msgid "metadata/publicationYear.hint"
+msgid "metadata/publicationYear.help"
 msgstr ""
 
-msgid "metadata/publisher.help"
+msgid "metadata/publicationYear.hint"
 msgstr ""
 
 msgid "metadata/publisher.label"
 msgstr ""
 
-msgid "metadata/publisher.hint"
+msgid "metadata/publisher.help"
 msgstr ""
 
-msgid "metadata/publisher/lang.help"
+msgid "metadata/publisher.hint"
 msgstr ""
 
 msgid "metadata/publisher/lang.label"
 msgstr ""
 
-msgid "metadata/publisher/lang.hint"
+msgid "metadata/publisher/lang.help"
 msgstr ""
 
-msgid "metadata/publisher/name.help"
+msgid "metadata/publisher/lang.hint"
 msgstr ""
 
 msgid "metadata/publisher/name.label"
 msgstr ""
 
-msgid "metadata/publisher/name.hint"
+msgid "metadata/publisher/name.help"
 msgstr ""
 
-msgid "metadata/publisher/publisherIdentifier.help"
+msgid "metadata/publisher/name.hint"
 msgstr ""
 
 msgid "metadata/publisher/publisherIdentifier.label"
 msgstr ""
 
-msgid "metadata/publisher/publisherIdentifier.hint"
+msgid "metadata/publisher/publisherIdentifier.help"
 msgstr ""
 
-msgid "metadata/publisher/publisherIdentifierScheme.help"
+msgid "metadata/publisher/publisherIdentifier.hint"
 msgstr ""
 
 msgid "metadata/publisher/publisherIdentifierScheme.label"
 msgstr ""
 
-msgid "metadata/publisher/publisherIdentifierScheme.hint"
+msgid "metadata/publisher/publisherIdentifierScheme.help"
 msgstr ""
 
-msgid "metadata/publisher/schemeURI.help"
+msgid "metadata/publisher/publisherIdentifierScheme.hint"
 msgstr ""
 
 msgid "metadata/publisher/schemeURI.label"
 msgstr ""
 
-msgid "metadata/publisher/schemeURI.hint"
+msgid "metadata/publisher/schemeURI.help"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers.help"
+msgid "metadata/publisher/schemeURI.hint"
 msgstr ""
 
 msgid "metadata/relatedIdentifiers.label"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers.hint"
+msgid "metadata/relatedIdentifiers.help"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/relatedIdentifier.help"
+msgid "metadata/relatedIdentifiers.hint"
 msgstr ""
 
 msgid "metadata/relatedIdentifiers/relatedIdentifier.label"
 msgstr ""
 
+msgid "metadata/relatedIdentifiers/relatedIdentifier.help"
+msgstr ""
+
 msgid "metadata/relatedIdentifiers/relatedIdentifier.hint"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.help"
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.label"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.label"
+msgid "metadata/relatedIdentifiers/relatedIdentifierType.help"
 msgstr ""
 
 msgid "metadata/relatedIdentifiers/relatedIdentifierType.hint"
@@ -1002,19 +1002,19 @@ msgstr ""
 msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.w3id"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/relatedMetadataScheme.help"
+msgid "metadata/relatedIdentifiers/relatedMetadataScheme.label"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/relatedMetadataScheme.label"
+msgid "metadata/relatedIdentifiers/relatedMetadataScheme.help"
 msgstr ""
 
 msgid "metadata/relatedIdentifiers/relatedMetadataScheme.hint"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/relationType.help"
+msgid "metadata/relatedIdentifiers/relationType.label"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/relationType.label"
+msgid "metadata/relatedIdentifiers/relationType.help"
 msgstr ""
 
 msgid "metadata/relatedIdentifiers/relationType.hint"
@@ -1128,10 +1128,10 @@ msgstr ""
 msgid "metadata/relatedIdentifiers/relationType.enum.Obsoletes"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.help"
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.label"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.label"
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.help"
 msgstr ""
 
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.hint"
@@ -1231,37 +1231,37 @@ msgstr ""
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Other"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/schemeType.help"
+msgid "metadata/relatedIdentifiers/schemeType.label"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/schemeType.label"
+msgid "metadata/relatedIdentifiers/schemeType.help"
 msgstr ""
 
 msgid "metadata/relatedIdentifiers/schemeType.hint"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/schemeURI.help"
+msgid "metadata/relatedIdentifiers/schemeURI.label"
 msgstr ""
 
-msgid "metadata/relatedIdentifiers/schemeURI.label"
+msgid "metadata/relatedIdentifiers/schemeURI.help"
 msgstr ""
 
 msgid "metadata/relatedIdentifiers/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/relatedItems.help"
+msgid "metadata/relatedItems.label"
 msgstr ""
 
-msgid "metadata/relatedItems.label"
+msgid "metadata/relatedItems.help"
 msgstr ""
 
 msgid "metadata/relatedItems.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors.help"
+msgid "metadata/relatedItems/contributors.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors.label"
+msgid "metadata/relatedItems/contributors.help"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors.hint"
@@ -1277,11 +1277,11 @@ msgid "metadata/relatedItems/contributors/affiliation.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.help"
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.label"
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.help"
 msgstr ""
 
 msgid ""
@@ -1289,39 +1289,39 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.help"
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.label"
+"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.help"
 msgstr ""
 
 msgid ""
 "metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/affiliation/name.help"
+msgid "metadata/relatedItems/contributors/affiliation/name.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/affiliation/name.label"
+msgid "metadata/relatedItems/contributors/affiliation/name.help"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/affiliation/name.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/affiliation/schemeURI.help"
+msgid "metadata/relatedItems/contributors/affiliation/schemeURI.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/affiliation/schemeURI.label"
+msgid "metadata/relatedItems/contributors/affiliation/schemeURI.help"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/affiliation/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/contributorType.help"
+msgid "metadata/relatedItems/contributors/contributorType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/contributorType.label"
+msgid "metadata/relatedItems/contributors/contributorType.help"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/contributorType.hint"
@@ -1394,37 +1394,37 @@ msgstr ""
 msgid "metadata/relatedItems/contributors/contributorType.enum.Other"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/familyName.help"
+msgid "metadata/relatedItems/contributors/familyName.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/familyName.label"
+msgid "metadata/relatedItems/contributors/familyName.help"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/familyName.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/givenName.help"
+msgid "metadata/relatedItems/contributors/givenName.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/givenName.label"
+msgid "metadata/relatedItems/contributors/givenName.help"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/givenName.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/lang.help"
+msgid "metadata/relatedItems/contributors/lang.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/lang.label"
+msgid "metadata/relatedItems/contributors/lang.help"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/lang.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/name.help"
+msgid "metadata/relatedItems/contributors/name.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/name.label"
+msgid "metadata/relatedItems/contributors/name.help"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/name.hint"
@@ -1439,18 +1439,14 @@ msgstr ""
 msgid "metadata/relatedItems/contributors/nameIdentifiers.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.help"
-msgstr ""
-
 msgid ""
 "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.hint"
+msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.help"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.help"
+msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.hint"
 msgstr ""
 
 msgid ""
@@ -1458,22 +1454,26 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.hint"
+"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.help"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.help"
+msgid ""
+"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.label"
 msgstr ""
 
+msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.help"
+msgstr ""
+
 msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/nameType.help"
+msgid "metadata/relatedItems/contributors/nameType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/contributors/nameType.label"
+msgid "metadata/relatedItems/contributors/nameType.help"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/nameType.hint"
@@ -1485,10 +1485,10 @@ msgstr ""
 msgid "metadata/relatedItems/contributors/nameType.enum.Personal"
 msgstr ""
 
-msgid "metadata/relatedItems/creators.help"
+msgid "metadata/relatedItems/creators.label"
 msgstr ""
 
-msgid "metadata/relatedItems/creators.label"
+msgid "metadata/relatedItems/creators.help"
 msgstr ""
 
 msgid "metadata/relatedItems/creators.hint"
@@ -1503,17 +1503,13 @@ msgstr ""
 msgid "metadata/relatedItems/creators/affiliation.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.help"
-msgstr ""
-
 msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.label"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.hint"
+msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.help"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.help"
+msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.hint"
 msgstr ""
 
 msgid ""
@@ -1521,58 +1517,62 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.hint"
+"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.help"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/affiliation/name.help"
+msgid ""
+"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/affiliation/name.label"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/affiliation/name.hint"
+msgid "metadata/relatedItems/creators/affiliation/name.help"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/affiliation/schemeURI.help"
+msgid "metadata/relatedItems/creators/affiliation/name.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/affiliation/schemeURI.label"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/affiliation/schemeURI.hint"
+msgid "metadata/relatedItems/creators/affiliation/schemeURI.help"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/familyName.help"
+msgid "metadata/relatedItems/creators/affiliation/schemeURI.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/familyName.label"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/familyName.hint"
+msgid "metadata/relatedItems/creators/familyName.help"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/givenName.help"
+msgid "metadata/relatedItems/creators/familyName.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/givenName.label"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/givenName.hint"
+msgid "metadata/relatedItems/creators/givenName.help"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/lang.help"
+msgid "metadata/relatedItems/creators/givenName.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/lang.label"
 msgstr ""
 
+msgid "metadata/relatedItems/creators/lang.help"
+msgstr ""
+
 msgid "metadata/relatedItems/creators/lang.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/name.help"
+msgid "metadata/relatedItems/creators/name.label"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/name.label"
+msgid "metadata/relatedItems/creators/name.help"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/name.hint"
@@ -1587,17 +1587,13 @@ msgstr ""
 msgid "metadata/relatedItems/creators/nameIdentifiers.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.help"
-msgstr ""
-
 msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.label"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.hint"
+msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.help"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.help"
+msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.hint"
 msgstr ""
 
 msgid ""
@@ -1605,22 +1601,26 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.hint"
+"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.help"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.help"
+msgid ""
+"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.label"
 msgstr ""
 
+msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.help"
+msgstr ""
+
 msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/nameType.help"
+msgid "metadata/relatedItems/creators/nameType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/creators/nameType.label"
+msgid "metadata/relatedItems/creators/nameType.help"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/nameType.hint"
@@ -1632,55 +1632,55 @@ msgstr ""
 msgid "metadata/relatedItems/creators/nameType.enum.Personal"
 msgstr ""
 
-msgid "metadata/relatedItems/edition.help"
+msgid "metadata/relatedItems/edition.label"
 msgstr ""
 
-msgid "metadata/relatedItems/edition.label"
+msgid "metadata/relatedItems/edition.help"
 msgstr ""
 
 msgid "metadata/relatedItems/edition.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/firstPage.help"
+msgid "metadata/relatedItems/firstPage.label"
 msgstr ""
 
-msgid "metadata/relatedItems/firstPage.label"
+msgid "metadata/relatedItems/firstPage.help"
 msgstr ""
 
 msgid "metadata/relatedItems/firstPage.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/issue.help"
+msgid "metadata/relatedItems/issue.label"
 msgstr ""
 
-msgid "metadata/relatedItems/issue.label"
+msgid "metadata/relatedItems/issue.help"
 msgstr ""
 
 msgid "metadata/relatedItems/issue.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/lastPage.help"
+msgid "metadata/relatedItems/lastPage.label"
 msgstr ""
 
-msgid "metadata/relatedItems/lastPage.label"
+msgid "metadata/relatedItems/lastPage.help"
 msgstr ""
 
 msgid "metadata/relatedItems/lastPage.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/number.help"
+msgid "metadata/relatedItems/number.label"
 msgstr ""
 
-msgid "metadata/relatedItems/number.label"
+msgid "metadata/relatedItems/number.help"
 msgstr ""
 
 msgid "metadata/relatedItems/number.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/numberType.help"
+msgid "metadata/relatedItems/numberType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/numberType.label"
+msgid "metadata/relatedItems/numberType.help"
 msgstr ""
 
 msgid "metadata/relatedItems/numberType.hint"
@@ -1698,49 +1698,49 @@ msgstr ""
 msgid "metadata/relatedItems/numberType.enum.Other"
 msgstr ""
 
-msgid "metadata/relatedItems/publicationYear.help"
+msgid "metadata/relatedItems/publicationYear.label"
 msgstr ""
 
-msgid "metadata/relatedItems/publicationYear.label"
+msgid "metadata/relatedItems/publicationYear.help"
 msgstr ""
 
 msgid "metadata/relatedItems/publicationYear.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/publisher.help"
+msgid "metadata/relatedItems/publisher.label"
 msgstr ""
 
-msgid "metadata/relatedItems/publisher.label"
+msgid "metadata/relatedItems/publisher.help"
 msgstr ""
 
 msgid "metadata/relatedItems/publisher.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemIdentifier.help"
-msgstr ""
-
 msgid "metadata/relatedItems/relatedItemIdentifier.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemIdentifier.hint"
+msgid "metadata/relatedItems/relatedItemIdentifier.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.help"
+msgid "metadata/relatedItems/relatedItemIdentifier.hint"
 msgstr ""
 
 msgid ""
 "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.label"
 msgstr ""
 
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.help"
+msgstr ""
+
 msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.help"
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.label"
+"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.help"
 msgstr ""
 
 msgid ""
@@ -1823,10 +1823,10 @@ msgid ""
 "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.w3id"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.help"
+msgid "metadata/relatedItems/relatedItemType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.label"
+msgid "metadata/relatedItems/relatedItemType.help"
 msgstr ""
 
 msgid "metadata/relatedItems/relatedItemType.hint"
@@ -1922,19 +1922,19 @@ msgstr ""
 msgid "metadata/relatedItems/relatedItemType.enum.Other"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedMetadataScheme.help"
+msgid "metadata/relatedItems/relatedMetadataScheme.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedMetadataScheme.label"
+msgid "metadata/relatedItems/relatedMetadataScheme.help"
 msgstr ""
 
 msgid "metadata/relatedItems/relatedMetadataScheme.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.help"
+msgid "metadata/relatedItems/relationType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.label"
+msgid "metadata/relatedItems/relationType.help"
 msgstr ""
 
 msgid "metadata/relatedItems/relationType.hint"
@@ -2048,10 +2048,10 @@ msgstr ""
 msgid "metadata/relatedItems/relationType.enum.Obsoletes"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.help"
+msgid "metadata/relatedItems/resourceTypeGeneral.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.label"
+msgid "metadata/relatedItems/resourceTypeGeneral.help"
 msgstr ""
 
 msgid "metadata/relatedItems/resourceTypeGeneral.hint"
@@ -2147,55 +2147,55 @@ msgstr ""
 msgid "metadata/relatedItems/resourceTypeGeneral.enum.Other"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeType.help"
+msgid "metadata/relatedItems/schemeType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeType.label"
+msgid "metadata/relatedItems/schemeType.help"
 msgstr ""
 
 msgid "metadata/relatedItems/schemeType.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeURI.help"
+msgid "metadata/relatedItems/schemeURI.label"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeURI.label"
+msgid "metadata/relatedItems/schemeURI.help"
 msgstr ""
 
 msgid "metadata/relatedItems/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/titles.help"
+msgid "metadata/relatedItems/titles.label"
 msgstr ""
 
-msgid "metadata/relatedItems/titles.label"
+msgid "metadata/relatedItems/titles.help"
 msgstr ""
 
 msgid "metadata/relatedItems/titles.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/lang.help"
+msgid "metadata/relatedItems/titles/lang.label"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/lang.label"
+msgid "metadata/relatedItems/titles/lang.help"
 msgstr ""
 
 msgid "metadata/relatedItems/titles/lang.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/title.help"
+msgid "metadata/relatedItems/titles/title.label"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/title.label"
+msgid "metadata/relatedItems/titles/title.help"
 msgstr ""
 
 msgid "metadata/relatedItems/titles/title.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/titleType.help"
+msgid "metadata/relatedItems/titles/titleType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/titleType.label"
+msgid "metadata/relatedItems/titles/titleType.help"
 msgstr ""
 
 msgid "metadata/relatedItems/titles/titleType.hint"
@@ -2213,190 +2213,190 @@ msgstr ""
 msgid "metadata/relatedItems/titles/titleType.enum.Other"
 msgstr ""
 
-msgid "metadata/relatedItems/volume.help"
+msgid "metadata/relatedItems/volume.label"
 msgstr ""
 
-msgid "metadata/relatedItems/volume.label"
+msgid "metadata/relatedItems/volume.help"
 msgstr ""
 
 msgid "metadata/relatedItems/volume.hint"
 msgstr ""
 
-msgid "metadata/rightsList.help"
+msgid "metadata/rightsList.label"
 msgstr ""
 
-msgid "metadata/rightsList.label"
+msgid "metadata/rightsList.help"
 msgstr ""
 
 msgid "metadata/rightsList.hint"
 msgstr ""
 
-msgid "metadata/rightsList/lang.help"
+msgid "metadata/rightsList/lang.label"
 msgstr ""
 
-msgid "metadata/rightsList/lang.label"
+msgid "metadata/rightsList/lang.help"
 msgstr ""
 
 msgid "metadata/rightsList/lang.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rights.help"
+msgid "metadata/rightsList/rights.label"
 msgstr ""
 
-msgid "metadata/rightsList/rights.label"
+msgid "metadata/rightsList/rights.help"
 msgstr ""
 
 msgid "metadata/rightsList/rights.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifier.help"
+msgid "metadata/rightsList/rightsIdentifier.label"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifier.label"
+msgid "metadata/rightsList/rightsIdentifier.help"
 msgstr ""
 
 msgid "metadata/rightsList/rightsIdentifier.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifierScheme.help"
+msgid "metadata/rightsList/rightsIdentifierScheme.label"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifierScheme.label"
+msgid "metadata/rightsList/rightsIdentifierScheme.help"
 msgstr ""
 
 msgid "metadata/rightsList/rightsIdentifierScheme.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rightsURI.help"
+msgid "metadata/rightsList/rightsURI.label"
 msgstr ""
 
-msgid "metadata/rightsList/rightsURI.label"
+msgid "metadata/rightsList/rightsURI.help"
 msgstr ""
 
 msgid "metadata/rightsList/rightsURI.hint"
 msgstr ""
 
-msgid "metadata/rightsList/schemeURI.help"
+msgid "metadata/rightsList/schemeURI.label"
 msgstr ""
 
-msgid "metadata/rightsList/schemeURI.label"
+msgid "metadata/rightsList/schemeURI.help"
 msgstr ""
 
 msgid "metadata/rightsList/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/schemaVersion.help"
+msgid "metadata/schemaVersion.label"
 msgstr ""
 
-msgid "metadata/schemaVersion.label"
+msgid "metadata/schemaVersion.help"
 msgstr ""
 
 msgid "metadata/schemaVersion.hint"
 msgstr ""
 
-msgid "metadata/sizes.help"
+msgid "metadata/sizes.label"
 msgstr ""
 
-msgid "metadata/sizes.label"
+msgid "metadata/sizes.help"
 msgstr ""
 
 msgid "metadata/sizes.hint"
 msgstr ""
 
-msgid "metadata/subjects.help"
+msgid "metadata/subjects.label"
 msgstr ""
 
-msgid "metadata/subjects.label"
+msgid "metadata/subjects.help"
 msgstr ""
 
 msgid "metadata/subjects.hint"
 msgstr ""
 
-msgid "metadata/subjects/classificationCode.help"
+msgid "metadata/subjects/classificationCode.label"
 msgstr ""
 
-msgid "metadata/subjects/classificationCode.label"
+msgid "metadata/subjects/classificationCode.help"
 msgstr ""
 
 msgid "metadata/subjects/classificationCode.hint"
 msgstr ""
 
-msgid "metadata/subjects/lang.help"
+msgid "metadata/subjects/lang.label"
 msgstr ""
 
-msgid "metadata/subjects/lang.label"
+msgid "metadata/subjects/lang.help"
 msgstr ""
 
 msgid "metadata/subjects/lang.hint"
 msgstr ""
 
-msgid "metadata/subjects/schemeURI.help"
+msgid "metadata/subjects/schemeURI.label"
 msgstr ""
 
-msgid "metadata/subjects/schemeURI.label"
+msgid "metadata/subjects/schemeURI.help"
 msgstr ""
 
 msgid "metadata/subjects/schemeURI.hint"
 msgstr ""
 
-msgid "metadata/subjects/subject.help"
+msgid "metadata/subjects/subject.label"
 msgstr ""
 
-msgid "metadata/subjects/subject.label"
+msgid "metadata/subjects/subject.help"
 msgstr ""
 
 msgid "metadata/subjects/subject.hint"
 msgstr ""
 
-msgid "metadata/subjects/subjectScheme.help"
+msgid "metadata/subjects/subjectScheme.label"
 msgstr ""
 
-msgid "metadata/subjects/subjectScheme.label"
+msgid "metadata/subjects/subjectScheme.help"
 msgstr ""
 
 msgid "metadata/subjects/subjectScheme.hint"
 msgstr ""
 
-msgid "metadata/subjects/valueURI.help"
+msgid "metadata/subjects/valueURI.label"
 msgstr ""
 
-msgid "metadata/subjects/valueURI.label"
+msgid "metadata/subjects/valueURI.help"
 msgstr ""
 
 msgid "metadata/subjects/valueURI.hint"
 msgstr ""
 
-msgid "metadata/titles.help"
+msgid "metadata/titles.label"
 msgstr ""
 
-msgid "metadata/titles.label"
+msgid "metadata/titles.help"
 msgstr ""
 
 msgid "metadata/titles.hint"
 msgstr ""
 
-msgid "metadata/titles/lang.help"
+msgid "metadata/titles/lang.label"
 msgstr ""
 
-msgid "metadata/titles/lang.label"
+msgid "metadata/titles/lang.help"
 msgstr ""
 
 msgid "metadata/titles/lang.hint"
 msgstr ""
 
-msgid "metadata/titles/title.help"
+msgid "metadata/titles/title.label"
 msgstr ""
 
-msgid "metadata/titles/title.label"
+msgid "metadata/titles/title.help"
 msgstr ""
 
 msgid "metadata/titles/title.hint"
 msgstr ""
 
-msgid "metadata/titles/titleType.help"
+msgid "metadata/titles/titleType.label"
 msgstr ""
 
-msgid "metadata/titles/titleType.label"
+msgid "metadata/titles/titleType.help"
 msgstr ""
 
 msgid "metadata/titles/titleType.hint"
@@ -2414,28 +2414,28 @@ msgstr ""
 msgid "metadata/titles/titleType.enum.Other"
 msgstr ""
 
-msgid "metadata/types.help"
+msgid "metadata/types.label"
 msgstr ""
 
-msgid "metadata/types.label"
+msgid "metadata/types.help"
 msgstr ""
 
 msgid "metadata/types.hint"
 msgstr ""
 
-msgid "metadata/types/resourceType.help"
+msgid "metadata/types/resourceType.label"
 msgstr ""
 
-msgid "metadata/types/resourceType.label"
+msgid "metadata/types/resourceType.help"
 msgstr ""
 
 msgid "metadata/types/resourceType.hint"
 msgstr ""
 
-msgid "metadata/types/resourceTypeGeneral.help"
+msgid "metadata/types/resourceTypeGeneral.label"
 msgstr ""
 
-msgid "metadata/types/resourceTypeGeneral.label"
+msgid "metadata/types/resourceTypeGeneral.help"
 msgstr ""
 
 msgid "metadata/types/resourceTypeGeneral.hint"
@@ -2531,19 +2531,19 @@ msgstr ""
 msgid "metadata/types/resourceTypeGeneral.enum.Other"
 msgstr ""
 
-msgid "metadata/url.help"
+msgid "metadata/url.label"
 msgstr ""
 
-msgid "metadata/url.label"
+msgid "metadata/url.help"
 msgstr ""
 
 msgid "metadata/url.hint"
 msgstr ""
 
-msgid "metadata/version.help"
+msgid "metadata/version.label"
 msgstr ""
 
-msgid "metadata/version.label"
+msgid "metadata/version.help"
 msgstr ""
 
 msgid "metadata/version.hint"

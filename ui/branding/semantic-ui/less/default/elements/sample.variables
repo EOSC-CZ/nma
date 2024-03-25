@@ -1,0 +1,9 @@
+/*
+  Define default value of variables from your .less file in here. This will allow overriding them by the user of the component.
+
+  User might override them by placing this file to themes/oarepo/elements/sample.variables
+  inside another application or by placing this file to site/elements/sample.variables inside
+  the site directory. 
+ */
+
+@sampleColor: red;

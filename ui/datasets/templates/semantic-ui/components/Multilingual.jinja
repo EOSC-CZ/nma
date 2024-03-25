@@ -1,0 +1,10 @@
+{# def data, field #}
+
+<div>
+    {% for item in array(data) %}
+        {% if item.lang._has_value %}
+            <div class="ui label">{{ item.lang }}</div>
+        {% endif %}
+        {{ item[field] }}
+    {% endfor %}
+</div>

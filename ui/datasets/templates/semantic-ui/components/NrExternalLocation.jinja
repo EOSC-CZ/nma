@@ -1,0 +1,8 @@
+{# def data #}
+{% if data %}
+ <a class="ui {{className}}" href="{{data.externalLocationURL | e}}" title="{{data.externalLocationURL}}" target="_blank">
+        <span label">
+            {{data.externalLocationURL}}
+        </span>
+    </a>
+{% endif %}

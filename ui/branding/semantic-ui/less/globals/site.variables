@@ -1,0 +1,47 @@
+@fontName: "Roboto";
+@importGoogleFonts: false;
+@fontSize: 16px;
+
+/*-------------------
+      Site Colors
+--------------------*/
+@brandColor: hsl(0deg, 0%, 100% / 50%);
+@teal: #008691;
+@pink: #ff5b7f;
+@black: #040305;
+@lightGrey: #e4e4e3;
+@grey: #333333;
+
+@navbar_background_color: #fff;
+
+@borderColor: @grey;
+
+@highlightHeaderColor: @lightGrey;
+
+/*-------------------
+    Brand Colors
+--------------------*/
+
+@primaryColor: @teal;
+@secondaryColor: @pink;
+
+@lightPrimaryColor: lighten(@teal, 50%);
+@lightSecondaryColor: lighten(@pink, 50%);
+
+@selectionBackground: @lightGrey;
+@celledBorderColor: @teal;
+
+/*-------------------
+       Links
+--------------------*/
+
+@linkColor: @teal;
+@linkHoverUnderline: underline;
+@linkHoverColor: darken(saturate(@linkColor, 20), 15, relative);
+
+/*-------------------
+    Focused Input
+--------------------*/
+
+/* Used on inputs, textarea etc */
+@focusedFormBorderColor: #85B7D9;
