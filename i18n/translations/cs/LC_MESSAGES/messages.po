@@ -2996,3 +2996,15 @@ msgstr "obhájeno"
 
 msgid "not defended"
 msgstr "neobhájeno"
+
+#: /Users/m/w/nrp/nma/ui/branding/templates/footer.html:29
+msgid "Support"
+msgstr ""
+
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/FundingReference.jinja:7
+msgid "Find more records with this funder"
+msgstr ""
+
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:58
+msgid "abstract"
+msgstr ""

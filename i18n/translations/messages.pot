@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-25 15:16+0100\n"
+"POT-Creation-Date: 2024-03-27 21:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/footer.html:12
+#: /Users/m/w/nrp/nma/ui/branding/templates/footer.html:29
+msgid "Support"
+msgstr ""
+
+#: /Users/m/w/nrp/nma/ui/branding/templates/footer.html:33
 msgid "Contact"
 msgstr ""
 
@@ -76,17 +80,19 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/FundingReference.jinja:7
+msgid "Find more records with this funder"
+msgstr ""
+
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/NrEvents.jinja:8
 msgid "on"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/NrSeries.jinja:5
-#: i18n/translations/jinjax_messages.jinja:15
 msgid "metadata/series/seriesTitle.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/NrSeries.jinja:6
-#: i18n/translations/jinjax_messages.jinja:16
 msgid "metadata/series/seriesVolume.label"
 msgstr ""
 
@@ -99,7 +105,6 @@ msgid "Find more records from this publisher"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:4
-#: i18n/translations/jinjax_messages.jinja:4
 msgid "metadata/relatedItems/itemTitle.label"
 msgstr ""
 
@@ -112,7 +117,6 @@ msgid "metadata/relatedItems/itemContributors.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:27
-#: i18n/translations/jinjax_messages.jinja:5
 msgid "metadata/relatedItems/itemPIDs.label"
 msgstr ""
 
@@ -121,44 +125,35 @@ msgid "metadata/relatedItems/itemURL.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:32
-#: i18n/translations/jinjax_messages.jinja:6
 msgid "metadata/relatedItems/itemYear.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:33
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:36
-#: i18n/translations/jinjax_messages.jinja:7
-#: i18n/translations/jinjax_messages.jinja:9
 msgid "metadata/relatedItems/itemVolume.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:35
-#: i18n/translations/jinjax_messages.jinja:8
 msgid "metadata/relatedItems/itemIssue.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:37
-#: i18n/translations/jinjax_messages.jinja:10
 msgid "metadata/relatedItems/itemStartPage.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:38
-#: i18n/translations/jinjax_messages.jinja:11
 msgid "metadata/relatedItems/itemEndPage.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:39
-#: i18n/translations/jinjax_messages.jinja:12
 msgid "metadata/relatedItems/itemPublisher.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:40
-#: i18n/translations/jinjax_messages.jinja:13
 msgid "metadata/relatedItems/itemRelationType.label"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:43
-#: i18n/translations/jinjax_messages.jinja:14
 msgid "metadata/relatedItems/itemResourceType.label"
 msgstr ""
 
@@ -170,19 +165,16 @@ msgstr ""
 msgid "National Metadata repository"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:13
-#: i18n/translations/jinjax_messages.jinja:1
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:12
 msgid "People"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:17
-#: i18n/translations/jinjax_messages.jinja:2
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:16
 msgid "metadata/dateAvailable.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:43
-#: i18n/translations/jinjax_messages.jinja:3
-msgid "metadata/abstract.label"
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:58
+msgid "abstract"
 msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
@@ -198,21 +190,21 @@ msgstr ""
 msgid "metadata/objectIdentifiers.label"
 msgstr ""
 
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:11
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:12
 msgid "metadata/originalRecord.label"
 msgstr ""
 
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:18
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:19
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:20
 msgid "Export"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:67
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:66
 msgid "API"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:67
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:66
 msgid "Links"
 msgstr ""
 

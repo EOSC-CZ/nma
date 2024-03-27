@@ -181,12 +181,12 @@ msgstr ""
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:2
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:3
 msgid "metadata/objectIdentifiers.label"
-msgstr ""
+msgstr "Object identifiers"
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:11
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:12
 msgid "metadata/originalRecord.label"
-msgstr ""
+msgstr "Original record"
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:19
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:20
@@ -2995,4 +2995,16 @@ msgid "oai/harvest/identifier.help"
 msgstr ""
 
 msgid "oai/harvest/identifier.hint"
+msgstr ""
+
+#: /Users/m/w/nrp/nma/ui/branding/templates/footer.html:29
+msgid "Support"
+msgstr ""
+
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/FundingReference.jinja:7
+msgid "Find more records with this funder"
+msgstr ""
+
+#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:58
+msgid "abstract"
 msgstr ""
