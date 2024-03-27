@@ -1,6 +1,29 @@
 
 {% extends "invenio_theme/page.html" %}
 
+{%- block head_links %}
+  <link rel="shortcut icon" type="image/svg+xml" href="{{ url_for('static', filename='icons/favicon.svg') }}"/>
+
+  {%- if keywords %}
+    <link rel="canonical" href="{{ canonical_url }}"/>
+  {% endif %}
+
+  {%- block head_links_langs %}
+    {%- if alternate_urls %}
+      {%- for alt_ln, alternate_url in alternate_urls.items() %}
+        <link rel="alternate" hreflang="{{ alt_ln }}" href="{{ alternate_url }}"/>
+      {%- endfor %}
+    {%- endif %}
+  {%- endblock %}
+
+  {%- block head_apple_icons %}
+    {%- for size in [120, 152, 167, 180] %}
+      {%- set icon_name = 'apple-touch-icon-%d.png' | format(size) %}
+      <link rel="apple-touch-icon" sizes="{{ size }}x{{ size }}" href="{{ url_for('static', filename='icons/' ~ icon_name) }}"/>
+    {%- endfor %}
+  {%- endblock head_apple_icons %}
+{%- endblock head_links %}
+
 {%- block css %}
   {{super()}}
   {{ webpack['components.css']}}

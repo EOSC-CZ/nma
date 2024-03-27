@@ -1,13 +1,27 @@
 {#def funders, search_link #}
 
-<dl class='detail-subfields'>
-
+<dl class='ui list detail-subfields'>
     {% for funder in array(funders) %}
-        <IField d={ funder.projectID } />
-        <IField d={funder.projectName} />
-        <IField d={funder.fundingProgram} />
-        <IField d={ funder.funder }>
-            <VocabularyItem vocabulary={funder.funder} search_link={search_link} searchFacet="metadata_fundingReferences" vocabulary_type="funders"></VocabularyItem>
-        </IField>
+        {% set data = {
+            "value": funder.funderName,
+            "title": _("Find more records with this funder"),
+            "label": funder.funderName,
+        } %}
+        <div class="item">
+            <IField d={funder.funderName} label_class="header">
+                <SearchLink data={data} className="search-link" searchFacet="metadata_fundingReferences_funderName" search_link={search_link}></SearchLink>
+            </IField>
+        </div>
+        <div class="item">
+            <IField d={funder.funderIdentifier} label_class="header">
+                <a href="{{ funder.funderIdentifier }}" target="_blank">{{ funder.funderIdentifier }}</a>
+            </IField>
+        </div>
+        <div class="item">
+            <IField d={funder.funderIdentifierType} label_class="header" />
+        </div>
+        <div class="item">
+            <IField d={funder.awardNumber} label_class="header" />
+        </div>
     {% endfor %}
 </dl>

@@ -3,18 +3,39 @@ University. Copyright (C) 2021 Graz University of Technology. Invenio App RDM is
 free software; you can redistribute it and/or modify it under the terms of the
 MIT License; see LICENSE file for more details. #}
 
-{% extends "oarepo_ui/footer.html" %}
 
-
-{%- block footer_top_left %}
-<div class="footer-top">
-  <p class="margin-small">
-    <span class="ui small header">{{_("Contact")}}:&nbsp;</span>
-    <i class="envelope icon"></i>
-    <a href="mailto:support@narodni-repozitar.cz"
-      >info@eosc.cz</a
-    >
-  </p>
-</div>
-{%- endblock footer_top_left -%}
-       
+<footer class="ui page-footer">
+  <div id="nr-footer-container">
+    <div class="ui container">
+      <div class="ui grid">
+        <div class="row footer-top">
+          {# <div class="eight wide column left middle aligned">
+            {%- block footer_bottom_left %} {% trans
+            link="http://inveniosoftware.org" %}Powered by
+            <a href="{{ link }}">Invenio</a>{% endtrans %} {%- endblock
+            footer_bottom_left %}
+          </div> #}
+          <div class="six wide left floated left aligned column">
+            <p class="margin-small">
+              <img
+                src="{{ url_for('static', filename='images/eu_msmt_logos.png') }}"
+                alt="EU_MŠMT_logo"
+                class="ui large image"
+              />
+            </p>
+          </div>
+          <div class="six wide right floated column">
+            <p class="centered right-floated">
+              <span class="ui small header">{{_("Support")}}:</span><br>
+              <a href="mailto:info@eosc.cz">info@eosc.cz</a>
+            </p>
+            <p class="centered right-floated rel-mr-3">
+              <span class="ui small header">{{_("Contact")}}:</span><br>
+              <a href="https://www.eosc.cz/" target="_blank">eosc.cz</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

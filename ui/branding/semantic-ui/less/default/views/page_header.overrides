@@ -2,7 +2,7 @@
   // background-image: url("~@less/images/background.png");
 
   .outer-navbar {
-    background-color: #ffffffaa;
+    background-color: @white;
     background-size: 1024px;
     border: 0;
   }
