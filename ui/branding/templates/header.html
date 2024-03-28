@@ -3,6 +3,7 @@
 {%- block navbar_search %}{%- endblock navbar_search %}
 
 {%- block navbar_header %}
+<div class="item logo p-0">
   {%- block brand %}
     {%- if config.THEME_LOGO %}
       <a class="logo-link" href="/">
@@ -12,9 +13,13 @@
       </a>
     {%- endif %}
   {%- endblock brand %}
+</div>
+<div class="item mobile-hidden">
+  <h1 class="ui grey header">{{ _(config.THEME_SITENAME) }}</h1>
+</div>
 {%- endblock navbar_header %}
 
-{%- block navbar_nav %}<h1 class="ui grey header">{{ _(config.THEME_SITENAME) }}</h1>{%- endblock navbar_nav %}
+{%- block navbar_nav %}{%- endblock navbar_nav %}
 
 {%- block navbar_right %}
 <div class="right menu item">
