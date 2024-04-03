@@ -74,11 +74,23 @@ a {
 }
 
 .backdrop {
-  background: @lightGrey;
+  background-color: @lightGrey;
   background-image: url("~@less/images/background.svg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 754px 539px;
+  background-attachment: fixed;
+  background-position: bottom -55px right clamp(3vw, 3vw + 1vw, 9vw); 
   height: 100%;
+
+  @media screen and (max-width: 1300px) {
+    background-size: 527px 377px;
+    background-position: top 65vh right 3vw;
+  }
+
+  @media screen and (max-width: 768px) {
+    background-size: 377px 269px;
+    background-position: bottom 2vh right 3vw;
+  }
 
   &.frontpage-header {
     background: none;
@@ -99,7 +111,7 @@ a {
 .backdrop-filter {
   height: 100%;
   width: 100%;
-  background: #ffffffaa;
+  // background: #ffffffaa;
   display: flex;
   justify-content: center;
 }
