@@ -1,4 +1,5 @@
 @fontName: "Roboto";
+@pageFont: @fontName;
 @importGoogleFonts: false;
 @fontSize: 16px;
 

@@ -3,6 +3,13 @@
 @font-face {
   font-family: "Roboto";
   font-style: normal;
+  font-weight: 300;
+  src: url("~@less/fonts/Roboto-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
   font-weight: 400;
   src: url("~@less/fonts/Roboto-Regular.ttf") format("truetype");
 }
@@ -28,15 +35,19 @@
   src: url("~@less/fonts/Roboto-Bold.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  src: url("~@less/fonts/Roboto-Black.ttf") format("truetype");
+}
+
 /*
  * Global-wide CSS
  */
 
-:root {
-  font-size: @fontSize;
-}
-
 body {
+  font-size: @fontSize;
   min-width: 350px;
   font-family: Roboto;
   height: 100vh;
@@ -111,7 +122,6 @@ a {
 .backdrop-filter {
   height: 100%;
   width: 100%;
-  // background: #ffffffaa;
   display: flex;
   justify-content: center;
 }
@@ -208,8 +218,16 @@ a:focus-visible {
 
 // Utility classes
 
+.text-massive {
+  font-weight: 900;
+}
+
 .text-big {
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.text-medium {
+  font-weight: 500;
 }
 
 .text-small {

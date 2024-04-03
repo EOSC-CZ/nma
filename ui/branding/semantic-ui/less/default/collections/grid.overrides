@@ -6,3 +6,16 @@
     flex: 0 0 8rem;
 }
  
+.ui.grid > .row > .column.detail-back-to-search-link {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+
+    .left.chevron.icon {
+        margin-right: 1rem;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

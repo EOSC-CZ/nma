@@ -2,3 +2,26 @@
 // // overrides for css styles. To reference a font/image from the assets directory, use:
 // // url("~@less/fonts/your-font-name") or url("~@less/images/your-image-name")
 // //
+
+// :root {
+//   font-size: @fontSize;
+// }
+
+// body {
+//   min-width: 350px;
+//   font-family: Roboto;
+//   height: 100vh;
+//   min-height: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   margin: 0;
+//   padding: 0;
+//   h1,
+//   h2,
+//   h3,
+//   h4,
+//   h5 {
+//     font-family: Roboto;
+//     font-size: 16px;
+//   }
+// }
