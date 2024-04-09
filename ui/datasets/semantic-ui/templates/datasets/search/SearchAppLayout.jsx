@@ -4,7 +4,7 @@ import _isEmpty from "lodash/isEmpty";
 import Overridable from "react-overridable";
 import { withState, ActiveFilters, ResultsPerPage } from "react-searchkit";
 import { GridResponsiveSidebarColumn } from "react-invenio-forms";
-import { Container, Grid, Button } from "semantic-ui-react";
+import { Container, Grid, Button, Header, Divider } from "semantic-ui-react";
 import { i18next } from "@translations/oarepo_ui/i18next";
 import {
   SearchAppFacets,
@@ -13,8 +13,7 @@ import {
   SearchConfigurationContext,
 } from "@js/invenio_search_ui/components";
 import { ResultOptions } from "@js/invenio_search_ui/components/Results";
-import { ResultsPerPageLabel } from '@js/oarepo_ui/search';
-import { ClearFiltersButton } from "@datasets_search";
+import { ClearFiltersButton, ResultCountWithState, ResultsPerPageLabel } from "@datasets_search";
 
 const ResultOptionsWithState = withState(ResultOptions);
 
@@ -76,9 +75,9 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
   const resultsSortLayoutFacets = {
     mobile: 11,
     tablet: 11,
-    computer: 12,
-    largeScreen: 12,
-    widescreen: 12,
+    computer: 11,
+    largeScreen: 11,
+    widescreen: 11,
   };
 
   const resultsSortLayoutNoFacets = {
@@ -110,7 +109,10 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
         <Grid.Row>
           <Grid.Column only="computer" width={4}>
             {facetsAvailable && (
-              <ActiveFilters />
+              <>
+                <ActiveFilters />
+                <ClearFiltersButton />
+              </>
             )}
           </Grid.Column>
           <Grid.Column {...resultsPaneLayout}>
@@ -136,17 +138,26 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
               />
             </Grid.Column>
           )}
-          <Grid.Column mobile={4} tablet={4} stretched>
-            <ClearFiltersButton />
+          <Grid.Column only="computer" width={4}>
+            {facetsAvailable && (
+              <Grid.Row>
+                <Header size="medium">{i18next.t("Filters")}</Header>
+              </Grid.Row>
+            )}
           </Grid.Column>
-          <Grid.Column textAlign="right" floated="right" {...resultSortLayout}>
-            <Grid.Row >
-              <ResultsPerPage 
-                values={resultsPerPage} 
-                label={ResultsPerPageLabel} 
-              />
-              <ResultOptionsWithState />
-            </Grid.Row>
+          <Grid.Column {...resultsPaneLayout}>
+            <Grid as={Grid.Row} className="equal width" verticalAlign="middle">
+              <Grid.Column floated="left" textAlign="left">
+                <ResultCountWithState />
+              </Grid.Column>
+              <Grid.Column  floated="right" textAlign="right">
+                <ResultsPerPage
+                  values={resultsPerPage}
+                  label={ResultsPerPageLabel}
+                />
+                <ResultOptionsWithState />
+              </Grid.Column>
+            </Grid>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={columnsAmount}>
