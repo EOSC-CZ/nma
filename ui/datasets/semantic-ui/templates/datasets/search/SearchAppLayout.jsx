@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import _isEmpty from "lodash/isEmpty";
 import Overridable from "react-overridable";
-import { withState, ActiveFilters } from "react-searchkit";
+import { withState, ActiveFilters, ResultsPerPage } from "react-searchkit";
 import { GridResponsiveSidebarColumn } from "react-invenio-forms";
 import { Container, Grid, Button } from "semantic-ui-react";
 import { i18next } from "@translations/oarepo_ui/i18next";
@@ -13,13 +13,15 @@ import {
   SearchConfigurationContext,
 } from "@js/invenio_search_ui/components";
 import { ResultOptions } from "@js/invenio_search_ui/components/Results";
+import { ResultsPerPageLabel } from '@js/oarepo_ui/search';
 import { ClearFiltersButton } from "@datasets_search";
 
 const ResultOptionsWithState = withState(ResultOptions);
 
 export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
   const [sidebarVisible, setSidebarVisible] = React.useState(false);
-  const { appName, buildUID } = useContext(SearchConfigurationContext);
+  // console.log(useContext(SearchConfigurationContext));
+  const { appName, buildUID, paginationOptions: { resultsPerPage } } = useContext(SearchConfigurationContext);
   const facetsAvailable = !_isEmpty(config.aggs);
 
   let columnsAmount;
@@ -72,19 +74,19 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
   }
 
   const resultsSortLayoutFacets = {
-    mobile: 14,
-    tablet: 14,
-    computer: 5,
-    largeScreen: 5,
-    widescreen: 5,
+    mobile: 11,
+    tablet: 11,
+    computer: 12,
+    largeScreen: 12,
+    widescreen: 12,
   };
 
   const resultsSortLayoutNoFacets = {
-    mobile: 16,
-    tablet: 16,
-    computer: 16,
-    largeScreen: 16,
-    widescreen: 16,
+    mobile: 12,
+    tablet: 12,
+    computer: 12,
+    largeScreen: 12,
+    widescreen: 12,
   };
 
   const resultsPaneLayoutNoFacets = resultsPaneLayoutFacets;
@@ -103,11 +105,15 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
       <Grid
         columns={columnsAmount}
         relaxed
-        className="search-app rel-mt-2"
-        padded
+        className="search-app"
       >
-        <Grid.Row as={Overridable} columns={columnsAmount} id={buildUID("SearchApp.searchbarContainer", "", appName)}>
-          <Grid.Column {...resultsPaneLayout} floated="right">
+        <Grid.Row>
+          <Grid.Column only="computer" width={4}>
+            {facetsAvailable && (
+              <ActiveFilters />
+            )}
+          </Grid.Column>
+          <Grid.Column {...resultsPaneLayout}>
             <SearchBar buildUID={buildUID} appName={appName} />
           </Grid.Column>
         </Grid.Row>
@@ -116,9 +122,10 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
             <Grid.Column
               floated="left"
               only="mobile tablet"
-              mobile={2}
-              tablet={2}
+              mobile={1}
+              tablet={1}
               textAlign="center"
+              className="rel-mr-1"
             >
               <Button
                 basic
@@ -129,18 +136,17 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
               />
             </Grid.Column>
           )}
-          {facetsAvailable && (
-            <Grid.Column floated="left" only="computer" width={11}>
-              <ActiveFilters />
-            </Grid.Column>
-          )}
-          <Grid.Column textAlign="right" floated="right" {...resultSortLayout}>
-            <ResultOptionsWithState />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column floated="left">
+          <Grid.Column mobile={4} tablet={4} stretched>
             <ClearFiltersButton />
+          </Grid.Column>
+          <Grid.Column textAlign="right" floated="right" {...resultSortLayout}>
+            <Grid.Row >
+              <ResultsPerPage 
+                values={resultsPerPage} 
+                label={ResultsPerPageLabel} 
+              />
+              <ResultOptionsWithState />
+            </Grid.Row>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={columnsAmount}>

@@ -8,7 +8,6 @@ const { overridableIdPrefix } = searchAppConfig;
 
 export * from "./components";
 
-export const componentOverrides = {
-};
+export const componentOverrides = {};
 
 createSearchAppsInit({ componentOverrides });
