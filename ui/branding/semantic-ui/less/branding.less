@@ -85,7 +85,7 @@ a {
 }
 
 .backdrop {
-  background-color: @lightGrey;
+  background-color: #F9F9F9;
   background-image: url("~@less/images/background.svg");
   background-repeat: no-repeat;
   background-size: 754px 539px;
@@ -111,9 +111,9 @@ a {
   }
 }
 
-.item.logo {
-  margin-right: 42px;
-}
+// .item.logo {
+//   margin-right: 42px;
+// }
 
 .logo-link {
   width: auto;
@@ -216,7 +216,16 @@ a:focus-visible {
   border-radius: 20px;
 }
 
-// Utility classes
+#header-page-title {
+  .text-regular();
+  font-size: 2rem;
+  color: @grey;
+  margin-left: 84px;
+}
+
+/*
+ * Utility classes
+ */
 
 .text-massive {
   font-weight: 900;
@@ -228,6 +237,10 @@ a:focus-visible {
 
 .text-medium {
   font-weight: 500;
+}
+
+.text-regular {
+  font-weight: 400;
 }
 
 .text-small {

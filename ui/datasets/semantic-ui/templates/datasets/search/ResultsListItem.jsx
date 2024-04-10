@@ -5,7 +5,7 @@ import _get from "lodash/get";
 import _join from "lodash/join";
 import _truncate from "lodash/truncate";
 import _find from "lodash/find";
-import { Grid, Item, Label, List, Icon } from "semantic-ui-react";
+import { Grid, Item, Label, List, Icon, Segment } from "semantic-ui-react";
 import { withState, buildUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import { i18next } from "@translations/i18next";
@@ -148,9 +148,6 @@ export const ResultsListItemComponent = ({
 }) => {
   const searchAppConfig = useContext(SearchConfigurationContext);
 
-  console.log("SearchResult", result);
-  console.log("SearchAppConfig", searchAppConfig);
-
   const accessRights = _get(result, "metadata.rightsList"); // fix
   const createdDate = _get(result, "created", "No creation date found.");
   const creators = result.metadata?.creators;
@@ -163,7 +160,6 @@ export const ResultsListItemComponent = ({
   );
 
   const language = _get(result, "metadata.language");
-  console.log("Language", language);
 
   const publicationDate = _find(_get(
     result,
@@ -206,8 +202,8 @@ export const ResultsListItemComponent = ({
     >
       <Item key={result.id}>
         <Item.Content>
-          <Grid>
-            <Grid.Row >
+          <Grid as={Segment} padded className="borderless">
+            <Grid.Row>
               <Grid.Row className="results-list item-main">
                 {accessRights && <ItemSidebarIcons rights={accessRights} />}
                 <ItemHeader

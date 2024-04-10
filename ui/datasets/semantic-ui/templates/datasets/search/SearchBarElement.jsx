@@ -31,9 +31,9 @@ const SearchBarElement = withState(
       <Input
         action={{
           icon: iconName,
-          color: iconColor,
           onClick: onBtnSearchClick,
           "aria-label": i18next.t("Search"),
+          className: "search"
         }}
         fluid
         placeholder={placeholder}
@@ -43,6 +43,7 @@ const SearchBarElement = withState(
         }}
         value={queryString}
         onKeyPress={onKeyPress}
+        className="search-input"
       />
     );
   }

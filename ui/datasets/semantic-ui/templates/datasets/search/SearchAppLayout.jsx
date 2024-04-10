@@ -4,7 +4,7 @@ import _isEmpty from "lodash/isEmpty";
 import Overridable from "react-overridable";
 import { withState, ActiveFilters, ResultsPerPage } from "react-searchkit";
 import { GridResponsiveSidebarColumn } from "react-invenio-forms";
-import { Container, Grid, Button, Header, Divider } from "semantic-ui-react";
+import { Container, Grid, Button, Header } from "semantic-ui-react";
 import { i18next } from "@translations/oarepo_ui/i18next";
 import {
   SearchAppFacets,

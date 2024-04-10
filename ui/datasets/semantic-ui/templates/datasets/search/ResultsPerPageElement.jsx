@@ -24,7 +24,7 @@ const ResultsPerPageElement = ({
       onClose={() => setOpen(false)}
       options={_options}
       value={currentSize}
-      onChange={(e, { value }) => onValueChange(value)}
+      onChange={(e, { value }) => onValueChange(1)}
       aria-label={ariaLabel}
       selectOnNavigation={selectOnNavigation}
     />

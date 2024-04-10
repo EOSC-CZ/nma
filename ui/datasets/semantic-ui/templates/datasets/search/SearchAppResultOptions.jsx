@@ -4,18 +4,21 @@ import { PropTypes } from "prop-types";
 import { LayoutSwitcher } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import { SearchAppSort } from '@js/oarepo_ui/search';
+import { i18next } from "@translations/oarepo_ui/i18next";
 
 const SearchAppResultOptions = ({ sortOptions, layoutOptions }) => {
   const { buildUID } = useContext(SearchConfigurationContext);
   const multipleLayouts =
     Object.values(layoutOptions).filter((i) => i).length > 1;
-  console.log("SearchAppResultOptions", sortOptions, layoutOptions, multipleLayouts);
   return (
     <>
       {sortOptions && (
-        <Overridable id={buildUID("SearchApp.sort")} options={sortOptions}>
-          <SearchAppSort />
-        </Overridable>
+        <>
+          <span className="rel-mr-1">{i18next.t('Sort')}:</span>
+          <Overridable id={buildUID("SearchApp.sort")} options={sortOptions}>
+            <SearchAppSort />
+          </Overridable>
+        </>
       )}
       {multipleLayouts && <LayoutSwitcher />}
     </>

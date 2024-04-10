@@ -10,7 +10,7 @@
 @teal: #008691;
 @pink: #ff5b7f;
 @black: #040305;
-@lightGrey: #F9F9F9;
+@lightGrey: #D9D9D9;
 @grey: #333333;
 
 @navbar_background_color: #fff;

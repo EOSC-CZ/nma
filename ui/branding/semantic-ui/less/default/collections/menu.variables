@@ -1,0 +1,3 @@
+@itemVerticalPadding: 0;
+@textMenuItemPadding: 0;
+@textMenuActiveItemFontWeight: 500;

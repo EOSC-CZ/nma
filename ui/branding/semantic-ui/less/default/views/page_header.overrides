@@ -6,4 +6,9 @@
     background-size: 1024px;
     border: 0;
   }
+
+  .logo {
+    width: 305.18px;
+    // margin-right: 32.82px;
+  }
 }

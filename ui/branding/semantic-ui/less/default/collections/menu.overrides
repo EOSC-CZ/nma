@@ -4,7 +4,15 @@
 
 .ui.menu {
   &.pagination {
-    box-shadow: none;
+    a[type="prevItem"],
+    a[type="nextItem"] {
+      color: @primaryColor;
+      font-weight: 900;
+
+      &:hover {
+        text-shadow: 0 0 15px @primaryColor;
+      }
+    }
   }
 
   &.compact {

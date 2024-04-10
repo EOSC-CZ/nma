@@ -1,16 +1,14 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { i18next } from "@translations/oarepo_ui/i18next";
+import { i18next } from "@translations/i18next";
 import { withState, buildUID as searchkitUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 
 const CountElement = ({ totalResults }) => {
   return (
-    <div>
-      <label className="rel-mr-1">
-        {i18next.t("totalResults", { count: totalResults })}
-      </label>
-    </div>
+    <label>
+      {i18next.t("Results")}: <span className="text-big">{totalResults}</span>
+    </label>
   );
 };
 
