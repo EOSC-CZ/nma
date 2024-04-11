@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Item } from "semantic-ui-react";
 
-const ResultsListContainer = ({ children}) => {
+const ResultsListContainer = ({ children }) => {
   return (
-    <Item.Group relaxed link>
+    <Item.Group relaxed link className="search-listing-item-group">
       {children}
     </Item.Group>
   );

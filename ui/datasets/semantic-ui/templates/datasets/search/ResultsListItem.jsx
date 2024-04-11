@@ -200,7 +200,7 @@ export const ResultsListItemComponent = ({
       allVersionsVisible={allVersionsVisible}
       numOtherVersions={numOtherVersions}
     >
-      <Item key={result.id}>
+      <Item key={result.id} className="search-listing-item">
         <Item.Content>
           <Grid as={Segment} padded className="borderless">
             <Grid.Row>

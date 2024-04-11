@@ -6,7 +6,7 @@ import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 
 const CountElement = ({ totalResults }) => {
   return (
-    <label>
+    <label className="grey">
       {i18next.t("Results")}: <span className="text-big">{totalResults}</span>
     </label>
   );

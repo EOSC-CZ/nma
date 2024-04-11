@@ -14,7 +14,7 @@ const SearchAppResultOptions = ({ sortOptions, layoutOptions }) => {
     <>
       {sortOptions && (
         <>
-          <span className="rel-mr-1">{i18next.t('Sort')}:</span>
+          <span className="grey rel-mr-1">{i18next.t('Sort')}:</span>
           <Overridable id={buildUID("SearchApp.sort")} options={sortOptions}>
             <SearchAppSort />
           </Overridable>

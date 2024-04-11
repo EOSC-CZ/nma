@@ -11,13 +11,17 @@
 @pink: #ff5b7f;
 @black: #040305;
 @lightGrey: #D9D9D9;
-@grey: #333333;
+@grey: #707075;
+@darkGrey: #333333;
 
 @navbar_background_color: #fff;
 
-@borderColor: @grey;
+@borderColor: @teal;
 
 @highlightHeaderColor: @lightGrey;
+
+@pageBackground: hsl(0, 0%, 96.5%);
+// @pageBackground: hsl(0, 0%, 98%);
 
 /*-------------------
     Brand Colors

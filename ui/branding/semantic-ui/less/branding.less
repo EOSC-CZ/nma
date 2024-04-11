@@ -50,6 +50,7 @@ body {
   font-size: @fontSize;
   min-width: 350px;
   font-family: Roboto;
+  background-color: @pageBackground;
   height: 100vh;
   min-height: 100%;
   display: flex;
@@ -85,7 +86,7 @@ a {
 }
 
 .backdrop {
-  background-color: #F9F9F9;
+  background-color: @pageBackground;
   background-image: url("~@less/images/background.svg");
   background-repeat: no-repeat;
   background-size: 754px 539px;
@@ -212,6 +213,9 @@ a:focus-visible {
   outline: 3px solid @focusedFormBorderColor !important;
 }
 
+
+
+
 #lang-code {
   border-radius: 20px;
 }
@@ -219,7 +223,7 @@ a:focus-visible {
 #header-page-title {
   .text-regular();
   font-size: 2rem;
-  color: @grey;
+  color: @darkGrey;
   margin-left: 84px;
 }
 
@@ -273,4 +277,28 @@ a:focus-visible {
 
 .centered {
   text-align: center;
+}
+
+.white {
+  color: white;
+}
+
+.grey {
+  color: @grey;
+}
+
+.dark-grey {
+  color: @darkGrey;
+}
+
+.light-grey {
+  color: @lightGrey;
+}
+
+.teal {
+  color: @teal;
+}
+
+.pink {
+  color: @pink;
 }

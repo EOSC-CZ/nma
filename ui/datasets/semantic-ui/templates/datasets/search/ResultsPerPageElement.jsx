@@ -17,16 +17,17 @@ const ResultsPerPageElement = ({
 
   return (
     <Dropdown
-      inline
-      icon={open ? "caret up" : "caret down"}
+      compact
+      selection
       open={open}
       onOpen={() => setOpen(true)}
       onClose={() => setOpen(false)}
       options={_options}
       value={currentSize}
-      onChange={(e, { value }) => onValueChange(1)}
+      onChange={(e, { value }) => onValueChange(value)}
       aria-label={ariaLabel}
       selectOnNavigation={selectOnNavigation}
+      className="results-per-page-selector"
     />
   );
 };
