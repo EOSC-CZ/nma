@@ -1,6 +1,6 @@
 .main.container {
-  margin-top: 4rem;
-  margin-bottom: 8rem;
+  margin-top: 43px;
+  margin-bottom: 49px;
 }
 
 .ui.container.cover-page {

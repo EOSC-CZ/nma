@@ -141,7 +141,7 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
           <Grid.Column only="computer" width={4}>
             {facetsAvailable && (
               <Grid.Row>
-                <Header size="medium">{i18next.t("Filters")}</Header>
+                <Header size="medium" id="search-filters-header-title">{i18next.t("Filters")}</Header>
               </Grid.Row>
             )}
           </Grid.Column>
@@ -160,7 +160,7 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
             </Grid>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row columns={columnsAmount}>
+        <Grid.Row columns={columnsAmount} className="facets-and-search-listing">
           {facetsAvailable && (
             <GridResponsiveSidebarColumn
               mobile={4}

@@ -6,16 +6,26 @@
     flex: 0 0 8rem;
 }
  
-.ui.grid > .row > .column.detail-back-to-search-link {
-    display: flex;
-    // justify-content: center;
-    align-items: center;
-
-    .left.chevron.icon {
-        margin-right: 1rem;
-
-        &:hover {
-            text-decoration: none;
+.ui.grid > .row {
+    & > .column.detail-back-to-search-link {
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+    
+        .left.chevron.icon {
+            margin-right: 1rem;
+    
+            &:hover {
+                text-decoration: none;
+            }
         }
+    }
+    
+    &.result-options {
+        padding-bottom: 0;
+    }
+
+    &.facets-and-search-listing {
+        padding-top: 0.5rem;
     }
 }

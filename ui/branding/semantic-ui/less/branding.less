@@ -45,6 +45,9 @@
 /*
  * Global-wide CSS
  */
+ :root {
+  font-size: @fontSize;
+ }
 
 body {
   font-size: @fontSize;
@@ -112,10 +115,6 @@ a {
   }
 }
 
-// .item.logo {
-//   margin-right: 42px;
-// }
-
 .logo-link {
   width: auto;
 }
@@ -170,14 +169,6 @@ a {
   text-transform: initial;
 }
 
-.facet-list {
-  margin: 0 -1rem;
-}
-
-#skip-to-main {
-  display: none;
-}
-
 #invenio-nav {
   background: none;
 }
@@ -213,8 +204,93 @@ a:focus-visible {
   outline: 3px solid @focusedFormBorderColor !important;
 }
 
+// Facets
 
+.facets-container {
+  // margin-top: -1rem;
+  // margin-bottom: -1rem;
 
+  .facets-item {
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: calc(2rem + 1px);
+    }
+
+    a {
+      // color: @color-text-primary;
+      text-decoration: none;
+      
+      p {
+        .text-big();
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.375rem;
+        letter-spacing: 0.02rem;
+        // color: @color-text-primary;
+        word-wrap: anywhere;
+
+        span:hover {
+          text-decoration: underline;
+        }
+
+        .facet-dropdown-caret {
+          color: @pink;
+          display: inline-block;
+          text-decoration: none;
+          font-size: 1.7rem;
+        }
+
+        // @media (max-width: @largeMonitorBreakpoint) and (min-width: @tabletBreakpoint) {
+        //   font-size: 1.15rem;
+
+        //   .facet-dropdown-caret {
+        //     font-size: 1.3rem;
+        //   }
+        // }
+      }
+    }
+
+    // @media (max-width: @largeMonitorBreakpoint) and (min-width: @tabletBreakpoint) {
+    //   padding: 1.1rem;
+
+    //   .facet-checkbox,
+    //   .facet-count {
+    //     font-size: 1rem;
+    //   }
+    // }
+  }
+}
+
+.facet-accordion-content {
+  .top-tab();
+}
+
+.facet-value-element {
+  display: flex;
+  justify-content: space-between;
+  gap: 8.75px;
+}
+
+.facet-checkbox {
+  word-wrap: break-word;
+}
+
+.facet-count {
+  .text-small();
+  font-size: 1.2rem;
+}
+
+// Custom classes
+
+.facets-container {
+  border-top: 1px solid #9A9A9A;
+  padding-top: calc(1rem + 3.15px);
+}
+
+.facet-list {
+  margin-left: 31px;
+}
 
 #lang-code {
   border-radius: 20px;
@@ -225,6 +301,11 @@ a:focus-visible {
   font-size: 2rem;
   color: @darkGrey;
   margin-left: 84px;
+}
+
+#search-filters-header-title {
+  .text-regular();
+  font-size: 24px;
 }
 
 /*
