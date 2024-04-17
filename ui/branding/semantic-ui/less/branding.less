@@ -235,30 +235,18 @@ a:focus-visible {
         }
 
         .facet-dropdown-caret {
-          color: @pink;
           display: inline-block;
+          color: @teal;
+          float: none;
+          opacity: 1;
+          width: initial;
+          height: initial;
+          transition: transform 0.1s ease, opacity 0.1s ease, color 0.1s ease;
           text-decoration: none;
-          font-size: 1.7rem;
+          // font-size: 1.7rem;
         }
-
-        // @media (max-width: @largeMonitorBreakpoint) and (min-width: @tabletBreakpoint) {
-        //   font-size: 1.15rem;
-
-        //   .facet-dropdown-caret {
-        //     font-size: 1.3rem;
-        //   }
-        // }
       }
     }
-
-    // @media (max-width: @largeMonitorBreakpoint) and (min-width: @tabletBreakpoint) {
-    //   padding: 1.1rem;
-
-    //   .facet-checkbox,
-    //   .facet-count {
-    //     font-size: 1rem;
-    //   }
-    // }
   }
 }
 

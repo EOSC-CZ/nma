@@ -7,7 +7,7 @@ const BucketAggregationElement = ({ title, containerCmp, agg }) => {
       <Accordion.Title as="a" className="accordion-title">
         <p>
           <span>{title}</span>
-          <i className="caret down icon facet-dropdown-caret"></i>
+          <i className="chevron right icon facet-dropdown-caret"></i>
         </p>
       </Accordion.Title>
       <Accordion.Content className="facet-accordion-content">

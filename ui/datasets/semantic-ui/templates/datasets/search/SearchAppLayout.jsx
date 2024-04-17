@@ -40,8 +40,8 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
     } else {
       columnsAmount = 2;
       resultsPaneLayoutFacets = {
-        mobile: 16,
-        tablet: 16,
+        mobile: 14,
+        tablet: 14,
         computer: 12,
         largeScreen: 12,
         widescreen: 12,
@@ -146,11 +146,11 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
             )}
           </Grid.Column>
           <Grid.Column {...resultsPaneLayout}>
-            <Grid as={Grid.Row} className="equal width" verticalAlign="middle">
-              <Grid.Column floated="left" textAlign="left">
+            <Grid as={Grid.Row} verticalAlign="middle" stackable>
+              <Grid.Column floated="left" textAlign="left" verticalAlign="middle" width={2}>
                 <ResultCountWithState />
               </Grid.Column>
-              <Grid.Column  floated="right" textAlign="right">
+              <Grid.Column  floated="right" textAlign="right" width={14}>
                 <ResultsPerPage
                   values={resultsPerPage}
                   label={ResultsPerPageLabel}

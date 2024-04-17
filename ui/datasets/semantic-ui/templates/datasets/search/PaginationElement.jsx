@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Pagination as Paginator, Icon } from "semantic-ui-react";
+import { Pagination, Icon } from "semantic-ui-react";
 
 const PaginationElement = ({
   id,
@@ -28,7 +28,7 @@ const PaginationElement = ({
   if (currentPage > pages) onPageChange(pages);
 
   return (
-    <Paginator
+    <Pagination
       text
       color="teal"
       activePage={currentPage}
