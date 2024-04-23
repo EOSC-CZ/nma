@@ -339,6 +339,23 @@ a:focus-visible {
   font-size: 24px;
 }
 
+#scroll-to-top-button {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  gap: 2px;
+  border: none;
+  box-shadow: none !important;
+  
+  .scroll-to-top-text {
+    .text-big();
+    font-size: 0.7rem;
+  }
+}
+
 /*
  * Utility classes
  */

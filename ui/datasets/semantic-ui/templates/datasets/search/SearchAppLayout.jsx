@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import _isEmpty from "lodash/isEmpty";
 import Overridable from "react-overridable";
 import { withState, ActiveFilters, ResultsPerPage } from "react-searchkit";
 import { GridResponsiveSidebarColumn } from "react-invenio-forms";
-import { Container, Grid, Button, Header } from "semantic-ui-react";
+import { Container, Grid, Button, Header, TransitionablePortal, Icon } from "semantic-ui-react";
 import { i18next } from "@translations/oarepo_ui/i18next";
 import {
   SearchAppFacets,
@@ -19,8 +19,27 @@ const ResultOptionsWithState = withState(ResultOptions);
 
 export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
   const [sidebarVisible, setSidebarVisible] = React.useState(false);
+  const [scrollToTopVisible, setScrollToTopVisible] = React.useState(false);
   // console.log(useContext(SearchConfigurationContext));
   const { appName, buildUID, paginationOptions: { resultsPerPage } } = useContext(SearchConfigurationContext);
+
+  useEffect(() => {
+    const handleScrollButtonVisibility = () => {
+      window.scrollY > 300 ? setScrollToTopVisible(true) : setScrollToTopVisible(false);
+      window.scroll
+    };
+
+    window.addEventListener("scroll", handleScrollButtonVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollButtonVisibility);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const facetsAvailable = !_isEmpty(config.aggs);
 
   let columnsAmount;
@@ -200,6 +219,21 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
           )}
         </Grid.Row>
       </Grid>
+      <TransitionablePortal
+        open={scrollToTopVisible}
+        transition={{ animation: "fade up", duration: 500 }}
+      >
+        <Button
+          onClick={scrollToTop}
+          id="scroll-to-top-button"
+          color="teal"
+          circular
+          basic
+        >
+          <div><Icon size="large" name="chevron up" /></div>
+          <div className="scroll-to-top-text">{i18next.t("to top").toUpperCase()}</div>
+        </Button>
+      </TransitionablePortal>
     </Container>
   );
 };
