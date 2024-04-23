@@ -1,16 +1,10 @@
 .ui.checkbox.facet-checkbox {
-  font-size: 1.2rem;
-  font-weight: 300;
+  line-height: normal;
+}
 
-  // @media (max-width: @largeMonitorBreakpoint) and (min-width: @tabletBreakpoint) {
-  //   label::before, label::after {
-  //     width: 15px;
-  //     height: 15px;
-  //   }
-
-  //   label::after {
-  //     top: -1px;
-  //     font-size: 12px;
-  //   }
-  // }
+/* Checked */
+.ui.checkbox input:checked ~ .box:after,
+.ui.checkbox input:checked ~ label:after {
+  color: @white;
+  content: '✕';
 }

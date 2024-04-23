@@ -6,8 +6,7 @@ import { Label, Icon, Grid } from "semantic-ui-react";
 import { withState } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import _uniq from "lodash/merge";
-// TODO: in next iteration, rethink how handling of initialFilters/ignored filters is to be handled
-// in the best way
+
 const ActiveFiltersElementComponent = ({
   filters,
   removeActiveFilter,
@@ -33,16 +32,18 @@ const ActiveFiltersElementComponent = ({
   );
   const groupedData = _groupBy(filtersWithoutInitialFilters, 0);
   return (
-    <Grid>
+    <Grid padded relaxed>
       <Grid.Column only="computer">
         {_map(groupedData, (filters, key) => (
-          <Label.Group key={key}>
-            <Label pointing="right">{aggregations[key]?.label}</Label>
+          <span key={key} className="active-filters-labels">
+            <Label>
+              {aggregations[key]?.label}
+            </Label>
             {filters.map((filter, index) => {
               const { label, activeFilter } = getLabel(filter);
               return (
                 <Label
-                  color="blue"
+                  color="pink"
                   key={activeFilter}
                   onClick={() => removeActiveFilter(activeFilter)}
                 >
@@ -52,7 +53,7 @@ const ActiveFiltersElementComponent = ({
                 </Label>
               );
             })}
-          </Label.Group>
+          </span>
         ))}
       </Grid.Column>
     </Grid>

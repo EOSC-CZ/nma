@@ -45,9 +45,9 @@
 /*
  * Global-wide CSS
  */
- :root {
+:root {
   font-size: @fontSize;
- }
+}
 
 body {
   font-size: @fontSize;
@@ -94,7 +94,7 @@ a {
   background-repeat: no-repeat;
   background-size: 754px 539px;
   background-attachment: fixed;
-  background-position: bottom -55px right clamp(3vw, 3vw + 1vw, 9vw); 
+  background-position: bottom -55px right clamp(3vw, 3vw + 1vw, 9vw);
   height: 100%;
 
   @media screen and (max-width: 1300px) {
@@ -207,43 +207,44 @@ a:focus-visible {
 // Facets
 
 .facets-container {
-  // margin-top: -1rem;
-  // margin-bottom: -1rem;
+  border-top: 1px solid #9a9a9a;
+  padding-top: calc(1rem + 3.15px);
 
-  .facets-item {
-    display: block;
+  .facet-list {
+    margin-left: 31px;
 
-    &:not(:last-child) {
-      margin-bottom: calc(2rem + 1px);
-    }
+    .facets-item {
+      display: block;
 
-    a {
-      // color: @color-text-primary;
-      text-decoration: none;
-      
-      p {
-        .text-big();
-        display: flex;
-        justify-content: space-between;
-        font-size: 1.375rem;
-        letter-spacing: 0.02rem;
-        // color: @color-text-primary;
-        word-wrap: anywhere;
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
 
-        span:hover {
-          text-decoration: underline;
-        }
+      a {
+        text-decoration: none;
 
-        .facet-dropdown-caret {
-          display: inline-block;
-          color: @teal;
-          float: none;
-          opacity: 1;
-          width: initial;
-          height: initial;
-          transition: transform 0.1s ease, opacity 0.1s ease, color 0.1s ease;
-          text-decoration: none;
-          // font-size: 1.7rem;
+        p {
+          .text-big();
+          text-transform: uppercase;
+          display: flex;
+          justify-content: space-between;
+          line-height: normal;
+          word-wrap: anywhere;
+
+          span:hover {
+            text-decoration: underline;
+          }
+
+          .facet-dropdown-caret {
+            display: inline-block;
+            color: @teal;
+            float: none;
+            opacity: 1;
+            width: initial;
+            height: initial;
+            transition: transform 0.1s ease, opacity 0.1s ease, color 0.1s ease;
+            text-decoration: none;
+          }
         }
       }
     }
@@ -262,6 +263,7 @@ a:focus-visible {
 
 .facet-checkbox {
   word-wrap: break-word;
+  margin-left: 31px;
 }
 
 .facet-count {
@@ -269,16 +271,17 @@ a:focus-visible {
   font-size: 1.2rem;
 }
 
+.active-filters-labels {
+  .ui.label {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+
+    &:last-child {
+      margin-right: 1rem;
+    }
+  }
+}
+
 // Custom classes
-
-.facets-container {
-  border-top: 1px solid #9A9A9A;
-  padding-top: calc(1rem + 3.15px);
-}
-
-.facet-list {
-  margin-left: 31px;
-}
 
 #lang-code {
   border-radius: 20px;
@@ -288,7 +291,7 @@ a:focus-visible {
   .text-regular();
   font-size: 2rem;
   color: @darkGrey;
-  margin-left: 84px;
+  margin-left: 35px;
 }
 
 #search-filters-header-title {

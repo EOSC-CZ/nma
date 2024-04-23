@@ -43,10 +43,10 @@ export const ContribParentFacetValue = ({
             checked={isSelected}
             onClick={() => onFilterClicked(keyField)}
           />
-          {" "}
+          {/* {" "}
           <span id={`${keyField}-count`} className="facet-count">
             ({bucket.doc_count})
-          </span>
+          </span> */}
         </List.Content>
       </Accordion.Title>
       <Accordion.Content active={isActive}>{childAggCmps}</Accordion.Content>
@@ -95,10 +95,10 @@ export const ContribFacetValue = ({
         value={keyField}
         checked={isSelected}
       />
-      {" "}
+      {/* {" "}
       <span id={`${keyField}-count`} className="facet-count">
         ({bucket.doc_count})
-      </span>
+      </span> */}
     </List.Content>
   );
 };

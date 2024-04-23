@@ -109,14 +109,14 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
         <Grid.Row>
           <Grid.Column only="computer" width={4}>
             {facetsAvailable && (
-              <>
-                <ActiveFilters />
-                <ClearFiltersButton />
-              </>
+              <ClearFiltersButton />
             )}
           </Grid.Column>
           <Grid.Column {...resultsPaneLayout}>
             <SearchBar buildUID={buildUID} appName={appName} />
+            {facetsAvailable && (
+              <ActiveFilters />
+            )}
           </Grid.Column>
         </Grid.Row>
         <Grid.Row verticalAlign="middle" className="result-options">

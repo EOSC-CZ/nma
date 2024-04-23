@@ -21,7 +21,7 @@ const ClearFiltersButtonComponent = ({
     filters.length > initialFilters?.length && (
       <Button
         name="clear"
-        color="orange"
+        color="pink"
         onClick={() =>
           updateQueryState({
             ...currentQueryState,
