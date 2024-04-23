@@ -24,7 +24,7 @@ const ItemHeader = ({ title, searchUrl, selfLink }) => {
   );
   return (
     <Item.Header as="h2">
-      <a href={viewLink}>{title}</a>
+      <a href={viewLink} className="listing-item-header p-0">{title}</a>
     </Item.Header>
   );
 };
@@ -49,41 +49,11 @@ const ItemSubheader = ({
 
   return (
     <Item.Meta>
-      <Grid columns={1}>
-        <Grid.Column>
-          <Grid.Row className="ui double separated creatibutors">
-            <ResultsItemCreatibutors
-              creators={creators}
-              contributors={contributors}
-              searchUrl={searchUrl}
-            />
-          </Grid.Row>
-          <Grid.Row className="ui separated">
-            <span
-              aria-label={i18next.t("Publication date")}
-              title={i18next.t("Publication date")}
-            >
-              {publicationDate} (v{version})
-            </span>
-            {/* {language && 
-            <>
-              <DoubleSeparator />
-              <span
-                aria-label={i18next.t("Language")}
-                title={i18next.t("Language")}
-              >
-                {language}
-              </span>
-            </>} */}
-          </Grid.Row>
-          <Grid.Row>
-            <ResultsItemResourceType
-              searchUrl={searchUrl}
-              resourceType={resourceType}
-            />
-          </Grid.Row>
-        </Grid.Column>
-      </Grid>
+      <ResultsItemCreatibutors
+        creators={creators}
+        contributors={contributors}
+        searchUrl={searchUrl}
+      />
     </Item.Meta>
   );
 };
@@ -124,7 +94,7 @@ ItemExtraInfo.propTypes = {
 
 const ItemSidebarIcons = ({ rights }) => {
   return (
-    <Item.Extra className="labels-actions">
+    <div className="label-actions">
       <List horizontal>
         {rights.map(right => (
           <List.Item key={right.rights}>
@@ -132,7 +102,7 @@ const ItemSidebarIcons = ({ rights }) => {
           </List.Item>
         ))}
       </List>
-    </Item.Extra>
+    </div>
   );
 };
 
@@ -146,6 +116,7 @@ export const ResultsListItemComponent = ({
   appName,
   ...rest
 }) => {
+  console.log(result);
   const searchAppConfig = useContext(SearchConfigurationContext);
 
   const accessRights = _get(result, "metadata.rightsList"); // fix
@@ -221,8 +192,12 @@ export const ResultsListItemComponent = ({
                   thesis={thesis}
                   searchUrl={searchAppConfig.ui_endpoint}
                 />
-                <Item.Description>
+                <Item.Description className="listing-item-description">
                   {_truncate(descriptionStripped, { length: 350 })} 
+                  <a href={result.links.self_html} className="read-more-link">
+                    {i18next.t("read more")}
+                    <Icon name="chevron right" link className="read-more-chevron" />
+                  </a>
                 </Item.Description>
                 <ResultsItemSubjects searchUrl={searchAppConfig.ui_endpoint} subjects={subjects} />
                 <ItemExtraInfo

@@ -204,6 +204,10 @@ a:focus-visible {
   outline: 3px solid @focusedFormBorderColor !important;
 }
 
+/*
+ * Search
+ */
+
 // Facets
 
 .facets-container {
@@ -271,12 +275,48 @@ a:focus-visible {
   font-size: 1.2rem;
 }
 
+// Active filters
+
 .active-filters-labels {
   .ui.label {
     margin: 0.5rem 0.5rem 0.5rem 0;
 
     &:last-child {
       margin-right: 1rem;
+    }
+  }
+}
+
+// Search results
+
+.search-listing-item {
+  .listing-item-header {
+    .text-medium();
+    font-size: 1.5rem;
+  }
+
+  .label-actions {
+    margin-bottom: 1.1rem;
+  }
+
+  .creators-link, .contributors-link {
+    color: @grey;
+
+    &:hover {
+      color: @teal;
+    }
+  }
+
+  .listing-item-description {
+    margin-bottom: 1rem;
+
+    .read-more-link {
+      display: inline-flex;
+      justify-content: center;
+    }
+  
+    .read-more-chevron:hover {
+      text-decoration: none;
     }
   }
 }
@@ -347,8 +387,16 @@ a:focus-visible {
   float: left;
 }
 
+.left-aligned {
+  text-align: left;
+}
+
 .centered {
   text-align: center;
+}
+
+.right-aligned {
+  text-align: right;
 }
 
 .white {

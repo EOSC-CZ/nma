@@ -1,0 +1,3 @@
+.ui.separated .double.separator {
+  border-color: @grey;
+}

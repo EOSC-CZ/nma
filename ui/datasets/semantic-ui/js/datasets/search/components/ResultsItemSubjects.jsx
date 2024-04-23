@@ -37,8 +37,8 @@ export function ResultsItemSubjects({
             key={`${sub.lang}-${sub.subject}-${sub.valueURI}`}
           >
             <List.Content verticalAlign="middle">
-              <Label size="small" color="teal" basic>
-                {(lang && lang !== 'undefined') ? lang : ''}&nbsp;<SubjectElement searchUrl={searchUrl} subject={sub} />
+              <Label size="small" color="teal" basic className="keyword-subjects">
+                {(lang && lang !== 'undefined') ? lang.toUpperCase() : ''}&nbsp;<SubjectElement searchUrl={searchUrl} subject={sub} />
               </Label>
             </List.Content>
           </List.Item>
