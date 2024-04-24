@@ -2,15 +2,15 @@
 {% set person_dict = person | to_dict %}
 {% set title = person_name ~ ": " ~ _("Find more records by this person") %}
 {% set data = {
-    "value": person_dict.name,
-    "title": title,
-    "label": person_dict.name
+"value": person_dict.name,
+"title": title,
+"label": person_dict.name
 } %}
 <div role="listitem" class="item creatibutor-wrap separated">
-        <div class="content">
-            <SearchLink data={data} className="search-link" searchFacet={searchFacet} search_link={search_link}></SearchLink>
-            {%- if roles -%}
-                ({{roles | map(attribute='title') | join(', ') }})
-            {%- endif -%}
-        </div>
+    <div class="content">
+        <SearchLink data={data} className="search-link" searchFacet={searchFacet} search_link={search_link} />
+        {%- if roles -%}
+        ({{roles | map(attribute='title') | join(', ') }})
+        {%- endif -%}
     </div>
+</div>

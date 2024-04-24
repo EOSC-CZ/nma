@@ -1,10 +1,14 @@
-{#def label #}
+{#def label, title_class="", active=False #}
 {% if content %}
-<div class="ui fluid accordion">
-  <dt class="title">
-    {{ label }}<i style="display: inline-block; float: right;" class="right floated dropdown icon"></i>
-    <hr class="ui divider">
+<div class="ui fluid active accordion">
+  <dt class="{{title_class}} {% if active %}active {% endif %}title">
+    <a class="accordion-title">
+      <p>
+        <span>{{label}}</span>
+        <i class="chevron right icon accordion-dropdown-icon"></i>
+      </p>
+    </a>
   </dt>
-  <dd class="content">{{ content }}</dd>
+  <dd class="{% if active %}active {% endif %}content">{{ content }}</dd>
 </div>
 {% endif %}

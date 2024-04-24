@@ -6,8 +6,8 @@ const BucketAggregationElement = ({ title, containerCmp, agg }) => {
     <div className="facets-item">
       <Accordion.Title as="a" className="accordion-title">
         <p>
-          <span>{title}</span>
-          <i className="chevron right icon facet-dropdown-caret"></i>
+          <span>{title.toUpperCase()}</span>
+          <i className="chevron right icon accordion-dropdown-icon"></i>
         </p>
       </Accordion.Title>
       <Accordion.Content className="facet-accordion-content">

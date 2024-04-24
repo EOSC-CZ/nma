@@ -36,9 +36,9 @@ const ActiveFiltersElementComponent = ({
       <Grid.Column only="computer">
         {_map(groupedData, (filters, key) => (
           <span key={key} className="active-filters-labels">
-            <Label>
-              {aggregations[key]?.label}
-            </Label>
+            {aggregations[key]?.label &&
+              <Label>{aggregations[key].label}</Label>
+            }
             {filters.map((filter, index) => {
               const { label, activeFilter } = getLabel(filter);
               return (

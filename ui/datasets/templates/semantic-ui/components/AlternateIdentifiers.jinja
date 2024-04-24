@@ -1,0 +1,26 @@
+{# def identifiers, search_link #}
+
+{% for id in array(identifiers) %}
+<div class="ui separated">
+    <div role="list" class="ui horizontal separated medium subjects list">
+      <div role="listitem" class="item">
+          {% set data = {
+          "value": id.alternateIdentifier,
+          "title": _("Lookup identifier"),
+          "label": id.alternateIdentifier,
+          } %}
+          {% set searchFacet = "metadata_alternateIdentifiers_alternateIdentifier" %}
+          <div class="ui teal tiny basic label keyword-subjects">
+              {% if id.alternateIdentifierType._has_value %}
+              <span>{{id.alternateIdentifierType|upper}} </span>
+              {% endif %}
+              {% if id.alternateIdentifierType._has_value and id.alternateIdentifierType|lower == "doi" %}
+              <a href="https://doi.org/{{id.alternateIdentifier}}" target="_blank">{{id.alternateIdentifier}}</a>
+              {% else %}
+              <SearchLink search_link={search_link} className="subject-link" searchFacet={searchFacet} data={data} />
+              {% endif %}
+          </div>
+      </div>
+    </div>
+</div>
+{% endfor %}

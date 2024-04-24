@@ -7,13 +7,24 @@
 }
  
 .ui.grid > .row {
+    &.detail-search-menu {
+        margin-bottom: calc(39px - 1rem);
+    }
+
+    & > .column.main-record-content {
+        @media screen and (min-width: @tabletBreakpoint) and (max-width: 1300px) {
+            margin-bottom: 1rem;
+        }
+    }
+
     & > .column.detail-back-to-search-link {
         display: flex;
         // justify-content: center;
         align-items: center;
+        // padding-right: 32px;
     
         .left.chevron.icon {
-            margin-right: 1rem;
+            margin-right: 40px;
     
             &:hover {
                 text-decoration: none;

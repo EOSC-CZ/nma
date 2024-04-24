@@ -71,7 +71,7 @@ ItemSubheader.propTypes = {
 
 const ItemExtraInfo = ({ createdDate, language, publisher }) => {
   return (
-    <Item.Extra>
+    <Item.Extra className="rel-mt-1">
       <div>
         <small>
           <p>

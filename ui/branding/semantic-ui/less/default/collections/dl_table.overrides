@@ -1,0 +1,5 @@
+dl.ui.table {
+  & > dt {
+    font-weight: 500;
+  }
+}

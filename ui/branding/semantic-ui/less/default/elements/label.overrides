@@ -14,7 +14,10 @@
     border-radius: 6px;
     padding: 0.5rem;
     background-color: transparent;
-    margin-bottom: 0.5rem;
+
+    .subject-link {
+      color: @black;
+    }
   }
 
   &.external-subjects {
@@ -22,7 +25,7 @@
     margin-right: 1rem;
     background-color: transparent;
     a {
-      color: blue;
+      color: @teal;
     }
   }
 }

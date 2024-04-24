@@ -221,7 +221,7 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
       </Grid>
       <TransitionablePortal
         open={scrollToTopVisible}
-        transition={{ animation: "fade up", duration: 500 }}
+        transition={{ animation: "fade up", duration: 300 }}
       >
         <Button
           onClick={scrollToTop}

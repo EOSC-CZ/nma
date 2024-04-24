@@ -210,6 +210,33 @@ a:focus-visible {
 
 // Facets
 
+a.accordion-title {
+  text-decoration: none;
+
+  p {
+    .text-big();
+    color: @black;
+    display: flex;
+    justify-content: space-between;
+    line-height: normal;
+    word-wrap: anywhere;
+
+    span:hover {
+      text-decoration: underline;
+    }
+
+    .accordion-dropdown-icon {
+      display: inline-block;
+      color: @teal;
+      opacity: 1;
+      width: initial;
+      height: initial;
+      transition: transform 0.1s ease, opacity 0.1s ease, color 0.1s ease;
+      text-decoration: none;
+    }
+  }
+}
+
 .facets-container {
   border-top: 1px solid #9a9a9a;
   padding-top: calc(1rem + 3.15px);
@@ -222,34 +249,6 @@ a:focus-visible {
 
       &:not(:last-child) {
         margin-bottom: 1rem;
-      }
-
-      a {
-        text-decoration: none;
-
-        p {
-          .text-big();
-          text-transform: uppercase;
-          display: flex;
-          justify-content: space-between;
-          line-height: normal;
-          word-wrap: anywhere;
-
-          span:hover {
-            text-decoration: underline;
-          }
-
-          .facet-dropdown-caret {
-            display: inline-block;
-            color: @teal;
-            float: none;
-            opacity: 1;
-            width: initial;
-            height: initial;
-            transition: transform 0.1s ease, opacity 0.1s ease, color 0.1s ease;
-            text-decoration: none;
-          }
-        }
       }
     }
   }
@@ -321,6 +320,24 @@ a:focus-visible {
   }
 }
 
+/*
+ * Detail
+ */
+
+.detail-record-description {
+  border-bottom: 1px solid @grey;
+}
+
+.detail-sidebar-header {
+  .text-big();
+  font-size: 1.25rem;
+  border-bottom: 1px solid @grey;
+}
+
+dt.field-data {
+  .text-medium();
+}
+
 // Custom classes
 
 #lang-code {
@@ -343,8 +360,8 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 148px;
+  right: 44px;
   z-index: 1000;
   gap: 2px;
   border: none;
