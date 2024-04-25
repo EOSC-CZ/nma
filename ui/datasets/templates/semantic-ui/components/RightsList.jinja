@@ -1,0 +1,18 @@
+{#def rights, search_link #}
+
+{% for lang, rights in array(rights)|groupby('lang')%}
+<div role="list" class="ui horizontal medium rights list">
+  {% for a in rights %}
+  {% set right = a | to_dict %}
+  <div role="listitem" class="item">
+    {% set data = {
+    "value": right.rights,
+    "title": _("Find more records with this rights"),
+    "label": right.rights
+    } %}
+    {% set searchFacet = "metadata_rightsList_rights" %}
+    <SearchLink search_link={search_link} className="right-link" searchFacet={searchFacet} data={data} />
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}

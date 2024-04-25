@@ -1,10 +1,10 @@
-{#def label, title_class="", active=False #}
+{#def label, accordion_class="", title_class="", label_class="", active=False #}
 {% if content %}
-<div class="ui fluid active accordion">
+<div class="ui fluid accordion {{accordion_class}}">
   <dt class="{{title_class}} {% if active %}active {% endif %}title">
     <a class="accordion-title">
       <p>
-        <span>{{label}}</span>
+        <span class="{{label_class}}">{{label}}</span>
         <i class="chevron right icon accordion-dropdown-icon"></i>
       </p>
     </a>

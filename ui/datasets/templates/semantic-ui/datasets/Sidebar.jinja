@@ -1,6 +1,6 @@
 {#def metadata, record #}
-<section aria-label="{{_('metadata/objectIdentifiers.label')}}" class="ui basic segment">
-  <AccordionField label={_('metadata/objectIdentifiers.label')} title_class="detail-sidebar-header" active>
+<section aria-label="{{_('metadata/objectIdentifiers.label')}}" class="bottom-tab">
+  <AccordionField label={_('metadata/objectIdentifiers.label')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
     <div class="ui link list">
       <div class="item">
         <i class="external alternate icon"></i>
@@ -16,12 +16,12 @@
     </div>
   </AccordionField>
 </section>
-<section id="export-record" aria-label="{{_('Export')}}" class="ui basic segment exports">
-  <AccordionField label={_('Export')} title_class="detail-sidebar-header" active>
+<section id="export-record" aria-label="{{_('Export')}}" class="bottom-tab">
+  <AccordionField label={_('Export')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
     <div id="recordExportDownload">
-      <div class="ui grid">
+      <div class="ui centered grid">
         <div class="eleven wide column">
-          <div role="listbox" aria-expanded="false" class="ui fluid selection dropdown" tabindex="0">
+          <div role="listbox" aria-expanded="false" class="ui fluid selection dropdown export-selector" tabindex="0">
             <div aria-atomic="true" aria-live="polite" role="alert" class="divider text">
               JSON
             </div>
@@ -34,18 +34,17 @@
             </div>
           </div>
         </div>
-        <div class="five wide column pl-0">
-          <a href="{{record.links.export_path}}/json" title="Download file" class="ui fluid button" role="button">
-            Export
+        <div class="five wide middle aligned column">
+          <a href="{{record.links.export_path}}/json" title="Download file" role="button">
+            <i class="download link large icon"></i>
           </a>
         </div>
       </div>
     </div>
   </AccordionField>
 </section>
-
-<section aria-label="{{_('API') ~ ' ' ~ _('Links')}}" class="ui basic segment">
-  <AccordionField label={_('API') ~ ' ' ~ _('Links')} title_class="detail-sidebar-header" active>
+<section aria-label="{{_('API') ~ ' ' ~ _('Links')}}">
+  <AccordionField label={_('API') ~ ' ' ~ _('Links')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
     <SidebarApiLinks links={record.links}></SidebarApiLinks>
   </AccordionField>
 </section>

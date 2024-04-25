@@ -63,6 +63,10 @@
         <IField d={md.alternateIdentifiers}>
             <AlternateIdentifiers identifiers={md.alternateIdentifiers} search_link={record.links.search_link}></AlternateIdentifiers>
         </IField>
+
+        <IField d={md.rightsList}>
+            <RightsList rights={md.rightsList} search_link={record.links.search_link}></RightsList>
+        </IField>
     
         {% set abstracts = md.descriptions._filter(descriptionType="Abstract") %}
         <IField label={_('abstract')|capitalize}>

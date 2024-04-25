@@ -8,7 +8,7 @@
     bottom: @languageLift;
   }
 
-  &.keyword-subjects {
+  &.keyword-subjects, &.alt-identifiers {
     font-size: 0.75rem;
     text-wrap: nowrap;
     border-radius: 6px;
@@ -17,6 +17,17 @@
 
     .subject-link {
       color: @black;
+    }
+  }
+
+  &.alt-identifiers {
+    padding-left: 0;
+    
+    .detail-identifier-type {
+      padding: 0.5rem;
+      background-color: @teal;
+      color: @white;
+      border-radius: 6px 0 0 6px;
     }
   }
 
