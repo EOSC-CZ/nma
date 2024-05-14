@@ -1,5 +1,10 @@
 
-{% extends "invenio_theme/page.html" %}
+{% extends "oarepo_ui/base_page.html" %}
+
+{%- block css%}
+  {{ super() }}
+  {% include config.THEME_CSS_TEMPLATE %}
+{%- endblock css%}
 
 {%- block head_links %}
   <link rel="shortcut icon" type="image/svg+xml" href="{{ url_for('static', filename='icons/favicon.svg') }}"/>
@@ -23,18 +28,3 @@
     {%- endfor %}
   {%- endblock head_apple_icons %}
 {%- endblock head_links %}
-
-{%- block css %}
-  {{super()}}
-  {{ webpack['components.css']}}
-  {{ webpack['branding.css'] }}
-  {{ webpack["nr_components.css"] }}
-{%- endblock css %}
-
-{%- block javascript %}
-  {{super()}}
-  {{ webpack['branding.js'] }}
-  {{ webpack['components.js'] }}
-  {{ webpack["nr_components.js"] }}
-{%- endblock javascript %}
-
