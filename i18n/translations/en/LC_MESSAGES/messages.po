@@ -3008,3 +3008,53 @@ msgstr ""
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:58
 msgid "abstract"
 msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/detail.html:20
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:43
+msgid "Record details"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:10
+msgid "Lookup identifier"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RightsList.jinja:10
+msgid "Find more records with this rights"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:18
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:20
+msgid "Back to search results"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:41
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:42
+msgid "Citations"
+msgstr ""
+
+msgid "Clear all filters"
+msgstr ""
+
+msgid "Show all sub facets of "
+msgstr ""
+
+msgid "Results"
+msgstr ""
+
+msgid "resultsPerPage"
+msgstr ""
+
+msgid "read more"
+msgstr ""
+
+msgid "Filter results"
+msgstr ""
+
+msgid "Filters"
+msgstr ""
+
+msgid "to top"
+msgstr ""
+
+msgid "Sort"
+msgstr ""

@@ -5,7 +5,8 @@ import Overridable from "react-overridable";
 import { withState, ActiveFilters, ResultsPerPage } from "react-searchkit";
 import { GridResponsiveSidebarColumn } from "react-invenio-forms";
 import { Container, Grid, Button, Header, TransitionablePortal, Icon } from "semantic-ui-react";
-import { i18next } from "@translations/oarepo_ui/i18next";
+import { i18next as i18nOARepo } from "@translations/oarepo_ui/i18next";
+import { i18next } from "@translations/i18next";
 import {
   SearchAppFacets,
   SearchAppResultsPane,
@@ -152,15 +153,15 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
                 basic
                 icon="sliders"
                 onClick={() => setSidebarVisible(true)}
-                title={i18next.t("Filter results")}
-                aria-label={i18next.t("Filter results")}
+                title={i18nOARepo.t("Filter results")}
+                aria-label={i18nOARepo.t("Filter results")}
               />
             </Grid.Column>
           )}
           <Grid.Column only="computer" width={4}>
             {facetsAvailable && (
               <Grid.Row>
-                <Header size="medium" id="search-filters-header-title">{i18next.t("Filters")}</Header>
+                <Header size="medium" id="search-filters-header-title">{i18nOARepo.t("Filters")}</Header>
               </Grid.Row>
             )}
           </Grid.Column>

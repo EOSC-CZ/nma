@@ -11,3 +11,4 @@ export * from "./EmptyResultsElement";
 export * from "./ClearFiltersButton";
 export * from "./ResultCount";
 export * from "./ResultsPerPageLabel";
+export * from "./facets";
