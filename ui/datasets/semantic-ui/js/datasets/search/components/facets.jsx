@@ -84,6 +84,8 @@ export const ContribFacetValue = ({
       filterKey = keyFieldTokens.slice(1).join("____");
   }
 
+  // console.log(bucket, keyField, filterKey);
+
   return (
     <List.Content className="facet-value-element">
       <Checkbox

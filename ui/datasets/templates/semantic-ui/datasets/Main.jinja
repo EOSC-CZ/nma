@@ -3,83 +3,90 @@
 {% set md=d.metadata %}
 
 <div class="ui borderless padded segment detail-main-record-segment">
-    <div>
-        <IValue value={md.dates._filter(dateType="Submitted")._select("date")._first()} /> | 
-        <IValue value={md.version._ui_label} /> <IValue value={md.version} />
-    </div>
+  <div aria-label="{{_('metadata/dates/dateType.enum.Issued')}}">
+    <span class="text-medium">{{_('metadata/dates/dateType.enum.Issued')}}</span>: 
+    <IValue value={md.dates._filter(dateType="Issued" )._select("date")._first()} />
+  </div>
 
-    <h1 class="ui teal header"><IValue value={md.titles.0.title} /></h1>
-    
-    <dl class="ui very basic table">
-        <IField d={md.titles[1:]}>
-            <AdditionalTitles data={md.titles[1:]}></AdditionalTitles>
-        </IField>
-    
-        <IField label={_('People')}>
-            <People md={md} search_link={record.links.search_link}></People>
-        </IField>
-    
-        <IField label={_('metadata/dateAvailable.label')}>
-            {{md.dates._filter(dateType="Issued")._select("date")._first()}}
-        </IField>
-    
-        <IField d={md.dates._filter(dateType="Modified")._select("date")._first()} />
-    
-        <IField d={md.language} />
-    
-        <IField d={md.publisher}>
-            <Publisher publisher={md.publisher} search_link={record.links.search_link}></Publisher>
-        </IField>
-    
-        <IField d={md.types}>
-            {% for it in array(md.types.resourceTypeGeneral, md.types.resourceType) %}
-                {% if not loop.first %}, {% endif %}
-                {{ it }}
-            {% endfor %}
-        </IField>
-    
-        <IField d={md.accessibility} />
-        <IField d={md.rights} />
-    
-        <IField d={md.subjects} >
-            <Subjects subjects={md.subjects} search_link={record.links.search_link}></Subjects>
-        </IField>
-    
-         <IField d={ md.events }>
-            <NrEvents data={md.events}></NrEvents>
-         </IField>
-    
-        <IField d={ md.externalLocation }>
-            <NrExternalLocation data={md.externalLocation}></NrExternalLocation>
-        </IField>
-    
-        {% if md.fundingReferences %}
-        <IField d={md.fundingReferences}>
-            <FundingReference funders={md.fundingReferences} search_link={record.links.search_link}>
-            </FundingReference>
-        </IField>
-        {% endif %}
+  <h1 class="ui teal header">
+    <IValue value={md.titles.0.title} />
+  </h1>
 
-        <IField d={md.alternateIdentifiers}>
-            <AlternateIdentifiers identifiers={md.alternateIdentifiers} search_link={record.links.search_link}></AlternateIdentifiers>
-        </IField>
+  <dl class="ui very basic table">
+    <IField d={md.titles[1:]}>
+      <AdditionalTitles data={md.titles[1:]}></AdditionalTitles>
+    </IField>
 
-        <IField d={md.rightsList}>
-            <RightsList rights={md.rightsList} search_link={record.links.search_link}></RightsList>
-        </IField>
-    
-        {% set abstracts = md.descriptions._filter(descriptionType="Abstract") %}
-        <IField label={_('abstract')|capitalize}>
-            <Multilingual data={abstracts} field="description" />
-        </IField>
-    
-        {% for description in array(md.descriptions) %}
-            <AccordionField label={description.descriptionType} title_class="detail-record-description">
-                <p>{{description.description}}</p>
-            </AccordionField>
-        {% endfor %}
-    </dl>
-    
+    <IField label={_('People')}>
+      <People md={md} search_link={record.links.search_link}></People>
+    </IField>
+
+    <IField label={_('metadata/dates/dateType.enum.Submitted')}>
+      {{md.dates._filter(dateType="Submitted")._select("date")._first()}}
+    </IField>
+
+    <IField d={md.dates._filter(dateType="Modified" )._select("date")._first()} />
+
+    <IField d={md.language} />
+
+    <IField d={md.publisher}>
+      <Publisher publisher={md.publisher} search_link={record.links.search_link}></Publisher>
+    </IField>
+
+    <IField d={md.types}>
+      {% for it in array(md.types.resourceTypeGeneral, md.types.resourceType) %}
+      {% if not loop.first %}, {% endif %}
+      {{ it }}
+      {% endfor %}
+    </IField>
+
+    <IField d={md.accessibility} />
+    <IField d={md.rights} />
+
+    <IField d={md.subjects}>
+      <Subjects subjects={md.subjects} search_link={record.links.search_link}></Subjects>
+    </IField>
+
+    <IField d={ md.events }>
+      <NrEvents data={md.events}></NrEvents>
+    </IField>
+
+    <IField d={ md.externalLocation }>
+      <NrExternalLocation data={md.externalLocation}></NrExternalLocation>
+    </IField>
+
+    {% if md.fundingReferences %}
+    <IField d={md.fundingReferences}>
+      <FundingReference funders={md.fundingReferences} search_link={record.links.search_link}>
+      </FundingReference>
+    </IField>
+    {% endif %}
+
+    <IField d={md.alternateIdentifiers}>
+      <AlternateIdentifiers identifiers={md.alternateIdentifiers} search_link={record.links.search_link}>
+      </AlternateIdentifiers>
+    </IField>
+
+    <IField d={md.rightsList}>
+      <RightsList rights={md.rightsList} search_link={record.links.search_link}></RightsList>
+    </IField>
+
+    {% set abstracts = md.descriptions._filter(descriptionType="Abstract") %}
+    <IField label={_('abstract')|capitalize}>
+      <Multilingual data={abstracts} field="description" />
+    </IField>
+
+    {% for description in array(md.descriptions) %}
+    <AccordionField label={description.descriptionType} title_class="detail-record-description">
+      <p>{{description.description}}</p>
+    </AccordionField>
+    {% endfor %}
+  </dl>
+
 </div>
 
 {{ md | pprint }}
+<hr />
+{{ extra_context | pprint }}
+<hr />
+{{ record | pprint }}

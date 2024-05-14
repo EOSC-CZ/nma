@@ -10,7 +10,7 @@
           "title": _('metadata/originalRecord.label'),
           "label": _('metadata/originalRecord.label')
           } %}
-          <URL className="link" data={_data}></URL>
+          <URL className="header" data={_data}></URL>
         </div>
       </div>
     </div>
@@ -18,33 +18,40 @@
 </section>
 <section id="export-record" aria-label="{{_('Export')}}" class="bottom-tab">
   <AccordionField label={_('Export')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
-    <div id="recordExportDownload">
-      <div class="ui centered grid">
-        <div class="eleven wide column">
-          <div role="listbox" aria-expanded="false" class="ui fluid selection dropdown export-selector" tabindex="0">
-            <div aria-atomic="true" aria-live="polite" role="alert" class="divider text">
-              JSON
-            </div>
-            <i aria-hidden="true" class="dropdown icon"></i>
-            <div class="menu transition">
-              <div style="pointer-events: all;" role="option" aria-checked="true" aria-selected="true"
-                class="active selected item">
-                <span class="text">JSON</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="five wide middle aligned column">
-          <a href="{{record.links.export_path}}/json" title="Download file" role="button">
-            <i class="download link large icon"></i>
-          </a>
+    <div class="ui link list">
+      <div class="item">
+        <i class="download link icon"></i>
+        <div class="content">
+          {% set _data = {
+          "href": record.links.export_path|e ~ "/json",
+          "title": _('Export') ~ ' JSON',
+          "label": "JSON"
+          } %}
+          <URL className="header" data={_data}></URL>
         </div>
       </div>
     </div>
   </AccordionField>
 </section>
-<section aria-label="{{_('API') ~ ' ' ~ _('Links')}}">
+<section aria-label="{{_('API') ~ ' ' ~ _('Links')}}" class="bottom-tab">
   <AccordionField label={_('API') ~ ' ' ~ _('Links')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
     <SidebarApiLinks links={record.links}></SidebarApiLinks>
+  </AccordionField>
+</section>
+<section aria-label="{{_('Citations')}}">
+  <AccordionField label={_('Citations')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
+    <div class="ui list">
+      <div class="item">
+        <i class="quote right icon"></i>
+        <div class="content">
+          {% set _data = {
+          "href": record.links.export_path|e ~ "/json",
+          "title": _('Export') ~ ' JSON',
+          "label": "JSON"
+          } %}
+          <URL className="header" data={_data}></URL>
+        </div>
+      </div>
+    </div>
   </AccordionField>
 </section>
