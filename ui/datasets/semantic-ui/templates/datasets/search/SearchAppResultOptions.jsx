@@ -13,12 +13,12 @@ const SearchAppResultOptions = ({ sortOptions, layoutOptions }) => {
   return (
     <>
       {sortOptions && (
-        <>
-          <span className="grey rel-mr-1">{i18next.t('Sort')}:</span>
+        <div className="search-sort">
+          <span>{i18next.t('Sort')}:</span>
           <Overridable id={buildUID("SearchApp.sort")} options={sortOptions}>
             <SearchAppSort />
           </Overridable>
-        </>
+        </div>
       )}
       {multipleLayouts && <LayoutSwitcher />}
     </>

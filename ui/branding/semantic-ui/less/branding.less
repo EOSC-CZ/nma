@@ -320,6 +320,30 @@ a.accordion-title {
   }
 }
 
+// Search Options
+
+.search-sort, .results-per-page {
+  color: @grey;
+  display: inline-block;
+
+  & > span {
+    margin-right: 0.5rem;
+  }
+
+  @media screen and (max-width: 1300px) {
+    margin: 0;
+    text-align: center;
+
+    & > span {
+      display: block;
+    }
+  }
+}
+
+.results-per-page {
+  margin-right: 2rem;
+}
+
 /*
  * Detail
  */
