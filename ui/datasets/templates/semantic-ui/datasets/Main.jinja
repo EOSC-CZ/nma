@@ -76,7 +76,7 @@
       <Multilingual data={abstracts} field="description" />
     </IField>
 
-    {% for description in array(md.descriptions) %}
+    {% for description in array(md.descriptions._filter(descriptionType__ne="Abstract")) %}
     <AccordionField label={description.descriptionType} title_class="detail-record-description">
       <p>{{description.description}}</p>
     </AccordionField>
@@ -84,9 +84,3 @@
   </dl>
 
 </div>
-
-{{ md | pprint }}
-<hr />
-{{ extra_context | pprint }}
-<hr />
-{{ record | pprint }}

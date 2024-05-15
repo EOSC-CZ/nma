@@ -1,40 +1,82 @@
 {% extends "oarepo_ui/header.html" %} 
 
-{%- block navbar_search %}{%- endblock navbar_search %}
+{%- block navbar %}
+  <div class="ui container invenio-header-container">
+    <nav id="invenio-nav" class="ui menu shadowless borderless p-0">
+      
+      {# Main Site logo #}
+      {%- block navbar_header %}
+      <div class="item logo left-logo p-0">
+        {%- block brand %}
+          {%- if config.THEME_LOGO %}
+            <a class="logo-link" href="/">
+              <img class="ui image"
+                    src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+                    alt="{{ _(config.THEME_SITENAME) }}"/>
+            </a>
+          {%- endif %}
+        {%- endblock brand %}
+      </div>
+      <div class="item p-0 mobile-hidden">
+        <h1 id="header-page-title">{{ _(config.THEME_SITENAME) }}</h1>
+      </div>
+      {%- endblock navbar_header %}
 
-{%- block navbar_header %}
-<div class="item logo p-0">
-  {%- block brand %}
-    {%- if config.THEME_LOGO %}
-      <a class="logo-link" href="/">
-        <img class="ui image"
-              src="{{ url_for('static', filename=config.THEME_LOGO) }}"
-              alt="{{ _(config.THEME_SITENAME) }}"/>
-      </a>
-    {%- endif %}
-  {%- endblock brand %}
-</div>
-<div class="item p-0 mobile-hidden">
-  <h1 id="header-page-title">{{ _(config.THEME_SITENAME) }}</h1>
-</div>
-{%- endblock navbar_header %}
+      {# Burger menu toggle for mobile menu #}
+      <div id="invenio-burger-toggle">
+        <button
+          id="invenio-burger-menu-icon"
+          class="ui button transparent"
+          aria-label="{{ _('Menu') }}"                                
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="invenio-menu"
+        >
+          <span class="navicon"></span>
+        </button>
+      </div>
 
-{%- block navbar_nav %}{%- endblock navbar_nav %}
+      {# Main menu #}
+      <div
+        role="menu"
+        id="invenio-menu"
+        aria-labelledby="invenio-burger-menu-icon"
+        class="ui fluid menu borderless mobile-hidden"
+      >
+        <button
+          id="invenio-close-burger-menu-icon"
+          class="ui button transparent"
+          aria-label="{{ _('Close menu') }}"
+        >
+          <span class="navicon"></span>
+        </button>
 
-{%- block navbar_right %}
-<div class="right menu item">
-  {%- if config.I18N_LANGUAGES %}
-  <form id="language-code-form" class="lang-select"
-      action="{{ url_for('invenio_i18n.set_lang')}}"
-      method="POST">
-    <div>
-      <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector">
-        {% for l in current_i18n.get_locales() %}
-          <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name() }}</option>
-        {% endfor %}
-      </select>
-    </div>
-  </form>
-  {%- endif %}
-</div>
-{%- endblock navbar_right %}
+        {# Search bar #}
+        {%- block navbar_search %}{%- endblock navbar_search %}
+
+        {# Navigation links #}
+        {%- block navbar_nav %}{%- endblock navbar_nav %}
+
+
+        {# Language selector #}
+        {%- block navbar_right %}
+        <div class="right menu item">
+          {%- if config.I18N_LANGUAGES %}
+          <form id="language-code-form" class="lang-select"
+              action="{{ url_for('invenio_i18n.set_lang')}}"
+              method="POST">
+            <div>
+              <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector">
+                {% for l in current_i18n.get_locales() %}
+                  <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name() }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </form>
+          {%- endif %}
+        </div>
+        {%- endblock navbar_right %}
+      </div>
+    </nav>
+  </div>
+{%- endblock navbar %}
