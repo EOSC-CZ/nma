@@ -9,7 +9,10 @@
 
   .logo {
     width: 305.18px;
-    // margin-right: 32.82px;
+    @media screen and (max-width: 768px) {
+      // width: clamp(200px, 100px + 10%, 305.183px);
+      width: 200px;
+    }
   }
 
   #invenio-menu {

@@ -22,35 +22,12 @@
       </div>
       {%- endblock navbar_header %}
 
-      {# Burger menu toggle for mobile menu #}
-      <div id="invenio-burger-toggle">
-        <button
-          id="invenio-burger-menu-icon"
-          class="ui button transparent"
-          aria-label="{{ _('Menu') }}"                                
-          aria-haspopup="menu"
-          aria-expanded="false"
-          aria-controls="invenio-menu"
-        >
-          <span class="navicon"></span>
-        </button>
-      </div>
-
       {# Main menu #}
       <div
         role="menu"
         id="invenio-menu"
-        aria-labelledby="invenio-burger-menu-icon"
-        class="ui fluid menu borderless mobile-hidden"
+        class="ui fluid menu borderless"
       >
-        <button
-          id="invenio-close-burger-menu-icon"
-          class="ui button transparent"
-          aria-label="{{ _('Close menu') }}"
-        >
-          <span class="navicon"></span>
-        </button>
-
         {# Search bar #}
         {%- block navbar_search %}{%- endblock navbar_search %}
 
