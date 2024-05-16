@@ -88,6 +88,11 @@ a {
   height: 100px !important;
 }
 
+#frontpage-search-input {
+  max-width: 100%;
+  width: 1071px;
+}
+
 .backdrop {
   background-color: @pageBackground;
   background-image: url("~@less/images/background.svg");
@@ -99,12 +104,17 @@ a {
 
   @media screen and (max-width: 1300px) {
     background-size: 527px 377px;
-    background-position: top 65vh right 3vw;
+    background-position: top 67vh right 3vw;
   }
 
   @media screen and (max-width: 768px) {
     background-size: 377px 269px;
-    background-position: bottom 2vh right 3vw;
+    background-position: bottom 6vh right 3vw;
+  }
+
+  @media screen and (max-width: 530px) {
+    background-size: 377px 269px;
+    background-position: bottom 6vh center;
   }
 
   &.frontpage-header {
@@ -171,10 +181,6 @@ a {
 
 .frontpage-logo {
   margin-right: 0 !important;
-}
-
-#frontpage-search-bar {
-  background: transparent;
 }
 
 .ui.modal {
