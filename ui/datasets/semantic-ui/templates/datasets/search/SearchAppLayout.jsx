@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import _isEmpty from "lodash/isEmpty";
 import Overridable from "react-overridable";
 import { withState, ActiveFilters, ResultsPerPage } from "react-searchkit";
-import { GridResponsiveSidebarColumn } from "react-invenio-forms";
 import { Container, Grid, Button, Header, TransitionablePortal, Icon } from "semantic-ui-react";
 import { i18next as i18nOARepo } from "@translations/oarepo_ui/i18next";
 import { i18next } from "@translations/i18next";
@@ -14,7 +13,7 @@ import {
   SearchConfigurationContext,
 } from "@js/invenio_search_ui/components";
 import { ResultOptions } from "@js/invenio_search_ui/components/Results";
-import { ClearFiltersButton, ResultCountWithState, ResultsPerPageLabel } from "@datasets_search";
+import { ClearFiltersButton, ResultCountWithState, ResultsPerPageLabel, GridResponsiveSidebarColumn } from "@datasets_search";
 
 const ResultOptionsWithState = withState(ResultOptions);
 
@@ -191,6 +190,16 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
               widescreen={4}
               open={sidebarVisible}
               onHideClick={() => setSidebarVisible(false)}
+              mobileChildren={
+                <>
+                  <Header size="medium" id="search-filters-header-title">{i18nOARepo.t("Filters")}</Header>
+                  <SearchAppFacets
+                    aggs={config.aggs}
+                    appName={appName}
+                    buildUID={buildUID}
+                  />
+                </>
+              }
             >
               <SearchAppFacets
                 aggs={config.aggs}
