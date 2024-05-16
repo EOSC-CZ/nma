@@ -144,10 +144,11 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
             <Grid.Column
               floated="left"
               only="mobile tablet"
-              mobile={1}
-              tablet={1}
-              textAlign="center"
-              className="rel-mr-1"
+              mobile={3}
+              tablet={2}
+              textAlign="left"
+              verticalAlign="middle"
+              className="search-burger-sidebar-btn"
             >
               <Button
                 basic
@@ -165,9 +166,9 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
               </Grid.Row>
             )}
           </Grid.Column>
-          <Grid.Column {...resultsPaneLayout} mobile={14} tablet={14}>
+          <Grid.Column {...resultsPaneLayout} mobile={13} tablet={14}>
             <Grid as={Grid.Row} verticalAlign="middle">
-              <Grid.Column floated="left" textAlign="left" verticalAlign="middle" width={3}>
+              <Grid.Column className="search-result-count" floated="left" textAlign="left" width={3}>
                 <ResultCountWithState />
               </Grid.Column>
               <Grid.Column floated="right" textAlign="right" width={13}>

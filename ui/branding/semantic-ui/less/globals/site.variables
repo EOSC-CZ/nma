@@ -44,6 +44,9 @@
 @selectionBackground: @lightGrey;
 @celledBorderColor: @teal;
 
+@loaderFillColor: @lightGrey;
+@loaderLineColor: lighten(@pink, 25%);
+
 /*-------------------
        Links
 --------------------*/

@@ -338,10 +338,33 @@ a.accordion-title {
       display: block;
     }
   }
+
+  @media screen and (max-width: 768px) {    
+    & > span {
+      margin: 0.2rem;
+    }
+  }
+
+  @media screen and (max-width: 578px) {
+    margin: 0;
+    
+    & > span {
+      margin: 0;
+    }
+  }
 }
 
 .results-per-page {
   margin-right: 2rem;
+
+  @media screen and (max-width: 768px) {
+    margin-right: 0.5rem;
+  }
+
+  @media screen and (max-width: 530px) {
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
 }
 
 /*

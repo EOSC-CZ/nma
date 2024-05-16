@@ -22,6 +22,7 @@ const SortElement = ({
   
   return (
     <Dropdown
+      compact
       selection
       options={_options}
       value={selected}
