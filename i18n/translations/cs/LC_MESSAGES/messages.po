@@ -3058,3 +3058,9 @@ msgstr "nahoru"
 
 msgid "Sort"
 msgstr "Seřadit"
+
+msgid "An error occurred while generating the citation."
+msgstr ""
+
+msgid "Loading"
+msgstr ""

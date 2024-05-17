@@ -40,18 +40,6 @@
 </section>
 <section aria-label="{{_('Citations')}}">
   <AccordionField label={_('Citations')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
-    <div class="ui list">
-      <div class="item">
-        <i class="quote right icon"></i>
-        <div class="content">
-          {% set _data = {
-          "href": record.links.export_path|e ~ "/json",
-          "title": _('Export') ~ ' JSON',
-          "label": "JSON"
-          } %}
-          <URL className="header" data={_data}></URL>
-        </div>
-      </div>
-    </div>
+    <RecordCitations record={record} />
   </AccordionField>
 </section>

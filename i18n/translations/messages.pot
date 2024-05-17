@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-16 16:40+0200\n"
+"POT-Creation-Date: 2024-05-17 14:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,8 +84,8 @@ msgstr ""
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:31
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:26
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:27
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:38
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:39
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:34
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:35
 msgid "Search"
 msgstr ""
 
@@ -222,7 +222,6 @@ msgstr ""
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:19
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:20
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:27
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:49
 msgid "Export"
 msgstr ""
 
@@ -241,7 +240,7 @@ msgstr ""
 msgid "Citations"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:48
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:42
 msgid "Show all records"
 msgstr ""
 
@@ -791,6 +790,12 @@ msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:650
 msgid "oai/harvest/identifier.label"
+msgstr ""
+
+msgid "An error occurred while generating the citation."
+msgstr ""
+
+msgid "Loading"
 msgstr ""
 
 msgid "Clear all filters"
