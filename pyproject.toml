@@ -65,6 +65,9 @@ datasets = "datasets.models:records.json"
 [project.entry-points."oarepo.ui"]
 datasets = "datasets.models:ui.json"
 
+[project.entry-points."invenio.datasets.response_handlers"]
+nma_extras = "common.datasets.serializers.citations:citations_response_handlers"
+
 [project.optional-dependencies]
 tests = [
     "autoflake",

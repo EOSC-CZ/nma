@@ -14,7 +14,7 @@ marisa-trie==1.1.1
 nr-metadata==2.0.23
 oarepo-oai-pmh-harvester==4.0.45
 oarepo-runtime==1.5.30
-oarepo-ui==5.1.29
+oarepo-ui==5.1.31
 oarepo-vocabularies==2.0.87
 openpyxl==3.1.2
 python-dotenv==1.0.1
