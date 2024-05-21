@@ -40,7 +40,7 @@ class CSLJSONSchema(Schema):
     """CSL Marshmallow Schema."""
 
     id_ = SanitizedUnicode(data_key="id", attribute="id")
-    type_ = fields.Method("get_type", data_key="type")
+    type_ = fields.Constant("dataset", data_key="type", attribute="type")
     title = SanitizedUnicode(attribute="metadata.titles.0.title")
     abstract = MultilingualLocalizedUIField(I18nStrUIField(value_field="description"))
     author = fields.List(fields.Nested(CSLCreatorSchema()), attribute="metadata.creators")
@@ -51,25 +51,19 @@ class CSLJSONSchema(Schema):
 
     def _read_resource_type(self, id_):
         """Retrieve resource type record using service."""
+        print("ID", id_)
         rec = vocabulary_service.read(system_identity, ("resource-types", id_))
         return rec._record
-
-    def get_type(self, obj):
-        """Get resource type."""
-        resource_type = obj["metadata"].get(
-            "types", [{"resourceTypeGeneral": "thesis"}] # article is CSL "Other"
-        )[0]
-
-        resource_type_record = self._read_resource_type(resource_type["resourceTypeGeneral"])
-        props = resource_type_record["props"]
-        return props.get("csl", "thesis")  # article is CSL "Other"
 
     def get_issued(self, obj):
         """Get issued dates."""
         try:
-            filtered = filter(lambda o: o.get("dateType").lower() == "issued", obj["metadata"].get("dates"))[0]
+            filtered = next(o for o in obj["metadata"].get("dates") if o.get("dateType").lower() == "issued")
+            print("FILTERED", filtered.get("date"))
             parsed = parse_edtf(filtered.get("date"))
         except EDTFParseException:
+            return missing
+        except StopIteration:
             return missing
 
         if isinstance(parsed, Date):
