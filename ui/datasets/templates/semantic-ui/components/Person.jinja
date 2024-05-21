@@ -1,4 +1,4 @@
-{#def person, search_link, searchFacet, roles = None #}
+{#def person, search_link, searchFacet, roles = None, separated=False #}
 {% set person_dict = person | to_dict %}
 {% set title = person_name ~ ": " ~ _("Find more records by this person") %}
 {% set data = {
@@ -12,5 +12,6 @@
         {%- if roles -%}
         ({{roles | map(attribute='title') | join(', ') }})
         {%- endif -%}
+        {% if separated %};{% endif %}
     </div>
 </div>

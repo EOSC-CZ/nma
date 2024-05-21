@@ -3,11 +3,10 @@
 {% set creators = md.creators %}
 {% set contributors = md.contributors %}
 
-<div class="ui double separated">
+<div class="ui separated">
     <div role="list" class="ui horizontal creatibutors list">
         {% for person in array(creators) %}
-        <Person person={person} search_link={search_link} searchFacet="metadata_creators_name"></Person>
-        {% if not loop.last %}; {% endif %}
+        <Person person={person} search_link={search_link} searchFacet="metadata_creators_name" separated={not loop.last}></Person>
         {% endfor %}
     </div>
     {% if contributors._has_value %}
@@ -16,10 +15,8 @@
         {# should find a better way than _ui_value to make sure that this field does not break #}
         {% for name, matches in array(contributors._ui_value) | groupby('name') %}
         {% set roles = matches | map(attribute='role') | select('defined') | list %}
-        <Person person={matches[0]} search_link={search_link} searchFacet="metadata_contributors_name" roles={roles} />
-        {% if not loop.last %}; {% endif %}
+        <Person person={matches[0]} search_link={search_link} searchFacet="metadata_contributors_name" roles={roles} separated={not loop.last} />
         {% endfor %}
     </div>
     {% endif %}
-
 </div>
