@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-17 14:35+0200\n"
+"POT-Creation-Date: 2024-05-21 15:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -180,7 +180,7 @@ msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:2
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
-msgid "National Metadata repository"
+msgid "National Metadata Directory"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:18
@@ -859,9 +859,6 @@ msgid "by this dataset type"
 msgstr ""
 
 msgid "resultsPerPage"
-msgstr ""
-
-msgid "National Metadata Repository"
 msgstr ""
 
 msgid "No description"

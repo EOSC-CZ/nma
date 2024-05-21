@@ -78,7 +78,7 @@ const ItemExtraInfo = ({ createdDate, language, publisher }) => {
             {createdDate && <span>{createdDate}</span>}
             {language && <span className="left-tab">{language.toUpperCase()}</span>}
             {publisher && <span className="left-tab">{publisher.name}</span>}
-            <span className="left-tab">{i18next.t("National Metadata Repository")}</span>
+            <span className="left-tab">{i18next.t("National Metadata Directory")}</span>
           </p>
         </small>
       </div>

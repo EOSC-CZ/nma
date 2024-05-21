@@ -3064,3 +3064,11 @@ msgstr ""
 
 msgid "Loading"
 msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:2
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+msgid "National Metadata Directory"
+msgstr ""
+
+msgid "Metadata directory pilot release"
+msgstr ""
