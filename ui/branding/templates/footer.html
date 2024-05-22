@@ -8,21 +8,21 @@ MIT License; see LICENSE file for more details. #}
     <div class="ui container">
       <div class="ui relaxed grid">
         <div class="computer tablet only row footer-top">
-          {#
-          <div class="eight wide column left middle aligned">
-            {%- block footer_bottom_left %} {% trans
-            link="http://inveniosoftware.org" %}Powered by
-            <a href="{{ link }}">Invenio</a>{% endtrans %} {%- endblock
-            footer_bottom_left %}
-          </div>
-          #}
           <div class="six wide left aligned column">
             <p class="margin-small">
+              {% if current_i18n.language == 'cs' %}
               <img
                 src="{{ url_for('static', filename='images/eu_msmt_logos.png') }}"
                 alt="EU_MŠMT_logo"
                 class="ui large image"
               />
+              {% else %}
+              <img
+                src="{{ url_for('static', filename='images/eu_msmt_eng.png') }}"
+                alt="EU_MŠMT_logo"
+                class="ui large image"
+              />
+              {% endif %}
             </p>
           </div>
           <div class="six wide right floated column">
@@ -37,11 +37,19 @@ MIT License; see LICENSE file for more details. #}
           </div>
         </div>
         <div class="mobile only centered row">
+          {% if current_i18n.language == 'cs' %}
           <img
             src="{{ url_for('static', filename='images/eu_msmt_logos.png') }}"
             alt="EU_MŠMT_logo"
             class="ui medium image"
           />
+          {% else %}
+          <img
+            src="{{ url_for('static', filename='images/eu_msmt_eng.png') }}"
+            alt="EU_MŠMT_logo"
+            class="ui medium image"
+          />
+          {% endif %}
         </div>
         <div class="mobile only centered row">
           <p class="rel-mr-3">
