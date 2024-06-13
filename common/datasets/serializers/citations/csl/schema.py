@@ -42,7 +42,7 @@ class CSLJSONSchema(Schema):
     id_ = SanitizedUnicode(data_key="id", attribute="id")
     type_ = fields.Constant("dataset", data_key="type", attribute="type")
     title = SanitizedUnicode(attribute="metadata.titles.0.title")
-    abstract = MultilingualLocalizedUIField(I18nStrUIField(value_field="description"))
+    abstract = MultilingualLocalizedUIField(I18nStrUIField(value_name="description"))
     author = fields.List(fields.Nested(CSLCreatorSchema()), attribute="metadata.creators")
     issued = fields.Method("get_issued")
     language = fields.Method("get_language")
@@ -59,7 +59,6 @@ class CSLJSONSchema(Schema):
         """Get issued dates."""
         try:
             filtered = next(o for o in obj["metadata"].get("dates") if o.get("dateType").lower() == "issued")
-            print("FILTERED", filtered.get("date"))
             parsed = parse_edtf(filtered.get("date"))
         except EDTFParseException:
             return missing

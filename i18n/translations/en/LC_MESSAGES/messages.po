@@ -3070,5 +3070,5 @@ msgstr ""
 msgid "National Metadata Directory"
 msgstr ""
 
-msgid "Metadata directory pilot release"
+msgid "Pilot release of Metadata Directory"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-21 15:28+0200\n"
+"POT-Creation-Date: 2024-06-13 11:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,12 +23,12 @@ msgid "Record details"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:30
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:52
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:60
 msgid "Support"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:34
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:48
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:56
 msgid "Contact"
 msgstr ""
 
