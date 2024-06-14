@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-13 11:36+0200\n"
+"POT-Creation-Date: 2024-06-14 13:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,6 +91,10 @@ msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:10
 msgid "Lookup identifier"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:27
+msgid "Click to copy"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/FundingReference.jinja:7
