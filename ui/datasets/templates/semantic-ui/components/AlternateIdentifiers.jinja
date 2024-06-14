@@ -23,7 +23,9 @@
       <SearchLink search_link={search_link} className="subject-link" searchFacet={searchFacet} data={data} />
       {% endif %}
     </div>
-    <i class="copy outline link teal icon copy-button" data-clipboard-text="{{id.alternateIdentifier}}"></i>
+    <i class="copy outline link teal icon copy-button" role="button"
+      title="{{_('Click to copy') ~ ': ' ~ id.alternateIdentifier}}"
+      data-clipboard-text="{{id.alternateIdentifier}}"></i>
   </div>
   {% endif %}
   {% endfor %}

@@ -1,39 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 import { i18next } from "@translations/i18next";
-import { Button } from "semantic-ui-react";
+
+import { initCopyButtons, deinitializeCopyButtons } from "@datasets_detail";
 
 const ClipboardCopyButton = ({ copyText }) => {
-  const [isCopied, setIsCopied] = useState(false);
+  const copyBtnRef = useRef(null);
 
-  // This is the function we wrote earlier
-  async function copyTextToClipboard(text) {
-    if ("clipboard" in navigator) {
-      return await navigator.clipboard.writeText(text);
-    } else {
-      return document.execCommand("copy", true, text);
+  useEffect(() => {
+    const copyBtn = copyBtnRef.current;
+    if (copyBtn) {
+      initCopyButtons(copyBtnRef.current);
     }
-  }
-
-  // onClick handler function for the copy button
-  const handleCopyClick = () => {
-    // Asynchronously call copyTextToClipboard
-    copyTextToClipboard(copyText)
-      .then(() => {
-        // If successful, update the isCopied state value
-        setIsCopied(true);
-        setTimeout(() => {
-          setIsCopied(false);
-        }, 500);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+    return () => {
+      deinitializeCopyButtons(copyBtn);
+    }
+  }, [copyText]);
 
   return (
-    <Button title={i18next.t(`Press to copy: ${copyText}`)} onClick={handleCopyClick} loading={isCopied} icon="copy" />
+    <i
+      ref={copyBtnRef}
+      title={`${i18next.t("Click to copy")}: ${copyText}`}
+      role="button"
+      className="copy outline link teal icon copy-button"
+      data-clipboard-text={copyText}
+    />
   );
 };
 

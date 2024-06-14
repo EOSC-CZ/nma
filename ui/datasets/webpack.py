@@ -16,6 +16,7 @@ theme = WebpackThemeBundle(
             devDependencies={},
             aliases={
                 "@datasets_search": "js/datasets/search",
+                "@datasets_detail": "js/datasets/detail",
             },
         )
     },

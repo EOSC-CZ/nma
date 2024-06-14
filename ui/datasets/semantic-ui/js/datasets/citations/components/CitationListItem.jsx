@@ -72,7 +72,7 @@ const CitationListItem = ({ recordLink, style, label = style }) => {
   return (
     <List.Item >
       {!error &&
-        <List.Content floated="right">
+        <List.Content floated="right" verticalAlign="middle">
           <ClipboardCopyButton copyText={citation} />
         </List.Content>
       }
