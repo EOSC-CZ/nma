@@ -1,1 +1,1 @@
-export { RecordCitationModal } from "./RecordCitationModal";
+export { RecordCitations } from "./RecordCitations";

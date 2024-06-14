@@ -23,7 +23,7 @@ const CitationListItem = ({ recordLink, style, label = style }) => {
 
   const PlaceholderLoader = () => {
     return (
-      <Placeholder role="presentation">
+      <Placeholder fluid role="presentation">
         <Placeholder.Paragraph>
           <Placeholder.Line />
           <Placeholder.Line />
@@ -70,8 +70,8 @@ const CitationListItem = ({ recordLink, style, label = style }) => {
   };
 
   return (
-    <List.Item >
-      {!error &&
+    <List.Item>
+      {!loading && !error  &&
         <List.Content floated="right" verticalAlign="middle">
           <ClipboardCopyButton copyText={citation} />
         </List.Content>
@@ -79,7 +79,7 @@ const CitationListItem = ({ recordLink, style, label = style }) => {
       <List.Content as="article">
         <List.Header as="h3">{label}</List.Header>
         <List.Description>
-          {(loading && <PlaceholderLoader />) || citation}
+          {loading ? <PlaceholderLoader /> : citation}
           {error && <ErrorMessage message={error} />}
         </List.Description>
       </List.Content>

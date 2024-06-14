@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { RecordCitationModal } from "./components";
+import { RecordCitations } from "./components";
 
 const recordCitationsAppDiv = document.getElementById("record-citations");
 ReactDOM.render(
-  <RecordCitationModal
+  <RecordCitations
     record={JSON.parse(recordCitationsAppDiv.dataset.record)}
   />,
   recordCitationsAppDiv
