@@ -4,7 +4,18 @@ import PropTypes from "prop-types";
 import { i18next } from "@translations/i18next";
 import { Loader, Segment } from "semantic-ui-react";
 
-const CitationList = lazy(() => import("./CitationList"));
+const CitationField = lazy(() => import("./CitationField"));
+
+const CITATION_STYLES = [
+  { style: "apa", label: "APA" },
+  { style: "harvard-cite-them-right", label: "Harvard" },
+  { style: "modern-language-association", label: "MLA" },
+  { style: "vancouver", label: "Vancouver" },
+  { style: "chicago-fullnote-bibliography", label: "Chicago" },
+  { style: "ieee", label: "IEEE" },
+];
+
+const DEFAULT_STYLE = "apa";
 
 export const RecordCitations = ({ record }) => {
   return (
@@ -15,7 +26,7 @@ export const RecordCitations = ({ record }) => {
         </Segment>
       }
     >
-      <CitationList record={record} />
+      <CitationField record={record} styles={CITATION_STYLES} defaultStyle={DEFAULT_STYLE} />
     </Suspense>
   );
 };

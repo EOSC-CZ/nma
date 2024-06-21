@@ -22,7 +22,7 @@
     padding-top: @selectionIconPadding - 0.3em;
   }
 
-  &.language-selector, &.sort-by-selector, &.export-selector, &.results-per-page-selector {
+  &.language-selector, &.sort-by-selector, &.export-selector, &.results-per-page-selector, &.citation-dropdown {
     border-radius: 20px;
     color: #707075;
   
@@ -31,7 +31,7 @@
     }
   }
 
-  &.sort-by-selector, &.results-per-page-selector, &.export-selector {
+  &.sort-by-selector, &.results-per-page-selector, &.export-selector, &.citation-dropdown {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     min-height: 0;
