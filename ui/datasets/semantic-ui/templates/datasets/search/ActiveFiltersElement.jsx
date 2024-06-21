@@ -7,7 +7,7 @@ import { withState } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import _uniq from "lodash/merge";
 import { i18next } from "@translations/i18next";
-// import { ActiveFiltersElement } from "@js/oarepo_ui";
+import { ClearFiltersButton } from "@js/oarepo_ui";
 
 const getLabel = (filter, aggregations) => {
   const aggName = filter[0];
@@ -53,37 +53,40 @@ const ActiveFiltersElementComponent = ({
   return (
     <Grid padded relaxed>
       <Grid.Column only="computer">
-        {_map(groupedData, (filters, key) => (
-          <span key={key} className="active-filters-labels">
-            {aggregations[key]?.label &&
-              <Label pointing="right">
-                <Icon name="filter" />
-                {aggregations[key]?.label}
-              </Label>
-            }
-            {filters.map((filter, index) => {
-              const { label, activeFilter } = getLabel(filter, aggregations);
-              return (
-                <Label
-                  color="pink"
-                  key={activeFilter}
-                  onClick={() => removeActiveFilter(activeFilter)}
-                  type="button"
-                  tabIndex="0"
-                  aria-label={`${i18next.t("Remove filter")} ${label}`}
-                  onKeyPress={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      removeActiveFilter(activeFilter);
-                    }
-                  }}
-                >
-                  {label}
-                  <Icon name="delete" aria-hidden="true" />
+        <div className="flex wrap align-items-center">
+          {_map(groupedData, (filters, key) => (
+            <span key={key} className="active-filters-labels">
+              {aggregations[key]?.label &&
+                <Label pointing="right">
+                  <Icon name="filter" />
+                  {aggregations[key]?.label}
                 </Label>
-              );
-            })}
-          </span>
-        ))}
+              }
+              {filters.map((filter, index) => {
+                const { label, activeFilter } = getLabel(filter, aggregations);
+                return (
+                  <Label
+                    color="pink"
+                    key={activeFilter}
+                    onClick={() => removeActiveFilter(activeFilter)}
+                    type="button"
+                    tabIndex="0"
+                    aria-label={`${i18next.t("Remove filter")} ${label}`}
+                    onKeyPress={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        removeActiveFilter(activeFilter);
+                      }
+                    }}
+                  >
+                    {label}
+                    <Icon name="delete" aria-hidden="true" />
+                  </Label>
+                );
+              })}
+            </span>
+          ))}
+          <ClearFiltersButton ignoredFilters={ignoredFilters} clearFiltersButtonClassName="primary" />
+        </div>
       </Grid.Column>
     </Grid>
   );

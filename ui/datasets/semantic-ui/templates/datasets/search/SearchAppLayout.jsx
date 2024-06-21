@@ -13,14 +13,14 @@ import {
   SearchConfigurationContext,
 } from "@js/invenio_search_ui/components";
 import { ResultOptions } from "@js/invenio_search_ui/components/Results";
-import { ClearFiltersButton, ResultCountWithState, ResultsPerPageLabel, GridResponsiveSidebarColumn } from "@datasets_search";
+import { ResultCountWithState, ResultsPerPageLabel, GridResponsiveSidebarColumn } from "@datasets_search";
 
 const ResultOptionsWithState = withState(ResultOptions);
 
 export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
   const [sidebarVisible, setSidebarVisible] = React.useState(false);
   const [scrollToTopVisible, setScrollToTopVisible] = React.useState(false);
-  // console.log(useContext(SearchConfigurationContext));
+  
   const { appName, buildUID, paginationOptions: { resultsPerPage } } = useContext(SearchConfigurationContext);
 
   useEffect(() => {
@@ -91,32 +91,12 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
     }
   }
 
-  const resultsSortLayoutFacets = {
-    mobile: 11,
-    tablet: 11,
-    computer: 11,
-    largeScreen: 11,
-    widescreen: 11,
-  };
-
-  const resultsSortLayoutNoFacets = {
-    mobile: 12,
-    tablet: 12,
-    computer: 12,
-    largeScreen: 12,
-    widescreen: 12,
-  };
-
   const resultsPaneLayoutNoFacets = resultsPaneLayoutFacets;
 
   // make list full width if no facets available
   const resultsPaneLayout = facetsAvailable
     ? resultsPaneLayoutFacets
     : resultsPaneLayoutNoFacets;
-
-  const resultSortLayout = facetsAvailable
-    ? resultsSortLayoutFacets
-    : resultsSortLayoutNoFacets;
 
   return (
     <Container fluid>
@@ -126,11 +106,7 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
         className="search-app"
       >
         <Grid.Row>
-          <Grid.Column only="computer" width={4}>
-            {facetsAvailable && (
-              <ClearFiltersButton />
-            )}
-          </Grid.Column>
+          <Grid.Column only="computer" width={4} />
           <Grid.Column {...resultsPaneLayout}>
             <SearchBar buildUID={buildUID} appName={appName} />
             {facetsAvailable && (

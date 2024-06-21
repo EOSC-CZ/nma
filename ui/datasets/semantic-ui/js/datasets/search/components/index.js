@@ -8,7 +8,6 @@ export * from "./ResultsItemResourceType";
 export * from "./ResultsItemSubjects";
 export * from "./SearchFacetLink";
 export * from "./EmptyResultsElement";
-export * from "./ClearFiltersButton";
 export * from "./ResultCount";
 export * from "./ResultsPerPageLabel";
 export * from "./facets";
