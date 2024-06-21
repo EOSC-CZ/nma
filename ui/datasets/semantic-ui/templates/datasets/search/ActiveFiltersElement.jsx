@@ -6,17 +6,36 @@ import { Label, Icon, Grid } from "semantic-ui-react";
 import { withState } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import _uniq from "lodash/merge";
+import { i18next } from "@translations/i18next";
+// import { ActiveFiltersElement } from "@js/oarepo_ui";
+
+const getLabel = (filter, aggregations) => {
+  const aggName = filter[0];
+  let value = filter[1];
+  const label =
+    aggregations[aggName]?.buckets?.find((b) => b.key === value)?.label ||
+    value;
+  let currentFilter = [aggName, value];
+  const hasChild = filter.length === 3;
+  if (hasChild) {
+    const { label, activeFilter } = getLabel(filter[2]);
+    value = `${value}.${label}`;
+    currentFilter.push(activeFilter);
+  }
+  return {
+    label: label,
+    activeFilter: currentFilter,
+  };
+};
 
 const ActiveFiltersElementComponent = ({
   filters,
   removeActiveFilter,
-  getLabel,
   currentResultsState: {
     data: { aggregations },
   },
   ignoredFilters,
 }) => {
-  console.log("asdhsadasdsada");
   const searchAppContext = useContext(SearchConfigurationContext);
   const {
     initialQueryState: { filters: initialFilters },
@@ -37,19 +56,29 @@ const ActiveFiltersElementComponent = ({
         {_map(groupedData, (filters, key) => (
           <span key={key} className="active-filters-labels">
             {aggregations[key]?.label &&
-              <Label>{aggregations[key].label}</Label>
+              <Label pointing="right">
+                <Icon name="filter" />
+                {aggregations[key]?.label}
+              </Label>
             }
             {filters.map((filter, index) => {
-              const { label, activeFilter } = getLabel(filter);
+              const { label, activeFilter } = getLabel(filter, aggregations);
               return (
                 <Label
                   color="pink"
                   key={activeFilter}
                   onClick={() => removeActiveFilter(activeFilter)}
+                  type="button"
+                  tabIndex="0"
+                  aria-label={`${i18next.t("Remove filter")} ${label}`}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      removeActiveFilter(activeFilter);
+                    }
+                  }}
                 >
-                  <Icon name="filter" />
                   {label}
-                  <Icon name="delete" />
+                  <Icon name="delete" aria-hidden="true" />
                 </Label>
               );
             })}
