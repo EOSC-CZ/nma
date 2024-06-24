@@ -5,7 +5,6 @@ import {
   Button,
   Checkbox,
   List,
-  Grid
 } from "semantic-ui-react";
 import PropTypes from "prop-types";
 
@@ -43,10 +42,10 @@ export const ContribParentFacetValue = ({
             checked={isSelected}
             onClick={() => onFilterClicked(keyField)}
           />
-          {/* {" "}
+          {" "}
           <span id={`${keyField}-count`} className="facet-count">
             ({bucket.doc_count})
-          </span> */}
+          </span>
         </List.Content>
       </Accordion.Title>
       <Accordion.Content active={isActive}>{childAggCmps}</Accordion.Content>
@@ -84,8 +83,6 @@ export const ContribFacetValue = ({
       filterKey = keyFieldTokens.slice(1).join("____");
   }
 
-  // console.log(bucket, keyField, filterKey);
-
   return (
     <List.Content className="facet-value-element">
       <Checkbox
@@ -97,10 +94,10 @@ export const ContribFacetValue = ({
         value={keyField}
         checked={isSelected}
       />
-      {/* {" "}
+      {" "}
       <span id={`${keyField}-count`} className="facet-count">
         ({bucket.doc_count})
-      </span> */}
+      </span>
     </List.Content>
   );
 };
