@@ -108,6 +108,15 @@ const CitationField = ({
     };
   });
 
+  const onFieldChange = async (event, data) => {
+    setError(null);
+    setLoading(true);
+    _debounce(
+      () => getCitation(recordLink, data.value),
+      500
+    )();
+  }
+
   return (
     <div>
       {!error ?
@@ -131,10 +140,7 @@ const CitationField = ({
             defaultValue={defaultStyle}
             options={citationOptions}
             selection
-            onChange={_debounce(
-              (event, data) => getCitation(recordLink, data.value),
-              500
-            )}
+            onChange={onFieldChange}
           />
         </div>
         <ClipboardCopyButton copyText={citation} />
