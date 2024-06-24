@@ -6,6 +6,7 @@ import { withState, ActiveFilters, ResultsPerPage } from "react-searchkit";
 import { Container, Grid, Button, Header, TransitionablePortal, Icon } from "semantic-ui-react";
 import { i18next as i18nOARepo } from "@translations/oarepo_ui/i18next";
 import { i18next } from "@translations/i18next";
+import { ShouldActiveFiltersRender, ActiveFiltersCountFloatingLabel, ClearFiltersButton } from "@js/oarepo_ui";
 import {
   SearchAppFacets,
   SearchAppResultsPane,
@@ -110,7 +111,9 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
           <Grid.Column {...resultsPaneLayout}>
             <SearchBar buildUID={buildUID} appName={appName} />
             {facetsAvailable && (
-              <ActiveFilters />
+              <ShouldActiveFiltersRender>
+                <ActiveFilters />
+              </ShouldActiveFiltersRender>
             )}
           </Grid.Column>
         </Grid.Row>
@@ -127,11 +130,16 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
             >
               <Button
                 basic
-                icon="sliders"
                 onClick={() => setSidebarVisible(true)}
-                title={i18nOARepo.t("Filter results")}
-                aria-label={i18nOARepo.t("Filter results")}
-              />
+                title={i18next.t("Filter results")}
+                aria-label={i18next.t("Filter results")}
+                className="facets-sidebar-open-button"
+              >
+                <Icon name="filter" />
+                <ShouldActiveFiltersRender>
+                  <ActiveFiltersCountFloatingLabel className="pink" />
+                </ShouldActiveFiltersRender>
+              </Button>
             </Grid.Column>
           )}
           <Grid.Column only="computer" width={4}>
@@ -168,6 +176,11 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
               onHideClick={() => setSidebarVisible(false)}
               mobileChildren={
                 <>
+                  <ShouldActiveFiltersRender>
+                    <ClearFiltersButton
+                      clearFiltersButtonClassName="primary mobile tablet only"
+                    />
+                  </ShouldActiveFiltersRender>
                   <Header size="medium" id="search-filters-header-title">{i18nOARepo.t("Filters")}</Header>
                   <SearchAppFacets
                     aggs={config.aggs}
