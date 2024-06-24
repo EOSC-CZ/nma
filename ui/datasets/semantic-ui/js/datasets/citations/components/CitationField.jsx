@@ -139,11 +139,12 @@ const CitationField = ({
             aria-labelledby="citation-style-label"
             defaultValue={defaultStyle}
             options={citationOptions}
+            fluid
             selection
             onChange={onFieldChange}
           />
+          <ClipboardCopyButton copyText={citation} />
         </div>
-        <ClipboardCopyButton copyText={citation} />
       </div>
     </div>
   );
