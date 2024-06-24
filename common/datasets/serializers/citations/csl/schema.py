@@ -41,17 +41,21 @@ class CSLJSONSchema(Schema):
 
     id_ = SanitizedUnicode(data_key="id", attribute="id")
     type_ = fields.Constant("dataset", data_key="type", attribute="type")
-    title = SanitizedUnicode(attribute="metadata.titles.0.title")
+    title = fields.Method("get_title")
     abstract = MultilingualLocalizedUIField(I18nStrUIField(value_name="description"))
     author = fields.List(fields.Nested(CSLCreatorSchema()), attribute="metadata.creators")
     issued = fields.Method("get_issued")
     language = fields.Method("get_language")
     version = SanitizedUnicode(attribute="metadata.version")
-    # publisher = SanitizedUnicode(attribute="metadata.publisher", default=_("UCT Prague"))
+    publisher = SanitizedUnicode(attribute="metadata.publisher.name")
+    
+    def get_title(self, obj):
+        """Get title."""
+        sanitized = SanitizedUnicode()._deserialize(obj["metadata"].get("titles")[0]["title"], None, None)
+        return sanitized
 
     def _read_resource_type(self, id_):
         """Retrieve resource type record using service."""
-        print("ID", id_)
         rec = vocabulary_service.read(system_identity, ("resource-types", id_))
         return rec._record
 
