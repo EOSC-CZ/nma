@@ -16,8 +16,9 @@
     <div class="row detail-search-menu">
       <div class="sixteen wide mobile four wide computer column left floated detail-back-to-search-link">
         <a href="{{ url_for('datasets.search') }}" class="text-big" aria-label="{{ _('Back to search results') }}">
-          <i class="left chevron icon"></i>
-          {{ _('Back to search results')|upper }}
+          <div>
+            <i class="left chevron icon"></i>{{ _('Back to search results')|upper }}
+          </div>
         </a>
       </div>
       <div class="sixteen wide mobile twelve wide computer column center aligned right floated">

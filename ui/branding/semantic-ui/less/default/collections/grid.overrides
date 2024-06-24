@@ -19,16 +19,11 @@
 
     & > .column.detail-back-to-search-link {
         display: flex;
-        // justify-content: center;
         align-items: center;
-        // padding-right: 32px;
-    
+
         .left.chevron.icon {
+            display: inline-block;
             margin-right: 40px;
-    
-            &:hover {
-                text-decoration: none;
-            }
         }
     }
     
