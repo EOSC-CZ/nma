@@ -97,7 +97,7 @@ const CitationField = ({
       trailingDot = ".";
       url = url.slice(0, -1);
     }
-    return `<a href="${url}" target="_blank">${url}</a>${trailingDot}`;
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>${trailingDot}`;
   });
 
   const citationOptions = styles.map((style) => {
