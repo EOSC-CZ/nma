@@ -73,48 +73,53 @@ export function ResultsItemCreatibutors({
     // ),
   }));
 
+  const slicedCreators = creators.slice(0, maxCreators);
+  
   return (
-    <>
-      <List horizontal className="separated creators inline">
-        {creators
-          .slice(0, maxCreators)
+    <div className="ui double separated creatibutors">
+      <List horizontal className="creators inline">
+        {slicedCreators
           .map(({ name, nameIdentifiers }, index) => (
+            <React.Fragment key={index}>
+              <List.Item
+                as="span"
+                className={`creatibutor-wrap ${className}`}
+              >
+                <CreatibutorSearchLink
+                  personName={name}
+                  searchUrl={searchUrl}
+                />
+                <CreatibutorIcons
+                  personName={name}
+                  identifiers={nameIdentifiers}
+                />
+                {index < slicedCreators.length - 1 ? "; " : ""}
+              </List.Item>
+            </React.Fragment>
+          ))}
+      </List>
+      {uniqueContributors.length > 0 && <DoubleSeparator />}
+      <List horizontal className="contributors inline">
+        {uniqueContributors.map(({ id, name, nameIdentifiers, roles }, index) => (
+          <React.Fragment key={index} >
             <List.Item
               as="span"
-              className={`creatibutor-wrap separated ${className}`}
-              key={index}
+              className={`creatibutor-wrap ${className}`}
+              // TODO: id doesnt exist
             >
               <CreatibutorSearchLink
                 personName={name}
                 searchUrl={searchUrl}
+                searchField="contributors"
               />
-              <CreatibutorIcons
-                personName={name}
-                identifiers={nameIdentifiers}
-              />
+              <CreatibutorIcons personName={name} identifiers={nameIdentifiers} />
+              {/* {roles && <span className="contributor-role">({roles})</span>} TODO: dont exist */}
+              {index < uniqueContributors.length - 1 ? "; " : ""}
             </List.Item>
-          ))}
-      </List>
-      {uniqueContributors.length > 0 && <DoubleSeparator />}
-      <List horizontal className="separated contributors inline">
-        {uniqueContributors.map(({ id, name, nameIdentifiers, roles }, index) => (
-          <List.Item
-            as="span"
-            className={`creatibutor-wrap separated ${className}`}
-            key={index} 
-            // TODO: id doesnt exist
-          >
-            <CreatibutorSearchLink
-              personName={name}
-              searchUrl={searchUrl}
-              searchField="contributors"
-            />
-            <CreatibutorIcons personName={name} identifiers={nameIdentifiers} />
-            {/* {roles && <span className="contributor-role">({roles})</span>} TODO: dont exist */}
-          </List.Item>
+          </React.Fragment>
         ))}
       </List>
-    </>
+    </div>
   );
 }
 

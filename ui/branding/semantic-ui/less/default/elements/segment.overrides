@@ -1,0 +1,3 @@
+.ui.segment.detail-main-record-segment {
+  border-radius: 10px;
+}

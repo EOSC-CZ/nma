@@ -1,0 +1,12 @@
+dl.ui.table {
+  & > dt {
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 378px) {
+    & > dd {
+      padding: 0px 4px;
+      margin-left: 0;
+    }
+  }
+}

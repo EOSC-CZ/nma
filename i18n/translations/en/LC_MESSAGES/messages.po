@@ -1228,13 +1228,13 @@ msgid "metadata/dates/dateType.enum.Collected"
 msgstr ""
 
 msgid "metadata/dates/dateType.enum.Created"
-msgstr ""
+msgstr "Created"
 
 msgid "metadata/dates/dateType.enum.Issued"
-msgstr ""
+msgstr "Issued"
 
 msgid "metadata/dates/dateType.enum.Submitted"
-msgstr ""
+msgstr "Submitted"
 
 msgid "metadata/dates/dateType.enum.Updated"
 msgstr ""
@@ -3007,4 +3007,72 @@ msgstr ""
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:58
 msgid "abstract"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/detail.html:20
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:43
+msgid "Record details"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:10
+msgid "Lookup identifier"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RightsList.jinja:10
+msgid "Find more records with this rights"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:18
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:20
+msgid "Back to search results"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:41
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:42
+msgid "Citations"
+msgstr ""
+
+msgid "Clear all filters"
+msgstr ""
+
+msgid "Show all sub facets of "
+msgstr ""
+
+msgid "Results"
+msgstr ""
+
+msgid "resultsPerPage"
+msgstr ""
+
+msgid "read more"
+msgstr ""
+
+msgid "Filter results"
+msgstr ""
+
+msgid "Filters"
+msgstr ""
+
+msgid "to top"
+msgstr ""
+
+msgid "Sort"
+msgstr ""
+
+msgid "An error occurred while generating the citation."
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:2
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+msgid "National Metadata Directory"
+msgstr ""
+
+msgid "Pilot release of Metadata Directory"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:27
+msgid "Click to copy"
 msgstr ""

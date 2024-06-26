@@ -62,6 +62,10 @@ Sample output:
 @import (optional, multiple)
   "@{siteFolder}/oarepo_ui/themes/@{theme}/@{type}s/@{element}.variables";
 
+/* Oarepo-Vocabularies-UI components variables */
+@import (optional, multiple)
+  "@{siteFolder}/oarepo_vocabularies_ui/themes/@{theme}/@{type}s/@{element}.variables";
+
 /* Components folder inside ui */
 @import (optional, multiple)
   "@{siteFolder}/components/default/@{type}s/@{element}.variables";
@@ -103,13 +107,16 @@ Sample output:
   /* invenio global css styles */
   @import (optional, multiple) "themes/invenio/@{type}s/@{element}.overrides";
 
-  /* oarepo-ui overrides */
-  @import (optional, multiple)
-    "@{siteFolder}/oarepo_ui/themes/default/globals/site.overrides";
-  @import (optional, multiple) "@{siteFolder}/globals/site.overrides";
+  // /* oarepo-ui overrides */
+  // @import (optional, multiple)
+  //   "@{siteFolder}/oarepo_ui/themes/default/globals/site.overrides";
+  // @import (optional, multiple) "@{siteFolder}/globals/site.overrides";
 
   @import (optional, multiple)
     "@{siteFolder}/oarepo_ui/themes/@{theme}/@{type}s/@{element}.overrides";
+
+  @import (optional, multiple)
+    "@{siteFolder}/oarepo_vocabularies_ui/themes/@{theme}/@{type}s/@{element}.overrides";
 
   /* components overrides theme css style */
   @import (optional, multiple)
@@ -118,4 +125,7 @@ Sample output:
   /* site theme css style */
   @import (optional, multiple)
     "@{siteFolder}/@{theme}/@{type}s/@{element}.overrides";
+  
+  /* this one imports overrides for global folder */
+  @import (optional, multiple) "@{siteFolder}/@{type}s/@{element}.overrides";
 }

@@ -1,28 +1,23 @@
 {#def subjects, search_link #}
 
 {% for lang, subjects in array(subjects)|groupby('lang')%}
-    <div class="ui separated">
-    <div role="list" class="ui horizontal separated medium subjects list">
-        {% for a in subjects %}
-        {% set subject = a | to_dict %}
-        <div role="listitem" class="item">
-            {% set data = {
-            "value": subject.subject,
-            "title": _("Find more records with this subject"),
-            "label": subject.subject
-            } %}
-            {% set searchFacet = "metadata_subjects_subject" %}
-            <div class="ui teal tiny basic label">
-                {% if lang._has_value %}
-                    <span>{{lang|upper}} </span>
-                {% endif %}
-                <SearchLink
-                    search_link={search_link} className="subject-link"
-                    searchFacet={searchFacet} data={data}>
-                </SearchLink>
-            </div>
-        </div>
-        {% endfor %}
+<div role="list" class="ui horizontal medium subjects list">
+  {% for a in subjects %}
+  {% set subject = a | to_dict %}
+  <div role="listitem" class="item">
+    {% set data = {
+    "value": subject.subject,
+    "title": _("Find more records with this subject"),
+    "label": subject.subject
+    } %}
+    {% set searchFacet = "metadata_subjects_subject" %}
+    <div class="ui teal tiny basic label keyword-subjects">
+      {% if lang._has_value %}
+      <span>{{lang|upper}} </span>
+      {% endif %}
+      <SearchLink search_link={search_link} className="subject-link" searchFacet={searchFacet} data={data} />
     </div>
+  </div>
+  {% endfor %}
 </div>
 {% endfor %}

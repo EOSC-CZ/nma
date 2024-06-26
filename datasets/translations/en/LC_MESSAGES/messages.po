@@ -510,13 +510,13 @@ msgid "metadata/dates/dateType.enum.Collected"
 msgstr ""
 
 msgid "metadata/dates/dateType.enum.Created"
-msgstr ""
+msgstr "Created"
 
 msgid "metadata/dates/dateType.enum.Issued"
-msgstr ""
+msgstr "Issued"
 
 msgid "metadata/dates/dateType.enum.Submitted"
-msgstr ""
+msgstr "Submitted"
 
 msgid "metadata/dates/dateType.enum.Updated"
 msgstr ""

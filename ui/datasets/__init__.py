@@ -24,8 +24,6 @@ class DatasetsResourceConfig(RecordsUIResourceConfig):
     templates = {
         "detail": "datasets.Detail",
         "search": "datasets.Search",
-        "edit": "datasets.Deposit",
-        "create": "datasets.Deposit",
     }
     
     def search_active_facets(self, api_config, identity):

@@ -1,6 +1,13 @@
 @fontName: "Roboto";
+@pageFont: @fontName;
 @importGoogleFonts: false;
 @fontSize: 16px;
+
+// @mobileBreakpoint            : 320px;
+// @tabletBreakpoint            : 768px;
+// @computerBreakpoint          : 992px;
+// @largeMonitorBreakpoint      : 1200px;
+// @widescreenMonitorBreakpoint : 1920px;
 
 /*-------------------
       Site Colors
@@ -9,14 +16,20 @@
 @teal: #008691;
 @pink: #ff5b7f;
 @black: #040305;
-@lightGrey: #e4e4e3;
-@grey: #333333;
+@lightGrey: #d9d9d9;
+@grey: #707075;
+@darkGrey: #333333;
 
 @navbar_background_color: #fff;
 
-@borderColor: @grey;
+@borderColor: @teal;
 
 @highlightHeaderColor: @lightGrey;
+
+@pageBackground: hsl(0, 0%, 96.5%);
+// @pageBackground: hsl(0, 0%, 98%);
+
+// @hoveredTextColor: @pink;
 
 /*-------------------
     Brand Colors
@@ -31,17 +44,20 @@
 @selectionBackground: @lightGrey;
 @celledBorderColor: @teal;
 
+@loaderFillColor: @lightGrey;
+@loaderLineColor: lighten(@pink, 25%);
+
 /*-------------------
        Links
 --------------------*/
 
 @linkColor: @teal;
 @linkHoverUnderline: underline;
-@linkHoverColor: darken(saturate(@linkColor, 20), 15, relative);
+@linkHoverColor: @pink;
 
 /*-------------------
     Focused Input
 --------------------*/
 
 /* Used on inputs, textarea etc */
-@focusedFormBorderColor: #85B7D9;
+@focusedFormBorderColor: @pink;

@@ -16,7 +16,7 @@ dependencies = [
     "oarepo==12.*",
     "python-dotenv",
 ]
-requires-python = ">=3.9,<3.11"
+requires-python = ">=3.10"
 
 [project.entry-points."invenio_assets.webpack"]
 branding = "ui.branding.webpack:theme"
@@ -64,6 +64,9 @@ datasets = "datasets.models:records.json"
 
 [project.entry-points."oarepo.ui"]
 datasets = "datasets.models:ui.json"
+
+[project.entry-points."invenio.datasets.response_handlers"]
+nma_extras = "common.datasets.serializers.citations:citations_response_handlers"
 
 [project.optional-dependencies]
 tests = [

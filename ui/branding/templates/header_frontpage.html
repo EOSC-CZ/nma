@@ -1,3 +1,15 @@
 {%- extends "header.html" %}
 
-{%- block navbar_nav %}{%- endblock navbar_nav %}
+{%- block navbar_header %}
+<div class="item logo p-0">
+  {%- block brand %}
+    {%- if config.THEME_LOGO %}
+      <a class="logo-link" href="/">
+        <img class="ui image"
+              src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+              alt="{{ _(config.THEME_SITENAME) }}"/>
+      </a>
+    {%- endif %}
+  {%- endblock brand %}
+</div>
+{%- endblock navbar_header %}

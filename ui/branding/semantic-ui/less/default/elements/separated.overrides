@@ -1,0 +1,19 @@
+.ui.separated {
+  .list > .item:nth-child(n + 2) {
+    border-color: @grey;
+    border: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .list > .item {
+    border-color: @grey;
+    border: none;
+    padding-right: 0.5rem;
+    margin-right: 0.3rem;
+  }
+
+  .double.separator {
+    border-color: @grey;
+  }
+}

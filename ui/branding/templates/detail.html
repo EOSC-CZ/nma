@@ -1,0 +1,29 @@
+{% extends config.BASE_TEMPLATE %}
+{%- block bypasslinks %}
+{%- endblock bypasslinks %}
+{%- block page_body %}
+
+<div class="ui main container">
+  <div class="ui relaxed grid">
+    <div class="two column row">
+      {# Main content #}
+      <article
+        class="sixteen wide tablet twelve wide computer column main-record-content"
+      >
+        {% block record_main_content %}
+        {% endblock %}
+      </article>
+
+      {# Sidebar #}
+      <aside
+        class="sixteen wide tablet four wide computer column sidebar"
+        aria-label="{{ _('Record details') }}"
+      >
+        {% block record_sidebar %}
+        {% endblock record_sidebar %}
+      </aside>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

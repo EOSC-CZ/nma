@@ -2999,12 +2999,80 @@ msgstr "neobhájeno"
 
 #: /Users/m/w/nrp/nma/ui/branding/templates/footer.html:29
 msgid "Support"
-msgstr ""
+msgstr "Podpora"
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/FundingReference.jinja:7
 msgid "Find more records with this funder"
-msgstr ""
+msgstr "Vyhledejte další záznamy s tímto sponzorem"
 
 #: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:58
 msgid "abstract"
+msgstr "abstrakt"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/detail.html:20
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:43
+msgid "Record details"
+msgstr "Detaily záznamu"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:10
+msgid "Lookup identifier"
+msgstr "Identifikátor vyhledávání"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RightsList.jinja:10
+msgid "Find more records with this rights"
+msgstr "Najít další záznamy s těmito právy"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:18
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:20
+msgid "Back to search results"
+msgstr "Zpět na výsledky hledání"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:41
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:42
+msgid "Citations"
+msgstr "Citace"
+
+msgid "Clear all filters"
+msgstr "Vymazat všechny filtry"
+
+msgid "Show all sub facets of "
+msgstr "Zobrazit všechny subfasety: "
+
+msgid "Results"
+msgstr "Výsledky"
+
+msgid "resultsPerPage"
+msgstr "výsledky na stránku"
+
+msgid "read more"
+msgstr "číst více"
+
+msgid "Filter results"
+msgstr "Filtrovat výsledky"
+
+msgid "Filters"
+msgstr "Filtry"
+
+msgid "to top"
+msgstr "nahoru"
+
+msgid "Sort"
+msgstr "Seřadit"
+
+msgid "An error occurred while generating the citation."
 msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:2
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+msgid "National Metadata Directory"
+msgstr "Národní Metadatový Adresář"
+
+msgid "Pilot release of Metadata Directory"
+msgstr "Pilotní provoz metadatového adresáře"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:27
+msgid "Click to copy"
+msgstr "Kliknutím zkopírujete"

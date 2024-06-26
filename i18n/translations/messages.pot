@@ -8,756 +8,801 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-27 21:39+0100\n"
+"POT-Creation-Date: 2024-06-14 13:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.14.0\n"
+"Generated-By: Babel 2.15.0\n"
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/footer.html:29
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/detail.html:20
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:43
+msgid "Record details"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:30
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:60
 msgid "Support"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/footer.html:33
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:34
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/footer.html:56
 msgid "Contact"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/header_login.html:15
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/header_login.html:15
 msgid "Log in"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/header_login.html:19
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/header_login.html:19
 msgid "Sign up"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/header_login.html:36
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/header_login.html:36
 msgid "Quick create"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/header_login.html:53
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/header_login.html:53
 msgid "Actions"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/header_login.html:72
-#: /Users/m/w/nrp/nma/ui/branding/templates/header_login.html:113
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/header_login.html:72
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/header_login.html:113
 msgid "My account"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/header_login.html:107
-#: /Users/m/w/nrp/nma/ui/branding/templates/header_login.html:136
-#: /Users/m/w/nrp/nma/ui/branding/templates/header_login.html:143
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/header_login.html:107
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/header_login.html:136
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/header_login.html:143
 msgid "Log out"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:5
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:11
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:21
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:5
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:11
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:21
 msgid "in"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:5
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:6
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:5
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:6
 msgid "In this community"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:11
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:12
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:21
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:11
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:12
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:21
 msgid "All dataset records"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:20
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:20
 msgid "All datasets records"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:30
-#: /Users/m/w/nrp/nma/ui/branding/templates/searchbar.html:31
-#: /Users/m/w/nrp/nma/ui/titlepage/templates/TitlePage.jinja:40
-#: /Users/m/w/nrp/nma/ui/titlepage/templates/TitlePage.jinja:41
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:30
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:31
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:26
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:27
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:34
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:35
 msgid "Search"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/FundingReference.jinja:7
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:10
+msgid "Lookup identifier"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:27
+msgid "Click to copy"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/FundingReference.jinja:7
 msgid "Find more records with this funder"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/NrEvents.jinja:8
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/NrEvents.jinja:8
 msgid "on"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/NrSeries.jinja:5
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/NrSeries.jinja:5
 msgid "metadata/series/seriesTitle.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/NrSeries.jinja:6
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/NrSeries.jinja:6
 msgid "metadata/series/seriesVolume.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/Person.jinja:3
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/Person.jinja:3
 msgid "Find more records by this person"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/Publisher.jinja:5
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/Publisher.jinja:5
 msgid "Find more records from this publisher"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:4
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:4
 msgid "metadata/relatedItems/itemTitle.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:6
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:6
 msgid "metadata/relatedItems/itemCreators.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:16
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:16
 msgid "metadata/relatedItems/itemContributors.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:27
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:27
 msgid "metadata/relatedItems/itemPIDs.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:28
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:28
 msgid "metadata/relatedItems/itemURL.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:32
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:32
 msgid "metadata/relatedItems/itemYear.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:33
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:36
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:33
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:36
 msgid "metadata/relatedItems/itemVolume.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:35
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:35
 msgid "metadata/relatedItems/itemIssue.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:37
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:37
 msgid "metadata/relatedItems/itemStartPage.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:38
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:38
 msgid "metadata/relatedItems/itemEndPage.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:39
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:39
 msgid "metadata/relatedItems/itemPublisher.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:40
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:40
 msgid "metadata/relatedItems/itemRelationType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:43
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:43
 msgid "metadata/relatedItems/itemResourceType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/components/Subjects.jinja:11
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RightsList.jinja:10
+msgid "Find more records with this rights"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/Subjects.jinja:10
 msgid "Find more records with this subject"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:2
-msgid "National Metadata repository"
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:2
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+msgid "National Metadata Directory"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:12
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:18
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:20
+msgid "Back to search results"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:6
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:7
+msgid "metadata/dates/dateType.enum.Issued"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:20
 msgid "People"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:16
-msgid "metadata/dateAvailable.label"
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:24
+msgid "metadata/dates/dateType.enum.Submitted"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:58
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:75
 msgid "abstract"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "Search results"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
-msgid "datasets"
-msgstr ""
-
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:2
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:3
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:2
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:3
 msgid "metadata/objectIdentifiers.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:11
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:11
 msgid "metadata/originalRecord.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:18
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:19
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:19
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:20
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:27
 msgid "Export"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:66
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:36
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:37
 msgid "API"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:66
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:36
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:37
 msgid "Links"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/ui/titlepage/templates/TitlePage.jinja:50
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:41
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:42
+msgid "Citations"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:42
 msgid "Show all records"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:9
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:9
 msgid "metadata/alternateIdentifiers/alternateIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:14
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:14
 msgid "metadata/alternateIdentifiers/alternateIdentifierType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:18
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:18
 msgid "metadata/container/firstPage.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:22
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:22
 msgid "metadata/container/title.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:26
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:26
 msgid "metadata/container/type.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:31
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:31
 msgid "metadata/contributors/affiliation/affiliationIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:36
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:36
 msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:41
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:41
 msgid "metadata/contributors/affiliation/name.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:46
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:46
 msgid "metadata/contributors/affiliation/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:51
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:51
 msgid "metadata/contributors/contributorType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:56
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:56
 msgid "metadata/contributors/familyName.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:61
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:61
 msgid "metadata/contributors/givenName.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:65
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:65
 msgid "metadata/contributors/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:69
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:69
 msgid "metadata/contributors/name.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:74
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:74
 msgid "metadata/contributors/nameIdentifiers/nameIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:79
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:79
 msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:84
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:84
 msgid "metadata/contributors/nameIdentifiers/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:89
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:89
 msgid "metadata/contributors/nameType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:94
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:94
 msgid "metadata/creators/affiliation/affiliationIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:99
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:99
 msgid "metadata/creators/affiliation/affiliationIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:104
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:104
 msgid "metadata/creators/affiliation/name.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:109
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:109
 msgid "metadata/creators/affiliation/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:113
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:113
 msgid "metadata/creators/familyName.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:117
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:117
 msgid "metadata/creators/givenName.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:121
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:121
 msgid "metadata/creators/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:125
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:125
 msgid "metadata/creators/name.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:130
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:130
 msgid "metadata/creators/nameIdentifiers/nameIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:135
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:135
 msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:140
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:140
 msgid "metadata/creators/nameIdentifiers/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:144
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:144
 msgid "metadata/creators/nameType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:148
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:148
 msgid "metadata/dates/date.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:153
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:153
 msgid "metadata/dates/dateInformation.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:157
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:157
 msgid "metadata/dates/dateType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:162
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:162
 msgid "metadata/descriptions/descriptionType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:166
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:166
 msgid "metadata/descriptions/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:169
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:169
 msgid "metadata/doi.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:172
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:172
 msgid "metadata/formats.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:177
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:177
 msgid "metadata/fundingReferences/awardNumber.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:182
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:182
 msgid "metadata/fundingReferences/awardTitle.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:187
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:187
 msgid "metadata/fundingReferences/awardURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:192
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:192
 msgid "metadata/fundingReferences/funderIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:197
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:197
 msgid "metadata/fundingReferences/funderIdentifierType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:202
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:202
 msgid "metadata/fundingReferences/funderName.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:207
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:207
 msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:212
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:212
 msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:217
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:217
 msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:222
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:222
 msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:227
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:227
 msgid "metadata/geoLocations/geoLocationPlace.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:232
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:232
 msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:237
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:237
 msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:242
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:242
 msgid ""
 "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:249
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:249
 msgid ""
 "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:256
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:256
 msgid ""
 "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:263
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:263
 msgid ""
 "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:269
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:269
 msgid "metadata/language.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:273
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:273
 msgid "metadata/publicationYear.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:277
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:277
 msgid "metadata/publisher/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:281
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:281
 msgid "metadata/publisher/name.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:286
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:286
 msgid "metadata/publisher/publisherIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:291
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:291
 msgid "metadata/publisher/publisherIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:295
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:295
 msgid "metadata/publisher/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:300
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:300
 msgid "metadata/relatedIdentifiers/relatedIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:305
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:305
 msgid "metadata/relatedIdentifiers/relatedIdentifierType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:310
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:310
 msgid "metadata/relatedIdentifiers/relatedMetadataScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:315
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:315
 msgid "metadata/relatedIdentifiers/relationType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:320
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:320
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:325
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:325
 msgid "metadata/relatedIdentifiers/schemeType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:330
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:330
 msgid "metadata/relatedIdentifiers/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:335
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:335
 msgid ""
 "metadata/relatedItems/contributors/affiliation/affiliationIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:342
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:342
 msgid ""
 "metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:349
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:349
 msgid "metadata/relatedItems/contributors/affiliation/name.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:354
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:354
 msgid "metadata/relatedItems/contributors/affiliation/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:359
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:359
 msgid "metadata/relatedItems/contributors/contributorType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:364
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:364
 msgid "metadata/relatedItems/contributors/familyName.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:369
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:369
 msgid "metadata/relatedItems/contributors/givenName.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:374
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:374
 msgid "metadata/relatedItems/contributors/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:379
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:379
 msgid "metadata/relatedItems/contributors/name.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:384
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:384
 msgid ""
 "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:389
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:389
 msgid ""
 "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:396
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:396
 msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:401
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:401
 msgid "metadata/relatedItems/contributors/nameType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:406
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:406
 msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:411
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:411
 msgid ""
 "metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:418
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:418
 msgid "metadata/relatedItems/creators/affiliation/name.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:423
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:423
 msgid "metadata/relatedItems/creators/affiliation/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:428
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:428
 msgid "metadata/relatedItems/creators/familyName.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:433
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:433
 msgid "metadata/relatedItems/creators/givenName.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:438
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:438
 msgid "metadata/relatedItems/creators/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:443
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:443
 msgid "metadata/relatedItems/creators/name.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:448
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:448
 msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:453
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:453
 msgid ""
 "metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:460
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:460
 msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:465
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:465
 msgid "metadata/relatedItems/creators/nameType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:470
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:470
 msgid "metadata/relatedItems/edition.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:475
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:475
 msgid "metadata/relatedItems/firstPage.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:479
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:479
 msgid "metadata/relatedItems/issue.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:484
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:484
 msgid "metadata/relatedItems/lastPage.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:488
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:488
 msgid "metadata/relatedItems/number.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:493
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:493
 msgid "metadata/relatedItems/numberType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:498
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:498
 msgid "metadata/relatedItems/publicationYear.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:503
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:503
 msgid "metadata/relatedItems/publisher.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:508
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:508
 msgid ""
 "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:513
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:513
 msgid ""
 "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:520
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:520
 msgid "metadata/relatedItems/relatedItemType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:525
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:525
 msgid "metadata/relatedItems/relatedMetadataScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:530
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:530
 msgid "metadata/relatedItems/relationType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:535
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:535
 msgid "metadata/relatedItems/resourceTypeGeneral.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:540
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:540
 msgid "metadata/relatedItems/schemeType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:545
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:545
 msgid "metadata/relatedItems/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:550
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:550
 msgid "metadata/relatedItems/titles/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:555
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:555
 msgid "metadata/relatedItems/titles/titleType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:559
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:559
 msgid "metadata/relatedItems/volume.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:563
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:563
 msgid "metadata/rightsList/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:567
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:567
 msgid "metadata/rightsList/rights.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:572
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:572
 msgid "metadata/rightsList/rightsIdentifier.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:577
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:577
 msgid "metadata/rightsList/rightsIdentifierScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:582
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:582
 msgid "metadata/rightsList/rightsURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:587
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:587
 msgid "metadata/rightsList/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:591
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:591
 msgid "metadata/schemaVersion.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:594
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:594
 msgid "metadata/sizes.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:598
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:598
 msgid "metadata/subjects/classificationCode.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:602
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:602
 msgid "metadata/subjects/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:606
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:606
 msgid "metadata/subjects/schemeURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:610
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:610
 msgid "metadata/subjects/subject.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:615
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:615
 msgid "metadata/subjects/subjectScheme.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:619
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:619
 msgid "metadata/subjects/valueURI.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:623
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:623
 msgid "metadata/titles/lang.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:627
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:627
 msgid "metadata/titles/titleType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:631
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:631
 msgid "metadata/types/resourceType.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:636
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:636
 msgid "metadata/types/resourceTypeGeneral.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:639
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:639
 msgid "metadata/url.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:642
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:642
 msgid "metadata/version.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:646
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:646
 msgid "oai/harvest/datestamp.label"
 msgstr ""
 
-#: /Users/m/w/nrp/nma/datasets/services/records/facets.py:650
+#: /home/martin/Projects/CESNET/Repozitare/nma/datasets/services/records/facets.py:650
 msgid "oai/harvest/identifier.label"
+msgstr ""
+
+msgid "An error occurred while generating the citation."
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+msgid "Clear all filters"
 msgstr ""
 
 msgid "We couldn't find any matches for "
@@ -787,6 +832,9 @@ msgstr ""
 msgid " for defining advanced search queries."
 msgstr ""
 
+msgid "Show all sub facets of "
+msgstr ""
+
 msgid "ORCID profile"
 msgstr ""
 
@@ -805,23 +853,29 @@ msgstr ""
 msgid "GND profile"
 msgstr ""
 
+msgid "Results"
+msgstr ""
+
 msgid "Find all records"
 msgstr ""
 
 msgid "by this dataset type"
 msgstr ""
 
-msgid "Publication date"
-msgstr ""
-
-msgid "Language"
-msgstr ""
-
-msgid "National Metadata Repository"
+msgid "resultsPerPage"
 msgstr ""
 
 msgid "No description"
 msgstr ""
 
 msgid "No publication date found."
+msgstr ""
+
+msgid "read more"
+msgstr ""
+
+msgid "to top"
+msgstr ""
+
+msgid "Sort"
 msgstr ""
