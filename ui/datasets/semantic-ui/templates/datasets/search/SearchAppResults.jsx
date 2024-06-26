@@ -3,7 +3,6 @@ import { Grid } from "semantic-ui-react";
 import {
   ResultsList,
   Pagination,
-  ResultsPerPage,
   ResultsMultiLayout,
   ResultsGrid,
   withState,
@@ -11,11 +10,7 @@ import {
 import PropTypes from "prop-types";
 
 const SearchAppResultsComponent = ({
-  paginationOptions,
   layoutOptions,
-  currentResultsState: {
-    data: { total },
-  },
 }) => {
   const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
   const listOrGridView = layoutOptions.listView ? (
