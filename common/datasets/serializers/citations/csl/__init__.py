@@ -51,7 +51,7 @@ def get_citation_string(json, id, style, locale):
 
     source = CiteProcJSON([json])
     citation_style = CitationStylesStyle(validate=False, style=style, locale=locale)
-    bib = CitationStylesBibliography(citation_style, source, formatter.plain)
+    bib = CitationStylesBibliography(citation_style, source, formatter.html)
     citation = Citation([CitationItem(id)])
     bib.register(citation)
 

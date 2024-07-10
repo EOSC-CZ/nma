@@ -48,6 +48,8 @@ class CSLJSONSchema(Schema):
     language = fields.Method("get_language")
     version = SanitizedUnicode(attribute="metadata.version")
     publisher = SanitizedUnicode(attribute="metadata.publisher.name")
+    URL = fields.Method("get_url")
+    DOI = fields.Method("get_doi")
     
     def get_title(self, obj):
         """Get title."""
@@ -90,3 +92,16 @@ class CSLJSONSchema(Schema):
         language = metadata.get("language")
 
         return language if language else missing
+
+    def get_url(self, obj):
+        """Get URL."""
+        altIds = obj["metadata"].get("alternateIdentifiers", [])
+        url = next((o["alternateIdentifier"] for o in altIds), None)
+        return url if url else missing
+    
+    def get_doi(self, obj):
+        """Get DOI."""
+        altIds = obj["metadata"].get("alternateIdentifiers", [])
+        doiUrl = next((o["alternateIdentifier"] for o in altIds if o["alternateIdentifierType"].lower() == "doi"), None)
+        doi = doiUrl.split("doi.org/")[-1] if doiUrl else None
+        return doi if doi else missing

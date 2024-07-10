@@ -18,7 +18,7 @@ def csl_url_args_retriever():
 def _bibliography_headers(obj_or_list, code, many=False):
     """Override content type for 'text/x-bibliography'."""
     _etag_headers = etag_headers(obj_or_list, code, many=False)
-    _etag_headers["content-type"] = "text/plain"
+    _etag_headers["content-type"] = "text/html"
     return _etag_headers
 
 citations_response_handlers = {
