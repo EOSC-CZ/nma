@@ -1,11 +1,3 @@
-// This file is part of InvenioRDM
-// Copyright (C) 2021-2024 CERN.
-// Copyright (C) 2021 Graz University of Technology.
-// Copyright (C) 2021 TU Wien
-//
-// Invenio RDM Records is free software; you can redistribute it and/or modify it
-// under the terms of the MIT License; see LICENSE file for more details.
-
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 
@@ -14,7 +6,7 @@ import { withCancel } from "react-invenio-forms";
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 import axios from "axios";
 import _debounce from "lodash/debounce";
-import _escape from "lodash/escape";
+import { sanitizeInput } from "@js/oarepo_ui";
 
 import ClipboardCopyButton from "./ClipboardCopyButton";
 
@@ -89,7 +81,7 @@ const CitationField = ({
     return <Message negative role="status" aria-label={i18next.t("Error generating citation.")}>{message}</Message>;
   };
 
-  const escapedCitation = _escape(citation);
+  const escapedCitation = sanitizeInput(citation);
   const urlRegex = /(https?:\/\/[^\s,;]+(?=[^\s,;]*))/g;
   const urlizedCitation = escapedCitation.replace(urlRegex, (url) => {
     let trailingDot = "";

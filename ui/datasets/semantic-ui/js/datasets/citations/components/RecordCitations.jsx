@@ -6,18 +6,7 @@ import { Loader, Segment } from "semantic-ui-react";
 
 const CitationField = lazy(() => import("./CitationField"));
 
-const CITATION_STYLES = [
-  { style: "apa", label: "APA" },
-  { style: "harvard-cite-them-right", label: "Harvard" },
-  { style: "modern-language-association", label: "MLA" },
-  { style: "vancouver", label: "Vancouver" },
-  { style: "chicago-fullnote-bibliography", label: "Chicago" },
-  { style: "ieee", label: "IEEE" },
-];
-
-const DEFAULT_STYLE = "apa";
-
-export const RecordCitations = ({ record }) => {
+export const RecordCitations = ({ record, citationStyles, defaultStyle }) => {
   return (
     <Suspense
       fallback={
@@ -26,7 +15,7 @@ export const RecordCitations = ({ record }) => {
         </Segment>
       }
     >
-      <CitationField record={record} styles={CITATION_STYLES} defaultStyle={DEFAULT_STYLE} />
+      <CitationField record={record} styles={citationStyles} defaultStyle={defaultStyle} />
     </Suspense>
   );
 };

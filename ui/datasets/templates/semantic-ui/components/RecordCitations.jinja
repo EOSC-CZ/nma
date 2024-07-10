@@ -2,4 +2,30 @@
 
 {% set record = record | to_dict %}
 
-<div id="record-citations" data-record='{{ record | tojson }}'></div>
+{% if current_i18n.language == 'cs' %}
+{% set citation_settings = {
+  "styles": [
+    { "style": "iso690-author-date-cs", "label": "ČSN ISO 690" },
+    { "style": "apa", "label": "APA" },
+    { "style": "harvard-cite-them-right", "label": "Harvard" },
+    { "style": "vancouver", "label": "Vancouver" },
+    { "style": "ieee", "label": "IEEE" }
+  ],
+  "defaultStyle": "iso690-author-date-cs"
+} %}
+{% else %}
+{% set citation_settings = {
+  "styles": [
+    { "style": "iso690-author-date-en", "label": "ČSN ISO 690" },
+    { "style": "apa", "label": "APA" },
+    { "style": "harvard-cite-them-right", "label": "Harvard" },
+    { "style": "modern-language-association", "label": "MLA" },
+    { "style": "vancouver", "label": "Vancouver" },
+    { "style": "chicago-fullnote-bibliography", "label": "Chicago" },
+    { "style": "ieee", "label": "IEEE" }
+  ],
+  "defaultStyle": "iso690-author-date-en"
+} %}
+{% endif %}
+
+<div id="record-citations" data-record='{{ record | tojson }}' data-citation-settings='{{ citation_settings | tojson }}'></div>
