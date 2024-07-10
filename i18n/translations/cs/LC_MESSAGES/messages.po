@@ -3076,3 +3076,12 @@ msgstr "Pilotní provoz metadatového adresáře"
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:27
 msgid "Click to copy"
 msgstr "Kliknutím zkopírujete"
+
+msgid "Error generating citation."
+msgstr "Chyba při generování citace."
+
+msgid "Style"
+msgstr "Styl"
+
+msgid "Remove filter"
+msgstr "Odstranit filtr"

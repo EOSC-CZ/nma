@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-14 13:35+0200\n"
+"POT-Creation-Date: 2024-07-09 13:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Generated-By: Babel 2.15.0\n"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/detail.html:20
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:43
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:44
 msgid "Record details"
 msgstr ""
 
@@ -82,10 +82,10 @@ msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:30
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/branding/templates/searchbar.html:31
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:26
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:27
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:28
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:33
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:34
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:35
 msgid "Search"
 msgstr ""
 
@@ -105,24 +105,12 @@ msgstr ""
 msgid "on"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/NrSeries.jinja:5
-msgid "metadata/series/seriesTitle.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/NrSeries.jinja:6
-msgid "metadata/series/seriesVolume.label"
-msgstr ""
-
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/Person.jinja:3
 msgid "Find more records by this person"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/Publisher.jinja:5
 msgid "Find more records from this publisher"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:4
-msgid "metadata/relatedItems/itemTitle.label"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:6
@@ -133,45 +121,8 @@ msgstr ""
 msgid "metadata/relatedItems/itemContributors.label"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:27
-msgid "metadata/relatedItems/itemPIDs.label"
-msgstr ""
-
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:28
 msgid "metadata/relatedItems/itemURL.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:32
-msgid "metadata/relatedItems/itemYear.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:33
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:36
-msgid "metadata/relatedItems/itemVolume.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:35
-msgid "metadata/relatedItems/itemIssue.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:37
-msgid "metadata/relatedItems/itemStartPage.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:38
-msgid "metadata/relatedItems/itemEndPage.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:39
-msgid "metadata/relatedItems/itemPublisher.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:40
-msgid "metadata/relatedItems/itemRelationType.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RelatedItems.jinja:43
-msgid "metadata/relatedItems/itemResourceType.label"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/RightsList.jinja:10
@@ -197,24 +148,11 @@ msgstr ""
 msgid "metadata/dates/dateType.enum.Issued"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:20
-msgid "People"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:24
-msgid "metadata/dates/dateType.enum.Submitted"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:75
-msgid "abstract"
-msgstr ""
-
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "Search results"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:2
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:3
 msgid "metadata/objectIdentifiers.label"
 msgstr ""
 
@@ -224,27 +162,23 @@ msgid "metadata/originalRecord.label"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:19
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:20
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:27
 msgid "Export"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:36
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:37
 msgid "API"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:36
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:37
 msgid "Links"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:41
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:42
 msgid "Citations"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:42
+#: /home/martin/Projects/CESNET/Repozitare/nma/ui/titlepage/templates/TitlePage.jinja:41
 msgid "Show all records"
 msgstr ""
 
@@ -799,10 +733,13 @@ msgstr ""
 msgid "An error occurred while generating the citation."
 msgstr ""
 
-msgid "Loading"
+msgid "Error generating citation."
 msgstr ""
 
-msgid "Clear all filters"
+msgid "Style"
+msgstr ""
+
+msgid "Loading"
 msgstr ""
 
 msgid "We couldn't find any matches for "
@@ -865,6 +802,9 @@ msgstr ""
 msgid "resultsPerPage"
 msgstr ""
 
+msgid "Remove filter"
+msgstr ""
+
 msgid "No description"
 msgstr ""
 
@@ -872,6 +812,9 @@ msgid "No publication date found."
 msgstr ""
 
 msgid "read more"
+msgstr ""
+
+msgid "Filter results"
 msgstr ""
 
 msgid "to top"

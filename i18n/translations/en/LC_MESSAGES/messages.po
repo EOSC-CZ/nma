@@ -3076,3 +3076,12 @@ msgstr ""
 #: /home/martin/Projects/CESNET/Repozitare/nma/ui/datasets/templates/semantic-ui/components/AlternateIdentifiers.jinja:27
 msgid "Click to copy"
 msgstr ""
+
+msgid "Error generating citation."
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Remove filter"
+msgstr ""
