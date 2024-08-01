@@ -1,4 +1,4 @@
-oarepo==12.0.20
+oarepo==12.0.27
 cachetools==5.3.3
 deepmerge==1.1.1
 et-xmlfile==1.1.0
@@ -19,5 +19,4 @@ oarepo-vocabularies==2.0.89
 openpyxl==3.1.4
 python-dotenv==1.0.1
 sickle==0.7.0
-tqdm==4.66.4
 whitenoise==6.7.0
