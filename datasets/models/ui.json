@@ -52,6 +52,7 @@
                             "alternateIdentifier": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/alternateIdentifiers/alternateIdentifier.help",
                                 "label": "metadata/alternateIdentifiers/alternateIdentifier.label",
                                 "hint": "metadata/alternateIdentifiers/alternateIdentifier.hint",
@@ -60,6 +61,7 @@
                             "alternateIdentifierType": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/alternateIdentifiers/alternateIdentifierType.help",
                                 "label": "metadata/alternateIdentifiers/alternateIdentifierType.label",
                                 "hint": "metadata/alternateIdentifiers/alternateIdentifierType.hint",
@@ -146,6 +148,7 @@
                                         "name": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/contributors/affiliation/name.help",
                                             "label": "metadata/contributors/affiliation/name.label",
                                             "hint": "metadata/contributors/affiliation/name.hint",
@@ -165,6 +168,7 @@
                             "contributorType": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/contributors/contributorType.help",
                                 "label": "metadata/contributors/contributorType.label",
                                 "hint": "metadata/contributors/contributorType.hint",
@@ -198,6 +202,7 @@
                             "name": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/contributors/name.help",
                                 "label": "metadata/contributors/name.label",
                                 "hint": "metadata/contributors/name.hint",
@@ -219,6 +224,7 @@
                                         "nameIdentifier": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/contributors/nameIdentifiers/nameIdentifier.help",
                                             "label": "metadata/contributors/nameIdentifiers/nameIdentifier.label",
                                             "hint": "metadata/contributors/nameIdentifiers/nameIdentifier.hint",
@@ -227,6 +233,7 @@
                                         "nameIdentifierScheme": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/contributors/nameIdentifiers/nameIdentifierScheme.help",
                                             "label": "metadata/contributors/nameIdentifiers/nameIdentifierScheme.label",
                                             "hint": "metadata/contributors/nameIdentifiers/nameIdentifierScheme.hint",
@@ -300,6 +307,7 @@
                                         "name": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/creators/affiliation/name.help",
                                             "label": "metadata/creators/affiliation/name.label",
                                             "hint": "metadata/creators/affiliation/name.hint",
@@ -343,6 +351,7 @@
                             "name": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/creators/name.help",
                                 "label": "metadata/creators/name.label",
                                 "hint": "metadata/creators/name.hint",
@@ -364,6 +373,7 @@
                                         "nameIdentifier": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/creators/nameIdentifiers/nameIdentifier.help",
                                             "label": "metadata/creators/nameIdentifiers/nameIdentifier.label",
                                             "hint": "metadata/creators/nameIdentifiers/nameIdentifier.hint",
@@ -372,6 +382,7 @@
                                         "nameIdentifierScheme": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/creators/nameIdentifiers/nameIdentifierScheme.help",
                                             "label": "metadata/creators/nameIdentifiers/nameIdentifierScheme.label",
                                             "hint": "metadata/creators/nameIdentifiers/nameIdentifierScheme.hint",
@@ -416,6 +427,7 @@
                             "date": {
                                 "detail": "edtf-time",
                                 "input": "edtf-time",
+                                "required": true,
                                 "help": "metadata/dates/date.help",
                                 "label": "metadata/dates/date.label",
                                 "hint": "metadata/dates/date.hint",
@@ -432,6 +444,7 @@
                             "dateType": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/dates/dateType.help",
                                 "label": "metadata/dates/dateType.label",
                                 "hint": "metadata/dates/dateType.hint",
@@ -457,6 +470,7 @@
                             "description": {
                                 "detail": "fulltext",
                                 "input": "fulltext",
+                                "required": true,
                                 "help": "metadata/descriptions/description.help",
                                 "label": "metadata/descriptions/description.label",
                                 "hint": "metadata/descriptions/description.hint"
@@ -464,6 +478,7 @@
                             "descriptionType": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/descriptions/descriptionType.help",
                                 "label": "metadata/descriptions/descriptionType.label",
                                 "hint": "metadata/descriptions/descriptionType.hint",
@@ -561,6 +576,7 @@
                             "funderName": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/fundingReferences/funderName.help",
                                 "label": "metadata/fundingReferences/funderName.label",
                                 "hint": "metadata/fundingReferences/funderName.hint",
@@ -592,6 +608,7 @@
                                     "eastBoundLongitude": {
                                         "detail": "float",
                                         "input": "float",
+                                        "required": true,
                                         "help": "metadata/geoLocations/geoLocationBox/eastBoundLongitude.help",
                                         "label": "metadata/geoLocations/geoLocationBox/eastBoundLongitude.label",
                                         "hint": "metadata/geoLocations/geoLocationBox/eastBoundLongitude.hint",
@@ -600,6 +617,7 @@
                                     "northBoundLatitude": {
                                         "detail": "float",
                                         "input": "float",
+                                        "required": true,
                                         "help": "metadata/geoLocations/geoLocationBox/northBoundLatitude.help",
                                         "label": "metadata/geoLocations/geoLocationBox/northBoundLatitude.label",
                                         "hint": "metadata/geoLocations/geoLocationBox/northBoundLatitude.hint",
@@ -608,6 +626,7 @@
                                     "southBoundLatitude": {
                                         "detail": "float",
                                         "input": "float",
+                                        "required": true,
                                         "help": "metadata/geoLocations/geoLocationBox/southBoundLatitude.help",
                                         "label": "metadata/geoLocations/geoLocationBox/southBoundLatitude.label",
                                         "hint": "metadata/geoLocations/geoLocationBox/southBoundLatitude.hint",
@@ -616,6 +635,7 @@
                                     "westBoundLongitude": {
                                         "detail": "float",
                                         "input": "float",
+                                        "required": true,
                                         "help": "metadata/geoLocations/geoLocationBox/westBoundLongitude.help",
                                         "label": "metadata/geoLocations/geoLocationBox/westBoundLongitude.label",
                                         "hint": "metadata/geoLocations/geoLocationBox/westBoundLongitude.hint",
@@ -697,6 +717,7 @@
                                         "polygonPoints": {
                                             "detail": "array",
                                             "input": "array",
+                                            "required": true,
                                             "help": "metadata/geoLocations/geoLocationPolygons/polygonPoints.help",
                                             "label": "metadata/geoLocations/geoLocationPolygons/polygonPoints.label",
                                             "hint": "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint",
@@ -766,6 +787,7 @@
                         "name": {
                             "detail": "keyword",
                             "input": "keyword",
+                            "required": true,
                             "help": "metadata/publisher/name.help",
                             "label": "metadata/publisher/name.label",
                             "hint": "metadata/publisher/name.hint",
@@ -838,6 +860,7 @@
                             "relationType": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/relatedIdentifiers/relationType.help",
                                 "label": "metadata/relatedIdentifiers/relationType.label",
                                 "hint": "metadata/relatedIdentifiers/relationType.hint",
@@ -930,6 +953,7 @@
                                                     "name": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
+                                                        "required": true,
                                                         "help": "metadata/relatedItems/contributors/affiliation/name.help",
                                                         "label": "metadata/relatedItems/contributors/affiliation/name.label",
                                                         "hint": "metadata/relatedItems/contributors/affiliation/name.hint",
@@ -949,6 +973,7 @@
                                         "contributorType": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/relatedItems/contributors/contributorType.help",
                                             "label": "metadata/relatedItems/contributors/contributorType.label",
                                             "hint": "metadata/relatedItems/contributors/contributorType.hint",
@@ -982,6 +1007,7 @@
                                         "name": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/relatedItems/contributors/name.help",
                                             "label": "metadata/relatedItems/contributors/name.label",
                                             "hint": "metadata/relatedItems/contributors/name.hint",
@@ -1003,6 +1029,7 @@
                                                     "nameIdentifier": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
+                                                        "required": true,
                                                         "help": "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.help",
                                                         "label": "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.label",
                                                         "hint": "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.hint",
@@ -1011,6 +1038,7 @@
                                                     "nameIdentifierScheme": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
+                                                        "required": true,
                                                         "help": "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.help",
                                                         "label": "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.label",
                                                         "hint": "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.hint",
@@ -1084,6 +1112,7 @@
                                                     "name": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
+                                                        "required": true,
                                                         "help": "metadata/relatedItems/creators/affiliation/name.help",
                                                         "label": "metadata/relatedItems/creators/affiliation/name.label",
                                                         "hint": "metadata/relatedItems/creators/affiliation/name.hint",
@@ -1127,6 +1156,7 @@
                                         "name": {
                                             "detail": "keyword",
                                             "input": "keyword",
+                                            "required": true,
                                             "help": "metadata/relatedItems/creators/name.help",
                                             "label": "metadata/relatedItems/creators/name.label",
                                             "hint": "metadata/relatedItems/creators/name.hint",
@@ -1148,6 +1178,7 @@
                                                     "nameIdentifier": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
+                                                        "required": true,
                                                         "help": "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.help",
                                                         "label": "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.label",
                                                         "hint": "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.hint",
@@ -1156,6 +1187,7 @@
                                                     "nameIdentifierScheme": {
                                                         "detail": "keyword",
                                                         "input": "keyword",
+                                                        "required": true,
                                                         "help": "metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.help",
                                                         "label": "metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.label",
                                                         "hint": "metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.hint",
@@ -1252,6 +1284,7 @@
                             "relatedItemIdentifier": {
                                 "detail": false,
                                 "input": false,
+                                "required": true,
                                 "help": "metadata/relatedItems/relatedItemIdentifier.help",
                                 "label": "metadata/relatedItems/relatedItemIdentifier.label",
                                 "hint": "metadata/relatedItems/relatedItemIdentifier.hint",
@@ -1259,6 +1292,7 @@
                                     "relatedItemIdentifier": {
                                         "detail": "keyword",
                                         "input": "keyword",
+                                        "required": true,
                                         "help": "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.help",
                                         "label": "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.label",
                                         "hint": "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.hint",
@@ -1267,6 +1301,7 @@
                                     "relatedItemIdentifierType": {
                                         "detail": "keyword",
                                         "input": "keyword",
+                                        "required": true,
                                         "help": "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.help",
                                         "label": "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.label",
                                         "hint": "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.hint",
@@ -1278,6 +1313,7 @@
                             "relatedItemType": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/relatedItems/relatedItemType.help",
                                 "label": "metadata/relatedItems/relatedItemType.label",
                                 "hint": "metadata/relatedItems/relatedItemType.hint",
@@ -1295,6 +1331,7 @@
                             "relationType": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/relatedItems/relationType.help",
                                 "label": "metadata/relatedItems/relationType.label",
                                 "hint": "metadata/relatedItems/relationType.hint",
@@ -1329,6 +1366,7 @@
                             "titles": {
                                 "detail": "array",
                                 "input": "array",
+                                "required": true,
                                 "help": "metadata/relatedItems/titles.help",
                                 "label": "metadata/relatedItems/titles.label",
                                 "hint": "metadata/relatedItems/titles.hint",
@@ -1350,6 +1388,7 @@
                                         "title": {
                                             "detail": "fulltext",
                                             "input": "fulltext",
+                                            "required": true,
                                             "help": "metadata/relatedItems/titles/title.help",
                                             "label": "metadata/relatedItems/titles/title.label",
                                             "hint": "metadata/relatedItems/titles/title.hint"
@@ -1504,6 +1543,7 @@
                             "subject": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/subjects/subject.help",
                                 "label": "metadata/subjects/subject.label",
                                 "hint": "metadata/subjects/subject.hint",
@@ -1552,6 +1592,7 @@
                             "title": {
                                 "detail": "fulltext",
                                 "input": "fulltext",
+                                "required": true,
                                 "help": "metadata/titles/title.help",
                                 "label": "metadata/titles/title.label",
                                 "hint": "metadata/titles/title.hint"
@@ -1592,6 +1633,7 @@
                             "resourceTypeGeneral": {
                                 "detail": "keyword",
                                 "input": "keyword",
+                                "required": true,
                                 "help": "metadata/types/resourceTypeGeneral.help",
                                 "label": "metadata/types/resourceTypeGeneral.label",
                                 "hint": "metadata/types/resourceTypeGeneral.hint",
@@ -1650,6 +1692,43 @@
                             "facet": "oai_harvest_identifier"
                         }
                     }
+                }
+            }
+        },
+        "pid": {
+            "detail": false,
+            "input": false,
+            "help": "pid.help",
+            "label": "pid.label",
+            "hint": "pid.hint",
+            "children": {
+                "obj_type": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "pid/obj_type.help",
+                    "label": "pid/obj_type.label",
+                    "hint": "pid/obj_type.hint"
+                },
+                "pid_type": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "pid/pid_type.help",
+                    "label": "pid/pid_type.label",
+                    "hint": "pid/pid_type.hint"
+                },
+                "pk": {
+                    "detail": "integer",
+                    "input": "integer",
+                    "help": "pid/pk.help",
+                    "label": "pid/pk.label",
+                    "hint": "pid/pk.hint"
+                },
+                "status": {
+                    "detail": "keyword",
+                    "input": "keyword",
+                    "help": "pid/status.help",
+                    "label": "pid/status.label",
+                    "hint": "pid/status.hint"
                 }
             }
         },

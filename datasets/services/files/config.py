@@ -29,6 +29,8 @@ class DatasetsFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
     ]
 
     model = "datasets"
+    allowed_mimetypes = []
+    allowed_extensions = []
 
     @property
     def file_links_list(self):
@@ -41,5 +43,6 @@ class DatasetsFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
         return {
             "commit": FileLink("{+api}/datasets/{id}/files/{key}/commit"),
             "content": FileLink("{+api}/datasets/{id}/files/{key}/content"),
+            "preview": FileLink("{+ui}/datasets/{id}/files/{key}/preview"),
             "self": FileLink("{+api}/datasets/{id}/files/{key}"),
         }

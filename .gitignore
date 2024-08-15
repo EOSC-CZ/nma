@@ -12,3 +12,4 @@ test-datacite
 .pdm-python
 jsconfig.json
 todo.md
+/requirements-resolved-local.txt

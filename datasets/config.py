@@ -1,3 +1,5 @@
+from datasets.files.api import DatasetsFile
+from datasets.records.api import DatasetsRecord
 from datasets.resources.files.config import DatasetsFileResourceConfig
 from datasets.resources.files.resource import DatasetsFileResource
 from datasets.resources.records.config import DatasetsResourceConfig
@@ -17,6 +19,12 @@ DATASETS_RECORD_SERVICE_CONFIG = DatasetsServiceConfig
 
 
 DATASETS_RECORD_SERVICE_CLASS = DatasetsService
+
+
+OAREPO_PRIMARY_RECORD_SERVICE = {
+    DatasetsRecord: "datasets",
+    DatasetsFile: "datasets_file",
+}
 
 
 DATASETS_FILES_RESOURCE_CONFIG = DatasetsFileResourceConfig
