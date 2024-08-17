@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import Overridable from "react-overridable";
 import _get from "lodash/get";
-import _join from "lodash/join";
 import _truncate from "lodash/truncate";
 import _find from "lodash/find";
-import { Grid, Item, Label, List, Icon, Segment } from "semantic-ui-react";
+import sanitizeHtml from "sanitize-html";
+import { Grid, Item, List, Icon, Segment } from "semantic-ui-react";
 import { withState, buildUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import { i18next } from "@translations/i18next";
@@ -13,8 +13,6 @@ import {
   ResultsItemRights,
   ResultsItemSubjects,
   ResultsItemCreatibutors,
-  DoubleSeparator,
-  ResultsItemResourceType,
 } from "@datasets_search";
 
 const ItemHeader = ({ title, searchUrl, selfLink }) => {
@@ -193,7 +191,11 @@ export const ResultsListItemComponent = ({
                   searchUrl={searchAppConfig.ui_endpoint}
                 />
                 <Item.Description className="listing-item-description">
-                  {_truncate(descriptionStripped, { length: 350 })} 
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: _truncate(sanitizeHtml(descriptionStripped), { length: 350 }),
+                    }}
+                  />
                   <a href={result.links.self_html} className="read-more-link">
                     {i18next.t("read more")}
                     <Icon name="chevron right" link className="read-more-chevron" />
