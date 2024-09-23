@@ -1,0 +1,479 @@
+{
+  "metadata":
+  {
+    "additional_descriptions": [
+      {
+        "description": "<p>abstract</p>",
+        "lang": {
+          "id": "spa",
+          "title": {
+            "en": "Spanish"
+          }
+        },
+        "type": {
+          "id": "abstract",
+          "title": {
+            "de": "Abstract",
+            "en": "Abstract"
+          }
+        }
+      },
+      {
+        "description": "<p>methods</p>",
+        "type": {
+          "id": "methods",
+          "title": {
+            "de": "Methoden",
+            "en": "Methods"
+          }
+        }
+      },
+      {
+        "description": "<p>notes</p>",
+        "type": {
+          "id": "notes",
+          "title": {
+            "de": "Anmerkungen",
+            "en": "Notes"
+          }
+        }
+      },
+      {
+        "description": "<p>other</p>",
+        "type": {
+          "id": "other",
+          "title": {
+            "de": "Sonstige",
+            "en": "Other"
+          }
+        }
+      },
+      {
+        "description": "<p>series information</p>",
+        "type": {
+          "id": "series-information",
+          "title": {
+            "de": "Informationen zur Reihe",
+            "en": "Series information"
+          }
+        }
+      },
+      {
+        "description": "<p>table of contents</p>",
+        "type": {
+          "id": "table-of-contents",
+          "title": {
+            "de": "Inhaltsverzeichnis",
+            "en": "Table of contents"
+          }
+        }
+      },
+      {
+        "description": "<p>technical info</p>",
+        "type": {
+          "id": "technical-info",
+          "title": {
+            "de": "Technische Informationen",
+            "en": "Technical info"
+          }
+        }
+      }
+    ],
+    "additional_titles": [
+      {
+        "lang": {
+          "id": "jpn",
+          "title": {
+            "en": "Japanese"
+          }
+        },
+        "title": "alternative title",
+        "type": {
+          "id": "alternative-title",
+          "title": {
+            "de": "Alternativer Titel",
+            "en": "Alternative title"
+          }
+        }
+      },
+      {
+        "lang": {
+          "id": "deu",
+          "title": {
+            "en": "German"
+          }
+        },
+        "title": "translated title",
+        "type": {
+          "id": "translated-title",
+          "title": {
+            "de": "\u00dcbersetzter Titel",
+            "en": "Translated title"
+          }
+        }
+      },
+      {
+        "lang": {
+          "id": "ces",
+          "title": {
+            "en": "Czech"
+          }
+        },
+        "title": "subtitle",
+        "type": {
+          "id": "subtitle",
+          "title": {
+            "de": "Untertitel",
+            "en": "Subtitle"
+          }
+        }
+      },
+      {
+        "lang": {
+          "id": "slk",
+          "title": {
+            "en": "Slovak"
+          }
+        },
+        "title": "other",
+        "type": {
+          "id": "other",
+          "title": {
+            "de": "Sonstiger Titel",
+            "en": "Other"
+          }
+        }
+      }
+    ],
+    "contributors": [
+      {
+        "person_or_org": {
+          "family_name": "contributor without id/aff",
+          "name": "contributor without id/aff",
+          "type": "personal"
+        },
+        "role": {
+          "id": "hostinginstitution",
+          "title": {
+            "de": "Bereitstellende Institution",
+            "en": "Hosting institution"
+          }
+        }
+      },
+      {
+        "person_or_org": {
+          "family_name": "contributor with id",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-1825-0097",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "contributor with id",
+          "type": "personal"
+        },
+        "role": {
+          "id": "editor",
+          "title": {
+            "de": "EditorIn",
+            "en": "Editor"
+          }
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "id": "05mjwh489",
+            "name": "Academy of Performing Arts in Prague"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "creator with all",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-1825-0097",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "creator with all",
+          "type": "personal"
+        },
+        "role": {
+          "id": "contactperson",
+          "title": {
+            "de": "Kontaktperson",
+            "en": "Contact person"
+          }
+        }
+      },
+      {
+        "person_or_org": {
+          "identifiers": [
+            {
+              "identifier": "00ta5r839",
+              "scheme": "ror"
+            },
+            {
+              "identifier": "0000 0004 0481 0043",
+              "scheme": "isni"
+            }
+          ],
+          "name": "Federal Bureau of Investigation",
+          "type": "organizational"
+        },
+        "role": {
+          "id": "supervisor",
+          "title": {
+            "de": "SupervisorIn",
+            "en": "Supervisor"
+          }
+        }
+      }
+    ],
+    "creators": [
+
+    ],
+    "dates": [
+      {
+        "date": "2024-01-01",
+        "description": "accepted",
+        "type": {
+          "id": "accepted",
+          "title": {
+            "de": "Angenommen",
+            "en": "Accepted"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "description": "available",
+        "type": {
+          "id": "available",
+          "title": {
+            "de": "Verf\u00fcgbar",
+            "en": "Available"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "description": "collected",
+        "type": {
+          "id": "collected",
+          "title": {
+            "de": "Gesammelt",
+            "en": "Collected"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "type": {
+          "id": "copyrighted",
+          "title": {
+            "de": "Mit Copyright versehen",
+            "en": "Copyrighted"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "type": {
+          "id": "created",
+          "title": {
+            "de": "Erstellt",
+            "en": "Created"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "type": {
+          "id": "issued",
+          "title": {
+            "de": "Ver\u00f6ffentlicht",
+            "en": "Issued"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "type": {
+          "id": "other",
+          "title": {
+            "de": "Sonstiges",
+            "en": "Other"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "type": {
+          "id": "submitted",
+          "title": {
+            "de": "Eingereicht",
+            "en": "Submitted"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "type": {
+          "id": "updated",
+          "title": {
+            "de": "Aktualisiert",
+            "en": "Updated"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "type": {
+          "id": "valid",
+          "title": {
+            "de": "G\u00fcltig",
+            "en": "Valid"
+          }
+        }
+      },
+      {
+        "date": "2024-01-01",
+        "type": {
+          "id": "withdrawn",
+          "title": {
+            "de": "Zur\u00fcckgezogen",
+            "en": "Withdrawn"
+          }
+        }
+      }
+    ],
+    "description": "<p>main description</p>",
+    "funding": [
+      {
+        "award": {
+          "acronym": "GREENE",
+          "id": "00k4n6c32::101129888",
+          "identifiers": [
+            {
+              "identifier": "https://cordis.europa.eu/projects/101129888",
+              "scheme": "url"
+            }
+          ],
+          "number": "101129888",
+          "title": {
+            "en": "SINGLE-GRAIN RE-ENGINEERED ND-FE-B PERMANENT MAGNETS"
+          }
+        },
+        "funder": {
+          "id": "00k4n6c32",
+          "name": "European Commission"
+        }
+      }
+    ],
+    "identifiers": [
+      {
+        "identifier": "arXiv:2309.12345",
+        "scheme": "arxiv"
+      }
+    ],
+    "languages": [
+      {
+        "id": "eng",
+        "title": {
+          "en": "English"
+        }
+      },
+      {
+        "id": "fra",
+        "title": {
+          "en": "French"
+        }
+      }
+    ],
+    "publication_date": "2024-09-23",
+    "publisher": "some publisher",
+    "related_identifiers": [
+      {
+        "identifier": "arXiv:2309.12345",
+        "relation_type": {
+          "id": "references",
+          "title": {
+            "de": "Referenziert",
+            "en": "References"
+          }
+        },
+        "resource_type": {
+          "id": "software",
+          "title": {
+            "de": "Software",
+            "en": "Software"
+          }
+        },
+        "scheme": "arxiv"
+      },
+      {
+        "identifier": "arXiv:2309.12345",
+        "relation_type": {
+          "id": "isoriginalformof",
+          "title": {
+            "de": "Ist das Orginal von",
+            "en": "Is original form of"
+          }
+        },
+        "scheme": "arxiv"
+      }
+    ],
+    "resource_type": {
+      "id": "presentation",
+      "title": {
+        "de": "Pr\u00e4sentation",
+        "en": "Presentation"
+      }
+    },
+    "rights": [
+      {
+        "description": {
+          "en": "The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited."
+        },
+        "icon": "cc-by-icon",
+        "id": "cc-by-4.0",
+        "props": {
+          "scheme": "spdx",
+          "url": "https://creativecommons.org/licenses/by/4.0/legalcode"
+        },
+        "title": {
+          "en": "Creative Commons Attribution 4.0 International"
+        }
+      },
+      {
+        "description": {
+          "en": "A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code."
+        },
+        "id": "apache-2.0",
+        "props": {
+          "scheme": "spdx",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        },
+        "title": {
+          "en": "Apache License 2.0"
+        }
+      },
+      {
+        "title": {
+          "en": "custom licence"
+        }
+      }
+    ],
+    "subjects": [
+      {
+        "subject": "testing"
+      },
+      {
+        "subject": "transformer"
+      }
+    ],
+    "title": "testing transformer",
+    "version": "some version"
+  }
+}
