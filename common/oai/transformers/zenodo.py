@@ -1,8 +1,9 @@
+from copy import deepcopy
 from typing import Union
 from oarepo_runtime.datastreams import BaseTransformer, StreamEntry, StreamBatch
 
 from common.oai.transformers.lindat import transform_identifier, transform_description
-
+from oarepo_runtime.datastreams.types import StreamEntryError
 
 class ZenodoTransformer(BaseTransformer):
 
@@ -15,8 +16,10 @@ class ZenodoTransformer(BaseTransformer):
                   Raises TransformerError in case of errors.
         """
         for entry in batch.entries:
-            self.transform_entry(entry)
-
+            try:
+                self.transform_entry(entry)
+            except Exception as e:
+                entry.errors.append(StreamEntryError.from_exception(e))
         return batch
 
     def ensureEmpty(self, data, *exceptions, filter=True):
@@ -180,7 +183,6 @@ class ZenodoTransformer(BaseTransformer):
         else: return "Other"
 
     def transform_doi(self, doi, zenodo_doi):
-        # TODO it is not in metadata
         pass
 
     def transform_format(self, _formats, zenodo_formats):
@@ -205,7 +207,7 @@ class ZenodoTransformer(BaseTransformer):
         pass # didnt find on zenodo creation form
 
     def transform_language(self, zenodo_languages):
-        if zenodo_languages is not None:
+        if zenodo_languages:
             return zenodo_languages[0]['id']
 
     def transform_publication_year(self, zenodo_year):
@@ -322,7 +324,8 @@ class ZenodoTransformer(BaseTransformer):
             sizes.append(size)
 
     def transform_subjects(self, subjects, zenodo_subjects):
-        subjects.extend(zenodo_subjects)
+        for subject in zenodo_subjects:
+            subjects.append({'subject':subject['subject']})
 
     def transform_titles(self, titles, zenodo_title, zenodo_additional_titles):
         titles.append({
@@ -389,8 +392,11 @@ class ZenodoTransformer(BaseTransformer):
         return zenodo_version
 
     def transform_entry(self, entry:StreamEntry):
-        source_metadata = entry.context['oai']['metadata']
+        source_metadata = deepcopy(entry.context['oai']['metadata'])
         transformed_metadata = {}
+
+        if entry.entry.get('pid', {}).get('doi', {}).get('identifier', None) is not None:
+            transformed_metadata['doi'] = entry.entry.get('pid', {}).get('doi', {}).get('identifier', None)
 
         self.transform_alt_identifiers(transformed_metadata.setdefault('alternateIdentifiers', []),
                                        source_metadata.pop('identifiers',[]))
@@ -409,7 +415,7 @@ class ZenodoTransformer(BaseTransformer):
                                     source_metadata.pop('description', ""),
                                     source_metadata.pop('additional_descriptions', []))
 
-        # TODO doi
+
         #self.transform_doi(transformed_metadata.setdefault('doi', []),)
 
         #self.transform_format(transformed_metadata.setdefault('formats', []),
@@ -417,8 +423,9 @@ class ZenodoTransformer(BaseTransformer):
 
         self.transform_funding(transformed_metadata.setdefault('fundingReferences', []),
                                source_metadata.pop('funding', []))
-
-        transformed_metadata['language'] = self.transform_language(source_metadata.pop('languages', []))
+        languages = source_metadata.pop('languages', None)
+        if languages is not None:
+            transformed_metadata['language'] = self.transform_language(languages)
         transformed_metadata['publicationYear'] = self.transform_publication_year(source_metadata.pop('publication_date', ""))
 
         self.transform_publisher(transformed_metadata.setdefault('publisher', {}),
@@ -441,4 +448,4 @@ class ZenodoTransformer(BaseTransformer):
                              source_metadata.pop('resource_type', {}))
 
         transformed_metadata['version'] = self.transform_version(source_metadata.pop('version', ""))
-        entry.entry = transformed_metadata
+        entry.entry = {'metadata' : transformed_metadata}
