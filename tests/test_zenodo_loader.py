@@ -150,3 +150,4 @@ def test_iter_success_after_error(requests_mock):
     assert result.context['oai']['identifier'] == 'oai:zenodo.org:12345'
 
 
+test_start_from()

@@ -873,3 +873,4 @@ def test_transform_all():
 
     assert converted == item.entry
     NRDataCiteMetadataSchema().load(item.entry)
+
