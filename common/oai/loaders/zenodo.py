@@ -33,6 +33,7 @@ class ZenodoLoader(BaseReader):
         for seq, record in enumerate(res):
             if record is None:
                 yield None
+            record = requests.get(url=record['links']['self'], headers={'Accept':'application/vnd.inveniordm.v1+json'}).json()
             yield StreamEntry(entry=record,
                               seq=seq,
                               context={
@@ -79,8 +80,8 @@ class ZenodoLoader(BaseReader):
         """
         if self.start_from is not None:
             try:
-                datetime.strptime(self.start_from, '%Y-%m-%d')
-                query = f'({query}) AND updated:[{self.start_from} TO *]'
+                #datetime.strptime(self.start_from, '%Y-%m-%d')
+                query = f'({query}) AND updated:[{self.start_from.isoformat()} TO *]'
             except ValueError:
                 print("Start from date is not in correct format")
                 yield None
