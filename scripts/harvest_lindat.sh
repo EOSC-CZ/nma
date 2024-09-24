@@ -7,7 +7,7 @@
 set -e
 
 # shellcheck disable=SC1090
-source ~/.envrc.local
+#source ~/.envrc.local
 source "$(dirname "$0")/../.venv/bin/activate"
 
 invenio oarepo oai harvester add lindat_dc --name "LINDAT oai_dc harvester" \
