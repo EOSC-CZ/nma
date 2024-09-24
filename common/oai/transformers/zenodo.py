@@ -29,7 +29,6 @@ class ZenodoTransformer(BaseTransformer):
                 print(filtered_data)
                 raise Exception(f"Unhandled key: {key} inside data")
 
-
     def transform_alt_identifiers(self, alt_identifiers, zenodo_alt_identifiers):
         for identifier in zenodo_alt_identifiers:
             alt_identifiers.append({

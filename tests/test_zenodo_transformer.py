@@ -2,6 +2,7 @@ from common.oai.transformers.zenodo import ZenodoTransformer
 from nr_metadata.datacite.services.records.schema_datatypes import CreatorSchema, ResourceTypeSchema, TitleSchema, \
     SubjectSchema, RightsSchema, PublisherSchema, DescriptionSchema, DateSchema, AlternateIdentifierSchema, \
     ContributorSchema, FundingReferenceSchema
+from nr_metadata.datacite.services.records.schema import NRDataCiteMetadataSchema
 import json
 from oarepo_runtime.datastreams import BaseReader, StreamEntry
 
@@ -871,3 +872,4 @@ def test_transform_all():
     }
 
     assert converted == item.entry
+    NRDataCiteMetadataSchema().load(item.entry)
