@@ -143,8 +143,15 @@ def test_iter_success_after_error(requests_mock):
 
     # Second request is success
     requests_mock.get(loader.source, json={
-        'hits': {'hits': [{'id': '12345', 'metadata': {'title': 'Sample Record'}, 'updated': '2024-08-04'}]}
+        'hits': {'hits': [{'id': '12345', 'metadata': {'title': 'Sample Record'}, 'updated': '2024-08-04', 'links' : {'self' : 'https://zenodo.org/api/records/12345'}},]}
     }, status_code=200)
+
+    requests_mock.get('https://zenodo.org/api/records/12345', json={
+        'id': '12345',
+        'metadata': {'title': 'Sample Record'},
+        'updated': '2024-08-04',
+        'links': {'self': 'https://zenodo.org/api/records/12345'},
+    }, headers={'Accept': 'application/vnd.inveniordm.v1+json'}, status_code=200)
 
     result = next(iter(loader))
     assert result.context['oai']['identifier'] == 'oai:zenodo.org:12345'

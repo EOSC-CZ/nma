@@ -8,7 +8,7 @@ from oarepo_runtime.datastreams import BaseReader, StreamEntry
 
 def test_transform_types():
     transformer = ZenodoTransformer()
-    converted = {}
+    converted = []
     transformer.transform_types(converted, {
       "id": "publication-conferencepaper",
       "title": {
@@ -20,7 +20,8 @@ def test_transform_types():
         'resourceType' : 'Conference paper',
         'resourceTypeGeneral' : 'ConferencePaper'
     }]
-    ResourceTypeSchema().load(converted)
+    for type in converted:
+        ResourceTypeSchema().load(type)
 
 def test_transform_sizes():
     transformer = ZenodoTransformer()
@@ -871,6 +872,6 @@ def test_transform_all():
         'version':"some version",
     }
 
-    assert converted == item.entry
-    NRDataCiteMetadataSchema().load(item.entry)
+    assert converted == item.entry['metadata']
+    NRDataCiteMetadataSchema().load(item.entry['metadata'])
 

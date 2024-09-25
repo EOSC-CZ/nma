@@ -33,25 +33,26 @@ class ZenodoLoader(BaseReader):
         for seq, record in enumerate(res):
             if record is None:
                 yield None
-            record = requests.get(url=record['links']['self'], headers={'Accept':'application/vnd.inveniordm.v1+json'}).json()
-            yield StreamEntry(entry=record,
-                              seq=seq,
-                              context={
-                                "oai": {
-                                "metadata": (
-                                    record['metadata']
-                                    if "metadata" in record
-                                    else {}
-                                ),
-                                "datestamp": record['updated'],
-                                "deleted": False,
-                                "identifier": f"oai:zenodo.org:{record['id']}",
-                                "setSpecs": self.base_query,
-                                },
-                                "oai_run": self.oai_run,
-                                "oai_harvester_id": self.oai_harvester_id,
-                                "manual": self.manual
-                              })
+            else:
+                record = requests.get(url=record['links']['self'], headers={'Accept':'application/vnd.inveniordm.v1+json'}).json()
+                yield StreamEntry(entry=record,
+                                  seq=seq,
+                                  context={
+                                    "oai": {
+                                    "metadata": (
+                                        record['metadata']
+                                        if "metadata" in record
+                                        else {}
+                                    ),
+                                    "datestamp": record['updated'],
+                                    "deleted": False,
+                                    "identifier": f"oai:zenodo.org:{record['id']}",
+                                    "setSpecs": self.base_query,
+                                    },
+                                    "oai_run": self.oai_run,
+                                    "oai_harvester_id": self.oai_harvester_id,
+                                    "manual": self.manual
+                                  })
 
 
     def search_zenodo(self, params=None, url=None):
@@ -94,10 +95,11 @@ class ZenodoLoader(BaseReader):
         while True:
             if search_results is None:
                 yield None
+                return
 
             for search_result in search_results.get('hits', {}).get('hits', []):
                yield search_result
-            if search_results.get('links').get('next') is not None:
+            if search_results.get('links',{}).get('next') is not None:
                 search_results = self.search_zenodo(url=search_results.get('links').get('next'))
             else:
                 break
