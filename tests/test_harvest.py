@@ -24,7 +24,7 @@ def test_harvest_lindat(app, db, search_clear):
         "setspecs": "hdl_11858_00-097C-0000-0001-486F-D",
         "loader": "sickle",
         "transformers" : ["lindat_transformer"],
-        "writer": "service{service=test_datacite}",
+        "writers": ["service{service=test_datacite}"],
 
     }
     harvester = _add_harvester(harvester_metadata)
