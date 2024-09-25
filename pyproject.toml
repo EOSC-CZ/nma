@@ -16,7 +16,7 @@ dependencies = [
     "oarepo[s3]==12.*",
     "python-dotenv",
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.12,<3.13"
 
 [project.entry-points."invenio_assets.webpack"]
 branding = "ui.branding.webpack:theme"

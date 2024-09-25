@@ -38,9 +38,9 @@ fi
 
 
 SUPPORTED_PYTHON_PATHS=(
-  /usr/bin/python3.10
-  /opt/homebrew/bin/python3.10
-  /usr/local/bin/python3.10
+  /usr/bin/python3.12
+  /opt/homebrew/bin/python3.12
+  /usr/local/bin/python3.12
 )
 
 if [ -z "$PYTHON" ] ; then
