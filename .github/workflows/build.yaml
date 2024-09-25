@@ -6,7 +6,7 @@ on:
       oarepo:
         description: OARepo version (11, 12, ...)
         required: true
-        default: 11
+        default: 12
         type: string
 
 env:
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: "3.10"
+          python-version: "3.12"
 
       - name: Start Redis
         uses: supercharge/redis-github-action@1.7.0
