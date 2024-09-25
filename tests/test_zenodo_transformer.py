@@ -738,7 +738,7 @@ def test_transform_funders():
 def test_transform_all():
     transformer = ZenodoTransformer()
     record = None
-    with open('zenodo_example_metadata.json','r') as file:
+    with open('tests/zenodo_example_metadata.json','r') as file:
         record = json.load(file)
 
     item = StreamEntry(entry=record,
