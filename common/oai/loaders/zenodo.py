@@ -80,8 +80,8 @@ class ZenodoLoader(BaseReader):
         """
         if self.start_from is not None:
             try:
-                #datetime.strptime(self.start_from, '%Y-%m-%d')
-                query = f'({query}) AND updated:[{self.start_from.isoformat()} TO *]'
+                datetime.strptime(self.start_from, '%Y-%m-%d')
+                query = f'({query}) AND updated:[{self.start_from} TO *]'
             except ValueError:
                 print("Start from date is not in correct format")
                 yield None
