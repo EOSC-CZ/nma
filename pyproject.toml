@@ -75,6 +75,7 @@ tests = [
     "isort",
     "pytest-invenio>=1.4.11",
     "pytest-invenio[opensearch2]",
+    "requests-mock"
 ]
 
 [build-system]
