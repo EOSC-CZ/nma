@@ -15,6 +15,7 @@ dependencies = [
     "oarepo-vocabularies",
     "oarepo[s3]==12.*",
     "python-dotenv",
+    "sentry-sdk[flask]",
 ]
 requires-python = ">=3.12,<3.13"
 
