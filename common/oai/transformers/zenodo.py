@@ -142,7 +142,11 @@ class ZenodoTransformer(BaseTransformer):
                 affiliation['affiliationIdentifier'] = zenodo_affiliation.get('id')
             affiliations.append(affiliation)
 
-    def transform_dates(self, dates, zenodo_dates):
+    def transform_dates(self, dates, issued_date, zenodo_dates):
+        dates.append({
+            'date' : issued_date,
+            'dateType' : "Issued"
+        })
         for date in zenodo_dates:
             schema = {
                 'date': date.pop('date'),
@@ -398,6 +402,9 @@ class ZenodoTransformer(BaseTransformer):
         if entry.entry.get('pid', {}).get('doi', {}).get('identifier', None) is not None:
             transformed_metadata['doi'] = entry.entry.get('pid', {}).get('doi', {}).get('identifier', None)
 
+        if entry.entry.get('links',{}).get('self_html') is not None:
+            transformed_metadata['url'] = entry.entry.get('links',{}).get('self_html')
+
         self.transform_alt_identifiers(transformed_metadata.setdefault('alternateIdentifiers', []),
                                        source_metadata.pop('identifiers',[]))
 
@@ -409,6 +416,7 @@ class ZenodoTransformer(BaseTransformer):
                                 source_metadata.pop('creators', []))
 
         self.transform_dates(transformed_metadata.setdefault('dates', []),
+                             source_metadata.get('publication_date',""),
                              source_metadata.pop('dates', []))
 
         self.transform_descriptions(transformed_metadata.setdefault('descriptions', []),

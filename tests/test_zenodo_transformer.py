@@ -372,7 +372,7 @@ def test_transform_descriptions():
 def test_transform_dates():
     transformer = ZenodoTransformer()
     converted = []
-    transformer.transform_dates(converted, [
+    transformer.transform_dates(converted, "2024-01-01",[
       {
         "date": "2022-01-01",
         "description": "accepted des",
@@ -427,6 +427,10 @@ def test_transform_dates():
     ])
 
     assert converted == [
+        {
+            'date': '2024-01-01',
+            'dateType' : "Issued"
+        },
         {'date': '2022-01-01',
          'dateInformation': 'accepted des',
          'dateType': 'Accepted',},
@@ -811,6 +815,7 @@ def test_transform_all():
         ],
         'creators':[],
         'dates':[
+            {'date' : "2024-09-23", 'dateType' : "Issued"},
             {'date':"2024-01-01",'dateType':'Accepted','dateInformation':"accepted"},
             {'date': "2024-01-01", 'dateType': 'Available', 'dateInformation': "available"},
             {'date': "2024-01-01", 'dateType': 'Collected', 'dateInformation': "collected"},
