@@ -51,7 +51,7 @@ class CSLJSONSchema(Schema):
     
     def get_title(self, obj):
         """Get title."""
-        sanitized = SanitizedUnicode()._deserialize(obj["metadata"].get("titles")[0]["title"], None, None)
+        sanitized = SanitizedUnicode()._deserialize(obj["metadata"].get("titles", [])[0]["title"], None, None)
         return sanitized
 
     def _read_resource_type(self, id_):
@@ -62,7 +62,7 @@ class CSLJSONSchema(Schema):
     def get_issued(self, obj):
         """Get issued dates."""
         try:
-            filtered = next(o for o in obj["metadata"].get("dates") if o.get("dateType").lower() == "issued")
+            filtered = next(o for o in obj["metadata"].get("dates", []) if o.get("dateType").lower() == "issued")
             parsed = parse_edtf(filtered.get("date"))
         except EDTFParseException:
             return missing
