@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import Overridable from "react-overridable";
 import _get from "lodash/get";
-import _join from "lodash/join";
 import _truncate from "lodash/truncate";
 import _find from "lodash/find";
+import _flatten from "lodash/flatten";
+import _uniq from "lodash/uniq";
 import { Grid, Item, Label, List, Icon, Segment } from "semantic-ui-react";
 import { withState, buildUID } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
@@ -16,6 +17,8 @@ import {
   DoubleSeparator,
   ResultsItemResourceType,
 } from "@datasets_search";
+import sanitizeHtml from "sanitize-html";
+
 
 const ItemHeader = ({ title, searchUrl, selfLink }) => {
   const viewLink = new URL(
@@ -69,7 +72,7 @@ ItemSubheader.propTypes = {
   searchUrl: PropTypes.string,
 };
 
-const ItemExtraInfo = ({ createdDate, language, publisher }) => {
+const ItemExtraInfo = ({ createdDate, language, publisher, affiliations }) => {
   return (
     <Item.Extra className="rel-mt-1">
       <div>
@@ -78,7 +81,12 @@ const ItemExtraInfo = ({ createdDate, language, publisher }) => {
             {createdDate && <span>{createdDate}</span>}
             {language && <span className="left-tab">{language.toUpperCase()}</span>}
             {publisher && <span className="left-tab">{publisher.name}</span>}
-            <span className="left-tab">{i18next.t("National Metadata Directory")}</span>
+          </p>
+          <p>{
+            affiliations.map(affiliation => {
+                return <><span>{affiliation}</span><br/></>
+            })
+          }
           </p>
         </small>
       </div>
@@ -90,6 +98,7 @@ ItemExtraInfo.propTypes = {
   createdDate: PropTypes.string,
   language: PropTypes.string,
   publisher: PropTypes.object,
+  affiliations: PropTypes.array,
 };
 
 const ItemSidebarIcons = ({ rights }) => {
@@ -132,11 +141,14 @@ export const ResultsListItemComponent = ({
 
   const language = _get(result, "metadata.language");
 
-  const publicationDate = _find(_get(
-    result,
-    "metadata.dates",
-    []
-  ), (date) => date.dateType.toLowerCase() === "issued").date ?? i18next.t("No publication date found.");
+  let dates = _get(
+      result,
+      "metadata.dates",
+      []
+  );
+  const publicationDate = _find(
+      dates,
+      (date) => date.dateType?.toLowerCase() === "issued")?.date ?? i18next.t("No publication date found.");
   const resourceTypeGeneral = _get(result, "metadata.types[0]"); // TODO: can there be more than one?
   const subjects = _get(result, "metadata.subjects", []);
   const title = _get(result, "metadata.titles[0].title", "No title");
@@ -145,6 +157,9 @@ export const ResultsListItemComponent = ({
 
   const thesis = _get(result, "metadata.thesis"); // TODO: Remove??
   const publisher = _get(result, "metadata.publisher"); // TODO: only one
+
+  const affiliations_objects = _flatten(_get(result, "metadata.creators").map(x=>x.affiliation)).filter(x=>x);
+  const affiliations = _uniq(affiliations_objects.map(x=>x.name)).filter(x=>x.indexOf("Czech Republic")>0).sort();
 
   const filters =
     currentQueryState && Object.fromEntries(currentQueryState.filters);
@@ -170,6 +185,7 @@ export const ResultsListItemComponent = ({
       thesis={thesis}
       allVersionsVisible={allVersionsVisible}
       numOtherVersions={numOtherVersions}
+      affiliations={affiliations}
     >
       <Item key={result.id} className="search-listing-item">
         <Item.Content>
@@ -193,7 +209,7 @@ export const ResultsListItemComponent = ({
                   searchUrl={searchAppConfig.ui_endpoint}
                 />
                 <Item.Description className="listing-item-description">
-                  {_truncate(descriptionStripped, { length: 350 })} 
+                  <p dangerouslySetInnerHTML={{ __html: sanitizeHtml(_truncate(descriptionStripped, { length: 350 })) }}/>
                   <a href={result.links.self_html} className="read-more-link">
                     {i18next.t("read more")}
                     <Icon name="chevron right" link className="read-more-chevron" />
@@ -203,7 +219,8 @@ export const ResultsListItemComponent = ({
                 <ItemExtraInfo
                   createdDate={createdDate}
                   language={language}
-                  publishers={publisher}
+                  publisher={publisher}
+                  affiliations={affiliations}
                 />
               </Grid.Row>
             </Grid.Row>

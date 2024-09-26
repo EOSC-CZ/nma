@@ -1,4 +1,5 @@
 from datetime import datetime
+from time import sleep
 from typing import Iterable
 from urllib.error import HTTPError
 
@@ -35,6 +36,8 @@ class ZenodoLoader(BaseReader):
                 yield None
             else:
                 record = requests.get(url=record['links']['self'], headers={'Accept':'application/vnd.inveniordm.v1+json'}).json()
+                # Zenodo has rate limit of 2000 requests per hour, thus the 2 seconds sleep here
+                sleep(2)
                 yield StreamEntry(entry=record,
                                   seq=seq,
                                   context={

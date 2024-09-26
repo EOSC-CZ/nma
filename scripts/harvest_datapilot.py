@@ -1,5 +1,4 @@
 # harvests datapilot and creates a fixture for nma
-import copy
 import re
 from pathlib import Path
 from pprint import pprint
