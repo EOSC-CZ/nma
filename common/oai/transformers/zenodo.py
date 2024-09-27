@@ -160,7 +160,7 @@ class ZenodoTransformer(BaseTransformer):
         if main_description is not None:
             descriptions.append({
                 'description': main_description,
-                'descriptionType': 'Other'
+                'descriptionType': 'Abstract'
             })
 
         for description in zenodo_descriptions:

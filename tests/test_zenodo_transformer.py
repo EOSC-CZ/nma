@@ -340,7 +340,7 @@ def test_transform_descriptions():
     ])
     assert converted == [
         {'description': '<p>some description idk</p>',
-         'descriptionType' : 'Other'},
+         'descriptionType' : 'Abstract'},
 
         {'description': '<p>abstract description</p>',
          'descriptionType': 'Abstract',
@@ -830,7 +830,7 @@ def test_transform_all():
 
         ],
         'descriptions':[
-            {'description':"<p>main description</p>", 'descriptionType':"Other"},
+            {'description':"<p>main description</p>", 'descriptionType':"Abstract"},
             {'description': "<p>abstract</p>", 'descriptionType': "Abstract", 'lang':"spa"},
             {'description': "<p>methods</p>", 'descriptionType': "Methods"},
             {'description': "<p>notes</p>", 'descriptionType': "Other"},
