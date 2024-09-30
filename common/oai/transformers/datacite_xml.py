@@ -23,6 +23,16 @@ class DataciteXMLTransformer(BaseTransformer):
                 entry.errors.append(StreamEntryError.from_exception(e))
         return batch
 
+    def ensureEmpty(self, data, *exceptions, filter=True):
+        for key in data.keys():
+            if key not in exceptions:
+                if filter:
+                    filtered_data = {k: v for k, v in data.items() if k not in exceptions}
+                else:
+                    filtered_data = data
+                print(filtered_data)
+                raise Exception(f"Unhandled key: {key} inside data")
+
     def parse_xml(self, entry:StreamEntry):
         try:
             metadata = xmltodict.parse(entry.entry)
@@ -38,14 +48,16 @@ class DataciteXMLTransformer(BaseTransformer):
         if isinstance(datacite_alt_identifiers, list):
             for alt_id in datacite_alt_identifiers:
                 alt_identifiers.append({
-                    'alternateIdentifier': alt_id['#text'],
-                    'alternateIdentifierType': alt_id['@alternateIdentifierType'],
+                    'alternateIdentifier': alt_id.pop('#text'),
+                    'alternateIdentifierType': alt_id.pop('@alternateIdentifierType'),
                 })
+                self.ensureEmpty(alt_id)
         else:
             alt_identifiers.append({
-                'alternateIdentifier': datacite_alt_identifiers['#text'],
-                'alternateIdentifierType': datacite_alt_identifiers['@alternateIdentifierType'],
+                'alternateIdentifier': datacite_alt_identifiers.pop('#text'),
+                'alternateIdentifierType': datacite_alt_identifiers.pop('@alternateIdentifierType'),
             })
+            self.ensureEmpty(datacite_alt_identifiers)
 
     def transform_container(self):
         pass  # no container
@@ -80,9 +92,9 @@ class DataciteXMLTransformer(BaseTransformer):
 
     def transform_contributor(self, contributor):
         curr_contributor = {}
-        affiliations = self.transform_affiliations(contributor.get('affiliation', []))
-        nameIdentifier = self.transform_nameIdentifier(contributor.get('nameIdentifier'))
-        curr_contributor['contributorType'] = self.transform_contributor_type(contributor.get('@contributorType'))
+        affiliations = self.transform_affiliations(contributor.pop('affiliation', []))
+        nameIdentifier = self.transform_nameIdentifier(contributor.pop('nameIdentifier',{}))
+        curr_contributor['contributorType'] = self.transform_contributor_type(contributor.pop('@contributorType',""))
         person = self.transform_person(contributor)
         curr_contributor.update(person)
 
@@ -90,21 +102,24 @@ class DataciteXMLTransformer(BaseTransformer):
             curr_contributor['affiliation'] = affiliations
         if len(nameIdentifier) > 0:
             curr_contributor['nameIdentifiers'] = nameIdentifier
-
         return curr_contributor
 
     def transform_contributors(self, contributors, datacite_contributors):
         if isinstance(datacite_contributors, list):
             for contributor in datacite_contributors:
                 contributors.append(self.transform_contributor(contributor))
+                self.ensureEmpty(contributor)
         else:
             contributors.append(self.transform_contributor(datacite_contributors))
+            self.ensureEmpty(datacite_contributors)
 
     def transform_creator(self, creator):
         curr_creator = {}
-        affiliations = self.transform_affiliations(creator.get('affiliation', []))
-        nameIdentifier = self.transform_nameIdentifier(creator.get('nameIdentifier'))
+        affiliations = self.transform_affiliations(creator.pop('affiliation', []))
+        nameIdentifier = self.transform_nameIdentifier(creator.pop('nameIdentifier',{}))
         person = self.transform_person(creator)
+
+        self.ensureEmpty(creator)
 
         curr_creator.update(person)
         if len(affiliations) > 0:
@@ -118,26 +133,30 @@ class DataciteXMLTransformer(BaseTransformer):
         if isinstance(datacite_creators, list):
             for creator in datacite_creators:
                 creators.append(self.transform_creator(creator))
+                self.ensureEmpty(creator)
         else:
             creators.append(self.transform_creator(datacite_creators))
+            self.ensureEmpty(datacite_creators)
 
     def transform_person(self, datacite_person):
         person = {}
         if isinstance(datacite_person.get('creatorName'), str):
-            person['name'] = datacite_person.get('creatorName')
+            person['name'] = datacite_person.pop('creatorName')
         if isinstance(datacite_person.get('creatorName',[]), OrderedDict) and datacite_person.get("creatorName",{}).get('@nameType') == "Personal":
             person['nameType'] = "Personal"
-            person['name'] = datacite_person.get("creatorName").get('#text')
+            person['name'] = datacite_person.get("creatorName").pop('#text')
+            datacite_person.pop("creatorName")
         else:
             person['nameType'] = "Organizational"
 
-        if datacite_person.get('contributorName'):
-            person['name'] = datacite_person.get('contributorName')
-        if datacite_person.get('givenName'):
-            person['givenName'] = datacite_person.get('givenName')
-        if datacite_person.get('familyName'):
-            person['familyName'] = datacite_person.get('familyName')
+        if datacite_person.get('contributorName') is not None:
+            person['name'] = datacite_person.pop('contributorName')
+        if datacite_person.get('givenName') is not None:
+            person['givenName'] = datacite_person.pop('givenName')
+        if datacite_person.get('familyName') is not None:
+            person['familyName'] = datacite_person.pop('familyName')
 
+        self.ensureEmpty(datacite_person)
         return person
 
 
@@ -145,12 +164,13 @@ class DataciteXMLTransformer(BaseTransformer):
         if not nameIdentifier:
             return []
         identifier = {
-            'nameIdentifier' : nameIdentifier['#text']
+            'nameIdentifier' : nameIdentifier.pop('#text')
         }
         if nameIdentifier.get("@nameIdentifierScheme"):
-            identifier['nameIdentifierScheme'] = nameIdentifier['@nameIdentifierScheme']
-        if nameIdentifier.get("@schemeURI"):
-            identifier['schemeURI'] = nameIdentifier['@schemeURI']
+            identifier['nameIdentifierScheme'] = nameIdentifier.pop('@nameIdentifierScheme')
+        if nameIdentifier.get("@schemeURI") is not None:
+            identifier['schemeURI'] = nameIdentifier.pop('@schemeURI')
+        self.ensureEmpty(nameIdentifier)
         return [identifier]
 
     def transform_affiliations(self, datacite_affiliations):
@@ -167,17 +187,19 @@ class DataciteXMLTransformer(BaseTransformer):
             for date in datacite_dates:
                 curr_date = self.transform_date(date)
                 if len(curr_date) > 0:
-                    dates.append(self.transform_date(date))
+                    dates.append(curr_date)
+                    self.ensureEmpty(date)
         else:
             date = self.transform_date(datacite_dates)
             if len(date) > 0:
-                dates.append(self.transform_date(datacite_dates))
+                dates.append(date)
+                self.ensureEmpty(datacite_dates)
 
     def transform_date(self, date):
-        if date.get('#text').isnumeric():
+        if date.get('#text',"").isnumeric():
             return {
-                    'date': date['#text'],
-                    'dateType': date['@dateType'],
+                    'date': date.pop('#text'),
+                    'dateType': date.pop('@dateType'),
                 }
         else:
             return {}
@@ -186,13 +208,15 @@ class DataciteXMLTransformer(BaseTransformer):
         if isinstance(datacite_descriptions, list):
             for description in datacite_descriptions:
                 descriptions.append(self.transform_description(description))
+                self.ensureEmpty(description)
         else:
             descriptions.append(self.transform_description(datacite_descriptions))
+            self.ensureEmpty(datacite_descriptions)
 
     def transform_description(self, description):
         return {
-                'description': description['#text'],
-                'descriptionType' : description['@descriptionType'],
+                'description': description.pop('#text'),
+                'descriptionType' : description.pop('@descriptionType'),
                 }
 
     def transform_doi(self, datacite_doi):
@@ -210,14 +234,34 @@ class DataciteXMLTransformer(BaseTransformer):
 
     def transform_geo_location(self, datacite_geo_locations):
         curr_location = {}
-        if datacite_geo_locations.get('geoLocationPlace'):
-            curr_location['geoLocationPlace'] = datacite_geo_locations['geoLocationPlace']
+        if datacite_geo_locations.get('geoLocationPlace') is not None:
+            curr_location['geoLocationPlace'] = datacite_geo_locations.pop('geoLocationPlace')
         if datacite_geo_locations.get("geoLocationPoint"):
-            point = datacite_geo_locations.get('geoLocationPoint').split()
+            point = datacite_geo_locations.pop('geoLocationPoint').split()
             curr_location['geoLocationPoint'] = {
                 'pointLatitude': point[0],
                 'pointLongitude': point[1]
             }
+        if isinstance(datacite_geo_locations.get("geoLocationBox",[]), OrderedDict):
+            geoLocationBox = {
+                'eastBoundLongitude': datacite_geo_locations.get('geoLocationBox').pop("eastBoundLongitude",""),
+                'northBoundLatitude': datacite_geo_locations.get('geoLocationBox').pop("northBoundLatitude",""),
+                'southBoundLatitude': datacite_geo_locations.get('geoLocationBox').pop("southBoundLatitude",""),
+                'westBoundLongitude': datacite_geo_locations.get('geoLocationBox').pop("westBoundLongitude",""),
+            }
+            curr_location['geoLocationBox'] = geoLocationBox
+            datacite_geo_locations.pop('geoLocationBox')
+        if isinstance(datacite_geo_locations.get("geoLocationBox",[]), str):
+            coords = datacite_geo_locations.pop("geoLocationBox").split()
+            geoLocationBox = {
+                'eastBoundLongitude': coords[0],
+                'northBoundLatitude': coords[1],
+                'southBoundLatitude': coords[2],
+                'westBoundLongitude': coords[3],
+            }
+            curr_location['geoLocationBox'] = geoLocationBox
+            datacite_geo_locations.pop('geoLocationBox')
+        self.ensureEmpty(datacite_geo_locations)
         return curr_location
 
     def transform_geo_locations(self, locations, datacite_geo_locations):
@@ -235,27 +279,30 @@ class DataciteXMLTransformer(BaseTransformer):
 
     def transform_related_identifier(self, datacite_related_identifiers):
         return {
-            'relatedIdentifier': datacite_related_identifiers["#text"],
-            'relatedIdentifierType': datacite_related_identifiers["@relatedIdentifierType"],
-            'relationType' : datacite_related_identifiers["@relationType"],
+            'relatedIdentifier': datacite_related_identifiers.pop("#text"),
+            'relatedIdentifierType': datacite_related_identifiers.pop("@relatedIdentifierType"),
+            'relationType' : datacite_related_identifiers.pop("@relationType"),
         }
 
     def transform_related_identifiers(self, related_identifiers, datacite_related_identifiers):
         if isinstance(datacite_related_identifiers, list):
             for rel_id in datacite_related_identifiers:
                 related_identifiers.append(self.transform_related_identifier(rel_id))
+                self.ensureEmpty(rel_id)
         else:
             related_identifiers.append(self.transform_related_identifier(datacite_related_identifiers))
+            self.ensureEmpty(datacite_related_identifiers)
 
     def transform_right(self, right):
         if isinstance(right, str):
             return {'rights' : right}
 
         curr_right = {
-            'rights': right['#text'],
+            'rights': right.pop('#text'),
         }
         if right.get("@rightsURI") is not None:
-            curr_right['rightsURI'] = right.get("@rightsURI")
+            curr_right['rightsURI'] = right.pop("@rightsURI")
+        self.ensureEmpty(right)
         return curr_right
 
     def transform_rights(self, rights, datacite_rights):
@@ -275,9 +322,10 @@ class DataciteXMLTransformer(BaseTransformer):
         if isinstance(datacite_subject, str):
             return {'subject': datacite_subject}
 
-        subject = {"subject" : datacite_subject['#text']}
-        if datacite_subject.get("@subjectScheme"):
-            subject['subjectScheme'] = datacite_subject['@subjectScheme']
+        subject = {"subject" : datacite_subject.pop('#text')}
+        if datacite_subject.get("@subjectScheme") is not None:
+            subject['subjectScheme'] = datacite_subject.pop('@subjectScheme')
+        self.ensureEmpty(datacite_subject)
         return subject
 
     def transform_subjects(self, subjects, datacite_subjects):
@@ -304,10 +352,12 @@ class DataciteXMLTransformer(BaseTransformer):
     def transform_types(self, types, datacite_type):
         if datacite_type:
             curr_type = {
-                'resourceTypeGeneral' : datacite_type['@resourceTypeGeneral'],
+                'resourceTypeGeneral' : datacite_type.pop('@resourceTypeGeneral'),
             }
-            if datacite_type.get('#text'):
-                curr_type['resourceType'] = datacite_type['#text']
+            if datacite_type.get('#text') is not None:
+                curr_type['resourceType'] = datacite_type.pop('#text')
+
+            self.ensureEmpty(datacite_type)
             types.append(curr_type)
 
     def transform_url(self, url, zenodo_url):
