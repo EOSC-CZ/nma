@@ -15,7 +15,7 @@ invenio oarepo oai harvester add lindat_dc --name "LINDAT oai_dc harvester" \
             --set hdl_11858_00-097C-0000-0001-486F-D --prefix oai_dc \
             --loader 'sickle' \
             --transformer lindat_transformer \
-            --writer 'service{service=datasets}'
+            --writer 'service{service=datasets,update=true}'
 
 
 invenio oarepo oai harvester run lindat_dc

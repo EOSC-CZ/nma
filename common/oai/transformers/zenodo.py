@@ -2,7 +2,6 @@ from copy import deepcopy
 from typing import Union
 from oarepo_runtime.datastreams import BaseTransformer, StreamEntry, StreamBatch
 
-from common.oai.transformers.lindat import transform_identifier, transform_description
 from oarepo_runtime.datastreams.types import StreamEntryError
 
 class ZenodoTransformer(BaseTransformer):
