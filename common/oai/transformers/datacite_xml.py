@@ -26,7 +26,7 @@ class DataciteXMLTransformer(BaseTransformer):
     def ensureEmpty(self, data, *exceptions, filter=True):
         for key in data.keys():
             if key not in exceptions:
-                if filter:
+                if filter:\
                     filtered_data = {k: v for k, v in data.items() if k not in exceptions}
                 else:
                     filtered_data = data
@@ -148,6 +148,8 @@ class DataciteXMLTransformer(BaseTransformer):
             datacite_person.pop("creatorName")
         else:
             person['nameType'] = "Organizational"
+            person['name'] = datacite_person.get("creatorName").pop('#text')
+            datacite_person.pop('creatorName', "")
 
         if datacite_person.get('contributorName') is not None:
             person['name'] = datacite_person.pop('contributorName')
@@ -164,7 +166,7 @@ class DataciteXMLTransformer(BaseTransformer):
         if not nameIdentifier:
             return []
         identifier = {
-            'nameIdentifier' : nameIdentifier.pop('#text')
+            'nameIdentifier' : nameIdentifier.pop('#text',"")
         }
         if nameIdentifier.get("@nameIdentifierScheme"):
             identifier['nameIdentifierScheme'] = nameIdentifier.pop('@nameIdentifierScheme')
@@ -174,10 +176,22 @@ class DataciteXMLTransformer(BaseTransformer):
         return [identifier]
 
     def transform_affiliations(self, datacite_affiliations):
-        if datacite_affiliations:
+        if isinstance(datacite_affiliations,str):
             return [{
                 'name' : datacite_affiliations
             }]
+        elif isinstance(datacite_affiliations,OrderedDict):
+            aff = {
+                'name' : datacite_affiliations.pop('#text',"")
+            }
+            if datacite_affiliations.get('@affiliationIdentifier') is not None:
+                aff['affiliationIdentifier'] = datacite_affiliations.pop('@affiliationIdentifier')
+            if datacite_affiliations.get('@schemeURI') is not None:
+                aff['schemeURI'] = datacite_affiliations.pop('@schemeURI')
+            if datacite_affiliations.get('@affiliationIdentifierScheme') is not None:
+                aff['affiliationIdentifierScheme'] = datacite_affiliations.pop('@affiliationIdentifierScheme')
+
+
         else:
             return []
 
@@ -199,7 +213,8 @@ class DataciteXMLTransformer(BaseTransformer):
         if date.get('#text',"").isnumeric():
             return {
                     'date': date.pop('#text'),
-                    'dateType': date.pop('@dateType'),
+                    'dateType': date.pop('@dateType',"Other"),
+                    'dateInformation' : date.pop('@dateInformation',""),
                 }
         else:
             return {}
@@ -215,8 +230,9 @@ class DataciteXMLTransformer(BaseTransformer):
 
     def transform_description(self, description):
         return {
-                'description': description.pop('#text'),
-                'descriptionType' : description.pop('@descriptionType'),
+                'description': description.pop('#text',""),
+                'descriptionType' : description.pop('@descriptionType',"Other"),
+                'lang' : description.pop("@xml:lang","")
                 }
 
     def transform_doi(self, datacite_doi):
@@ -229,19 +245,49 @@ class DataciteXMLTransformer(BaseTransformer):
         else:
             _formats.append(datacite_formats)
 
-    def transform_funding(self, fundings, zenodo_fundings):
-       pass
+    def transform_fundings(self, fundings, datacite_fundings):
+        if isinstance(datacite_fundings, list):
+            for funding in datacite_fundings:
+                fundings.append(self.transform_funding(funding))
+                self.ensureEmpty(funding)
+        else:
+            fundings.append(self.transform_funding(datacite_fundings))
+            self.ensureEmpty(datacite_fundings)
+
+    def transform_funding(self, funding):
+        curr_funding = {
+            'funderName' : funding.pop('funderName',""),
+            'funderIdentifierType' : funding.get('funderIdentifier',{}).pop("@funderIdentifierType","Other"),
+            'funderIdentifier' : funding.pop('funderIdentifier',{}).get("#text",""),
+            'awardTitle' : funding.pop('awardTitle',""),
+        }
+        if isinstance(funding.get("awardNumber"), OrderedDict):
+            curr_funding['awardNumber'] = funding.get("awardNumber").pop("#text","")
+            curr_funding['awardURI'] = funding.get("awardNumber").pop("@awardURI","")
+        elif isinstance(funding.get("awardNumber"), str):
+            curr_funding['awardNumber'] = funding.pop("awardNumber","")
+
+        return curr_funding
 
     def transform_geo_location(self, datacite_geo_locations):
         curr_location = {}
         if datacite_geo_locations.get('geoLocationPlace') is not None:
             curr_location['geoLocationPlace'] = datacite_geo_locations.pop('geoLocationPlace')
-        if datacite_geo_locations.get("geoLocationPoint"):
+
+        if isinstance(datacite_geo_locations.get("geoLocationPoint",[]), str):
             point = datacite_geo_locations.pop('geoLocationPoint').split()
             curr_location['geoLocationPoint'] = {
                 'pointLatitude': point[0],
                 'pointLongitude': point[1]
             }
+        elif isinstance(datacite_geo_locations.get("geoLocationPoint",[]), OrderedDict):
+            curr_location['geoLocationPoint'] = {
+                'pointLatitude': datacite_geo_locations.get('geoLocationPoint').pop('pointLatitude'),
+                'pointLongitude': datacite_geo_locations.get('geoLocationPoint').pop('pointLongitude')
+            }
+            datacite_geo_locations.pop('geoLocationPoint')
+
+
         if isinstance(datacite_geo_locations.get("geoLocationBox",[]), OrderedDict):
             geoLocationBox = {
                 'eastBoundLongitude': datacite_geo_locations.get('geoLocationBox').pop("eastBoundLongitude",""),
@@ -251,16 +297,19 @@ class DataciteXMLTransformer(BaseTransformer):
             }
             curr_location['geoLocationBox'] = geoLocationBox
             datacite_geo_locations.pop('geoLocationBox')
-        if isinstance(datacite_geo_locations.get("geoLocationBox",[]), str):
-            coords = datacite_geo_locations.pop("geoLocationBox").split()
-            geoLocationBox = {
-                'eastBoundLongitude': coords[0],
-                'northBoundLatitude': coords[1],
-                'southBoundLatitude': coords[2],
-                'westBoundLongitude': coords[3],
-            }
-            curr_location['geoLocationBox'] = geoLocationBox
-            datacite_geo_locations.pop('geoLocationBox')
+        elif isinstance(datacite_geo_locations.get("geoLocationBox",[]), str):
+            coords = datacite_geo_locations.get("geoLocationBox","")
+            if coords:
+                coords = coords.split()
+                geoLocationBox = {
+                    'eastBoundLongitude': coords[0],
+                    'northBoundLatitude': coords[1],
+                    'southBoundLatitude': coords[2],
+                    'westBoundLongitude': coords[3],
+                }
+                curr_location['geoLocationBox'] = geoLocationBox
+                datacite_geo_locations.pop('geoLocationBox')
+
         self.ensureEmpty(datacite_geo_locations)
         return curr_location
 
@@ -272,16 +321,28 @@ class DataciteXMLTransformer(BaseTransformer):
             locations.append(self.transform_geo_location(datacite_geo_locations))
 
     def transform_publisher(self, publisher, datacite_publisher):
-        if datacite_publisher:
+        if isinstance(datacite_publisher,str):
             publisher.update({
                 'name' : datacite_publisher
+            })
+        elif isinstance(datacite_publisher,OrderedDict):
+            publisher.update({
+                'name' : datacite_publisher.pop('#text',""),
+                'lang' : datacite_publisher.pop('@xml:lang',""),
+                'publisherIdentifier' : datacite_publisher.pop('@publisherIdentifier',""),
+                'publisherIdentifierScheme' : datacite_publisher.pop('@publisherIdentifierScheme',""),
+                'schemeURI' : datacite_publisher.pop('@schemeURI',""),
             })
 
     def transform_related_identifier(self, datacite_related_identifiers):
         return {
-            'relatedIdentifier': datacite_related_identifiers.pop("#text"),
+            'relatedIdentifier': datacite_related_identifiers.pop("#text",""),
             'relatedIdentifierType': datacite_related_identifiers.pop("@relatedIdentifierType"),
-            'relationType' : datacite_related_identifiers.pop("@relationType"),
+            'relatedMetadataScheme': datacite_related_identifiers.pop("@relatedMetadataScheme",""),
+            'relationType' : datacite_related_identifiers.pop("@relationType",""),
+            'resourceTypeGeneral' : datacite_related_identifiers.pop("@resourceTypeGeneral","Other"),
+            'schemeType' : datacite_related_identifiers.pop("@schemeType",""),
+            'schemeURI' : datacite_related_identifiers.pop("@schemeURI",""),
         }
 
     def transform_related_identifiers(self, related_identifiers, datacite_related_identifiers):
@@ -293,15 +354,84 @@ class DataciteXMLTransformer(BaseTransformer):
             related_identifiers.append(self.transform_related_identifier(datacite_related_identifiers))
             self.ensureEmpty(datacite_related_identifiers)
 
+    def transform_related_items(self, related_items, datacite_related_items):
+        if isinstance(datacite_related_items, list):
+            for rel_item in datacite_related_items:
+                related_items.append(self.transform_related_item(rel_item))
+                self.ensureEmpty(rel_item)
+        else:
+            related_items.append(self.transform_related_item(datacite_related_items))
+            self.ensureEmpty(datacite_related_items)
+
+    def transform_related_item(self, related_item):
+        rel_item = {}
+        if related_item.get('contributors'):
+            contributors = []
+            self.transform_contributors(contributors, related_item.get('contributors',{}).pop('contributor',[]))
+            related_item.pop('contributors',[])
+            rel_item['contributors'] = contributors
+        if related_item.get('creators'):
+            creators = []
+            self.transform_creators(creators, related_item.get('creators',{}).pop('creator',[]))
+            related_item.pop('creators',[])
+            rel_item['creators'] = creators
+        if related_item.get('edition') is not None:
+            rel_item['edition'] = related_item.pop('edition')
+        if related_item.get('firstPage') is not None:
+            rel_item['firstPage'] = related_item.pop('firstPage')
+        if related_item.get('lastPage') is not None:
+            rel_item['lastPage'] = related_item.pop('lastPage')
+        if related_item.get('issue') is not None:
+            rel_item['issue'] = related_item.pop('issue')
+        if related_item.get('number') is not None:
+            rel_item['number'] = related_item.get('number').pop("#text")
+            rel_item['numberType'] = related_item.get('number').pop('@numberType',"Other")
+            related_item.pop('number')
+        if related_item.get('publicationYear') is not None:
+            rel_item['publicationYear'] = related_item.pop('publicationYear')
+        if related_item.get('publisher') is not None:
+            self.transform_publisher(rel_item.setdefault('publisher',{}),related_item.pop('publisher',{}))
+        rel_item['relatedItemIdentifier'] = {
+            'relatedItemIdentifier' : related_item.get('relatedItemIdentifier').pop('#text',""),
+            'relatedItemIdentifierType' :  related_item.get('relatedItemIdentifier').pop('@relatedIdentifierType',""),
+        }
+        related_item.pop('relatedItemIdentifier', None)
+
+        rel_item['relatedItemType'] = related_item.pop("@relatedItemType","Other")
+        rel_item['relatedMetadataScheme'] = related_item.pop("@relatedMetadataScheme", "")
+        rel_item['relationType'] = related_item.pop("@relationType","")
+        rel_item['resourceTypeGeneral'] = related_item.pop("@resourceTypeGeneral","Other")
+        rel_item['schemeType'] = related_item.pop("@schemeType","")
+        rel_item['schemeURI'] = related_item.pop("@schemeURI","")
+
+        if related_item.get('titles'):
+            titles = []
+            self.transform_titles(titles, related_item.get('titles', {}).pop('title',[]))
+            rel_item['titles'] = titles
+            related_item.pop('titles',[])
+        if related_item.get("volume") is not None:
+            rel_item['volume'] = related_item.pop("volume","")
+
+        return rel_item
+
+
     def transform_right(self, right):
         if isinstance(right, str):
             return {'rights' : right}
 
         curr_right = {
-            'rights': right.pop('#text'),
+            'rights': right.pop('#text',""),
         }
         if right.get("@rightsURI") is not None:
             curr_right['rightsURI'] = right.pop("@rightsURI")
+        if right.get("@xml:lang") is not None:
+            curr_right['lang'] = right.pop("@xml:lang")
+        if right.get('@schemeURI') is not None:
+            curr_right['schemeURI'] = right.pop('@schemeURI')
+        if right.get('@rightsIdentifierScheme') is not None:
+            curr_right['rightsIdentifierScheme'] = right.pop('@rightsIdentifierScheme')
+        if right.get("@rightsIdentifier") is not None:
+            curr_right['rightsIdentifier'] = right.pop("@rightsIdentifier")
         self.ensureEmpty(right)
         return curr_right
 
@@ -322,9 +452,17 @@ class DataciteXMLTransformer(BaseTransformer):
         if isinstance(datacite_subject, str):
             return {'subject': datacite_subject}
 
-        subject = {"subject" : datacite_subject.pop('#text')}
+        subject = {"subject" : datacite_subject.pop('#text',"")}
         if datacite_subject.get("@subjectScheme") is not None:
             subject['subjectScheme'] = datacite_subject.pop('@subjectScheme')
+        if datacite_subject.get("@schemeURI") is not None:
+            subject['schemeURI'] = datacite_subject.pop('@schemeURI')
+        if datacite_subject.get("@valueURI") is not None:
+            subject['valueURI'] = datacite_subject.pop('@valueURI')
+        if datacite_subject.get("@classificationCode") is not None:
+            subject['classificationCode'] = datacite_subject.pop('@classificationCode')
+        if datacite_subject.get("@xml:lang") is not None:
+            subject['lang'] = datacite_subject.pop('@xml:lang')
         self.ensureEmpty(datacite_subject)
         return subject
 
@@ -336,11 +474,24 @@ class DataciteXMLTransformer(BaseTransformer):
             subjects.append(self.transform_subject(datacite_subjects))
 
     def transform_title(self, datacite_titles):
-       curr_title = {
-           "title": datacite_titles,
-            "titleType": "Other"
-       }
-       return curr_title
+       if isinstance(datacite_titles,OrderedDict):
+           curr_title = {
+               "title" : datacite_titles.pop('#text',""),
+               "titleType" : "Other"
+           }
+           if datacite_titles.get('titleType') is not None:
+               curr_title['titleType'] = datacite_titles.pop('titleType')
+           if datacite_titles.get('xml:lang') is not None:
+               curr_title['lang'] = datacite_titles.pop('xml:lang')
+           self.ensureEmpty(datacite_titles)
+           return curr_title
+       elif isinstance(datacite_titles, str):
+           curr_title = {
+               "title": datacite_titles,
+                "titleType": "Other"
+           }
+           return curr_title
+       return {}
 
     def transform_titles(self, titles, datacite_titles):
         if isinstance(datacite_titles, list):
@@ -370,58 +521,72 @@ class DataciteXMLTransformer(BaseTransformer):
         transformed_metadata = {}
 
         self.transform_alt_identifiers(transformed_metadata.setdefault('alternateIdentifiers',[]),
-                                       source_metadata.get('alternateIdentifiers',{}).get("alternateIdentifier",[]))
+                                       source_metadata.get('alternateIdentifiers',{}).pop("alternateIdentifier",[]))
+        source_metadata.pop('alternateIdentifiers',{})
 
         self.transform_contributors(transformed_metadata.setdefault('contributors',[]),
-                                    source_metadata.get('contributors',{}).get('contributor',[]))
+                                    source_metadata.get('contributors',{}).pop('contributor',[]))
+        source_metadata.pop('contributors', {})
 
         self.transform_creators(transformed_metadata.setdefault('creators',[]),
-                                source_metadata.get('creators',{}).get('creator',[]))
+                                source_metadata.get('creators',{}).pop('creator',[]))
+        source_metadata.pop('creators', {})
 
         self.transform_dates(transformed_metadata.setdefault('dates',[]),
-                             source_metadata.get('dates',{}).get("date",[]))
-
+                             source_metadata.get('dates',{}).pop("date",[]))
+        source_metadata.pop('dates', {})
 
         self.transform_descriptions(transformed_metadata.setdefault('descriptions',[]),
-                                    source_metadata.get('descriptions',{}).get('description',[]))
+                                    source_metadata.get('descriptions',{}).pop('description',[]))
+        source_metadata.pop('descriptions', {})
 
-        transformed_metadata['doi'] = self.transform_doi(source_metadata.get('identifier'),)
+        transformed_metadata['doi'] = self.transform_doi(source_metadata.pop('identifier',{}),)
 
         self.transform_format(transformed_metadata.setdefault('formats',[]),
-                              source_metadata.get('formats',{}).get('format',[]))
+                              source_metadata.get('formats',{}).pop('format',[]))
+        source_metadata.pop('formats', {})
 
         self.transform_geo_locations(transformed_metadata.setdefault('geoLocations',[]),
-                                    source_metadata.get('geoLocations',{}).get('geoLocation',[]))
+                                    source_metadata.get('geoLocations',{}).pop('geoLocation',[]))
+        source_metadata.pop('geoLocations', {})
 
         if source_metadata.get('language'):
-            transformed_metadata['language'] = source_metadata.get('language')
+            transformed_metadata['language'] = source_metadata.pop('language')
 
         if source_metadata.get('publicationYear'):
-            transformed_metadata['publicationYear'] = source_metadata.get('publicationYear')
+            transformed_metadata['publicationYear'] = source_metadata.pop('publicationYear')
 
         self.transform_publisher(transformed_metadata.setdefault('publisher',{}),
-                                 source_metadata.get('publisher',{}))
+                                 source_metadata.pop('publisher',{}))
 
         self.transform_related_identifiers(transformed_metadata.setdefault('relatedIdentifiers',[]),
-                                           source_metadata.get('relatedIdentifiers',{}).get('relatedIdentifier',[]))
+                                           source_metadata.get('relatedIdentifiers',{}).pop('relatedIdentifier',[]))
+        source_metadata.pop('relatedIdentifiers', {})
 
-        self.transform_rights(transformed_metadata.setdefault('rightsList',[]),
-                              source_metadata.get('rightsList',{}).get('rights',[]))
+        if isinstance(source_metadata.get('rights'),str):
+            transformed_metadata['rights'] = {'rights' : source_metadata.pop('rights', "")}
+        else:
+            self.transform_rights(transformed_metadata.setdefault('rightsList',[]),
+                              source_metadata.get('rightsList',{}).pop('rights',[]))
+            source_metadata.pop('rightsList', {})
 
         self.transform_sizes(transformed_metadata.setdefault('sizes',[]),
-                             source_metadata.get('sizes',{}).get('size',[]))
+                             source_metadata.get('sizes',{}).pop('size',[]))
+        source_metadata.pop('sizes', {})
 
         self.transform_subjects(transformed_metadata.setdefault('subjects',[]),
-                                source_metadata.get('subjects',{}).get('subject',[]))
+                                source_metadata.get('subjects',{}).pop('subject',[]))
+        source_metadata.pop('subjects', {})
 
         self.transform_titles(transformed_metadata.setdefault('titles',[]),
-                              source_metadata.get('titles',{}).get('title',[]))
+                              source_metadata.get('titles',{}).pop('title',[]))
+        source_metadata.pop('titles', {})
 
         self.transform_types(transformed_metadata.setdefault('types',[]),
-                             source_metadata.get('resourceType'))
+                             source_metadata.pop('resourceType',{}))
 
         if source_metadata.get('version') is not None:
-            transformed_metadata['version'] = source_metadata['version']
+            transformed_metadata['version'] = source_metadata.pop('version')
 
         entry.entry = {'metadata': transformed_metadata}
 
