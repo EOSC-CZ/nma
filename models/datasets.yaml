@@ -33,7 +33,10 @@ record:
       - oarepo_runtime.services.search.I18nSearchOptions
   properties:
     metadata:
-      properties: {}
+      properties:
+        publisher:
+          name:
+            label.en: Publisher
   resource-config:
     base-html-url: /datasets/
   use:

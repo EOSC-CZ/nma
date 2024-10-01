@@ -5,6 +5,8 @@
         {% if item.lang._has_value %}
             <div class="ui label">{{ item.lang }}</div>
         {% endif %}
-        {{ item[field] }}
+        {% if item[field]._has_value %}
+            {{ item[field]._ui_value | safe }}
+        {% endif %}
     {% endfor %}
 </div>

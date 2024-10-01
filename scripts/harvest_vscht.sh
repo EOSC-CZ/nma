@@ -15,7 +15,7 @@ invenio oarepo oai harvester add vscht --name "Vscht zenodo harvester" \
             --set 'creators.affiliation:("vscht" OR "Vysoká škola chemicko-technologická v Praze" OR "UCT Prague" OR "University of Chemistry and Technology, Prague")' --prefix oai_dc \
             --loader zenodo \
             --transformer zenodo \
-            --writer 'service{service=datasets}'
+            --writer 'service{service=datasets,update=true}'
 
 
 invenio oarepo oai harvester run vscht

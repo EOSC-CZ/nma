@@ -1,6 +1,16 @@
 #
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
 
 #: /Users/m/w/nrp/nma/ui/branding/templates/footer.html:12
 msgid "Contact"
@@ -406,23 +416,19 @@ msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.label"
 msgstr "Zeměpisná délka"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:242
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label"
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label"
 msgstr "Zeměpisná šířka"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:249
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label"
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label"
 msgstr "Zeměpisná délka"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:256
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label"
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label"
 msgstr "Zeměpisná šířka"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:263
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label"
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label"
 msgstr "Zeměpisná délka"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:269
@@ -439,7 +445,7 @@ msgstr "Jazyk"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:281
 msgid "metadata/publisher/name.label"
-msgstr "Název"
+msgstr "Vydavatel"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:286
 msgid "metadata/publisher/publisherIdentifier.label"
@@ -482,13 +488,11 @@ msgid "metadata/relatedIdentifiers/schemeURI.label"
 msgstr "URI schématu"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:335
-msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.label"
+msgid "metadata/relatedItems/contributors/affiliation/affiliationIdentifier.label"
 msgstr "Identifikátor afiliace"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:342
-msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.label"
+msgid "metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.label"
 msgstr "Schéma identifikátoru afiliace"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:349
@@ -520,13 +524,11 @@ msgid "metadata/relatedItems/contributors/name.label"
 msgstr "Jméno"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:384
-msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.label"
+msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.label"
 msgstr "Identifikátor"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:389
-msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.label"
+msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.label"
 msgstr "Schéma identifikátoru"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:396
@@ -542,8 +544,7 @@ msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.label"
 msgstr "Identifikátor afiliace"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:411
-msgid ""
-"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.label"
+msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.label"
 msgstr "Schéma identifikátoru afiliace"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:418
@@ -575,8 +576,7 @@ msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.label"
 msgstr "Identifikátor"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:453
-msgid ""
-"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.label"
+msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.label"
 msgstr "Schéma identifikátoru"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:460
@@ -620,13 +620,11 @@ msgid "metadata/relatedItems/publisher.label"
 msgstr "Vydavatel"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:508
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.label"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.label"
 msgstr "Identifikátor"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:513
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.label"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.label"
 msgstr "Typ identifikátoru"
 
 #: /Users/m/w/nrp/nma/datasets/services/records/facets.py:520
@@ -1347,8 +1345,7 @@ msgstr "ISNI"
 msgid "metadata/fundingReferences/funderIdentifierType.enum.GRID"
 msgstr "GRID"
 
-msgid ""
-"metadata/fundingReferences/funderIdentifierType.enum.Crossref Funder ID"
+msgid "metadata/fundingReferences/funderIdentifierType.enum.Crossref Funder ID"
 msgstr "Crossref ID poskytovatele"
 
 msgid "metadata/fundingReferences/funderIdentifierType.enum.ROR"
@@ -1450,20 +1447,16 @@ msgstr ""
 msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.hint"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.help"
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.hint"
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.hint"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.help"
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.hint"
+msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.hint"
 msgstr ""
 
 msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.label"
@@ -1475,20 +1468,16 @@ msgstr ""
 msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.help"
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.hint"
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.hint"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.help"
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.help"
 msgstr ""
 
-msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.hint"
+msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.hint"
 msgstr ""
 
 msgid "metadata/language.help"
@@ -1758,15 +1747,13 @@ msgstr "Kapitola knihy"
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Collection"
 msgstr "Kolekce"
 
-msgid ""
-"metadata/relatedIdentifiers/resourceTypeGeneral.enum.ComputationalNotebook"
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.ComputationalNotebook"
 msgstr "Výpočetní sešit"
 
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.ConferencePaper"
 msgstr "Konferenční příspěvek"
 
-msgid ""
-"metadata/relatedIdentifiers/resourceTypeGeneral.enum.ConferenceProceeding"
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.ConferenceProceeding"
 msgstr "Konferenční sborník"
 
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.DataPaper"
@@ -1787,8 +1774,7 @@ msgstr "Obrázek"
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Instrument"
 msgstr "Nástroj"
 
-msgid ""
-"metadata/relatedIdentifiers/resourceTypeGeneral.enum.InteractiveResource"
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.InteractiveResource"
 msgstr "Interaktivní zdroj"
 
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Journal"
@@ -1800,8 +1786,7 @@ msgstr "Článek v časopise"
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Model"
 msgstr "Model"
 
-msgid ""
-"metadata/relatedIdentifiers/resourceTypeGeneral.enum.OutputManagementPlan"
+msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.OutputManagementPlan"
 msgstr "Plán řízení výstupů"
 
 msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.PeerReview"
@@ -1879,20 +1864,16 @@ msgstr "Afiliace"
 msgid "metadata/relatedItems/contributors/affiliation.hint"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.help"
+msgid "metadata/relatedItems/contributors/affiliation/affiliationIdentifier.help"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.hint"
+msgid "metadata/relatedItems/contributors/affiliation/affiliationIdentifier.hint"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.help"
+msgid "metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.help"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.hint"
+msgid "metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/affiliation/name.help"
@@ -1931,8 +1912,7 @@ msgstr "Distributor"
 msgid "metadata/relatedItems/contributors/contributorType.enum.Editor"
 msgstr "Editor"
 
-msgid ""
-"metadata/relatedItems/contributors/contributorType.enum.HostingInstitution"
+msgid "metadata/relatedItems/contributors/contributorType.enum.HostingInstitution"
 msgstr "Hostující instituce"
 
 msgid "metadata/relatedItems/contributors/contributorType.enum.Producer"
@@ -1947,12 +1927,10 @@ msgstr "Manažer projektu"
 msgid "metadata/relatedItems/contributors/contributorType.enum.ProjectMember"
 msgstr "Člen projektu"
 
-msgid ""
-"metadata/relatedItems/contributors/contributorType.enum.RegistrationAgency"
+msgid "metadata/relatedItems/contributors/contributorType.enum.RegistrationAgency"
 msgstr "Registrační agentura"
 
-msgid ""
-"metadata/relatedItems/contributors/contributorType.enum.RegistrationAuthority"
+msgid "metadata/relatedItems/contributors/contributorType.enum.RegistrationAuthority"
 msgstr "Registrační autorita"
 
 msgid "metadata/relatedItems/contributors/contributorType.enum.RelatedPerson"
@@ -1973,8 +1951,7 @@ msgstr "Sponzor"
 msgid "metadata/relatedItems/contributors/contributorType.enum.Supervisor"
 msgstr "Vedoucí"
 
-msgid ""
-"metadata/relatedItems/contributors/contributorType.enum.WorkPackageLeader"
+msgid "metadata/relatedItems/contributors/contributorType.enum.WorkPackageLeader"
 msgstr "Vedoucí pracovního balíčku"
 
 msgid "metadata/relatedItems/contributors/contributorType.enum.Other"
@@ -2019,12 +1996,10 @@ msgstr ""
 msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.hint"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.help"
+msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.help"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.hint"
+msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.help"
@@ -2069,12 +2044,10 @@ msgstr ""
 msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.hint"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.help"
+msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.help"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.hint"
+msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/affiliation/name.help"
@@ -2128,12 +2101,10 @@ msgstr ""
 msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.hint"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.help"
+msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.help"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.hint"
+msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.help"
@@ -2229,88 +2200,67 @@ msgstr ""
 msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.hint"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.help"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.help"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.hint"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.hint"
 msgstr ""
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ARK"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ARK"
 msgstr "ARK"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.arXiv"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.arXiv"
 msgstr "arXiv"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.bibcode"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.bibcode"
 msgstr "bibcode"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.DOI"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.DOI"
 msgstr "DOI"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.EAN13"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.EAN13"
 msgstr "EAN13"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.EISSN"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.EISSN"
 msgstr "EISSN"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.Handle"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.Handle"
 msgstr "Handle"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.IGSN"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.IGSN"
 msgstr "IGSN"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISBN"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISBN"
 msgstr "ISBN"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISSN"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISSN"
 msgstr "ISSN"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISTC"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISTC"
 msgstr "ISTC"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.LISSN"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.LISSN"
 msgstr "LISSN"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.LSID"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.LSID"
 msgstr "LSID"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.PMID"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.PMID"
 msgstr "PMID"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.PURL"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.PURL"
 msgstr "PURL"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.UPC"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.UPC"
 msgstr "UPC"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.URL"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.URL"
 msgstr "URL"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.URN"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.URN"
 msgstr "URN"
 
-msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.w3id"
+msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.w3id"
 msgstr "w3id"
 
 msgid "metadata/relatedItems/relatedItemType.help"

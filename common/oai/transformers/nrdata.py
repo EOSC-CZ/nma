@@ -1,11 +1,72 @@
-# harvests datapilot and creates a fixture for nma
 import re
-from pathlib import Path
-from pprint import pprint
+from typing import Union
+from oarepo_runtime.datastreams import BaseTransformer, StreamEntry, StreamBatch
 
-import requests
-import click
-import yaml
+from oarepo_runtime.datastreams.types import StreamEntryError
+
+class NRDataTransformer(BaseTransformer):
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def apply(self, batch: StreamBatch, *args, **kwargs) -> Union[StreamBatch, None]:
+        """Applies the transformation to the entry.
+        :returns: A StreamEntry. The transformed entry.
+                  Raises TransformerError in case of errors.
+        """
+        for entry in batch.entries:
+            try:
+                self.transform_entry(entry)
+            except Exception as e:
+                entry.errors.append(StreamEntryError.from_exception(e))
+        return batch
+
+    def transform_entry(self, entry: StreamEntry):
+        """
+        Transforms the entry.
+        """
+        entry.entry = convert_record_to_datacite({**entry.entry})
+
+
+def convert_record_to_datacite(rec):
+    links = rec.pop('links')
+    link = links['self']
+
+    id = rec['id']
+    orig_md = rec['metadata']
+
+    converted_md = {
+        "url": link
+    }
+    converted = {
+        "files": {"enabled": True},
+        "metadata": converted_md
+    }
+
+    converted['$schema'] = 'local://datasets-1.0.0.json'
+    convert_alternate_identifiers(converted_md.setdefault("alternateIdentifiers", []),
+                                  orig_md.pop('persistentIdentifiers', []),
+                                  link)
+    convert_creators(converted_md.setdefault("creators", []), orig_md.pop('creators', []))
+    convert_contributors(converted_md.setdefault("contributors", []), orig_md.pop('contributors', []))
+    convert_abstract(converted_md.setdefault('descriptions', []), orig_md.pop('abstract', {}))
+    convert_dates(converted_md.setdefault('dates', []), orig_md)
+    convert_language(converted_md, orig_md.pop('language', None))
+    convert_resource_types(converted_md, orig_md.pop('resourceType', None))
+    convert_rights(converted_md.setdefault('rightsList', []), orig_md.pop('rights', []))
+    convert_subject_categories(converted_md.setdefault('subjects', []), orig_md.pop('subjectCategories', []))
+    convert_keywords(converted_md.setdefault('subjects', []), orig_md.pop('keywords', []))
+    convert_titles(converted_md.setdefault('titles', []), orig_md.pop('titles'))
+    convert_related_items(converted_md.setdefault("relatedItems", []), orig_md.pop('relatedItems', []))
+
+    converted_md["publisher"] = {
+        "name": "data.narodni-repozitar.cz"
+    }
+
+    ensureEmpty(orig_md, '$schema', 'InvenioID', '_files', 'accessRights',
+                'oarepo:primaryCommunity', 'oarepo:recordStatus')
+    return converted
+
 
 vocabulary_system_fields = [
     "busy_count",
@@ -28,7 +89,6 @@ def ensureEmpty(data, *exceptions, filter=True):
                 filtered_data = {k: v for k, v in data.items() if k not in exceptions}
             else:
                 filtered_data = data
-            pprint(filtered_data)
             raise Exception(f"Unhandled key: {key} inside data")
 
 
@@ -273,76 +333,3 @@ def convert_related_items(converted_related_items, orig_related_items):
             converted_item['publicationYear'] = orig_related_item.pop('itemYear')
 
         ensureEmpty(orig_related_item, 'itemRelationType', 'itemURL') # not present in datacite schema
-
-def convert_record_to_datacite(rec):
-    links = rec.pop('links')
-    link = links['self']
-
-    id = rec['id']
-    orig_md = rec['metadata']
-
-    converted_md = {
-        "url": link
-    }
-    converted = {
-        "files": {"enabled": True},
-        "metadata": converted_md
-    }
-
-    converted['$schema'] = 'local://datasets-1.0.0.json'
-    convert_alternate_identifiers(converted_md.setdefault("alternateIdentifiers", []),
-                                  orig_md.pop('persistentIdentifiers', []),
-                                  link)
-    convert_creators(converted_md.setdefault("creators", []), orig_md.pop('creators', []))
-    convert_contributors(converted_md.setdefault("contributors", []), orig_md.pop('contributors', []))
-    convert_abstract(converted_md.setdefault('descriptions', []), orig_md.pop('abstract', {}))
-    convert_dates(converted_md.setdefault('dates', []), orig_md)
-    convert_language(converted_md, orig_md.pop('language', None))
-    convert_resource_types(converted_md, orig_md.pop('resourceType', None))
-    convert_rights(converted_md.setdefault('rightsList', []), orig_md.pop('rights', []))
-    convert_subject_categories(converted_md.setdefault('subjects', []), orig_md.pop('subjectCategories', []))
-    convert_keywords(converted_md.setdefault('subjects', []), orig_md.pop('keywords', []))
-    convert_titles(converted_md.setdefault('titles', []), orig_md.pop('titles'))
-    convert_related_items(converted_md.setdefault("relatedItems", []), orig_md.pop('relatedItems', []))
-
-    ensureEmpty(orig_md, '$schema', 'InvenioID', '_files', 'accessRights',
-                'oarepo:primaryCommunity', 'oarepo:recordStatus')
-    return converted
-
-
-@click.command()
-@click.option('--url', help='URL to harvest', default='https://data.narodni-repozitar.cz/datasets/all/')
-@click.argument('target-directory', default=Path('/tmp/datasets'), type=click.Path())
-def harvest_pilot(url, target_directory):
-    records = download_records(url)
-    nma_records = []
-    for rec in records:
-        nma_records.append(convert_record_to_datacite(rec))
-    # create the fixture data
-    if not target_directory.exists():
-        target_directory.mkdir(parents=True)
-    with (target_directory/'datasets.yaml').open('w') as f:
-        yaml.dump_all(nma_records, f, allow_unicode=True)
-    # create fixture catalogue
-    with (target_directory/'catalogue.yaml').open('w') as f:
-        yaml.dump({
-            "datasets": [
-                {
-                    'writer': 'service',
-                    'service': 'datasets',
-                },
-                {
-                    'source': './datasets.yaml'
-                }
-            ]
-        }, f)
-    pprint(nma_records)
-
-
-def download_records(url):
-    records = requests.get(f"{url}?size=1000", headers={'Accept': 'application/json'}).json()['hits']['hits']
-    return records
-
-
-if __name__ == '__main__':
-    harvest_pilot()
