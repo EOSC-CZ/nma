@@ -36,7 +36,9 @@ class DataciteXMLTransformer(BaseTransformer):
 
     def parse_xml(self, entry:StreamEntry):
         try:
-            metadata = xmltodict.parse(entry.entry)
+            # due to xmltodict seeing <br> tag as item of metadata instead of text, i replaced it with newline
+            cleaned_xml = entry.entry.replace("<br/>", "\n")
+            metadata = xmltodict.parse(cleaned_xml)
             if metadata.get('record',{}).get('metadata',{}).get('resource') is None:
                 entry.entry = {'metadata' : {}}
                 raise Exception("No metadata found")
