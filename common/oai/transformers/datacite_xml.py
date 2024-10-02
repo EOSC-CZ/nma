@@ -20,6 +20,7 @@ class DataciteXMLTransformer(BaseTransformer):
             try:
                 self.transform_entry(entry)
             except Exception as e:
+                entry.entry = {'metadata' : entry.entry}
                 entry.errors.append(StreamEntryError.from_exception(e))
         return batch
 
@@ -95,7 +96,7 @@ class DataciteXMLTransformer(BaseTransformer):
         affiliations = self.transform_affiliations(contributor.pop('affiliation', []))
         nameIdentifier = self.transform_nameIdentifier(contributor.pop('nameIdentifier',{}))
         curr_contributor['contributorType'] = self.transform_contributor_type(contributor.pop('@contributorType',""))
-        person = self.transform_person(contributor)
+        person = self.transform_person(contributor,"contributor")
         curr_contributor.update(person)
 
         if len(affiliations) > 0:
@@ -117,7 +118,7 @@ class DataciteXMLTransformer(BaseTransformer):
         curr_creator = {}
         affiliations = self.transform_affiliations(creator.pop('affiliation', []))
         nameIdentifier = self.transform_nameIdentifier(creator.pop('nameIdentifier',{}))
-        person = self.transform_person(creator)
+        person = self.transform_person(creator,"creator")
 
         self.ensureEmpty(creator)
 
@@ -138,21 +139,22 @@ class DataciteXMLTransformer(BaseTransformer):
             creators.append(self.transform_creator(datacite_creators))
             self.ensureEmpty(datacite_creators)
 
-    def transform_person(self, datacite_person):
+    def transform_person(self, datacite_person, creator_or_contributor):
         person = {}
-        if isinstance(datacite_person.get('creatorName'), str):
-            person['name'] = datacite_person.pop('creatorName')
-        if isinstance(datacite_person.get('creatorName',[]), OrderedDict) and datacite_person.get("creatorName",{}).get('@nameType') == "Personal":
+
+        if isinstance(datacite_person.get(f'{creator_or_contributor}Name'), str):
+            person['name'] = datacite_person.pop(f'{creator_or_contributor}Name')
+        elif isinstance(datacite_person.get(f'{creator_or_contributor}Name',[]), OrderedDict) and datacite_person.get(f'{creator_or_contributor}Name',{}).get('@nameType') == "Personal":
             person['nameType'] = "Personal"
-            person['name'] = datacite_person.get("creatorName").pop('#text')
-            datacite_person.pop("creatorName")
+            person['name'] = datacite_person.get(f'{creator_or_contributor}Name').pop('#text',"")
+            person['lang'] = datacite_person.get(f'{creator_or_contributor}Name', {}).pop("@xml:lang", "")
+            datacite_person.pop(f'{creator_or_contributor}Name')
         else:
             person['nameType'] = "Organizational"
-            person['name'] = datacite_person.get("creatorName").pop('#text')
-            datacite_person.pop('creatorName', "")
+            person['name'] = datacite_person.get(f'{creator_or_contributor}Name',{}).pop('#text',"")
+            person['lang'] = datacite_person.get(f'{creator_or_contributor}Name', {}).pop("@xml:lang", "")
+            datacite_person.pop(f'{creator_or_contributor}Name', "")
 
-        if datacite_person.get('contributorName') is not None:
-            person['name'] = datacite_person.pop('contributorName')
         if datacite_person.get('givenName') is not None:
             person['givenName'] = datacite_person.pop('givenName')
         if datacite_person.get('familyName') is not None:
@@ -190,8 +192,7 @@ class DataciteXMLTransformer(BaseTransformer):
                 aff['schemeURI'] = datacite_affiliations.pop('@schemeURI')
             if datacite_affiliations.get('@affiliationIdentifierScheme') is not None:
                 aff['affiliationIdentifierScheme'] = datacite_affiliations.pop('@affiliationIdentifierScheme')
-
-
+            return [aff]
         else:
             return []
 
@@ -222,7 +223,7 @@ class DataciteXMLTransformer(BaseTransformer):
     def transform_descriptions(self, descriptions, datacite_descriptions):
         if isinstance(datacite_descriptions, list):
             for description in datacite_descriptions:
-                descriptions.append(self.transform_description(description))
+                descriptions.append(self.transform_description(description)) # TODO fix </br> in description
                 self.ensureEmpty(description)
         else:
             descriptions.append(self.transform_description(datacite_descriptions))
@@ -334,13 +335,49 @@ class DataciteXMLTransformer(BaseTransformer):
                 'schemeURI' : datacite_publisher.pop('@schemeURI',""),
             })
 
+    def transform_resource_type(self, resource_type):
+        types = {"Audiovisual",
+                    "Book",
+                    "BookChapter",
+                    "Collection",
+                    "ComputationalNotebook",
+                    "ConferencePaper",
+                    "ConferenceProceeding",
+                    "DataPaper",
+                    "Dataset",
+                    "Dissertation",
+                    "Event",
+                    "Image",
+                    "Instrument",
+                    "InteractiveResource",
+                    "Journal",
+                    "JournalArticle",
+                    "Model",
+                    "OutputManagementPlan",
+                    "PeerReview",
+                    "PhysicalObject",
+                    "Preprint",
+                    "Report",
+                    "Service",
+                    "Software",
+                    "Sound",
+                    "Standard",
+                    "StudyRegistration",
+                    "Text",
+                    "Workflow",
+                    }
+        if resource_type not in types:
+            return "Other"
+        else:
+            return resource_type
+
     def transform_related_identifier(self, datacite_related_identifiers):
         return {
             'relatedIdentifier': datacite_related_identifiers.pop("#text",""),
             'relatedIdentifierType': datacite_related_identifiers.pop("@relatedIdentifierType"),
             'relatedMetadataScheme': datacite_related_identifiers.pop("@relatedMetadataScheme",""),
             'relationType' : datacite_related_identifiers.pop("@relationType",""),
-            'resourceTypeGeneral' : datacite_related_identifiers.pop("@resourceTypeGeneral","Other"),
+            'resourceTypeGeneral' : self.transform_resource_type(datacite_related_identifiers.pop("@resourceTypeGeneral","Other")),
             'schemeType' : datacite_related_identifiers.pop("@schemeType",""),
             'schemeURI' : datacite_related_identifiers.pop("@schemeURI",""),
         }
@@ -400,7 +437,7 @@ class DataciteXMLTransformer(BaseTransformer):
         rel_item['relatedItemType'] = related_item.pop("@relatedItemType","Other")
         rel_item['relatedMetadataScheme'] = related_item.pop("@relatedMetadataScheme", "")
         rel_item['relationType'] = related_item.pop("@relationType","")
-        rel_item['resourceTypeGeneral'] = related_item.pop("@resourceTypeGeneral","Other")
+        rel_item['resourceTypeGeneral'] = self.transform_resource_type(related_item.pop("@resourceTypeGeneral","Other"))
         rel_item['schemeType'] = related_item.pop("@schemeType","")
         rel_item['schemeURI'] = related_item.pop("@schemeURI","")
 
@@ -446,7 +483,10 @@ class DataciteXMLTransformer(BaseTransformer):
         pass
 
     def transform_sizes(self, sizes, datacite_sizes):
-        sizes.extend(datacite_sizes)
+        if isinstance(datacite_sizes, list):
+            sizes.extend(datacite_sizes)
+        else:
+            sizes.append(datacite_sizes)
 
     def transform_subject(self, datacite_subject):
         if isinstance(datacite_subject, str):
@@ -479,10 +519,10 @@ class DataciteXMLTransformer(BaseTransformer):
                "title" : datacite_titles.pop('#text',""),
                "titleType" : "Other"
            }
-           if datacite_titles.get('titleType') is not None:
+           if datacite_titles.get('@titleType') is not None:
                curr_title['titleType'] = datacite_titles.pop('titleType')
-           if datacite_titles.get('xml:lang') is not None:
-               curr_title['lang'] = datacite_titles.pop('xml:lang')
+           if datacite_titles.get('@xml:lang') is not None:
+               curr_title['lang'] = datacite_titles.pop('@xml:lang')
            self.ensureEmpty(datacite_titles)
            return curr_title
        elif isinstance(datacite_titles, str):
@@ -503,7 +543,7 @@ class DataciteXMLTransformer(BaseTransformer):
     def transform_types(self, types, datacite_type):
         if datacite_type:
             curr_type = {
-                'resourceTypeGeneral' : datacite_type.pop('@resourceTypeGeneral'),
+                'resourceTypeGeneral' :self.transform_resource_type(datacite_type.pop('@resourceTypeGeneral',"Other"))
             }
             if datacite_type.get('#text') is not None:
                 curr_type['resourceType'] = datacite_type.pop('#text')
@@ -564,7 +604,7 @@ class DataciteXMLTransformer(BaseTransformer):
         source_metadata.pop('relatedIdentifiers', {})
 
         if isinstance(source_metadata.get('rights'),str):
-            transformed_metadata['rights'] = {'rights' : source_metadata.pop('rights', "")}
+            transformed_metadata['rightsList'] = [{'rights' : source_metadata.pop('rights', "")}]
         else:
             self.transform_rights(transformed_metadata.setdefault('rightsList',[]),
                               source_metadata.get('rightsList',{}).pop('rights',[]))
