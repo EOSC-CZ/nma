@@ -521,8 +521,8 @@ class DataciteXMLTransformer(BaseTransformer):
                "title" : datacite_titles.pop('#text',""),
                "titleType" : "Other"
            }
-           if datacite_titles.get('@titleType') is not None:
-               curr_title['titleType'] = datacite_titles.pop('titleType')
+           if datacite_titles.get('@titleType'):
+               curr_title['titleType'] = datacite_titles.pop('@titleType')
            if datacite_titles.get('@xml:lang') is not None:
                curr_title['lang'] = datacite_titles.pop('@xml:lang')
            self.ensureEmpty(datacite_titles)
