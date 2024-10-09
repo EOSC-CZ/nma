@@ -1,7 +1,6 @@
 {
     "model": {
         "type": "model",
-        "custom-fields": [],
         "permissions": {
             "presets": [
                 "read_only"
@@ -26,6 +25,7 @@
             "extra-code": ""
         },
         "searchable": true,
+        "custom-fields": [],
         "ui": {
             "marshmallow": {
                 "imports": [],
@@ -44,7 +44,8 @@
         "service-config": {
             "components": [
                 "{{invenio_records_resources.services.records.components.DataComponent}}",
-                "{{oarepo_runtime.services.files.FilesComponent}}"
+                "{{oarepo_runtime.services.files.FilesComponent}}",
+                "{{oarepo_runtime.services.components.CustomFieldsComponent}}"
             ],
             "generate": true,
             "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
@@ -305,6 +306,10 @@
             ],
             "imports": []
         },
+        "translations": {
+            "module": "datasets.translations",
+            "alias": "datasets"
+        },
         "json-schema-settings": {
             "generate": true,
             "alias": "datasets",
@@ -370,10 +375,6 @@
                 "\"object_key\"": "\"ui\"",
                 "\"identity\"": "{{ flask.g{g.identity} }}"
             }
-        },
-        "translations": {
-            "module": "datasets.translations",
-            "alias": "datasets"
         },
         "multilingual-dumper": {
             "generate": true,
@@ -3156,6 +3157,86 @@
                             }
                         }
                     },
+                    "resourceType": {
+                        "type": "object",
+                        "ui": {
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.ResourceTypeUISchema"
+                            }
+                        },
+                        "marshmallow": {
+                            "generate": false,
+                            "class": "nr_metadata.datacite.services.records.schema_datatypes.ResourceTypeSchema"
+                        },
+                        "label.cs": "Typ zdroje",
+                        "label.en": "Resource type",
+                        "properties": {
+                            "resourceType": {
+                                "type": "keyword",
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                },
+                                "label.cs": "Typ zdroje",
+                                "label.en": "Resource type"
+                            },
+                            "resourceTypeGeneral": {
+                                "type": "keyword",
+                                "required": true,
+                                "marshmallow": {
+                                    "read": false,
+                                    "write": false
+                                },
+                                "enum": [
+                                    "Audiovisual",
+                                    "Book",
+                                    "BookChapter",
+                                    "Collection",
+                                    "ComputationalNotebook",
+                                    "ConferencePaper",
+                                    "ConferenceProceeding",
+                                    "DataPaper",
+                                    "Dataset",
+                                    "Dissertation",
+                                    "Event",
+                                    "Image",
+                                    "Instrument",
+                                    "InteractiveResource",
+                                    "Journal",
+                                    "JournalArticle",
+                                    "Model",
+                                    "OutputManagementPlan",
+                                    "PeerReview",
+                                    "PhysicalObject",
+                                    "Preprint",
+                                    "Report",
+                                    "Service",
+                                    "Software",
+                                    "Sound",
+                                    "Standard",
+                                    "StudyRegistration",
+                                    "Text",
+                                    "Workflow",
+                                    "Other"
+                                ],
+                                "ui": {
+                                    "marshmallow": {
+                                        "read": false,
+                                        "write": false
+                                    }
+                                },
+                                "label.cs": "Obecný typ zdroje",
+                                "label.en": "General resource type"
+                            }
+                        }
+                    },
                     "rightsList": {
                         "type": "array",
                         "label.cs": "Práva",
@@ -3478,89 +3559,6 @@
                                     },
                                     "label.cs": "Typ názvu",
                                     "label.en": "Title type"
-                                }
-                            }
-                        }
-                    },
-                    "types": {
-                        "type": "array",
-                        "label.cs": "Typy zdroje",
-                        "label.en": "Resource types",
-                        "items": {
-                            "type": "object",
-                            "ui": {
-                                "marshmallow": {
-                                    "generate": false,
-                                    "class": "nr_metadata.datacite.services.records.ui_schema_datatypes.ResourceTypeUISchema"
-                                }
-                            },
-                            "marshmallow": {
-                                "generate": false,
-                                "class": "nr_metadata.datacite.services.records.schema_datatypes.ResourceTypeSchema"
-                            },
-                            "properties": {
-                                "resourceType": {
-                                    "type": "keyword",
-                                    "marshmallow": {
-                                        "read": false,
-                                        "write": false
-                                    },
-                                    "ui": {
-                                        "marshmallow": {
-                                            "read": false,
-                                            "write": false
-                                        }
-                                    },
-                                    "label.cs": "Typ zdroje",
-                                    "label.en": "Resource type"
-                                },
-                                "resourceTypeGeneral": {
-                                    "type": "keyword",
-                                    "required": true,
-                                    "marshmallow": {
-                                        "read": false,
-                                        "write": false
-                                    },
-                                    "enum": [
-                                        "Audiovisual",
-                                        "Book",
-                                        "BookChapter",
-                                        "Collection",
-                                        "ComputationalNotebook",
-                                        "ConferencePaper",
-                                        "ConferenceProceeding",
-                                        "DataPaper",
-                                        "Dataset",
-                                        "Dissertation",
-                                        "Event",
-                                        "Image",
-                                        "Instrument",
-                                        "InteractiveResource",
-                                        "Journal",
-                                        "JournalArticle",
-                                        "Model",
-                                        "OutputManagementPlan",
-                                        "PeerReview",
-                                        "PhysicalObject",
-                                        "Preprint",
-                                        "Report",
-                                        "Service",
-                                        "Software",
-                                        "Sound",
-                                        "Standard",
-                                        "StudyRegistration",
-                                        "Text",
-                                        "Workflow",
-                                        "Other"
-                                    ],
-                                    "ui": {
-                                        "marshmallow": {
-                                            "read": false,
-                                            "write": false
-                                        }
-                                    },
-                                    "label.cs": "Obecný typ zdroje",
-                                    "label.en": "General resource type"
                                 }
                             }
                         }

@@ -9,6 +9,7 @@ dependencies = [
     "json5",
     "langdetect",
     "nr-metadata",
+    "oarepo-global-search>=1.0.23",
     "oarepo-oai-pmh-harvester",
     "oarepo-runtime",
     "oarepo-ui",
@@ -76,7 +77,7 @@ tests = [
     "isort",
     "pytest-invenio>=1.4.11",
     "pytest-invenio[opensearch2]",
-    "requests-mock"
+    "requests-mock",
 ]
 
 [build-system]

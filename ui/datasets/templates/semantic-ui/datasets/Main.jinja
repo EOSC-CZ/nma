@@ -35,8 +35,8 @@
       <Publisher publisher={md.publisher} search_link={record.links.search_link}></Publisher>
     </IField>
 
-    <IField d={md.types}>
-      {% for it in array(md.types.resourceTypeGeneral, md.types.resourceType) %}
+    <IField d={md.resourceType}>
+      {% for it in array(md.resourceType.resourceTypeGeneral, md.resourceType.resourceType) %}
       {% if not loop.first %}, {% endif %}
       {{ it }}
       {% endfor %}

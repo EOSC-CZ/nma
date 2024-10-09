@@ -1,55 +1,55 @@
 plugins:
   builder:
     disable:
-    - script_sample_data
-    - invenio_record_metadata_alembic_setup_cfg
+      - script_sample_data
+      - invenio_record_metadata_alembic_setup_cfg
   packages:
-  - oarepo-model-builder-cf
-  - oarepo-model-builder-multilingual
-  - oarepo-model-builder-files
-  - oarepo-model-builder-ui
-  - oarepo-model-builder-relations
-  - oarepo-model-builder-nr
+    - oarepo-model-builder-cf
+    - oarepo-model-builder-multilingual
+    - oarepo-model-builder-files
+    - oarepo-model-builder-ui
+    - oarepo-model-builder-relations
+    - oarepo-model-builder-nr
 profiles:
-- record
-- files
+  - record
+  - files
 record:
   extend: datacite#DataCiteModel
   files:
     properties:
       use:
-      - ./datasets-files.yaml
+        - ./datasets-files.yaml
     use:
-    - invenio_files
+      - invenio_files
   module:
     qualified: datasets
   permissions:
     presets:
-    - read_only
+      - read_only
   pid:
     type: dtsts
   search-options:
     base-classes:
       - oarepo_runtime.services.search.I18nSearchOptions
-  properties:
-    metadata:
-      properties:
-        publisher:
-          name:
-            label.en: Publisher
+  properties: {}
+  #   metadata:
+  #     properties:
+  #       publisher:
+  #         name:
+  #           label.en: Publisher
   resource-config:
     base-html-url: /datasets/
   use:
-  - invenio
-  - ./datasets-custom_fields.yaml
-  - ./datasets-harvest.yaml
-  - ./datasets-facets.yaml
+    - invenio
+    - ./datasets-custom_fields.yaml
+    - ./datasets-harvest.yaml
+    - ./datasets-facets.yaml
 
 runtime-dependencies: {}
 settings:
   i18n-languages:
-  - en
-  - cs
+    - en
+    - cs
   supported-langs:
     en:
       text: {}

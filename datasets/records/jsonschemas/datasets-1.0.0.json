@@ -566,6 +566,17 @@
                         }
                     }
                 },
+                "resourceType": {
+                    "type": "object",
+                    "properties": {
+                        "resourceType": {
+                            "type": "string"
+                        },
+                        "resourceTypeGeneral": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "rightsList": {
                     "type": "array",
                     "items": {
@@ -639,20 +650,6 @@
                                 "type": "string"
                             },
                             "titleType": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "types": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "resourceType": {
-                                "type": "string"
-                            },
-                            "resourceTypeGeneral": {
                                 "type": "string"
                             }
                         }
