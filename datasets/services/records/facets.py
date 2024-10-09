@@ -559,6 +559,16 @@ metadata_relatedItems_volume = TermsFacet(
     field="metadata.relatedItems.volume", label=_("metadata/relatedItems/volume.label")
 )
 
+metadata_resourceType_resourceType = TermsFacet(
+    field="metadata.resourceType.resourceType",
+    label=_("metadata/resourceType/resourceType.label"),
+)
+
+metadata_resourceType_resourceTypeGeneral = TermsFacet(
+    field="metadata.resourceType.resourceTypeGeneral",
+    label=_("metadata/resourceType/resourceTypeGeneral.label"),
+)
+
 metadata_rightsList_lang = TermsFacet(
     field="metadata.rightsList.lang", label=_("metadata/rightsList/lang.label")
 )
@@ -625,15 +635,6 @@ metadata_titles_lang = TermsFacet(
 
 metadata_titles_titleType = TermsFacet(
     field="metadata.titles.titleType", label=_("metadata/titles/titleType.label")
-)
-
-metadata_types_resourceType = TermsFacet(
-    field="metadata.types.resourceType", label=_("metadata/types/resourceType.label")
-)
-
-metadata_types_resourceTypeGeneral = TermsFacet(
-    field="metadata.types.resourceTypeGeneral",
-    label=_("metadata/types/resourceTypeGeneral.label"),
 )
 
 metadata_url = TermsFacet(field="metadata.url", label=_("metadata/url.label"))

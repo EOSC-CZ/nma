@@ -1416,6 +1416,33 @@
                         }
                     }
                 },
+                "resourceType": {
+                    "detail": false,
+                    "input": false,
+                    "help": "metadata/resourceType.help",
+                    "label": "metadata/resourceType.label",
+                    "hint": "metadata/resourceType.hint",
+                    "children": {
+                        "resourceType": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/resourceType/resourceType.help",
+                            "label": "metadata/resourceType/resourceType.label",
+                            "hint": "metadata/resourceType/resourceType.hint",
+                            "facet": "metadata_resourceType_resourceType"
+                        },
+                        "resourceTypeGeneral": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "required": true,
+                            "help": "metadata/resourceType/resourceTypeGeneral.help",
+                            "label": "metadata/resourceType/resourceTypeGeneral.label",
+                            "hint": "metadata/resourceType/resourceTypeGeneral.hint",
+                            "enum": "metadata/resourceType/resourceTypeGeneral.enum",
+                            "facet": "metadata_resourceType_resourceTypeGeneral"
+                        }
+                    }
+                },
                 "rightsList": {
                     "detail": "array",
                     "input": "array",
@@ -1605,40 +1632,6 @@
                                 "hint": "metadata/titles/titleType.hint",
                                 "enum": "metadata/titles/titleType.enum",
                                 "facet": "metadata_titles_titleType"
-                            }
-                        }
-                    }
-                },
-                "types": {
-                    "detail": "array",
-                    "input": "array",
-                    "help": "metadata/types.help",
-                    "label": "metadata/types.label",
-                    "hint": "metadata/types.hint",
-                    "child": {
-                        "detail": "type",
-                        "input": "type",
-                        "help": "metadata/types.help",
-                        "label": "metadata/types.label",
-                        "hint": "metadata/types.hint",
-                        "children": {
-                            "resourceType": {
-                                "detail": "keyword",
-                                "input": "keyword",
-                                "help": "metadata/types/resourceType.help",
-                                "label": "metadata/types/resourceType.label",
-                                "hint": "metadata/types/resourceType.hint",
-                                "facet": "metadata_types_resourceType"
-                            },
-                            "resourceTypeGeneral": {
-                                "detail": "keyword",
-                                "input": "keyword",
-                                "required": true,
-                                "help": "metadata/types/resourceTypeGeneral.help",
-                                "label": "metadata/types/resourceTypeGeneral.label",
-                                "hint": "metadata/types/resourceTypeGeneral.hint",
-                                "enum": "metadata/types/resourceTypeGeneral.enum",
-                                "facet": "metadata_types_resourceTypeGeneral"
                             }
                         }
                     }

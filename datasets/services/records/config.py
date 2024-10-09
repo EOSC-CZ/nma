@@ -4,6 +4,7 @@ from invenio_records_resources.services import (
 )
 from invenio_records_resources.services import pagination_links
 from invenio_records_resources.services.records.components import DataComponent
+from oarepo_runtime.services.components import CustomFieldsComponent
 from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
 from oarepo_runtime.services.files import FilesComponent
 
@@ -40,6 +41,7 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, InvenioRecordServiceC
         *InvenioRecordServiceConfig.components,
         DataComponent,
         FilesComponent,
+        CustomFieldsComponent,
     ]
 
     model = "datasets"

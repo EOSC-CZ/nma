@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-08-15T13:47:01.967446\n"
-"PO-Revision-Date: 2024-08-15T13:47:01.967454\n"
+"POT-Creation-Date: 2024-10-09T15:39:28.372333\n"
+"PO-Revision-Date: 2024-10-09T15:39:28.372341\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2222,6 +2222,123 @@ msgstr ""
 msgid "metadata/relatedItems/volume.hint"
 msgstr ""
 
+msgid "metadata/resourceType.label"
+msgstr "Resource type"
+
+msgid "metadata/resourceType.help"
+msgstr ""
+
+msgid "metadata/resourceType.hint"
+msgstr ""
+
+msgid "metadata/resourceType/resourceType.label"
+msgstr "Resource type"
+
+msgid "metadata/resourceType/resourceType.help"
+msgstr ""
+
+msgid "metadata/resourceType/resourceType.hint"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.label"
+msgstr "General resource type"
+
+msgid "metadata/resourceType/resourceTypeGeneral.help"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.hint"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Audiovisual"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Book"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.BookChapter"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Collection"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.ComputationalNotebook"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.ConferencePaper"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.ConferenceProceeding"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.DataPaper"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Dataset"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Dissertation"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Event"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Image"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Instrument"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.InteractiveResource"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Journal"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.JournalArticle"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Model"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.OutputManagementPlan"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.PeerReview"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.PhysicalObject"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Preprint"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Report"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Service"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Software"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Sound"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Standard"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.StudyRegistration"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Text"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Workflow"
+msgstr ""
+
+msgid "metadata/resourceType/resourceTypeGeneral.enum.Other"
+msgstr ""
+
 msgid "metadata/rightsList.label"
 msgstr "Rights"
 
@@ -2412,123 +2529,6 @@ msgid "metadata/titles/titleType.enum.TranslatedTitle"
 msgstr ""
 
 msgid "metadata/titles/titleType.enum.Other"
-msgstr ""
-
-msgid "metadata/types.label"
-msgstr "Resource types"
-
-msgid "metadata/types.help"
-msgstr ""
-
-msgid "metadata/types.hint"
-msgstr ""
-
-msgid "metadata/types/resourceType.label"
-msgstr "Resource type"
-
-msgid "metadata/types/resourceType.help"
-msgstr ""
-
-msgid "metadata/types/resourceType.hint"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.label"
-msgstr "General resource type"
-
-msgid "metadata/types/resourceTypeGeneral.help"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.hint"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Audiovisual"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Book"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.BookChapter"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Collection"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.ComputationalNotebook"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.ConferencePaper"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.ConferenceProceeding"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.DataPaper"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Dataset"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Dissertation"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Event"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Image"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Instrument"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.InteractiveResource"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Journal"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.JournalArticle"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Model"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.OutputManagementPlan"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.PeerReview"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.PhysicalObject"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Preprint"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Report"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Service"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Software"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Sound"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Standard"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.StudyRegistration"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Text"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Workflow"
-msgstr ""
-
-msgid "metadata/types/resourceTypeGeneral.enum.Other"
 msgstr ""
 
 msgid "metadata/url.label"

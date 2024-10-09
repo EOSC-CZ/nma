@@ -600,6 +600,19 @@
                             }
                         }
                     },
+                    "resourceType": {
+                        "type": "object",
+                        "properties": {
+                            "resourceType": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "resourceTypeGeneral": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    },
                     "rightsList": {
                         "type": "object",
                         "properties": {
@@ -677,19 +690,6 @@
                                 "type": "text"
                             },
                             "titleType": {
-                                "type": "keyword",
-                                "ignore_above": 1024
-                            }
-                        }
-                    },
-                    "types": {
-                        "type": "object",
-                        "properties": {
-                            "resourceType": {
-                                "type": "keyword",
-                                "ignore_above": 1024
-                            },
-                            "resourceTypeGeneral": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             }

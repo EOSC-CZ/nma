@@ -353,11 +353,11 @@ class ZenodoTransformer(BaseTransformer):
             return "Subtitle"
         else: return "Other"
 
-    def transform_types(self, types, zenodo_types):
-        types.append({
+    def transform_resource_type(self, metadata, zenodo_types):
+        metadata['resourceType'] = {
             'resourceType': zenodo_types['title']['en'],
-            'resourceTypeGeneral' : self.transform_resourceType_to_our(zenodo_types['id']),
-        })
+            'resourceTypeGeneral' : self.transform_resourceType_to_our(zenodo_types['id']) 
+            }
 
     def transform_resourceType_to_our(self, zenodo_type:str):
         zenodo_type_to_our = {
@@ -451,7 +451,7 @@ class ZenodoTransformer(BaseTransformer):
                               source_metadata.pop('title', ""),
                               source_metadata.pop('additional_titles', []))
 
-        self.transform_types(transformed_metadata.setdefault('types', []),
+        self.transform_resource_type(transformed_metadata,
                              source_metadata.pop('resource_type', {}))
 
         transformed_metadata['version'] = self.transform_version(source_metadata.pop('version', ""))
