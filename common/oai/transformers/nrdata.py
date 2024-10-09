@@ -133,6 +133,7 @@ def convert_affiliations(orig_creator, converted_creator):
         ensureEmpty(aff,
                     *vocabulary_system_fields,
                     "aliases",
+                    "ancestor",
                     "data",
                     "relatedRID",
                     "ico",
