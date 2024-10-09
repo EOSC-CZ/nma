@@ -11,7 +11,7 @@ langcodes==3.4.1
 langdetect==1.0.9
 language-data==1.2.0
 marisa-trie==1.2.0
-nr-metadata==2.0.39
+nr-metadata==2.0.41
 oarepo-global-search==1.0.26
 oarepo-oai-pmh-harvester==4.1.4
 oarepo-runtime==1.5.60

@@ -230,14 +230,14 @@ def convert_language(converted_md, orig_language):
 
 
 def convert_resource_types(converted_md, orig_resource_types):
-    types = converted_md['types'] = []
     if not orig_resource_types:
-        types.append(convert_resource_type(None))
+        return
     else:
         for rt in orig_resource_types:
             if rt.get('is_ancestor'):
                 continue
-            types.append(convert_resource_type(rt))
+            converted_md['resourceType'] = convert_resource_type(rt)
+            break
 
 
 def convert_resource_type(rt):
