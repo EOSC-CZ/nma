@@ -1,10 +1,89 @@
-# etree
-from collections import OrderedDict
+from types import SimpleNamespace
 from typing import Union
-import xmltodict
-from lxml import etree
 from oarepo_runtime.datastreams import BaseTransformer, StreamBatch, StreamEntry
 from oarepo_runtime.datastreams.types import StreamEntryError
+import re
+from xml.etree import cElementTree as ElementTree
+
+EMPTY = SimpleNamespace(text='', inner_html='',list=[])
+
+class XmlNode:
+    def __init__(self, node):
+        self.node = node
+
+    def __str__(self):
+        return ElementTree.tostring(self.node, encoding="unicode")
+
+    def remove_namespace(self, tag):
+        return tag.split('}', 1)[-1]
+
+    def get_all(self, item_name) -> list:
+        ret = []
+        for child in self.node:
+            tag = self.remove_namespace(child.tag)
+            if tag == item_name:
+                ret.append(XmlNode(child))
+
+        return ret
+
+    def child_names(self):
+        return [self.remove_namespace(child.tag) for child in self.node]
+
+
+    def keys(self):
+        return set(self.child_names())
+
+    @property
+    def text(self):
+        return self.node.text
+
+    def get_attribute(self,attrib_name):
+        #return self.get_all(parent_name)[pos].node.attrib.get(attrib_name)
+        if self.node.attrib.get(attrib_name):
+            return self.node.attrib.get(attrib_name)
+        return ""
+
+    def get(self, item_name,default=None):
+        l = self.get_all(item_name)
+        if len(l) == 1:
+            return l[0]
+        elif len(l) > 1:
+            raise ValueError('Multiple children found')
+        if default is not None:
+            return SimpleNamespace(text='',inner_html='', list=[])
+        return default
+
+    def pop(self, item_name, default=None):
+        item = self.get(item_name,default)
+        children = list(self.node)
+        for child in children:
+            if self.remove_namespace(child.tag) == item_name:
+                self.node.remove(child)
+
+        return item
+
+    @property
+    def inner_html(self):
+        html = [self.node.text]
+        for child in self.node:
+            html.append(str(XmlNode(child)))
+            html.append(child.tail)
+
+        html = [x for x in html if x]
+        return "".join(html)
+
+    def remove_namespaces(self, node=None):
+        if node is None:
+            node = self.node
+
+        node.tag = self.remove_namespace(node.tag)
+        for child in node:
+            self.remove_namespaces(child)
+
+        for attr in list(node.attrib):
+            if '{' in attr:
+                node.attrib[self.remove_namespace(attr)] = node.attrib.pop(attr)
+
 
 
 class DataciteXMLTransformer(BaseTransformer):
@@ -36,34 +115,30 @@ class DataciteXMLTransformer(BaseTransformer):
 
     def parse_xml(self, entry:StreamEntry):
         try:
-            # due to xmltodict seeing <br> tag as item of metadata instead of text, i replaced it with newline
-            cleaned_xml = entry.entry.replace("<br/>", "\n")
-            metadata = xmltodict.parse(cleaned_xml)
-            if metadata.get('record',{}).get('metadata',{}).get('resource') is None:
-                entry.entry = {'metadata' : {}}
+            root = ElementTree.XML(entry.entry)
+            xmldict = XmlNode(root)
+            xmldict.remove_namespaces()
+
+            if xmldict.get('metadata') is None or xmldict.get('metadata').get('resource') is None:
+                entry.entry = {'metadata': {}}
                 raise Exception("No metadata found")
 
-            return metadata['record']['metadata']['resource']
+            return xmldict.get('metadata').get('resource')
         except Exception as e:
             entry.errors.append(StreamEntryError.from_exception(e))
 
     def transform_alt_identifiers(self, alt_identifiers, datacite_alt_identifiers):
-        if isinstance(datacite_alt_identifiers, list):
-            for alt_id in datacite_alt_identifiers:
-                alt_identifiers.append({
-                    'alternateIdentifier': alt_id.pop('#text'),
-                    'alternateIdentifierType': alt_id.pop('@alternateIdentifierType'),
-                })
-                self.ensureEmpty(alt_id)
-        else:
+        if not datacite_alt_identifiers:
+            return
+        datacite_alt_identifiers = datacite_alt_identifiers.get_all('alternateIdentifier')
+        for pos, alt_id in enumerate(datacite_alt_identifiers):
             alt_identifiers.append({
-                'alternateIdentifier': datacite_alt_identifiers.pop('#text'),
-                'alternateIdentifierType': datacite_alt_identifiers.pop('@alternateIdentifierType'),
+                'alternateIdentifier': alt_id.text,
+                'alternateIdentifierType': alt_id.get_attribute('alternateIdentifierType'),
             })
-            self.ensureEmpty(datacite_alt_identifiers)
+            alt_id.pop('alternateIdentifier')
+            #self.ensureEmpty(alt_id)
 
-    def transform_container(self):
-        pass  # no container
 
     def transform_contributor_type(self, contributor_type):
         types = {
@@ -95,213 +170,202 @@ class DataciteXMLTransformer(BaseTransformer):
 
     def transform_contributor(self, contributor):
         curr_contributor = {}
-        affiliations = self.transform_affiliations(contributor.pop('affiliation', []))
-        nameIdentifier = self.transform_nameIdentifier(contributor.pop('nameIdentifier',{}))
-        curr_contributor['contributorType'] = self.transform_contributor_type(contributor.pop('@contributorType',""))
+        affiliations = self.transform_affiliations(contributor.get_all('affiliation'))
+        nameIdentifier = self.transform_nameIdentifier(contributor.get_all('nameIdentifier'))
+        curr_contributor['contributorType'] = self.transform_contributor_type(contributor.get_attribute('contributorType'))
         person = self.transform_person(contributor,"contributor")
         curr_contributor.update(person)
+        #self.ensureEmpty(contributor)
 
-        if len(affiliations) > 0:
+        if affiliations:
             curr_contributor['affiliation'] = affiliations
-        if len(nameIdentifier) > 0:
+        if nameIdentifier:
             curr_contributor['nameIdentifiers'] = nameIdentifier
         return curr_contributor
 
     def transform_contributors(self, contributors, datacite_contributors):
-        if isinstance(datacite_contributors, list):
-            for contributor in datacite_contributors:
-                contributors.append(self.transform_contributor(contributor))
-                self.ensureEmpty(contributor)
-        else:
-            contributors.append(self.transform_contributor(datacite_contributors))
-            self.ensureEmpty(datacite_contributors)
+        if not datacite_contributors:
+            return
+        datacite_contributors = datacite_contributors.get_all('contributor')
+        for contributor in datacite_contributors:
+            contributors.append(self.transform_contributor(contributor))
+            #self.ensureEmpty(contributor)
+
 
     def transform_creator(self, creator):
         curr_creator = {}
-        affiliations = self.transform_affiliations(creator.pop('affiliation', []))
-        nameIdentifier = self.transform_nameIdentifier(creator.pop('nameIdentifier',{}))
+        affiliations = self.transform_affiliations(creator.get_all('affiliation'))
+        nameIdentifier = self.transform_nameIdentifier(creator.get_all('nameIdentifier'))
         person = self.transform_person(creator,"creator")
 
-        self.ensureEmpty(creator)
+        #self.ensureEmpty(creator)
 
         curr_creator.update(person)
-        if len(affiliations) > 0:
+        if affiliations:
             curr_creator['affiliation'] = affiliations
-        if len(nameIdentifier) > 0:
+        if nameIdentifier:
             curr_creator['nameIdentifiers'] = nameIdentifier
 
-        return curr_creator
+        return {k: v for k, v in curr_creator.items() if v not in ('', None)}
 
     def transform_creators(self, creators, datacite_creators):
-        if isinstance(datacite_creators, list):
-            for creator in datacite_creators:
-                creators.append(self.transform_creator(creator))
-                self.ensureEmpty(creator)
-        else:
-            creators.append(self.transform_creator(datacite_creators))
-            self.ensureEmpty(datacite_creators)
+        if not datacite_creators:
+            return
+        datacite_creators = datacite_creators.get_all('creator')
+        for creator in datacite_creators:
+            creators.append(self.transform_creator(creator))
+           # self.ensureEmpty(creator)
 
     def transform_person(self, datacite_person, creator_or_contributor):
         person = {}
 
-        if isinstance(datacite_person.get(f'{creator_or_contributor}Name'), str):
-            person['name'] = datacite_person.pop(f'{creator_or_contributor}Name')
-        elif isinstance(datacite_person.get(f'{creator_or_contributor}Name',[]), OrderedDict) and datacite_person.get(f'{creator_or_contributor}Name',{}).get('@nameType') == "Personal":
+        person['name'] = datacite_person.get(f'{creator_or_contributor}Name').text
+        if datacite_person.get(f'{creator_or_contributor}Name').get_attribute("nameType") == "Personal":
             person['nameType'] = "Personal"
-            person['name'] = datacite_person.get(f'{creator_or_contributor}Name').pop('#text',"")
-            person['lang'] = datacite_person.get(f'{creator_or_contributor}Name', {}).pop("@xml:lang", "")
-            datacite_person.pop(f'{creator_or_contributor}Name')
         else:
             person['nameType'] = "Organizational"
-            person['name'] = datacite_person.get(f'{creator_or_contributor}Name',{}).pop('#text',"")
-            person['lang'] = datacite_person.get(f'{creator_or_contributor}Name', {}).pop("@xml:lang", "")
-            datacite_person.pop(f'{creator_or_contributor}Name', "")
 
-        if datacite_person.get('givenName') is not None:
-            person['givenName'] = datacite_person.pop('givenName')
-        if datacite_person.get('familyName') is not None:
-            person['familyName'] = datacite_person.pop('familyName')
+        if datacite_person.get_attribute('lang'):
+            person['lang'] = datacite_person.get_attribute("lang")
+        if datacite_person.get('givenName') is not None and datacite_person.get('givenName').text:
+            person['givenName'] = datacite_person.pop('givenName').text
+        if datacite_person.get('familyName') is not None and datacite_person.get('familyName').text:
+            person['familyName'] = datacite_person.pop('familyName').text
 
-        self.ensureEmpty(datacite_person)
-        return person
+       # self.ensureEmpty(datacite_person)
+        return {k: v for k, v in person.items() if v not in ('', None)}
 
 
     def transform_nameIdentifier(self, nameIdentifier):
         if not nameIdentifier:
             return []
-        identifier = {
-            'nameIdentifier' : nameIdentifier.pop('#text',"")
-        }
-        if nameIdentifier.get("@nameIdentifierScheme"):
-            identifier['nameIdentifierScheme'] = nameIdentifier.pop('@nameIdentifierScheme')
-        if nameIdentifier.get("@schemeURI") is not None:
-            identifier['schemeURI'] = nameIdentifier.pop('@schemeURI')
-        self.ensureEmpty(nameIdentifier)
-        return [identifier]
+        identifiers = []
+        for identifier in nameIdentifier:
+            current_identifier = {'nameIdentifier': identifier.text,
+                      'nameIdentifierScheme': identifier.get_attribute('nameIdentifierScheme'),
+                      'schemeURI': identifier.get_attribute('schemeURI')}
+            identifiers.append({k: v for k, v in current_identifier.items() if v not in ('', None)})
+        #self.ensureEmpty(nameIdentifier)
+        return identifiers
 
     def transform_affiliations(self, datacite_affiliations):
-        if isinstance(datacite_affiliations,str):
-            return [{
-                'name' : datacite_affiliations
-            }]
-        elif isinstance(datacite_affiliations,OrderedDict):
+        affs = []
+        for affiliation in datacite_affiliations:
             aff = {
-                'name' : datacite_affiliations.pop('#text',"")
+                'name' : affiliation.text,
+                'affiliationIdentifier' : affiliation.get_attribute('affiliationIdentifier'),
+                'schemeURI' : affiliation.get_attribute('schemeURI'),
+                'affiliationIdentifierScheme' : affiliation.get_attribute('affiliationIdentifierScheme'),
             }
-            if datacite_affiliations.get('@affiliationIdentifier') is not None:
-                aff['affiliationIdentifier'] = datacite_affiliations.pop('@affiliationIdentifier')
-            if datacite_affiliations.get('@schemeURI') is not None:
-                aff['schemeURI'] = datacite_affiliations.pop('@schemeURI')
-            if datacite_affiliations.get('@affiliationIdentifierScheme') is not None:
-                aff['affiliationIdentifierScheme'] = datacite_affiliations.pop('@affiliationIdentifierScheme')
-            return [aff]
-        else:
-            return []
+            affs.append({k: v for k, v in aff.items() if v not in ('', None)})
+        return affs
 
+    def transform_dates(self, dates, datacite_dates, publication_year):
+        if not datacite_dates:
+            dates.append({
+                "date": publication_year.text,
+                'dateType': "Issued"
+            })
+            return
+        datacite_dates = datacite_dates.get_all('date')
+        for date in datacite_dates:
+            curr_date = self.transform_date(date)
+            if len(curr_date) > 0:
+                dates.append(curr_date)
+                    #self.ensureEmpty(date)
 
-    def transform_dates(self, dates, datacite_dates):
-        if isinstance(datacite_dates, list):
-            for date in datacite_dates:
-                curr_date = self.transform_date(date)
-                if len(curr_date) > 0:
-                    dates.append(curr_date)
-                    self.ensureEmpty(date)
-        else:
-            date = self.transform_date(datacite_dates)
-            if len(date) > 0:
-                dates.append(date)
-                self.ensureEmpty(datacite_dates)
+        if not any(date['dateType'] == 'Issued' for date in dates) and publication_year:
+            dates.append({
+                "date" : publication_year.text,
+                'dateType' : "Issued"
+            })
+
 
     def transform_date(self, date):
-        if date.get('#text',"").isnumeric():
-            return {
-                    'date': date.pop('#text'),
-                    'dateType': date.pop('@dateType',"Other"),
-                    'dateInformation' : date.pop('@dateInformation',""),
+        if date.text.isnumeric(): # there were some cases of 1984/2002 for example with slash in the middle
+            current_date = {
+                    'date': date.text,
+                    'dateType': date.get_attribute('dateType'),
+                    'dateInformation' : date.get_attribute('dateInformation'),
                 }
+            return {k: v for k, v in current_date.items() if v not in ('', None)}
         else:
             return {}
 
     def transform_descriptions(self, descriptions, datacite_descriptions):
-        if isinstance(datacite_descriptions, list):
-            for description in datacite_descriptions:
-                descriptions.append(self.transform_description(description)) # TODO fix </br> in description
-                self.ensureEmpty(description)
-        else:
-            descriptions.append(self.transform_description(datacite_descriptions))
-            self.ensureEmpty(datacite_descriptions)
+        if not datacite_descriptions:
+            return
+        datacite_descriptions = datacite_descriptions.get_all('description')
+        for description in datacite_descriptions:
+            if description.inner_html:
+                descriptions.append(self.transform_description(description))
+            #self.#Empty(description)
+        if len(descriptions) == 1 and descriptions[0].get('descriptionType') == "Other":
+            descriptions[0]['descriptionType'] = 'Abstract'
+
 
     def transform_description(self, description):
-        return {
-                'description': description.pop('#text',""),
-                'descriptionType' : description.pop('@descriptionType',"Other"),
-                'lang' : description.pop("@xml:lang","")
-                }
+        current_desc = {
+            'description': description.inner_html,
+            'descriptionType' : description.get_attribute('descriptionType'),
+            'lang' : description.get_attribute("lang")
+        }
+        return {k: v for k, v in current_desc.items() if v not in ('', None)}
 
     def transform_doi(self, datacite_doi):
-        if datacite_doi.get("@identifierType") == 'DOI':
-            return datacite_doi.get('#text')
+        if datacite_doi.get_attribute("identifierType") == 'DOI':
+            return datacite_doi.text
 
     def transform_format(self, _formats, datacite_formats):
-        if isinstance(datacite_formats, list):
-            _formats.extend(datacite_formats)
-        else:
-            _formats.append(datacite_formats)
+        if not datacite_formats:
+            return
+        datacite_formats = datacite_formats.get_all('format')
+        for _format in datacite_formats:
+            _formats.append(_format.text)
 
     def transform_fundings(self, fundings, datacite_fundings):
-        if isinstance(datacite_fundings, list):
-            for funding in datacite_fundings:
-                fundings.append(self.transform_funding(funding))
-                self.ensureEmpty(funding)
-        else:
-            fundings.append(self.transform_funding(datacite_fundings))
-            self.ensureEmpty(datacite_fundings)
+        if not datacite_fundings:
+            return
+        datacite_fundings = datacite_fundings.get_all('fundingReference')
+        for funding in datacite_fundings:
+            fundings.append(self.transform_funding(funding))
+            #self.ensureEmpty(funding)
+
 
     def transform_funding(self, funding):
         curr_funding = {
-            'funderName' : funding.pop('funderName',""),
-            'funderIdentifierType' : funding.get('funderIdentifier',{}).pop("@funderIdentifierType","Other"),
-            'funderIdentifier' : funding.pop('funderIdentifier',{}).get("#text",""),
-            'awardTitle' : funding.pop('awardTitle',""),
+            'funderName': funding.get('funderName').text,
+            'funderIdentifierType': funding.get('funderIdentifier').get_attribute(
+                "funderIdentifierType") if funding.get('funderIdentifier') else "",
+            'funderIdentifier': funding.get('funderIdentifier', "").text,
+            'awardTitle': funding.get('awardTitle', "").text,
+            'awardNumber': funding.get('awardNumber', "").text,
+            'awardURI': funding.get("awardNumber").get_attribute('awardURI') if funding.get('awardNumber') else "",
         }
-        if isinstance(funding.get("awardNumber"), OrderedDict):
-            curr_funding['awardNumber'] = funding.get("awardNumber").pop("#text","")
-            curr_funding['awardURI'] = funding.get("awardNumber").pop("@awardURI","")
-        elif isinstance(funding.get("awardNumber"), str):
-            curr_funding['awardNumber'] = funding.pop("awardNumber","")
-
-        return curr_funding
+        return {k: v for k, v in curr_funding.items() if v not in ('', None)}
 
     def transform_geo_location(self, datacite_geo_locations):
         curr_location = {}
-        if datacite_geo_locations.get('geoLocationPlace') is not None:
-            curr_location['geoLocationPlace'] = datacite_geo_locations.pop('geoLocationPlace')
+        if datacite_geo_locations.get('geoLocationPlace'):
+            curr_location['geoLocationPlace'] = datacite_geo_locations.get("geoLocationPlace").text
 
-        if isinstance(datacite_geo_locations.get("geoLocationPoint",[]), str):
-            point = datacite_geo_locations.pop('geoLocationPoint').split()
+        #                      float      whitespace  float else it is dictionary according to new schema
+        if re.match(r'^\s*(-?\d+\.\d+)\s+(-?\d+\.\d+)\s*$',datacite_geo_locations.get("geoLocationPoint",'').inner_html):
+            point = datacite_geo_locations.pop('geoLocationPoint').inner_html.split()
             curr_location['geoLocationPoint'] = {
                 'pointLatitude': point[0],
                 'pointLongitude': point[1]
             }
-        elif isinstance(datacite_geo_locations.get("geoLocationPoint",[]), OrderedDict):
+        elif datacite_geo_locations.get("geoLocationPoint"):
             curr_location['geoLocationPoint'] = {
-                'pointLatitude': datacite_geo_locations.get('geoLocationPoint').pop('pointLatitude'),
-                'pointLongitude': datacite_geo_locations.get('geoLocationPoint').pop('pointLongitude')
+                'pointLatitude': datacite_geo_locations.get('geoLocationPoint').get('pointLatitude').text,
+                'pointLongitude': datacite_geo_locations.get('geoLocationPoint').get('pointLongitude').text
             }
             datacite_geo_locations.pop('geoLocationPoint')
-
-
-        if isinstance(datacite_geo_locations.get("geoLocationBox",[]), OrderedDict):
-            geoLocationBox = {
-                'eastBoundLongitude': datacite_geo_locations.get('geoLocationBox').pop("eastBoundLongitude",""),
-                'northBoundLatitude': datacite_geo_locations.get('geoLocationBox').pop("northBoundLatitude",""),
-                'southBoundLatitude': datacite_geo_locations.get('geoLocationBox').pop("southBoundLatitude",""),
-                'westBoundLongitude': datacite_geo_locations.get('geoLocationBox').pop("westBoundLongitude",""),
-            }
-            curr_location['geoLocationBox'] = geoLocationBox
-            datacite_geo_locations.pop('geoLocationBox')
-        elif isinstance(datacite_geo_locations.get("geoLocationBox",[]), str):
-            coords = datacite_geo_locations.get("geoLocationBox","")
+        #                   float1 float2 float3 float4 else it is dictionary according to new schema
+        if re.match(r'^\s*(-?\d+\.\d+)\s+(-?\d+\.\d+)\s+(-?\d+\.\d+)\s+(-?\d+\.\d+)\s*$',
+                    datacite_geo_locations.get('geoLocationBox','').inner_html):
+            coords = datacite_geo_locations.get("geoLocationBox").inner_html
             if coords:
                 coords = coords.split()
                 geoLocationBox = {
@@ -312,30 +376,38 @@ class DataciteXMLTransformer(BaseTransformer):
                 }
                 curr_location['geoLocationBox'] = geoLocationBox
                 datacite_geo_locations.pop('geoLocationBox')
+        elif datacite_geo_locations.get('geoLocationBox'):
+            geoLocationBox = {
+                'eastBoundLongitude': datacite_geo_locations.get('geoLocationBox').get("eastBoundLongitude").text,
+                'northBoundLatitude': datacite_geo_locations.get('geoLocationBox').get("northBoundLatitude").text,
+                'southBoundLatitude': datacite_geo_locations.get('geoLocationBox').get("southBoundLatitude").text,
+                'westBoundLongitude': datacite_geo_locations.get('geoLocationBox').get("westBoundLongitude").text,
+            }
+            curr_location['geoLocationBox'] = geoLocationBox
 
-        self.ensureEmpty(datacite_geo_locations)
-        return curr_location
+
+       # self.ensureEmpty(datacite_geo_locations)
+        return {k: v for k, v in curr_location.items() if v not in ('', None)}
 
     def transform_geo_locations(self, locations, datacite_geo_locations):
-        if isinstance(datacite_geo_locations, list):
-            for location in datacite_geo_locations:
-                locations.append(self.transform_geo_location(location))
-        else:
-            locations.append(self.transform_geo_location(datacite_geo_locations))
+        if not datacite_geo_locations:
+            return
+        datacite_geo_locations = datacite_geo_locations.get_all('geoLocation')
+        for location in datacite_geo_locations:
+            locations.append(self.transform_geo_location(location))
+
 
     def transform_publisher(self, publisher, datacite_publisher):
-        if isinstance(datacite_publisher,str):
-            publisher.update({
-                'name' : datacite_publisher
-            })
-        elif isinstance(datacite_publisher,OrderedDict):
-            publisher.update({
-                'name' : datacite_publisher.pop('#text',""),
-                'lang' : datacite_publisher.pop('@xml:lang',""),
-                'publisherIdentifier' : datacite_publisher.pop('@publisherIdentifier',""),
-                'publisherIdentifierScheme' : datacite_publisher.pop('@publisherIdentifierScheme',""),
-                'schemeURI' : datacite_publisher.pop('@schemeURI',""),
-            })
+        current_publisher = {
+            'name': datacite_publisher.text,
+            'lang' : datacite_publisher.get_attribute('lang'),
+            'publisherIdentifier': datacite_publisher.get_attribute('publisherIdentifier'),
+            'publisherIdentifierScheme': datacite_publisher.get_attribute('publisherIdentifierScheme'),
+            'schemeURI': datacite_publisher.get_attribute('schemeURI'),
+        }
+        current_publisher = {k: v for k, v in current_publisher.items() if v not in ('', None)}
+        publisher.update(current_publisher)
+       # self.ensureEmpty(datacite_publisher)
 
     def transform_resource_type(self, resource_type):
         types = {"Audiovisual",
@@ -374,183 +446,173 @@ class DataciteXMLTransformer(BaseTransformer):
             return resource_type
 
     def transform_related_identifier(self, datacite_related_identifiers):
-        return {
-            'relatedIdentifier': datacite_related_identifiers.pop("#text",""),
-            'relatedIdentifierType': datacite_related_identifiers.pop("@relatedIdentifierType"),
-            'relatedMetadataScheme': datacite_related_identifiers.pop("@relatedMetadataScheme",""),
-            'relationType' : datacite_related_identifiers.pop("@relationType",""),
-            'resourceTypeGeneral' : self.transform_resource_type(datacite_related_identifiers.pop("@resourceTypeGeneral","Other")),
-            'schemeType' : datacite_related_identifiers.pop("@schemeType",""),
-            'schemeURI' : datacite_related_identifiers.pop("@schemeURI",""),
+        related_id = {
+            'relatedIdentifier': datacite_related_identifiers.text,
+            'relatedIdentifierType': datacite_related_identifiers.get_attribute("relatedIdentifierType"),
+            'relatedMetadataScheme': datacite_related_identifiers.get_attribute("relatedMetadataScheme"),
+            'relationType' : datacite_related_identifiers.get_attribute("relationType"),
+            'resourceTypeGeneral' : self.transform_resource_type(datacite_related_identifiers.get_attribute("resourceTypeGeneral")),
+            'schemeType' : datacite_related_identifiers.get_attribute("schemeType"),
+            'schemeURI' : datacite_related_identifiers.get_attribute("schemeURI"),
         }
+        return {k: v for k, v in related_id.items() if v not in ('', None)}
 
     def transform_related_identifiers(self, related_identifiers, datacite_related_identifiers):
-        if isinstance(datacite_related_identifiers, list):
-            for rel_id in datacite_related_identifiers:
-                related_identifiers.append(self.transform_related_identifier(rel_id))
-                self.ensureEmpty(rel_id)
-        else:
-            related_identifiers.append(self.transform_related_identifier(datacite_related_identifiers))
-            self.ensureEmpty(datacite_related_identifiers)
+        if not datacite_related_identifiers:
+            return
+        datacite_related_identifiers = datacite_related_identifiers.get_all("relatedIdentifier")
+        for rel_id in datacite_related_identifiers:
+            related_identifiers.append(self.transform_related_identifier(rel_id))
+           # self.ensureEmpty(rel_id)
 
     def transform_related_items(self, related_items, datacite_related_items):
-        if isinstance(datacite_related_items, list):
-            for rel_item in datacite_related_items:
-                related_items.append(self.transform_related_item(rel_item))
-                self.ensureEmpty(rel_item)
-        else:
-            related_items.append(self.transform_related_item(datacite_related_items))
-            self.ensureEmpty(datacite_related_items)
+        if not datacite_related_items:
+            return
+        datacite_related_items = datacite_related_items.get_all("relatedItem")
+        for rel_item in datacite_related_items:
+            related_items.append(self.transform_related_item(rel_item))
+            #self.ensureEmpty(rel_item)
 
     def transform_related_item(self, related_item):
         rel_item = {}
         if related_item.get('contributors'):
             contributors = []
-            self.transform_contributors(contributors, related_item.get('contributors',{}).pop('contributor',[]))
+            self.transform_contributors(contributors, related_item.get('contributors'))
             related_item.pop('contributors',[])
             rel_item['contributors'] = contributors
         if related_item.get('creators'):
             creators = []
-            self.transform_creators(creators, related_item.get('creators',{}).pop('creator',[]))
+            self.transform_creators(creators, related_item.get('creators'))
             related_item.pop('creators',[])
             rel_item['creators'] = creators
         if related_item.get('edition') is not None:
-            rel_item['edition'] = related_item.pop('edition')
+            rel_item['edition'] = related_item.pop('edition').text
         if related_item.get('firstPage') is not None:
-            rel_item['firstPage'] = related_item.pop('firstPage')
+            rel_item['firstPage'] = related_item.pop('firstPage').text
         if related_item.get('lastPage') is not None:
-            rel_item['lastPage'] = related_item.pop('lastPage')
+            rel_item['lastPage'] = related_item.pop('lastPage').text
         if related_item.get('issue') is not None:
-            rel_item['issue'] = related_item.pop('issue')
+            rel_item['issue'] = related_item.pop('issue').text
         if related_item.get('number') is not None:
-            rel_item['number'] = related_item.get('number').pop("#text")
-            rel_item['numberType'] = related_item.get('number').pop('@numberType',"Other")
+            rel_item['number'] = related_item.get('number').text
+            rel_item['numberType'] = related_item.get('number').get_attribute('numberType')
             related_item.pop('number')
         if related_item.get('publicationYear') is not None:
-            rel_item['publicationYear'] = related_item.pop('publicationYear')
+            rel_item['publicationYear'] = related_item.pop('publicationYear').text
         if related_item.get('publisher') is not None:
-            self.transform_publisher(rel_item.setdefault('publisher',{}),related_item.pop('publisher',{}))
+            self.transform_publisher(rel_item.setdefault('publisher',{}),related_item.get('publisher'))
         rel_item['relatedItemIdentifier'] = {
-            'relatedItemIdentifier' : related_item.get('relatedItemIdentifier').pop('#text',""),
-            'relatedItemIdentifierType' :  related_item.get('relatedItemIdentifier').pop('@relatedIdentifierType',""),
+            'relatedItemIdentifier' : related_item.get("relatedItemIdentifier").text,
+            'relatedItemIdentifierType' :  related_item.get("relatedItemIdentifier").get_attribute("relatedItemIdentifierType") if related_item.get("relatedItemIdentifier") else "",
         }
         related_item.pop('relatedItemIdentifier', None)
 
-        rel_item['relatedItemType'] = related_item.pop("@relatedItemType","Other")
-        rel_item['relatedMetadataScheme'] = related_item.pop("@relatedMetadataScheme", "")
-        rel_item['relationType'] = related_item.pop("@relationType","")
-        rel_item['resourceTypeGeneral'] = self.transform_resource_type(related_item.pop("@resourceTypeGeneral","Other"))
-        rel_item['schemeType'] = related_item.pop("@schemeType","")
-        rel_item['schemeURI'] = related_item.pop("@schemeURI","")
+        rel_item['relatedItemType'] = related_item.get_attribute("relatedItemType")
+        rel_item['relatedMetadataScheme'] = related_item.get_attribute("relatedMetadataScheme")
+        rel_item['relationType'] = related_item.get_attribute("relationType")
+        rel_item['resourceTypeGeneral'] = self.transform_resource_type(related_item.get_attribute("resourceTypeGeneral"))
+        rel_item['schemeType'] = related_item.get_attribute("schemeType")
+        rel_item['schemeURI'] = related_item.get_attribute("schemeURI")
 
-        if related_item.get('titles'):
+        if related_item.get_all('titles'):
             titles = []
-            self.transform_titles(titles, related_item.get('titles', {}).pop('title',[]))
+            self.transform_titles(titles, related_item.get('titles'))
             rel_item['titles'] = titles
             related_item.pop('titles',[])
         if related_item.get("volume") is not None:
-            rel_item['volume'] = related_item.pop("volume","")
+            rel_item['volume'] = related_item.pop("volume").text
 
-        return rel_item
+        return {k: v for k, v in rel_item.items() if v not in ('', None)}
 
 
     def transform_right(self, right):
-        if isinstance(right, str):
-            return {'rights' : right}
-
         curr_right = {
-            'rights': right.pop('#text',""),
+            'rights': right.text,
         }
-        if right.get("@rightsURI") is not None:
-            curr_right['rightsURI'] = right.pop("@rightsURI")
-        if right.get("@xml:lang") is not None:
-            curr_right['lang'] = right.pop("@xml:lang")
-        if right.get('@schemeURI') is not None:
-            curr_right['schemeURI'] = right.pop('@schemeURI')
-        if right.get('@rightsIdentifierScheme') is not None:
-            curr_right['rightsIdentifierScheme'] = right.pop('@rightsIdentifierScheme')
-        if right.get("@rightsIdentifier") is not None:
-            curr_right['rightsIdentifier'] = right.pop("@rightsIdentifier")
-        self.ensureEmpty(right)
-        return curr_right
+        if right.get_attribute("rightsURI") is not None:
+            curr_right['rightsURI'] = right.get_attribute("rightsURI")
+        if right.get_attribute("lang") is not None:
+            curr_right['lang'] = right.get_attribute("lang")
+        if right.get_attribute('schemeURI') is not None:
+            curr_right['schemeURI'] = right.get_attribute('schemeURI')
+        if right.get_attribute('rightsIdentifierScheme') is not None:
+            curr_right['rightsIdentifierScheme'] = right.get_attribute('rightsIdentifierScheme')
+        if right.get_attribute("rightsIdentifier") is not None:
+            curr_right['rightsIdentifier'] = right.get_attribute("rightsIdentifier")
+       # self.ensureEmpty(right)
+        return {k: v for k, v in curr_right.items() if v not in ('', None)}
 
     def transform_rights(self, rights, datacite_rights):
-        if isinstance(datacite_rights, list):
-            for right in datacite_rights:
-                rights.append(self.transform_right(right))
-        else:
-            rights.append(self.transform_right(datacite_rights))
+        if not datacite_rights:
+            return
+        datacite_rights = datacite_rights.get_all("rights")
+        for right in datacite_rights:
+            rights.append(self.transform_right(right))
 
     def transform_schema_version(self):
         pass
 
     def transform_sizes(self, sizes, datacite_sizes):
-        if isinstance(datacite_sizes, list):
-            sizes.extend(datacite_sizes)
-        else:
-            sizes.append(datacite_sizes)
+        if not datacite_sizes:
+            return
+        datacite_sizes = datacite_sizes.get_all("size")
+        for size in datacite_sizes:
+            sizes.append(size.text)
 
     def transform_subject(self, datacite_subject):
-        if isinstance(datacite_subject, str):
-            return {'subject': datacite_subject}
 
-        subject = {"subject" : datacite_subject.pop('#text',"")}
-        if datacite_subject.get("@subjectScheme") is not None:
-            subject['subjectScheme'] = datacite_subject.pop('@subjectScheme')
-        if datacite_subject.get("@schemeURI") is not None:
-            subject['schemeURI'] = datacite_subject.pop('@schemeURI')
-        if datacite_subject.get("@valueURI") is not None:
-            subject['valueURI'] = datacite_subject.pop('@valueURI')
-        if datacite_subject.get("@classificationCode") is not None:
-            subject['classificationCode'] = datacite_subject.pop('@classificationCode')
-        if datacite_subject.get("@xml:lang") is not None:
-            subject['lang'] = datacite_subject.pop('@xml:lang')
-        self.ensureEmpty(datacite_subject)
-        return subject
+        subject = {"subject" : datacite_subject.text}
+        if datacite_subject.get_attribute("subjectScheme") is not None:
+            subject['subjectScheme'] = datacite_subject.get_attribute('subjectScheme')
+        if datacite_subject.get_attribute("schemeURI") is not None:
+            subject['schemeURI'] = datacite_subject.get_attribute('schemeURI')
+        if datacite_subject.get_attribute("valueURI") is not None:
+            subject['valueURI'] = datacite_subject.get_attribute('valueURI')
+        if datacite_subject.get_attribute("classificationCode") is not None:
+            subject['classificationCode'] = datacite_subject.get_attribute('classificationCode')
+        if datacite_subject.get_attribute("lang") is not None:
+            subject['lang'] = datacite_subject.get_attribute('lang')
+      #  self.ensureEmpty(datacite_subject)
+        return {k: v for k, v in subject.items() if v not in ('', None)}
 
     def transform_subjects(self, subjects, datacite_subjects):
-        if isinstance(datacite_subjects, list):
-            for subject in datacite_subjects:
-                subjects.append(self.transform_subject(subject))
-        else:
-            subjects.append(self.transform_subject(datacite_subjects))
+        if not datacite_subjects:
+            return
+        datacite_subjects = datacite_subjects.get_all("subject")
+        for subject in datacite_subjects:
+            subjects.append(self.transform_subject(subject))
 
     def transform_title(self, datacite_titles):
-       if isinstance(datacite_titles,OrderedDict):
-           curr_title = {
-               "title" : datacite_titles.pop('#text',""),
-               "titleType" : "Other"
-           }
-           if datacite_titles.get('@titleType'):
-               curr_title['titleType'] = datacite_titles.pop('@titleType')
-           if datacite_titles.get('@xml:lang') is not None:
-               curr_title['lang'] = datacite_titles.pop('@xml:lang')
-           self.ensureEmpty(datacite_titles)
-           return curr_title
-       elif isinstance(datacite_titles, str):
-           curr_title = {
-               "title": datacite_titles,
-                "titleType": "Other"
-           }
-           return curr_title
-       return {}
+
+       curr_title = {
+           "title" : datacite_titles.inner_html,
+           "titleType" : "Other"
+       }
+       if datacite_titles.get_attribute('titleType'):
+           curr_title['titleType'] = datacite_titles.get_attribute('titleType')
+       if datacite_titles.get_attribute('lang'):
+           curr_title['lang'] = datacite_titles.get_attribute('lang')
+      # self.ensureEmpty(datacite_titles)
+
+       return {k: v for k, v in curr_title.items() if v not in ('', None)}
+
 
     def transform_titles(self, titles, datacite_titles):
-        if isinstance(datacite_titles, list):
-            for title in datacite_titles:
-                titles.append(self.transform_title(title))
-        else:
-            titles.append(self.transform_title(datacite_titles))
+        if not datacite_titles:
+            return
+        datacite_titles = datacite_titles.get_all("title")
+        for title in datacite_titles:
+            titles.append(self.transform_title(title))
 
     def transform_types(self, types, datacite_type):
         if datacite_type:
             curr_type = {
-                'resourceTypeGeneral' :self.transform_resource_type(datacite_type.pop('@resourceTypeGeneral',"Other"))
+                'resourceTypeGeneral' :self.transform_resource_type(datacite_type.get_attribute('resourceTypeGeneral'))
             }
-            if datacite_type.get('#text') is not None:
-                curr_type['resourceType'] = datacite_type.pop('#text')
+            if datacite_type.text:
+                curr_type['resourceType'] = datacite_type.text
 
-            self.ensureEmpty(datacite_type)
+          #  self.ensureEmpty(datacite_type)
             types.append(curr_type)
 
     def transform_url(self, url, zenodo_url):
@@ -558,77 +620,81 @@ class DataciteXMLTransformer(BaseTransformer):
 
     def transform_entry(self, entry:StreamEntry):
         source_metadata = self.parse_xml(entry)
-        source_metadata = OrderedDict((key, value) for key, value in source_metadata.items() if value is not None)
-
         transformed_metadata = {}
 
         self.transform_alt_identifiers(transformed_metadata.setdefault('alternateIdentifiers',[]),
-                                       source_metadata.get('alternateIdentifiers',{}).pop("alternateIdentifier",[]))
+                                       source_metadata.get('alternateIdentifiers'))
         source_metadata.pop('alternateIdentifiers',{})
 
         self.transform_contributors(transformed_metadata.setdefault('contributors',[]),
-                                    source_metadata.get('contributors',{}).pop('contributor',[]))
+                                    source_metadata.get('contributors'))
         source_metadata.pop('contributors', {})
 
         self.transform_creators(transformed_metadata.setdefault('creators',[]),
-                                source_metadata.get('creators',{}).pop('creator',[]))
+                                source_metadata.get('creators'))
         source_metadata.pop('creators', {})
 
         self.transform_dates(transformed_metadata.setdefault('dates',[]),
-                             source_metadata.get('dates',{}).pop("date",[]))
+                             source_metadata.get('dates'), source_metadata.get('publicationYear'))
         source_metadata.pop('dates', {})
 
+
         self.transform_descriptions(transformed_metadata.setdefault('descriptions',[]),
-                                    source_metadata.get('descriptions',{}).pop('description',[]))
+                                    source_metadata.get('descriptions',))
         source_metadata.pop('descriptions', {})
 
-        transformed_metadata['doi'] = self.transform_doi(source_metadata.pop('identifier',{}),)
+        transformed_metadata['doi'] = self.transform_doi(source_metadata.pop('identifier'),)
+
+
+        self.transform_fundings(transformed_metadata.setdefault('fundingReferences',[]),
+                                source_metadata.get('fundingReferences'))
 
         self.transform_format(transformed_metadata.setdefault('formats',[]),
-                              source_metadata.get('formats',{}).pop('format',[]))
+                              source_metadata.get('formats',))
         source_metadata.pop('formats', {})
 
         self.transform_geo_locations(transformed_metadata.setdefault('geoLocations',[]),
-                                    source_metadata.get('geoLocations',{}).pop('geoLocation',[]))
+                                    source_metadata.get('geoLocations'))
         source_metadata.pop('geoLocations', {})
 
         if source_metadata.get('language'):
-            transformed_metadata['language'] = source_metadata.pop('language')
+            transformed_metadata['language'] = source_metadata.pop('language').text
 
         if source_metadata.get('publicationYear'):
-            transformed_metadata['publicationYear'] = source_metadata.pop('publicationYear')
+            transformed_metadata['publicationYear'] = source_metadata.pop('publicationYear').text
 
         self.transform_publisher(transformed_metadata.setdefault('publisher',{}),
-                                 source_metadata.pop('publisher',{}))
+                                 source_metadata.pop('publisher'))
 
         self.transform_related_identifiers(transformed_metadata.setdefault('relatedIdentifiers',[]),
-                                           source_metadata.get('relatedIdentifiers',{}).pop('relatedIdentifier',[]))
+                                           source_metadata.get('relatedIdentifiers'))
         source_metadata.pop('relatedIdentifiers', {})
 
-        if isinstance(source_metadata.get('rights'),str):
-            transformed_metadata['rightsList'] = [{'rights' : source_metadata.pop('rights', "")}]
-        else:
-            self.transform_rights(transformed_metadata.setdefault('rightsList',[]),
-                              source_metadata.get('rightsList',{}).pop('rights',[]))
-            source_metadata.pop('rightsList', {})
+        self.transform_related_items(transformed_metadata.setdefault('relatedItems',[]),
+                                     source_metadata.get('relatedItems'))
+
+        self.transform_rights(transformed_metadata.setdefault('rightsList', []),
+                              source_metadata.get('rightsList', ))
+        source_metadata.pop('rightsList', {})
 
         self.transform_sizes(transformed_metadata.setdefault('sizes',[]),
-                             source_metadata.get('sizes',{}).pop('size',[]))
+                             source_metadata.get('sizes'))
         source_metadata.pop('sizes', {})
 
         self.transform_subjects(transformed_metadata.setdefault('subjects',[]),
-                                source_metadata.get('subjects',{}).pop('subject',[]))
+                                source_metadata.get('subjects'))
         source_metadata.pop('subjects', {})
 
         self.transform_titles(transformed_metadata.setdefault('titles',[]),
-                              source_metadata.get('titles',{}).pop('title',[]))
+                              source_metadata.get('titles',))
         source_metadata.pop('titles', {})
 
         self.transform_types(transformed_metadata.setdefault('types',[]),
-                             source_metadata.pop('resourceType',{}))
+                             source_metadata.pop('resourceType'))
 
-        if source_metadata.get('version') is not None:
-            transformed_metadata['version'] = source_metadata.pop('version')
+        if source_metadata.get('version') is not None and source_metadata.get('version').text:
+            transformed_metadata['version'] = source_metadata.pop('version').text
+        source_metadata.pop('version', {})
 
         entry.entry = {'metadata': transformed_metadata}
 
