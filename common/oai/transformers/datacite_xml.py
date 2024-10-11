@@ -297,7 +297,7 @@ class DataciteXMLTransformer(BaseTransformer):
             if description.inner_html:
                 descriptions.append(self.transform_description(description))
             #self.#Empty(description)
-        descriptions = [{description for description in descriptions if description.get("description","") }]
+        descriptions = [description for description in descriptions if description.get("description","")]
         if len(descriptions) == 1 and descriptions[0].get('descriptionType') == "Other":
             descriptions[0]['descriptionType'] = 'Abstract'
 
@@ -407,7 +407,7 @@ class DataciteXMLTransformer(BaseTransformer):
         publisher.update(current_publisher)
        # self.ensureEmpty(datacite_publisher)
 
-    def transform_resource_type(self, resource_type):
+    def transform_resource_type_general(self, resource_type):
         types = {"Audiovisual",
                     "Book",
                     "BookChapter",
@@ -449,7 +449,7 @@ class DataciteXMLTransformer(BaseTransformer):
             'relatedIdentifierType': datacite_related_identifiers.get_attribute("relatedIdentifierType"),
             'relatedMetadataScheme': datacite_related_identifiers.get_attribute("relatedMetadataScheme"),
             'relationType' : datacite_related_identifiers.get_attribute("relationType"),
-            'resourceTypeGeneral' : self.transform_resource_type(datacite_related_identifiers.get_attribute("resourceTypeGeneral")),
+            'resourceTypeGeneral' : self.transform_resource_type_general(datacite_related_identifiers.get_attribute("resourceTypeGeneral")),
             'schemeType' : datacite_related_identifiers.get_attribute("schemeType"),
             'schemeURI' : datacite_related_identifiers.get_attribute("schemeURI"),
         }
@@ -508,7 +508,7 @@ class DataciteXMLTransformer(BaseTransformer):
         rel_item['relatedItemType'] = related_item.get_attribute("relatedItemType")
         rel_item['relatedMetadataScheme'] = related_item.get_attribute("relatedMetadataScheme")
         rel_item['relationType'] = related_item.get_attribute("relationType")
-        rel_item['resourceTypeGeneral'] = self.transform_resource_type(related_item.get_attribute("resourceTypeGeneral"))
+        rel_item['resourceTypeGeneral'] = self.transform_resource_type_general(related_item.get_attribute("resourceTypeGeneral"))
         rel_item['schemeType'] = related_item.get_attribute("schemeType")
         rel_item['schemeURI'] = related_item.get_attribute("schemeURI")
 
@@ -602,18 +602,17 @@ class DataciteXMLTransformer(BaseTransformer):
         for title in datacite_titles:
             titles.append(self.transform_title(title))
 
-    def transform_types(self, types, datacite_type):
+    def transform_resource_type(self, metadata, datacite_type):
         if datacite_type:
             curr_type = {
-                'resourceTypeGeneral' :self.transform_resource_type(datacite_type.get_attribute('resourceTypeGeneral'))
+                'resourceTypeGeneral' :self.transform_resource_type_general(datacite_type.get_attribute('resourceTypeGeneral'))
             }
             if datacite_type.text:
                 curr_type['resourceType'] = datacite_type.text
 
-          #  self.ensureEmpty(datacite_type)
-            types.append(curr_type)
+            metadata['resourceType'] = curr_type
 
-    def transform_url(self, url, zenodo_url):
+    def transform_url(self, url, datacite_doi):
         pass  # no url
 
     def transform_entry(self, entry:StreamEntry):
@@ -687,8 +686,12 @@ class DataciteXMLTransformer(BaseTransformer):
                               source_metadata.get('titles',))
         source_metadata.pop('titles', {})
 
-        self.transform_types(transformed_metadata.setdefault('types',[]),
-                             source_metadata.pop('resourceType'))
+        self.transform_resource_type(transformed_metadata,
+                                     source_metadata.pop('resourceType'))
+
+        if transformed_metadata.get('doi') is not None:
+            # https://oai.datacite.org/oai?verb=GetRecord&metadataPrefix=datacite&identifier=doi:
+            transformed_metadata['url'] = f'https://oai.datacite.org/oai?verb=GetRecord&metadataPrefix=datacite&identifier=doi:{transformed_metadata["doi"]}'
 
         if source_metadata.get('version') is not None and source_metadata.get('version').text:
             transformed_metadata['version'] = source_metadata.pop('version').text
