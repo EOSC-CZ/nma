@@ -8,20 +8,20 @@ from oarepo_runtime.datastreams import BaseReader, StreamEntry
 
 def test_transform_types():
     transformer = ZenodoTransformer()
-    converted = []
-    transformer.transform_types(converted, {
+    converted = {}
+    transformer.transform_resource_type(converted, {
       "id": "publication-conferencepaper",
       "title": {
         "de": "Konferenzbeitrag",
         "en": "Conference paper"
       }
     })
-    assert converted == [{
+    assert converted['resourceType'] == {
         'resourceType' : 'Conference paper',
         'resourceTypeGeneral' : 'ConferencePaper'
-    }]
-    for type in converted:
-        ResourceTypeSchema().load(type)
+    }
+
+    ResourceTypeSchema().load(converted['resourceType'])
 
 def test_transform_sizes():
     transformer = ZenodoTransformer()
@@ -873,7 +873,7 @@ def test_transform_all():
             {'title': "subtitle", 'titleType': "Subtitle", 'lang': "ces"},
             {'title': "other", 'titleType': "Other", 'lang': "slk"},
         ],
-        'types':[{'resourceType':'Presentation','resourceTypeGeneral':"Other"}],
+        'resourceType':{'resourceType':'Presentation','resourceTypeGeneral':"Other"},
         'version':"some version",
     }
 

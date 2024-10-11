@@ -67,9 +67,9 @@ def transform_format(md, entry, value):
 def transform_type(md, entry, value):
     type, match = type_general_converter(value)
     if match:
-        md.setdefault("types", []).append({"resourceTypeGeneral": type})
+        md["resourceType"] = {"resourceTypeGeneral": type}
     else:
-        md.setdefault("types", []).append({"resourceType": value, "resourceTypeGeneral": "Other"})
+        md["resourceType"] = {"resourceType": value, "resourceTypeGeneral": "Other"}
 
 
 @matches("date")
