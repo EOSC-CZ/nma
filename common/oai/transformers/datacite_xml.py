@@ -282,15 +282,12 @@ class DataciteXMLTransformer(BaseTransformer):
 
 
     def transform_date(self, date):
-        if date.text.isnumeric(): # there were some cases of 1984/2002 for example with slash in the middle
-            current_date = {
-                    'date': date.text,
-                    'dateType': date.get_attribute('dateType'),
-                    'dateInformation' : date.get_attribute('dateInformation'),
-                }
-            return {k: v for k, v in current_date.items() if v not in ('', None)}
-        else:
-            return {}
+        current_date = {
+                'date': date.text,
+                'dateType': date.get_attribute('dateType'),
+                'dateInformation' : date.get_attribute('dateInformation'),
+            }
+        return {k: v for k, v in current_date.items() if v not in ('', None)}
 
     def transform_descriptions(self, descriptions, datacite_descriptions):
         if not datacite_descriptions:
@@ -300,6 +297,7 @@ class DataciteXMLTransformer(BaseTransformer):
             if description.inner_html:
                 descriptions.append(self.transform_description(description))
             #self.#Empty(description)
+        descriptions = [{description for description in descriptions if description.get("description","") }]
         if len(descriptions) == 1 and descriptions[0].get('descriptionType') == "Other":
             descriptions[0]['descriptionType'] = 'Abstract'
 
