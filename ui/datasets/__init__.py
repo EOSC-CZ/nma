@@ -9,6 +9,20 @@ class DatasetsResourceConfig(RecordsUIResourceConfig):
     blueprint_name = "datasets"
     ui_serializer_class = "datasets.resources.records.ui.DatasetsUIJSONSerializer"
     api_service = "datasets"
+    exports = {
+        "json": {
+            "name": "JSON",
+            "serializer": "flask_resources.serializers:JSONSerializer",
+            "content-type": "application/json",
+            "filename": "{id}.json",
+        },
+        "dcat-ap": {
+            "name": "DCAT-AP",
+            "serializer": "common.datasets.serializers.dcat:DCATAPSerializer",
+            "content-type": "application/vnd.dcatap+json",
+            "filename": "{id}-dcat.json",
+        },
+    }
 
     components = [BabelComponent]
     try:
