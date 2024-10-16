@@ -182,7 +182,7 @@
   ],
   "language": "eng",
   "publicationYear": "2022",
-  "publisher": { "name": "Zenodo" },
+  "publisher": "Zenodo",
   "rightsList": [
     {
       "rights": "Creative Commons Attribution 4.0 International",
@@ -197,9 +197,15 @@
       "titleType": "Other"
     }
   ],
-  "types": [
-    { "resourceType": "Journal article", "resourceTypeGeneral": "Other" }
-  ],
-  "url": "https://zenodo.org/records/7115649",
-  "version": ""
+  "types": {
+    "resourceType": "Journal article",
+    "resourceTypeGeneral": "Other"
+  },
+  "schemaVersion": "http://datacite.org/schema/kernel-4",
+  "identifiers": [
+    {
+      "identifier": "https://zenodo.org/records/7115649",
+      "identifierType": "OriginalURL"
+    }
+  ]
 }
