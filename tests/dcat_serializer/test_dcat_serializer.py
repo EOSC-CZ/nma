@@ -1,18 +1,3 @@
-# Add support for DCAT-AP serialization (both "export" on UI page and content negotiation in API) 
-# 
-# Try to validate harvested records in nma against https://github.com/inveniosoftware/datacite/blob/master/datacite/schemas/datacite-v4.3.json
-# 
-# Compare metadata schema of nma (datacite 4.5 based) with schema4.3 in examples at https://github.com/inveniosoftware/datacite/blob/master/tests/data/4.3/
-
-# UPDATE: SKIP THIS (no marshmallow)
-# Create marshmallow schema that will convert nma to 4.3 compatible json and write tests
-
-
-# Extend DCAT serializer, replace DCAT schema with our - see https://github.com/inveniosoftware/invenio-rdm-records/tree/master/invenio_rdm_records/resources/serializers/dcat + tests
-# 
-# Register the serializer to UI exports
-# Write API connector for content negotiation
-
 import json
 import jsonschema
 from common.datasets.serializers.dcat import DCATAPSerializer
