@@ -1,9 +1,10 @@
 import importlib_metadata
 from flask_resources import ResponseHandler
+from oarepo_runtime.resources.json_serializer import JSONSerializer
 from invenio_records_resources.resources import RecordResourceConfig
 
 from datasets.resources.records.ui import DatasetsUIJSONSerializer
-
+from invenio_records_resources.resources.records.headers import etag_headers
 
 class DatasetsResourceConfig(RecordResourceConfig):
     """DatasetsRecord resource config."""
@@ -19,9 +20,11 @@ class DatasetsResourceConfig(RecordResourceConfig):
         ):
             entrypoint_response_handlers.update(x.load())
         return {
+            **super().response_handlers,
             "application/vnd.inveniordm.v1+json": ResponseHandler(
                 DatasetsUIJSONSerializer()
             ),
-            **super().response_handlers,
+            "application/json": ResponseHandler(JSONSerializer(), headers=etag_headers)
+            ,
             **entrypoint_response_handlers,
         }

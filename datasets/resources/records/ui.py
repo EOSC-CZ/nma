@@ -17,3 +17,10 @@ class DatasetsUIJSONSerializer(LocalizedUIJSONSerializer):
             list_schema_cls=BaseListSchema,
             schema_context={"object_key": "ui", "identity": g.identity},
         )
+
+    def info(self,service):
+        return {
+            'schema' : "",
+            'description' : "Invenio RDM UI Serialization of datasets",
+            'name' : "UI Serialization",
+        }
