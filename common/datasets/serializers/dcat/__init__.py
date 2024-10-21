@@ -6,30 +6,35 @@ from flask_resources import (
     JSONSerializer,
     MarshmallowSerializer,
 )
-from flask import request
+from flask import current_app, request
 from invenio_records_resources.resources.records.headers import etag_headers
 
 from common.datasets.serializers.dcat.schema import DCATAPMetadataSchema
 
-class DCATAPSerializer(JSONSerializer):
-    def serialize_object(self, obj, **kwargs):
-        try:
-            metadata = obj.get('metadata', {})
-            schema = DCATAPMetadataSchema()
-            metadata = schema.transform_metadata(metadata)
-            metadata = schema.load(metadata)
-            obj['metadata'] = metadata
-        except Exception as e:
-            raise ValueError(f"Invalid metadata: {e}")
-            
-        return super().serialize_object(obj, **kwargs)
 
+class DCATAPSerializer(MarshmallowSerializer):
+    """DCAT-AP serializer for metadata. DataCite-based JSON schema."""
+    def __init__(self, **options):
+        """Constructor.""" 
+        super().__init__(
+            format_serializer_cls=JSONSerializer,
+            object_schema_cls=DCATAPMetadataSchema,
+            list_schema_cls=BaseListSchema,
+            **options,
+        )
+
+    def serialize_object(self, obj, **kwargs):
+        """Serialize object."""
+        metadata = obj.get("metadata", {})
+        schema = DCATAPMetadataSchema()
+        loaded_metadata = schema.load(metadata)
+        dump = schema.dump(loaded_metadata)
+        obj["metadata"] = dump
+        return super().serialize_object(dump)
+        
     def get_attribute(self, obj, attr, default):
-        """Override how attributes are retrieved when dumping."""
-        if attr == "files":
-            return getattr(obj, attr, default)
-        else:
-            return get_value(obj, attr, default)
+        """Retrieve attributes, with special handling for 'files'."""
+        return getattr(obj, attr, default) if attr == "files" else get_value(obj, attr, default)
     
 
 def _dcatap_headers(obj_or_list, code, many=False):
@@ -41,7 +46,7 @@ def _dcatap_headers(obj_or_list, code, many=False):
 dcatap_response_handlers = {
     "application/vnd.dcatap+json": ResponseHandler(
         DCATAPSerializer(), headers=_dcatap_headers
-    ),
+    )
 }
 
     

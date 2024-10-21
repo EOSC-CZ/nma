@@ -2,7 +2,7 @@
 from flask import current_app
 import idutils
 import marshmallow as ma
-from marshmallow import fields as ma_fields, missing
+from marshmallow import Schema, fields as ma_fields, missing, post_load, pre_load
 from marshmallow_utils.html import sanitize_unicode
 from marshmallow_utils.fields import SanitizedUnicode
 from nr_metadata.datacite.services.records.schema import (
@@ -23,6 +23,7 @@ class IdentifierSchema(ma.Schema):
             'identifierType': 'OriginalURL'
         }
 
+
 class PublisherSchema(ma.Schema):
     name = ma_fields.String()
 
@@ -41,16 +42,10 @@ class Datacite43MetadataSchema(NRDataCiteMetadataSchema):
     types = ma_fields.Nested(lambda: ResourceTypeSchema)
 
     def __init__(self, *args, **kwargs):
-        url_value = kwargs.pop('url', None)
         super().__init__(*args, **kwargs)
-        if url_value:
-            if 'identifiers' not in self.fields:
-                self.fields['identifiers'] = ma_fields.List(ma_fields.Nested(IdentifierSchema))
-            self.fields['identifiers'].default = [IdentifierSchema.create_identifier(url_value)]
-        if 'version' in kwargs:
-            del kwargs['version']
-
-    def transform_metadata(self, metadata):
+    
+    @pre_load
+    def preprocess_metadata(self, metadata, **kwargs):
         if 'publisher' in metadata and isinstance(metadata['publisher'], dict):
             metadata['publisher'] = metadata['publisher'].get('name')
         if 'resourceType' in metadata:
@@ -62,7 +57,17 @@ class Datacite43MetadataSchema(NRDataCiteMetadataSchema):
             metadata['schemaVersion'] = "http://datacite.org/schema/kernel-4"
         if 'version' in metadata:
             del metadata['version']
+        if 'files' in metadata:
+            metadata['_files'] = metadata.pop('files')
+    
         return metadata
+
+    @post_load
+    def assign_metadata(self, data, **kwargs):
+        """Assign metadata to obj['metadata'] after loading."""
+        obj = data.get('obj', {})
+        obj['metadata'] = data.get('metadata', {})
+        return data
 
 class DCATAPMetadataSchema(Datacite43MetadataSchema):
     """DCAT-AP Marshmallow Schema based on invenio-rdm-records schema."""
@@ -71,6 +76,8 @@ class DCATAPMetadataSchema(Datacite43MetadataSchema):
 
     def get_files(self, obj):
         """Get files."""
+        if "files" not in obj:
+            return missing
         files_enabled = obj["files"].get("enabled", False)
         if not files_enabled:
             return missing
@@ -99,6 +106,5 @@ class DCATAPMetadataSchema(Datacite43MetadataSchema):
 
         return files_list or missing
 
-    def transform_metadata(self, metadata):
-        metadata = super().transform_metadata(metadata)
-        return metadata
+    
+    
