@@ -548,7 +548,7 @@ def test_serialize_missing_metadata():
     
     assert serialize_metadata(input_json) == expected_output
 
-def test_serialize_empty_metadata(self):
+def test_serialize_empty_metadata():
     input_json = {
         "$schema": "local://datasets-1.0.0.json",
         "created": "2024-10-09T13:33:00.601364+00:00",
