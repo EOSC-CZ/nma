@@ -46,6 +46,8 @@ class Datacite43MetadataSchema(NRDataCiteMetadataSchema):
     
     @pre_load
     def preprocess_metadata(self, metadata, **kwargs):
+        if not metadata:
+            return {}
         if 'publisher' in metadata and isinstance(metadata['publisher'], dict):
             metadata['publisher'] = metadata['publisher'].get('name')
         if 'resourceType' in metadata:
