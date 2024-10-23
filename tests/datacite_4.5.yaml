@@ -13,7 +13,7 @@ DataCiteMetadata:
     url:
       type: url
 
-    types[]:
+    resourceType:
       use: "datacite-datatypes#ResourceType"
 
     creators[]:
