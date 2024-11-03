@@ -91,8 +91,7 @@ def transform_subject(md, entry, value):
 
 @matches("contributor")
 def transform_contributor(md, entry, value):
-    raise Exception(f'contributor {value}')
-    # md.setdefault("contributors", []).append({"name": value, "contributorType": "Other"}) #todo type? required..
+    md.setdefault("contributors", []).append({"name": value, "contributorType": "Other"})
 
 @matches("creator")
 def transform_creator(md, entry, value):

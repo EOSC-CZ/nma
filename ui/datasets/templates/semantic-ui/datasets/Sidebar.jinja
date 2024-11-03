@@ -30,6 +30,17 @@
           <URL className="header" data={_data}></URL>
         </div>
       </div>
+      <div class="item">
+        <i class="download link icon"></i>
+        <div class="content">
+          {% set _data = {
+          "href": record.links.export_path|e ~ "/dcat-ap",
+          "title": _('Export') ~ ' DCAT AP',
+          "label": "DCAT-AP"
+          } %}
+          <URL className="header" data={_data}></URL>
+        </div>
+      </div>
     </div>
   </AccordionField>
 </section>
