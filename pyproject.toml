@@ -69,6 +69,8 @@ datasets = "datasets.models:ui.json"
 
 [project.entry-points."invenio.datasets.response_handlers"]
 nma_extras = "common.datasets.serializers.citations:citations_response_handlers"
+nma_dcat = "common.datasets.serializers.dcat:dcatap_response_handlers"
+
 
 [project.optional-dependencies]
 tests = [
