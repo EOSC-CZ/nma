@@ -18,4 +18,4 @@ invenio oarepo oai harvester add cvut --name "CVUT zenodo harvester" \
             --writer 'service{service=datasets,update=true}'
 
 
-invenio oarepo oai harvester run cvut
+invenio oarepo oai harvester run cvut --log-level INFO --batch-size 1 2>&1 | tee -a /tmp/harvest_cvut.log
