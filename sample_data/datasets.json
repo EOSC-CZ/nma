@@ -1,257 +1,264 @@
 [
     {
-        "iri": "http://example.org/dataset/ecoli-microscopy",
-        "publication_year": 2023,
-        "version": "1.0",
-        "descriptions": [
-            {
-                "lang": "en",
-                "value": "A dataset containing high-resolution microscopic images of Escherichia coli (E. coli) bacteria, captured under various conditions for research purposes."
+        "parent": {
+            "communities": {
+                "default": "generic"
             }
-        ],
-        "primary_language": "en",
-        "title": "E. coli Microscopy Dataset",
-        "alternate_titles": [
-            {
-                "iri": "http://example.org/alternate-title/ecoli",
-                "title": {
+        },
+        "metadata": {
+            "iri": "http://example.org/dataset/ecoli-microscopy",
+            "publication_year": 2023,
+            "version": "1.0",
+            "descriptions": [
+                {
                     "lang": "en",
-                    "value": "Microscopic Images of Escherichia coli"
-                },
-                "type": "alternative"
-            }
-        ],
-        "is_described_by": [
-            {
-                "iri": "http://example.org/metadata/ecoli",
-                "date_created": "2023-10-01",
-                "languages": [
-                    "en"
-                ],
-                "qualified_relations": [
-                    {
-                        "iri": "http://example.org/metadata-to-agent/1",
-                        "role": {
-                            "iri": "http://example.org/roles/creator"
-                        },
-                        "organization": {
-                            "iri": "http://example.org/organization/biology-lab",
-                            "name": {
-                                "lang": "en",
-                                "value": "Biology Research Lab"
+                    "value": "A dataset containing high-resolution microscopic images of Escherichia coli (E. coli) bacteria, captured under various conditions for research purposes."
+                }
+            ],
+            "primary_language": "en",
+            "title": "E. coli Microscopy Dataset",
+            "alternate_titles": [
+                {
+                    "iri": "http://example.org/alternate-title/ecoli",
+                    "title": {
+                        "lang": "en",
+                        "value": "Microscopic Images of Escherichia coli"
+                    },
+                    "type": "alternative"
+                }
+            ],
+            "is_described_by": [
+                {
+                    "iri": "http://example.org/metadata/ecoli",
+                    "date_created": "2023-10-01",
+                    "languages": [
+                        "en"
+                    ],
+                    "qualified_relations": [
+                        {
+                            "iri": "http://example.org/metadata-to-agent/1",
+                            "role": {
+                                "iri": "http://example.org/roles/creator"
                             },
-                            "external_identifiers": [
-                                "org-123"
-                            ],
-                            "contact_points": [
-                                {
-                                    "iri": "http://example.org/contact/lab",
-                                    "emails": [
-                                        "contact@biologylab.org"
-                                    ],
-                                    "phones": [
-                                        "+1234567890"
-                                    ]
-                                }
-                            ]
-                        },
-                        "person": {
-                            "iri": "http://example.org/person/researcher",
-                            "family_name": "Smith",
-                            "given_names": [
-                                "Jane"
-                            ],
-                            "affiliations": [
-                                {
-                                    "iri": "http://example.org/organization/biology-lab",
-                                    "name": {
-                                        "lang": "en",
-                                        "value": "Biology Research Lab"
+                            "organization": {
+                                "iri": "http://example.org/organization/biology-lab",
+                                "name": {
+                                    "lang": "en",
+                                    "value": "Biology Research Lab"
+                                },
+                                "external_identifiers": [
+                                    "org-123"
+                                ],
+                                "contact_points": [
+                                    {
+                                        "iri": "http://example.org/contact/lab",
+                                        "emails": [
+                                            "contact@biologylab.org"
+                                        ],
+                                        "phones": [
+                                            "+1234567890"
+                                        ]
                                     }
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        ],
-        "identifiers": [
-            {
-                "iri": "http://example.org/identifier/ecoli-1",
-                "identifier_scheme": "http://example.org/scheme/doi",
-                "value": "10.1234/ecoli-microscopy"
-            }
-        ],
-        "locations": [
-            {
-                "iri": "http://example.org/location/lab",
-                "location_names": [
-                    "Biology Research Lab"
-                ],
-                "geometry": {
-                    "iri": "http://example.org/geometry/lab",
-                    "labels": [
-                        {
-                            "lang": "en",
-                            "value": "Lab Location"
-                        }
-                    ]
-                }
-            }
-        ],
-        "provenances": [
-            {
-                "iri": "http://example.org/provenance/ecoli",
-                "labels": [
-                    {
-                        "lang": "en",
-                        "value": "Dataset created as part of a research project on bacterial imaging."
-                    }
-                ]
-            }
-        ],
-        "qualified_relations": [
-            {
-                "iri": "http://example.org/resource-to-agent/1",
-                "role": {
-                    "iri": "http://example.org/roles/contributor"
-                },
-                "organization": {
-                    "iri": "http://example.org/organization/imaging-center",
-                    "name": {
-                        "lang": "en",
-                        "value": "Imaging Research Center"
-                    }
-                },
-                "person": {
-                    "iri": "http://example.org/person/imaging-specialist",
-                    "family_name": "Doe",
-                    "given_names": [
-                        "John"
-                    ]
-                }
-            }
-        ],
-        "time_references": [
-            {
-                "iri": "http://example.org/time-reference/ecoli",
-                "date": "2023-09-15",
-                "date_type": "created"
-            }
-        ],
-        "subjects": [
-            {
-                "iri": "http://example.org/subject/biology",
-                "title": {
-                    "lang": "en",
-                    "value": "Microbiology"
-                },
-                "classification_code": "BIO-001",
-                "in_subject_scheme": {
-                    "iri": "http://example.org/subject-scheme/biology",
-                    "labels": [
-                        {
-                            "lang": "en",
-                            "value": "Biological Sciences"
-                        }
-                    ]
-                }
-            }
-        ],
-        "validation_results": [
-            {
-                "iri": "http://example.org/validation/ecoli",
-                "labels": [
-                    {
-                        "lang": "en",
-                        "value": "Dataset validated for accuracy and completeness."
-                    }
-                ]
-            }
-        ],
-        "funding_references": [
-            {
-                "iri": "http://example.org/funding/ecoli",
-                "funding_program": "Bacterial Imaging Research Grant",
-                "award_title": "E. coli Microscopy Project",
-                "local_identifier": "award-456",
-                "funders": [
-                    {
-                        "iri": "http://example.org/funder/nih",
-                        "funder_identifier_type": "NIH Grant",
-                        "funder_identifier_scheme_uri": "http://example.org/funder-scheme/nih"
-                    }
-                ]
-            }
-        ],
-        "terms_of_use": [
-            {
-                "iri": "http://example.org/terms/ecoli",
-                "description": "This dataset is available under the Creative Commons Attribution 4.0 International License.",
-                "license": "CC-BY-4.0",
-                "access_rights": [
-                    "public"
-                ],
-                "contacts": [
-                    {
-                        "organization": {
-                            "iri": "http://example.org/organization/biology-lab",
-                            "name": {
-                                "lang": "en",
-                                "value": "Biology Research Lab"
+                                ]
+                            },
+                            "person": {
+                                "iri": "http://example.org/person/researcher",
+                                "family_name": "Smith",
+                                "given_names": [
+                                    "Jane"
+                                ],
+                                "affiliations": [
+                                    {
+                                        "iri": "http://example.org/organization/biology-lab",
+                                        "name": {
+                                            "lang": "en",
+                                            "value": "Biology Research Lab"
+                                        }
+                                    }
+                                ]
                             }
-                        },
-                        "person": {
-                            "iri": "http://example.org/person/researcher",
-                            "family_name": "Smith",
-                            "given_names": [
-                                "Jane"
-                            ]
                         }
-                    }
-                ]
-            }
-        ],
-        "distribution_data_services": [
-            {
-                "iri": "http://example.org/distribution/service/ecoli",
-                "title": "E. coli Microscopy Data Service",
-                "descriptions": [
-                    {
-                        "lang": "en",
-                        "value": "A data service providing access to the E. coli microscopy dataset."
-                    }
-                ],
-                "access_services": [
-                    {
-                        "iri": "http://example.org/data-service/ecoli",
-                        "endpoint_urls": [
-                            "http://api.example.org/ecoli"
-                        ],
+                    ]
+                }
+            ],
+            "identifiers": [
+                {
+                    "iri": "http://example.org/identifier/ecoli-1",
+                    "identifier_scheme": "http://example.org/scheme/doi",
+                    "value": "10.1234/ecoli-microscopy"
+                }
+            ],
+            "locations": [
+                {
+                    "iri": "http://example.org/location/lab",
+                    "location_names": [
+                        "Biology Research Lab"
+                    ],
+                    "geometry": {
+                        "iri": "http://example.org/geometry/lab",
                         "labels": [
                             {
                                 "lang": "en",
-                                "value": "E. coli Data API"
+                                "value": "Lab Location"
                             }
                         ]
                     }
-                ]
-            }
-        ],
-        "distribution_downloadable_files": [
-            {
-                "iri": "http://example.org/distribution/file/ecoli",
-                "title": "E. coli Microscopy Images",
-                "checksum": "a1b2c3d4e5f6",
-                "byte_size": 104857600,
-                "format": "http://example.org/formats/tiff",
-                "access_urls": [
-                    "http://download.example.org/ecoli-images"
-                ],
-                "download_urls": [
-                    "http://download.example.org/ecoli-images.zip"
-                ]
-            }
-        ]
+                }
+            ],
+            "provenances": [
+                {
+                    "iri": "http://example.org/provenance/ecoli",
+                    "labels": [
+                        {
+                            "lang": "en",
+                            "value": "Dataset created as part of a research project on bacterial imaging."
+                        }
+                    ]
+                }
+            ],
+            "qualified_relations": [
+                {
+                    "iri": "http://example.org/resource-to-agent/1",
+                    "role": {
+                        "iri": "http://example.org/roles/contributor"
+                    },
+                    "organization": {
+                        "iri": "http://example.org/organization/imaging-center",
+                        "name": {
+                            "lang": "en",
+                            "value": "Imaging Research Center"
+                        }
+                    },
+                    "person": {
+                        "iri": "http://example.org/person/imaging-specialist",
+                        "family_name": "Doe",
+                        "given_names": [
+                            "John"
+                        ]
+                    }
+                }
+            ],
+            "time_references": [
+                {
+                    "iri": "http://example.org/time-reference/ecoli",
+                    "date": "2023-09-15",
+                    "date_type": "created"
+                }
+            ],
+            "subjects": [
+                {
+                    "iri": "http://example.org/subject/biology",
+                    "title": {
+                        "lang": "en",
+                        "value": "Microbiology"
+                    },
+                    "classification_code": "BIO-001",
+                    "in_subject_scheme": {
+                        "iri": "http://example.org/subject-scheme/biology",
+                        "labels": [
+                            {
+                                "lang": "en",
+                                "value": "Biological Sciences"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "validation_results": [
+                {
+                    "iri": "http://example.org/validation/ecoli",
+                    "labels": [
+                        {
+                            "lang": "en",
+                            "value": "Dataset validated for accuracy and completeness."
+                        }
+                    ]
+                }
+            ],
+            "funding_references": [
+                {
+                    "iri": "http://example.org/funding/ecoli",
+                    "funding_program": "Bacterial Imaging Research Grant",
+                    "award_title": "E. coli Microscopy Project",
+                    "local_identifier": "award-456",
+                    "funders": [
+                        {
+                            "iri": "http://example.org/funder/nih",
+                            "funder_identifier_type": "NIH Grant",
+                            "funder_identifier_scheme_uri": "http://example.org/funder-scheme/nih"
+                        }
+                    ]
+                }
+            ],
+            "terms_of_use": [
+                {
+                    "iri": "http://example.org/terms/ecoli",
+                    "description": "This dataset is available under the Creative Commons Attribution 4.0 International License.",
+                    "license": "CC-BY-4.0",
+                    "access_rights": [
+                        "public"
+                    ],
+                    "contacts": [
+                        {
+                            "organization": {
+                                "iri": "http://example.org/organization/biology-lab",
+                                "name": {
+                                    "lang": "en",
+                                    "value": "Biology Research Lab"
+                                }
+                            },
+                            "person": {
+                                "iri": "http://example.org/person/researcher",
+                                "family_name": "Smith",
+                                "given_names": [
+                                    "Jane"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "distribution_data_services": [
+                {
+                    "iri": "http://example.org/distribution/service/ecoli",
+                    "title": "E. coli Microscopy Data Service",
+                    "descriptions": [
+                        {
+                            "lang": "en",
+                            "value": "A data service providing access to the E. coli microscopy dataset."
+                        }
+                    ],
+                    "access_services": [
+                        {
+                            "iri": "http://example.org/data-service/ecoli",
+                            "endpoint_urls": [
+                                "http://api.example.org/ecoli"
+                            ],
+                            "labels": [
+                                {
+                                    "lang": "en",
+                                    "value": "E. coli Data API"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "distribution_downloadable_files": [
+                {
+                    "iri": "http://example.org/distribution/file/ecoli",
+                    "title": "E. coli Microscopy Images",
+                    "checksum": "a1b2c3d4e5f6",
+                    "byte_size": 104857600,
+                    "format": "http://example.org/formats/tiff",
+                    "access_urls": [
+                        "http://download.example.org/ecoli-images"
+                    ],
+                    "download_urls": [
+                        "http://download.example.org/ecoli-images.zip"
+                    ]
+                }
+            ]
+        }
     }
 ]
