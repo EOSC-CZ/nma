@@ -57,6 +57,8 @@ record:
     base-html-url: /datasets/
     base-url: /datasets/
 
+use: ./datasets-settings.yaml
+
 settings:
   i18n-languages:
     - en

@@ -1,8 +1,4 @@
-from invenio_rdm_records.requests.entity_resolvers import RDMRecordServiceResultProxy
-from invenio_records_resources.references.entity_resolvers.results import (
-    ServiceResultResolver,
-)
-from oarepo_requests.resolvers.service_result import DraftServiceResultResolver
+# from oarepo_requests.resolvers.service_result import DraftServiceResultResolver
 from oarepo_requests.resolvers.ui import (
     RecordEntityDraftReferenceUIResolver,
     RecordEntityReferenceUIResolver,
@@ -83,14 +79,14 @@ ENTITY_REFERENCE_UI_RESOLVERS = {
     "datasets_draft": RecordEntityDraftReferenceUIResolver("datasets_draft"),
 }
 REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
-NOTIFICATIONS_ENTITY_RESOLVERS = [
-    ServiceResultResolver(service_id="datasets", type_key="datasets"),
-    DraftServiceResultResolver(
-        service_id="datasets",
-        type_key="datasets_draft",
-        proxy_cls=RDMRecordServiceResultProxy,
-    ),
-]
+# NOTIFICATIONS_ENTITY_RESOLVERS = [
+#     ServiceResultResolver(service_id="datasets", type_key="datasets"),
+#     DraftServiceResultResolver(
+#         service_id="datasets",
+#         type_key="datasets_draft",
+#         proxy_cls=RDMRecordServiceResultProxy,
+#     ),
+# ]
 
 
 DATASETS_REQUEST_TYPES_RESOURCE_CLASS = DraftRequestTypesResource
