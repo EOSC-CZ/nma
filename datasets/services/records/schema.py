@@ -220,9 +220,9 @@ class ContactsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    organization = ma_fields.Nested(lambda: OrganizationSchema(), required=True)
+    organization = ma_fields.Nested(lambda: OrganizationSchema())
 
-    person = ma_fields.Nested(lambda: PersonSchema(), required=True)
+    person = ma_fields.Nested(lambda: PersonSchema())
 
 
 class QualifiedRelationsItemSchema(DictOnlySchema):
@@ -231,9 +231,9 @@ class QualifiedRelationsItemSchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    organization = ma_fields.Nested(lambda: OrganizationSchema(), required=True)
+    organization = ma_fields.Nested(lambda: OrganizationSchema())
 
-    person = ma_fields.Nested(lambda: PersonSchema(), required=True)
+    person = ma_fields.Nested(lambda: PersonSchema())
 
     role = ma_fields.Nested(lambda: DocumentationsItemSchema(), required=True)
 

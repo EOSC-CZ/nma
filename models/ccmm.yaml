@@ -24,7 +24,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/contact_details
         label.en: Contact point
-        help.en: Relevant contact information for the catalogued resource. Use of
+        help.en:
+          Relevant contact information for the catalogued resource. Use of
           vCard is recommended.
   alternate_title:
     properties:
@@ -81,10 +82,8 @@ $defs:
     properties:
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
   data_service:
     properties:
       iri:
@@ -248,7 +247,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/data_service
         label.en: Access service
-        help.en: A site or end-point that gives access to the distribution of the
+        help.en:
+          A site or end-point that gives access to the distribution of the
           dataset.
       iri:
         type: keyword
@@ -261,7 +261,8 @@ $defs:
       checksum:
         type: keyword
         label.en: Checksum
-        help.en: A mechanism that can be used to verify that the contents of a distribution
+        help.en:
+          A mechanism that can be used to verify that the contents of a distribution
           have not changed.
         required: true
       byte_size:
@@ -451,7 +452,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/repository
         label.en: Original repository
-        help.en: Link to the repository from which the metadata were originally stored
+        help.en:
+          Link to the repository from which the metadata were originally stored
           and curated.
       conforms_to_standards:
         type: array
@@ -465,15 +467,14 @@ $defs:
         type: keyword
       role:
         use: ./ccmm.yaml#/$defs/metadata_agent_role_type
-        label.en: had role - The function of an entity or agent with respect to another
+        label.en:
+          had role - The function of an entity or agent with respect to another
           entity or resource.
         required: true
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
   organization:
     properties:
       alternate_names:
@@ -500,7 +501,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/contact_details
         label.en: Contact point
-        help.en: Relevant contact information for the catalogued resource. Use of
+        help.en:
+          Relevant contact information for the catalogued resource. Use of
           vCard is recommended.
   ows:BoundingBoxType:
     properties:
@@ -551,7 +553,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/contact_details
         label.en: Contact point
-        help.en: Relevant contact information for the catalogued resource. Use of
+        help.en:
+          Relevant contact information for the catalogued resource. Use of
           vCard is recommended.
   provenance_statement:
     properties:
@@ -584,7 +587,8 @@ $defs:
       type:
         type: keyword
         label.en: Type
-        help.en: A description of the resource. Gets the value from controlled list
+        help.en:
+          A description of the resource. Gets the value from controlled list
           https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/resourceTypeGeneral/.
       title:
         type: keyword
@@ -621,15 +625,14 @@ $defs:
         type: keyword
       role:
         use: ./ccmm.yaml#/$defs/resource_agent_role_type
-        label.en: had role - The function of an entity or agent with respect to another
+        label.en:
+          had role - The function of an entity or agent with respect to another
           entity or resource.
         required: true
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
   subject:
     properties:
       iri:
@@ -646,7 +649,8 @@ $defs:
       classification_code:
         type: keyword
         label.en: Classification code
-        help.en: The classification code used for the subject term in the subject
+        help.en:
+          The classification code used for the subject term in the subject
           scheme.
       in_subject_scheme:
         use: ./ccmm.yaml#/$defs/subject_scheme
@@ -678,7 +682,8 @@ $defs:
         items:
           type: keyword
         label.en: Access rights
-        help.en: Information about who access the resource or an indication of its
+        help.en:
+          Information about who access the resource or an indication of its
           security status.
       contacts:
         type: array
@@ -701,7 +706,8 @@ $defs:
       date:
         type: date
         label.en: Date
-        help.en: A point or period of time associated with an event in the lifecycle
+        help.en:
+          A point or period of time associated with an event in the lifecycle
           of the resource.
   validation_result:
     properties:

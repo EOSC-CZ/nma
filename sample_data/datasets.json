@@ -5,6 +5,9 @@
                 "default": "generic"
             }
         },
+        "files": {
+            "enabled": false
+        },
         "metadata": {
             "iri": "http://example.org/dataset/ecoli-microscopy",
             "publication_year": 2023,

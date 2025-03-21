@@ -1010,7 +1010,6 @@
                                         "organization": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/is_described_by/qualified_relations/organization.help",
                                             "label": "metadata/is_described_by/qualified_relations/organization.label",
                                             "hint": "metadata/is_described_by/qualified_relations/organization.hint",
@@ -1232,7 +1231,6 @@
                                         "person": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/is_described_by/qualified_relations/person.help",
                                             "label": "metadata/is_described_by/qualified_relations/person.label",
                                             "hint": "metadata/is_described_by/qualified_relations/person.hint",
@@ -1912,7 +1910,6 @@
                                                     "organization": {
                                                         "detail": false,
                                                         "input": false,
-                                                        "required": true,
                                                         "help": "metadata/locations/related_object_identifiers/qualified_relations/organization.help",
                                                         "label": "metadata/locations/related_object_identifiers/qualified_relations/organization.label",
                                                         "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization.hint",
@@ -2134,7 +2131,6 @@
                                                     "person": {
                                                         "detail": false,
                                                         "input": false,
-                                                        "required": true,
                                                         "help": "metadata/locations/related_object_identifiers/qualified_relations/person.help",
                                                         "label": "metadata/locations/related_object_identifiers/qualified_relations/person.label",
                                                         "hint": "metadata/locations/related_object_identifiers/qualified_relations/person.hint",
@@ -2791,7 +2787,6 @@
                             "organization": {
                                 "detail": false,
                                 "input": false,
-                                "required": true,
                                 "help": "metadata/qualified_relations/organization.help",
                                 "label": "metadata/qualified_relations/organization.label",
                                 "hint": "metadata/qualified_relations/organization.hint",
@@ -3013,7 +3008,6 @@
                             "person": {
                                 "detail": false,
                                 "input": false,
-                                "required": true,
                                 "help": "metadata/qualified_relations/person.help",
                                 "label": "metadata/qualified_relations/person.label",
                                 "hint": "metadata/qualified_relations/person.hint",
@@ -3531,7 +3525,6 @@
                                         "organization": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/related_resources/qualified_relations/organization.help",
                                             "label": "metadata/related_resources/qualified_relations/organization.label",
                                             "hint": "metadata/related_resources/qualified_relations/organization.hint",
@@ -3753,7 +3746,6 @@
                                         "person": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/related_resources/qualified_relations/person.help",
                                             "label": "metadata/related_resources/qualified_relations/person.label",
                                             "hint": "metadata/related_resources/qualified_relations/person.hint",
@@ -4483,7 +4475,6 @@
                                         "organization": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/terms_of_use/contacts/organization.help",
                                             "label": "metadata/terms_of_use/contacts/organization.label",
                                             "hint": "metadata/terms_of_use/contacts/organization.hint",
@@ -4705,7 +4696,6 @@
                                         "person": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/terms_of_use/contacts/person.help",
                                             "label": "metadata/terms_of_use/contacts/person.label",
                                             "hint": "metadata/terms_of_use/contacts/person.hint",

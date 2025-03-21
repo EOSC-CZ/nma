@@ -1,4 +1,6 @@
 datasets:
   - writer: service
     service: datasets
+  - writer: publish
+    service: datasets
   - source: datasets.json

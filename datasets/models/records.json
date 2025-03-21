@@ -1746,7 +1746,6 @@
                                             },
                                             "organization": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": true,
                                                     "class": "datasets.services.records.schema.OrganizationSchema"
@@ -1961,7 +1960,6 @@
                                             },
                                             "person": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": true,
                                                     "class": "datasets.services.records.schema.PersonSchema"
@@ -2576,7 +2574,6 @@
                                                         },
                                                         "organization": {
                                                             "type": "object",
-                                                            "required": true,
                                                             "marshmallow": {
                                                                 "generate": false,
                                                                 "class": "datasets.services.records.schema.OrganizationSchema"
@@ -2791,7 +2788,6 @@
                                                         },
                                                         "person": {
                                                             "type": "object",
-                                                            "required": true,
                                                             "marshmallow": {
                                                                 "generate": false,
                                                                 "class": "datasets.services.records.schema.PersonSchema"
@@ -3384,7 +3380,6 @@
                                 },
                                 "organization": {
                                     "type": "object",
-                                    "required": true,
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "datasets.services.records.schema.OrganizationSchema"
@@ -3599,7 +3594,6 @@
                                 },
                                 "person": {
                                     "type": "object",
-                                    "required": true,
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "datasets.services.records.schema.PersonSchema"
@@ -4077,7 +4071,6 @@
                                             },
                                             "organization": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.OrganizationSchema"
@@ -4292,7 +4285,6 @@
                                             },
                                             "person": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.PersonSchema"
@@ -4988,7 +4980,6 @@
                                         "properties": {
                                             "organization": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.OrganizationSchema"
@@ -5203,7 +5194,6 @@
                                             },
                                             "person": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.PersonSchema"
@@ -5762,7 +5752,11 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
                     "type": "object",
+                    "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -5777,10 +5771,6 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    "uniqueItems": true,
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
                     }
                 },
                 "ui": {
