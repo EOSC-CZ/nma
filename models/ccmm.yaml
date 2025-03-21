@@ -10,6 +10,7 @@ $defs:
         label.en: Label
         help.en: Address label
   agent:
+  #not used anywhere ignore
     properties:
       iri:
         type: keyword
@@ -104,6 +105,7 @@ $defs:
   dataset:
     properties:
       iri:
+        # ignore iris type url then it is existing url and we can display it as a link in ui
         type: keyword
       publication_year:
         type: integer
@@ -115,6 +117,7 @@ $defs:
         help.en: The version indicator (name or identifier) of a resource.
       descriptions:
         type: array
+        # array with [{lang: smth value: smthd}] can have same languge more times
         items:
           type: i18nStr
         label.en: Description
@@ -129,9 +132,12 @@ $defs:
       primary_language:
         type: keyword
         label.en: Other language
+        # required not necessary mean it is actually required. Currently no vocabulary items
+        # so all such items will be just strings
         help.en: The primary language of the resource.
         required: true
       resource_type:
+        # should be a vocabullary but not yet
         type: keyword
         label.en: Resource type
         help.en: A description of the resource.
@@ -146,6 +152,7 @@ $defs:
           use: ./ccmm.yaml#/$defs/alternate_title
         label.en: alternate title
       is_described_by:
+        # data created in the repo and data related to the dataset are separate things
         type: array
         items:
           use: ./ccmm.yaml#/$defs/metadata_record
@@ -160,23 +167,27 @@ $defs:
         help.en: has identifier
         required: true
       locations:
+        # ignore in UI for now
         type: array
         items:
           use: ./ccmm.yaml#/$defs/location
         label.en: Location
         help.en: The geographical area covered by the dataset.
       provenances:
+        # ignore in UI for now
         type: array
         items:
           use: ./ccmm.yaml#/$defs/provenance_statement
         label.en: provenance - A statement about the lineage of a Dataset.
       qualified_relations:
+        # creators of dataset itself (as opposed in metadata_record people who deposited the data in repository)
         type: array
         items:
           use: ./ccmm.yaml#/$defs/resource_to_agent_relationship
         label.en: Qualified relation
         help.en: Attachment of resource to the relationship.
       time_references:
+        # all dates related to the dataset (was measured on x, processed to x at that time etc.)
         type: array
         items:
           use: ./ccmm.yaml#/$defs/time_reference
@@ -187,6 +198,7 @@ $defs:
           use: ./ccmm.yaml#/$defs/subject
         label.en: subject
       validation_results:
+        # ignore in UI
         type: array
         items:
           use: ./ccmm.yaml#/$defs/validation_result
@@ -207,14 +219,18 @@ $defs:
           use: ./ccmm.yaml#/$defs/resource
         label.en: related resource
       distribution_data_services:
+      # ignore in UI for now
         type: array
         items:
           use: ./ccmm.yaml#/$defs/distribution_data_service
       distribution_downloadable_files:
+      # ignore in UI for now
+      # directly access a file in another repository 
         type: array
         items:
           use: ./ccmm.yaml#/$defs/distribution_downloadable_file
   distribution:
+  #ignore
     properties:
       iri:
         type: keyword
@@ -284,6 +300,7 @@ $defs:
         label.en: Media type
         help.en: The media type of the distribution as defined by IANA
       access_urls:
+        #link to record in foreign repository
         type: array
         items:
           type: url
@@ -291,6 +308,7 @@ $defs:
         help.en: A URL that gives access to a Distribution of the Dataset.
         required: true
       download_urls:
+        #link to this file in another repository (that is opened from our repository)
         type: array
         items:
           type: url
@@ -326,6 +344,7 @@ $defs:
         help.en: The type of the funderIdentifier.
         required: true
   funding_reference:
+    # funding no data to show in ui, we can show award title and funding program
     properties:
       iri:
         type: keyword
@@ -417,11 +436,13 @@ $defs:
         type: keyword
       labels:
         type: array
+        # display labels in all languages
         items:
           type: i18nStr
         label.en: Label
         help.en: Validation result label
   metadata_record:
+    # things related to the repository related metadata of the dataset
     properties:
       iri:
         type: keyword
@@ -486,6 +507,7 @@ $defs:
       name:
         type: i18nStr
         label.en: Alternate name
+        # wrong label
         help.en: To specify the organizational name associated with the object
         required: true
       iri:
@@ -584,7 +606,9 @@ $defs:
         type: keyword
         label.en: Relation type
         help.en: Type of the relation between Dataset and related resource.
+        #will be vocabulary in the future
       type:
+        #will be vocabulary in the future
         type: keyword
         label.en: Type
         help.en:
@@ -634,6 +658,8 @@ $defs:
       person:
         use: ./ccmm.yaml#/$defs/person
   subject:
+    # show title in UI, classification code, subject scheme, and definition in tooltip
+    # shoul dbe vocabulary in the future
     properties:
       iri:
         type: keyword
