@@ -8,9 +8,5 @@ node_modules
 .pdm-build
 .vscode
 .env
-test-datacite
-.pdm-python
-jsconfig.json
-todo.md
-/requirements-resolved-local.txt
-.DS_Store
+.editable-requirements.txt
+.mypy_cache

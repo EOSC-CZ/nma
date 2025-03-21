@@ -1,4 +1,4 @@
-from invenio_records_resources.resources import RecordResource
+from invenio_drafts_resources.resources import RecordResource
 
 
 class DatasetsResource(RecordResource):

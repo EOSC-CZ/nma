@@ -1,9 +1,0 @@
-facets:
-  facet-groups:
-    default:
-      metadata.language: 1
-      metadata.publisher.name: 2
-      metadata.subjects.subject: 3
-      metadata.formats: 4
-      metadata.fundingReferences.funderName: 5
-

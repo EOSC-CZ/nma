@@ -3,650 +3,2346 @@
 from invenio_records_resources.services.records.facets import TermsFacet
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_runtime.services.facets.date import DateTimeFacet
+from oarepo_runtime.services.facets.nested_facet import NestedLabeledFacet
 
-metadata_alternateIdentifiers_alternateIdentifier = TermsFacet(
-    field="metadata.alternateIdentifiers.alternateIdentifier",
-    label=_("metadata/alternateIdentifiers/alternateIdentifier.label"),
+access_embargo_active = TermsFacet(
+    field="access.embargo.active", label=_("access/embargo/active.label")
 )
 
-metadata_alternateIdentifiers_alternateIdentifierType = TermsFacet(
-    field="metadata.alternateIdentifiers.alternateIdentifierType",
-    label=_("metadata/alternateIdentifiers/alternateIdentifierType.label"),
+access_embargo_until = DateTimeFacet(
+    field="access.embargo.until", label=_("access/embargo/until.label")
 )
 
-metadata_container_firstPage = TermsFacet(
-    field="metadata.container.firstPage", label=_("metadata/container/firstPage.label")
+access_files = TermsFacet(field="access.files", label=_("access/files.label"))
+
+access_record = TermsFacet(field="access.record", label=_("access/record.label"))
+
+access_status = TermsFacet(field="access.status", label=_("access/status.label"))
+
+metadata_alternate_titles_iri = TermsFacet(
+    field="metadata.alternate_titles.iri",
+    label=_("metadata/alternate_titles/iri.label"),
 )
 
-metadata_container_title = TermsFacet(
-    field="metadata.container.title", label=_("metadata/container/title.label")
+metadata_alternate_titles_title_cs = TermsFacet(
+    field="metadata.alternate_titles.title.cs.keyword",
+    label=_("metadata/alternate_titles/title.label"),
 )
 
-metadata_container_type = TermsFacet(
-    field="metadata.container.type", label=_("metadata/container/type.label")
+metadata_alternate_titles_title_en = TermsFacet(
+    field="metadata.alternate_titles.title.en.keyword",
+    label=_("metadata/alternate_titles/title.label"),
 )
 
-metadata_contributors_affiliation_affiliationIdentifier = TermsFacet(
-    field="metadata.contributors.affiliation.affiliationIdentifier",
-    label=_("metadata/contributors/affiliation/affiliationIdentifier.label"),
-)
-
-metadata_contributors_affiliation_affiliationIdentifierScheme = TermsFacet(
-    field="metadata.contributors.affiliation.affiliationIdentifierScheme",
-    label=_("metadata/contributors/affiliation/affiliationIdentifierScheme.label"),
-)
-
-metadata_contributors_affiliation_name = TermsFacet(
-    field="metadata.contributors.affiliation.name",
-    label=_("metadata/contributors/affiliation/name.label"),
-)
-
-metadata_contributors_affiliation_schemeURI = TermsFacet(
-    field="metadata.contributors.affiliation.schemeURI",
-    label=_("metadata/contributors/affiliation/schemeURI.label"),
-)
-
-metadata_contributors_contributorType = TermsFacet(
-    field="metadata.contributors.contributorType",
-    label=_("metadata/contributors/contributorType.label"),
-)
-
-metadata_contributors_familyName = TermsFacet(
-    field="metadata.contributors.familyName",
-    label=_("metadata/contributors/familyName.label"),
-)
-
-metadata_contributors_givenName = TermsFacet(
-    field="metadata.contributors.givenName",
-    label=_("metadata/contributors/givenName.label"),
-)
-
-metadata_contributors_lang = TermsFacet(
-    field="metadata.contributors.lang", label=_("metadata/contributors/lang.label")
-)
-
-metadata_contributors_name = TermsFacet(
-    field="metadata.contributors.name", label=_("metadata/contributors/name.label")
-)
-
-metadata_contributors_nameIdentifiers_nameIdentifier = TermsFacet(
-    field="metadata.contributors.nameIdentifiers.nameIdentifier",
-    label=_("metadata/contributors/nameIdentifiers/nameIdentifier.label"),
-)
-
-metadata_contributors_nameIdentifiers_nameIdentifierScheme = TermsFacet(
-    field="metadata.contributors.nameIdentifiers.nameIdentifierScheme",
-    label=_("metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"),
-)
-
-metadata_contributors_nameIdentifiers_schemeURI = TermsFacet(
-    field="metadata.contributors.nameIdentifiers.schemeURI",
-    label=_("metadata/contributors/nameIdentifiers/schemeURI.label"),
-)
-
-metadata_contributors_nameType = TermsFacet(
-    field="metadata.contributors.nameType",
-    label=_("metadata/contributors/nameType.label"),
-)
-
-metadata_creators_affiliation_affiliationIdentifier = TermsFacet(
-    field="metadata.creators.affiliation.affiliationIdentifier",
-    label=_("metadata/creators/affiliation/affiliationIdentifier.label"),
-)
-
-metadata_creators_affiliation_affiliationIdentifierScheme = TermsFacet(
-    field="metadata.creators.affiliation.affiliationIdentifierScheme",
-    label=_("metadata/creators/affiliation/affiliationIdentifierScheme.label"),
-)
-
-metadata_creators_affiliation_name = TermsFacet(
-    field="metadata.creators.affiliation.name",
-    label=_("metadata/creators/affiliation/name.label"),
-)
-
-metadata_creators_affiliation_schemeURI = TermsFacet(
-    field="metadata.creators.affiliation.schemeURI",
-    label=_("metadata/creators/affiliation/schemeURI.label"),
-)
-
-metadata_creators_familyName = TermsFacet(
-    field="metadata.creators.familyName", label=_("metadata/creators/familyName.label")
-)
-
-metadata_creators_givenName = TermsFacet(
-    field="metadata.creators.givenName", label=_("metadata/creators/givenName.label")
-)
-
-metadata_creators_lang = TermsFacet(
-    field="metadata.creators.lang", label=_("metadata/creators/lang.label")
-)
-
-metadata_creators_name = TermsFacet(
-    field="metadata.creators.name", label=_("metadata/creators/name.label")
-)
-
-metadata_creators_nameIdentifiers_nameIdentifier = TermsFacet(
-    field="metadata.creators.nameIdentifiers.nameIdentifier",
-    label=_("metadata/creators/nameIdentifiers/nameIdentifier.label"),
-)
-
-metadata_creators_nameIdentifiers_nameIdentifierScheme = TermsFacet(
-    field="metadata.creators.nameIdentifiers.nameIdentifierScheme",
-    label=_("metadata/creators/nameIdentifiers/nameIdentifierScheme.label"),
-)
-
-metadata_creators_nameIdentifiers_schemeURI = TermsFacet(
-    field="metadata.creators.nameIdentifiers.schemeURI",
-    label=_("metadata/creators/nameIdentifiers/schemeURI.label"),
-)
-
-metadata_creators_nameType = TermsFacet(
-    field="metadata.creators.nameType", label=_("metadata/creators/nameType.label")
-)
-
-metadata_dates_date = DateTimeFacet(
-    field="metadata.dates.date", label=_("metadata/dates/date.label")
-)
-
-metadata_dates_dateInformation = TermsFacet(
-    field="metadata.dates.dateInformation",
-    label=_("metadata/dates/dateInformation.label"),
-)
-
-metadata_dates_dateType = TermsFacet(
-    field="metadata.dates.dateType", label=_("metadata/dates/dateType.label")
-)
-
-metadata_descriptions_descriptionType = TermsFacet(
-    field="metadata.descriptions.descriptionType",
-    label=_("metadata/descriptions/descriptionType.label"),
-)
-
-metadata_descriptions_lang = TermsFacet(
-    field="metadata.descriptions.lang", label=_("metadata/descriptions/lang.label")
-)
-
-metadata_doi = TermsFacet(field="metadata.doi", label=_("metadata/doi.label"))
-
-metadata_formats = TermsFacet(
-    field="metadata.formats", label=_("metadata/formats.label")
-)
-
-metadata_fundingReferences_awardNumber = TermsFacet(
-    field="metadata.fundingReferences.awardNumber",
-    label=_("metadata/fundingReferences/awardNumber.label"),
-)
-
-metadata_fundingReferences_awardTitle = TermsFacet(
-    field="metadata.fundingReferences.awardTitle",
-    label=_("metadata/fundingReferences/awardTitle.label"),
-)
-
-metadata_fundingReferences_awardURI = TermsFacet(
-    field="metadata.fundingReferences.awardURI",
-    label=_("metadata/fundingReferences/awardURI.label"),
-)
-
-metadata_fundingReferences_funderIdentifier = TermsFacet(
-    field="metadata.fundingReferences.funderIdentifier",
-    label=_("metadata/fundingReferences/funderIdentifier.label"),
-)
-
-metadata_fundingReferences_funderIdentifierType = TermsFacet(
-    field="metadata.fundingReferences.funderIdentifierType",
-    label=_("metadata/fundingReferences/funderIdentifierType.label"),
-)
-
-metadata_fundingReferences_funderName = TermsFacet(
-    field="metadata.fundingReferences.funderName",
-    label=_("metadata/fundingReferences/funderName.label"),
-)
-
-metadata_geoLocations_geoLocationBox_eastBoundLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationBox.eastBoundLongitude",
-    label=_("metadata/geoLocations/geoLocationBox/eastBoundLongitude.label"),
-)
-
-metadata_geoLocations_geoLocationBox_northBoundLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationBox.northBoundLatitude",
-    label=_("metadata/geoLocations/geoLocationBox/northBoundLatitude.label"),
-)
-
-metadata_geoLocations_geoLocationBox_southBoundLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationBox.southBoundLatitude",
-    label=_("metadata/geoLocations/geoLocationBox/southBoundLatitude.label"),
-)
-
-metadata_geoLocations_geoLocationBox_westBoundLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationBox.westBoundLongitude",
-    label=_("metadata/geoLocations/geoLocationBox/westBoundLongitude.label"),
-)
-
-metadata_geoLocations_geoLocationPlace = TermsFacet(
-    field="metadata.geoLocations.geoLocationPlace",
-    label=_("metadata/geoLocations/geoLocationPlace.label"),
-)
-
-metadata_geoLocations_geoLocationPoint_pointLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPoint.pointLatitude",
-    label=_("metadata/geoLocations/geoLocationPoint/pointLatitude.label"),
-)
-
-metadata_geoLocations_geoLocationPoint_pointLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPoint.pointLongitude",
-    label=_("metadata/geoLocations/geoLocationPoint/pointLongitude.label"),
-)
-
-metadata_geoLocations_geoLocationPolygons_inPolygonPoint_pointLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPolygons.inPolygonPoint.pointLatitude",
-    label=_(
-        "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label"
+metadata_alternate_titles_title_lang = NestedLabeledFacet(
+    path="metadata.alternate_titles.title",
+    nested_facet=TermsFacet(
+        field="metadata.alternate_titles.title.lang",
+        label=_("metadata/alternate_titles/title/lang.label"),
     ),
 )
 
-metadata_geoLocations_geoLocationPolygons_inPolygonPoint_pointLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPolygons.inPolygonPoint.pointLongitude",
-    label=_(
-        "metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label"
+metadata_alternate_titles_type = TermsFacet(
+    field="metadata.alternate_titles.type",
+    label=_("metadata/alternate_titles/type.label"),
+)
+
+metadata_descriptions_cs = TermsFacet(
+    field="metadata.descriptions.cs.keyword", label=_("metadata/descriptions.label")
+)
+
+metadata_descriptions_en = TermsFacet(
+    field="metadata.descriptions.en.keyword", label=_("metadata/descriptions.label")
+)
+
+metadata_descriptions_lang = NestedLabeledFacet(
+    path="metadata.descriptions",
+    nested_facet=TermsFacet(
+        field="metadata.descriptions.lang", label=_("metadata/descriptions/lang.label")
     ),
 )
 
-metadata_geoLocations_geoLocationPolygons_polygonPoints_pointLatitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPolygons.polygonPoints.pointLatitude",
-    label=_(
-        "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label"
+metadata_distribution_data_services_access_services_endpoint_urls = TermsFacet(
+    field="metadata.distribution_data_services.access_services.endpoint_urls",
+    label=_("metadata/distribution_data_services/access_services/endpoint_urls.label"),
+)
+
+metadata_distribution_data_services_access_services_iri = TermsFacet(
+    field="metadata.distribution_data_services.access_services.iri",
+    label=_("metadata/distribution_data_services/access_services/iri.label"),
+)
+
+metadata_distribution_data_services_access_services_labels_cs = TermsFacet(
+    field="metadata.distribution_data_services.access_services.labels.cs.keyword",
+    label=_("metadata/distribution_data_services/access_services/labels.label"),
+)
+
+metadata_distribution_data_services_access_services_labels_en = TermsFacet(
+    field="metadata.distribution_data_services.access_services.labels.en.keyword",
+    label=_("metadata/distribution_data_services/access_services/labels.label"),
+)
+
+metadata_distribution_data_services_access_services_labels_lang = NestedLabeledFacet(
+    path="metadata.distribution_data_services.access_services.labels",
+    nested_facet=TermsFacet(
+        field="metadata.distribution_data_services.access_services.labels.lang",
+        label=_(
+            "metadata/distribution_data_services/access_services/labels/lang.label"
+        ),
     ),
 )
 
-metadata_geoLocations_geoLocationPolygons_polygonPoints_pointLongitude = TermsFacet(
-    field="metadata.geoLocations.geoLocationPolygons.polygonPoints.pointLongitude",
-    label=_(
-        "metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label"
+metadata_distribution_data_services_descriptions_cs = TermsFacet(
+    field="metadata.distribution_data_services.descriptions.cs.keyword",
+    label=_("metadata/distribution_data_services/descriptions.label"),
+)
+
+metadata_distribution_data_services_descriptions_en = TermsFacet(
+    field="metadata.distribution_data_services.descriptions.en.keyword",
+    label=_("metadata/distribution_data_services/descriptions.label"),
+)
+
+metadata_distribution_data_services_descriptions_lang = NestedLabeledFacet(
+    path="metadata.distribution_data_services.descriptions",
+    nested_facet=TermsFacet(
+        field="metadata.distribution_data_services.descriptions.lang",
+        label=_("metadata/distribution_data_services/descriptions/lang.label"),
     ),
 )
 
-metadata_language = TermsFacet(
-    field="metadata.language", label=_("metadata/language.label")
+metadata_distribution_data_services_documentations_iri = TermsFacet(
+    field="metadata.distribution_data_services.documentations.iri",
+    label=_("metadata/distribution_data_services/documentations/iri.label"),
 )
 
-metadata_publicationYear = TermsFacet(
-    field="metadata.publicationYear", label=_("metadata/publicationYear.label")
+metadata_distribution_data_services_documentations_labels_cs = TermsFacet(
+    field="metadata.distribution_data_services.documentations.labels.cs.keyword",
+    label=_("metadata/distribution_data_services/documentations/labels.label"),
 )
 
-metadata_publisher_lang = TermsFacet(
-    field="metadata.publisher.lang", label=_("metadata/publisher/lang.label")
+metadata_distribution_data_services_documentations_labels_en = TermsFacet(
+    field="metadata.distribution_data_services.documentations.labels.en.keyword",
+    label=_("metadata/distribution_data_services/documentations/labels.label"),
 )
 
-metadata_publisher_name = TermsFacet(
-    field="metadata.publisher.name", label=_("metadata/publisher/name.label")
-)
-
-metadata_publisher_publisherIdentifier = TermsFacet(
-    field="metadata.publisher.publisherIdentifier",
-    label=_("metadata/publisher/publisherIdentifier.label"),
-)
-
-metadata_publisher_publisherIdentifierScheme = TermsFacet(
-    field="metadata.publisher.publisherIdentifierScheme",
-    label=_("metadata/publisher/publisherIdentifierScheme.label"),
-)
-
-metadata_publisher_schemeURI = TermsFacet(
-    field="metadata.publisher.schemeURI", label=_("metadata/publisher/schemeURI.label")
-)
-
-metadata_relatedIdentifiers_relatedIdentifier = TermsFacet(
-    field="metadata.relatedIdentifiers.relatedIdentifier",
-    label=_("metadata/relatedIdentifiers/relatedIdentifier.label"),
-)
-
-metadata_relatedIdentifiers_relatedIdentifierType = TermsFacet(
-    field="metadata.relatedIdentifiers.relatedIdentifierType",
-    label=_("metadata/relatedIdentifiers/relatedIdentifierType.label"),
-)
-
-metadata_relatedIdentifiers_relatedMetadataScheme = TermsFacet(
-    field="metadata.relatedIdentifiers.relatedMetadataScheme",
-    label=_("metadata/relatedIdentifiers/relatedMetadataScheme.label"),
-)
-
-metadata_relatedIdentifiers_relationType = TermsFacet(
-    field="metadata.relatedIdentifiers.relationType",
-    label=_("metadata/relatedIdentifiers/relationType.label"),
-)
-
-metadata_relatedIdentifiers_resourceTypeGeneral = TermsFacet(
-    field="metadata.relatedIdentifiers.resourceTypeGeneral",
-    label=_("metadata/relatedIdentifiers/resourceTypeGeneral.label"),
-)
-
-metadata_relatedIdentifiers_schemeType = TermsFacet(
-    field="metadata.relatedIdentifiers.schemeType",
-    label=_("metadata/relatedIdentifiers/schemeType.label"),
-)
-
-metadata_relatedIdentifiers_schemeURI = TermsFacet(
-    field="metadata.relatedIdentifiers.schemeURI",
-    label=_("metadata/relatedIdentifiers/schemeURI.label"),
-)
-
-metadata_relatedItems_contributors_affiliation_affiliationIdentifier = TermsFacet(
-    field="metadata.relatedItems.contributors.affiliation.affiliationIdentifier",
-    label=_(
-        "metadata/relatedItems/contributors/affiliation/affiliationIdentifier.label"
+metadata_distribution_data_services_documentations_labels_lang = NestedLabeledFacet(
+    path="metadata.distribution_data_services.documentations.labels",
+    nested_facet=TermsFacet(
+        field="metadata.distribution_data_services.documentations.labels.lang",
+        label=_("metadata/distribution_data_services/documentations/labels/lang.label"),
     ),
 )
 
-metadata_relatedItems_contributors_affiliation_affiliationIdentifierScheme = TermsFacet(
-    field="metadata.relatedItems.contributors.affiliation.affiliationIdentifierScheme",
-    label=_(
-        "metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.label"
+metadata_distribution_data_services_iri = TermsFacet(
+    field="metadata.distribution_data_services.iri",
+    label=_("metadata/distribution_data_services/iri.label"),
+)
+
+metadata_distribution_data_services_specifications_iri = TermsFacet(
+    field="metadata.distribution_data_services.specifications.iri",
+    label=_("metadata/distribution_data_services/specifications/iri.label"),
+)
+
+metadata_distribution_data_services_specifications_labels_cs = TermsFacet(
+    field="metadata.distribution_data_services.specifications.labels.cs.keyword",
+    label=_("metadata/distribution_data_services/specifications/labels.label"),
+)
+
+metadata_distribution_data_services_specifications_labels_en = TermsFacet(
+    field="metadata.distribution_data_services.specifications.labels.en.keyword",
+    label=_("metadata/distribution_data_services/specifications/labels.label"),
+)
+
+metadata_distribution_data_services_specifications_labels_lang = NestedLabeledFacet(
+    path="metadata.distribution_data_services.specifications.labels",
+    nested_facet=TermsFacet(
+        field="metadata.distribution_data_services.specifications.labels.lang",
+        label=_("metadata/distribution_data_services/specifications/labels/lang.label"),
     ),
 )
 
-metadata_relatedItems_contributors_affiliation_name = TermsFacet(
-    field="metadata.relatedItems.contributors.affiliation.name",
-    label=_("metadata/relatedItems/contributors/affiliation/name.label"),
+metadata_distribution_data_services_title = TermsFacet(
+    field="metadata.distribution_data_services.title",
+    label=_("metadata/distribution_data_services/title.label"),
 )
 
-metadata_relatedItems_contributors_affiliation_schemeURI = TermsFacet(
-    field="metadata.relatedItems.contributors.affiliation.schemeURI",
-    label=_("metadata/relatedItems/contributors/affiliation/schemeURI.label"),
+metadata_distribution_downloadable_files_access_urls = TermsFacet(
+    field="metadata.distribution_downloadable_files.access_urls",
+    label=_("metadata/distribution_downloadable_files/access_urls.label"),
 )
 
-metadata_relatedItems_contributors_contributorType = TermsFacet(
-    field="metadata.relatedItems.contributors.contributorType",
-    label=_("metadata/relatedItems/contributors/contributorType.label"),
+metadata_distribution_downloadable_files_byte_size = TermsFacet(
+    field="metadata.distribution_downloadable_files.byte_size",
+    label=_("metadata/distribution_downloadable_files/byte_size.label"),
 )
 
-metadata_relatedItems_contributors_familyName = TermsFacet(
-    field="metadata.relatedItems.contributors.familyName",
-    label=_("metadata/relatedItems/contributors/familyName.label"),
+metadata_distribution_downloadable_files_checksum = TermsFacet(
+    field="metadata.distribution_downloadable_files.checksum",
+    label=_("metadata/distribution_downloadable_files/checksum.label"),
 )
 
-metadata_relatedItems_contributors_givenName = TermsFacet(
-    field="metadata.relatedItems.contributors.givenName",
-    label=_("metadata/relatedItems/contributors/givenName.label"),
+metadata_distribution_downloadable_files_conforms_to_schemas_iri = TermsFacet(
+    field="metadata.distribution_downloadable_files.conforms_to_schemas.iri",
+    label=_("metadata/distribution_downloadable_files/conforms_to_schemas/iri.label"),
 )
 
-metadata_relatedItems_contributors_lang = TermsFacet(
-    field="metadata.relatedItems.contributors.lang",
-    label=_("metadata/relatedItems/contributors/lang.label"),
-)
-
-metadata_relatedItems_contributors_name = TermsFacet(
-    field="metadata.relatedItems.contributors.name",
-    label=_("metadata/relatedItems/contributors/name.label"),
-)
-
-metadata_relatedItems_contributors_nameIdentifiers_nameIdentifier = TermsFacet(
-    field="metadata.relatedItems.contributors.nameIdentifiers.nameIdentifier",
-    label=_("metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.label"),
-)
-
-metadata_relatedItems_contributors_nameIdentifiers_nameIdentifierScheme = TermsFacet(
-    field="metadata.relatedItems.contributors.nameIdentifiers.nameIdentifierScheme",
+metadata_distribution_downloadable_files_conforms_to_schemas_labels_cs = TermsFacet(
+    field="metadata.distribution_downloadable_files.conforms_to_schemas.labels.cs.keyword",
     label=_(
-        "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.label"
+        "metadata/distribution_downloadable_files/conforms_to_schemas/labels.label"
     ),
 )
 
-metadata_relatedItems_contributors_nameIdentifiers_schemeURI = TermsFacet(
-    field="metadata.relatedItems.contributors.nameIdentifiers.schemeURI",
-    label=_("metadata/relatedItems/contributors/nameIdentifiers/schemeURI.label"),
-)
-
-metadata_relatedItems_contributors_nameType = TermsFacet(
-    field="metadata.relatedItems.contributors.nameType",
-    label=_("metadata/relatedItems/contributors/nameType.label"),
-)
-
-metadata_relatedItems_creators_affiliation_affiliationIdentifier = TermsFacet(
-    field="metadata.relatedItems.creators.affiliation.affiliationIdentifier",
-    label=_("metadata/relatedItems/creators/affiliation/affiliationIdentifier.label"),
-)
-
-metadata_relatedItems_creators_affiliation_affiliationIdentifierScheme = TermsFacet(
-    field="metadata.relatedItems.creators.affiliation.affiliationIdentifierScheme",
+metadata_distribution_downloadable_files_conforms_to_schemas_labels_en = TermsFacet(
+    field="metadata.distribution_downloadable_files.conforms_to_schemas.labels.en.keyword",
     label=_(
-        "metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.label"
+        "metadata/distribution_downloadable_files/conforms_to_schemas/labels.label"
     ),
 )
 
-metadata_relatedItems_creators_affiliation_name = TermsFacet(
-    field="metadata.relatedItems.creators.affiliation.name",
-    label=_("metadata/relatedItems/creators/affiliation/name.label"),
-)
-
-metadata_relatedItems_creators_affiliation_schemeURI = TermsFacet(
-    field="metadata.relatedItems.creators.affiliation.schemeURI",
-    label=_("metadata/relatedItems/creators/affiliation/schemeURI.label"),
-)
-
-metadata_relatedItems_creators_familyName = TermsFacet(
-    field="metadata.relatedItems.creators.familyName",
-    label=_("metadata/relatedItems/creators/familyName.label"),
-)
-
-metadata_relatedItems_creators_givenName = TermsFacet(
-    field="metadata.relatedItems.creators.givenName",
-    label=_("metadata/relatedItems/creators/givenName.label"),
-)
-
-metadata_relatedItems_creators_lang = TermsFacet(
-    field="metadata.relatedItems.creators.lang",
-    label=_("metadata/relatedItems/creators/lang.label"),
-)
-
-metadata_relatedItems_creators_name = TermsFacet(
-    field="metadata.relatedItems.creators.name",
-    label=_("metadata/relatedItems/creators/name.label"),
-)
-
-metadata_relatedItems_creators_nameIdentifiers_nameIdentifier = TermsFacet(
-    field="metadata.relatedItems.creators.nameIdentifiers.nameIdentifier",
-    label=_("metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.label"),
-)
-
-metadata_relatedItems_creators_nameIdentifiers_nameIdentifierScheme = TermsFacet(
-    field="metadata.relatedItems.creators.nameIdentifiers.nameIdentifierScheme",
-    label=_(
-        "metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.label"
+metadata_distribution_downloadable_files_conforms_to_schemas_labels_lang = NestedLabeledFacet(
+    path="metadata.distribution_downloadable_files.conforms_to_schemas.labels",
+    nested_facet=TermsFacet(
+        field="metadata.distribution_downloadable_files.conforms_to_schemas.labels.lang",
+        label=_(
+            "metadata/distribution_downloadable_files/conforms_to_schemas/labels/lang.label"
+        ),
     ),
 )
 
-metadata_relatedItems_creators_nameIdentifiers_schemeURI = TermsFacet(
-    field="metadata.relatedItems.creators.nameIdentifiers.schemeURI",
-    label=_("metadata/relatedItems/creators/nameIdentifiers/schemeURI.label"),
+metadata_distribution_downloadable_files_download_urls = TermsFacet(
+    field="metadata.distribution_downloadable_files.download_urls",
+    label=_("metadata/distribution_downloadable_files/download_urls.label"),
 )
 
-metadata_relatedItems_creators_nameType = TermsFacet(
-    field="metadata.relatedItems.creators.nameType",
-    label=_("metadata/relatedItems/creators/nameType.label"),
+metadata_distribution_downloadable_files_format = TermsFacet(
+    field="metadata.distribution_downloadable_files.format",
+    label=_("metadata/distribution_downloadable_files/format.label"),
 )
 
-metadata_relatedItems_edition = TermsFacet(
-    field="metadata.relatedItems.edition",
-    label=_("metadata/relatedItems/edition.label"),
+metadata_distribution_downloadable_files_iri = TermsFacet(
+    field="metadata.distribution_downloadable_files.iri",
+    label=_("metadata/distribution_downloadable_files/iri.label"),
 )
 
-metadata_relatedItems_firstPage = TermsFacet(
-    field="metadata.relatedItems.firstPage",
-    label=_("metadata/relatedItems/firstPage.label"),
+metadata_distribution_downloadable_files_media_type_iri = TermsFacet(
+    field="metadata.distribution_downloadable_files.media_type.iri",
+    label=_("metadata/distribution_downloadable_files/media_type/iri.label"),
 )
 
-metadata_relatedItems_issue = TermsFacet(
-    field="metadata.relatedItems.issue", label=_("metadata/relatedItems/issue.label")
+metadata_distribution_downloadable_files_media_type_labels_cs = TermsFacet(
+    field="metadata.distribution_downloadable_files.media_type.labels.cs.keyword",
+    label=_("metadata/distribution_downloadable_files/media_type/labels.label"),
 )
 
-metadata_relatedItems_lastPage = TermsFacet(
-    field="metadata.relatedItems.lastPage",
-    label=_("metadata/relatedItems/lastPage.label"),
+metadata_distribution_downloadable_files_media_type_labels_en = TermsFacet(
+    field="metadata.distribution_downloadable_files.media_type.labels.en.keyword",
+    label=_("metadata/distribution_downloadable_files/media_type/labels.label"),
 )
 
-metadata_relatedItems_number = TermsFacet(
-    field="metadata.relatedItems.number", label=_("metadata/relatedItems/number.label")
-)
-
-metadata_relatedItems_numberType = TermsFacet(
-    field="metadata.relatedItems.numberType",
-    label=_("metadata/relatedItems/numberType.label"),
-)
-
-metadata_relatedItems_publicationYear = TermsFacet(
-    field="metadata.relatedItems.publicationYear",
-    label=_("metadata/relatedItems/publicationYear.label"),
-)
-
-metadata_relatedItems_publisher = TermsFacet(
-    field="metadata.relatedItems.publisher",
-    label=_("metadata/relatedItems/publisher.label"),
-)
-
-metadata_relatedItems_relatedItemIdentifier_relatedItemIdentifier = TermsFacet(
-    field="metadata.relatedItems.relatedItemIdentifier.relatedItemIdentifier",
-    label=_("metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.label"),
-)
-
-metadata_relatedItems_relatedItemIdentifier_relatedItemIdentifierType = TermsFacet(
-    field="metadata.relatedItems.relatedItemIdentifier.relatedItemIdentifierType",
-    label=_(
-        "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.label"
+metadata_distribution_downloadable_files_media_type_labels_lang = NestedLabeledFacet(
+    path="metadata.distribution_downloadable_files.media_type.labels",
+    nested_facet=TermsFacet(
+        field="metadata.distribution_downloadable_files.media_type.labels.lang",
+        label=_(
+            "metadata/distribution_downloadable_files/media_type/labels/lang.label"
+        ),
     ),
 )
 
-metadata_relatedItems_relatedItemType = TermsFacet(
-    field="metadata.relatedItems.relatedItemType",
-    label=_("metadata/relatedItems/relatedItemType.label"),
+metadata_distribution_downloadable_files_title = TermsFacet(
+    field="metadata.distribution_downloadable_files.title",
+    label=_("metadata/distribution_downloadable_files/title.label"),
 )
 
-metadata_relatedItems_relatedMetadataScheme = TermsFacet(
-    field="metadata.relatedItems.relatedMetadataScheme",
-    label=_("metadata/relatedItems/relatedMetadataScheme.label"),
+metadata_funding_references_award_title = TermsFacet(
+    field="metadata.funding_references.award_title",
+    label=_("metadata/funding_references/award_title.label"),
 )
 
-metadata_relatedItems_relationType = TermsFacet(
-    field="metadata.relatedItems.relationType",
-    label=_("metadata/relatedItems/relationType.label"),
+metadata_funding_references_funders_funder_identifier_scheme_uri = TermsFacet(
+    field="metadata.funding_references.funders.funder_identifier_scheme_uri",
+    label=_("metadata/funding_references/funders/funder_identifier_scheme_uri.label"),
 )
 
-metadata_relatedItems_resourceTypeGeneral = TermsFacet(
-    field="metadata.relatedItems.resourceTypeGeneral",
-    label=_("metadata/relatedItems/resourceTypeGeneral.label"),
+metadata_funding_references_funders_funder_identifier_type = TermsFacet(
+    field="metadata.funding_references.funders.funder_identifier_type",
+    label=_("metadata/funding_references/funders/funder_identifier_type.label"),
 )
 
-metadata_relatedItems_schemeType = TermsFacet(
-    field="metadata.relatedItems.schemeType",
-    label=_("metadata/relatedItems/schemeType.label"),
+metadata_funding_references_funders_iri = TermsFacet(
+    field="metadata.funding_references.funders.iri",
+    label=_("metadata/funding_references/funders/iri.label"),
 )
 
-metadata_relatedItems_schemeURI = TermsFacet(
-    field="metadata.relatedItems.schemeURI",
-    label=_("metadata/relatedItems/schemeURI.label"),
+metadata_funding_references_funding_program = TermsFacet(
+    field="metadata.funding_references.funding_program",
+    label=_("metadata/funding_references/funding_program.label"),
 )
 
-metadata_relatedItems_titles_lang = TermsFacet(
-    field="metadata.relatedItems.titles.lang",
-    label=_("metadata/relatedItems/titles/lang.label"),
+metadata_funding_references_iri = TermsFacet(
+    field="metadata.funding_references.iri",
+    label=_("metadata/funding_references/iri.label"),
 )
 
-metadata_relatedItems_titles_titleType = TermsFacet(
-    field="metadata.relatedItems.titles.titleType",
-    label=_("metadata/relatedItems/titles/titleType.label"),
+metadata_funding_references_local_identifier = TermsFacet(
+    field="metadata.funding_references.local_identifier",
+    label=_("metadata/funding_references/local_identifier.label"),
 )
 
-metadata_relatedItems_volume = TermsFacet(
-    field="metadata.relatedItems.volume", label=_("metadata/relatedItems/volume.label")
+metadata_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.identifiers.identifier_scheme",
+    label=_("metadata/identifiers/identifier_scheme.label"),
 )
 
-metadata_resourceType_resourceType = TermsFacet(
-    field="metadata.resourceType.resourceType",
-    label=_("metadata/resourceType/resourceType.label"),
+metadata_identifiers_iri = TermsFacet(
+    field="metadata.identifiers.iri", label=_("metadata/identifiers/iri.label")
 )
 
-metadata_resourceType_resourceTypeGeneral = TermsFacet(
-    field="metadata.resourceType.resourceTypeGeneral",
-    label=_("metadata/resourceType/resourceTypeGeneral.label"),
+metadata_identifiers_value = TermsFacet(
+    field="metadata.identifiers.value", label=_("metadata/identifiers/value.label")
 )
 
-metadata_rightsList_lang = TermsFacet(
-    field="metadata.rightsList.lang", label=_("metadata/rightsList/lang.label")
+metadata_iri = TermsFacet(field="metadata.iri", label=_("metadata/iri.label"))
+
+metadata_is_described_by_conforms_to_standards_iri = TermsFacet(
+    field="metadata.is_described_by.conforms_to_standards.iri",
+    label=_("metadata/is_described_by/conforms_to_standards/iri.label"),
 )
 
-metadata_rightsList_rights = TermsFacet(
-    field="metadata.rightsList.rights", label=_("metadata/rightsList/rights.label")
+metadata_is_described_by_conforms_to_standards_labels_cs = TermsFacet(
+    field="metadata.is_described_by.conforms_to_standards.labels.cs.keyword",
+    label=_("metadata/is_described_by/conforms_to_standards/labels.label"),
 )
 
-metadata_rightsList_rightsIdentifier = TermsFacet(
-    field="metadata.rightsList.rightsIdentifier",
-    label=_("metadata/rightsList/rightsIdentifier.label"),
+metadata_is_described_by_conforms_to_standards_labels_en = TermsFacet(
+    field="metadata.is_described_by.conforms_to_standards.labels.en.keyword",
+    label=_("metadata/is_described_by/conforms_to_standards/labels.label"),
 )
 
-metadata_rightsList_rightsIdentifierScheme = TermsFacet(
-    field="metadata.rightsList.rightsIdentifierScheme",
-    label=_("metadata/rightsList/rightsIdentifierScheme.label"),
+metadata_is_described_by_conforms_to_standards_labels_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.conforms_to_standards.labels",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.conforms_to_standards.labels.lang",
+        label=_("metadata/is_described_by/conforms_to_standards/labels/lang.label"),
+    ),
 )
 
-metadata_rightsList_rightsURI = TermsFacet(
-    field="metadata.rightsList.rightsURI",
-    label=_("metadata/rightsList/rightsURI.label"),
+metadata_is_described_by_date_created = DateTimeFacet(
+    field="metadata.is_described_by.date_created",
+    label=_("metadata/is_described_by/date_created.label"),
 )
 
-metadata_rightsList_schemeURI = TermsFacet(
-    field="metadata.rightsList.schemeURI",
-    label=_("metadata/rightsList/schemeURI.label"),
+metadata_is_described_by_dates_updated = DateTimeFacet(
+    field="metadata.is_described_by.dates_updated",
+    label=_("metadata/is_described_by/dates_updated.label"),
 )
 
-metadata_schemaVersion = TermsFacet(
-    field="metadata.schemaVersion", label=_("metadata/schemaVersion.label")
+metadata_is_described_by_iri = TermsFacet(
+    field="metadata.is_described_by.iri", label=_("metadata/is_described_by/iri.label")
 )
 
-metadata_sizes = TermsFacet(field="metadata.sizes", label=_("metadata/sizes.label"))
-
-metadata_subjects_classificationCode = TermsFacet(
-    field="metadata.subjects.classificationCode",
-    label=_("metadata/subjects/classificationCode.label"),
+metadata_is_described_by_languages = TermsFacet(
+    field="metadata.is_described_by.languages",
+    label=_("metadata/is_described_by/languages.label"),
 )
 
-metadata_subjects_lang = TermsFacet(
-    field="metadata.subjects.lang", label=_("metadata/subjects/lang.label")
+metadata_is_described_by_original_repositories_iri = TermsFacet(
+    field="metadata.is_described_by.original_repositories.iri",
+    label=_("metadata/is_described_by/original_repositories/iri.label"),
 )
 
-metadata_subjects_schemeURI = TermsFacet(
-    field="metadata.subjects.schemeURI", label=_("metadata/subjects/schemeURI.label")
+metadata_is_described_by_original_repositories_labels_cs = TermsFacet(
+    field="metadata.is_described_by.original_repositories.labels.cs.keyword",
+    label=_("metadata/is_described_by/original_repositories/labels.label"),
 )
 
-metadata_subjects_subject = TermsFacet(
-    field="metadata.subjects.subject", label=_("metadata/subjects/subject.label")
+metadata_is_described_by_original_repositories_labels_en = TermsFacet(
+    field="metadata.is_described_by.original_repositories.labels.en.keyword",
+    label=_("metadata/is_described_by/original_repositories/labels.label"),
 )
 
-metadata_subjects_subjectScheme = TermsFacet(
-    field="metadata.subjects.subjectScheme",
-    label=_("metadata/subjects/subjectScheme.label"),
+metadata_is_described_by_original_repositories_labels_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.original_repositories.labels",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.original_repositories.labels.lang",
+        label=_("metadata/is_described_by/original_repositories/labels/lang.label"),
+    ),
 )
 
-metadata_subjects_valueURI = TermsFacet(
-    field="metadata.subjects.valueURI", label=_("metadata/subjects/valueURI.label")
+metadata_is_described_by_qualified_relations_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.iri",
+    label=_("metadata/is_described_by/qualified_relations/iri.label"),
 )
 
-metadata_titles_lang = TermsFacet(
-    field="metadata.titles.lang", label=_("metadata/titles/lang.label")
+metadata_is_described_by_qualified_relations_organization_alternate_names_cs = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.alternate_names.cs.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/alternate_names.label"
+    ),
 )
 
-metadata_titles_titleType = TermsFacet(
-    field="metadata.titles.titleType", label=_("metadata/titles/titleType.label")
+metadata_is_described_by_qualified_relations_organization_alternate_names_en = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.alternate_names.en.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/alternate_names.label"
+    ),
 )
 
-metadata_url = TermsFacet(field="metadata.url", label=_("metadata/url.label"))
+metadata_is_described_by_qualified_relations_organization_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.qualified_relations.organization.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.qualified_relations.organization.alternate_names.lang",
+        label=_(
+            "metadata/is_described_by/qualified_relations/organization/alternate_names/lang.label"
+        ),
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_contact_points_addresses_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.contact_points.addresses.iri",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.qualified_relations.organization.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.qualified_relations.organization.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_contact_points_dataBoxes = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.contact_points.dataBoxes",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_contact_points_emails = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.contact_points.emails",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/contact_points/emails.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_contact_points_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.contact_points.iri",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/contact_points/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_contact_points_phones = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.contact_points.phones",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/contact_points/phones.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_external_identifiers = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.external_identifiers",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/external_identifiers.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.iri",
+    label=_("metadata/is_described_by/qualified_relations/organization/iri.label"),
+)
+
+metadata_is_described_by_qualified_relations_organization_name_cs = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.name.cs.keyword",
+    label=_("metadata/is_described_by/qualified_relations/organization/name.label"),
+)
+
+metadata_is_described_by_qualified_relations_organization_name_en = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.name.en.keyword",
+    label=_("metadata/is_described_by/qualified_relations/organization/name.label"),
+)
+
+metadata_is_described_by_qualified_relations_organization_name_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.qualified_relations.organization.name",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.qualified_relations.organization.name.lang",
+        label=_(
+            "metadata/is_described_by/qualified_relations/organization/name/lang.label"
+        ),
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_alternate_names_cs = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.alternate_names.cs.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/alternate_names.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_alternate_names_en = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.alternate_names.en.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/alternate_names.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.qualified_relations.person.affiliations.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.qualified_relations.person.affiliations.alternate_names.lang",
+        label=_(
+            "metadata/is_described_by/qualified_relations/person/affiliations/alternate_names/lang.label"
+        ),
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_contact_points_addresses_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.contact_points.addresses.iri",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.qualified_relations.person.affiliations.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.qualified_relations.person.affiliations.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_contact_points_dataBoxes = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.contact_points.dataBoxes",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_contact_points_emails = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.contact_points.emails",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/contact_points/emails.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_contact_points_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.contact_points.iri",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/contact_points/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_contact_points_phones = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.contact_points.phones",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/contact_points/phones.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.external_identifiers",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.iri",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_name_cs = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.name.cs.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/name.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_name_en = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.name.en.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/name.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_name_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.qualified_relations.person.affiliations.name",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.qualified_relations.person.affiliations.name.lang",
+        label=_(
+            "metadata/is_described_by/qualified_relations/person/affiliations/name/lang.label"
+        ),
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_contact_points_addresses_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.contact_points.addresses.iri",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.qualified_relations.person.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.qualified_relations.person.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_contact_points_dataBoxes = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.contact_points.dataBoxes",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_contact_points_emails = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.contact_points.emails",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/contact_points/emails.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_contact_points_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.contact_points.iri",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/contact_points/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_contact_points_phones = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.contact_points.phones",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/contact_points/phones.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_external_identifiers = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.external_identifiers",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/external_identifiers.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_family_name = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.family_name",
+    label=_("metadata/is_described_by/qualified_relations/person/family_name.label"),
+)
+
+metadata_is_described_by_qualified_relations_person_given_names = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.given_names",
+    label=_("metadata/is_described_by/qualified_relations/person/given_names.label"),
+)
+
+metadata_is_described_by_qualified_relations_person_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.iri",
+    label=_("metadata/is_described_by/qualified_relations/person/iri.label"),
+)
+
+metadata_is_described_by_qualified_relations_role_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.role.iri",
+    label=_("metadata/is_described_by/qualified_relations/role/iri.label"),
+)
+
+metadata_is_described_by_qualified_relations_role_labels_cs = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.role.labels.cs.keyword",
+    label=_("metadata/is_described_by/qualified_relations/role/labels.label"),
+)
+
+metadata_is_described_by_qualified_relations_role_labels_en = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.role.labels.en.keyword",
+    label=_("metadata/is_described_by/qualified_relations/role/labels.label"),
+)
+
+metadata_is_described_by_qualified_relations_role_labels_lang = NestedLabeledFacet(
+    path="metadata.is_described_by.qualified_relations.role.labels",
+    nested_facet=TermsFacet(
+        field="metadata.is_described_by.qualified_relations.role.labels.lang",
+        label=_("metadata/is_described_by/qualified_relations/role/labels/lang.label"),
+    ),
+)
+
+metadata_locations_bbox_LowerCorners = TermsFacet(
+    field="metadata.locations.bbox.LowerCorners",
+    label=_("metadata/locations/bbox/LowerCorners.label"),
+)
+
+metadata_locations_bbox_UpperCorners = TermsFacet(
+    field="metadata.locations.bbox.UpperCorners",
+    label=_("metadata/locations/bbox/UpperCorners.label"),
+)
+
+metadata_locations_bbox_crs = TermsFacet(
+    field="metadata.locations.bbox.crs", label=_("metadata/locations/bbox/crs.label")
+)
+
+metadata_locations_bbox_dimensions = TermsFacet(
+    field="metadata.locations.bbox.dimensions",
+    label=_("metadata/locations/bbox/dimensions.label"),
+)
+
+metadata_locations_dataset_relations = TermsFacet(
+    field="metadata.locations.dataset_relations",
+    label=_("metadata/locations/dataset_relations.label"),
+)
+
+metadata_locations_geometry_iri = TermsFacet(
+    field="metadata.locations.geometry.iri",
+    label=_("metadata/locations/geometry/iri.label"),
+)
+
+metadata_locations_geometry_labels_cs = TermsFacet(
+    field="metadata.locations.geometry.labels.cs.keyword",
+    label=_("metadata/locations/geometry/labels.label"),
+)
+
+metadata_locations_geometry_labels_en = TermsFacet(
+    field="metadata.locations.geometry.labels.en.keyword",
+    label=_("metadata/locations/geometry/labels.label"),
+)
+
+metadata_locations_geometry_labels_lang = NestedLabeledFacet(
+    path="metadata.locations.geometry.labels",
+    nested_facet=TermsFacet(
+        field="metadata.locations.geometry.labels.lang",
+        label=_("metadata/locations/geometry/labels/lang.label"),
+    ),
+)
+
+metadata_locations_iri = TermsFacet(
+    field="metadata.locations.iri", label=_("metadata/locations/iri.label")
+)
+
+metadata_locations_location_names = TermsFacet(
+    field="metadata.locations.location_names",
+    label=_("metadata/locations/location_names.label"),
+)
+
+metadata_locations_related_object_identifiers_identifier = TermsFacet(
+    field="metadata.locations.related_object_identifiers.identifier",
+    label=_("metadata/locations/related_object_identifiers/identifier.label"),
+)
+
+metadata_locations_related_object_identifiers_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.iri",
+    label=_("metadata/locations/related_object_identifiers/iri.label"),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_alternate_names_cs = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.alternate_names.cs.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_alternate_names_en = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.alternate_names.en.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.locations.related_object_identifiers.qualified_relations.organization.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.locations.related_object_identifiers.qualified_relations.organization.alternate_names.lang",
+        label=_(
+            "metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names/lang.label"
+        ),
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_addresses_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.contact_points.addresses.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.locations.related_object_identifiers.qualified_relations.organization.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.locations.related_object_identifiers.qualified_relations.organization.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_dataBoxes = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.contact_points.dataBoxes",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_emails = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.contact_points.emails",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/emails.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.contact_points.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_phones = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.contact_points.phones",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/phones.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.external_identifiers",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_name_cs = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.name.cs.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/name.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_name_en = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.name.en.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/name.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_name_lang = NestedLabeledFacet(
+    path="metadata.locations.related_object_identifiers.qualified_relations.organization.name",
+    nested_facet=TermsFacet(
+        field="metadata.locations.related_object_identifiers.qualified_relations.organization.name.lang",
+        label=_(
+            "metadata/locations/related_object_identifiers/qualified_relations/organization/name/lang.label"
+        ),
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_alternate_names_cs = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.alternate_names.cs.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_alternate_names_en = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.alternate_names.en.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.alternate_names.lang",
+        label=_(
+            "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names/lang.label"
+        ),
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_addresses_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.contact_points.addresses.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_dataBoxes = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.contact_points.dataBoxes",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_emails = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.contact_points.emails",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/emails.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.contact_points.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_phones = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.contact_points.phones",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/phones.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.external_identifiers",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_name_cs = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.name.cs.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_name_en = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.name.en.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_name_lang = NestedLabeledFacet(
+    path="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.name",
+    nested_facet=TermsFacet(
+        field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.name.lang",
+        label=_(
+            "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name/lang.label"
+        ),
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_addresses_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.contact_points.addresses.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.locations.related_object_identifiers.qualified_relations.person.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.locations.related_object_identifiers.qualified_relations.person.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_dataBoxes = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.contact_points.dataBoxes",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_emails = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.contact_points.emails",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/emails.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.contact_points.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_phones = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.contact_points.phones",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/phones.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.external_identifiers",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_family_name = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.family_name",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/family_name.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_given_names = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.given_names",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/given_names.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_role_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.role.iri",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/role/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_role_labels_cs = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.role.labels.cs.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/role/labels.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_role_labels_en = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.role.labels.en.keyword",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/role/labels.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_role_labels_lang = NestedLabeledFacet(
+    path="metadata.locations.related_object_identifiers.qualified_relations.role.labels",
+    nested_facet=TermsFacet(
+        field="metadata.locations.related_object_identifiers.qualified_relations.role.labels.lang",
+        label=_(
+            "metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_locations_related_object_identifiers_relation_type = TermsFacet(
+    field="metadata.locations.related_object_identifiers.relation_type",
+    label=_("metadata/locations/related_object_identifiers/relation_type.label"),
+)
+
+metadata_locations_related_object_identifiers_time_references_date = DateTimeFacet(
+    field="metadata.locations.related_object_identifiers.time_references.date",
+    label=_("metadata/locations/related_object_identifiers/time_references/date.label"),
+)
+
+metadata_locations_related_object_identifiers_time_references_date_information = TermsFacet(
+    field="metadata.locations.related_object_identifiers.time_references.date_information",
+    label=_(
+        "metadata/locations/related_object_identifiers/time_references/date_information.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_time_references_date_type = TermsFacet(
+    field="metadata.locations.related_object_identifiers.time_references.date_type",
+    label=_(
+        "metadata/locations/related_object_identifiers/time_references/date_type.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_time_references_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.time_references.iri",
+    label=_("metadata/locations/related_object_identifiers/time_references/iri.label"),
+)
+
+metadata_locations_related_object_identifiers_title = TermsFacet(
+    field="metadata.locations.related_object_identifiers.title",
+    label=_("metadata/locations/related_object_identifiers/title.label"),
+)
+
+metadata_locations_related_object_identifiers_type = TermsFacet(
+    field="metadata.locations.related_object_identifiers.type",
+    label=_("metadata/locations/related_object_identifiers/type.label"),
+)
+
+metadata_other_languages = TermsFacet(
+    field="metadata.other_languages", label=_("metadata/other_languages.label")
+)
+
+metadata_primary_language = TermsFacet(
+    field="metadata.primary_language", label=_("metadata/primary_language.label")
+)
+
+metadata_provenances_iri = TermsFacet(
+    field="metadata.provenances.iri", label=_("metadata/provenances/iri.label")
+)
+
+metadata_provenances_labels_cs = TermsFacet(
+    field="metadata.provenances.labels.cs.keyword",
+    label=_("metadata/provenances/labels.label"),
+)
+
+metadata_provenances_labels_en = TermsFacet(
+    field="metadata.provenances.labels.en.keyword",
+    label=_("metadata/provenances/labels.label"),
+)
+
+metadata_provenances_labels_lang = NestedLabeledFacet(
+    path="metadata.provenances.labels",
+    nested_facet=TermsFacet(
+        field="metadata.provenances.labels.lang",
+        label=_("metadata/provenances/labels/lang.label"),
+    ),
+)
+
+metadata_publication_year = TermsFacet(
+    field="metadata.publication_year", label=_("metadata/publication_year.label")
+)
+
+metadata_qualified_relations_iri = TermsFacet(
+    field="metadata.qualified_relations.iri",
+    label=_("metadata/qualified_relations/iri.label"),
+)
+
+metadata_qualified_relations_organization_alternate_names_cs = TermsFacet(
+    field="metadata.qualified_relations.organization.alternate_names.cs.keyword",
+    label=_("metadata/qualified_relations/organization/alternate_names.label"),
+)
+
+metadata_qualified_relations_organization_alternate_names_en = TermsFacet(
+    field="metadata.qualified_relations.organization.alternate_names.en.keyword",
+    label=_("metadata/qualified_relations/organization/alternate_names.label"),
+)
+
+metadata_qualified_relations_organization_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.qualified_relations.organization.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.qualified_relations.organization.alternate_names.lang",
+        label=_("metadata/qualified_relations/organization/alternate_names/lang.label"),
+    ),
+)
+
+metadata_qualified_relations_organization_contact_points_addresses_iri = TermsFacet(
+    field="metadata.qualified_relations.organization.contact_points.addresses.iri",
+    label=_(
+        "metadata/qualified_relations/organization/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_qualified_relations_organization_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.qualified_relations.organization.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/qualified_relations/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_qualified_relations_organization_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.qualified_relations.organization.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/qualified_relations/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_qualified_relations_organization_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.qualified_relations.organization.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.qualified_relations.organization.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/qualified_relations/organization/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_qualified_relations_organization_contact_points_dataBoxes = TermsFacet(
+    field="metadata.qualified_relations.organization.contact_points.dataBoxes",
+    label=_("metadata/qualified_relations/organization/contact_points/dataBoxes.label"),
+)
+
+metadata_qualified_relations_organization_contact_points_emails = TermsFacet(
+    field="metadata.qualified_relations.organization.contact_points.emails",
+    label=_("metadata/qualified_relations/organization/contact_points/emails.label"),
+)
+
+metadata_qualified_relations_organization_contact_points_iri = TermsFacet(
+    field="metadata.qualified_relations.organization.contact_points.iri",
+    label=_("metadata/qualified_relations/organization/contact_points/iri.label"),
+)
+
+metadata_qualified_relations_organization_contact_points_phones = TermsFacet(
+    field="metadata.qualified_relations.organization.contact_points.phones",
+    label=_("metadata/qualified_relations/organization/contact_points/phones.label"),
+)
+
+metadata_qualified_relations_organization_external_identifiers = TermsFacet(
+    field="metadata.qualified_relations.organization.external_identifiers",
+    label=_("metadata/qualified_relations/organization/external_identifiers.label"),
+)
+
+metadata_qualified_relations_organization_iri = TermsFacet(
+    field="metadata.qualified_relations.organization.iri",
+    label=_("metadata/qualified_relations/organization/iri.label"),
+)
+
+metadata_qualified_relations_organization_name_cs = TermsFacet(
+    field="metadata.qualified_relations.organization.name.cs.keyword",
+    label=_("metadata/qualified_relations/organization/name.label"),
+)
+
+metadata_qualified_relations_organization_name_en = TermsFacet(
+    field="metadata.qualified_relations.organization.name.en.keyword",
+    label=_("metadata/qualified_relations/organization/name.label"),
+)
+
+metadata_qualified_relations_organization_name_lang = NestedLabeledFacet(
+    path="metadata.qualified_relations.organization.name",
+    nested_facet=TermsFacet(
+        field="metadata.qualified_relations.organization.name.lang",
+        label=_("metadata/qualified_relations/organization/name/lang.label"),
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_alternate_names_cs = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.alternate_names.cs.keyword",
+    label=_("metadata/qualified_relations/person/affiliations/alternate_names.label"),
+)
+
+metadata_qualified_relations_person_affiliations_alternate_names_en = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.alternate_names.en.keyword",
+    label=_("metadata/qualified_relations/person/affiliations/alternate_names.label"),
+)
+
+metadata_qualified_relations_person_affiliations_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.qualified_relations.person.affiliations.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.qualified_relations.person.affiliations.alternate_names.lang",
+        label=_(
+            "metadata/qualified_relations/person/affiliations/alternate_names/lang.label"
+        ),
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_contact_points_addresses_iri = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.contact_points.addresses.iri",
+    label=_(
+        "metadata/qualified_relations/person/affiliations/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.qualified_relations.person.affiliations.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.qualified_relations.person.affiliations.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_contact_points_dataBoxes = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.contact_points.dataBoxes",
+    label=_(
+        "metadata/qualified_relations/person/affiliations/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_contact_points_emails = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.contact_points.emails",
+    label=_(
+        "metadata/qualified_relations/person/affiliations/contact_points/emails.label"
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_contact_points_iri = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.contact_points.iri",
+    label=_(
+        "metadata/qualified_relations/person/affiliations/contact_points/iri.label"
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_contact_points_phones = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.contact_points.phones",
+    label=_(
+        "metadata/qualified_relations/person/affiliations/contact_points/phones.label"
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_external_identifiers = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.external_identifiers",
+    label=_(
+        "metadata/qualified_relations/person/affiliations/external_identifiers.label"
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_iri = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.iri",
+    label=_("metadata/qualified_relations/person/affiliations/iri.label"),
+)
+
+metadata_qualified_relations_person_affiliations_name_cs = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.name.cs.keyword",
+    label=_("metadata/qualified_relations/person/affiliations/name.label"),
+)
+
+metadata_qualified_relations_person_affiliations_name_en = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.name.en.keyword",
+    label=_("metadata/qualified_relations/person/affiliations/name.label"),
+)
+
+metadata_qualified_relations_person_affiliations_name_lang = NestedLabeledFacet(
+    path="metadata.qualified_relations.person.affiliations.name",
+    nested_facet=TermsFacet(
+        field="metadata.qualified_relations.person.affiliations.name.lang",
+        label=_("metadata/qualified_relations/person/affiliations/name/lang.label"),
+    ),
+)
+
+metadata_qualified_relations_person_contact_points_addresses_iri = TermsFacet(
+    field="metadata.qualified_relations.person.contact_points.addresses.iri",
+    label=_("metadata/qualified_relations/person/contact_points/addresses/iri.label"),
+)
+
+metadata_qualified_relations_person_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.qualified_relations.person.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/qualified_relations/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_qualified_relations_person_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.qualified_relations.person.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/qualified_relations/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_qualified_relations_person_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.qualified_relations.person.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.qualified_relations.person.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/qualified_relations/person/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_qualified_relations_person_contact_points_dataBoxes = TermsFacet(
+    field="metadata.qualified_relations.person.contact_points.dataBoxes",
+    label=_("metadata/qualified_relations/person/contact_points/dataBoxes.label"),
+)
+
+metadata_qualified_relations_person_contact_points_emails = TermsFacet(
+    field="metadata.qualified_relations.person.contact_points.emails",
+    label=_("metadata/qualified_relations/person/contact_points/emails.label"),
+)
+
+metadata_qualified_relations_person_contact_points_iri = TermsFacet(
+    field="metadata.qualified_relations.person.contact_points.iri",
+    label=_("metadata/qualified_relations/person/contact_points/iri.label"),
+)
+
+metadata_qualified_relations_person_contact_points_phones = TermsFacet(
+    field="metadata.qualified_relations.person.contact_points.phones",
+    label=_("metadata/qualified_relations/person/contact_points/phones.label"),
+)
+
+metadata_qualified_relations_person_external_identifiers = TermsFacet(
+    field="metadata.qualified_relations.person.external_identifiers",
+    label=_("metadata/qualified_relations/person/external_identifiers.label"),
+)
+
+metadata_qualified_relations_person_family_name = TermsFacet(
+    field="metadata.qualified_relations.person.family_name",
+    label=_("metadata/qualified_relations/person/family_name.label"),
+)
+
+metadata_qualified_relations_person_given_names = TermsFacet(
+    field="metadata.qualified_relations.person.given_names",
+    label=_("metadata/qualified_relations/person/given_names.label"),
+)
+
+metadata_qualified_relations_person_iri = TermsFacet(
+    field="metadata.qualified_relations.person.iri",
+    label=_("metadata/qualified_relations/person/iri.label"),
+)
+
+metadata_qualified_relations_role_iri = TermsFacet(
+    field="metadata.qualified_relations.role.iri",
+    label=_("metadata/qualified_relations/role/iri.label"),
+)
+
+metadata_qualified_relations_role_labels_cs = TermsFacet(
+    field="metadata.qualified_relations.role.labels.cs.keyword",
+    label=_("metadata/qualified_relations/role/labels.label"),
+)
+
+metadata_qualified_relations_role_labels_en = TermsFacet(
+    field="metadata.qualified_relations.role.labels.en.keyword",
+    label=_("metadata/qualified_relations/role/labels.label"),
+)
+
+metadata_qualified_relations_role_labels_lang = NestedLabeledFacet(
+    path="metadata.qualified_relations.role.labels",
+    nested_facet=TermsFacet(
+        field="metadata.qualified_relations.role.labels.lang",
+        label=_("metadata/qualified_relations/role/labels/lang.label"),
+    ),
+)
+
+metadata_related_resources_identifier = TermsFacet(
+    field="metadata.related_resources.identifier",
+    label=_("metadata/related_resources/identifier.label"),
+)
+
+metadata_related_resources_iri = TermsFacet(
+    field="metadata.related_resources.iri",
+    label=_("metadata/related_resources/iri.label"),
+)
+
+metadata_related_resources_qualified_relations_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.iri",
+    label=_("metadata/related_resources/qualified_relations/iri.label"),
+)
+
+metadata_related_resources_qualified_relations_organization_alternate_names_cs = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.alternate_names.cs.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/alternate_names.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_alternate_names_en = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.alternate_names.en.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/alternate_names.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.related_resources.qualified_relations.organization.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.related_resources.qualified_relations.organization.alternate_names.lang",
+        label=_(
+            "metadata/related_resources/qualified_relations/organization/alternate_names/lang.label"
+        ),
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_contact_points_addresses_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.contact_points.addresses.iri",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.related_resources.qualified_relations.organization.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.related_resources.qualified_relations.organization.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_contact_points_dataBoxes = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.contact_points.dataBoxes",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_contact_points_emails = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.contact_points.emails",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/contact_points/emails.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_contact_points_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.contact_points.iri",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/contact_points/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_contact_points_phones = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.contact_points.phones",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/contact_points/phones.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_external_identifiers = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.external_identifiers",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/external_identifiers.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.iri",
+    label=_("metadata/related_resources/qualified_relations/organization/iri.label"),
+)
+
+metadata_related_resources_qualified_relations_organization_name_cs = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.name.cs.keyword",
+    label=_("metadata/related_resources/qualified_relations/organization/name.label"),
+)
+
+metadata_related_resources_qualified_relations_organization_name_en = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.name.en.keyword",
+    label=_("metadata/related_resources/qualified_relations/organization/name.label"),
+)
+
+metadata_related_resources_qualified_relations_organization_name_lang = NestedLabeledFacet(
+    path="metadata.related_resources.qualified_relations.organization.name",
+    nested_facet=TermsFacet(
+        field="metadata.related_resources.qualified_relations.organization.name.lang",
+        label=_(
+            "metadata/related_resources/qualified_relations/organization/name/lang.label"
+        ),
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_alternate_names_cs = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.alternate_names.cs.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/alternate_names.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_alternate_names_en = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.alternate_names.en.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/alternate_names.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.related_resources.qualified_relations.person.affiliations.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.related_resources.qualified_relations.person.affiliations.alternate_names.lang",
+        label=_(
+            "metadata/related_resources/qualified_relations/person/affiliations/alternate_names/lang.label"
+        ),
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_contact_points_addresses_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.contact_points.addresses.iri",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.related_resources.qualified_relations.person.affiliations.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.related_resources.qualified_relations.person.affiliations.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_contact_points_dataBoxes = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.contact_points.dataBoxes",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_contact_points_emails = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.contact_points.emails",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/contact_points/emails.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_contact_points_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.contact_points.iri",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/contact_points/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_contact_points_phones = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.contact_points.phones",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/contact_points/phones.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_external_identifiers = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.external_identifiers",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.iri",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_name_cs = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.name.cs.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/name.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_name_en = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.name.en.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/name.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_name_lang = NestedLabeledFacet(
+    path="metadata.related_resources.qualified_relations.person.affiliations.name",
+    nested_facet=TermsFacet(
+        field="metadata.related_resources.qualified_relations.person.affiliations.name.lang",
+        label=_(
+            "metadata/related_resources/qualified_relations/person/affiliations/name/lang.label"
+        ),
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_contact_points_addresses_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.contact_points.addresses.iri",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.related_resources.qualified_relations.person.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.related_resources.qualified_relations.person.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/related_resources/qualified_relations/person/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_contact_points_dataBoxes = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.contact_points.dataBoxes",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_contact_points_emails = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.contact_points.emails",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/contact_points/emails.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_contact_points_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.contact_points.iri",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/contact_points/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_contact_points_phones = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.contact_points.phones",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/contact_points/phones.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_external_identifiers = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.external_identifiers",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/external_identifiers.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_family_name = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.family_name",
+    label=_("metadata/related_resources/qualified_relations/person/family_name.label"),
+)
+
+metadata_related_resources_qualified_relations_person_given_names = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.given_names",
+    label=_("metadata/related_resources/qualified_relations/person/given_names.label"),
+)
+
+metadata_related_resources_qualified_relations_person_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.iri",
+    label=_("metadata/related_resources/qualified_relations/person/iri.label"),
+)
+
+metadata_related_resources_qualified_relations_role_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.role.iri",
+    label=_("metadata/related_resources/qualified_relations/role/iri.label"),
+)
+
+metadata_related_resources_qualified_relations_role_labels_cs = TermsFacet(
+    field="metadata.related_resources.qualified_relations.role.labels.cs.keyword",
+    label=_("metadata/related_resources/qualified_relations/role/labels.label"),
+)
+
+metadata_related_resources_qualified_relations_role_labels_en = TermsFacet(
+    field="metadata.related_resources.qualified_relations.role.labels.en.keyword",
+    label=_("metadata/related_resources/qualified_relations/role/labels.label"),
+)
+
+metadata_related_resources_qualified_relations_role_labels_lang = NestedLabeledFacet(
+    path="metadata.related_resources.qualified_relations.role.labels",
+    nested_facet=TermsFacet(
+        field="metadata.related_resources.qualified_relations.role.labels.lang",
+        label=_(
+            "metadata/related_resources/qualified_relations/role/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_related_resources_relation_type = TermsFacet(
+    field="metadata.related_resources.relation_type",
+    label=_("metadata/related_resources/relation_type.label"),
+)
+
+metadata_related_resources_time_references_date = DateTimeFacet(
+    field="metadata.related_resources.time_references.date",
+    label=_("metadata/related_resources/time_references/date.label"),
+)
+
+metadata_related_resources_time_references_date_information = TermsFacet(
+    field="metadata.related_resources.time_references.date_information",
+    label=_("metadata/related_resources/time_references/date_information.label"),
+)
+
+metadata_related_resources_time_references_date_type = TermsFacet(
+    field="metadata.related_resources.time_references.date_type",
+    label=_("metadata/related_resources/time_references/date_type.label"),
+)
+
+metadata_related_resources_time_references_iri = TermsFacet(
+    field="metadata.related_resources.time_references.iri",
+    label=_("metadata/related_resources/time_references/iri.label"),
+)
+
+metadata_related_resources_title = TermsFacet(
+    field="metadata.related_resources.title",
+    label=_("metadata/related_resources/title.label"),
+)
+
+metadata_related_resources_type = TermsFacet(
+    field="metadata.related_resources.type",
+    label=_("metadata/related_resources/type.label"),
+)
+
+metadata_resource_type = TermsFacet(
+    field="metadata.resource_type", label=_("metadata/resource_type.label")
+)
+
+metadata_subjects_classification_code = TermsFacet(
+    field="metadata.subjects.classification_code",
+    label=_("metadata/subjects/classification_code.label"),
+)
+
+metadata_subjects_definition_cs = TermsFacet(
+    field="metadata.subjects.definition.cs.keyword",
+    label=_("metadata/subjects/definition.label"),
+)
+
+metadata_subjects_definition_en = TermsFacet(
+    field="metadata.subjects.definition.en.keyword",
+    label=_("metadata/subjects/definition.label"),
+)
+
+metadata_subjects_definition_lang = NestedLabeledFacet(
+    path="metadata.subjects.definition",
+    nested_facet=TermsFacet(
+        field="metadata.subjects.definition.lang",
+        label=_("metadata/subjects/definition/lang.label"),
+    ),
+)
+
+metadata_subjects_in_subject_scheme_iri = TermsFacet(
+    field="metadata.subjects.in_subject_scheme.iri",
+    label=_("metadata/subjects/in_subject_scheme/iri.label"),
+)
+
+metadata_subjects_in_subject_scheme_labels_cs = TermsFacet(
+    field="metadata.subjects.in_subject_scheme.labels.cs.keyword",
+    label=_("metadata/subjects/in_subject_scheme/labels.label"),
+)
+
+metadata_subjects_in_subject_scheme_labels_en = TermsFacet(
+    field="metadata.subjects.in_subject_scheme.labels.en.keyword",
+    label=_("metadata/subjects/in_subject_scheme/labels.label"),
+)
+
+metadata_subjects_in_subject_scheme_labels_lang = NestedLabeledFacet(
+    path="metadata.subjects.in_subject_scheme.labels",
+    nested_facet=TermsFacet(
+        field="metadata.subjects.in_subject_scheme.labels.lang",
+        label=_("metadata/subjects/in_subject_scheme/labels/lang.label"),
+    ),
+)
+
+metadata_subjects_iri = TermsFacet(
+    field="metadata.subjects.iri", label=_("metadata/subjects/iri.label")
+)
+
+metadata_subjects_title_cs = TermsFacet(
+    field="metadata.subjects.title.cs.keyword", label=_("metadata/subjects/title.label")
+)
+
+metadata_subjects_title_en = TermsFacet(
+    field="metadata.subjects.title.en.keyword", label=_("metadata/subjects/title.label")
+)
+
+metadata_subjects_title_lang = NestedLabeledFacet(
+    path="metadata.subjects.title",
+    nested_facet=TermsFacet(
+        field="metadata.subjects.title.lang",
+        label=_("metadata/subjects/title/lang.label"),
+    ),
+)
+
+metadata_terms_of_use_access_rights = TermsFacet(
+    field="metadata.terms_of_use.access_rights",
+    label=_("metadata/terms_of_use/access_rights.label"),
+)
+
+metadata_terms_of_use_contacts_organization_alternate_names_cs = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.alternate_names.cs.keyword",
+    label=_("metadata/terms_of_use/contacts/organization/alternate_names.label"),
+)
+
+metadata_terms_of_use_contacts_organization_alternate_names_en = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.alternate_names.en.keyword",
+    label=_("metadata/terms_of_use/contacts/organization/alternate_names.label"),
+)
+
+metadata_terms_of_use_contacts_organization_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.terms_of_use.contacts.organization.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.terms_of_use.contacts.organization.alternate_names.lang",
+        label=_(
+            "metadata/terms_of_use/contacts/organization/alternate_names/lang.label"
+        ),
+    ),
+)
+
+metadata_terms_of_use_contacts_organization_contact_points_addresses_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.contact_points.addresses.iri",
+    label=_(
+        "metadata/terms_of_use/contacts/organization/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_organization_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/terms_of_use/contacts/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_organization_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/terms_of_use/contacts/organization/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_organization_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.terms_of_use.contacts.organization.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.terms_of_use.contacts.organization.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/terms_of_use/contacts/organization/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_terms_of_use_contacts_organization_contact_points_dataBoxes = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.contact_points.dataBoxes",
+    label=_(
+        "metadata/terms_of_use/contacts/organization/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_organization_contact_points_emails = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.contact_points.emails",
+    label=_("metadata/terms_of_use/contacts/organization/contact_points/emails.label"),
+)
+
+metadata_terms_of_use_contacts_organization_contact_points_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.contact_points.iri",
+    label=_("metadata/terms_of_use/contacts/organization/contact_points/iri.label"),
+)
+
+metadata_terms_of_use_contacts_organization_contact_points_phones = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.contact_points.phones",
+    label=_("metadata/terms_of_use/contacts/organization/contact_points/phones.label"),
+)
+
+metadata_terms_of_use_contacts_organization_external_identifiers = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.external_identifiers",
+    label=_("metadata/terms_of_use/contacts/organization/external_identifiers.label"),
+)
+
+metadata_terms_of_use_contacts_organization_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.iri",
+    label=_("metadata/terms_of_use/contacts/organization/iri.label"),
+)
+
+metadata_terms_of_use_contacts_organization_name_cs = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.name.cs.keyword",
+    label=_("metadata/terms_of_use/contacts/organization/name.label"),
+)
+
+metadata_terms_of_use_contacts_organization_name_en = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.name.en.keyword",
+    label=_("metadata/terms_of_use/contacts/organization/name.label"),
+)
+
+metadata_terms_of_use_contacts_organization_name_lang = NestedLabeledFacet(
+    path="metadata.terms_of_use.contacts.organization.name",
+    nested_facet=TermsFacet(
+        field="metadata.terms_of_use.contacts.organization.name.lang",
+        label=_("metadata/terms_of_use/contacts/organization/name/lang.label"),
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_alternate_names_cs = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.alternate_names.cs.keyword",
+    label=_("metadata/terms_of_use/contacts/person/affiliations/alternate_names.label"),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_alternate_names_en = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.alternate_names.en.keyword",
+    label=_("metadata/terms_of_use/contacts/person/affiliations/alternate_names.label"),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_alternate_names_lang = NestedLabeledFacet(
+    path="metadata.terms_of_use.contacts.person.affiliations.alternate_names",
+    nested_facet=TermsFacet(
+        field="metadata.terms_of_use.contacts.person.affiliations.alternate_names.lang",
+        label=_(
+            "metadata/terms_of_use/contacts/person/affiliations/alternate_names/lang.label"
+        ),
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_contact_points_addresses_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.contact_points.addresses.iri",
+    label=_(
+        "metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/iri.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.terms_of_use.contacts.person.affiliations.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.terms_of_use.contacts.person.affiliations.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_contact_points_dataBoxes = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.contact_points.dataBoxes",
+    label=_(
+        "metadata/terms_of_use/contacts/person/affiliations/contact_points/dataBoxes.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_contact_points_emails = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.contact_points.emails",
+    label=_(
+        "metadata/terms_of_use/contacts/person/affiliations/contact_points/emails.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_contact_points_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.contact_points.iri",
+    label=_(
+        "metadata/terms_of_use/contacts/person/affiliations/contact_points/iri.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_contact_points_phones = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.contact_points.phones",
+    label=_(
+        "metadata/terms_of_use/contacts/person/affiliations/contact_points/phones.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_external_identifiers = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.external_identifiers",
+    label=_(
+        "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.iri",
+    label=_("metadata/terms_of_use/contacts/person/affiliations/iri.label"),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_name_cs = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.name.cs.keyword",
+    label=_("metadata/terms_of_use/contacts/person/affiliations/name.label"),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_name_en = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.name.en.keyword",
+    label=_("metadata/terms_of_use/contacts/person/affiliations/name.label"),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_name_lang = NestedLabeledFacet(
+    path="metadata.terms_of_use.contacts.person.affiliations.name",
+    nested_facet=TermsFacet(
+        field="metadata.terms_of_use.contacts.person.affiliations.name.lang",
+        label=_("metadata/terms_of_use/contacts/person/affiliations/name/lang.label"),
+    ),
+)
+
+metadata_terms_of_use_contacts_person_contact_points_addresses_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.contact_points.addresses.iri",
+    label=_("metadata/terms_of_use/contacts/person/contact_points/addresses/iri.label"),
+)
+
+metadata_terms_of_use_contacts_person_contact_points_addresses_labels_cs = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.contact_points.addresses.labels.cs.keyword",
+    label=_(
+        "metadata/terms_of_use/contacts/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_contact_points_addresses_labels_en = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.contact_points.addresses.labels.en.keyword",
+    label=_(
+        "metadata/terms_of_use/contacts/person/contact_points/addresses/labels.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_contact_points_addresses_labels_lang = NestedLabeledFacet(
+    path="metadata.terms_of_use.contacts.person.contact_points.addresses.labels",
+    nested_facet=TermsFacet(
+        field="metadata.terms_of_use.contacts.person.contact_points.addresses.labels.lang",
+        label=_(
+            "metadata/terms_of_use/contacts/person/contact_points/addresses/labels/lang.label"
+        ),
+    ),
+)
+
+metadata_terms_of_use_contacts_person_contact_points_dataBoxes = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.contact_points.dataBoxes",
+    label=_("metadata/terms_of_use/contacts/person/contact_points/dataBoxes.label"),
+)
+
+metadata_terms_of_use_contacts_person_contact_points_emails = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.contact_points.emails",
+    label=_("metadata/terms_of_use/contacts/person/contact_points/emails.label"),
+)
+
+metadata_terms_of_use_contacts_person_contact_points_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.contact_points.iri",
+    label=_("metadata/terms_of_use/contacts/person/contact_points/iri.label"),
+)
+
+metadata_terms_of_use_contacts_person_contact_points_phones = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.contact_points.phones",
+    label=_("metadata/terms_of_use/contacts/person/contact_points/phones.label"),
+)
+
+metadata_terms_of_use_contacts_person_external_identifiers = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.external_identifiers",
+    label=_("metadata/terms_of_use/contacts/person/external_identifiers.label"),
+)
+
+metadata_terms_of_use_contacts_person_family_name = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.family_name",
+    label=_("metadata/terms_of_use/contacts/person/family_name.label"),
+)
+
+metadata_terms_of_use_contacts_person_given_names = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.given_names",
+    label=_("metadata/terms_of_use/contacts/person/given_names.label"),
+)
+
+metadata_terms_of_use_contacts_person_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.iri",
+    label=_("metadata/terms_of_use/contacts/person/iri.label"),
+)
+
+metadata_terms_of_use_description = TermsFacet(
+    field="metadata.terms_of_use.description",
+    label=_("metadata/terms_of_use/description.label"),
+)
+
+metadata_terms_of_use_iri = TermsFacet(
+    field="metadata.terms_of_use.iri", label=_("metadata/terms_of_use/iri.label")
+)
+
+metadata_terms_of_use_license = TermsFacet(
+    field="metadata.terms_of_use.license",
+    label=_("metadata/terms_of_use/license.label"),
+)
+
+metadata_time_references_date = DateTimeFacet(
+    field="metadata.time_references.date",
+    label=_("metadata/time_references/date.label"),
+)
+
+metadata_time_references_date_information = TermsFacet(
+    field="metadata.time_references.date_information",
+    label=_("metadata/time_references/date_information.label"),
+)
+
+metadata_time_references_date_type = TermsFacet(
+    field="metadata.time_references.date_type",
+    label=_("metadata/time_references/date_type.label"),
+)
+
+metadata_time_references_iri = TermsFacet(
+    field="metadata.time_references.iri", label=_("metadata/time_references/iri.label")
+)
+
+metadata_title = TermsFacet(field="metadata.title", label=_("metadata/title.label"))
+
+metadata_validation_results_iri = TermsFacet(
+    field="metadata.validation_results.iri",
+    label=_("metadata/validation_results/iri.label"),
+)
+
+metadata_validation_results_labels_cs = TermsFacet(
+    field="metadata.validation_results.labels.cs.keyword",
+    label=_("metadata/validation_results/labels.label"),
+)
+
+metadata_validation_results_labels_en = TermsFacet(
+    field="metadata.validation_results.labels.en.keyword",
+    label=_("metadata/validation_results/labels.label"),
+)
+
+metadata_validation_results_labels_lang = NestedLabeledFacet(
+    path="metadata.validation_results.labels",
+    nested_facet=TermsFacet(
+        field="metadata.validation_results.labels.lang",
+        label=_("metadata/validation_results/labels/lang.label"),
+    ),
+)
 
 metadata_version = TermsFacet(
     field="metadata.version", label=_("metadata/version.label")
 )
 
-oai_harvest_datestamp = TermsFacet(
-    field="oai.harvest.datestamp", label=_("oai/harvest/datestamp.label")
+state = TermsFacet(field="state", label=_("state.label"))
+
+state_timestamp = DateTimeFacet(
+    field="state_timestamp", label=_("state_timestamp.label")
 )
 
-oai_harvest_identifier = TermsFacet(
-    field="oai.harvest.identifier", label=_("oai/harvest/identifier.label")
-)
+
+record_status = TermsFacet(field="record_status", label=_("record_status"))
+
+has_draft = TermsFacet(field="has_draft", label=_("has_draft"))
+
+expires_at = DateTimeFacet(field="expires_at", label=_("expires_at.label"))
+
+fork_version_id = TermsFacet(field="fork_version_id", label=_("fork_version_id.label"))

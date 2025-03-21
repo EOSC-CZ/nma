@@ -37,3 +37,13 @@ def init_create_app_blueprint(state):
             ext.service_records.indexer,
             indexer_id=ext.service_records.config.service_id,
         )
+
+
+def init_addons_datasets_requests(state):
+    app = state.app
+    requests = app.extensions["invenio-requests"]
+
+    from datasets import config
+
+    for er in getattr(config, "DATASETS_ENTITY_RESOLVERS", []):
+        requests.entity_resolvers_registry.register_type(er)

@@ -1,67 +1,9 @@
-{# Copyright (C) 2019-2020 CERN. Copyright (C) 2019-2020 Northwestern
-University. Copyright (C) 2021 Graz University of Technology. Invenio App RDM is
-free software; you can redistribute it and/or modify it under the terms of the
-MIT License; see LICENSE file for more details. #}
+{% extends "oarepo_ui/footer.html" %}
 
-<footer class="ui page-footer">
-  <div id="nr-footer-container">
-    <div class="ui container">
-      <div class="ui relaxed grid">
-        <div class="computer tablet only row footer-top">
-          <div class="six wide left aligned column">
-            <p class="margin-small">
-              {% if current_i18n.language == 'cs' %}
-              <img
-                src="{{ url_for('static', filename='images/eu_msmt_logos.png') }}"
-                alt="EU_MŠMT_logo"
-                class="ui large image"
-              />
-              {% else %}
-              <img
-                src="{{ url_for('static', filename='images/eu_msmt_eng.png') }}"
-                alt="EU_MŠMT_logo"
-                class="ui large image"
-              />
-              {% endif %}
-            </p>
-          </div>
-          <div class="six wide right floated column">
-            <p class="right-floated left-aligned">
-              <span class="text-big">{{_("Support")}}:</span><br />
-              <a href="mailto:info@eosc.cz">info@eosc.cz</a>
-            </p>
-            <p class="right-floated left-aligned rel-mr-3">
-              <span class="text-big">{{_("Contact")}}:</span><br />
-              <a href="https://www.eosc.cz/" target="_blank">eosc.cz</a>
-            </p>
-          </div>
-        </div>
-        <div class="mobile only centered row">
-          {% if current_i18n.language == 'cs' %}
-          <img
-            src="{{ url_for('static', filename='images/eu_msmt_logos.png') }}"
-            alt="EU_MŠMT_logo"
-            class="ui medium image"
-          />
-          {% else %}
-          <img
-            src="{{ url_for('static', filename='images/eu_msmt_eng.png') }}"
-            alt="EU_MŠMT_logo"
-            class="ui medium image"
-          />
-          {% endif %}
-        </div>
-        <div class="mobile only centered row">
-          <p class="rel-mr-3">
-            <span class="text-big">{{_("Contact")}}:</span>
-            <a href="https://www.eosc.cz/" target="_blank">eosc.cz</a>
-          </p>
-          <p>
-            <span class="text-big">{{_("Support")}}:</span>
-            <a href="mailto:info@eosc.cz">info@eosc.cz</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+{%- block footer_top_left %}
+<p class="margin-small">
+  <span class="ui small inverted header">{{_("Contact")}}:&nbsp;</span>
+  <i class="envelope icon"></i>
+  <a href="mailto:support@repo.com">support@repo.com</a>
+</p>
+{%- endblock footer_top_left -%}

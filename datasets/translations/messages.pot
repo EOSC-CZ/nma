@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2024-10-09T15:39:28.372372\n"
-"PO-Revision-Date: 2024-10-09T15:39:28.372373\n"
+"POT-Creation-Date: 2025-03-21T07:09:18.392963\n"
+"PO-Revision-Date: 2025-03-21T07:09:18.392971\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,6 +17,78 @@ msgstr ""
 msgid "$schema.hint"
 msgstr ""
 
+msgid "access.help"
+msgstr ""
+
+msgid "access.label"
+msgstr ""
+
+msgid "access.hint"
+msgstr ""
+
+msgid "access/embargo.help"
+msgstr ""
+
+msgid "access/embargo.label"
+msgstr ""
+
+msgid "access/embargo.hint"
+msgstr ""
+
+msgid "access/embargo/active.help"
+msgstr ""
+
+msgid "access/embargo/active.label"
+msgstr ""
+
+msgid "access/embargo/active.hint"
+msgstr ""
+
+msgid "access/embargo/reason.help"
+msgstr ""
+
+msgid "access/embargo/reason.label"
+msgstr ""
+
+msgid "access/embargo/reason.hint"
+msgstr ""
+
+msgid "access/embargo/until.help"
+msgstr ""
+
+msgid "access/embargo/until.label"
+msgstr ""
+
+msgid "access/embargo/until.hint"
+msgstr ""
+
+msgid "access/files.help"
+msgstr ""
+
+msgid "access/files.label"
+msgstr ""
+
+msgid "access/files.hint"
+msgstr ""
+
+msgid "access/record.help"
+msgstr ""
+
+msgid "access/record.label"
+msgstr ""
+
+msgid "access/record.hint"
+msgstr ""
+
+msgid "access/status.help"
+msgstr ""
+
+msgid "access/status.label"
+msgstr ""
+
+msgid "access/status.hint"
+msgstr ""
+
 msgid "created.help"
 msgstr ""
 
@@ -24,6 +96,15 @@ msgid "created.label"
 msgstr ""
 
 msgid "created.hint"
+msgstr ""
+
+msgid "deletion_status.help"
+msgstr ""
+
+msgid "deletion_status.label"
+msgstr ""
+
+msgid "deletion_status.hint"
 msgstr ""
 
 msgid "id.help"
@@ -35,6 +116,24 @@ msgstr ""
 msgid "id.hint"
 msgstr ""
 
+msgid "is_deleted.help"
+msgstr ""
+
+msgid "is_deleted.label"
+msgstr ""
+
+msgid "is_deleted.hint"
+msgstr ""
+
+msgid "is_published.help"
+msgstr ""
+
+msgid "is_published.label"
+msgstr ""
+
+msgid "is_published.hint"
+msgstr ""
+
 msgid "metadata.help"
 msgstr ""
 
@@ -44,490 +143,58 @@ msgstr ""
 msgid "metadata.hint"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers.label"
+msgid "metadata/alternate_titles.label"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers.help"
+msgid "metadata/alternate_titles.help"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers.hint"
+msgid "metadata/alternate_titles.hint"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifier.label"
+msgid "metadata/alternate_titles/iri.help"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifier.help"
+msgid "metadata/alternate_titles/iri.label"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifier.hint"
+msgid "metadata/alternate_titles/iri.hint"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifierType.label"
+msgid "metadata/alternate_titles/title.label"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifierType.help"
+msgid "metadata/alternate_titles/title.help"
 msgstr ""
 
-msgid "metadata/alternateIdentifiers/alternateIdentifierType.hint"
+msgid "metadata/alternate_titles/title.hint"
 msgstr ""
 
-msgid "metadata/container.label"
+msgid "metadata/alternate_titles/title/lang.label"
 msgstr ""
 
-msgid "metadata/container.help"
+msgid "metadata/alternate_titles/title/lang.help"
 msgstr ""
 
-msgid "metadata/container.hint"
+msgid "metadata/alternate_titles/title/lang.hint"
 msgstr ""
 
-msgid "metadata/container/firstPage.label"
+msgid "metadata/alternate_titles/title/value.label"
 msgstr ""
 
-msgid "metadata/container/firstPage.help"
+msgid "metadata/alternate_titles/title/value.help"
 msgstr ""
 
-msgid "metadata/container/firstPage.hint"
+msgid "metadata/alternate_titles/title/value.hint"
 msgstr ""
 
-msgid "metadata/container/title.label"
+msgid "metadata/alternate_titles/type.label"
 msgstr ""
 
-msgid "metadata/container/title.help"
+msgid "metadata/alternate_titles/type.help"
 msgstr ""
 
-msgid "metadata/container/title.hint"
-msgstr ""
-
-msgid "metadata/container/type.label"
-msgstr ""
-
-msgid "metadata/container/type.help"
-msgstr ""
-
-msgid "metadata/container/type.hint"
-msgstr ""
-
-msgid "metadata/contributors.label"
-msgstr ""
-
-msgid "metadata/contributors.help"
-msgstr ""
-
-msgid "metadata/contributors.hint"
-msgstr ""
-
-msgid "metadata/contributors/affiliation.help"
-msgstr ""
-
-msgid "metadata/contributors/affiliation.label"
-msgstr ""
-
-msgid "metadata/contributors/affiliation.hint"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifier.label"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifier.help"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifier.hint"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.label"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.help"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/affiliationIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/name.label"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/name.help"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/name.hint"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/schemeURI.label"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/schemeURI.help"
-msgstr ""
-
-msgid "metadata/contributors/affiliation/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.label"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.help"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.hint"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ContactPerson"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.DataCollector"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.DataCurator"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.DataManager"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Distributor"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Editor"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.HostingInstitution"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Producer"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ProjectLeader"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ProjectManager"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ProjectMember"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.RegistrationAgency"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.RegistrationAuthority"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.RelatedPerson"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Researcher"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.ResearchGroup"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.RightsHolder"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Sponsor"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Supervisor"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.WorkPackageLeader"
-msgstr ""
-
-msgid "metadata/contributors/contributorType.enum.Other"
-msgstr ""
-
-msgid "metadata/contributors/familyName.label"
-msgstr ""
-
-msgid "metadata/contributors/familyName.help"
-msgstr ""
-
-msgid "metadata/contributors/familyName.hint"
-msgstr ""
-
-msgid "metadata/contributors/givenName.label"
-msgstr ""
-
-msgid "metadata/contributors/givenName.help"
-msgstr ""
-
-msgid "metadata/contributors/givenName.hint"
-msgstr ""
-
-msgid "metadata/contributors/lang.label"
-msgstr ""
-
-msgid "metadata/contributors/lang.help"
-msgstr ""
-
-msgid "metadata/contributors/lang.hint"
-msgstr ""
-
-msgid "metadata/contributors/name.label"
-msgstr ""
-
-msgid "metadata/contributors/name.help"
-msgstr ""
-
-msgid "metadata/contributors/name.hint"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers.help"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers.label"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers.hint"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers/nameIdentifier.label"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers/nameIdentifier.help"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers/nameIdentifier.hint"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.label"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.help"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers/nameIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers/schemeURI.label"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers/schemeURI.help"
-msgstr ""
-
-msgid "metadata/contributors/nameIdentifiers/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/contributors/nameType.label"
-msgstr ""
-
-msgid "metadata/contributors/nameType.help"
-msgstr ""
-
-msgid "metadata/contributors/nameType.hint"
-msgstr ""
-
-msgid "metadata/contributors/nameType.enum.Organizational"
-msgstr ""
-
-msgid "metadata/contributors/nameType.enum.Personal"
-msgstr ""
-
-msgid "metadata/creators.label"
-msgstr ""
-
-msgid "metadata/creators.help"
-msgstr ""
-
-msgid "metadata/creators.hint"
-msgstr ""
-
-msgid "metadata/creators/affiliation.help"
-msgstr ""
-
-msgid "metadata/creators/affiliation.label"
-msgstr ""
-
-msgid "metadata/creators/affiliation.hint"
-msgstr ""
-
-msgid "metadata/creators/affiliation/affiliationIdentifier.label"
-msgstr ""
-
-msgid "metadata/creators/affiliation/affiliationIdentifier.help"
-msgstr ""
-
-msgid "metadata/creators/affiliation/affiliationIdentifier.hint"
-msgstr ""
-
-msgid "metadata/creators/affiliation/affiliationIdentifierScheme.label"
-msgstr ""
-
-msgid "metadata/creators/affiliation/affiliationIdentifierScheme.help"
-msgstr ""
-
-msgid "metadata/creators/affiliation/affiliationIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/creators/affiliation/name.label"
-msgstr ""
-
-msgid "metadata/creators/affiliation/name.help"
-msgstr ""
-
-msgid "metadata/creators/affiliation/name.hint"
-msgstr ""
-
-msgid "metadata/creators/affiliation/schemeURI.label"
-msgstr ""
-
-msgid "metadata/creators/affiliation/schemeURI.help"
-msgstr ""
-
-msgid "metadata/creators/affiliation/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/creators/familyName.label"
-msgstr ""
-
-msgid "metadata/creators/familyName.help"
-msgstr ""
-
-msgid "metadata/creators/familyName.hint"
-msgstr ""
-
-msgid "metadata/creators/givenName.label"
-msgstr ""
-
-msgid "metadata/creators/givenName.help"
-msgstr ""
-
-msgid "metadata/creators/givenName.hint"
-msgstr ""
-
-msgid "metadata/creators/lang.label"
-msgstr ""
-
-msgid "metadata/creators/lang.help"
-msgstr ""
-
-msgid "metadata/creators/lang.hint"
-msgstr ""
-
-msgid "metadata/creators/name.label"
-msgstr ""
-
-msgid "metadata/creators/name.help"
-msgstr ""
-
-msgid "metadata/creators/name.hint"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers.help"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers.label"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers.hint"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifier.label"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifier.help"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifier.hint"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.label"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.help"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/nameIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/schemeURI.label"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/schemeURI.help"
-msgstr ""
-
-msgid "metadata/creators/nameIdentifiers/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/creators/nameType.label"
-msgstr ""
-
-msgid "metadata/creators/nameType.help"
-msgstr ""
-
-msgid "metadata/creators/nameType.hint"
-msgstr ""
-
-msgid "metadata/creators/nameType.enum.Organizational"
-msgstr ""
-
-msgid "metadata/creators/nameType.enum.Personal"
-msgstr ""
-
-msgid "metadata/dates.label"
-msgstr ""
-
-msgid "metadata/dates.help"
-msgstr ""
-
-msgid "metadata/dates.hint"
-msgstr ""
-
-msgid "metadata/dates/date.label"
-msgstr ""
-
-msgid "metadata/dates/date.help"
-msgstr ""
-
-msgid "metadata/dates/date.hint"
-msgstr ""
-
-msgid "metadata/dates/dateInformation.label"
-msgstr ""
-
-msgid "metadata/dates/dateInformation.help"
-msgstr ""
-
-msgid "metadata/dates/dateInformation.hint"
-msgstr ""
-
-msgid "metadata/dates/dateType.label"
-msgstr ""
-
-msgid "metadata/dates/dateType.help"
-msgstr ""
-
-msgid "metadata/dates/dateType.hint"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Accepted"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Available"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Copyrighted"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Collected"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Created"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Issued"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Submitted"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Updated"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Valid"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Withdrawn"
-msgstr ""
-
-msgid "metadata/dates/dateType.enum.Other"
+msgid "metadata/alternate_titles/type.hint"
 msgstr ""
 
 msgid "metadata/descriptions.label"
@@ -539,42 +206,6 @@ msgstr ""
 msgid "metadata/descriptions.hint"
 msgstr ""
 
-msgid "metadata/descriptions/description.label"
-msgstr ""
-
-msgid "metadata/descriptions/description.help"
-msgstr ""
-
-msgid "metadata/descriptions/description.hint"
-msgstr ""
-
-msgid "metadata/descriptions/descriptionType.label"
-msgstr ""
-
-msgid "metadata/descriptions/descriptionType.help"
-msgstr ""
-
-msgid "metadata/descriptions/descriptionType.hint"
-msgstr ""
-
-msgid "metadata/descriptions/descriptionType.enum.Abstract"
-msgstr ""
-
-msgid "metadata/descriptions/descriptionType.enum.Methods"
-msgstr ""
-
-msgid "metadata/descriptions/descriptionType.enum.SeriesInformation"
-msgstr ""
-
-msgid "metadata/descriptions/descriptionType.enum.TableOfContents"
-msgstr ""
-
-msgid "metadata/descriptions/descriptionType.enum.TechnicalInfo"
-msgstr ""
-
-msgid "metadata/descriptions/descriptionType.enum.Other"
-msgstr ""
-
 msgid "metadata/descriptions/lang.label"
 msgstr ""
 
@@ -584,1840 +215,3735 @@ msgstr ""
 msgid "metadata/descriptions/lang.hint"
 msgstr ""
 
-msgid "metadata/doi.label"
+msgid "metadata/descriptions/value.label"
 msgstr ""
 
-msgid "metadata/doi.help"
+msgid "metadata/descriptions/value.help"
 msgstr ""
 
-msgid "metadata/doi.hint"
+msgid "metadata/descriptions/value.hint"
 msgstr ""
 
-msgid "metadata/formats.label"
+msgid "metadata/distribution_data_services.help"
 msgstr ""
 
-msgid "metadata/formats.help"
+msgid "metadata/distribution_data_services.label"
 msgstr ""
 
-msgid "metadata/formats.hint"
+msgid "metadata/distribution_data_services.hint"
 msgstr ""
 
-msgid "metadata/fundingReferences.label"
+msgid "metadata/distribution_data_services/access_services.label"
 msgstr ""
 
-msgid "metadata/fundingReferences.help"
+msgid "metadata/distribution_data_services/access_services.help"
 msgstr ""
 
-msgid "metadata/fundingReferences.hint"
-msgstr ""
-
-msgid "metadata/fundingReferences/awardNumber.label"
-msgstr ""
-
-msgid "metadata/fundingReferences/awardNumber.help"
-msgstr ""
-
-msgid "metadata/fundingReferences/awardNumber.hint"
-msgstr ""
-
-msgid "metadata/fundingReferences/awardTitle.label"
-msgstr ""
-
-msgid "metadata/fundingReferences/awardTitle.help"
-msgstr ""
-
-msgid "metadata/fundingReferences/awardTitle.hint"
-msgstr ""
-
-msgid "metadata/fundingReferences/awardURI.label"
-msgstr ""
-
-msgid "metadata/fundingReferences/awardURI.help"
-msgstr ""
-
-msgid "metadata/fundingReferences/awardURI.hint"
-msgstr ""
-
-msgid "metadata/fundingReferences/funderIdentifier.label"
-msgstr ""
-
-msgid "metadata/fundingReferences/funderIdentifier.help"
-msgstr ""
-
-msgid "metadata/fundingReferences/funderIdentifier.hint"
-msgstr ""
-
-msgid "metadata/fundingReferences/funderIdentifierType.label"
-msgstr ""
-
-msgid "metadata/fundingReferences/funderIdentifierType.help"
-msgstr ""
-
-msgid "metadata/fundingReferences/funderIdentifierType.hint"
-msgstr ""
-
-msgid "metadata/fundingReferences/funderIdentifierType.enum.ISNI"
-msgstr ""
-
-msgid "metadata/fundingReferences/funderIdentifierType.enum.GRID"
+msgid "metadata/distribution_data_services/access_services.hint"
 msgstr ""
 
 msgid ""
-"metadata/fundingReferences/funderIdentifierType.enum.Crossref Funder ID"
+"metadata/distribution_data_services/access_services/endpoint_urls.label"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderIdentifierType.enum.ROR"
+msgid "metadata/distribution_data_services/access_services/endpoint_urls.help"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderIdentifierType.enum.Other"
+msgid "metadata/distribution_data_services/access_services/endpoint_urls.hint"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderName.label"
+msgid "metadata/distribution_data_services/access_services/iri.help"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderName.help"
+msgid "metadata/distribution_data_services/access_services/iri.label"
 msgstr ""
 
-msgid "metadata/fundingReferences/funderName.hint"
+msgid "metadata/distribution_data_services/access_services/iri.hint"
 msgstr ""
 
-msgid "metadata/geoLocations.label"
+msgid "metadata/distribution_data_services/access_services/labels.label"
 msgstr ""
 
-msgid "metadata/geoLocations.help"
+msgid "metadata/distribution_data_services/access_services/labels.help"
 msgstr ""
 
-msgid "metadata/geoLocations.hint"
+msgid "metadata/distribution_data_services/access_services/labels.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox.label"
+msgid "metadata/distribution_data_services/access_services/labels/lang.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox.help"
+msgid "metadata/distribution_data_services/access_services/labels/lang.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox.hint"
+msgid "metadata/distribution_data_services/access_services/labels/lang.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.label"
+msgid "metadata/distribution_data_services/access_services/labels/value.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.help"
+msgid "metadata/distribution_data_services/access_services/labels/value.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/eastBoundLongitude.hint"
+msgid "metadata/distribution_data_services/access_services/labels/value.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.label"
+msgid "metadata/distribution_data_services/descriptions.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.help"
+msgid "metadata/distribution_data_services/descriptions.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/northBoundLatitude.hint"
+msgid "metadata/distribution_data_services/descriptions.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.label"
+msgid "metadata/distribution_data_services/descriptions/lang.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.help"
+msgid "metadata/distribution_data_services/descriptions/lang.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/southBoundLatitude.hint"
+msgid "metadata/distribution_data_services/descriptions/lang.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.label"
+msgid "metadata/distribution_data_services/descriptions/value.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.help"
+msgid "metadata/distribution_data_services/descriptions/value.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationBox/westBoundLongitude.hint"
+msgid "metadata/distribution_data_services/descriptions/value.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPlace.label"
+msgid "metadata/distribution_data_services/documentations.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPlace.help"
+msgid "metadata/distribution_data_services/documentations.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPlace.hint"
+msgid "metadata/distribution_data_services/documentations.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint.label"
+msgid "metadata/distribution_data_services/documentations/iri.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint.help"
+msgid "metadata/distribution_data_services/documentations/iri.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint.hint"
+msgid "metadata/distribution_data_services/documentations/iri.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.label"
+msgid "metadata/distribution_data_services/documentations/labels.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.help"
+msgid "metadata/distribution_data_services/documentations/labels.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLatitude.hint"
+msgid "metadata/distribution_data_services/documentations/labels.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.label"
+msgid "metadata/distribution_data_services/documentations/labels/lang.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.help"
+msgid "metadata/distribution_data_services/documentations/labels/lang.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPoint/pointLongitude.hint"
+msgid "metadata/distribution_data_services/documentations/labels/lang.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons.help"
+msgid "metadata/distribution_data_services/documentations/labels/value.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons.label"
+msgid "metadata/distribution_data_services/documentations/labels/value.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons.hint"
+msgid "metadata/distribution_data_services/documentations/labels/value.hint"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.label"
+msgid "metadata/distribution_data_services/iri.help"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.help"
+msgid "metadata/distribution_data_services/iri.label"
 msgstr ""
 
-msgid "metadata/geoLocations/geoLocationPolygons/inPolygonPoint.hint"
+msgid "metadata/distribution_data_services/iri.hint"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications.label"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications.help"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications.hint"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/iri.help"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/iri.label"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/iri.hint"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/labels.label"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/labels.help"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/labels.hint"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/labels/lang.label"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/labels/lang.help"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/labels/lang.hint"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/labels/value.label"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/labels/value.help"
+msgstr ""
+
+msgid "metadata/distribution_data_services/specifications/labels/value.hint"
+msgstr ""
+
+msgid "metadata/distribution_data_services/title.label"
+msgstr ""
+
+msgid "metadata/distribution_data_services/title.help"
+msgstr ""
+
+msgid "metadata/distribution_data_services/title.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/access_urls.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/access_urls.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/access_urls.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/byte_size.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/byte_size.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/byte_size.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/checksum.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/checksum.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/checksum.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/conforms_to_schemas.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/conforms_to_schemas.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/conforms_to_schemas.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/conforms_to_schemas/iri.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/conforms_to_schemas/iri.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/conforms_to_schemas/iri.hint"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.label"
+"metadata/distribution_downloadable_files/conforms_to_schemas/labels.label"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.help"
+"metadata/distribution_downloadable_files/conforms_to_schemas/labels.help"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLatitude.hint"
+"metadata/distribution_downloadable_files/conforms_to_schemas/labels.hint"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.label"
+"metadata/distribution_downloadable_files/conforms_to_schemas/labels/lang.label"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.help"
+"metadata/distribution_downloadable_files/conforms_to_schemas/labels/lang.help"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/inPolygonPoint/pointLongitude.hint"
-msgstr ""
-
-msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.label"
-msgstr ""
-
-msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.help"
-msgstr ""
-
-msgid "metadata/geoLocations/geoLocationPolygons/polygonPoints.hint"
+"metadata/distribution_downloadable_files/conforms_to_schemas/labels/lang.hint"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.label"
+"metadata/distribution_downloadable_files/conforms_to_schemas/labels/value.label"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.help"
+"metadata/distribution_downloadable_files/conforms_to_schemas/labels/value.help"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLatitude.hint"
+"metadata/distribution_downloadable_files/conforms_to_schemas/labels/value.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/download_urls.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/download_urls.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/download_urls.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/iri.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/iri.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/iri.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/iri.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/iri.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/iri.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/labels.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/labels.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/labels.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/labels/lang.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/labels/lang.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/labels/lang.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/labels/value.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/labels/value.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/media_type/labels/value.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/title.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/title.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/title.hint"
+msgstr ""
+
+msgid "metadata/funding_references.label"
+msgstr ""
+
+msgid "metadata/funding_references.help"
+msgstr ""
+
+msgid "metadata/funding_references.hint"
+msgstr ""
+
+msgid "metadata/funding_references/award_title.label"
+msgstr ""
+
+msgid "metadata/funding_references/award_title.help"
+msgstr ""
+
+msgid "metadata/funding_references/award_title.hint"
+msgstr ""
+
+msgid "metadata/funding_references/funders.label"
+msgstr ""
+
+msgid "metadata/funding_references/funders.help"
+msgstr ""
+
+msgid "metadata/funding_references/funders.hint"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_scheme_uri.label"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_scheme_uri.help"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_scheme_uri.hint"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_type.label"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_type.help"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_type.hint"
+msgstr ""
+
+msgid "metadata/funding_references/funders/iri.help"
+msgstr ""
+
+msgid "metadata/funding_references/funders/iri.label"
+msgstr ""
+
+msgid "metadata/funding_references/funders/iri.hint"
+msgstr ""
+
+msgid "metadata/funding_references/funding_program.label"
+msgstr ""
+
+msgid "metadata/funding_references/funding_program.help"
+msgstr ""
+
+msgid "metadata/funding_references/funding_program.hint"
+msgstr ""
+
+msgid "metadata/funding_references/iri.help"
+msgstr ""
+
+msgid "metadata/funding_references/iri.label"
+msgstr ""
+
+msgid "metadata/funding_references/iri.hint"
+msgstr ""
+
+msgid "metadata/funding_references/local_identifier.label"
+msgstr ""
+
+msgid "metadata/funding_references/local_identifier.help"
+msgstr ""
+
+msgid "metadata/funding_references/local_identifier.hint"
+msgstr ""
+
+msgid "metadata/identifiers.label"
+msgstr ""
+
+msgid "metadata/identifiers.help"
+msgstr ""
+
+msgid "metadata/identifiers.hint"
+msgstr ""
+
+msgid "metadata/identifiers/identifier_scheme.label"
+msgstr ""
+
+msgid "metadata/identifiers/identifier_scheme.help"
+msgstr ""
+
+msgid "metadata/identifiers/identifier_scheme.hint"
+msgstr ""
+
+msgid "metadata/identifiers/iri.help"
+msgstr ""
+
+msgid "metadata/identifiers/iri.label"
+msgstr ""
+
+msgid "metadata/identifiers/iri.hint"
+msgstr ""
+
+msgid "metadata/identifiers/value.label"
+msgstr ""
+
+msgid "metadata/identifiers/value.help"
+msgstr ""
+
+msgid "metadata/identifiers/value.hint"
+msgstr ""
+
+msgid "metadata/iri.help"
+msgstr ""
+
+msgid "metadata/iri.label"
+msgstr ""
+
+msgid "metadata/iri.hint"
+msgstr ""
+
+msgid "metadata/is_described_by.label"
+msgstr ""
+
+msgid "metadata/is_described_by.help"
+msgstr ""
+
+msgid "metadata/is_described_by.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards.label"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards.help"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/iri.help"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/iri.label"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/iri.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/labels.label"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/labels.help"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/labels.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/labels/lang.label"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/labels/lang.help"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/labels/lang.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/labels/value.label"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/labels/value.help"
+msgstr ""
+
+msgid "metadata/is_described_by/conforms_to_standards/labels/value.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/date_created.label"
+msgstr ""
+
+msgid "metadata/is_described_by/date_created.help"
+msgstr ""
+
+msgid "metadata/is_described_by/date_created.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/dates_updated.label"
+msgstr ""
+
+msgid "metadata/is_described_by/dates_updated.help"
+msgstr ""
+
+msgid "metadata/is_described_by/dates_updated.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/iri.help"
+msgstr ""
+
+msgid "metadata/is_described_by/iri.label"
+msgstr ""
+
+msgid "metadata/is_described_by/iri.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/languages.label"
+msgstr ""
+
+msgid "metadata/is_described_by/languages.help"
+msgstr ""
+
+msgid "metadata/is_described_by/languages.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories.label"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories.help"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/iri.help"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/iri.label"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/iri.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/labels.label"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/labels.help"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/labels.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/labels/lang.label"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/labels/lang.help"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/labels/lang.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/labels/value.label"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/labels/value.help"
+msgstr ""
+
+msgid "metadata/is_described_by/original_repositories/labels/value.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations.label"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations.help"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/iri.help"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/iri.label"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/iri.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/organization.help"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/organization.label"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/organization.hint"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.label"
+"metadata/is_described_by/qualified_relations/organization/alternate_names.label"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.help"
+"metadata/is_described_by/qualified_relations/organization/alternate_names.help"
 msgstr ""
 
 msgid ""
-"metadata/geoLocations/geoLocationPolygons/polygonPoints/pointLongitude.hint"
-msgstr ""
-
-msgid "metadata/language.label"
-msgstr ""
-
-msgid "metadata/language.help"
-msgstr ""
-
-msgid "metadata/language.hint"
-msgstr ""
-
-msgid "metadata/publicationYear.label"
-msgstr ""
-
-msgid "metadata/publicationYear.help"
-msgstr ""
-
-msgid "metadata/publicationYear.hint"
-msgstr ""
-
-msgid "metadata/publisher.label"
-msgstr ""
-
-msgid "metadata/publisher.help"
-msgstr ""
-
-msgid "metadata/publisher.hint"
-msgstr ""
-
-msgid "metadata/publisher/lang.label"
-msgstr ""
-
-msgid "metadata/publisher/lang.help"
-msgstr ""
-
-msgid "metadata/publisher/lang.hint"
-msgstr ""
-
-msgid "metadata/publisher/name.label"
-msgstr ""
-
-msgid "metadata/publisher/name.help"
-msgstr ""
-
-msgid "metadata/publisher/name.hint"
-msgstr ""
-
-msgid "metadata/publisher/publisherIdentifier.label"
-msgstr ""
-
-msgid "metadata/publisher/publisherIdentifier.help"
-msgstr ""
-
-msgid "metadata/publisher/publisherIdentifier.hint"
-msgstr ""
-
-msgid "metadata/publisher/publisherIdentifierScheme.label"
-msgstr ""
-
-msgid "metadata/publisher/publisherIdentifierScheme.help"
-msgstr ""
-
-msgid "metadata/publisher/publisherIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/publisher/schemeURI.label"
-msgstr ""
-
-msgid "metadata/publisher/schemeURI.help"
-msgstr ""
-
-msgid "metadata/publisher/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers.label"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers.help"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers.hint"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifier.label"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifier.help"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifier.hint"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.label"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.help"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.hint"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.ARK"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.arXiv"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.bibcode"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.DOI"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.EAN13"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.EISSN"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.Handle"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.IGSN"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.ISBN"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.ISSN"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.ISTC"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.LISSN"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.LSID"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.PMID"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.PURL"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.UPC"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.URL"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.URN"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedIdentifierType.enum.w3id"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedMetadataScheme.label"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedMetadataScheme.help"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relatedMetadataScheme.hint"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.label"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.help"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.hint"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsCitedBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.Cites"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsCollectedBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.Collects"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsSupplementTo"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsSupplementedBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsContinuedBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.Continues"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsDescribedBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.Describes"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.HasMetadata"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsMetadataFor"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.HasVersion"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsVersionOf"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsNewVersionOf"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsPartOf"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsPreviousVersionOf"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsPublishedIn"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.HasPart"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsReferencedBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.References"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsDocumentedBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.Documents"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsCompiledBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.Compiles"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsVariantFormOf"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsOriginalFormOf"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsIdenticalTo"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsReviewedBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.Reviews"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsDerivedFrom"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsSourceOf"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsRequiredBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.Requires"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.IsObsoletedBy"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/relationType.enum.Obsoletes"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.label"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.help"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.hint"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Audiovisual"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Book"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.BookChapter"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Collection"
+"metadata/is_described_by/qualified_relations/organization/alternate_names.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedIdentifiers/resourceTypeGeneral.enum.ComputationalNotebook"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.ConferencePaper"
+"metadata/is_described_by/qualified_relations/organization/alternate_names/lang.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedIdentifiers/resourceTypeGeneral.enum.ConferenceProceeding"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.DataPaper"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Dataset"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Dissertation"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Event"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Image"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Instrument"
+"metadata/is_described_by/qualified_relations/organization/alternate_names/lang.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedIdentifiers/resourceTypeGeneral.enum.InteractiveResource"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Journal"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.JournalArticle"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Model"
+"metadata/is_described_by/qualified_relations/organization/alternate_names/lang.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedIdentifiers/resourceTypeGeneral.enum.OutputManagementPlan"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.PeerReview"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.PhysicalObject"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Preprint"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Report"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Service"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Software"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Sound"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Standard"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.StudyRegistration"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Text"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Workflow"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/resourceTypeGeneral.enum.Other"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/schemeType.label"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/schemeType.help"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/schemeType.hint"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/schemeURI.label"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/schemeURI.help"
-msgstr ""
-
-msgid "metadata/relatedIdentifiers/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/relatedItems.label"
-msgstr ""
-
-msgid "metadata/relatedItems.help"
-msgstr ""
-
-msgid "metadata/relatedItems.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/affiliation.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/affiliation.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/affiliation.hint"
+"metadata/is_described_by/qualified_relations/organization/alternate_names/value.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.label"
+"metadata/is_described_by/qualified_relations/organization/alternate_names/value.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.help"
+"metadata/is_described_by/qualified_relations/organization/alternate_names/value.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifier.hint"
+"metadata/is_described_by/qualified_relations/organization/contact_points.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.label"
+"metadata/is_described_by/qualified_relations/organization/contact_points.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.help"
+"metadata/is_described_by/qualified_relations/organization/contact_points.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/affiliation/affiliationIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/affiliation/name.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/affiliation/name.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/affiliation/name.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/affiliation/schemeURI.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/affiliation/schemeURI.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/affiliation/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.ContactPerson"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.DataCollector"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.DataCurator"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.DataManager"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.Distributor"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.Editor"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/contributorType.enum.HostingInstitution"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.Producer"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.ProjectLeader"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.ProjectManager"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.ProjectMember"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/contributorType.enum.RegistrationAgency"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/contributorType.enum.RegistrationAuthority"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.RelatedPerson"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.Researcher"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.ResearchGroup"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.RightsHolder"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.Sponsor"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.Supervisor"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/iri.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/contributorType.enum.WorkPackageLeader"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/contributorType.enum.Other"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/familyName.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/familyName.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/familyName.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/givenName.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/givenName.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/givenName.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/lang.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/lang.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/lang.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/name.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/name.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/name.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameIdentifiers.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameIdentifiers.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameIdentifiers.hint"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/iri.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameIdentifiers/nameIdentifier.hint"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/iri.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.label"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.help"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/contributors/nameIdentifiers/nameIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameIdentifiers/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameType.label"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameType.help"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameType.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameType.enum.Organizational"
-msgstr ""
-
-msgid "metadata/relatedItems/contributors/nameType.enum.Personal"
-msgstr ""
-
-msgid "metadata/relatedItems/creators.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation/affiliationIdentifier.hint"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.label"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels/lang.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.help"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels/lang.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/creators/affiliation/affiliationIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation/name.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation/name.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation/name.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation/schemeURI.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation/schemeURI.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/affiliation/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/familyName.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/familyName.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/familyName.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/givenName.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/givenName.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/givenName.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/lang.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/lang.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/lang.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/name.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/name.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/name.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameIdentifiers.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameIdentifiers.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameIdentifiers.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameIdentifiers/nameIdentifier.hint"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels/lang.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.label"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels/value.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.help"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels/value.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/creators/nameIdentifiers/nameIdentifierScheme.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameIdentifiers/schemeURI.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameType.label"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameType.help"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameType.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameType.enum.Organizational"
-msgstr ""
-
-msgid "metadata/relatedItems/creators/nameType.enum.Personal"
-msgstr ""
-
-msgid "metadata/relatedItems/edition.label"
-msgstr ""
-
-msgid "metadata/relatedItems/edition.help"
-msgstr ""
-
-msgid "metadata/relatedItems/edition.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/firstPage.label"
-msgstr ""
-
-msgid "metadata/relatedItems/firstPage.help"
-msgstr ""
-
-msgid "metadata/relatedItems/firstPage.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/issue.label"
-msgstr ""
-
-msgid "metadata/relatedItems/issue.help"
-msgstr ""
-
-msgid "metadata/relatedItems/issue.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/lastPage.label"
-msgstr ""
-
-msgid "metadata/relatedItems/lastPage.help"
-msgstr ""
-
-msgid "metadata/relatedItems/lastPage.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/number.label"
-msgstr ""
-
-msgid "metadata/relatedItems/number.help"
-msgstr ""
-
-msgid "metadata/relatedItems/number.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/numberType.label"
-msgstr ""
-
-msgid "metadata/relatedItems/numberType.help"
-msgstr ""
-
-msgid "metadata/relatedItems/numberType.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/numberType.enum.Article"
-msgstr ""
-
-msgid "metadata/relatedItems/numberType.enum.Chapter"
-msgstr ""
-
-msgid "metadata/relatedItems/numberType.enum.Report"
-msgstr ""
-
-msgid "metadata/relatedItems/numberType.enum.Other"
-msgstr ""
-
-msgid "metadata/relatedItems/publicationYear.label"
-msgstr ""
-
-msgid "metadata/relatedItems/publicationYear.help"
-msgstr ""
-
-msgid "metadata/relatedItems/publicationYear.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/publisher.label"
-msgstr ""
-
-msgid "metadata/relatedItems/publisher.help"
-msgstr ""
-
-msgid "metadata/relatedItems/publisher.hint"
-msgstr ""
-
-msgid "metadata/relatedItems/relatedItemIdentifier.label"
-msgstr ""
-
-msgid "metadata/relatedItems/relatedItemIdentifier.help"
-msgstr ""
-
-msgid "metadata/relatedItems/relatedItemIdentifier.hint"
+"metadata/is_described_by/qualified_relations/organization/contact_points/addresses/labels/value.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.label"
-msgstr ""
-
-msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.help"
-msgstr ""
-
-msgid "metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifier.hint"
+"metadata/is_described_by/qualified_relations/organization/contact_points/dataBoxes.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.label"
+"metadata/is_described_by/qualified_relations/organization/contact_points/dataBoxes.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.help"
+"metadata/is_described_by/qualified_relations/organization/contact_points/dataBoxes.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.hint"
+"metadata/is_described_by/qualified_relations/organization/contact_points/emails.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ARK"
+"metadata/is_described_by/qualified_relations/organization/contact_points/emails.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.arXiv"
+"metadata/is_described_by/qualified_relations/organization/contact_points/emails.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.bibcode"
+"metadata/is_described_by/qualified_relations/organization/contact_points/iri.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.DOI"
+"metadata/is_described_by/qualified_relations/organization/contact_points/iri.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.EAN13"
+"metadata/is_described_by/qualified_relations/organization/contact_points/iri.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.EISSN"
+"metadata/is_described_by/qualified_relations/organization/contact_points/phones.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.Handle"
+"metadata/is_described_by/qualified_relations/organization/contact_points/phones.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.IGSN"
+"metadata/is_described_by/qualified_relations/organization/contact_points/phones.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISBN"
+"metadata/is_described_by/qualified_relations/organization/external_identifiers.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISSN"
+"metadata/is_described_by/qualified_relations/organization/external_identifiers.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.ISTC"
+"metadata/is_described_by/qualified_relations/organization/external_identifiers.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/organization/iri.help"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/organization/iri.label"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/organization/iri.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/organization/name.label"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/organization/name.help"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/organization/name.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.LISSN"
+"metadata/is_described_by/qualified_relations/organization/name/lang.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.LSID"
+"metadata/is_described_by/qualified_relations/organization/name/lang.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.PMID"
+"metadata/is_described_by/qualified_relations/organization/name/lang.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.PURL"
+"metadata/is_described_by/qualified_relations/organization/name/value.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.UPC"
+"metadata/is_described_by/qualified_relations/organization/name/value.help"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.URL"
+"metadata/is_described_by/qualified_relations/organization/name/value.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/person.help"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/person.label"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/person.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/person/affiliations.label"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/person/affiliations.help"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/person/affiliations.hint"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.URN"
+"metadata/is_described_by/qualified_relations/person/affiliations/alternate_names.label"
 msgstr ""
 
 msgid ""
-"metadata/relatedItems/relatedItemIdentifier/relatedItemIdentifierType.enum.w3id"
+"metadata/is_described_by/qualified_relations/person/affiliations/alternate_names.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.label"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/alternate_names.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.help"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/alternate_names/lang.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.hint"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/alternate_names/lang.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Audiovisual"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/alternate_names/lang.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Book"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/alternate_names/value.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.BookChapter"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/alternate_names/value.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Collection"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/alternate_names/value.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.ComputationalNotebook"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.ConferencePaper"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.ConferenceProceeding"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.DataPaper"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Dataset"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Dissertation"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Event"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/iri.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Image"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/iri.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Instrument"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/iri.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.InteractiveResource"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Journal"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.JournalArticle"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Model"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.OutputManagementPlan"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.PeerReview"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.PhysicalObject"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels/value.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Preprint"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels/value.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Report"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels/value.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Service"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/dataBoxes.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Software"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/dataBoxes.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Sound"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/dataBoxes.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Standard"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/emails.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.StudyRegistration"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/emails.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Text"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/emails.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Workflow"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/iri.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedItemType.enum.Other"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/iri.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedMetadataScheme.label"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/iri.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedMetadataScheme.help"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/phones.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relatedMetadataScheme.hint"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/phones.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.label"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/contact_points/phones.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.help"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.hint"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsCitedBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.Cites"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/iri.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsCollectedBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/iri.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.Collects"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/iri.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsSupplementTo"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/name.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsSupplementedBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/name.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsContinuedBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/name.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.Continues"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/name/lang.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsDescribedBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/name/lang.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.Describes"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/name/lang.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.HasMetadata"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/name/value.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsMetadataFor"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/name/value.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.HasVersion"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/name/value.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsVersionOf"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsNewVersionOf"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsPartOf"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsPreviousVersionOf"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsPublishedIn"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.HasPart"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsReferencedBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/iri.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.References"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/iri.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsDocumentedBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/iri.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.Documents"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsCompiledBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.Compiles"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsVariantFormOf"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels/lang.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsOriginalFormOf"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels/lang.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsIdenticalTo"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels/lang.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsReviewedBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels/value.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.Reviews"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels/value.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsDerivedFrom"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels/value.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsSourceOf"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/dataBoxes.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsRequiredBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/dataBoxes.help"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.Requires"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/dataBoxes.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.IsObsoletedBy"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/emails.label"
 msgstr ""
 
-msgid "metadata/relatedItems/relationType.enum.Obsoletes"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/emails.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.label"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/emails.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.help"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/iri.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.hint"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/iri.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Audiovisual"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/iri.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Book"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/phones.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.BookChapter"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/phones.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Collection"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/contact_points/phones.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.ComputationalNotebook"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/external_identifiers.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.ConferencePaper"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/external_identifiers.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.ConferenceProceeding"
+msgid ""
+"metadata/is_described_by/qualified_relations/person/external_identifiers.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.DataPaper"
+msgid "metadata/is_described_by/qualified_relations/person/family_name.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Dataset"
+msgid "metadata/is_described_by/qualified_relations/person/family_name.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Dissertation"
+msgid "metadata/is_described_by/qualified_relations/person/family_name.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Event"
+msgid "metadata/is_described_by/qualified_relations/person/given_names.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Image"
+msgid "metadata/is_described_by/qualified_relations/person/given_names.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Instrument"
+msgid "metadata/is_described_by/qualified_relations/person/given_names.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.InteractiveResource"
+msgid "metadata/is_described_by/qualified_relations/person/iri.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Journal"
+msgid "metadata/is_described_by/qualified_relations/person/iri.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.JournalArticle"
+msgid "metadata/is_described_by/qualified_relations/person/iri.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Model"
+msgid "metadata/is_described_by/qualified_relations/role.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.OutputManagementPlan"
+msgid "metadata/is_described_by/qualified_relations/role.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.PeerReview"
+msgid "metadata/is_described_by/qualified_relations/role.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.PhysicalObject"
+msgid "metadata/is_described_by/qualified_relations/role/iri.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Preprint"
+msgid "metadata/is_described_by/qualified_relations/role/iri.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Report"
+msgid "metadata/is_described_by/qualified_relations/role/iri.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Service"
+msgid "metadata/is_described_by/qualified_relations/role/labels.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Software"
+msgid "metadata/is_described_by/qualified_relations/role/labels.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Sound"
+msgid "metadata/is_described_by/qualified_relations/role/labels.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Standard"
+msgid "metadata/is_described_by/qualified_relations/role/labels/lang.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.StudyRegistration"
+msgid "metadata/is_described_by/qualified_relations/role/labels/lang.help"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Text"
+msgid "metadata/is_described_by/qualified_relations/role/labels/lang.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Workflow"
+msgid "metadata/is_described_by/qualified_relations/role/labels/value.label"
 msgstr ""
 
-msgid "metadata/relatedItems/resourceTypeGeneral.enum.Other"
+msgid "metadata/is_described_by/qualified_relations/role/labels/value.help"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeType.label"
+msgid "metadata/is_described_by/qualified_relations/role/labels/value.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeType.help"
+msgid "metadata/locations.label"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeType.hint"
+msgid "metadata/locations.help"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeURI.label"
+msgid "metadata/locations.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeURI.help"
+msgid "metadata/locations/bbox.label"
 msgstr ""
 
-msgid "metadata/relatedItems/schemeURI.hint"
+msgid "metadata/locations/bbox.help"
 msgstr ""
 
-msgid "metadata/relatedItems/titles.label"
+msgid "metadata/locations/bbox.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/titles.help"
+msgid "metadata/locations/bbox/LowerCorners.help"
 msgstr ""
 
-msgid "metadata/relatedItems/titles.hint"
+msgid "metadata/locations/bbox/LowerCorners.label"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/lang.label"
+msgid "metadata/locations/bbox/LowerCorners.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/lang.help"
+msgid "metadata/locations/bbox/UpperCorners.help"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/lang.hint"
+msgid "metadata/locations/bbox/UpperCorners.label"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/title.label"
+msgid "metadata/locations/bbox/UpperCorners.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/title.help"
+msgid "metadata/locations/bbox/crs.help"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/title.hint"
+msgid "metadata/locations/bbox/crs.label"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/titleType.label"
+msgid "metadata/locations/bbox/crs.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/titleType.help"
+msgid "metadata/locations/bbox/dimensions.help"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/titleType.hint"
+msgid "metadata/locations/bbox/dimensions.label"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/titleType.enum.AlternativeTitle"
+msgid "metadata/locations/bbox/dimensions.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/titleType.enum.Subtitle"
+msgid "metadata/locations/dataset_relations.label"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/titleType.enum.TranslatedTitle"
+msgid "metadata/locations/dataset_relations.help"
 msgstr ""
 
-msgid "metadata/relatedItems/titles/titleType.enum.Other"
+msgid "metadata/locations/dataset_relations.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/volume.label"
+msgid "metadata/locations/geometry.label"
 msgstr ""
 
-msgid "metadata/relatedItems/volume.help"
+msgid "metadata/locations/geometry.help"
 msgstr ""
 
-msgid "metadata/relatedItems/volume.hint"
+msgid "metadata/locations/geometry.hint"
 msgstr ""
 
-msgid "metadata/resourceType.label"
+msgid "metadata/locations/geometry/iri.help"
 msgstr ""
 
-msgid "metadata/resourceType.help"
+msgid "metadata/locations/geometry/iri.label"
 msgstr ""
 
-msgid "metadata/resourceType.hint"
+msgid "metadata/locations/geometry/iri.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceType.label"
+msgid "metadata/locations/geometry/labels.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceType.help"
+msgid "metadata/locations/geometry/labels.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceType.hint"
+msgid "metadata/locations/geometry/labels.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.label"
+msgid "metadata/locations/geometry/labels/lang.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.help"
+msgid "metadata/locations/geometry/labels/lang.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.hint"
+msgid "metadata/locations/geometry/labels/lang.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Audiovisual"
+msgid "metadata/locations/geometry/labels/value.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Book"
+msgid "metadata/locations/geometry/labels/value.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.BookChapter"
+msgid "metadata/locations/geometry/labels/value.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Collection"
+msgid "metadata/locations/iri.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.ComputationalNotebook"
+msgid "metadata/locations/iri.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.ConferencePaper"
+msgid "metadata/locations/iri.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.ConferenceProceeding"
+msgid "metadata/locations/location_names.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.DataPaper"
+msgid "metadata/locations/location_names.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Dataset"
+msgid "metadata/locations/location_names.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Dissertation"
+msgid "metadata/locations/related_object_identifiers.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Event"
+msgid "metadata/locations/related_object_identifiers.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Image"
+msgid "metadata/locations/related_object_identifiers.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Instrument"
+msgid "metadata/locations/related_object_identifiers/identifier.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.InteractiveResource"
+msgid "metadata/locations/related_object_identifiers/identifier.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Journal"
+msgid "metadata/locations/related_object_identifiers/identifier.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.JournalArticle"
+msgid "metadata/locations/related_object_identifiers/iri.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Model"
+msgid "metadata/locations/related_object_identifiers/iri.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.OutputManagementPlan"
+msgid "metadata/locations/related_object_identifiers/iri.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.PeerReview"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.PhysicalObject"
+msgid "metadata/locations/related_object_identifiers/qualified_relations.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Preprint"
+msgid "metadata/locations/related_object_identifiers/qualified_relations.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Report"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/iri.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Service"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/iri.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Software"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/iri.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Sound"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Standard"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.StudyRegistration"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization.hint"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Text"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names.label"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Workflow"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names.help"
 msgstr ""
 
-msgid "metadata/resourceType/resourceTypeGeneral.enum.Other"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names.hint"
 msgstr ""
 
-msgid "metadata/rightsList.label"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names/lang.label"
 msgstr ""
 
-msgid "metadata/rightsList.help"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names/lang.help"
 msgstr ""
 
-msgid "metadata/rightsList.hint"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names/lang.hint"
 msgstr ""
 
-msgid "metadata/rightsList/lang.label"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names/value.label"
 msgstr ""
 
-msgid "metadata/rightsList/lang.help"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names/value.help"
 msgstr ""
 
-msgid "metadata/rightsList/lang.hint"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names/value.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rights.label"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points.label"
 msgstr ""
 
-msgid "metadata/rightsList/rights.help"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points.help"
 msgstr ""
 
-msgid "metadata/rightsList/rights.hint"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifier.label"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses.label"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifier.help"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses.help"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifier.hint"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifierScheme.label"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/iri.help"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifierScheme.help"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/iri.label"
 msgstr ""
 
-msgid "metadata/rightsList/rightsIdentifierScheme.hint"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/iri.hint"
 msgstr ""
 
-msgid "metadata/rightsList/rightsURI.label"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels.label"
 msgstr ""
 
-msgid "metadata/rightsList/rightsURI.help"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels.help"
 msgstr ""
 
-msgid "metadata/rightsList/rightsURI.hint"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels.hint"
 msgstr ""
 
-msgid "metadata/rightsList/schemeURI.label"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels/lang.label"
 msgstr ""
 
-msgid "metadata/rightsList/schemeURI.help"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels/lang.help"
 msgstr ""
 
-msgid "metadata/rightsList/schemeURI.hint"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels/lang.hint"
 msgstr ""
 
-msgid "metadata/schemaVersion.label"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels/value.label"
 msgstr ""
 
-msgid "metadata/schemaVersion.help"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels/value.help"
 msgstr ""
 
-msgid "metadata/schemaVersion.hint"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels/value.hint"
 msgstr ""
 
-msgid "metadata/sizes.label"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/dataBoxes.label"
 msgstr ""
 
-msgid "metadata/sizes.help"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/dataBoxes.help"
 msgstr ""
 
-msgid "metadata/sizes.hint"
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/emails.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/emails.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/emails.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/phones.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/phones.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/name.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/name.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/name.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/name/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/name/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/name/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/name/value.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/name/value.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/name/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names/value.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names/value.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/alternate_names/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/emails.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/emails.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/emails.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/phones.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/phones.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name/value.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name/value.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/emails.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/emails.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/emails.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/phones.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/phones.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/family_name.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/family_name.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/family_name.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/given_names.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/given_names.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/given_names.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/labels/value.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/time_references.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/time_references.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/time_references.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_information.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_information.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_information.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/time_references/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/iri.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/time_references/iri.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/title.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/title.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/title.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/type.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/type.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/type.hint"
+msgstr ""
+
+msgid "metadata/other_languages.label"
+msgstr ""
+
+msgid "metadata/other_languages.help"
+msgstr ""
+
+msgid "metadata/other_languages.hint"
+msgstr ""
+
+msgid "metadata/primary_language.label"
+msgstr ""
+
+msgid "metadata/primary_language.help"
+msgstr ""
+
+msgid "metadata/primary_language.hint"
+msgstr ""
+
+msgid "metadata/provenances.label"
+msgstr ""
+
+msgid "metadata/provenances.help"
+msgstr ""
+
+msgid "metadata/provenances.hint"
+msgstr ""
+
+msgid "metadata/provenances/iri.help"
+msgstr ""
+
+msgid "metadata/provenances/iri.label"
+msgstr ""
+
+msgid "metadata/provenances/iri.hint"
+msgstr ""
+
+msgid "metadata/provenances/labels.label"
+msgstr ""
+
+msgid "metadata/provenances/labels.help"
+msgstr ""
+
+msgid "metadata/provenances/labels.hint"
+msgstr ""
+
+msgid "metadata/provenances/labels/lang.label"
+msgstr ""
+
+msgid "metadata/provenances/labels/lang.help"
+msgstr ""
+
+msgid "metadata/provenances/labels/lang.hint"
+msgstr ""
+
+msgid "metadata/provenances/labels/value.label"
+msgstr ""
+
+msgid "metadata/provenances/labels/value.help"
+msgstr ""
+
+msgid "metadata/provenances/labels/value.hint"
+msgstr ""
+
+msgid "metadata/publication_year.label"
+msgstr ""
+
+msgid "metadata/publication_year.help"
+msgstr ""
+
+msgid "metadata/publication_year.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations.label"
+msgstr ""
+
+msgid "metadata/qualified_relations.help"
+msgstr ""
+
+msgid "metadata/qualified_relations.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/iri.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/iri.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/iri.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/alternate_names.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/alternate_names.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/alternate_names.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/alternate_names/lang.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/alternate_names/lang.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/alternate_names/lang.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/alternate_names/value.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/alternate_names/value.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/alternate_names/value.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points/emails.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points/emails.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points/emails.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points/iri.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points/iri.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points/iri.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points/phones.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points/phones.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/contact_points/phones.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/external_identifiers.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/external_identifiers.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/external_identifiers.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/iri.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/iri.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/iri.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/name.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/name.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/name.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/name/lang.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/name/lang.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/name/lang.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/name/value.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/name/value.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/organization/name/value.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/alternate_names.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/alternate_names.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/alternate_names.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/alternate_names/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/alternate_names/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/alternate_names/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/alternate_names/value.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/alternate_names/value.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/alternate_names/value.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/contact_points.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/contact_points.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/contact_points.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/emails.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/emails.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/emails.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/phones.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/phones.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/external_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/external_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/external_identifiers.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/iri.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/iri.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/iri.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/name.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/name.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/name.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/name/lang.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/name/lang.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/name/lang.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/name/value.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/name/value.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/affiliations/name/value.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/addresses.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/addresses.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/addresses.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/emails.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/emails.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/emails.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/iri.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/iri.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/iri.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/phones.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/phones.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/contact_points/phones.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/external_identifiers.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/external_identifiers.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/external_identifiers.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/family_name.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/family_name.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/family_name.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/given_names.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/given_names.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/given_names.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/iri.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/iri.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/iri.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/role.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/role.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/role.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/iri.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/iri.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/iri.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/labels.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/labels.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/labels.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/labels/lang.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/labels/lang.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/labels/lang.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/labels/value.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/labels/value.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/labels/value.hint"
+msgstr ""
+
+msgid "metadata/related_resources.label"
+msgstr ""
+
+msgid "metadata/related_resources.help"
+msgstr ""
+
+msgid "metadata/related_resources.hint"
+msgstr ""
+
+msgid "metadata/related_resources/identifier.label"
+msgstr ""
+
+msgid "metadata/related_resources/identifier.help"
+msgstr ""
+
+msgid "metadata/related_resources/identifier.hint"
+msgstr ""
+
+msgid "metadata/related_resources/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/iri.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/iri.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/organization.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/organization.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/organization.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/alternate_names.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/alternate_names.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/alternate_names.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/alternate_names/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/alternate_names/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/alternate_names/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/alternate_names/value.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/alternate_names/value.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/alternate_names/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/emails.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/emails.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/emails.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/phones.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/phones.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/external_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/external_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/external_identifiers.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/organization/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/organization/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/organization/iri.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/organization/name.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/organization/name.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/organization/name.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/name/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/name/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/name/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/name/value.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/name/value.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/name/value.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/alternate_names.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/alternate_names.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/alternate_names.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/alternate_names/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/alternate_names/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/alternate_names/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/alternate_names/value.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/alternate_names/value.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/alternate_names/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/emails.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/emails.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/emails.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/phones.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/phones.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/name.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/name.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/name.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/name/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/name/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/name/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/name/value.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/name/value.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/name/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/emails.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/emails.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/emails.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/phones.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/phones.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/external_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/external_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/external_identifiers.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/family_name.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person/family_name.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person/family_name.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/given_names.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person/given_names.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person/given_names.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/person/iri.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/iri.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/labels.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/labels.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/labels.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/labels/lang.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/labels/lang.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/labels/lang.hint"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/labels/value.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/labels/value.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/labels/value.hint"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type.label"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type.help"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type.hint"
+msgstr ""
+
+msgid "metadata/related_resources/time_references.label"
+msgstr ""
+
+msgid "metadata/related_resources/time_references.help"
+msgstr ""
+
+msgid "metadata/related_resources/time_references.hint"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date.label"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date.help"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date.hint"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_information.label"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_information.help"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_information.hint"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type.label"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type.help"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type.hint"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/iri.hint"
+msgstr ""
+
+msgid "metadata/related_resources/title.label"
+msgstr ""
+
+msgid "metadata/related_resources/title.help"
+msgstr ""
+
+msgid "metadata/related_resources/title.hint"
+msgstr ""
+
+msgid "metadata/related_resources/type.label"
+msgstr ""
+
+msgid "metadata/related_resources/type.help"
+msgstr ""
+
+msgid "metadata/related_resources/type.hint"
+msgstr ""
+
+msgid "metadata/resource_type.label"
+msgstr ""
+
+msgid "metadata/resource_type.help"
+msgstr ""
+
+msgid "metadata/resource_type.hint"
 msgstr ""
 
 msgid "metadata/subjects.label"
@@ -2429,115 +3955,824 @@ msgstr ""
 msgid "metadata/subjects.hint"
 msgstr ""
 
-msgid "metadata/subjects/classificationCode.label"
+msgid "metadata/subjects/classification_code.label"
 msgstr ""
 
-msgid "metadata/subjects/classificationCode.help"
+msgid "metadata/subjects/classification_code.help"
 msgstr ""
 
-msgid "metadata/subjects/classificationCode.hint"
+msgid "metadata/subjects/classification_code.hint"
 msgstr ""
 
-msgid "metadata/subjects/lang.label"
+msgid "metadata/subjects/definition.label"
 msgstr ""
 
-msgid "metadata/subjects/lang.help"
+msgid "metadata/subjects/definition.help"
 msgstr ""
 
-msgid "metadata/subjects/lang.hint"
+msgid "metadata/subjects/definition.hint"
 msgstr ""
 
-msgid "metadata/subjects/schemeURI.label"
+msgid "metadata/subjects/definition/lang.label"
 msgstr ""
 
-msgid "metadata/subjects/schemeURI.help"
+msgid "metadata/subjects/definition/lang.help"
 msgstr ""
 
-msgid "metadata/subjects/schemeURI.hint"
+msgid "metadata/subjects/definition/lang.hint"
 msgstr ""
 
-msgid "metadata/subjects/subject.label"
+msgid "metadata/subjects/definition/value.label"
 msgstr ""
 
-msgid "metadata/subjects/subject.help"
+msgid "metadata/subjects/definition/value.help"
 msgstr ""
 
-msgid "metadata/subjects/subject.hint"
+msgid "metadata/subjects/definition/value.hint"
 msgstr ""
 
-msgid "metadata/subjects/subjectScheme.label"
+msgid "metadata/subjects/in_subject_scheme.label"
 msgstr ""
 
-msgid "metadata/subjects/subjectScheme.help"
+msgid "metadata/subjects/in_subject_scheme.help"
 msgstr ""
 
-msgid "metadata/subjects/subjectScheme.hint"
+msgid "metadata/subjects/in_subject_scheme.hint"
 msgstr ""
 
-msgid "metadata/subjects/valueURI.label"
+msgid "metadata/subjects/in_subject_scheme/iri.help"
 msgstr ""
 
-msgid "metadata/subjects/valueURI.help"
+msgid "metadata/subjects/in_subject_scheme/iri.label"
 msgstr ""
 
-msgid "metadata/subjects/valueURI.hint"
+msgid "metadata/subjects/in_subject_scheme/iri.hint"
 msgstr ""
 
-msgid "metadata/titles.label"
+msgid "metadata/subjects/in_subject_scheme/labels.label"
 msgstr ""
 
-msgid "metadata/titles.help"
+msgid "metadata/subjects/in_subject_scheme/labels.help"
 msgstr ""
 
-msgid "metadata/titles.hint"
+msgid "metadata/subjects/in_subject_scheme/labels.hint"
 msgstr ""
 
-msgid "metadata/titles/lang.label"
+msgid "metadata/subjects/in_subject_scheme/labels/lang.label"
 msgstr ""
 
-msgid "metadata/titles/lang.help"
+msgid "metadata/subjects/in_subject_scheme/labels/lang.help"
 msgstr ""
 
-msgid "metadata/titles/lang.hint"
+msgid "metadata/subjects/in_subject_scheme/labels/lang.hint"
 msgstr ""
 
-msgid "metadata/titles/title.label"
+msgid "metadata/subjects/in_subject_scheme/labels/value.label"
 msgstr ""
 
-msgid "metadata/titles/title.help"
+msgid "metadata/subjects/in_subject_scheme/labels/value.help"
 msgstr ""
 
-msgid "metadata/titles/title.hint"
+msgid "metadata/subjects/in_subject_scheme/labels/value.hint"
 msgstr ""
 
-msgid "metadata/titles/titleType.label"
+msgid "metadata/subjects/iri.help"
 msgstr ""
 
-msgid "metadata/titles/titleType.help"
+msgid "metadata/subjects/iri.label"
 msgstr ""
 
-msgid "metadata/titles/titleType.hint"
+msgid "metadata/subjects/iri.hint"
 msgstr ""
 
-msgid "metadata/titles/titleType.enum.AlternativeTitle"
+msgid "metadata/subjects/title.label"
 msgstr ""
 
-msgid "metadata/titles/titleType.enum.Subtitle"
+msgid "metadata/subjects/title.help"
 msgstr ""
 
-msgid "metadata/titles/titleType.enum.TranslatedTitle"
+msgid "metadata/subjects/title.hint"
 msgstr ""
 
-msgid "metadata/titles/titleType.enum.Other"
+msgid "metadata/subjects/title/lang.label"
 msgstr ""
 
-msgid "metadata/url.label"
+msgid "metadata/subjects/title/lang.help"
 msgstr ""
 
-msgid "metadata/url.help"
+msgid "metadata/subjects/title/lang.hint"
 msgstr ""
 
-msgid "metadata/url.hint"
+msgid "metadata/subjects/title/value.label"
+msgstr ""
+
+msgid "metadata/subjects/title/value.help"
+msgstr ""
+
+msgid "metadata/subjects/title/value.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use.label"
+msgstr ""
+
+msgid "metadata/terms_of_use.help"
+msgstr ""
+
+msgid "metadata/terms_of_use.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/alternate_names.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/alternate_names.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/alternate_names.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/alternate_names/lang.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/alternate_names/lang.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/alternate_names/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/alternate_names/value.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/alternate_names/value.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/alternate_names/value.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/emails.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points/emails.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points/emails.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points/iri.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points/iri.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/contact_points/phones.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points/phones.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/contact_points/phones.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/external_identifiers.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/external_identifiers.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/external_identifiers.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/iri.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/iri.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/iri.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/name.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/name.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/name.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/name/lang.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/name/lang.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/name/lang.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/name/value.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/name/value.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/organization/name/value.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/alternate_names.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/alternate_names.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/alternate_names.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/alternate_names/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/alternate_names/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/alternate_names/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/alternate_names/value.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/alternate_names/value.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/alternate_names/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/contact_points.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/contact_points.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/emails.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/emails.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/emails.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/phones.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/phones.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/external_identifiers.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/external_identifiers.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/external_identifiers.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/iri.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/iri.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/iri.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/name.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/name.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/name.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/name/lang.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/name/lang.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/name/lang.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/name/value.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/name/value.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/affiliations/name/value.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/addresses.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/addresses.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/addresses.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/iri.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/labels.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/labels.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/labels.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/labels/lang.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/labels/lang.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/labels/lang.hint"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/labels/value.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/labels/value.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/contact_points/addresses/labels/value.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/dataBoxes.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/dataBoxes.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/dataBoxes.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/emails.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/emails.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/emails.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/iri.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/iri.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/iri.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/phones.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/phones.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/contact_points/phones.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/external_identifiers.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/external_identifiers.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/external_identifiers.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/family_name.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/family_name.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/family_name.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/given_names.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/given_names.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/given_names.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/iri.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/iri.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/iri.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/description.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/description.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/description.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/iri.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/iri.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/iri.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/license.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/license.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/license.hint"
+msgstr ""
+
+msgid "metadata/time_references.label"
+msgstr ""
+
+msgid "metadata/time_references.help"
+msgstr ""
+
+msgid "metadata/time_references.hint"
+msgstr ""
+
+msgid "metadata/time_references/date.label"
+msgstr ""
+
+msgid "metadata/time_references/date.help"
+msgstr ""
+
+msgid "metadata/time_references/date.hint"
+msgstr ""
+
+msgid "metadata/time_references/date_information.label"
+msgstr ""
+
+msgid "metadata/time_references/date_information.help"
+msgstr ""
+
+msgid "metadata/time_references/date_information.hint"
+msgstr ""
+
+msgid "metadata/time_references/date_type.label"
+msgstr ""
+
+msgid "metadata/time_references/date_type.help"
+msgstr ""
+
+msgid "metadata/time_references/date_type.hint"
+msgstr ""
+
+msgid "metadata/time_references/iri.help"
+msgstr ""
+
+msgid "metadata/time_references/iri.label"
+msgstr ""
+
+msgid "metadata/time_references/iri.hint"
+msgstr ""
+
+msgid "metadata/title.label"
+msgstr ""
+
+msgid "metadata/title.help"
+msgstr ""
+
+msgid "metadata/title.hint"
+msgstr ""
+
+msgid "metadata/validation_results.label"
+msgstr ""
+
+msgid "metadata/validation_results.help"
+msgstr ""
+
+msgid "metadata/validation_results.hint"
+msgstr ""
+
+msgid "metadata/validation_results/iri.help"
+msgstr ""
+
+msgid "metadata/validation_results/iri.label"
+msgstr ""
+
+msgid "metadata/validation_results/iri.hint"
+msgstr ""
+
+msgid "metadata/validation_results/labels.label"
+msgstr ""
+
+msgid "metadata/validation_results/labels.help"
+msgstr ""
+
+msgid "metadata/validation_results/labels.hint"
+msgstr ""
+
+msgid "metadata/validation_results/labels/lang.label"
+msgstr ""
+
+msgid "metadata/validation_results/labels/lang.help"
+msgstr ""
+
+msgid "metadata/validation_results/labels/lang.hint"
+msgstr ""
+
+msgid "metadata/validation_results/labels/value.label"
+msgstr ""
+
+msgid "metadata/validation_results/labels/value.help"
+msgstr ""
+
+msgid "metadata/validation_results/labels/value.hint"
 msgstr ""
 
 msgid "metadata/version.label"
@@ -2547,42 +4782,6 @@ msgid "metadata/version.help"
 msgstr ""
 
 msgid "metadata/version.hint"
-msgstr ""
-
-msgid "oai.help"
-msgstr ""
-
-msgid "oai.label"
-msgstr ""
-
-msgid "oai.hint"
-msgstr ""
-
-msgid "oai/harvest.help"
-msgstr ""
-
-msgid "oai/harvest.label"
-msgstr ""
-
-msgid "oai/harvest.hint"
-msgstr ""
-
-msgid "oai/harvest/datestamp.label"
-msgstr ""
-
-msgid "oai/harvest/datestamp.help"
-msgstr ""
-
-msgid "oai/harvest/datestamp.hint"
-msgstr ""
-
-msgid "oai/harvest/identifier.label"
-msgstr ""
-
-msgid "oai/harvest/identifier.help"
-msgstr ""
-
-msgid "oai/harvest/identifier.hint"
 msgstr ""
 
 msgid "pid.help"
@@ -2630,6 +4829,33 @@ msgstr ""
 msgid "pid/status.hint"
 msgstr ""
 
+msgid "pids.help"
+msgstr ""
+
+msgid "pids.label"
+msgstr ""
+
+msgid "pids.hint"
+msgstr ""
+
+msgid "state.help"
+msgstr ""
+
+msgid "state.label"
+msgstr ""
+
+msgid "state.hint"
+msgstr ""
+
+msgid "state_timestamp.help"
+msgstr ""
+
+msgid "state_timestamp.label"
+msgstr ""
+
+msgid "state_timestamp.hint"
+msgstr ""
+
 msgid "updated.help"
 msgstr ""
 
@@ -2637,4 +4863,76 @@ msgid "updated.label"
 msgstr ""
 
 msgid "updated.hint"
+msgstr ""
+
+msgid "version_id.help"
+msgstr ""
+
+msgid "version_id.label"
+msgstr ""
+
+msgid "version_id.hint"
+msgstr ""
+
+msgid "versions.help"
+msgstr ""
+
+msgid "versions.label"
+msgstr ""
+
+msgid "versions.hint"
+msgstr ""
+
+msgid "versions/index.help"
+msgstr ""
+
+msgid "versions/index.label"
+msgstr ""
+
+msgid "versions/index.hint"
+msgstr ""
+
+msgid "versions/is_latest.help"
+msgstr ""
+
+msgid "versions/is_latest.label"
+msgstr ""
+
+msgid "versions/is_latest.hint"
+msgstr ""
+
+msgid "versions/is_latest_draft.help"
+msgstr ""
+
+msgid "versions/is_latest_draft.label"
+msgstr ""
+
+msgid "versions/is_latest_draft.hint"
+msgstr ""
+
+msgid "versions/latest_id.help"
+msgstr ""
+
+msgid "versions/latest_id.label"
+msgstr ""
+
+msgid "versions/latest_id.hint"
+msgstr ""
+
+msgid "versions/latest_index.help"
+msgstr ""
+
+msgid "versions/latest_index.label"
+msgstr ""
+
+msgid "versions/latest_index.hint"
+msgstr ""
+
+msgid "versions/next_draft_id.help"
+msgstr ""
+
+msgid "versions/next_draft_id.label"
+msgstr ""
+
+msgid "versions/next_draft_id.hint"
 msgstr ""

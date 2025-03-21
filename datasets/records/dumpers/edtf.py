@@ -5,3 +5,9 @@ class DatasetsEDTFIntervalDumperExt(EDTFIntervalDumperExt):
     """edtf interval dumper."""
 
     paths = []
+
+
+class DatasetsDraftEDTFIntervalDumperExt(EDTFIntervalDumperExt):
+    """edtf interval dumper."""
+
+    paths = []

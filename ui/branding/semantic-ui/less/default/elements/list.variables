@@ -1,2 +1,0 @@
-@dividedBorderWidth: 1.5px;
-@dividedBorder: @dividedBorderWidth solid @teal;

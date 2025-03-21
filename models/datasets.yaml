@@ -3,55 +3,64 @@ plugins:
     disable:
       - script_sample_data
       - invenio_record_metadata_alembic_setup_cfg
+
   packages:
-    - oarepo-model-builder-cf
-    - oarepo-model-builder-multilingual
-    - oarepo-model-builder-files
-    - oarepo-model-builder-ui
+    - oarepo-model-builder-requests
+    - oarepo-model-builder-drafts
     - oarepo-model-builder-relations
-    - oarepo-model-builder-nr
+    - oarepo-model-builder-vocabularies
+    - oarepo-model-builder-drafts-files
+    - oarepo-model-builder-ui
+    - oarepo-model-builder-files
+    - oarepo-model-builder-cf
+    - oarepo-model-builder-polymorphic
+    - oarepo-model-builder-communities>=5.0.0
+    - oarepo-model-builder-rdm
+    - oarepo-model-builder-multilingual
+
 profiles:
   - record
+  - draft
   - files
+  - draft_files
+
 record:
-  extend: datacite#DataCiteModel
-  files:
-    properties:
-      use:
-        - ./datasets-files.yaml
-    use:
-      - invenio_files
-  module:
-    qualified: datasets
-  permissions:
-    presets:
-      - read_only
-  pid:
-    type: dtsts
-  search-options:
-    base-classes:
-      - oarepo_runtime.services.search.I18nSearchOptions
-  properties: {}
-  #   metadata:
-  #     properties:
-  #       publisher:
-  #         name:
-  #           label.en: Publisher
-  resource-config:
-    base-html-url: /datasets/
   use:
     - invenio
-    - ./datasets-custom_fields.yaml
-    - ./datasets-harvest.yaml
-    - ./datasets-facets.yaml
+    - rdm
+  properties:
+    metadata:
+      use:
+        - "./ccmm.yaml#/$defs/dataset"
+        - "./datasets-metadata.yaml"
 
-runtime-dependencies: {}
+  draft: {}
+  draft-files: {}
+
+  permissions:
+    presets:
+      - community-workflow
+
+  files:
+    resource-config:
+      base-html-url: /datasets/
+    properties:
+      caption:
+        type: keyword
+    use:
+      - invenio_files
+
+  module:
+    qualified: datasets
+
+  resource-config:
+    base-html-url: /datasets/
+    base-url: /datasets/
+
 settings:
   i18n-languages:
     - en
     - cs
   supported-langs:
-    en:
-      text: {}
-    cs:
-      text: {}
+    cs: {}
+    en: {}

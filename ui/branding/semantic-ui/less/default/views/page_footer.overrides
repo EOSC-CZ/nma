@@ -1,16 +1,14 @@
 .ui.page-footer {
-  #nr-footer-container {
-    border-top: 1px solid @lightGrey;
-  }
+  margin-top: 5rem;
 
   a {
-    color: black;
+    color: white;
     text-decoration: underline;
   }
   .footer-top {
-    color: black;
+    color: white;
   }
   .footer-bottom {
-    color: black;
+    color: white;
   }
 }

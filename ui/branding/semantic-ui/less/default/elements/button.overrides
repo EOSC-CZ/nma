@@ -1,5 +1,0 @@
-.ui.button {
-  &.transparent {
-    background-color: transparent;
-  }
-}

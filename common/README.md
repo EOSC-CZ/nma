@@ -1,10 +1,10 @@
-# `shared` folder
+# `common` folder
 
 This folder contains your shared packages - packages that
 are used by multiple models/uis in the monorepo.
 
-Feel free to add dependencies to `project.toml` and 
-any modules to the `common` folder.
+Feel free to add any python/resources here. If you need to
+reference external packages, add them to `project.toml`.
 
 ## Usage
 

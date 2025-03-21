@@ -1,5 +1,0 @@
-@languageVerticalPadding: 3px;
-@languageHorizontalPadding: 3px;
-@languageFontWeight: lighter;
-@languageMarginRight: 1px;
-@languageLift: 1em;
