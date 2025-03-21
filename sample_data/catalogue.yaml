@@ -1,0 +1,4 @@
+datasets:
+  - writer: service
+    service: datasets
+  - source: datasets.json

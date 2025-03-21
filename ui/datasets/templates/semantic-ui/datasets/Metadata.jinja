@@ -1,0 +1,75 @@
+{# def d, level=0 #}
+<ITable>
+  <ITableField d={d.descriptions} level={level}>
+    <ITableArrayValue value={d.descriptions} />
+  </ITableField>
+  <ITableField d={d.iri} level={level}/>
+  <ITableField d={d.other_languages} level={level}>
+    <ITableArrayValue value={d.other_languages} />
+  </ITableField>
+  <ITableField d={d.primary_language} level={level}/>
+  <ITableField d={d.publication_year} level={level}/>
+  <ITableField d={d.resource_type} level={level}/>
+  <ITableField d={d.title} level={level}/>
+  <ITableField d={d.version} level={level}/>
+</ITable>
+{% for item in array(d.alternate_titles) %}
+  <ITableSection d={item} level={level} >
+    <AlternateTitle d={item} level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.distribution_data_services) %}
+  <ITableSection d={item} level={level} >
+    <DistributionDataService d={item}  level={level} />
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.distribution_downloadable_files) %}
+  <ITableSection d={item} level={level} >
+    <DistributionDownloadableFile d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.funding_references) %}
+  <ITableSection d={item} level={level} >
+    <FundingReference d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.identifiers) %}
+  <ITableSection d={item} level={level} >
+    <Identifier d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.locations) %}
+  <ITableSection d={item} level={level} >
+    <Location d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.provenances) %}
+  <ITableSection d={item} level={level} >
+    <Documentation d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.qualified_relations) %}
+  <ITableSection d={item} level={level} >
+    <QualifiedRelation d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.related_resources) %}
+  <ITableSection d={item} level={level} >
+    <RelatedObjectIdentifier d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.subjects) %}
+  <ITableSection d={item} level={level} >
+    <Subject d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.time_references) %}
+  <ITableSection d={item} level={level} >
+    <TimeReference d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
+{% for item in array(d.validation_results) %}
+  <ITableSection d={item} level={level} >
+    <Documentation d={item}  level={level}/>
+  </ITableSection>
+{% endfor %}
