@@ -40,6 +40,28 @@
                             "role": {
                                 "iri": "http://example.org/roles/creator"
                             },
+                            "person": {
+                                "iri": "http://example.org/person/researcher",
+                                "family_name": "Smith",
+                                "given_names": [
+                                    "Jane"
+                                ],
+                                "affiliations": [
+                                    {
+                                        "iri": "http://example.org/organization/biology-lab",
+                                        "name": {
+                                            "lang": "en",
+                                            "value": "Biology Research Lab"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "iri": "http://example.org/metadata-to-agent/1",
+                            "role": {
+                                "iri": "http://example.org/roles/creator"
+                            },
                             "organization": {
                                 "iri": "http://example.org/organization/biology-lab",
                                 "name": {
@@ -58,22 +80,6 @@
                                         "phones": [
                                             "+1234567890"
                                         ]
-                                    }
-                                ]
-                            },
-                            "person": {
-                                "iri": "http://example.org/person/researcher",
-                                "family_name": "Smith",
-                                "given_names": [
-                                    "Jane"
-                                ],
-                                "affiliations": [
-                                    {
-                                        "iri": "http://example.org/organization/biology-lab",
-                                        "name": {
-                                            "lang": "en",
-                                            "value": "Biology Research Lab"
-                                        }
                                     }
                                 ]
                             }
@@ -122,19 +128,25 @@
                     "role": {
                         "iri": "http://example.org/roles/contributor"
                     },
-                    "organization": {
-                        "iri": "http://example.org/organization/imaging-center",
-                        "name": {
-                            "lang": "en",
-                            "value": "Imaging Research Center"
-                        }
-                    },
                     "person": {
                         "iri": "http://example.org/person/imaging-specialist",
                         "family_name": "Doe",
                         "given_names": [
                             "John"
                         ]
+                    }
+                },
+                {
+                    "iri": "http://example.org/resource-to-agent/1",
+                    "role": {
+                        "iri": "http://example.org/roles/contributor"
+                    },
+                    "organization": {
+                        "iri": "http://example.org/organization/imaging-center",
+                        "name": {
+                            "lang": "en",
+                            "value": "Imaging Research Center"
+                        }
                     }
                 }
             ],
