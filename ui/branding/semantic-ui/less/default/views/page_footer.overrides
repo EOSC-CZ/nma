@@ -1,6 +1,4 @@
 .ui.page-footer {
-  margin-top: 5rem;
-
   a {
     color: white;
     text-decoration: underline;

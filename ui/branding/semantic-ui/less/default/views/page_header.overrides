@@ -1,33 +1,38 @@
 .ui.page-header {
-  margin-bottom: 4rem;
   // background-image: url("~@less/images/background.png");
-
+  .logo-link {
+    img {
+      max-height: 5rem;
+    }
+  }
+  background-color: #ffffffaa;
   .outer-navbar {
     background-color: @navbar_background_color;
     background-image: @navbar_background_image;
     border: 0;
 
     #invenio-nav {
-        background: transparent;
-      }
+      background: transparent;
+      max-height: 5rem;
+    }
 
-      a {
-        color: @white;
-      }
+    a {
+      color: @white;
+    }
 
-      .flashed a {
-        color: inherit; /* Reset the color to inherit from parent */
-      }
+    .flashed a {
+      color: inherit; /* Reset the color to inherit from parent */
+    }
   }
 
   #invenio-menu {
     .item.main-nav-links a {
-        display: block;
-        padding: 1rem 2rem;
+      display: block;
+      padding: 1rem 2rem;
     }
 
     .item.main-nav-links a:hover {
-        background-color: @pageHeaderMainNavLinkBgHover;
+      background-color: @pageHeaderMainNavLinkBgHover;
       @media all and (min-width: @largestTabletScreen) {
         background-color: @pageHeaderMainNavLinkLargeScreen !important;
       }
