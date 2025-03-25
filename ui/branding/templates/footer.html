@@ -1,9 +1,20 @@
-{% extends "oarepo_ui/footer.html" %}
+{% set svg_files = [
+    "EU+MŠMT Barevné.svg",
+    "logo-ntk_1_100_cmyk.svg",
+    "EOSC_CzechRepublic_Pos_svg.svg",
+    "e-INFRA_logo_RGB_lilek.svg",
+] %}
 
-{%- block footer_top_left %}
-<p class="margin-small">
-  <span class="ui small inverted header">{{_("Contact")}}:&nbsp;</span>
-  <i class="envelope icon"></i>
-  <a href="mailto:support@repo.com">support@repo.com</a>
-</p>
-{%- endblock footer_top_left -%}
+<footer class="ui page-footer">
+  <div id="nr-footer-container">
+    {% for svg_file in svg_files %}
+      <div class="svg-container">
+        <img src="{{ url_for('static', filename='images/' + svg_file) }}" alt="{{ svg_file }}" class="ui image">
+      </div>
+    {% endfor %}
+     <div id="footer-links">
+      <a href="mailto:support@repo.cz">Contact</a>
+      <a href="https://nrp-cz.github.io/docs" target="_blank">Documentation</a>
+    </div>
+  </div>
+</footer>

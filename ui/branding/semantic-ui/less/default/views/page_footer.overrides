@@ -1,12 +1,28 @@
 .ui.page-footer {
+  background-color: @pageFooterBackgroundColor;
   a {
-    color: white;
-    text-decoration: underline;
+    color: black;
   }
-  .footer-top {
-    color: white;
+
+  #nr-footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
-  .footer-bottom {
-    color: white;
+
+  .svg-container {
+    width: 25%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .svg-container .ui.image {
+    max-width: 90%;
+    max-height: 90%;
+    width: 100%; /* Force the image to fill the container */
+    height: 100%; /* Force the image to fill the container */
+    object-fit: contain; /* Maintain aspect ratio and fit inside */
   }
 }

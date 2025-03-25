@@ -5,7 +5,7 @@
 /*-------------------
     Brand Colors
 --------------------*/
-
+@backgroundColor: #f9f9f9;
 @livelyGreen: #008691;
 @pink: #ff5b7f;
 
@@ -103,9 +103,8 @@
 /*-------------------
       Fonts
 --------------------*/
-
 @importGoogleFonts: false;
-@fontSizeBase: 14px;
+@fontSizeBase: 16px;
 @font-size-small: 0.9rem;
 @font-size-tiny: 0.8rem;
 @font-size-massive: 2.5rem;

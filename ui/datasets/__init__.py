@@ -16,6 +16,7 @@ from oarepo_ui.ui.components import UIComponent
 from flask_menu import current_menu
 from oarepo_runtime.i18n import lazy_gettext as _
 
+
 class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
     url_prefix = "/datasets"
@@ -24,9 +25,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     api_service = "datasets"
 
     search_component = UIComponent(
-        "DatasetsResultsListItem",
-        "@js/datasets/search/ResultsListItem",
-        "default"
+        "DatasetsResultsListItem", "@js/datasets/search/ResultsListItem", "default"
     )
 
     components = [
@@ -40,11 +39,12 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         EmptyRecordAccessComponent,
         FilesLockedComponent,
     ]
-    
+
     try:
         from oarepo_vocabularies.ui.resources.components import (
             DepositVocabularyOptionsComponent,
         )
+
         components.append(DepositVocabularyOptionsComponent)
     except ImportError:
         pass
@@ -62,18 +62,8 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
 class DatasetsUIResource(RecordsUIResource):
     pass
 
-def init_menu():
-    """Initialize menu before first request."""
-    current_menu.submenu("plus.create_datasets").register(
-        "datasets.create",
-        _("New Datasets"),
-        order=1,
-        visible_when=can_view_deposit_page,
-    )
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
     blueprint = DatasetsUIResource(DatasetsUIResourceConfig()).as_blueprint()
-    blueprint.before_app_first_request(init_menu)
     return blueprint
-

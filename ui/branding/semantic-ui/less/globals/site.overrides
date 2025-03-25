@@ -26,26 +26,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  font-size: @fontSize;
-}
-
-main {
-  flex-grow: 1;
-  position: relative;
-  padding: 4rem 0;
-  background-color: #f9f9f9aa;
-}
-main::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: url("../../../static/images/background.png") no-repeat;
-  transform: rotate(
-    180deg
-  ); /* css rotate background image, css background rotate */
-  top: 0;
+  font-size: @fontSizeBase;
 }
 
 /* 5. Improve media defaults */
@@ -95,22 +76,25 @@ h6 {
 }
 
 body {
-  background-image: url("../../../static/images/background.png");
+  background-color: @backgroundColor;
+
+  background-image: url("../../../static/images/backgroundtop.svg");
   background-repeat: no-repeat;
-  background-color: #f9f9f9aa;
+  background-size: contain;
+}
+
+main {
+  flex-grow: 1;
+  position: relative;
+  padding: 4rem 0;
+  background-color: @backgroundColor;
+  background: url("../../../static/images/backgroundbottom.svg") no-repeat
+    bottom right;
+  background-size: contain;
 }
 /* Override defaults from invenio-theme that cannot be overriden other way */
 html.cover-page {
   background-color: @coverPageBackgroundColor !important;
-}
-.ui.page-header {
-  #invenio-burger-menu-icon {
-    .navicon,
-    .navicon::before,
-    .navicon::after {
-      background: @white !important;
-    }
-  }
 }
 
 :not(.ui.grid).only {
@@ -419,4 +403,8 @@ dl.details-list {
       transform: translateX(-75%) scale(1) !important;
     }
   }
+}
+
+.facets-container {
+  background-color: @backgroundColor;
 }
