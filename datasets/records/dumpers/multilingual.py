@@ -59,6 +59,7 @@ class MultilingualSearchDumperExt(MultilingualDumper):
         "/metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels",
         "/metadata/terms_of_use/contacts/person/affiliations/name",
         "/metadata/terms_of_use/contacts/person/contact_points/addresses/labels",
+        "/metadata/terms_of_use/description",
         "/metadata/validation_results/labels",
     ]
     SUPPORTED_LANGS = ["cs", "en"]
