@@ -40,7 +40,7 @@
               action="{{ url_for('invenio_i18n.set_lang')}}"
               method="POST">
             <div>
-              <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector">
+              <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector borderless">
                 {% for l in current_i18n.get_locales() %}
                   <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name() }}</option>
                 {% endfor %}

@@ -1,0 +1,68 @@
+.ui.dropdown {
+  &.selection {
+    min-width: 8rem;
+    border-radius: 6px;
+  }
+  &.selection.results-per-page-dropdown {
+    min-width: 0;
+  }
+  &.language-selector {
+    background-color: @backgroundColor;
+  }
+}
+
+// unreasonable min width of 14em for the drop down,
+// breaks the layout on small screens and protrudes outside of the container
+@media all and (max-width: @tabletBreakpoint) {
+  .ui.dropdown {
+    min-width: 0 !important;
+  }
+}
+
+.ui.selection.dropdown {
+  &.compact {
+    padding-right: 3em;
+  }
+
+  .dropdown.icon {
+    font-size: 15px;
+    font-weight: 900;
+    color: #9a9a9a;
+    padding-top: @selectionIconPadding - 0.3em;
+  }
+
+  &.language-selector {
+    .text {
+      text-transform: capitalize;
+    }
+
+    .menu > .item {
+      text-transform: capitalize !important;
+    }
+  }
+
+  &.language-selector,
+  &.sort-by-selector,
+  &.export-selector,
+  &.results-per-page-selector,
+  &.citation-dropdown {
+    border-radius: 6px;
+  }
+
+  &.sort-by-selector,
+  &.results-per-page-selector,
+  &.export-selector,
+  &.citation-dropdown {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    min-height: 0;
+
+    .dropdown.icon {
+      font-size: 15px;
+      padding: 0.5em;
+      padding-top: 0.45em;
+      padding-right: @selectionHorizontalPadding;
+      font-weight: 900;
+    }
+  }
+}

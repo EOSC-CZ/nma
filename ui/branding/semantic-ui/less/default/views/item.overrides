@@ -1,0 +1,18 @@
+.ui.relaxed.divided.items > .item.results-list-item-main {
+  .header {
+    a {
+      color: @black;
+      font-weight: 400;
+    }
+  }
+  background-color: @white;
+  padding: 0;
+  .content {
+    padding: 1.5rem;
+  }
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+.ui.divided.items > .item:first-child {
+  border-top: @dividedBorder;
+}

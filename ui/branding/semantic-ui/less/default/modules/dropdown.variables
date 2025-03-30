@@ -1,1 +1,3 @@
 @selectionIconPadding: 10px;
+@selectionVisibleBorderColor: @primaryColor;
+@selectionActiveHoverBorderColor: @primaryColor;

@@ -86,7 +86,7 @@ body {
 main {
   flex-grow: 1;
   position: relative;
-  padding: 4rem 0;
+  padding: 3rem 0;
   background-color: @backgroundColor;
   background: url("../../../static/images/backgroundbottom.svg") no-repeat
     bottom right;
@@ -407,4 +407,29 @@ dl.details-list {
 
 .facets-container {
   background-color: @backgroundColor;
+}
+
+#scroll-to-top-button {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 148px;
+  right: 44px;
+  z-index: 1000;
+  gap: 2px;
+  border: none;
+  box-shadow: none !important;
+
+  .scroll-to-top-text {
+    font-size: 0.7rem;
+  }
+
+  @media screen and (max-width: 1679px) {
+    bottom: 90px;
+  }
+
+  @media screen and (max-width: 768px) {
+    right: 25px;
+    bottom: 148px;
+  }
 }
