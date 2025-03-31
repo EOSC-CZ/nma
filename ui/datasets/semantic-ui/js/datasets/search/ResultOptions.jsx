@@ -1,44 +1,31 @@
-import Overridable from "react-overridable";
 import React, { useContext } from "react";
-import {
-  Count,
-  LayoutSwitcher,
-  ResultsMultiLayout,
-  Sort,
-  ResultsList,
-  ResultsGrid,
-  ResultsPerPage,
-} from "react-searchkit";
+import { Sort, ResultsPerPage } from "react-searchkit";
 import { Grid } from "semantic-ui-react";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import { i18next } from "@translations/i18next";
-import { AppMedia } from "@js/invenio_theme/Media";
+import PropTypes from "prop-types";
 
-export const ResultsPerPageLabel = (cmp) => (
+const ResultsPerPageLabel = (cmp) => (
   <>
     <span className="rel-mr-1">{i18next.t("Results per page:")}</span> {cmp}
   </>
 );
 
-export const SortLabel = (cmp) => (
+const SortLabel = (cmp) => (
   <>
     <span className="rel-mr-1">{i18next.t("Sort:")}</span> {cmp}
   </>
 );
 
+const ResultsPerPageLabelMobile = (cmp) => cmp;
+
+const SortLabelMobile = (cmp) => cmp;
+
 export const ResultOptions = ({ currentResultsState = {} }) => {
-  const { MediaContextProvider, Media } = AppMedia;
   const { total } = currentResultsState.data;
-  const {
-    sortOptions,
-    paginationOptions,
-    sortOrderDisabled,
-    layoutOptions,
-    buildUID,
-    resultsPerPage,
-  } = useContext(SearchConfigurationContext);
-  console.log(useContext(SearchConfigurationContext));
-  const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
+  const { sortOptions, paginationOptions, sortOrderDisabled } = useContext(
+    SearchConfigurationContext
+  );
   return (
     <React.Fragment>
       {(total || null) && (
@@ -46,25 +33,52 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
           <Grid.Column textAlign="left" width={3}>
             <p>{i18next.t("Results: {{count}}", { count: total })}</p>
           </Grid.Column>
-          <Grid.Column textAlign="right" width={13} floated="right">
-            <div className="flex justify-end align-items-center">
-              {sortOptions && (
-                <Sort
-                  sortOrderDisabled={sortOrderDisabled || false}
-                  values={sortOptions}
-                  ariaLabel={i18next.t("Sort")}
-                  label={SortLabel}
-                />
-              )}
-              <span className="rel-mr-1" />
-              <ResultsPerPage
-                values={paginationOptions.resultsPerPage}
-                label={ResultsPerPageLabel}
+          <Grid.Column
+            textAlign="right"
+            width={13}
+            floated="right"
+            className="computer tablet only"
+          >
+            {sortOptions && (
+              <Sort
+                sortOrderDisabled={sortOrderDisabled || false}
+                values={sortOptions}
+                ariaLabel={i18next.t("Sort")}
+                label={SortLabel}
               />
-            </div>
+            )}
+            <span className="rel-mr-1" />
+            <ResultsPerPage
+              values={paginationOptions.resultsPerPage}
+              label={ResultsPerPageLabel}
+            />
+          </Grid.Column>
+          <Grid.Column
+            textAlign="right"
+            width={13}
+            floated="right"
+            className="mobile only"
+          >
+            {sortOptions && (
+              <Sort
+                sortOrderDisabled={sortOrderDisabled || false}
+                values={sortOptions}
+                ariaLabel={i18next.t("Sort")}
+                label={SortLabelMobile}
+              />
+            )}
+            <span className="rel-mr-1" />
+            <ResultsPerPage
+              values={paginationOptions.resultsPerPage}
+              label={ResultsPerPageLabelMobile}
+            />
           </Grid.Column>
         </>
       )}
     </React.Fragment>
   );
+};
+
+PropTypes.ResultOptions = {
+  currentResultsState: PropTypes.object,
 };

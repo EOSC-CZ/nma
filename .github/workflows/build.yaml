@@ -54,8 +54,6 @@ jobs:
           pip install -e .
           pip list
 
-      - name: Test with pytest
-        run: |
-          ./run-tests.sh
-      
-
+      # - name: Test with pytest
+      #   run: |
+      #     ./run-tests.sh

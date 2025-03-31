@@ -1,7 +1,4 @@
 .ui.button {
-  &.search {
-    background-color: @primaryColor;
-  }
   &.clear-filters-button {
     border-radius: 8px;
     border: 1px solid #7db8f5;

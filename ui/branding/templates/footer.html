@@ -1,19 +1,32 @@
-{% set svg_files = [
+{% set svg_files_cs = [
     "EU+MŠMT Barevné.svg",
-    "logo-ntk_1_100_cmyk.svg",
-    "EOSC_CzechRepublic_Pos_svg.svg",
-    "e-INFRA_logo_RGB_lilek.svg",
+    "2024_NCIP_loga.jpg",
+    "eosc_cz_pos_up.svg",
+] %}
+
+{% set svg_files_en = [
+    "eu_msmt_eng.png",
+    "2024_NCIP_loga.jpg",
+    "eosc_cz_pos_up.svg",
 ] %}
 
 <footer class="ui page-footer">
   <div id="nr-footer-container">
-    {% for svg_file in svg_files %}
+    {% if current_i18n.language == 'cs' %}
+    {% for svg_file in svg_files_cs %}
       <div class="svg-container">
         <img src="{{ url_for('static', filename='images/' + svg_file) }}" alt="{{ svg_file }}" class="ui image">
       </div>
     {% endfor %}
+    {% else %}
+    {% for svg_file in svg_files_en %}
+      <div class="svg-container">
+        <img src="{{ url_for('static', filename='images/' + svg_file) }}" alt="{{ svg_file }}" class="ui image">
+      </div>
+      {%endfor%}
+    {% endif %}
      <div id="footer-links">
-      <a href="mailto:support@repo.cz">Contact</a>
+      <a class="block"  href="mailto:support@repo.cz">Contact</a>
       <a href="https://nrp-cz.github.io/docs" target="_blank">Documentation</a>
     </div>
   </div>

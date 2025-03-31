@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import _groupBy from "lodash/groupBy";
 import _map from "lodash/map";
-import { Label, Icon, Grid } from "semantic-ui-react";
+import { Label, Icon } from "semantic-ui-react";
 import { withState } from "react-searchkit";
 import { ClearFiltersButton } from "@js/oarepo_ui";
 import { useActiveSearchFilters } from "@js/oarepo_ui/search/hooks";

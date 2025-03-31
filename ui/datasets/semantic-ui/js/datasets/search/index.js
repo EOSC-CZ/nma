@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   parseSearchAppConfigs,
   createSearchAppsInit,
@@ -52,6 +53,15 @@ const Pagination = ({
   );
 };
 
+Pagination.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  totalResults: PropTypes.number.isRequired,
+  options: PropTypes.array.isRequired,
+  currentSize: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+  maxTotalResults: PropTypes.number,
+};
+
 const ResultsPerPage = ({
   currentSize,
   options,
@@ -74,6 +84,14 @@ const ResultsPerPage = ({
       selectOnNavigation={selectOnNavigation}
     />
   );
+};
+
+ResultsPerPage.propTypes = {
+  currentSize: PropTypes.number.isRequired,
+  options: PropTypes.array.isRequired,
+  onValueChange: PropTypes.func.isRequired,
+  ariaLabel: PropTypes.string,
+  selectOnNavigation: PropTypes.bool,
 };
 
 const Sort = ({
@@ -108,13 +126,23 @@ const Sort = ({
     />
   );
 };
+
+Sort.propTypes = {
+  options: PropTypes.array.isRequired,
+  currentSortBy: PropTypes.string,
+  currentSortOrder: PropTypes.string,
+  onValueChange: PropTypes.func.isRequired,
+  ariaLabel: PropTypes.string,
+  selectOnNavigation: PropTypes.bool,
+};
 /** NOTE: This reads configs for any search app present on a page
  *   In HTML/Jinja, a single search app instance is typically represented
-@@ -14,13 +15,13 @@ import {
+ */
+const [{ overridableIdPrefix }] = parseSearchAppConfigs();
+
 /** NOTE: To customize components in a specific search app instance,
  *   you need to obtain its `overridableIdPrefix` from the corresponding config first
  */
-const [{ overridableIdPrefix }] = parseSearchAppConfigs();
 
 export const componentOverrides = {
   /** NOTE: Then you can then replace any existing search ui

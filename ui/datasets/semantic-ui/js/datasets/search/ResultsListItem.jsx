@@ -4,8 +4,6 @@ import { Item, Label, List, Grid } from "semantic-ui-react";
 import { Image } from "react-invenio-forms";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import sanitizeHtml from "sanitize-html";
-import { i18next } from "@translations/i18next";
-import _truncate from "lodash/truncate";
 
 const formatName = (person) => {
   const lastName = person.family_name || "";
@@ -131,25 +129,20 @@ const ResultsListItemComponent = ({ result }) => {
               </Item.Header>
               <Item.Meta className="rel-mt-1">
                 <Creatibutors creatibutors={creatibutors} />
+                <Label.Group className="rel-mt-1">
+                  {subjects.map((subject, index) => (
+                    <Label key={index}>{subject.title.value}</Label>
+                  ))}
+                </Label.Group>
               </Item.Meta>
-              <Label.Group className="rel-mt-1">
-                {subjects.map((subject, index) => (
-                  <Label key={index}>{subject.title.value}</Label>
-                ))}
-              </Label.Group>
               {abstract && (
                 <Item.Description
                   className="rel-mt-1"
                   dangerouslySetInnerHTML={{
-                    __html: _truncate(
-                      sanitizeHtml(abstract, {
-                        allowedTags: allowedHtmlTags,
-                        allowedAttributes: {},
-                      }),
-                      {
-                        length: 350,
-                      }
-                    ),
+                    __html: sanitizeHtml(abstract, {
+                      allowedTags: allowedHtmlTags,
+                      allowedAttributes: {},
+                    }),
                   }}
                 />
               )}

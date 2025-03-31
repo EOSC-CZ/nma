@@ -5,10 +5,13 @@
       font-weight: 400;
     }
   }
+  .result-list-item-subgroup {
+    margin-top: 1.5rem;
+  }
   background-color: @white;
   padding: 0;
   .content {
-    padding: 1.5rem;
+    padding: 0 1.5rem;
   }
   margin-bottom: 1rem;
   border-radius: 5px;

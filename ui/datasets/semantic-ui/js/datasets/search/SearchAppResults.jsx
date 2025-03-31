@@ -12,13 +12,7 @@ export const SearchAppResults = () => {
       </Grid.Row>
       <Grid.Row verticalAlign="middle" className="pt-0">
         <Grid.Column width={16} textAlign="right" floated="right">
-          <Pagination
-            options={{
-              size: "mini",
-              showFirst: false,
-              showLast: false,
-            }}
-          />
+          <Pagination />
         </Grid.Column>
       </Grid.Row>
     </Grid>

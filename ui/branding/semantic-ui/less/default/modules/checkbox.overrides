@@ -1,0 +1,8 @@
+.ui.toggle.checkbox {
+  label::before {
+    background-color: @darkGrey;
+  }
+}
+.ui.toggle.checkbox input:focus ~ label:before {
+  background-color: @darkGrey;
+}

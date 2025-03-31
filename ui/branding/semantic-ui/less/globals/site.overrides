@@ -407,6 +407,16 @@ dl.details-list {
 
 .facets-container {
   background-color: @backgroundColor;
+  @media all and (min-width: @largestTabletScreen) {
+    border-top: 1px solid @borderColor;
+  }
+  .facet-list {
+    .ui.card:first-child {
+      .content:first-child {
+        display: none;
+      }
+    }
+  }
 }
 
 #scroll-to-top-button {

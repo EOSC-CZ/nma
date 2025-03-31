@@ -88,8 +88,17 @@ export const SearchAppResultsGrid = ({
           <ShouldActiveFiltersRender>
             <ClearFiltersButton
               className={"clear-filters-button mobile tablet only"}
+              icon={null} 
+              labelPosition={null}
+              content={i18next.t("Clear all")}
+            />
+          </ShouldActiveFiltersRender>
+          <ShouldActiveFiltersRender>
+            <ClearFiltersButton
+              className={"clear-filters-button computer only borderless"}
               icon={null}
               labelPosition={null}
+              content={i18next.t("Clear all")}
             />
           </ShouldActiveFiltersRender>
           <SearchAppFacets
@@ -204,7 +213,6 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
       window.scrollY > 300
         ? setScrollToTopVisible(true)
         : setScrollToTopVisible(false);
-      window.scroll;
     };
 
     window.addEventListener("scroll", handleScrollButtonVisibility);
