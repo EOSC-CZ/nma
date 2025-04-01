@@ -161,9 +161,10 @@ const ResultsListItemComponent = ({ result }) => {
                 </p>
               </Item.Extra>
             </Grid.Column>
-            {/* this whole section needs discussion */}
+
             <Grid.Column width={3}>
               <List>
+                <List.Item>This section is unclear</List.Item>
                 <List.Item>
                   <Label>License</Label>
                 </List.Item>
