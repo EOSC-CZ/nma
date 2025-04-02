@@ -10,7 +10,7 @@ import { SearchAppFacets } from "@js/oarepo_ui/search/SearchAppFacets";
 import { parametrize } from "react-overridable";
 import { SearchAppLayout } from "./SearchAppLayout";
 import { ActiveFiltersElement } from "./ActiveFilters";
-import { Dropdown, Pagination as Paginator } from "semantic-ui-react";
+import { Dropdown } from "semantic-ui-react";
 import { SearchAppResults } from "./SearchAppResults";
 import { i18next } from "@translations/i18next";
 
@@ -25,42 +25,6 @@ const SearchappSearchbarElementWithProps = parametrize(
     placeholder: i18next.t("Search datasets.."),
   }
 );
-
-const Pagination = ({
-  currentPage,
-  totalResults,
-  options,
-  currentSize,
-  onPageChange,
-  maxTotalResults = 10000,
-  ...props
-}) => {
-  const maxTotalPages = Math.floor(maxTotalResults / currentSize);
-  const pages = Math.ceil(totalResults / currentSize);
-  const totalDisplayedPages = Math.min(pages, maxTotalPages);
-  return (
-    <Paginator
-      className="main-search-pagination"
-      activePage={currentPage}
-      totalPages={totalDisplayedPages}
-      size="tiny"
-      firstItem={null}
-      lastItem={null}
-      boundaryRange={0}
-      siblingRange={3}
-      onPageChange={(_, { activePage }) => onPageChange(activePage)}
-    />
-  );
-};
-
-Pagination.propTypes = {
-  currentPage: PropTypes.number.isRequired,
-  totalResults: PropTypes.number.isRequired,
-  options: PropTypes.array.isRequired,
-  currentSize: PropTypes.number.isRequired,
-  onPageChange: PropTypes.func.isRequired,
-  maxTotalResults: PropTypes.number,
-};
 
 const ResultsPerPage = ({
   currentSize,
@@ -157,7 +121,6 @@ export const componentOverrides = {
   [`${overridableIdPrefix}.ResultsPerPage.element`]: ResultsPerPage,
   [`${overridableIdPrefix}.Sort.element`]: Sort,
   [`${overridableIdPrefix}.SearchApp.results`]: SearchAppResults,
-  [`${overridableIdPrefix}.Pagination.element`]: Pagination,
 };
 
 createSearchAppsInit({ componentOverrides });

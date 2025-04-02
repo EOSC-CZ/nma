@@ -5,7 +5,7 @@
       max-height: 5rem;
     }
   }
-  background-color: #ffffff00;
+  background-color: transparent;
   .outer-navbar {
     background-color: @navbar_background_color;
     background-image: @navbar_background_image;

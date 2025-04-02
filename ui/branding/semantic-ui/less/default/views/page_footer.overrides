@@ -3,24 +3,30 @@
   a {
     color: black;
   }
-
+  height: 7rem;
   #nr-footer-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    .ui.container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0;
+    }
   }
 
   .svg-container {
-    width: 25%;
-    height: 100px;
+    flex: 1;
+    // width: 25%;
+    // height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .svg-container .ui.image {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 100%;
+    max-height: 100%;
     width: 100%; /* Force the image to fill the container */
     height: 100%; /* Force the image to fill the container */
     object-fit: contain; /* Maintain aspect ratio and fit inside */

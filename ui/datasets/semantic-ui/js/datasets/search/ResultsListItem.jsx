@@ -4,6 +4,8 @@ import { Item, Label, List, Grid } from "semantic-ui-react";
 import { Image } from "react-invenio-forms";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import sanitizeHtml from "sanitize-html";
+import { i18next } from "@translations/i18next";
+import { getValueFromMultilingualArray } from "@js/oarepo_ui/util";
 
 const formatName = (person) => {
   const lastName = person.family_name || "";
@@ -102,21 +104,21 @@ const ResultsListItemComponent = ({ result }) => {
   const searchAppConfig = useContext(SearchConfigurationContext);
 
   const { allowedHtmlTags } = searchAppConfig;
-  const title = result.metadata?.title || "No title";
+
+  const title = result.metadata?.title || i18next.t("Missing title");
+
   const abstract =
     result.metadata?.descriptions?.find((desc) => desc.lang === "en")?.value ||
-    result.metadata?.descriptions?.[0]?.value;
+    getValueFromMultilingualArray(result.metadata?.descriptions || []);
   const subjects = result.metadata?.subjects || [];
   const creatibutors = result.metadata?.qualified_relations;
-  const publicationDate = result.metadata?.publication_year || "N/A";
+  const publicationDate = result.metadata?.publication_year;
   const language = result.metadata?.primary_language;
   const originalRepositories =
     result?.metadata?.is_described_by?.original_repositories?.map(
       (originalRepository) =>
-        (
-          originalRepository.labels.find((label) => label.lang === "en") ||
-          originalRepository.labels[0]
-        ).value
+        originalRepository.labels.find((label) => label.lang === "en")?.value ||
+        getValueFromMultilingualArray(originalRepository.labels || [])
     ) || [];
   return (
     <Item className="results-list-item-main">
@@ -131,7 +133,9 @@ const ResultsListItemComponent = ({ result }) => {
                 <Creatibutors creatibutors={creatibutors} />
                 <Label.Group className="rel-mt-1">
                   {subjects.map((subject, index) => (
-                    <Label key={index}>{subject.title.value}</Label>
+                    <Label key={`${index}.${subject.title.value}`}>
+                      {subject.title.value}
+                    </Label>
                   ))}
                 </Label.Group>
               </Item.Meta>

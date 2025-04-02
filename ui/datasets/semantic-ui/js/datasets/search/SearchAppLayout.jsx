@@ -8,7 +8,6 @@ import {
   Container,
   Grid,
   Button,
-  Label,
   Icon,
   TransitionablePortal,
 } from "semantic-ui-react";
@@ -23,38 +22,10 @@ import { ResultOptions } from "./ResultOptions";
 import {
   ShouldActiveFiltersRender,
   ClearFiltersButton,
+  ActiveFiltersCountFloatingLabel,
 } from "@js/oarepo_ui/search";
-import { useActiveSearchFilters } from "@js/oarepo_ui/search/hooks";
 
 const ResultOptionsWithState = withState(ResultOptions);
-
-export const ActiveFiltersCountFloatingLabelComponent = ({
-  currentQueryState: { filters },
-  className,
-}) => {
-  const activeFiltersNumber = useActiveSearchFilters(filters)?.length;
-
-  return (
-    activeFiltersNumber > 0 && (
-      <Label floating circular size="mini" className={className}>
-        {activeFiltersNumber}
-      </Label>
-    )
-  );
-};
-
-ActiveFiltersCountFloatingLabelComponent.propTypes = {
-  className: PropTypes.string,
-  currentQueryState: PropTypes.object.isRequired,
-};
-
-ActiveFiltersCountFloatingLabelComponent.defaultProps = {
-  className: "active-filters-count-label",
-};
-
-export const ActiveFiltersCountFloatingLabel = withState(
-  ActiveFiltersCountFloatingLabelComponent
-);
 
 export const SearchAppResultsGrid = ({
   columnsAmount,
@@ -88,7 +59,7 @@ export const SearchAppResultsGrid = ({
           <ShouldActiveFiltersRender>
             <ClearFiltersButton
               className={"clear-filters-button mobile tablet only"}
-              icon={null} 
+              icon={null}
               labelPosition={null}
               content={i18next.t("Clear all")}
             />
@@ -250,6 +221,7 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
     }
   } else {
     if (hasButtonSidebar) {
+      // Wrapped the if-statement inside braces
       columnsAmount = 2;
       resultsPaneLayoutFacets = {
         mobile: 16,

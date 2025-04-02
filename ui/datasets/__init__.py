@@ -28,6 +28,13 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         "DatasetsResultsListItem", "@js/datasets/search/ResultsListItem", "default"
     )
 
+    routes = {
+        "search": "",
+        "detail": "/<pid_value>",
+        "export": "/<pid_value>/export/<export_format>",
+        "published_file_preview": "/<pid_value>/files/<path:filepath>/preview",
+    }
+
     components = [
         AllowedHtmlTagsComponent,
         BabelComponent,
@@ -54,8 +61,6 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     templates = {
         "detail": "datasets.Detail",
         "search": "datasets.Search",
-        "edit": "datasets.Deposit",
-        "create": "datasets.Deposit",
     }
 
 

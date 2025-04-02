@@ -79,6 +79,6 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
   );
 };
 
-PropTypes.ResultOptions = {
+ResultOptions.propTypes = {
   currentResultsState: PropTypes.object,
 };
