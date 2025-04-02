@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Item, Label, List, Grid } from "semantic-ui-react";
-import { Image } from "react-invenio-forms";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import sanitizeHtml from "sanitize-html";
 import { i18next } from "@translations/i18next";
 import { getValueFromMultilingualArray } from "@js/oarepo_ui/util";
+import { IdentifierBadge } from "@js/oarepo_ui/components/IdentifierBadge";
 
 const formatName = (person) => {
   const lastName = person.family_name || "";
@@ -24,9 +24,8 @@ const Creatibutor = ({ creatibutor }) => {
   const isPerson = !!creatibutor.person;
   const role = creatibutor?.role?.labels?.[0]?.value;
   const identifiers = isPerson
-    ? creatibutor.person.identifiers
-    : creatibutor.organization.identifiers;
-
+    ? creatibutor.person.external_identifiers
+    : creatibutor.organization.external_identifiers;
   const selectedIdentifier =
     Array.isArray(identifiers) && identifiers.length > 0
       ? identifiers.find(
@@ -35,7 +34,6 @@ const Creatibutor = ({ creatibutor }) => {
             identifier?.scheme?.toLowerCase() === "ror"
         ) || identifiers[0]
       : null;
-
   const name = isPerson
     ? formatName({
         given_names: creatibutor.person.given_names,
@@ -57,7 +55,7 @@ Creatibutor.propTypes = {
     person: PropTypes.shape({
       given_names: PropTypes.arrayOf(PropTypes.string),
       family_name: PropTypes.string,
-      identifiers: PropTypes.arrayOf(
+      external_identifiers: PropTypes.arrayOf(
         PropTypes.shape({
           scheme: PropTypes.string,
           value: PropTypes.string,
@@ -68,7 +66,7 @@ Creatibutor.propTypes = {
       name: PropTypes.shape({
         value: PropTypes.string,
       }),
-      identifiers: PropTypes.arrayOf(
+      external_identifiers: PropTypes.arrayOf(
         PropTypes.shape({
           scheme: PropTypes.string,
           value: PropTypes.string,
@@ -198,72 +196,3 @@ ResultsListItemComponent.propTypes = {
 };
 
 export default ResultsListItemComponent;
-
-export const IconIdentifier = ({ link, badgeTitle, icon, alt, className }) => {
-  return link ? (
-    <span className={`creatibutor-identifier ${className}`}>
-      <a
-        className="no-text-decoration mr-0"
-        href={link}
-        aria-label={badgeTitle}
-        title={badgeTitle}
-        key={link}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Image
-          className="inline-id-icon identifier-badge inline"
-          src={icon}
-          alt={alt}
-        />
-      </a>
-    </span>
-  ) : (
-    <span className={`creatibutor-identifier ${className}`}>
-      <Image
-        title={badgeTitle}
-        className="inline-id-icon identifier-badge inline"
-        src={icon}
-        alt={alt}
-      />
-    </span>
-  );
-};
-
-IconIdentifier.propTypes = {
-  link: PropTypes.string,
-  badgeTitle: PropTypes.string,
-  icon: PropTypes.string,
-  alt: PropTypes.string,
-  className: PropTypes.string,
-};
-
-export const IdentifierBadge = ({ identifier, creatibutorName, className }) => {
-  if (!identifier) return null;
-
-  const { scheme, identifier: identifierValue, url } = identifier;
-
-  const badgeTitle = `${creatibutorName} ${scheme}: ${identifierValue}`;
-
-  const lowerCaseScheme = scheme?.toLowerCase();
-
-  return (
-    <IconIdentifier
-      link={url}
-      badgeTitle={badgeTitle}
-      icon={`/static/images/identifiers/${lowerCaseScheme}.svg`}
-      alt={`${scheme.toUpperCase()} logo`}
-      className={className}
-    />
-  );
-};
-
-IdentifierBadge.propTypes = {
-  identifier: PropTypes.shape({
-    scheme: PropTypes.string,
-    identifier: PropTypes.string,
-    url: PropTypes.string,
-  }),
-  className: PropTypes.string,
-  creatibutorName: PropTypes.string,
-};
