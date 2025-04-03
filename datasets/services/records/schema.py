@@ -15,10 +15,10 @@ from oarepo_runtime.services.schema.marshmallow import (
     RDMBaseRecordSchema,
 )
 from oarepo_runtime.services.schema.validation import validate_date, validate_datetime
-from oarepo_workflows.services.records.schema import WorkflowParentSchema
+from oarepo_workflows.services.records.schema import RDMWorkflowParentSchema
 
 
-class GeneratedParentSchema(WorkflowParentSchema):
+class GeneratedParentSchema(RDMWorkflowParentSchema):
     """"""
 
     owners = ma.fields.List(ma.fields.Dict(), load_only=True)
@@ -71,7 +71,7 @@ class DatasetsMetadataSchema(Schema):
         ma_fields.Nested(lambda: AlternateTitlesItemSchema())
     )
 
-    descriptions = ma_fields.List(I18nStrField(), required=True)
+    descriptions = ma_fields.List(I18nStrField())
 
     distribution_data_services = ma_fields.List(
         ma_fields.Nested(lambda: DistributionDataServicesItemSchema())
@@ -85,14 +85,12 @@ class DatasetsMetadataSchema(Schema):
         ma_fields.Nested(lambda: FundingReferencesItemSchema())
     )
 
-    identifiers = ma_fields.List(
-        ma_fields.Nested(lambda: IdentifiersItemSchema()), required=True
-    )
+    identifiers = ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemSchema()))
 
     iri = ma_fields.String()
 
     is_described_by = ma_fields.List(
-        ma_fields.Nested(lambda: IsDescribedByItemSchema()), required=True
+        ma_fields.Nested(lambda: IsDescribedByItemSchema())
     )
 
     locations = ma_fields.List(ma_fields.Nested(lambda: LocationsItemSchema()))
@@ -117,13 +115,13 @@ class DatasetsMetadataSchema(Schema):
 
     subjects = ma_fields.List(ma_fields.Nested(lambda: SubjectsItemSchema()))
 
-    terms_of_use = ma_fields.List(ma_fields.Nested(lambda: TermsOfUseItemSchema()))
+    terms_of_use = ma_fields.Nested(lambda: TermsOfUseSchema())
 
     time_references = ma_fields.List(
         ma_fields.Nested(lambda: TimeReferencesItemSchema())
     )
 
-    title = ma_fields.String(required=True)
+    title = ma_fields.String()
 
     validation_results = ma_fields.List(
         ma_fields.Nested(lambda: DocumentationsItemSchema())
@@ -138,7 +136,7 @@ class LocationsItemSchema(DictOnlySchema):
 
     bbox = ma_fields.Nested(lambda: BboxSchema())
 
-    dataset_relations = ma_fields.List(ma_fields.String())
+    dataset_relations = ma_fields.String()
 
     geometry = ma_fields.Nested(lambda: DocumentationsItemSchema())
 
@@ -192,6 +190,8 @@ class RelatedObjectIdentifiersItemSchema(DictOnlySchema):
 
     relation_type = ma_fields.String()
 
+    resource_URLs = ma_fields.List(ma_fields.String())
+
     time_references = ma_fields.List(
         ma_fields.Nested(lambda: TimeReferencesItemSchema())
     )
@@ -201,28 +201,28 @@ class RelatedObjectIdentifiersItemSchema(DictOnlySchema):
     type = ma_fields.String()
 
 
-class TermsOfUseItemSchema(DictOnlySchema):
+class TermsOfUseSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    access_rights = ma_fields.List(ma_fields.String())
+    access_rights = ma_fields.String()
 
     contacts = ma_fields.List(ma_fields.Nested(lambda: ContactsItemSchema()))
 
-    description = I18nStrField()
+    descriptions = ma_fields.List(I18nStrField())
 
     iri = ma_fields.String()
 
-    license = ma_fields.String()
+    licenses = ma_fields.List(ma_fields.String())
 
 
 class ContactsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    organization = ma_fields.Nested(lambda: OrganizationSchema(), required=True)
+    organization = ma_fields.Nested(lambda: OrganizationSchema())
 
-    person = ma_fields.Nested(lambda: PersonSchema(), required=True)
+    person = ma_fields.Nested(lambda: PersonSchema())
 
 
 class QualifiedRelationsItemSchema(DictOnlySchema):
@@ -231,11 +231,11 @@ class QualifiedRelationsItemSchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    organization = ma_fields.Nested(lambda: OrganizationSchema(), required=True)
+    organization = ma_fields.Nested(lambda: OrganizationSchema())
 
-    person = ma_fields.Nested(lambda: PersonSchema(), required=True)
+    person = ma_fields.Nested(lambda: PersonSchema())
 
-    role = ma_fields.Nested(lambda: DocumentationsItemSchema(), required=True)
+    role = ma_fields.Nested(lambda: DocumentationsItemSchema())
 
 
 class PersonSchema(DictOnlySchema):
@@ -246,13 +246,13 @@ class PersonSchema(DictOnlySchema):
 
     contact_points = ma_fields.List(ma_fields.Nested(lambda: ContactPointsItemSchema()))
 
-    external_identifier_type = ma_fields.String()
+    family_names = ma_fields.List(ma_fields.String())
 
-    external_identifiers = ma_fields.List(ma_fields.String())
+    full_name = ma_fields.String()
 
-    family_name = ma_fields.String(required=True)
+    given_names = ma_fields.List(ma_fields.String())
 
-    given_names = ma_fields.List(ma_fields.String(), required=True)
+    identifiers = ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemSchema()))
 
     iri = ma_fields.String()
 
@@ -265,13 +265,11 @@ class OrganizationSchema(DictOnlySchema):
 
     contact_points = ma_fields.List(ma_fields.Nested(lambda: ContactPointsItemSchema()))
 
-    external_identifier_type = ma_fields.String()
-
-    external_identifiers = ma_fields.List(ma_fields.String())
+    identifiers = ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemSchema()))
 
     iri = ma_fields.String()
 
-    name = I18nStrField(required=True)
+    name = I18nStrField()
 
 
 class ContactPointsItemSchema(DictOnlySchema):
@@ -316,11 +314,11 @@ class DistributionDownloadableFilesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    access_urls = ma_fields.List(ma_fields.String(), required=True)
+    access_urls = ma_fields.List(ma_fields.String())
 
     byte_size = ma_fields.Integer()
 
-    checksum = ma_fields.String(required=True)
+    checksum = ma_fields.String()
 
     conforms_to_schemas = ma_fields.List(
         ma_fields.Nested(lambda: DocumentationsItemSchema())
@@ -360,18 +358,18 @@ class SubjectsItemSchema(DictOnlySchema):
 
     definition = I18nStrField()
 
-    in_subject_scheme = ma_fields.Nested(lambda: DocumentationsItemSchema())
-
     iri = ma_fields.String()
 
-    title = I18nStrField(required=True)
+    scheme = ma_fields.Nested(lambda: DocumentationsItemSchema())
+
+    title = I18nStrField()
 
 
 class AccessServicesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    endpoint_urls = ma_fields.List(ma_fields.String(), required=True)
+    endpoint_urls = ma_fields.List(ma_fields.String())
 
     iri = ma_fields.String()
 
@@ -384,7 +382,7 @@ class AlternateTitlesItemSchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    title = I18nStrField(required=True)
+    title = I18nStrField()
 
     type = ma_fields.String()
 
@@ -393,9 +391,9 @@ class BboxSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    LowerCorners = ma_fields.List(ma_fields.Float(), required=True)
+    LowerCorners = ma_fields.List(ma_fields.Float())
 
-    UpperCorners = ma_fields.List(ma_fields.Float(), required=True)
+    UpperCorners = ma_fields.List(ma_fields.Float())
 
     crs = ma_fields.String()
 
@@ -417,9 +415,9 @@ class FundersItemSchema(DictOnlySchema):
 
     funder_identifier_scheme_uri = ma_fields.String()
 
-    funder_identifier_type = ma_fields.String(required=True)
+    funder_identifier_type = ma_fields.String()
 
-    funder_identifier_value = ma_fields.String(required=True)
+    funder_identifier_value = ma_fields.String()
 
     funder_name = ma_fields.String()
 
@@ -430,11 +428,11 @@ class IdentifiersItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    identifier_scheme = ma_fields.String(required=True)
+    identifier_scheme = ma_fields.String()
 
     iri = ma_fields.String()
 
-    value = ma_fields.String(required=True)
+    value = ma_fields.String()
 
 
 class TimeReferencesItemSchema(DictOnlySchema):

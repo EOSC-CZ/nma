@@ -3,3 +3,9 @@ metadata:
   title: Generic community
 access:
   visibility: public
+---
+slug: lindat
+metadata:
+  title: LINDAT
+access:
+  visibility: public

@@ -759,13 +759,22 @@
                                                     }
                                                 }
                                             },
-                                            "external_identifier_type": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "external_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
+                                            "identifiers": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "iri": {
                                                 "type": "keyword",
@@ -917,13 +926,22 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "external_identifiers": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
+                                                    "identifiers": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "iri": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "value": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
                                                     },
                                                     "iri": {
                                                         "type": "keyword",
@@ -1015,21 +1033,34 @@
                                                     }
                                                 }
                                             },
-                                            "external_identifier_type": {
+                                            "family_names": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "external_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "family_name": {
+                                            "full_name": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "given_names": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
+                                            },
+                                            "identifiers": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "iri": {
                                                 "type": "keyword",
@@ -1318,13 +1349,22 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "external_identifiers": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
+                                                    "identifiers": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "iri": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "value": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
                                                     },
                                                     "iri": {
                                                         "type": "keyword",
@@ -1476,13 +1516,22 @@
                                                                     }
                                                                 }
                                                             },
-                                                            "external_identifier_type": {
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
-                                                            },
-                                                            "external_identifiers": {
-                                                                "type": "keyword",
-                                                                "ignore_above": 1024
+                                                            "identifiers": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "identifier_scheme": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    },
+                                                                    "iri": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "keyword",
+                                                                        "ignore_above": 1024
+                                                                    }
+                                                                }
                                                             },
                                                             "iri": {
                                                                 "type": "keyword",
@@ -1574,21 +1623,34 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
+                                                    "family_names": {
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
-                                                    "external_identifiers": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "family_name": {
+                                                    "full_name": {
                                                         "type": "keyword",
                                                         "ignore_above": 1024
                                                     },
                                                     "given_names": {
                                                         "type": "keyword",
                                                         "ignore_above": 1024
+                                                    },
+                                                    "identifiers": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "iri": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "value": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
                                                     },
                                                     "iri": {
                                                         "type": "keyword",
@@ -1644,6 +1706,10 @@
                                         }
                                     },
                                     "relation_type": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
+                                    "resource_URLs": {
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
@@ -1866,13 +1932,22 @@
                                             }
                                         }
                                     },
-                                    "external_identifier_type": {
-                                        "type": "keyword",
-                                        "ignore_above": 1024
-                                    },
-                                    "external_identifiers": {
-                                        "type": "keyword",
-                                        "ignore_above": 1024
+                                    "identifiers": {
+                                        "type": "object",
+                                        "properties": {
+                                            "identifier_scheme": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "iri": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "value": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
                                     },
                                     "iri": {
                                         "type": "keyword",
@@ -2024,13 +2099,22 @@
                                                     }
                                                 }
                                             },
-                                            "external_identifier_type": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "external_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
+                                            "identifiers": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "iri": {
                                                 "type": "keyword",
@@ -2122,21 +2206,34 @@
                                             }
                                         }
                                     },
-                                    "external_identifier_type": {
+                                    "family_names": {
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
-                                    "external_identifiers": {
-                                        "type": "keyword",
-                                        "ignore_above": 1024
-                                    },
-                                    "family_name": {
+                                    "full_name": {
                                         "type": "keyword",
                                         "ignore_above": 1024
                                     },
                                     "given_names": {
                                         "type": "keyword",
                                         "ignore_above": 1024
+                                    },
+                                    "identifiers": {
+                                        "type": "object",
+                                        "properties": {
+                                            "identifier_scheme": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "iri": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
+                                            "value": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            }
+                                        }
                                     },
                                     "iri": {
                                         "type": "keyword",
@@ -2345,13 +2442,22 @@
                                                     }
                                                 }
                                             },
-                                            "external_identifier_type": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "external_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
+                                            "identifiers": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "iri": {
                                                 "type": "keyword",
@@ -2503,13 +2609,22 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "external_identifiers": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
+                                                    "identifiers": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "iri": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "value": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
                                                     },
                                                     "iri": {
                                                         "type": "keyword",
@@ -2601,21 +2716,34 @@
                                                     }
                                                 }
                                             },
-                                            "external_identifier_type": {
+                                            "family_names": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "external_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "family_name": {
+                                            "full_name": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "given_names": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
+                                            },
+                                            "identifiers": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "iri": {
                                                 "type": "keyword",
@@ -2671,6 +2799,10 @@
                                 }
                             },
                             "relation_type": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "resource_URLs": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
@@ -2770,7 +2902,11 @@
                                     }
                                 }
                             },
-                            "in_subject_scheme": {
+                            "iri": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "scheme": {
                                 "type": "object",
                                 "properties": {
                                     "labels_cs": {
@@ -2815,10 +2951,6 @@
                                     }
                                 }
                             },
-                            "iri": {
-                                "type": "keyword",
-                                "ignore_above": 1024
-                            },
                             "title": {
                                 "type": "nested",
                                 "properties": {
@@ -2842,7 +2974,7 @@
                     "terms_of_use": {
                         "type": "object",
                         "properties": {
-                            "description_cs": {
+                            "descriptions_cs": {
                                 "type": "text",
                                 "fields": {
                                     "keyword": {
@@ -2851,7 +2983,7 @@
                                     }
                                 }
                             },
-                            "description_en": {
+                            "descriptions_en": {
                                 "type": "text",
                                 "fields": {
                                     "keyword": {
@@ -2990,13 +3122,22 @@
                                                     }
                                                 }
                                             },
-                                            "external_identifier_type": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "external_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
+                                            "identifiers": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "iri": {
                                                 "type": "keyword",
@@ -3148,13 +3289,22 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
-                                                    },
-                                                    "external_identifiers": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 1024
+                                                    "identifiers": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "iri": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            },
+                                                            "value": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 1024
+                                                            }
+                                                        }
                                                     },
                                                     "iri": {
                                                         "type": "keyword",
@@ -3246,21 +3396,34 @@
                                                     }
                                                 }
                                             },
-                                            "external_identifier_type": {
+                                            "family_names": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "external_identifiers": {
-                                                "type": "keyword",
-                                                "ignore_above": 1024
-                                            },
-                                            "family_name": {
+                                            "full_name": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
                                             "given_names": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
+                                            },
+                                            "identifiers": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    }
+                                                }
                                             },
                                             "iri": {
                                                 "type": "keyword",
@@ -3270,7 +3433,7 @@
                                     }
                                 }
                             },
-                            "description": {
+                            "descriptions": {
                                 "type": "nested",
                                 "properties": {
                                     "lang": {
@@ -3292,7 +3455,7 @@
                                 "type": "keyword",
                                 "ignore_above": 1024
                             },
-                            "license": {
+                            "licenses": {
                                 "type": "keyword",
                                 "ignore_above": 1024
                             }

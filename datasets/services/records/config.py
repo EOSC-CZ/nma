@@ -74,7 +74,8 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
 
     @property
     def links_item(self):
-        return {
+        links = {
+            **super().links_item,
             "applicable-requests": ConditionalLink(
                 cond=is_published_record(),
                 if_=RecordLink("{+api}/datasets/{id}/requests/applicable"),
@@ -140,10 +141,12 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
                 "{+api}/datasets/{id}/versions", when=has_permission("search_versions")
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search_item(self):
-        return {
+        links = {
+            **super().links_search_item,
             "self": ConditionalLink(
                 cond=is_published_record(),
                 if_=RecordLink("{+api}/datasets/{id}", when=has_permission("read")),
@@ -159,23 +162,30 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
                 ),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search(self):
-        return {
+        links = {
+            **super().links_search,
             **pagination_links("{+api}/datasets/{?args*}"),
             **pagination_links_html("{+ui}/datasets/{?args*}"),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search_drafts(self):
-        return {
+        links = {
+            **super().links_search_drafts,
             **pagination_links("{+api}/user/datasets/{?args*}"),
             **pagination_links_html("{+ui}/user/datasets/{?args*}"),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search_versions(self):
-        return {
+        links = {
+            **super().links_search_versions,
             **pagination_links("{+api}/datasets/{id}/versions{?args*}"),
         }
+        return {k: v for k, v in links.items() if v is not None}

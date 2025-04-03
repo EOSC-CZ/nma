@@ -508,13 +508,21 @@
                                                         }
                                                     }
                                                 },
-                                                "external_identifier_type": {
-                                                    "type": "string"
-                                                },
-                                                "external_identifiers": {
+                                                "identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "string"
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
                                                     }
                                                 },
                                                 "iri": {
@@ -609,13 +617,21 @@
                                                                     }
                                                                 }
                                                             },
-                                                            "external_identifier_type": {
-                                                                "type": "string"
-                                                            },
-                                                            "external_identifiers": {
+                                                            "identifiers": {
                                                                 "type": "array",
                                                                 "items": {
-                                                                    "type": "string"
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
                                                                 }
                                                             },
                                                             "iri": {
@@ -689,22 +705,36 @@
                                                         }
                                                     }
                                                 },
-                                                "external_identifier_type": {
-                                                    "type": "string"
-                                                },
-                                                "external_identifiers": {
+                                                "family_names": {
                                                     "type": "array",
                                                     "items": {
                                                         "type": "string"
                                                     }
                                                 },
-                                                "family_name": {
+                                                "full_name": {
                                                     "type": "string"
                                                 },
                                                 "given_names": {
                                                     "type": "array",
                                                     "items": {
                                                         "type": "string"
+                                                    }
+                                                },
+                                                "identifiers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
                                                     }
                                                 },
                                                 "iri": {
@@ -769,10 +799,7 @@
                                 }
                             },
                             "dataset_relations": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
+                                "type": "string"
                             },
                             "geometry": {
                                 "type": "object",
@@ -906,13 +933,21 @@
                                                                     }
                                                                 }
                                                             },
-                                                            "external_identifier_type": {
-                                                                "type": "string"
-                                                            },
-                                                            "external_identifiers": {
+                                                            "identifiers": {
                                                                 "type": "array",
                                                                 "items": {
-                                                                    "type": "string"
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
                                                                 }
                                                             },
                                                             "iri": {
@@ -1007,13 +1042,21 @@
                                                                                 }
                                                                             }
                                                                         },
-                                                                        "external_identifier_type": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "external_identifiers": {
+                                                                        "identifiers": {
                                                                             "type": "array",
                                                                             "items": {
-                                                                                "type": "string"
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "identifier_scheme": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "iri": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
                                                                             }
                                                                         },
                                                                         "iri": {
@@ -1087,22 +1130,36 @@
                                                                     }
                                                                 }
                                                             },
-                                                            "external_identifier_type": {
-                                                                "type": "string"
-                                                            },
-                                                            "external_identifiers": {
+                                                            "family_names": {
                                                                 "type": "array",
                                                                 "items": {
                                                                     "type": "string"
                                                                 }
                                                             },
-                                                            "family_name": {
+                                                            "full_name": {
                                                                 "type": "string"
                                                             },
                                                             "given_names": {
                                                                 "type": "array",
                                                                 "items": {
                                                                     "type": "string"
+                                                                }
+                                                            },
+                                                            "identifiers": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
                                                                 }
                                                             },
                                                             "iri": {
@@ -1137,6 +1194,12 @@
                                         },
                                         "relation_type": {
                                             "type": "string"
+                                        },
+                                        "resource_URLs": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
                                         },
                                         "time_references": {
                                             "type": "array",
@@ -1287,13 +1350,21 @@
                                             }
                                         }
                                     },
-                                    "external_identifier_type": {
-                                        "type": "string"
-                                    },
-                                    "external_identifiers": {
+                                    "identifiers": {
                                         "type": "array",
                                         "items": {
-                                            "type": "string"
+                                            "type": "object",
+                                            "properties": {
+                                                "identifier_scheme": {
+                                                    "type": "string"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
+                                                }
+                                            }
                                         }
                                     },
                                     "iri": {
@@ -1388,13 +1459,21 @@
                                                         }
                                                     }
                                                 },
-                                                "external_identifier_type": {
-                                                    "type": "string"
-                                                },
-                                                "external_identifiers": {
+                                                "identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "string"
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
                                                     }
                                                 },
                                                 "iri": {
@@ -1468,22 +1547,36 @@
                                             }
                                         }
                                     },
-                                    "external_identifier_type": {
-                                        "type": "string"
-                                    },
-                                    "external_identifiers": {
+                                    "family_names": {
                                         "type": "array",
                                         "items": {
                                             "type": "string"
                                         }
                                     },
-                                    "family_name": {
+                                    "full_name": {
                                         "type": "string"
                                     },
                                     "given_names": {
                                         "type": "array",
                                         "items": {
                                             "type": "string"
+                                        }
+                                    },
+                                    "identifiers": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "identifier_scheme": {
+                                                    "type": "string"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
+                                                }
+                                            }
                                         }
                                     },
                                     "iri": {
@@ -1617,13 +1710,21 @@
                                                         }
                                                     }
                                                 },
-                                                "external_identifier_type": {
-                                                    "type": "string"
-                                                },
-                                                "external_identifiers": {
+                                                "identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "string"
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
                                                     }
                                                 },
                                                 "iri": {
@@ -1718,13 +1819,21 @@
                                                                     }
                                                                 }
                                                             },
-                                                            "external_identifier_type": {
-                                                                "type": "string"
-                                                            },
-                                                            "external_identifiers": {
+                                                            "identifiers": {
                                                                 "type": "array",
                                                                 "items": {
-                                                                    "type": "string"
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
                                                                 }
                                                             },
                                                             "iri": {
@@ -1798,22 +1907,36 @@
                                                         }
                                                     }
                                                 },
-                                                "external_identifier_type": {
-                                                    "type": "string"
-                                                },
-                                                "external_identifiers": {
+                                                "family_names": {
                                                     "type": "array",
                                                     "items": {
                                                         "type": "string"
                                                     }
                                                 },
-                                                "family_name": {
+                                                "full_name": {
                                                     "type": "string"
                                                 },
                                                 "given_names": {
                                                     "type": "array",
                                                     "items": {
                                                         "type": "string"
+                                                    }
+                                                },
+                                                "identifiers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
                                                     }
                                                 },
                                                 "iri": {
@@ -1848,6 +1971,12 @@
                             },
                             "relation_type": {
                                 "type": "string"
+                            },
+                            "resource_URLs": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
                             },
                             "time_references": {
                                 "type": "array",
@@ -1901,7 +2030,10 @@
                                     }
                                 }
                             },
-                            "in_subject_scheme": {
+                            "iri": {
+                                "type": "string"
+                            },
+                            "scheme": {
                                 "type": "object",
                                 "properties": {
                                     "iri": {
@@ -1923,9 +2055,6 @@
                                     }
                                 }
                             },
-                            "iri": {
-                                "type": "string"
-                            },
                             "title": {
                                 "type": "object",
                                 "properties": {
@@ -1941,105 +2070,22 @@
                     }
                 },
                 "terms_of_use": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "access_rights": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            },
-                            "contacts": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "organization": {
-                                            "type": "object",
-                                            "properties": {
-                                                "alternate_names": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "lang": {
-                                                                "type": "string"
-                                                            },
-                                                            "value": {
-                                                                "type": "string"
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "contact_points": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "addresses": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "iri": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "labels": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "lang": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            },
-                                                            "dataBoxes": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "emails": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "iri": {
-                                                                "type": "string"
-                                                            },
-                                                            "phones": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "string"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "external_identifier_type": {
-                                                    "type": "string"
-                                                },
-                                                "external_identifiers": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "iri": {
-                                                    "type": "string"
-                                                },
-                                                "name": {
+                    "type": "object",
+                    "properties": {
+                        "access_rights": {
+                            "type": "string"
+                        },
+                        "contacts": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "organization": {
+                                        "type": "object",
+                                        "properties": {
+                                            "alternate_names": {
+                                                "type": "array",
+                                                "items": {
                                                     "type": "object",
                                                     "properties": {
                                                         "lang": {
@@ -2050,97 +2096,105 @@
                                                         }
                                                     }
                                                 }
-                                            }
-                                        },
-                                        "person": {
-                                            "type": "object",
-                                            "properties": {
-                                                "affiliations": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "alternate_names": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "lang": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "value": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            },
-                                                            "contact_points": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "addresses": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "iri": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "labels": {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "lang": {
-                                                                                                    "type": "string"
-                                                                                                },
-                                                                                                "value": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
+                                            },
+                                            "contact_points": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "addresses": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "iri": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "labels": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "lang": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "value": {
+                                                                                    "type": "string"
                                                                                 }
                                                                             }
-                                                                        },
-                                                                        "dataBoxes": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        },
-                                                                        "emails": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "string"
-                                                                            }
-                                                                        },
-                                                                        "iri": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "phones": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "string"
-                                                                            }
                                                                         }
                                                                     }
                                                                 }
-                                                            },
-                                                            "external_identifier_type": {
+                                                            }
+                                                        },
+                                                        "dataBoxes": {
+                                                            "type": "array",
+                                                            "items": {
                                                                 "type": "string"
-                                                            },
-                                                            "external_identifiers": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "iri": {
+                                                            }
+                                                        },
+                                                        "emails": {
+                                                            "type": "array",
+                                                            "items": {
                                                                 "type": "string"
-                                                            },
-                                                            "name": {
+                                                            }
+                                                        },
+                                                        "iri": {
+                                                            "type": "string"
+                                                        },
+                                                        "phones": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "identifiers": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "identifier_scheme": {
+                                                            "type": "string"
+                                                        },
+                                                        "iri": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "iri": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "lang": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "person": {
+                                        "type": "object",
+                                        "properties": {
+                                            "affiliations": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "alternate_names": {
+                                                            "type": "array",
+                                                            "items": {
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "lang": {
@@ -2151,90 +2205,192 @@
                                                                     }
                                                                 }
                                                             }
-                                                        }
-                                                    }
-                                                },
-                                                "contact_points": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "addresses": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "iri": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "labels": {
-                                                                            "type": "array",
-                                                                            "items": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "lang": {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    "value": {
-                                                                                        "type": "string"
+                                                        },
+                                                        "contact_points": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "addresses": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "iri": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "labels": {
+                                                                                    "type": "array",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "lang": {
+                                                                                                "type": "string"
+                                                                                            },
+                                                                                            "value": {
+                                                                                                "type": "string"
+                                                                                            }
+                                                                                        }
                                                                                     }
                                                                                 }
                                                                             }
                                                                         }
+                                                                    },
+                                                                    "dataBoxes": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "emails": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "iri": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "phones": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "string"
+                                                                        }
                                                                     }
                                                                 }
-                                                            },
-                                                            "dataBoxes": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "string"
+                                                            }
+                                                        },
+                                                        "identifiers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "identifier_scheme": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "iri": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "string"
+                                                                    }
                                                                 }
-                                                            },
-                                                            "emails": {
-                                                                "type": "array",
-                                                                "items": {
+                                                            }
+                                                        },
+                                                        "iri": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "lang": {
                                                                     "type": "string"
-                                                                }
-                                                            },
-                                                            "iri": {
-                                                                "type": "string"
-                                                            },
-                                                            "phones": {
-                                                                "type": "array",
-                                                                "items": {
+                                                                },
+                                                                "value": {
                                                                     "type": "string"
                                                                 }
                                                             }
                                                         }
                                                     }
-                                                },
-                                                "external_identifier_type": {
-                                                    "type": "string"
-                                                },
-                                                "external_identifiers": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
+                                                }
+                                            },
+                                            "contact_points": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "addresses": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "iri": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "labels": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "lang": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "dataBoxes": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "emails": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "iri": {
+                                                            "type": "string"
+                                                        },
+                                                        "phones": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        }
                                                     }
-                                                },
-                                                "family_name": {
-                                                    "type": "string"
-                                                },
-                                                "given_names": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "iri": {
+                                                }
+                                            },
+                                            "family_names": {
+                                                "type": "array",
+                                                "items": {
                                                     "type": "string"
                                                 }
+                                            },
+                                            "full_name": {
+                                                "type": "string"
+                                            },
+                                            "given_names": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "identifiers": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "identifier_scheme": {
+                                                            "type": "string"
+                                                        },
+                                                        "iri": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "iri": {
+                                                "type": "string"
                                             }
                                         }
                                     }
                                 }
-                            },
-                            "description": {
+                            }
+                        },
+                        "descriptions": {
+                            "type": "array",
+                            "items": {
                                 "type": "object",
                                 "properties": {
                                     "lang": {
@@ -2244,11 +2400,14 @@
                                         "type": "string"
                                     }
                                 }
-                            },
-                            "iri": {
-                                "type": "string"
-                            },
-                            "license": {
+                            }
+                        },
+                        "iri": {
+                            "type": "string"
+                        },
+                        "licenses": {
+                            "type": "array",
+                            "items": {
                                 "type": "string"
                             }
                         }
@@ -2326,6 +2485,7 @@
             }
         },
         "pids": {
+            "type": "object",
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2341,11 +2501,10 @@
                     }
                 }
             },
+            "uniqueItems": true,
             "propertyNames": {
                 "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
-            "uniqueItems": true,
-            "type": "object"
+            }
         },
         "state": {
             "type": "string"

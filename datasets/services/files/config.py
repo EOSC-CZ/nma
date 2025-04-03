@@ -47,16 +47,19 @@ class DatasetsFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     @property
     def file_links_list(self):
-        return {
+        links = {
+            **super().file_links_list,
             "self": RecordLink(
                 "{+api}/datasets/{id}/files",
                 when=has_permission_file_service("list_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def file_links_item(self):
-        return {
+        links = {
+            **super().file_links_item,
             "commit": FileLink(
                 "{+api}/datasets/{id}/files/{key}/commit",
                 when=has_permission_file_service("commit_files"),
@@ -71,6 +74,7 @@ class DatasetsFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
                 when=has_permission_file_service("read_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
 
 class DatasetsFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
@@ -96,16 +100,19 @@ class DatasetsFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceC
 
     @property
     def file_links_list(self):
-        return {
+        links = {
+            **super().file_links_list,
             "self": RecordLink(
                 "{+api}/datasets/{id}/draft/files",
                 when=has_file_permission("list_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def file_links_item(self):
-        return {
+        links = {
+            **super().file_links_item,
             "commit": FileLink(
                 "{+api}/datasets/{id}/draft/files/{key}/commit",
                 when=has_file_permission("commit_files"),
@@ -120,3 +127,4 @@ class DatasetsFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceC
                 when=has_file_permission("read_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}

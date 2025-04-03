@@ -50,7 +50,7 @@ class MultilingualSearchDumperExt(MultilingualDumper):
         "/metadata/related_resources/qualified_relations/person/contact_points/addresses/labels",
         "/metadata/related_resources/qualified_relations/role/labels",
         "/metadata/subjects/definition",
-        "/metadata/subjects/in_subject_scheme/labels",
+        "/metadata/subjects/scheme/labels",
         "/metadata/subjects/title",
         "/metadata/terms_of_use/contacts/organization/alternate_names",
         "/metadata/terms_of_use/contacts/organization/contact_points/addresses/labels",
@@ -59,7 +59,7 @@ class MultilingualSearchDumperExt(MultilingualDumper):
         "/metadata/terms_of_use/contacts/person/affiliations/contact_points/addresses/labels",
         "/metadata/terms_of_use/contacts/person/affiliations/name",
         "/metadata/terms_of_use/contacts/person/contact_points/addresses/labels",
-        "/metadata/terms_of_use/description",
+        "/metadata/terms_of_use/descriptions",
         "/metadata/validation_results/labels",
     ]
     SUPPORTED_LANGS = ["cs", "en"]

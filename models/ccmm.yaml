@@ -13,20 +13,17 @@ $defs:
     properties:
       iri:
         type: keyword
-      external_identifiers:
+      identifiers:
         type: array
         items:
-          type: keyword
-        label.en: External identifier
-        help.en: External identifer of an Agent.
-      external_identifier_type:
-        type: keyword
+          use: ./ccmm.yaml#/$defs/identifier
       contact_points:
         type: array
         items:
           use: ./ccmm.yaml#/$defs/contact_details
         label.en: Contact point
-        help.en: Relevant contact information for the catalogued resource. Use of
+        help.en:
+          Relevant contact information for the catalogued resource. Use of
           vCard is recommended.
   alternate_title:
     properties:
@@ -36,7 +33,7 @@ $defs:
         type: i18nStr
         label.en: Title
         help.en: Alternate title name.
-        required: true
+        required: false
       type:
         type: keyword
         label.en: Type
@@ -55,10 +52,10 @@ $defs:
     properties:
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
+        required: false
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
+        required: false
   contact_details:
     properties:
       iri:
@@ -103,7 +100,7 @@ $defs:
           type: url
         label.en: Endpoint URL
         help.en: The root location or primary endpoint of the service (an IRI).
-        required: true
+        required: false
   dataset:
     properties:
       iri:
@@ -112,6 +109,7 @@ $defs:
         type: integer
         label.en: Publication year
         help.en: The year when the item was or will be made publicly available.
+        required: false
       version:
         type: keyword
         label.en: Version
@@ -122,7 +120,7 @@ $defs:
           type: i18nStr
         label.en: Description
         help.en: A free-text account of the Dataset.
-        required: true
+        required: false
       other_languages:
         type: array
         items:
@@ -141,7 +139,7 @@ $defs:
         type: keyword
         label.en: Title
         help.en: A name given to the resource.
-        required: true
+        required: false
       alternate_titles:
         type: array
         items:
@@ -153,14 +151,14 @@ $defs:
           use: ./ccmm.yaml#/$defs/metadata_record
         label.en: is described by
         help.en: Inverse relation between dataset and metadata record.
-        required: true
+        required: false
       identifiers:
         type: array
         items:
           use: ./ccmm.yaml#/$defs/identifier
         label.en: identifier
         help.en: has identifier
-        required: true
+        required: false
       locations:
         type: array
         items:
@@ -182,7 +180,12 @@ $defs:
         type: array
         items:
           use: ./ccmm.yaml#/$defs/time_reference
-        label.en: time reference
+        label.en: Time reference
+        help.en:
+          Must contain at least one time reference with date type value "Created"
+          from DataCIte controlled vocabulary
+          https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/dateType/.
+        required: false
       subjects:
         type: array
         items:
@@ -199,10 +202,9 @@ $defs:
           use: ./ccmm.yaml#/$defs/funding_reference
         label.en: funding reference
       terms_of_use:
-        type: array
-        items:
-          use: ./ccmm.yaml#/$defs/terms_of_use
+        use: ./ccmm.yaml#/$defs/terms_of_use
         label.en: terms of use
+        required: false
       related_resources:
         type: array
         items:
@@ -224,6 +226,7 @@ $defs:
         type: keyword
         label.en: Title
         help.en: A name given to the distribution.
+        required: false
   distribution_data_service:
     properties:
       descriptions:
@@ -249,7 +252,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/data_service
         label.en: Access service
-        help.en: A site or end-point that gives access to the distribution of the
+        help.en:
+          A site or end-point that gives access to the distribution of the
           dataset.
       iri:
         type: keyword
@@ -257,22 +261,26 @@ $defs:
         type: keyword
         label.en: Title
         help.en: A name given to the distribution.
+        required: false
   distribution_downloadable_file:
     properties:
       checksum:
         type: keyword
         label.en: Checksum
-        help.en: A mechanism that can be used to verify that the contents of a distribution
+        help.en:
+          A mechanism that can be used to verify that the contents of a distribution
           have not changed.
-        required: true
+        required: false
       byte_size:
         type: integer
         label.en: Byte size
         help.en: The size of a Distribution in bytes.
+        required: false
       format:
         type: url
         label.en: Format
         help.en: The file format of the Distribution.
+        required: false
       conforms_to_schemas:
         type: array
         items:
@@ -289,7 +297,7 @@ $defs:
           type: url
         label.en: Access URL
         help.en: A URL that gives access to a Distribution of the Dataset.
-        required: true
+        required: false
       download_urls:
         type: array
         items:
@@ -302,6 +310,7 @@ $defs:
         type: keyword
         label.en: Title
         help.en: A name given to the distribution.
+        required: false
   documentation:
     properties:
       iri:
@@ -318,7 +327,7 @@ $defs:
         type: keyword
       funder_identifier_value:
         type: keyword
-        required: true
+        required: false
       funder_identifier_scheme_uri:
         type: url
         label.en: Funder identifier scheme URI
@@ -327,7 +336,7 @@ $defs:
         type: keyword
         label.en: Funder identifier type
         help.en: The type of the funderIdentifier.
-        required: true
+        required: false
       funder_name:
         type: keyword
   funding_reference:
@@ -351,6 +360,7 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/funder_identifier
         label.en: has funder
+        required: false
   geometry:
     properties:
       iri:
@@ -369,12 +379,12 @@ $defs:
         type: url
         label.en: Identifier scheme
         help.en: Scheme URI of the identifier.
-        required: true
+        required: false
       value:
         type: keyword
         label.en: Value
         help.en: Value of the identifer within the given identifier scheme.
-        required: true
+        required: false
   langString: {}
   location:
     properties:
@@ -391,11 +401,10 @@ $defs:
         label.en: Location name
         help.en: Name of the spatial location.
       dataset_relations:
-        type: array
-        items:
-          type: keyword
+        type: keyword
         label.en: Relation to dataset
         help.en: Type of relation of the spatial location to the dataset.
+        required: false
       geometry:
         use: ./ccmm.yaml#/$defs/geometry
         label.en: Geometry
@@ -416,16 +425,6 @@ $defs:
           type: i18nStr
         label.en: Label
         help.en: Media type label
-  metadata_agent_role_type:
-    properties:
-      iri:
-        type: keyword
-      labels:
-        type: array
-        items:
-          type: i18nStr
-        label.en: Label
-        help.en: Metadata agent role type label
   metadata_record:
     properties:
       iri:
@@ -449,15 +448,18 @@ $defs:
       qualified_relations:
         type: array
         items:
-          use: ./ccmm.yaml#/$defs/metadata_to_agent_relationship
+          use: ./ccmm.yaml#/$defs/resource_to_agent_relationship
         label.en: Qualified relation
-        help.en: Attachment of resource to the relationship.
+        help.en:
+          Link to a description of a relationship between metadata record and
+          agent.
       original_repositories:
         type: array
         items:
           use: ./ccmm.yaml#/$defs/repository
         label.en: Original repository
-        help.en: Link to the repository from which the metadata were originally stored
+        help.en:
+          Link to the repository from which the metadata were originally stored
           and curated.
       conforms_to_standards:
         type: array
@@ -465,21 +467,6 @@ $defs:
           use: ./ccmm.yaml#/$defs/application_profile
         label.en: Conforms to standard
         help.en: An established standard to which the metadata record conforms.
-  metadata_to_agent_relationship:
-    properties:
-      iri:
-        type: keyword
-      role:
-        use: ./ccmm.yaml#/$defs/metadata_agent_role_type
-        label.en: had role - The function of an entity or agent with respect to another
-          entity or resource.
-        required: true
-      organization:
-        use: ./ccmm.yaml#/$defs/organization
-        required: true
-      person:
-        use: ./ccmm.yaml#/$defs/person
-        required: true
   organization:
     properties:
       alternate_names:
@@ -492,23 +479,20 @@ $defs:
         type: i18nStr
         label.en: Name
         help.en: Official organizational name
-        required: true
+        required: false
       iri:
         type: keyword
-      external_identifiers:
+      identifiers:
         type: array
         items:
-          type: keyword
-        label.en: External identifier
-        help.en: External identifer of an Agent.
-      external_identifier_type:
-        type: keyword
+          use: ./ccmm.yaml#/$defs/identifier
       contact_points:
         type: array
         items:
           use: ./ccmm.yaml#/$defs/contact_details
         label.en: Contact point
-        help.en: Relevant contact information for the catalogued resource. Use of
+        help.en:
+          Relevant contact information for the catalogued resource. Use of
           vCard is recommended.
   ows:BoundingBoxType:
     properties:
@@ -516,30 +500,35 @@ $defs:
         type: array
         items:
           type: float
-        required: true
+        required: false
       UpperCorners:
         type: array
         items:
           type: float
-        required: true
+        required: false
       crs:
         type: url
       dimensions:
         type: integer
   person:
     properties:
-      family_name:
+      full_name:
         type: keyword
         label.en: Family name
+        help.en: Full name of the person.
+        required: false
+      family_names:
+        type: array
+        items:
+          type: keyword
+        label.en: Family name
         help.en: The family name associated with the object
-        required: true
       given_names:
         type: array
         items:
           type: keyword
         label.en: Given name
         help.en: The given name associated with the object
-        required: true
       affiliations:
         type: array
         items:
@@ -548,20 +537,17 @@ $defs:
         help.en: Affiliation of the person to the organization.
       iri:
         type: keyword
-      external_identifiers:
+      identifiers:
         type: array
         items:
-          type: keyword
-        label.en: External identifier
-        help.en: External identifer of an Agent.
-      external_identifier_type:
-        type: keyword
+          use: ./ccmm.yaml#/$defs/identifier
       contact_points:
         type: array
         items:
           use: ./ccmm.yaml#/$defs/contact_details
         label.en: Contact point
-        help.en: Relevant contact information for the catalogued resource. Use of
+        help.en:
+          Relevant contact information for the catalogued resource. Use of
           vCard is recommended.
   provenance_statement:
     properties:
@@ -594,12 +580,22 @@ $defs:
       type:
         type: keyword
         label.en: Type
-        help.en: A description of the resource. Gets the value from controlled list
+        help.en:
+          A description of the resource. Gets the value from controlled list
           https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/resourceTypeGeneral/.
       title:
         type: keyword
         label.en: Title
         help.en: A name given to the Catalogue Record.
+      resource_URLs:
+        type: array
+        items:
+          type: url
+        label.en: Resource URL
+        help.en:
+          "In case it is filled, it must be filled the same in c:iri.\nIf more
+          resolvable IRIs, Resource URL shall link to human readable version, machine
+          readable ID is always in c:iri."
       identifier:
         use: ./ccmm.yaml#/$defs/identifier
         label.en: Identifier
@@ -631,15 +627,16 @@ $defs:
         type: keyword
       role:
         use: ./ccmm.yaml#/$defs/resource_agent_role_type
-        label.en: had role - The function of an entity or agent with respect to another
+        label.en:
+          had role - The function of an entity or agent with respect to another
           entity or resource.
-        required: true
+        required: false
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
+        required: false
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
+        required: false
   subject:
     properties:
       iri:
@@ -652,13 +649,14 @@ $defs:
         type: i18nStr
         label.en: Title
         help.en: Title of the subject
-        required: true
+        required: false
       classification_code:
         type: keyword
         label.en: Classification code
-        help.en: The classification code used for the subject term in the subject
+        help.en:
+          The classification code used for the subject term in the subject
           scheme.
-      in_subject_scheme:
+      scheme:
         use: ./ccmm.yaml#/$defs/subject_scheme
         label.en: in subject scheme
   subject_scheme:
@@ -675,21 +673,25 @@ $defs:
     properties:
       iri:
         type: keyword
-      description:
-        type: i18nStr
+      descriptions:
+        type: array
+        items:
+          type: i18nStr
         label.en: Description
         help.en: Descriptive text on details of rights and licensing.
-      license:
-        type: keyword
-        label.en: License
-        help.en: Information about licensing details of the resource.
-      access_rights:
+      licenses:
         type: array
         items:
           type: keyword
+        label.en: License
+        help.en: Information about licensing details of the resource.
+      access_rights:
+        type: keyword
         label.en: Access rights
-        help.en: Information about who access the resource or an indication of its
+        help.en:
+          Information about who access the resource or an indication of its
           security status.
+        required: false
       contacts:
         type: array
         items:
@@ -708,11 +710,14 @@ $defs:
         type: keyword
         label.en: Date type
         help.en: Type of the date.
+        required: false
       date:
         type: date
         label.en: Date
-        help.en: A point or period of time associated with an event in the lifecycle
+        help.en:
+          A point or period of time associated with an event in the lifecycle
           of the resource.
+        required: false
   validation_result:
     properties:
       iri:
