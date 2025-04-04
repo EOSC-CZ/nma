@@ -3,6 +3,10 @@
         "type": "model",
         "mapping": {
             "template": {
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200
+                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -58,10 +62,6 @@
                             }
                         }
                     ]
-                },
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200
                 }
             },
             "generate": true,
@@ -1495,6 +1495,13 @@
                                                 "label.en": "Funder identifier type",
                                                 "help.en": "The type of the funderIdentifier."
                                             },
+                                            "funder_identifier_value": {
+                                                "type": "keyword",
+                                                "required": true
+                                            },
+                                            "funder_name": {
+                                                "type": "keyword"
+                                            },
                                             "iri": {
                                                 "type": "keyword"
                                             }
@@ -1746,6 +1753,7 @@
                                             },
                                             "organization": {
                                                 "type": "object",
+                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": true,
                                                     "class": "datasets.services.records.schema.OrganizationSchema"
@@ -1907,6 +1915,9 @@
                                                             }
                                                         }
                                                     },
+                                                    "external_identifier_type": {
+                                                        "type": "keyword"
+                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
                                                         "label.en": "External identifier",
@@ -1921,8 +1932,8 @@
                                                     "name": {
                                                         "type": "i18nStr",
                                                         "required": true,
-                                                        "label.en": "Alternate name",
-                                                        "help.en": "To specify the organizational name associated with the object",
+                                                        "label.en": "Name",
+                                                        "help.en": "Official organizational name",
                                                         "marshmallow": {
                                                             "class": null,
                                                             "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -1960,6 +1971,7 @@
                                             },
                                             "person": {
                                                 "type": "object",
+                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": true,
                                                     "class": "datasets.services.records.schema.PersonSchema"
@@ -2138,6 +2150,9 @@
                                                                         }
                                                                     }
                                                                 },
+                                                                "external_identifier_type": {
+                                                                    "type": "keyword"
+                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
                                                                     "label.en": "External identifier",
@@ -2152,8 +2167,8 @@
                                                                 "name": {
                                                                     "type": "i18nStr",
                                                                     "required": true,
-                                                                    "label.en": "Alternate name",
-                                                                    "help.en": "To specify the organizational name associated with the object",
+                                                                    "label.en": "Name",
+                                                                    "help.en": "Official organizational name",
                                                                     "marshmallow": {
                                                                         "class": null,
                                                                         "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -2300,6 +2315,9 @@
                                                             }
                                                         }
                                                     },
+                                                    "external_identifier_type": {
+                                                        "type": "keyword"
+                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
                                                         "label.en": "External identifier",
@@ -2349,7 +2367,7 @@
                                                     "labels": {
                                                         "type": "array",
                                                         "label.en": "Label",
-                                                        "help.en": "Validation result label",
+                                                        "help.en": "Metadata agent role type label",
                                                         "items": {
                                                             "type": "i18nStr",
                                                             "marshmallow": {
@@ -2545,9 +2563,36 @@
                                         },
                                         "properties": {
                                             "identifier": {
-                                                "type": "keyword",
+                                                "type": "object",
                                                 "label.en": "Identifier",
-                                                "help.en": "An unambiguous reference to the resource within a given context."
+                                                "help.en": "An unambiguous reference to the resource within a given context.",
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                    }
+                                                },
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "url",
+                                                        "required": true,
+                                                        "label.en": "Identifier scheme",
+                                                        "help.en": "Scheme URI of the identifier."
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "required": true,
+                                                        "label.en": "Value",
+                                                        "help.en": "Value of the identifer within the given identifier scheme."
+                                                    }
+                                                }
                                             },
                                             "iri": {
                                                 "type": "keyword"
@@ -2574,6 +2619,7 @@
                                                         },
                                                         "organization": {
                                                             "type": "object",
+                                                            "required": true,
                                                             "marshmallow": {
                                                                 "generate": false,
                                                                 "class": "datasets.services.records.schema.OrganizationSchema"
@@ -2735,6 +2781,9 @@
                                                                         }
                                                                     }
                                                                 },
+                                                                "external_identifier_type": {
+                                                                    "type": "keyword"
+                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
                                                                     "label.en": "External identifier",
@@ -2749,8 +2798,8 @@
                                                                 "name": {
                                                                     "type": "i18nStr",
                                                                     "required": true,
-                                                                    "label.en": "Alternate name",
-                                                                    "help.en": "To specify the organizational name associated with the object",
+                                                                    "label.en": "Name",
+                                                                    "help.en": "Official organizational name",
                                                                     "marshmallow": {
                                                                         "class": null,
                                                                         "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -2788,6 +2837,7 @@
                                                         },
                                                         "person": {
                                                             "type": "object",
+                                                            "required": true,
                                                             "marshmallow": {
                                                                 "generate": false,
                                                                 "class": "datasets.services.records.schema.PersonSchema"
@@ -2966,6 +3016,9 @@
                                                                                     }
                                                                                 }
                                                                             },
+                                                                            "external_identifier_type": {
+                                                                                "type": "keyword"
+                                                                            },
                                                                             "external_identifiers": {
                                                                                 "type": "array",
                                                                                 "label.en": "External identifier",
@@ -2980,8 +3033,8 @@
                                                                             "name": {
                                                                                 "type": "i18nStr",
                                                                                 "required": true,
-                                                                                "label.en": "Alternate name",
-                                                                                "help.en": "To specify the organizational name associated with the object",
+                                                                                "label.en": "Name",
+                                                                                "help.en": "Official organizational name",
                                                                                 "marshmallow": {
                                                                                     "class": null,
                                                                                     "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -3128,6 +3181,9 @@
                                                                         }
                                                                     }
                                                                 },
+                                                                "external_identifier_type": {
+                                                                    "type": "keyword"
+                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
                                                                     "label.en": "External identifier",
@@ -3177,7 +3233,7 @@
                                                                 "labels": {
                                                                     "type": "array",
                                                                     "label.en": "Label",
-                                                                    "help.en": "Validation result label",
+                                                                    "help.en": "Resource to agent role label",
                                                                     "items": {
                                                                         "type": "i18nStr",
                                                                         "marshmallow": {
@@ -3287,7 +3343,6 @@
                     },
                     "primary_language": {
                         "type": "keyword",
-                        "required": true,
                         "label.en": "Other language",
                         "help.en": "The primary language of the resource."
                     },
@@ -3380,6 +3435,7 @@
                                 },
                                 "organization": {
                                     "type": "object",
+                                    "required": true,
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "datasets.services.records.schema.OrganizationSchema"
@@ -3541,6 +3597,9 @@
                                                 }
                                             }
                                         },
+                                        "external_identifier_type": {
+                                            "type": "keyword"
+                                        },
                                         "external_identifiers": {
                                             "type": "array",
                                             "label.en": "External identifier",
@@ -3555,8 +3614,8 @@
                                         "name": {
                                             "type": "i18nStr",
                                             "required": true,
-                                            "label.en": "Alternate name",
-                                            "help.en": "To specify the organizational name associated with the object",
+                                            "label.en": "Name",
+                                            "help.en": "Official organizational name",
                                             "marshmallow": {
                                                 "class": null,
                                                 "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -3594,6 +3653,7 @@
                                 },
                                 "person": {
                                     "type": "object",
+                                    "required": true,
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "datasets.services.records.schema.PersonSchema"
@@ -3772,6 +3832,9 @@
                                                             }
                                                         }
                                                     },
+                                                    "external_identifier_type": {
+                                                        "type": "keyword"
+                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
                                                         "label.en": "External identifier",
@@ -3786,8 +3849,8 @@
                                                     "name": {
                                                         "type": "i18nStr",
                                                         "required": true,
-                                                        "label.en": "Alternate name",
-                                                        "help.en": "To specify the organizational name associated with the object",
+                                                        "label.en": "Name",
+                                                        "help.en": "Official organizational name",
                                                         "marshmallow": {
                                                             "class": null,
                                                             "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -3934,6 +3997,9 @@
                                                 }
                                             }
                                         },
+                                        "external_identifier_type": {
+                                            "type": "keyword"
+                                        },
                                         "external_identifiers": {
                                             "type": "array",
                                             "label.en": "External identifier",
@@ -3983,7 +4049,7 @@
                                         "labels": {
                                             "type": "array",
                                             "label.en": "Label",
-                                            "help.en": "Validation result label",
+                                            "help.en": "Resource to agent role label",
                                             "items": {
                                                 "type": "i18nStr",
                                                 "marshmallow": {
@@ -4042,9 +4108,36 @@
                             },
                             "properties": {
                                 "identifier": {
-                                    "type": "keyword",
+                                    "type": "object",
                                     "label.en": "Identifier",
-                                    "help.en": "An unambiguous reference to the resource within a given context."
+                                    "help.en": "An unambiguous reference to the resource within a given context.",
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                    },
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                        }
+                                    },
+                                    "properties": {
+                                        "identifier_scheme": {
+                                            "type": "url",
+                                            "required": true,
+                                            "label.en": "Identifier scheme",
+                                            "help.en": "Scheme URI of the identifier."
+                                        },
+                                        "iri": {
+                                            "type": "keyword"
+                                        },
+                                        "value": {
+                                            "type": "keyword",
+                                            "required": true,
+                                            "label.en": "Value",
+                                            "help.en": "Value of the identifer within the given identifier scheme."
+                                        }
+                                    }
                                 },
                                 "iri": {
                                     "type": "keyword"
@@ -4071,6 +4164,7 @@
                                             },
                                             "organization": {
                                                 "type": "object",
+                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.OrganizationSchema"
@@ -4232,6 +4326,9 @@
                                                             }
                                                         }
                                                     },
+                                                    "external_identifier_type": {
+                                                        "type": "keyword"
+                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
                                                         "label.en": "External identifier",
@@ -4246,8 +4343,8 @@
                                                     "name": {
                                                         "type": "i18nStr",
                                                         "required": true,
-                                                        "label.en": "Alternate name",
-                                                        "help.en": "To specify the organizational name associated with the object",
+                                                        "label.en": "Name",
+                                                        "help.en": "Official organizational name",
                                                         "marshmallow": {
                                                             "class": null,
                                                             "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -4285,6 +4382,7 @@
                                             },
                                             "person": {
                                                 "type": "object",
+                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.PersonSchema"
@@ -4463,6 +4561,9 @@
                                                                         }
                                                                     }
                                                                 },
+                                                                "external_identifier_type": {
+                                                                    "type": "keyword"
+                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
                                                                     "label.en": "External identifier",
@@ -4477,8 +4578,8 @@
                                                                 "name": {
                                                                     "type": "i18nStr",
                                                                     "required": true,
-                                                                    "label.en": "Alternate name",
-                                                                    "help.en": "To specify the organizational name associated with the object",
+                                                                    "label.en": "Name",
+                                                                    "help.en": "Official organizational name",
                                                                     "marshmallow": {
                                                                         "class": null,
                                                                         "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -4625,6 +4726,9 @@
                                                             }
                                                         }
                                                     },
+                                                    "external_identifier_type": {
+                                                        "type": "keyword"
+                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
                                                         "label.en": "External identifier",
@@ -4674,7 +4778,7 @@
                                                     "labels": {
                                                         "type": "array",
                                                         "label.en": "Label",
-                                                        "help.en": "Validation result label",
+                                                        "help.en": "Resource to agent role label",
                                                         "items": {
                                                             "type": "i18nStr",
                                                             "marshmallow": {
@@ -4980,6 +5084,7 @@
                                         "properties": {
                                             "organization": {
                                                 "type": "object",
+                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.OrganizationSchema"
@@ -5141,6 +5246,9 @@
                                                             }
                                                         }
                                                     },
+                                                    "external_identifier_type": {
+                                                        "type": "keyword"
+                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
                                                         "label.en": "External identifier",
@@ -5155,8 +5263,8 @@
                                                     "name": {
                                                         "type": "i18nStr",
                                                         "required": true,
-                                                        "label.en": "Alternate name",
-                                                        "help.en": "To specify the organizational name associated with the object",
+                                                        "label.en": "Name",
+                                                        "help.en": "Official organizational name",
                                                         "marshmallow": {
                                                             "class": null,
                                                             "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -5194,6 +5302,7 @@
                                             },
                                             "person": {
                                                 "type": "object",
+                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.PersonSchema"
@@ -5372,6 +5481,9 @@
                                                                         }
                                                                     }
                                                                 },
+                                                                "external_identifier_type": {
+                                                                    "type": "keyword"
+                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
                                                                     "label.en": "External identifier",
@@ -5386,8 +5498,8 @@
                                                                 "name": {
                                                                     "type": "i18nStr",
                                                                     "required": true,
-                                                                    "label.en": "Alternate name",
-                                                                    "help.en": "To specify the organizational name associated with the object",
+                                                                    "label.en": "Name",
+                                                                    "help.en": "Official organizational name",
                                                                     "marshmallow": {
                                                                         "class": null,
                                                                         "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
@@ -5534,6 +5646,9 @@
                                                             }
                                                         }
                                                     },
+                                                    "external_identifier_type": {
+                                                        "type": "keyword"
+                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
                                                         "label.en": "External identifier",
@@ -5566,9 +5681,41 @@
                                     }
                                 },
                                 "description": {
-                                    "type": "keyword",
+                                    "type": "i18nStr",
                                     "label.en": "Description",
-                                    "help.en": "Descriptive text on details of rights and licensing."
+                                    "help.en": "Descriptive text on details of rights and licensing.",
+                                    "marshmallow": {
+                                        "class": null,
+                                        "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
+                                        "generate": false
+                                    },
+                                    "ui": {
+                                        "detail": "multilingual",
+                                        "marshmallow": {
+                                            "class": null,
+                                            "field-class": "oarepo_runtime.services.schema.i18n_ui.I18nStrUIField"
+                                        }
+                                    },
+                                    "sample": {
+                                        "skip": false
+                                    },
+                                    "properties": {
+                                        "lang": {
+                                            "type": "keyword",
+                                            "mapping": {
+                                                "ignore_above": 256
+                                            },
+                                            "required": true,
+                                            "label.cs": "Jazyk",
+                                            "label.en": "Language"
+                                        },
+                                        "value": {
+                                            "type": "fulltext+keyword",
+                                            "required": true,
+                                            "label.cs": "Text",
+                                            "label.en": "Text"
+                                        }
+                                    }
                                 },
                                 "iri": {
                                     "type": "keyword"
@@ -5752,11 +5899,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
-                    "type": "object",
-                    "uniqueItems": true,
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -5771,7 +5913,12 @@
                                 "type": "string"
                             }
                         }
-                    }
+                    },
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
+                    "uniqueItems": true,
+                    "type": "object"
                 },
                 "ui": {
                     "marshmallow": {

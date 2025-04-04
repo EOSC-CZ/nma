@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-03-21T08:47:46.676255\n"
-"PO-Revision-Date: 2025-03-21T08:47:46.676258\n"
+"POT-Creation-Date: 2025-03-29T11:34:04.717496\n"
+"PO-Revision-Date: 2025-03-29T11:34:04.717497\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -639,6 +639,24 @@ msgstr ""
 msgid "metadata/funding_references/funders/funder_identifier_type.hint"
 msgstr ""
 
+msgid "metadata/funding_references/funders/funder_identifier_value.help"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_value.label"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_value.hint"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_name.help"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_name.label"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_name.hint"
+msgstr ""
+
 msgid "metadata/funding_references/funders/iri.help"
 msgstr ""
 
@@ -1039,6 +1057,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/is_described_by/qualified_relations/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/organization/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/is_described_by/qualified_relations/organization/external_identifiers.label"
 msgstr ""
 
@@ -1267,6 +1297,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.label"
 msgstr ""
 
@@ -1444,6 +1486,18 @@ msgstr ""
 
 msgid ""
 "metadata/is_described_by/qualified_relations/person/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/person/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/person/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/person/external_identifier_type.hint"
 msgstr ""
 
 msgid ""
@@ -1674,6 +1728,36 @@ msgstr ""
 msgid "metadata/locations/related_object_identifiers/identifier.hint"
 msgstr ""
 
+msgid ""
+"metadata/locations/related_object_identifiers/identifier/identifier_scheme.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/identifier/identifier_scheme.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/identifier/identifier_scheme.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/iri.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/iri.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/iri.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/value.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/value.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/value.hint"
+msgstr ""
+
 msgid "metadata/locations/related_object_identifiers/iri.help"
 msgstr ""
 
@@ -1871,6 +1955,18 @@ msgstr ""
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifier_type.hint"
 msgstr ""
 
 msgid ""
@@ -2114,6 +2210,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.label"
 msgstr ""
 
@@ -2291,6 +2399,18 @@ msgstr ""
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/person/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/external_identifier_type.hint"
 msgstr ""
 
 msgid ""
@@ -2717,6 +2837,18 @@ msgstr ""
 msgid "metadata/qualified_relations/organization/contact_points/phones.hint"
 msgstr ""
 
+msgid ""
+"metadata/qualified_relations/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/external_identifier_type.hint"
+msgstr ""
+
 msgid "metadata/qualified_relations/organization/external_identifiers.label"
 msgstr ""
 
@@ -2931,6 +3063,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/qualified_relations/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/qualified_relations/person/affiliations/external_identifiers.label"
 msgstr ""
 
@@ -3077,6 +3221,15 @@ msgstr ""
 msgid "metadata/qualified_relations/person/contact_points/phones.hint"
 msgstr ""
 
+msgid "metadata/qualified_relations/person/external_identifier_type.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/external_identifier_type.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/external_identifier_type.hint"
+msgstr ""
+
 msgid "metadata/qualified_relations/person/external_identifiers.label"
 msgstr ""
 
@@ -3174,6 +3327,33 @@ msgid "metadata/related_resources/identifier.help"
 msgstr ""
 
 msgid "metadata/related_resources/identifier.hint"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/identifier_scheme.label"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/identifier_scheme.help"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/identifier_scheme.hint"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/iri.hint"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/value.label"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/value.help"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/value.hint"
 msgstr ""
 
 msgid "metadata/related_resources/iri.help"
@@ -3366,6 +3546,18 @@ msgstr ""
 
 msgid ""
 "metadata/related_resources/qualified_relations/organization/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/external_identifier_type.hint"
 msgstr ""
 
 msgid ""
@@ -3600,6 +3792,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.label"
 msgstr ""
 
@@ -3777,6 +3981,18 @@ msgstr ""
 
 msgid ""
 "metadata/related_resources/qualified_relations/person/contact_points/phones.hint"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/external_identifier_type.hint"
 msgstr ""
 
 msgid ""
@@ -4246,6 +4462,18 @@ msgstr ""
 msgid "metadata/terms_of_use/contacts/organization/contact_points/phones.hint"
 msgstr ""
 
+msgid ""
+"metadata/terms_of_use/contacts/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/external_identifier_type.hint"
+msgstr ""
+
 msgid "metadata/terms_of_use/contacts/organization/external_identifiers.label"
 msgstr ""
 
@@ -4464,6 +4692,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.label"
 msgstr ""
 
@@ -4613,6 +4853,15 @@ msgstr ""
 msgid "metadata/terms_of_use/contacts/person/contact_points/phones.hint"
 msgstr ""
 
+msgid "metadata/terms_of_use/contacts/person/external_identifier_type.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/external_identifier_type.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/external_identifier_type.hint"
+msgstr ""
+
 msgid "metadata/terms_of_use/contacts/person/external_identifiers.label"
 msgstr ""
 
@@ -4656,6 +4905,24 @@ msgid "metadata/terms_of_use/description.help"
 msgstr ""
 
 msgid "metadata/terms_of_use/description.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/lang.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/lang.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/lang.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/value.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/value.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/value.hint"
 msgstr ""
 
 msgid "metadata/terms_of_use/iri.help"

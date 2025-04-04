@@ -66,7 +66,7 @@ class DatasetsMetadataUISchema(Schema):
 
     other_languages = ma_fields.List(ma_fields.String())
 
-    primary_language = ma_fields.String(required=True)
+    primary_language = ma_fields.String()
 
     provenances = ma_fields.List(ma_fields.Nested(lambda: DocumentationsItemUISchema()))
 
@@ -147,7 +147,7 @@ class RelatedObjectIdentifiersItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    identifier = ma_fields.String()
+    identifier = ma_fields.Nested(lambda: IdentifiersItemUISchema())
 
     iri = ma_fields.String()
 
@@ -174,7 +174,7 @@ class TermsOfUseItemUISchema(DictOnlySchema):
 
     contacts = ma_fields.List(ma_fields.Nested(lambda: ContactsItemUISchema()))
 
-    description = ma_fields.String()
+    description = I18nStrUIField()
 
     iri = ma_fields.String()
 
@@ -185,9 +185,9 @@ class ContactsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    organization = ma_fields.Nested(lambda: OrganizationUISchema())
+    organization = ma_fields.Nested(lambda: OrganizationUISchema(), required=True)
 
-    person = ma_fields.Nested(lambda: PersonUISchema())
+    person = ma_fields.Nested(lambda: PersonUISchema(), required=True)
 
 
 class QualifiedRelationsItemUISchema(DictOnlySchema):
@@ -196,9 +196,9 @@ class QualifiedRelationsItemUISchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    organization = ma_fields.Nested(lambda: OrganizationUISchema())
+    organization = ma_fields.Nested(lambda: OrganizationUISchema(), required=True)
 
-    person = ma_fields.Nested(lambda: PersonUISchema())
+    person = ma_fields.Nested(lambda: PersonUISchema(), required=True)
 
     role = ma_fields.Nested(lambda: DocumentationsItemUISchema(), required=True)
 
@@ -212,6 +212,8 @@ class PersonUISchema(DictOnlySchema):
     contact_points = ma_fields.List(
         ma_fields.Nested(lambda: ContactPointsItemUISchema())
     )
+
+    external_identifier_type = ma_fields.String()
 
     external_identifiers = ma_fields.List(ma_fields.String())
 
@@ -231,6 +233,8 @@ class OrganizationUISchema(DictOnlySchema):
     contact_points = ma_fields.List(
         ma_fields.Nested(lambda: ContactPointsItemUISchema())
     )
+
+    external_identifier_type = ma_fields.String()
 
     external_identifiers = ma_fields.List(ma_fields.String())
 
@@ -383,6 +387,10 @@ class FundersItemUISchema(DictOnlySchema):
     funder_identifier_scheme_uri = ma_fields.String()
 
     funder_identifier_type = ma_fields.String(required=True)
+
+    funder_identifier_value = ma_fields.String(required=True)
+
+    funder_name = ma_fields.String()
 
     iri = ma_fields.String()
 

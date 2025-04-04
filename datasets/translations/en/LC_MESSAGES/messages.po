@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-03-21T08:47:46.676057\n"
-"PO-Revision-Date: 2025-03-21T08:47:46.676092\n"
+"POT-Creation-Date: 2025-03-29T11:34:04.717453\n"
+"PO-Revision-Date: 2025-03-29T11:34:04.717465\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -642,6 +642,24 @@ msgstr "The type of the funderIdentifier."
 msgid "metadata/funding_references/funders/funder_identifier_type.hint"
 msgstr ""
 
+msgid "metadata/funding_references/funders/funder_identifier_value.help"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_value.label"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_identifier_value.hint"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_name.help"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_name.label"
+msgstr ""
+
+msgid "metadata/funding_references/funders/funder_name.hint"
+msgstr ""
+
 msgid "metadata/funding_references/funders/iri.help"
 msgstr ""
 
@@ -1046,6 +1064,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/is_described_by/qualified_relations/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/organization/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/is_described_by/qualified_relations/organization/external_identifiers.label"
 msgstr "External identifier"
 
@@ -1067,10 +1097,10 @@ msgid "metadata/is_described_by/qualified_relations/organization/iri.hint"
 msgstr ""
 
 msgid "metadata/is_described_by/qualified_relations/organization/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid "metadata/is_described_by/qualified_relations/organization/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid "metadata/is_described_by/qualified_relations/organization/name.hint"
 msgstr ""
@@ -1276,6 +1306,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.label"
 msgstr "External identifier"
 
@@ -1301,11 +1343,11 @@ msgstr ""
 
 msgid ""
 "metadata/is_described_by/qualified_relations/person/affiliations/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid ""
 "metadata/is_described_by/qualified_relations/person/affiliations/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid ""
 "metadata/is_described_by/qualified_relations/person/affiliations/name.hint"
@@ -1458,6 +1500,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/is_described_by/qualified_relations/person/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/person/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/is_described_by/qualified_relations/person/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/is_described_by/qualified_relations/person/external_identifiers.label"
 msgstr "External identifier"
 
@@ -1520,7 +1574,7 @@ msgid "metadata/is_described_by/qualified_relations/role/labels.label"
 msgstr "Label"
 
 msgid "metadata/is_described_by/qualified_relations/role/labels.help"
-msgstr "Validation result label"
+msgstr "Metadata agent role type label"
 
 msgid "metadata/is_described_by/qualified_relations/role/labels.hint"
 msgstr ""
@@ -1685,6 +1739,36 @@ msgid "metadata/locations/related_object_identifiers/identifier.help"
 msgstr "An unambiguous reference to the resource within a given context."
 
 msgid "metadata/locations/related_object_identifiers/identifier.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/identifier/identifier_scheme.label"
+msgstr "Identifier scheme"
+
+msgid ""
+"metadata/locations/related_object_identifiers/identifier/identifier_scheme.help"
+msgstr "Scheme URI of the identifier."
+
+msgid ""
+"metadata/locations/related_object_identifiers/identifier/identifier_scheme.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/iri.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/iri.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/iri.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/identifier/value.label"
+msgstr "Value"
+
+msgid "metadata/locations/related_object_identifiers/identifier/value.help"
+msgstr "Value of the identifer within the given identifier scheme."
+
+msgid "metadata/locations/related_object_identifiers/identifier/value.hint"
 msgstr ""
 
 msgid "metadata/locations/related_object_identifiers/iri.help"
@@ -1889,6 +1973,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.label"
 msgstr "External identifier"
 
@@ -1914,11 +2010,11 @@ msgstr ""
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/organization/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/organization/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/organization/name.hint"
@@ -2131,6 +2227,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.label"
 msgstr "External identifier"
 
@@ -2156,11 +2264,11 @@ msgstr ""
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/name.hint"
@@ -2313,6 +2421,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/person/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.label"
 msgstr "External identifier"
 
@@ -2392,7 +2512,7 @@ msgstr "Label"
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/role/labels.help"
-msgstr "Validation result label"
+msgstr "Resource to agent role label"
 
 msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/role/labels.hint"
@@ -2745,6 +2865,18 @@ msgstr "Phone number"
 msgid "metadata/qualified_relations/organization/contact_points/phones.hint"
 msgstr ""
 
+msgid ""
+"metadata/qualified_relations/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/organization/external_identifier_type.hint"
+msgstr ""
+
 msgid "metadata/qualified_relations/organization/external_identifiers.label"
 msgstr "External identifier"
 
@@ -2764,10 +2896,10 @@ msgid "metadata/qualified_relations/organization/iri.hint"
 msgstr ""
 
 msgid "metadata/qualified_relations/organization/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid "metadata/qualified_relations/organization/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid "metadata/qualified_relations/organization/name.hint"
 msgstr ""
@@ -2961,6 +3093,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/qualified_relations/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/qualified_relations/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/qualified_relations/person/affiliations/external_identifiers.label"
 msgstr "External identifier"
 
@@ -2982,10 +3126,10 @@ msgid "metadata/qualified_relations/person/affiliations/iri.hint"
 msgstr ""
 
 msgid "metadata/qualified_relations/person/affiliations/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid "metadata/qualified_relations/person/affiliations/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid "metadata/qualified_relations/person/affiliations/name.hint"
 msgstr ""
@@ -3109,6 +3253,15 @@ msgstr "Phone number"
 msgid "metadata/qualified_relations/person/contact_points/phones.hint"
 msgstr ""
 
+msgid "metadata/qualified_relations/person/external_identifier_type.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/external_identifier_type.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/person/external_identifier_type.hint"
+msgstr ""
+
 msgid "metadata/qualified_relations/person/external_identifiers.label"
 msgstr "External identifier"
 
@@ -3169,7 +3322,7 @@ msgid "metadata/qualified_relations/role/labels.label"
 msgstr "Label"
 
 msgid "metadata/qualified_relations/role/labels.help"
-msgstr "Validation result label"
+msgstr "Resource to agent role label"
 
 msgid "metadata/qualified_relations/role/labels.hint"
 msgstr ""
@@ -3208,6 +3361,33 @@ msgid "metadata/related_resources/identifier.help"
 msgstr "An unambiguous reference to the resource within a given context."
 
 msgid "metadata/related_resources/identifier.hint"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/identifier_scheme.label"
+msgstr "Identifier scheme"
+
+msgid "metadata/related_resources/identifier/identifier_scheme.help"
+msgstr "Scheme URI of the identifier."
+
+msgid "metadata/related_resources/identifier/identifier_scheme.hint"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/iri.hint"
+msgstr ""
+
+msgid "metadata/related_resources/identifier/value.label"
+msgstr "Value"
+
+msgid "metadata/related_resources/identifier/value.help"
+msgstr "Value of the identifer within the given identifier scheme."
+
+msgid "metadata/related_resources/identifier/value.hint"
 msgstr ""
 
 msgid "metadata/related_resources/iri.help"
@@ -3405,6 +3585,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/related_resources/qualified_relations/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/organization/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/related_resources/qualified_relations/organization/external_identifiers.label"
 msgstr "External identifier"
 
@@ -3426,10 +3618,10 @@ msgid "metadata/related_resources/qualified_relations/organization/iri.hint"
 msgstr ""
 
 msgid "metadata/related_resources/qualified_relations/organization/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid "metadata/related_resources/qualified_relations/organization/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid "metadata/related_resources/qualified_relations/organization/name.hint"
 msgstr ""
@@ -3638,6 +3830,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.label"
 msgstr "External identifier"
 
@@ -3663,11 +3867,11 @@ msgstr ""
 
 msgid ""
 "metadata/related_resources/qualified_relations/person/affiliations/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid ""
 "metadata/related_resources/qualified_relations/person/affiliations/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid ""
 "metadata/related_resources/qualified_relations/person/affiliations/name.hint"
@@ -3820,6 +4024,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/related_resources/qualified_relations/person/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/related_resources/qualified_relations/person/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/related_resources/qualified_relations/person/external_identifiers.label"
 msgstr "External identifier"
 
@@ -3884,7 +4100,7 @@ msgid "metadata/related_resources/qualified_relations/role/labels.label"
 msgstr "Label"
 
 msgid "metadata/related_resources/qualified_relations/role/labels.help"
-msgstr "Validation result label"
+msgstr "Resource to agent role label"
 
 msgid "metadata/related_resources/qualified_relations/role/labels.hint"
 msgstr ""
@@ -4298,6 +4514,18 @@ msgstr "Phone number"
 msgid "metadata/terms_of_use/contacts/organization/contact_points/phones.hint"
 msgstr ""
 
+msgid ""
+"metadata/terms_of_use/contacts/organization/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/organization/external_identifier_type.hint"
+msgstr ""
+
 msgid "metadata/terms_of_use/contacts/organization/external_identifiers.label"
 msgstr "External identifier"
 
@@ -4317,10 +4545,10 @@ msgid "metadata/terms_of_use/contacts/organization/iri.hint"
 msgstr ""
 
 msgid "metadata/terms_of_use/contacts/organization/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid "metadata/terms_of_use/contacts/organization/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid "metadata/terms_of_use/contacts/organization/name.hint"
 msgstr ""
@@ -4518,6 +4746,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/external_identifier_type.help"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/external_identifier_type.label"
+msgstr ""
+
+msgid ""
+"metadata/terms_of_use/contacts/person/affiliations/external_identifier_type.hint"
+msgstr ""
+
+msgid ""
 "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.label"
 msgstr "External identifier"
 
@@ -4539,10 +4779,10 @@ msgid "metadata/terms_of_use/contacts/person/affiliations/iri.hint"
 msgstr ""
 
 msgid "metadata/terms_of_use/contacts/person/affiliations/name.label"
-msgstr "Alternate name"
+msgstr "Name"
 
 msgid "metadata/terms_of_use/contacts/person/affiliations/name.help"
-msgstr "To specify the organizational name associated with the object"
+msgstr "Official organizational name"
 
 msgid "metadata/terms_of_use/contacts/person/affiliations/name.hint"
 msgstr ""
@@ -4669,6 +4909,15 @@ msgstr "Phone number"
 msgid "metadata/terms_of_use/contacts/person/contact_points/phones.hint"
 msgstr ""
 
+msgid "metadata/terms_of_use/contacts/person/external_identifier_type.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/external_identifier_type.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/contacts/person/external_identifier_type.hint"
+msgstr ""
+
 msgid "metadata/terms_of_use/contacts/person/external_identifiers.label"
 msgstr "External identifier"
 
@@ -4712,6 +4961,24 @@ msgid "metadata/terms_of_use/description.help"
 msgstr "Descriptive text on details of rights and licensing."
 
 msgid "metadata/terms_of_use/description.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/lang.label"
+msgstr "Language"
+
+msgid "metadata/terms_of_use/description/lang.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/lang.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/value.label"
+msgstr "Text"
+
+msgid "metadata/terms_of_use/description/value.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/description/value.hint"
 msgstr ""
 
 msgid "metadata/terms_of_use/iri.help"
