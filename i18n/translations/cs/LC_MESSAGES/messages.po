@@ -58,10 +58,10 @@ msgid "Search datasets.."
 msgstr "Hledat datové sady.."
 
 msgid "Results per page:"
-msgstr "Výsledky na stránku:"
+msgstr "Počet záznamů na stránce:"
 
 msgid "Sort:"
-msgstr "Řadit:"
+msgstr "Řazení:"
 
 msgid "Results: {{count}}"
 msgid_plural "Results: {{count}}"

@@ -27,7 +27,7 @@
   .dropdown.icon {
     font-size: 15px;
     font-weight: 900;
-    color: #9a9a9a;
+    color: @darkGrey;
     padding-top: @selectionIconPadding - 0.3em;
   }
 
