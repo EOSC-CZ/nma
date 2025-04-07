@@ -1,0 +1,6 @@
+.ui.segment.ui.overlay {
+  background-color: @backgroundColor;
+  .ui.small.basic.button {
+    box-shadow: none;
+  }
+}

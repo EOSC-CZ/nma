@@ -1,82 +1,198 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import _get from "lodash/get";
-import _join from "lodash/join";
-import { Grid, Item, Label } from "semantic-ui-react";
+import { Item, Label, List, Grid } from "semantic-ui-react";
+import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
+import sanitizeHtml from "sanitize-html";
 import { i18next } from "@translations/i18next";
+import { getValueFromMultilingualArray } from "@js/oarepo_ui/util";
+import { IdentifierBadge } from "@js/oarepo_ui/components/IdentifierBadge";
 
-export const ResultsListItem = ({
-    result,
-    ...rest
-}) => {
-    const accessRights = _get(result, "access_status", null);
-    const createdDate = _get(result, "created", "No creation date found.");
-    const languages = _get(result, "metadata.languages", []);
-    const version = _get(result, "metadata.version", null);
-    const title = _get(result, "metadata.title", i18next.t("No title"));
-    return (
-        <Item key={result.id} data-testid="result-item">
-            <Item.Content>
-                <Grid>
-                    <Grid.Row>
-                        <Grid.Column className="results-list item-main">
-                            <div className="justify-space-between flex">
-                                <Item.Header as="h2">
-                                    <a href={result.links.self_html}>{title}</a>
-                                </Item.Header>
-                                <div className="item-access-rights">
-                                    <Label title={result.state_timestamp}>{result.state}</Label>
-                                    {accessRights && accessRights.id !== "open" && (
-                                        <Label title={`${accessRights.description_l10n}`}>
-                                            {accessRights.title_l10n}
-                                        </Label>
-                                    )}
-                                </div>
-                            </div>
-                            <Item.Meta>
-                                <Grid columns={1}>
-                                    <Grid.Column>
-                                    {languages.length > 0 && (
-                                        <Grid.Row className="ui separated">
-                                            <span
-                                            aria-label={i18next.t("Languages")}
-                                            title={i18next.t("Languages")}
-                                            >
-                                            {_join(
-                                                languages.map((l) => l.title),
-                                                ", "
-                                            )}
-                                            </span>
-                                        </Grid.Row>
-                                    )}
-                                    </Grid.Column>
-                                </Grid>
-                            </Item.Meta>
-                            <Item.Extra>
-                                <div>
-                                    <small>
-                                        <p>
-                                            {createdDate && (
-                                                <>
-                                                    {i18next.t("Uploaded on")}{" "}
-                                                    <span>{createdDate}</span>{" "}
-                                                    {version && `(${i18next.t("version")}: ${version})`}
-                                                </>
-                                            )}
-                                        </p>
-                                    </small>
-                                </div>
-                            </Item.Extra>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Item.Content>
-        </Item>
-    );
+const formatName = (person) => {
+  const lastName = person.family_name || "";
+  const givenNames = person.given_names || [];
+
+  if (givenNames.length === 0) {
+    return lastName;
+  }
+
+  const formattedGivenNames = givenNames.join(" ");
+
+  return `${lastName}, ${formattedGivenNames}`;
 };
 
-ResultsListItem.propTypes = {
-    result: PropTypes.object.isRequired,
+const Creatibutor = ({ creatibutor }) => {
+  const isPerson = !!creatibutor.person;
+  const role = creatibutor?.role?.labels?.[0]?.value;
+  const identifiers = isPerson
+    ? creatibutor.person.external_identifiers
+    : creatibutor.organization.external_identifiers;
+  const selectedIdentifier =
+    Array.isArray(identifiers) && identifiers.length > 0
+      ? identifiers.find(
+          (identifier) =>
+            identifier?.scheme?.toLowerCase() === "orcid" ||
+            identifier?.scheme?.toLowerCase() === "ror"
+        ) || identifiers[0]
+      : null;
+  const name = isPerson
+    ? formatName({
+        given_names: creatibutor.person.given_names,
+        family_name: creatibutor.person.family_name,
+      })
+    : creatibutor.organization?.name?.value;
+
+  return (
+    <React.Fragment>
+      {`${name}`}
+      <IdentifierBadge identifier={selectedIdentifier} creatibutorName={name} />
+      {role && `( ${role} )`}
+    </React.Fragment>
+  );
 };
 
-export default ResultsListItem;
+Creatibutor.propTypes = {
+  creatibutor: PropTypes.shape({
+    person: PropTypes.shape({
+      given_names: PropTypes.arrayOf(PropTypes.string),
+      family_name: PropTypes.string,
+      external_identifiers: PropTypes.arrayOf(
+        PropTypes.shape({
+          scheme: PropTypes.string,
+          value: PropTypes.string,
+        })
+      ),
+    }),
+    organization: PropTypes.shape({
+      name: PropTypes.shape({
+        value: PropTypes.string,
+      }),
+      external_identifiers: PropTypes.arrayOf(
+        PropTypes.shape({
+          scheme: PropTypes.string,
+          value: PropTypes.string,
+        })
+      ),
+    }),
+    role: PropTypes.shape({
+      labels: PropTypes.arrayOf(
+        PropTypes.shape({
+          value: PropTypes.string,
+        })
+      ),
+    }),
+  }).isRequired,
+};
+
+const Creatibutors = ({ creatibutors }) => {
+  return (
+    <>
+      {creatibutors.map((creatibutor, index) => (
+        <React.Fragment key={index}>
+          <Creatibutor creatibutor={creatibutor} />
+          {index < creatibutors.length - 1 ? "; " : null}
+        </React.Fragment>
+      ))}
+    </>
+  );
+};
+
+Creatibutors.propTypes = { creatibutors: PropTypes.array.isRequired };
+
+const ResultsListItemComponent = ({ result }) => {
+  const searchAppConfig = useContext(SearchConfigurationContext);
+
+  const { allowedHtmlTags } = searchAppConfig;
+
+  const title = result.metadata?.title || i18next.t("Missing title");
+
+  const abstract =
+    result.metadata?.descriptions?.find((desc) => desc.lang === "en")?.value ||
+    getValueFromMultilingualArray(result.metadata?.descriptions || []);
+  const subjects = result.metadata?.subjects || [];
+  const creatibutors = result.metadata?.qualified_relations;
+  const publicationDate = result.metadata?.publication_year;
+  const language = result.metadata?.primary_language;
+  const originalRepositories =
+    result?.metadata?.is_described_by?.original_repositories?.map(
+      (originalRepository) =>
+        originalRepository.labels.find((label) => label.lang === "en")?.value ||
+        getValueFromMultilingualArray(originalRepository.labels || [])
+    ) || [];
+  return (
+    <Item className="results-list-item-main">
+      <Item.Content>
+        <Grid className="m-0">
+          <Grid.Row columns={2}>
+            <Grid.Column width={13}>
+              <Item.Header as="h2">
+                <a href={result?.links?.self_html}>{title}</a>
+              </Item.Header>
+              <Item.Meta className="rel-mt-1">
+                <Creatibutors creatibutors={creatibutors} />
+                <Label.Group className="rel-mt-1">
+                  {subjects.map((subject, index) => (
+                    <Label key={`${index}.${subject.title.value}`}>
+                      {subject.title.value}
+                    </Label>
+                  ))}
+                </Label.Group>
+              </Item.Meta>
+              {abstract && (
+                <Item.Description
+                  className="rel-mt-1"
+                  dangerouslySetInnerHTML={{
+                    __html: sanitizeHtml(abstract, {
+                      allowedTags: allowedHtmlTags,
+                      allowedAttributes: {},
+                    }),
+                  }}
+                />
+              )}
+              <Item.Extra className="rel-mt-1">
+                <p>
+                  {publicationDate && <span>{publicationDate}</span>}
+                  {originalRepositories?.map((originalRepository, index) => (
+                    <p className="rel-ml-1" key={originalRepository.id}>
+                      <span>{originalRepository}</span>
+                      {index < originalRepositories.length - 1 ? ", " : null}
+                    </p>
+                  ))}
+                  {language && (
+                    <span className="rel-ml-1">{language.toUpperCase()}</span>
+                  )}
+                </p>
+              </Item.Extra>
+            </Grid.Column>
+
+            <Grid.Column width={3}>
+              <List>
+                <List.Item>This section is unclear</List.Item>
+                <List.Item>
+                  <Label>License</Label>
+                </List.Item>
+                <List.Item>
+                  <Label>Počet souborů</Label>
+                </List.Item>
+                <List.Item>
+                  <Label>Verze: {result.metadata?.version}</Label>
+                </List.Item>
+                <List.Item>
+                  <Label>Typ souboru</Label>
+                </List.Item>
+                <List.Item>
+                  <Label>Originál záznam</Label>
+                </List.Item>
+              </List>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Item.Content>
+    </Item>
+  );
+};
+
+ResultsListItemComponent.propTypes = {
+  result: PropTypes.object.isRequired,
+};
+
+export default ResultsListItemComponent;

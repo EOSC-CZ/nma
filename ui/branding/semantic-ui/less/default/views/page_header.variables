@@ -1,4 +1,4 @@
-@pageHeaderBottomBorder: 1px solid @blue;
+@pageHeaderBottomBorder: 1px solid @borderColor;
 @pageHeaderMainNavLinkBgHover: @black;
 @pageHeaderMainNavLinkLargeScreen: @black;
 @pageHeaderTextColor: white;

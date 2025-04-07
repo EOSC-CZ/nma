@@ -1,0 +1,5 @@
+.ui.label.active-filter-label {
+  background-color: @lightPrimaryColor;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+}

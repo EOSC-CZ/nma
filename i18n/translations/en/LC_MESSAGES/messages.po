@@ -1,0 +1,90 @@
+#
+msgid ""
+msgstr ""
+
+#: /home/dusanst/Projects/nma/common/workflows/default.py:360
+msgid "state:draft"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/common/workflows/default.py:361
+msgid "state:published"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/common/workflows/default.py:362
+msgid "state:submitted"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/common/workflows/default.py:363
+msgid "state:retracting"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/common/workflows/default.py:364
+msgid "state:deleted"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/branding/templates/header_frontpage.html:40
+#: /home/dusanst/Projects/nma/ui/branding/templates/header_frontpage.html:41
+#: /home/dusanst/Projects/nma/ui/branding/templates/header_frontpage.html:42
+#: /home/dusanst/Projects/nma/ui/titlepage/templates/TitlePage.jinja:33
+#: /home/dusanst/Projects/nma/ui/titlepage/templates/TitlePage.jinja:34
+msgid "Search"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+msgid "Search results"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+msgid "datasets"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
+#: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
+msgid "Actions"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
+msgid "Edit"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/titlepage/templates/TitlePage.jinja:41
+msgid "Show all records"
+msgstr ""
+
+msgid "Clear all"
+msgstr ""
+
+msgid "Search datasets.."
+msgstr ""
+
+msgid "Results per page:"
+msgstr ""
+
+msgid "Sort:"
+msgstr ""
+
+msgid "Results: {{count}}"
+msgid_plural "Results: {{count}}"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Sort"
+msgstr ""
+
+msgid "No title"
+msgstr ""
+
+msgid "Filter results"
+msgstr ""
+
+msgid ""
+"TIP: Most content is in English language. You will find more results by "
+"using English terminology."
+msgstr ""
+
+msgid "to top"
+msgstr ""
+
+msgid "Missing title"
+msgstr ""
