@@ -65,3 +65,13 @@ vocabulary-access-rights:
       cs: Práva přístupu
       en: Access Rights
   - source: access-rights.yaml
+
+vocabulary-file-types:
+  - writer: vocabulary
+    update: true
+    vocabulary: file-types
+    pid_type: v-ft
+    title:
+      cs: Typ souboru
+      en: File Type
+  - source: file-types.yaml
