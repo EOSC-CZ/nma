@@ -116,12 +116,20 @@ class DatasetsExt:
 
     def init_app_callback_rdm_models(self, app):
         rdm_model_config = {
+            "service_id": "datasets",
+            # deprecated
             "model_service": "datasets.services.records.service.DatasetsService",
+            # deprecated
             "service_config": "datasets.services.records.config.DatasetsServiceConfig",
-            "ui_resource_config": "ui.datasets.DatasetsUIResourceConfig",
+            "api_service": "datasets.services.records.service.DatasetsService",
+            "api_service_config": (
+                "datasets.services.records.config.DatasetsServiceConfig"
+            ),
+            "api_resource": "datasets.resources.records.resource.DatasetsResource",
             "api_resource_config": (
                 "datasets.resources.records.config.DatasetsResourceConfig"
             ),
+            "ui_resource_config": "ui.datasets.DatasetsUIResourceConfig",
         }
 
         app.config.setdefault("GLOBAL_SEARCH_MODELS", [])

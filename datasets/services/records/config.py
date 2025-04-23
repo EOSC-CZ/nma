@@ -1,4 +1,4 @@
-from invenio_rdm_records.services.config import RDMRecordServiceConfig
+from invenio_rdm_records.services.config import RDMRecordServiceConfig, _groups_enabled
 from invenio_records_resources.services import (
     ConditionalLink,
     LinksTemplate,
@@ -55,6 +55,7 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
     record_cls = DatasetsRecord
 
     service_id = "datasets"
+    indexer_queue_name = "datasets"
 
     search_item_links_template = LinksTemplate
     draft_cls = DatasetsDraft
@@ -74,7 +75,18 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
 
     @property
     def links_item(self):
-        return {
+        try:
+            supercls_links = super().links_item
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
+            "access_grants": RecordLink("{+api}/records/{id}/access/grants"),
+            "access_groups": RecordLink(
+                "{+api}/records/{id}/access/groups", when=_groups_enabled
+            ),
+            "access_links": RecordLink("{+api}/records/{id}/access/links"),
+            "access_users": RecordLink("{+api}/records/{id}/access/users"),
             "applicable-requests": ConditionalLink(
                 cond=is_published_record(),
                 if_=RecordLink("{+api}/datasets/{id}/requests/applicable"),
@@ -91,16 +103,17 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
                 when=has_draft() & has_permission("read_draft"),
             ),
             "edit_html": RecordLink(
-                "{+ui}/datasets/{id}/edit", when=has_draft() & has_permission("update")
+                "{+ui}/datasets/{id}/edit",
+                when=has_draft() & has_permission("update_draft"),
             ),
             "files": ConditionalLink(
                 cond=is_published_record(),
                 if_=RecordLink(
-                    "{+api}/datasets/{id}/files", when=has_file_permission("list_files")
+                    "{+api}/datasets/{id}/files", when=has_file_permission("read_files")
                 ),
                 else_=RecordLink(
                     "{+api}/datasets/{id}/draft/files",
-                    when=has_file_permission("list_files"),
+                    when=has_file_permission("read_files"),
                 ),
             ),
             "latest": RecordLink(
@@ -140,10 +153,16 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
                 "{+api}/datasets/{id}/versions", when=has_permission("search_versions")
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search_item(self):
-        return {
+        try:
+            supercls_links = super().links_search_item
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "self": ConditionalLink(
                 cond=is_published_record(),
                 if_=RecordLink("{+api}/datasets/{id}", when=has_permission("read")),
@@ -159,23 +178,42 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
                 ),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search(self):
-        return {
+        try:
+            supercls_links = super().links_search
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             **pagination_links("{+api}/datasets/{?args*}"),
             **pagination_links_html("{+ui}/datasets/{?args*}"),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search_drafts(self):
-        return {
+        try:
+            supercls_links = super().links_search_drafts
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             **pagination_links("{+api}/user/datasets/{?args*}"),
             **pagination_links_html("{+ui}/user/datasets/{?args*}"),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def links_search_versions(self):
-        return {
+        try:
+            supercls_links = super().links_search_versions
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             **pagination_links("{+api}/datasets/{id}/versions{?args*}"),
         }
+        return {k: v for k, v in links.items() if v is not None}

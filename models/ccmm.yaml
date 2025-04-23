@@ -46,6 +46,10 @@ $defs:
         required: true
       type:
         type: keyword
+        enum:
+          - AlternativeTitle
+          - Subtitle
+          - TranslatedTitle
         label.en: Type
         help.en: Type of alternate title.
   application_profile:
@@ -59,6 +63,7 @@ $defs:
         label.en: Label
         help.en: Label of application profile
   contact:
+    # TODO
     properties:
       organization:
         use: ./ccmm.yaml#/$defs/organization
@@ -67,6 +72,7 @@ $defs:
         use: ./ccmm.yaml#/$defs/person
         required: true
   contact_details:
+    # TODO
     properties:
       iri:
         type: keyword
@@ -130,18 +136,19 @@ $defs:
         label.en: Description
         help.en: A free-text account of the Dataset.
         required: true
-      other_languages:
-        type: array
-        items:
-          type: keyword
-        label.en: Other language
-        help.en: The primary language of the resource.
+      other_languages[]:
+        type: vocabulary
+        vocabulary-type: languages
+        ^label.en: Other language
+        ^help.en: The primary language of the resource.
       primary_language:
-        type: keyword
+        type: vocabulary
+        vocabulary-type: languages
         label.en: Other language
         help.en: The primary language of the resource.
       resource_type:
-        type: keyword
+        type: vocabulary
+        vocabulary-type: resource-types
         label.en: Resource type
         help.en: A description of the resource.
       title:
@@ -279,7 +286,8 @@ $defs:
         label.en: Byte size
         help.en: The size of a Distribution in bytes.
       format:
-        type: url
+        type: vocabulary
+        vocabulary-type: file-types
         label.en: Format
         help.en: The file format of the Distribution.
       conforms_to_schemas:
@@ -449,12 +457,11 @@ $defs:
         type: date
         label.en: Date Created
         help.en: The date on which the metadata record was created.
-      languages:
-        type: array
-        items:
-          type: keyword
-        label.en: Language
-        help.en: Language of the metadata record
+      languages[]:
+        type: vocabulary
+        vocabulary-type: languages
+        ^label.en: Language
+        ^help.en: Language of the metadata record
       qualified_relations:
         type: array
         items:
@@ -601,7 +608,8 @@ $defs:
       iri:
         type: keyword
       relation_type:
-        type: keyword
+        type: vocabulary
+        vocabulary-type: relation-types
         label.en: Relation type
         help.en: Type of the relation between Dataset and related resource.
       type:
@@ -630,15 +638,8 @@ $defs:
           use: ./ccmm.yaml#/$defs/time_reference
         label.en: time reference
   resource_agent_role_type:
-    properties:
-      iri:
-        type: keyword
-      labels:
-        type: array
-        items:
-          type: i18nStr
-        label.en: Label
-        help.en: Resource to agent role label
+    type: vocabulary
+    vocabulary-type: contributor-types
   resource_to_agent_relationship:
     properties:
       iri:
@@ -699,12 +700,11 @@ $defs:
         type: keyword
         label.en: License
         help.en: Information about licensing details of the resource.
-      access_rights:
-        type: array
-        items:
-          type: keyword
-        label.en: Access rights
-        help.en:
+      access_rights[]:
+        type: vocabulary
+        vocabulary-type: access-rights
+        ^label.en: Access rights
+        ^help.en:
           Information about who access the resource or an indication of its
           security status.
       contacts:
@@ -722,7 +722,8 @@ $defs:
         label.en: Date information
         help.en: Additional information to the date in text form.
       date_type:
-        type: keyword
+        type: vocabulary
+        vocabulary-type: time-reference-types
         label.en: Date type
         help.en: Type of the date.
       date:

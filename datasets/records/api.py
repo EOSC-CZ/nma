@@ -16,8 +16,10 @@ from invenio_records_resources.records.systemfields.pid import PIDField, PIDFiel
 from oarepo_communities.records.systemfields.communities import (
     OARepoCommunitiesFieldContext,
 )
+from oarepo_runtime.records.relations import PIDRelation, RelationsField
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
+from oarepo_vocabularies.records.api import Vocabulary
 from oarepo_workflows.records.systemfields.state import (
     RecordStateField,
     RecordStateTimestampField,
@@ -78,6 +80,79 @@ class DatasetsRecord(RDMRecord):
         file_cls=RDMMediaFileRecord,
         create=False,
         delete=False,
+    )
+
+    relations = RelationsField(
+        format=PIDRelation(
+            "metadata.distribution_downloadable_files.format",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("file-types"),
+        ),
+        languages=PIDRelation(
+            "metadata.is_described_by.languages",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("languages"),
+        ),
+        role=PIDRelation(
+            "metadata.locations.related_object_identifiers.qualified_relations.role",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        relation_type=PIDRelation(
+            "metadata.locations.related_object_identifiers.relation_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("relation-types"),
+        ),
+        date_type=PIDRelation(
+            "metadata.locations.related_object_identifiers.time_references.date_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
+        ),
+        other_languages=PIDRelation(
+            "metadata.other_languages",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("languages"),
+        ),
+        primary_language=PIDRelation(
+            "metadata.primary_language",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("languages"),
+        ),
+        qualified_relations_role=PIDRelation(
+            "metadata.qualified_relations.role",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        related_resources_qualified_relations_role=PIDRelation(
+            "metadata.related_resources.qualified_relations.role",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        related_resources_relation_type=PIDRelation(
+            "metadata.related_resources.relation_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("relation-types"),
+        ),
+        time_references_date_type=PIDRelation(
+            "metadata.related_resources.time_references.date_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
+        ),
+        resource_type=PIDRelation(
+            "metadata.resource_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
+        access_rights=PIDRelation(
+            "metadata.terms_of_use.access_rights",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("access-rights"),
+        ),
+        metadata_time_references_date_type=PIDRelation(
+            "metadata.time_references.date_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
+        ),
     )
 
     versions_model_cls = DatasetsParentState
@@ -141,6 +216,79 @@ class DatasetsDraft(RDMDraft):
         file_cls=RDMMediaFileDraft,
         create=False,
         delete=False,
+    )
+
+    relations = RelationsField(
+        format=PIDRelation(
+            "metadata.distribution_downloadable_files.format",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("file-types"),
+        ),
+        languages=PIDRelation(
+            "metadata.is_described_by.languages",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("languages"),
+        ),
+        role=PIDRelation(
+            "metadata.locations.related_object_identifiers.qualified_relations.role",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        relation_type=PIDRelation(
+            "metadata.locations.related_object_identifiers.relation_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("relation-types"),
+        ),
+        date_type=PIDRelation(
+            "metadata.locations.related_object_identifiers.time_references.date_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
+        ),
+        other_languages=PIDRelation(
+            "metadata.other_languages",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("languages"),
+        ),
+        primary_language=PIDRelation(
+            "metadata.primary_language",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("languages"),
+        ),
+        qualified_relations_role=PIDRelation(
+            "metadata.qualified_relations.role",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        related_resources_qualified_relations_role=PIDRelation(
+            "metadata.related_resources.qualified_relations.role",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        related_resources_relation_type=PIDRelation(
+            "metadata.related_resources.relation_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("relation-types"),
+        ),
+        time_references_date_type=PIDRelation(
+            "metadata.related_resources.time_references.date_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
+        ),
+        resource_type=PIDRelation(
+            "metadata.resource_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
+        access_rights=PIDRelation(
+            "metadata.terms_of_use.access_rights",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("access-rights"),
+        ),
+        metadata_time_references_date_type=PIDRelation(
+            "metadata.time_references.date_type",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
+        ),
     )
 
     versions_model_cls = DatasetsParentState

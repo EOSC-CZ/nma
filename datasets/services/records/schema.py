@@ -2,10 +2,12 @@ import marshmallow as ma
 from invenio_rdm_records.services.schemas.access import AccessSchema
 from invenio_rdm_records.services.schemas.pids import PIDSchema
 from invenio_rdm_records.services.schemas.record import validate_scheme
+from invenio_vocabularies.services.schema import i18n_strings
 from marshmallow import Schema
 from marshmallow import fields as ma_fields
-from marshmallow.fields import Dict, Nested
+from marshmallow.fields import Dict, Nested, String
 from marshmallow.utils import get_value
+from marshmallow.validate import OneOf
 from marshmallow_utils.fields import SanitizedUnicode
 from marshmallow_utils.fields.nestedattr import NestedAttribute
 from oarepo_communities.schemas.parent import CommunitiesParentSchema
@@ -15,10 +17,10 @@ from oarepo_runtime.services.schema.marshmallow import (
     RDMBaseRecordSchema,
 )
 from oarepo_runtime.services.schema.validation import validate_date, validate_datetime
-from oarepo_workflows.services.records.schema import WorkflowParentSchema
+from oarepo_workflows.services.records.schema import RDMWorkflowParentSchema
 
 
-class GeneratedParentSchema(WorkflowParentSchema):
+class GeneratedParentSchema(RDMWorkflowParentSchema):
     """"""
 
     owners = ma.fields.List(ma.fields.Dict(), load_only=True)
@@ -97,23 +99,25 @@ class DatasetsMetadataSchema(Schema):
 
     locations = ma_fields.List(ma_fields.Nested(lambda: LocationsItemSchema()))
 
-    other_languages = ma_fields.List(ma_fields.String())
+    other_languages = ma_fields.List(ma_fields.Nested(lambda: FormatSchema()))
 
-    primary_language = ma_fields.String()
+    primary_language = ma_fields.Nested(lambda: FormatSchema())
 
     provenances = ma_fields.List(ma_fields.Nested(lambda: DocumentationsItemSchema()))
 
     publication_year = ma_fields.Integer()
 
     qualified_relations = ma_fields.List(
-        ma_fields.Nested(lambda: QualifiedRelationsItemSchema())
+        ma_fields.Nested(
+            lambda: RelatedObjectIdentifiersItemQualifiedRelationsItemSchema()
+        )
     )
 
     related_resources = ma_fields.List(
         ma_fields.Nested(lambda: RelatedObjectIdentifiersItemSchema())
     )
 
-    resource_type = ma_fields.String()
+    resource_type = ma_fields.Nested(lambda: FormatSchema())
 
     subjects = ma_fields.List(ma_fields.Nested(lambda: SubjectsItemSchema()))
 
@@ -167,7 +171,7 @@ class IsDescribedByItemSchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    languages = ma_fields.List(ma_fields.String())
+    languages = ma_fields.List(ma_fields.Nested(lambda: FormatSchema()))
 
     original_repositories = ma_fields.List(
         ma_fields.Nested(lambda: DocumentationsItemSchema())
@@ -187,10 +191,12 @@ class RelatedObjectIdentifiersItemSchema(DictOnlySchema):
     iri = ma_fields.String()
 
     qualified_relations = ma_fields.List(
-        ma_fields.Nested(lambda: QualifiedRelationsItemSchema())
+        ma_fields.Nested(
+            lambda: RelatedObjectIdentifiersItemQualifiedRelationsItemSchema()
+        )
     )
 
-    relation_type = ma_fields.String()
+    relation_type = ma_fields.Nested(lambda: FormatSchema())
 
     time_references = ma_fields.List(
         ma_fields.Nested(lambda: TimeReferencesItemSchema())
@@ -205,7 +211,7 @@ class TermsOfUseItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    access_rights = ma_fields.List(ma_fields.String())
+    access_rights = ma_fields.List(ma_fields.Nested(lambda: FormatSchema()))
 
     contacts = ma_fields.List(ma_fields.Nested(lambda: ContactsItemSchema()))
 
@@ -236,6 +242,19 @@ class QualifiedRelationsItemSchema(DictOnlySchema):
     person = ma_fields.Nested(lambda: PersonSchema(), required=True)
 
     role = ma_fields.Nested(lambda: DocumentationsItemSchema(), required=True)
+
+
+class RelatedObjectIdentifiersItemQualifiedRelationsItemSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    iri = ma_fields.String()
+
+    organization = ma_fields.Nested(lambda: OrganizationSchema(), required=True)
+
+    person = ma_fields.Nested(lambda: PersonSchema(), required=True)
+
+    role = ma_fields.Nested(lambda: FormatSchema(), required=True)
 
 
 class PersonSchema(DictOnlySchema):
@@ -328,7 +347,7 @@ class DistributionDownloadableFilesItemSchema(DictOnlySchema):
 
     download_urls = ma_fields.List(ma_fields.String())
 
-    format = ma_fields.String()
+    format = ma_fields.Nested(lambda: FormatSchema())
 
     iri = ma_fields.String()
 
@@ -367,6 +386,19 @@ class SubjectsItemSchema(DictOnlySchema):
     title = I18nStrField(required=True)
 
 
+class TimeReferencesItemSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    date = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
+
+    date_information = ma_fields.String()
+
+    date_type = ma_fields.Nested(lambda: FormatSchema())
+
+    iri = ma_fields.String()
+
+
 class AccessServicesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -386,7 +418,9 @@ class AlternateTitlesItemSchema(DictOnlySchema):
 
     title = I18nStrField(required=True)
 
-    type = ma_fields.String()
+    type = ma_fields.String(
+        validate=[OneOf(["AlternativeTitle", "Subtitle", "TranslatedTitle"])]
+    )
 
 
 class BboxSchema(DictOnlySchema):
@@ -409,6 +443,17 @@ class DocumentationsItemSchema(DictOnlySchema):
     iri = ma_fields.String()
 
     labels = ma_fields.List(I18nStrField())
+
+
+class FormatSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.INCLUDE
+
+    _id = String(data_key="id", attribute="id")
+
+    _version = String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
 
 
 class FundersItemSchema(DictOnlySchema):
@@ -435,19 +480,6 @@ class IdentifiersItemSchema(DictOnlySchema):
     iri = ma_fields.String()
 
     value = ma_fields.String(required=True)
-
-
-class TimeReferencesItemSchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    date = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
-
-    date_information = ma_fields.String()
-
-    date_type = ma_fields.String()
-
-    iri = ma_fields.String()
 
 
 class FilesOptionsSchema(ma.Schema):

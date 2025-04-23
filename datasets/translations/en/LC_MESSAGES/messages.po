@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-03-29T11:34:04.717453\n"
-"PO-Revision-Date: 2025-03-29T11:34:04.717465\n"
+"POT-Creation-Date: 2025-04-23T16:21:46.634803\n"
+"PO-Revision-Date: 2025-04-23T16:21:46.634818\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -195,6 +195,15 @@ msgid "metadata/alternate_titles/type.help"
 msgstr "Type of alternate title."
 
 msgid "metadata/alternate_titles/type.hint"
+msgstr ""
+
+msgid "metadata/alternate_titles/type.enum.AlternativeTitle"
+msgstr ""
+
+msgid "metadata/alternate_titles/type.enum.Subtitle"
+msgstr ""
+
+msgid "metadata/alternate_titles/type.enum.TranslatedTitle"
 msgstr ""
 
 msgid "metadata/descriptions.label"
@@ -534,6 +543,33 @@ msgstr "The file format of the Distribution."
 msgid "metadata/distribution_downloadable_files/format.hint"
 msgstr ""
 
+msgid "metadata/distribution_downloadable_files/format/id.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/id.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/id.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/title.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/title.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/title.hint"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/@v.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/@v.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/@v.hint"
+msgstr ""
+
 msgid "metadata/distribution_downloadable_files/iri.help"
 msgstr ""
 
@@ -829,6 +865,33 @@ msgid "metadata/is_described_by/languages.help"
 msgstr "Language of the metadata record"
 
 msgid "metadata/is_described_by/languages.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/id.help"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/id.label"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/id.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/title.help"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/title.label"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/title.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/@v.help"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/@v.label"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/@v.hint"
 msgstr ""
 
 msgid "metadata/is_described_by/original_repositories.label"
@@ -2495,51 +2558,39 @@ msgid ""
 msgstr ""
 
 msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/iri.help"
+"metadata/locations/related_object_identifiers/qualified_relations/role/id.help"
 msgstr ""
 
 msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/iri.label"
+"metadata/locations/related_object_identifiers/qualified_relations/role/id.label"
 msgstr ""
 
 msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/iri.hint"
+"metadata/locations/related_object_identifiers/qualified_relations/role/id.hint"
 msgstr ""
 
 msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/labels.label"
-msgstr "Label"
-
-msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/labels.help"
-msgstr "Resource to agent role label"
-
-msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/labels.hint"
+"metadata/locations/related_object_identifiers/qualified_relations/role/title.help"
 msgstr ""
 
 msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.label"
-msgstr "Language"
-
-msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.help"
+"metadata/locations/related_object_identifiers/qualified_relations/role/title.label"
 msgstr ""
 
 msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.hint"
+"metadata/locations/related_object_identifiers/qualified_relations/role/title.hint"
 msgstr ""
 
 msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/labels/value.label"
-msgstr "Text"
-
-msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/labels/value.help"
+"metadata/locations/related_object_identifiers/qualified_relations/role/@v.help"
 msgstr ""
 
 msgid ""
-"metadata/locations/related_object_identifiers/qualified_relations/role/labels/value.hint"
+"metadata/locations/related_object_identifiers/qualified_relations/role/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/@v.hint"
 msgstr ""
 
 msgid "metadata/locations/related_object_identifiers/relation_type.label"
@@ -2549,6 +2600,34 @@ msgid "metadata/locations/related_object_identifiers/relation_type.help"
 msgstr "Type of the relation between Dataset and related resource."
 
 msgid "metadata/locations/related_object_identifiers/relation_type.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/id.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/id.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/id.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/title.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/relation_type/title.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/title.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/@v.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/@v.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/@v.hint"
 msgstr ""
 
 msgid "metadata/locations/related_object_identifiers/time_references.label"
@@ -2598,6 +2677,42 @@ msgid ""
 "metadata/locations/related_object_identifiers/time_references/date_type.hint"
 msgstr ""
 
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/id.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/id.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/id.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/title.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/title.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/title.hint"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/@v.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/@v.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/@v.hint"
+msgstr ""
+
 msgid "metadata/locations/related_object_identifiers/time_references/iri.help"
 msgstr ""
 
@@ -2638,6 +2753,33 @@ msgstr "The primary language of the resource."
 msgid "metadata/other_languages.hint"
 msgstr ""
 
+msgid "metadata/other_languages/id.help"
+msgstr ""
+
+msgid "metadata/other_languages/id.label"
+msgstr ""
+
+msgid "metadata/other_languages/id.hint"
+msgstr ""
+
+msgid "metadata/other_languages/title.help"
+msgstr ""
+
+msgid "metadata/other_languages/title.label"
+msgstr ""
+
+msgid "metadata/other_languages/title.hint"
+msgstr ""
+
+msgid "metadata/other_languages/@v.help"
+msgstr ""
+
+msgid "metadata/other_languages/@v.label"
+msgstr ""
+
+msgid "metadata/other_languages/@v.hint"
+msgstr ""
+
 msgid "metadata/primary_language.label"
 msgstr "Other language"
 
@@ -2645,6 +2787,33 @@ msgid "metadata/primary_language.help"
 msgstr "The primary language of the resource."
 
 msgid "metadata/primary_language.hint"
+msgstr ""
+
+msgid "metadata/primary_language/id.help"
+msgstr ""
+
+msgid "metadata/primary_language/id.label"
+msgstr ""
+
+msgid "metadata/primary_language/id.hint"
+msgstr ""
+
+msgid "metadata/primary_language/title.help"
+msgstr ""
+
+msgid "metadata/primary_language/title.label"
+msgstr ""
+
+msgid "metadata/primary_language/title.hint"
+msgstr ""
+
+msgid "metadata/primary_language/@v.help"
+msgstr ""
+
+msgid "metadata/primary_language/@v.label"
+msgstr ""
+
+msgid "metadata/primary_language/@v.hint"
 msgstr ""
 
 msgid "metadata/provenances.label"
@@ -3309,40 +3478,31 @@ msgstr ""
 msgid "metadata/qualified_relations/role.hint"
 msgstr ""
 
-msgid "metadata/qualified_relations/role/iri.help"
+msgid "metadata/qualified_relations/role/id.help"
 msgstr ""
 
-msgid "metadata/qualified_relations/role/iri.label"
+msgid "metadata/qualified_relations/role/id.label"
 msgstr ""
 
-msgid "metadata/qualified_relations/role/iri.hint"
+msgid "metadata/qualified_relations/role/id.hint"
 msgstr ""
 
-msgid "metadata/qualified_relations/role/labels.label"
-msgstr "Label"
-
-msgid "metadata/qualified_relations/role/labels.help"
-msgstr "Resource to agent role label"
-
-msgid "metadata/qualified_relations/role/labels.hint"
+msgid "metadata/qualified_relations/role/title.help"
 msgstr ""
 
-msgid "metadata/qualified_relations/role/labels/lang.label"
-msgstr "Language"
-
-msgid "metadata/qualified_relations/role/labels/lang.help"
+msgid "metadata/qualified_relations/role/title.label"
 msgstr ""
 
-msgid "metadata/qualified_relations/role/labels/lang.hint"
+msgid "metadata/qualified_relations/role/title.hint"
 msgstr ""
 
-msgid "metadata/qualified_relations/role/labels/value.label"
-msgstr "Text"
-
-msgid "metadata/qualified_relations/role/labels/value.help"
+msgid "metadata/qualified_relations/role/@v.help"
 msgstr ""
 
-msgid "metadata/qualified_relations/role/labels/value.hint"
+msgid "metadata/qualified_relations/role/@v.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/@v.hint"
 msgstr ""
 
 msgid "metadata/related_resources.label"
@@ -4087,40 +4247,31 @@ msgstr ""
 msgid "metadata/related_resources/qualified_relations/role.hint"
 msgstr ""
 
-msgid "metadata/related_resources/qualified_relations/role/iri.help"
+msgid "metadata/related_resources/qualified_relations/role/id.help"
 msgstr ""
 
-msgid "metadata/related_resources/qualified_relations/role/iri.label"
+msgid "metadata/related_resources/qualified_relations/role/id.label"
 msgstr ""
 
-msgid "metadata/related_resources/qualified_relations/role/iri.hint"
+msgid "metadata/related_resources/qualified_relations/role/id.hint"
 msgstr ""
 
-msgid "metadata/related_resources/qualified_relations/role/labels.label"
-msgstr "Label"
-
-msgid "metadata/related_resources/qualified_relations/role/labels.help"
-msgstr "Resource to agent role label"
-
-msgid "metadata/related_resources/qualified_relations/role/labels.hint"
+msgid "metadata/related_resources/qualified_relations/role/title.help"
 msgstr ""
 
-msgid "metadata/related_resources/qualified_relations/role/labels/lang.label"
-msgstr "Language"
-
-msgid "metadata/related_resources/qualified_relations/role/labels/lang.help"
+msgid "metadata/related_resources/qualified_relations/role/title.label"
 msgstr ""
 
-msgid "metadata/related_resources/qualified_relations/role/labels/lang.hint"
+msgid "metadata/related_resources/qualified_relations/role/title.hint"
 msgstr ""
 
-msgid "metadata/related_resources/qualified_relations/role/labels/value.label"
-msgstr "Text"
-
-msgid "metadata/related_resources/qualified_relations/role/labels/value.help"
+msgid "metadata/related_resources/qualified_relations/role/@v.help"
 msgstr ""
 
-msgid "metadata/related_resources/qualified_relations/role/labels/value.hint"
+msgid "metadata/related_resources/qualified_relations/role/@v.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/@v.hint"
 msgstr ""
 
 msgid "metadata/related_resources/relation_type.label"
@@ -4130,6 +4281,33 @@ msgid "metadata/related_resources/relation_type.help"
 msgstr "Type of the relation between Dataset and related resource."
 
 msgid "metadata/related_resources/relation_type.hint"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/id.help"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/id.label"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/id.hint"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/title.help"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/title.label"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/title.hint"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/@v.help"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/@v.label"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/@v.hint"
 msgstr ""
 
 msgid "metadata/related_resources/time_references.label"
@@ -4170,6 +4348,33 @@ msgstr "Type of the date."
 msgid "metadata/related_resources/time_references/date_type.hint"
 msgstr ""
 
+msgid "metadata/related_resources/time_references/date_type/id.help"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/id.label"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/id.hint"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/title.help"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/title.label"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/title.hint"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/@v.help"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/@v.label"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/@v.hint"
+msgstr ""
+
 msgid "metadata/related_resources/time_references/iri.help"
 msgstr ""
 
@@ -4207,6 +4412,33 @@ msgid "metadata/resource_type.help"
 msgstr "A description of the resource."
 
 msgid "metadata/resource_type.hint"
+msgstr ""
+
+msgid "metadata/resource_type/id.help"
+msgstr ""
+
+msgid "metadata/resource_type/id.label"
+msgstr ""
+
+msgid "metadata/resource_type/id.hint"
+msgstr ""
+
+msgid "metadata/resource_type/title.help"
+msgstr ""
+
+msgid "metadata/resource_type/title.label"
+msgstr ""
+
+msgid "metadata/resource_type/title.hint"
+msgstr ""
+
+msgid "metadata/resource_type/@v.help"
+msgstr ""
+
+msgid "metadata/resource_type/@v.label"
+msgstr ""
+
+msgid "metadata/resource_type/@v.hint"
 msgstr ""
 
 msgid "metadata/subjects.label"
@@ -4354,6 +4586,33 @@ msgstr ""
 "status."
 
 msgid "metadata/terms_of_use/access_rights.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/id.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/id.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/id.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/title.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/title.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/title.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/@v.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/@v.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/@v.hint"
 msgstr ""
 
 msgid "metadata/terms_of_use/contacts.label"
@@ -5035,6 +5294,33 @@ msgid "metadata/time_references/date_type.help"
 msgstr "Type of the date."
 
 msgid "metadata/time_references/date_type.hint"
+msgstr ""
+
+msgid "metadata/time_references/date_type/id.help"
+msgstr ""
+
+msgid "metadata/time_references/date_type/id.label"
+msgstr ""
+
+msgid "metadata/time_references/date_type/id.hint"
+msgstr ""
+
+msgid "metadata/time_references/date_type/title.help"
+msgstr ""
+
+msgid "metadata/time_references/date_type/title.label"
+msgstr ""
+
+msgid "metadata/time_references/date_type/title.hint"
+msgstr ""
+
+msgid "metadata/time_references/date_type/@v.help"
+msgstr ""
+
+msgid "metadata/time_references/date_type/@v.label"
+msgstr ""
+
+msgid "metadata/time_references/date_type/@v.hint"
 msgstr ""
 
 msgid "metadata/time_references/iri.help"

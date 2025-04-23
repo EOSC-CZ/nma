@@ -1,6 +1,8 @@
 import marshmallow as ma
 from marshmallow import Schema
 from marshmallow import fields as ma_fields
+from marshmallow.fields import String
+from marshmallow.validate import OneOf
 from oarepo_requests.services.ui_schema import UIRequestsSerializationMixin
 from oarepo_runtime.services.schema.i18n_ui import I18nStrUIField
 from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
@@ -9,6 +11,7 @@ from oarepo_runtime.services.schema.ui import (
     LocalizedDate,
     LocalizedDateTime,
 )
+from oarepo_vocabularies.services.ui_schema import VocabularyI18nStrUIField
 
 
 class DatasetsUISchema(UIRequestsSerializationMixin, InvenioRDMUISchema):
@@ -64,23 +67,25 @@ class DatasetsMetadataUISchema(Schema):
 
     locations = ma_fields.List(ma_fields.Nested(lambda: LocationsItemUISchema()))
 
-    other_languages = ma_fields.List(ma_fields.String())
+    other_languages = ma_fields.List(ma_fields.Nested(lambda: FormatUISchema()))
 
-    primary_language = ma_fields.String()
+    primary_language = ma_fields.Nested(lambda: FormatUISchema())
 
     provenances = ma_fields.List(ma_fields.Nested(lambda: DocumentationsItemUISchema()))
 
     publication_year = ma_fields.Integer()
 
     qualified_relations = ma_fields.List(
-        ma_fields.Nested(lambda: QualifiedRelationsItemUISchema())
+        ma_fields.Nested(
+            lambda: RelatedObjectIdentifiersItemQualifiedRelationsItemUISchema()
+        )
     )
 
     related_resources = ma_fields.List(
         ma_fields.Nested(lambda: RelatedObjectIdentifiersItemUISchema())
     )
 
-    resource_type = ma_fields.String()
+    resource_type = ma_fields.Nested(lambda: FormatUISchema())
 
     subjects = ma_fields.List(ma_fields.Nested(lambda: SubjectsItemUISchema()))
 
@@ -132,7 +137,7 @@ class IsDescribedByItemUISchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    languages = ma_fields.List(ma_fields.String())
+    languages = ma_fields.List(ma_fields.Nested(lambda: FormatUISchema()))
 
     original_repositories = ma_fields.List(
         ma_fields.Nested(lambda: DocumentationsItemUISchema())
@@ -152,10 +157,12 @@ class RelatedObjectIdentifiersItemUISchema(DictOnlySchema):
     iri = ma_fields.String()
 
     qualified_relations = ma_fields.List(
-        ma_fields.Nested(lambda: QualifiedRelationsItemUISchema())
+        ma_fields.Nested(
+            lambda: RelatedObjectIdentifiersItemQualifiedRelationsItemUISchema()
+        )
     )
 
-    relation_type = ma_fields.String()
+    relation_type = ma_fields.Nested(lambda: FormatUISchema())
 
     time_references = ma_fields.List(
         ma_fields.Nested(lambda: TimeReferencesItemUISchema())
@@ -170,7 +177,7 @@ class TermsOfUseItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    access_rights = ma_fields.List(ma_fields.String())
+    access_rights = ma_fields.List(ma_fields.Nested(lambda: FormatUISchema()))
 
     contacts = ma_fields.List(ma_fields.Nested(lambda: ContactsItemUISchema()))
 
@@ -201,6 +208,19 @@ class QualifiedRelationsItemUISchema(DictOnlySchema):
     person = ma_fields.Nested(lambda: PersonUISchema(), required=True)
 
     role = ma_fields.Nested(lambda: DocumentationsItemUISchema(), required=True)
+
+
+class RelatedObjectIdentifiersItemQualifiedRelationsItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    iri = ma_fields.String()
+
+    organization = ma_fields.Nested(lambda: OrganizationUISchema(), required=True)
+
+    person = ma_fields.Nested(lambda: PersonUISchema(), required=True)
+
+    role = ma_fields.Nested(lambda: FormatUISchema(), required=True)
 
 
 class PersonUISchema(DictOnlySchema):
@@ -297,7 +317,7 @@ class DistributionDownloadableFilesItemUISchema(DictOnlySchema):
 
     download_urls = ma_fields.List(ma_fields.String())
 
-    format = ma_fields.String()
+    format = ma_fields.Nested(lambda: FormatUISchema())
 
     iri = ma_fields.String()
 
@@ -336,6 +356,19 @@ class SubjectsItemUISchema(DictOnlySchema):
     title = I18nStrUIField(required=True)
 
 
+class TimeReferencesItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    date = LocalizedDate()
+
+    date_information = ma_fields.String()
+
+    date_type = ma_fields.Nested(lambda: FormatUISchema())
+
+    iri = ma_fields.String()
+
+
 class AccessServicesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -355,7 +388,9 @@ class AlternateTitlesItemUISchema(DictOnlySchema):
 
     title = I18nStrUIField(required=True)
 
-    type = ma_fields.String()
+    type = ma_fields.String(
+        validate=[OneOf(["AlternativeTitle", "Subtitle", "TranslatedTitle"])]
+    )
 
 
 class BboxUISchema(DictOnlySchema):
@@ -378,6 +413,17 @@ class DocumentationsItemUISchema(DictOnlySchema):
     iri = ma_fields.String()
 
     labels = ma_fields.List(I18nStrUIField())
+
+
+class FormatUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.INCLUDE
+
+    _id = String(data_key="id", attribute="id")
+
+    _version = String(data_key="@v", attribute="@v")
+
+    title = VocabularyI18nStrUIField()
 
 
 class FundersItemUISchema(DictOnlySchema):
@@ -404,16 +450,3 @@ class IdentifiersItemUISchema(DictOnlySchema):
     iri = ma_fields.String()
 
     value = ma_fields.String(required=True)
-
-
-class TimeReferencesItemUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    date = LocalizedDate()
-
-    date_information = ma_fields.String()
-
-    date_type = ma_fields.String()
-
-    iri = ma_fields.String()
