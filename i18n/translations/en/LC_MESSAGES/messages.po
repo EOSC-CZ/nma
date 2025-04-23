@@ -88,3 +88,20 @@ msgstr ""
 
 msgid "Missing title"
 msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/branding/templates/header.html:27
+msgid "Menu"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/branding/templates/header.html:46
+msgid "Close menu"
+msgstr ""
+
+msgid "Cancel all"
+msgstr ""
+
+msgid "(show less)"
+msgstr ""
+
+msgid "(show more)"
+msgstr ""
