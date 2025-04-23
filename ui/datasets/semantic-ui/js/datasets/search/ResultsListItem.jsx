@@ -129,7 +129,7 @@ const ResultsListItemComponent = ({ result }) => {
   const truncatedAbstract = abstract
     ? showEntireAbstract
       ? abstract
-      : _truncate(abstract, { length: 500, separator: /,?\.* +/ })
+      : _truncate(abstract, { length: 500 })
     : "";
 
   return (
