@@ -1,0 +1,548 @@
+hint:
+  cs: Označuje, že A je verzí B. Registrovaný zdroj je instancí cílového zdroje (indikuje,
+    že A je instance B). Může být použito např. k propojení konkrétní verze softwarového
+    balíčku s jeho úložištěm kódu.
+  en: Indicates A is a version of B. The registered resource is an instance of a target
+    resource (indicates that A is an instance of B). It may be used, e.g., to relate
+    a specific version of a software package to its software code repository.
+id: IsVersionOf
+props:
+  dataCiteCode: IsVersionOf
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isversionof
+  pair: HasVersion
+title:
+  cs: je verzí
+  en: is version of
+---
+hint:
+  cs: Označuje, že A má verzi B. Registrovaný zdroj jako softwarový balíček nebo úložiště
+    kódu má verzovanou instanci (indikuje, že A má instanci B). Může být použito např.
+    k propojení neverzovaného úložiště kódu s jednou z jeho konkrétních softwarových
+    verzí.
+  en: Indicates A has a version B. The registered resource such as a software package
+    or code repository has a versioned instance (indicates A has the instance B).
+    It may be used, e.g., to relate an un-versioned code repository to one of its
+    specific software versions.
+id: HasVersion
+props:
+  dataCiteCode: HasVersion
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#hasversion
+  pair: IsVersionOf
+title:
+  cs: má verzi
+  en: has version
+---
+hint:
+  cs: Označuje, že A je částí B; může být použito pro prvky série. Primárně se tento
+    vztah aplikuje na vztahy typu kontejner-obsah. Může být použit pro jednotlivé
+    softwarové moduly; poznamenejte, že vztahy mezi úložištěm kódu a verzemi by měly
+    být modelovány pomocí IsVersionOf a HasVersion.
+  en: Indicates A is a portion of B; may be used for elements of a series. Primarily
+    this relation is applied to container-contained type relationships. May be used
+    for individual software modules; note that code repository-to-version relationships
+    should be modeled using IsVersionOf and HasVersion.
+id: IsPartOf
+props:
+  dataCiteCode: IsPartOf
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#ispartof
+  pair: HasPart
+title:
+  cs: je součástí
+  en: is part of
+---
+hint:
+  cs: Označuje, že A obsahuje část B. Primárně se tento vztah aplikuje na vztahy typu
+    kontejner-obsah. Může být použit pro jednotlivé softwarové moduly; poznamenejte,
+    že vztahy mezi úložištěm kódu a verzemi by měly být modelovány pomocí IsVersionOf
+    a HasVersion.
+  en: Indicates A includes the part B. Primarily this relation is applied to container-contained
+    type relationships. May be used for individual software modules; note that code
+    repository-to-version relationships should be modeled using IsVersionOf and HasVersion.
+id: HasPart
+props:
+  dataCiteCode: HasPart
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#haspart
+  pair: IsPartOf
+title:
+  cs: má část/i
+  en: has part
+---
+hint:
+  cs: Označuje, že A je recenzováno B.
+  en: Indicates that A is reviewed by B.
+id: IsReviewedBy
+props:
+  dataCiteCode: IsReviewedBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isreviewedby
+  pair: Reviews
+title:
+  cs: je recenzován (čím)
+  en: is reviewed by
+---
+hint:
+  cs: Označuje, že A je recenzí B.
+  en: Indicates that A is a review of B.
+id: Reviews
+props:
+  dataCiteCode: Reviews
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#reviews
+  pair: IsReviewedBy
+title:
+  cs: recenzuje (co)
+  en: reviews
+---
+hint:
+  cs: Označuje, že B je použito ke kompilaci nebo vytvoření A. Může být použito jak
+    pro tradiční kompilaci textu, tak pro kompilační program používaný k vytváření
+    spustitelného softwaru.
+  en: Indicates B is used to compile or create A. May be used to indicate either a
+    traditional text compilation, or the compiler program used to generate executable
+    software.
+id: IsCompiledBy
+props:
+  dataCiteCode: IsCompiledBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#iscompiledby
+  pair: Compiles
+title:
+  cs: kompilován (čím)
+  en: is compiled by
+---
+hint:
+  cs: Označuje, že B je výsledkem kompilační nebo tvůrčí události používající A. Může
+    být použito pro software i text, protože kompilátor může být počítačový program
+    nebo osoba.
+  en: Indicates B is the result of a compile or creation event using A. May be used
+    for software and text, as a compiler can be a computer program or a person.
+id: Compiles
+props:
+  dataCiteCode: Compiles
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#compiles
+  pair: IsCompiledBy
+title:
+  cs: kompiluje (co)
+  en: compiles
+---
+hint:
+  cs: Označuje, že A je použito jako zdroj informací B. IsReferencedBy a References
+    se používají, když je dataset/publikace použita jako zdroj informací bez přímé
+    citace.
+  en: Indicates A is used as a source of information by B. IsReferencedBy a References
+    is for when a dataset/publication is used as a source of information without a
+    direct citation
+id: IsReferencedBy
+props:
+  dataCiteCode: IsReferencedBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isreferencedby
+  pair: References
+title:
+  cs: je na něj odkazováno z (čeho)
+  en: is referenced by
+---
+hint:
+  cs: Označuje, že B je použito jako zdroj informací pro A. IsReferencedBy a References
+    se používají, když je dataset/publikace použita jako zdroj informací bez přímé
+    citace.
+  en: Indicates B is used as a source of information for A. IsReferencedBy a References
+    is for when a dataset/publication is used as a source of information without a
+    direct citation
+id: References
+props:
+  dataCiteCode: References
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#references
+  pair: IsReferencedBy
+title:
+  cs: odkazuje (na co)
+  en: references
+---
+hint:
+  cs: Označuje, že B obsahuje A v citaci. Cites a IsCitedBy jsou specificky pro případy,
+    kdy publikace/dataset přímo cituje jinou publikaci/dataset ve svých referencích.
+  en: Indicates that B includes A in a citation. Cites and IsCitedBy is specifically
+    for when a publication/dataset directly cites another publication/dataset in its
+    references.
+id: IsCitedBy
+props:
+  dataCiteCode: IsCitedBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#iscitedby
+  pair: Cites
+title:
+  cs: je citován (čím)
+  en: is cited by
+---
+hint:
+  cs: Označuje, že A obsahuje B v citaci. Cites a IsCitedBy jsou specificky pro případy,
+    kdy publikace/dataset přímo cituje jinou publikaci/dataset ve svých referencích.
+  en: Indicates that A includes B in a citation. Cites and IsCitedBy is specifically
+    for when a publication/dataset directly cites another publication/dataset in its
+    references
+id: Cites
+props:
+  dataCiteCode: Cites
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#cites
+  pair: IsCitedBy
+title:
+  cs: cituje (co)
+  en: cites
+---
+hint:
+  cs: Označuje, že A je doplňkem k B. Použijte k označení vztahu k dílu, ke kterému
+    je zdroj doplňkem.
+  en: Indicates that A is a supplement to B. Use to indicate the relation to the work
+    to which the resource is a supplement.
+id: IsSupplementTo
+props:
+  dataCiteCode: IsSupplementTo
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#issupplementto
+  pair: IsSupplementedBy
+title:
+  cs: je doplňkem k (čemu)
+  en: is supplement to
+---
+hint:
+  cs: Označuje, že B je doplňkem A. Použijte k označení vztahu k dílům, která jsou
+    doplňky zdroje.
+  en: Indicates that B is a supplement to A. Use to indicate the relation to the work(s)
+    which are supplements of the resource.
+id: IsSupplementedBy
+props:
+  dataCiteCode: IsSupplementedBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#issupplementedby
+  pair: IsSupplementTo
+title:
+  cs: má doplněk
+  en: is supplemented by
+---
+hint:
+  cs: Označuje, že A popisuje B.
+  en: Indicates A describes B.
+id: Describes
+props:
+  dataCiteCode: Describes
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#describes
+  pair: IsDescribedBy
+title:
+  cs: popisuje (co)
+  en: describes
+---
+hint:
+  cs: Označuje, že A je popsáno B.
+  en: Indicates A is described by B.
+id: IsDescribedBy
+props:
+  dataCiteCode: IsDescribedBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isdescribedby
+  pair: Describes
+title:
+  cs: je popsán (čím)
+  en: is described by
+---
+hint:
+  cs: Označuje, že A je publikováno uvnitř B, ale je nezávislé na jiných věcech publikovaných
+    uvnitř B.
+  en: Indicates A is published inside B, but is independent of other things published
+    inside of B.
+id: IsPublishedIn
+props:
+  dataCiteCode: IsPublishedIn
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#ispublishedin
+  pair: ''
+title:
+  cs: je publikován v
+  en: is published in
+---
+hint:
+  cs: Označuje, že A je vyžadováno B. Může být použito k označení softwarových závislostí.
+  en: Indicates A is required by B. May be used to indicate software dependencies.
+id: IsRequiredBy
+props:
+  dataCiteCode: IsRequiredBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isrequiredby
+  pair: Requires
+title:
+  cs: je požadován (čím)
+  en: is required by
+---
+hint:
+  cs: Označuje, že A vyžaduje B. Může být použito k označení softwarových závislostí.
+  en: Indicates A requires B. May be used to indicate software dependencies.
+id: Requires
+props:
+  dataCiteCode: Requires
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#requires
+  pair: IsRequiredBy
+title:
+  cs: požaduje (co)
+  en: requires
+---
+hint:
+  cs: Označuje, že A je pokračováno dílem B. Použijte k označení, že zdroj je pokračován
+    dílem odkazovaným souvisejícím identifikátorem.
+  en: Indicates A is continued by the work B. Use to indicate the resource is continued
+    by the work referenced by the related identifier.
+id: IsContinuedBy
+props:
+  dataCiteCode: IsContinuedBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#iscontinuedby
+  pair: Continues
+title:
+  cs: je pokračováním (čeho)
+  en: is continued by
+---
+hint:
+  cs: Označuje, že A je pokračováním díla B. Použijte k označení, že zdroj je pokračováním
+    díla odkazovaného souvisejícím identifikátorem.
+  en: Indicates A is a continuation of the work B. Use to indicate the resource is
+    a continuation of the work referenced by the related identifier.
+id: Continues
+props:
+  dataCiteCode: Continues
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#continues
+  pair: IsContinuedBy
+title:
+  cs: pokračuje (čím)
+  en: continues
+---
+hint:
+  cs: Označuje, že zdroj A má další metadata B.
+  en: Indicates resource A has additional metadata B.
+id: HasMetadata
+props:
+  dataCiteCode: HasMetadata
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#hasmetadata
+  pair: IsMetadataFor
+title:
+  cs: má metadata
+  en: has metadata
+---
+hint:
+  cs: Označuje další metadata A pro zdroj B.
+  en: Indicates additional metadata A for a resource B.
+id: IsMetadataFor
+props:
+  dataCiteCode: IsMetadataFor
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#ismetadatafor
+  pair: HasMetadata
+title:
+  cs: je metadaty pro
+  en: is metadata for
+---
+hint:
+  cs: Označuje, že A je novou edicí B, kde nová edice byla upravena nebo aktualizována.
+    Použijte k označení, že zdroj je novou edicí starého zdroje, kde nová edice byla
+    upravena nebo aktualizována.
+  en: Indicates A is a new edition of B, where the new edition has been modified or
+    updated. Use to indicate the resource is a new edition of an old resource, where
+    the new edition has been modified or updated.
+id: IsNewVersionOf
+props:
+  dataCiteCode: IsNewVersionOf
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isnewversionof
+  pair: IsPreviousVersionOf
+title:
+  cs: je novou verzí (čeho)
+  en: is new version of
+---
+hint:
+  cs: Označuje, že A je předchozí edicí B. Použijte k označení, že zdroj je předchozí
+    edicí novějšího zdroje.
+  en: Indicates A is a previous edition of B. Use to indicate the resource is a previous
+    edition of a newer resource.
+id: IsPreviousVersionOf
+props:
+  dataCiteCode: IsPreviousVersionOf
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#ispreviousversionof
+  pair: IsNewVersionOf
+title:
+  cs: je předchozí verzí (čeho)
+  en: is previous version of
+---
+hint:
+  cs: Označuje, že B je dokumentací o/vysvětlující A. Použijte k označení, že dílo
+    je dokumentací o/vysvětlující zdroj odkazovaný souvisejícím identifikátorem. Může
+    být použito pro softwarovou dokumentaci.
+  en: Indicates B is documentation about/explaining A. Use to indicate the work is
+    documentation about/explaining the resource referenced by the related identifier.
+    May be used for software documentation.
+id: IsDocumentedBy
+props:
+  dataCiteCode: IsDocumentedBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isdocumentedby
+  pair: Documents
+title:
+  cs: je zdokumentován (čím)
+  en: is documented by
+---
+hint:
+  cs: Označuje, že A je dokumentací o/vysvětlující B. Použijte k označení vztahu k
+    dílu, které je dokumentací. Může být použito pro softwarovou dokumentaci.
+  en: Indicates A is documentation about/explaining B. Use to indicate the relation
+    to the work which is documentation. May be used for software documentation.
+id: Documents
+props:
+  dataCiteCode: Documents
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#documents
+  pair: IsDocumentedBy
+title:
+  cs: dokumentuje (co)
+  en: documents
+---
+hint:
+  cs: Označuje, že A je variantou nebo jinou formou B. Použijte pro jinou formu jedné
+    věci. Může být použito např. pro různé softwarové operační systémy nebo formáty
+    kompilátoru.
+  en: Indicates A is a variant or different form of B. Use for a different form of
+    one thing. May be used for different software operating systems or compiler formats,
+    for example.
+id: IsVariantFormOf
+props:
+  dataCiteCode: IsVariantFormOf
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isvariantformof
+  pair: IsOriginalFormOf
+title:
+  cs: je variantou (čeho)
+  en: is variant form of
+---
+hint:
+  cs: Označuje, že A je původní formou B. Použijte k označení vztahu k dílům, která
+    jsou variantami nebo jinými formami zdroje.
+  en: Indicates A is the original form of B. Use to indicate the relation to the works
+    which are variant or different forms of the resource.
+id: IsOriginalFormOf
+props:
+  dataCiteCode: IsOriginalFormOf
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isoriginalformof
+  pair: IsVariantFormOf
+title:
+  cs: je původní variantou (čeho)
+  en: is original form of
+---
+hint:
+  cs: Označuje, že A je identické s B, pro použití, když je potřeba registrovat dvě
+    samostatné instance stejného zdroje. IsIdenticalTo by mělo být použito pro zdroj,
+    který je stejný jako registrovaný zdroj, ale je uložen na jiném místě, možná v
+    jiné instituci.
+  en: Indicates that A is identical to B, for use when there is a need to register
+    two separate instances of the same resource. IsIdenticalTo should be used for
+    a resource that is the same as the registered resource but is saved on another
+    location, maybe another institution.
+id: IsIdenticalTo
+props:
+  dataCiteCode: IsIdenticalTo
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isidenticalto
+  pair: ''
+title:
+  cs: je identický s
+  en: is identical to
+---
+hint:
+  cs: Označuje, že B je zdrojem, na kterém je A založeno. IsDerivedFrom by mělo být
+    použito pro zdroj, který je derivátem původního zdroje. V tomto příkladu je dataset
+    odvozen z většího datasetu a datové hodnoty byly upraveny z jejich původního stavu.
+  en: Indicates B is a source upon which A is based. IsDerivedFrom should be used
+    for a resource that is a derivative of an original resource. In this example,
+    the dataset is derived from a larger dataset and data values have been manipulated
+    from their original state.
+id: IsDerivedFrom
+props:
+  dataCiteCode: IsDerivedFrom
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isderivedfrom
+  pair: IsSourceOf
+title:
+  cs: je odvozen od (čeho)
+  en: is derived from
+---
+hint:
+  cs: Označuje, že A je zdrojem, na kterém je B založeno. IsSourceOf je původní zdroj,
+    ze kterého byl vytvořen odvozený zdroj. V tomto příkladu se jedná o původní dataset
+    bez manipulace s hodnotami.
+  en: Indicates A is a source upon which B is based. IsSourceOf is the original resource
+    from which a derivative resource was created. In this example, this is the original
+    dataset without value manipulation.
+id: IsSourceOf
+props:
+  dataCiteCode: IsSourceOf
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#issourceof
+  pair: IsDerivedFrom
+title:
+  cs: je zdrojem odvozené verze
+  en: is source of
+---
+hint:
+  cs: Označuje, že A nahrazuje B.
+  en: Indicates A replaces B.
+id: Obsoletes
+props:
+  dataCiteCode: Obsoletes
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#obsoletes
+  pair: IsObsoletedBy
+title:
+  cs: nahrazuje (co)
+  en: obsoletes
+---
+hint:
+  cs: Označuje, že A je nahrazeno B.
+  en: Indicates A is replaced by B.
+id: IsObsoletedBy
+props:
+  dataCiteCode: IsObsoletedBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isobsoletedby
+  pair: Obsoletes
+title:
+  cs: je nahrazen (čím)
+  en: is obsoleted by
+---
+hint:
+  cs: Označuje, že A je sbíráno B. Může být použito k označení vztahu mezi datasetem
+    a nástrojem, který je používán ke sběru, měření, získávání nebo pozorování dat
+    (např. dataset A je sbírán nástrojem B).
+  en: Indicates A is collected by B. May be used to indicate the relationship between
+    a dataset and an instrument that is used to collect, measure, obtain, or observe
+    data (as in, dataset A is IsCollectedBy instrument B).
+id: IsCollectedBy
+props:
+  dataCiteCode: IsCollectedBy
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#iscollectedby
+  pair: Collects
+title:
+  cs: je sbírán (čím)
+  en: is collected by
+---
+hint:
+  cs: Označuje, že A sbírá B. Může být použito k označení vztahu mezi nástrojem a
+    místem, kde byl použit ke sběru, měření, získávání nebo pozorování dat (např.
+    nástroj A sbírá dataset B).
+  en: Indicates A collects B. May be used to indicate the relationship between an
+    instrument and where it has been used to collect, measure, obtain, or observe
+    data (as in, instrument A collects dataset B).
+id: Collects
+props:
+  dataCiteCode: Collects
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#collects
+  pair: IsCollectedBy
+title:
+  cs: sbírá
+  en: collects
+---
+hint:
+  cs: Označuje, že A je překladem B.
+  en: Indicates A is a translation of B.
+id: IsTranslationOf
+props:
+  dataCiteCode: IsTranslationOf
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#istranslationof
+  pair: HasTranslation
+title:
+  cs: je překladem (čeho)
+  en: is translation of
+---
+hint:
+  cs: Označuje, že A má překlad B.
+  en: Indicates A has a translation B.
+id: HasTranslation
+props:
+  dataCiteCode: HasTranslation
+  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#hastranslation
+  pair: IsTranslationOf
+title:
+  cs: má překlad (jaký)
+  en: has translation

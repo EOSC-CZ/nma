@@ -69,7 +69,7 @@ class COARResourceTypeReader(BaseReader):
                 id=node_id,
                 entry={
                     "id": node_id,
-                    "props": {"coarURL": key, "coarVersion": self._coar_version},
+                    "props": {"definitionURL": key, "coarVersion": self._coar_version},
                     "title": {},
                 },
             )
