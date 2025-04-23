@@ -1,13 +1,15 @@
+import yaml
+
 from common.vocabularies.europa_base import EuropaBaseTypeReader
 
 
-class EuropaLanguagesTypeReader(EuropaBaseTypeReader):
+class EuropaFileTypeReader(EuropaBaseTypeReader):
     def __init__(
         self,
         *,
         source=None,
         base_path=None,
-        base_url="http://publications.europa.eu/resource/authority/language",
+        base_url="http://publications.europa.eu/resource/authority/file-type",
         languages=["cs", "en"],
         **kwargs,
     ):
@@ -20,6 +22,9 @@ class EuropaLanguagesTypeReader(EuropaBaseTypeReader):
 
 
 if __name__ == "__main__":
-    reader = EuropaLanguagesTypeReader()
+    reader = EuropaFileTypeReader()
+    data = []
     for entry in reader:
-        pass
+        data.append(entry.entry)
+    with open("fixtures/file-types.yaml", "w") as f:
+        f.write(yaml.dump_all(data, sort_keys=True, allow_unicode=True))
