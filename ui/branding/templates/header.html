@@ -35,12 +35,15 @@
         {# Language selector #}
         {%- block navbar_right %}
         <div class="right menu item">
+        <span class="rel-mr-1">
+          {%- include "oarepo_ui/header_login.html" %}
+        </span>
           {%- if config.I18N_LANGUAGES %}
           <form id="language-code-form" class="lang-select"
               action="{{ url_for('invenio_i18n.set_lang')}}"
               method="POST">
             <div>
-              <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector borderless">
+              <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector borderless shadowless">
                 {% for l in current_i18n.get_locales() %}
                   <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name() }}</option>
                 {% endfor %}

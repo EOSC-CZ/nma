@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
-import { Item, Label, List, Grid } from "semantic-ui-react";
+import { Item, Label, Grid, Button } from "semantic-ui-react";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import sanitizeHtml from "sanitize-html";
 import { i18next } from "@translations/i18next";
 import { getValueFromMultilingualArray } from "@js/oarepo_ui/util";
 import { IdentifierBadge } from "@js/oarepo_ui/components/IdentifierBadge";
+import _truncate from "lodash/truncate";
 
 const formatName = (person) => {
   const lastName = person.family_name || "";
@@ -99,6 +100,8 @@ const Creatibutors = ({ creatibutors }) => {
 Creatibutors.propTypes = { creatibutors: PropTypes.array.isRequired };
 
 const ResultsListItemComponent = ({ result }) => {
+  const [showEntireAbstract, setShowEntireAbstract] = useState(false);
+
   const searchAppConfig = useContext(SearchConfigurationContext);
 
   const { allowedHtmlTags } = searchAppConfig;
@@ -118,6 +121,17 @@ const ResultsListItemComponent = ({ result }) => {
         originalRepository.labels.find((label) => label.lang === "en")?.value ||
         getValueFromMultilingualArray(originalRepository.labels || [])
     ) || [];
+
+  const toggleAbstract = () => {
+    setShowEntireAbstract(!showEntireAbstract);
+  };
+
+  const truncatedAbstract = abstract
+    ? showEntireAbstract
+      ? abstract
+      : _truncate(abstract, { length: 500, separator: /,?\.* +/ })
+    : "";
+
   return (
     <Item className="results-list-item-main">
       <Item.Content>
@@ -131,22 +145,39 @@ const ResultsListItemComponent = ({ result }) => {
                 <Creatibutors creatibutors={creatibutors} />
                 <Label.Group className="rel-mt-1">
                   {subjects.map((subject, index) => (
-                    <Label key={`${index}.${subject.title.value}`}>
+                    <Label
+                      className="subjects"
+                      key={`${index}.${subject.title.value}`}
+                    >
                       {subject.title.value}
                     </Label>
                   ))}
                 </Label.Group>
               </Item.Meta>
               {abstract && (
-                <Item.Description
-                  className="rel-mt-1"
-                  dangerouslySetInnerHTML={{
-                    __html: sanitizeHtml(abstract, {
-                      allowedTags: allowedHtmlTags,
-                      allowedAttributes: {},
-                    }),
-                  }}
-                />
+                <Item.Description className="rel-mt-1">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: sanitizeHtml(truncatedAbstract, {
+                        allowedTags: allowedHtmlTags,
+                        allowedAttributes: {},
+                      }),
+                    }}
+                    className="inline"
+                  />
+                  {abstract.length > 500 && (
+                    <Button
+                      compact
+                      size="tiny"
+                      onClick={toggleAbstract}
+                      className="transparent ml-5"
+                    >
+                      {showEntireAbstract
+                        ? i18next.t("(show less)")
+                        : i18next.t("(show more)")}
+                    </Button>
+                  )}
+                </Item.Description>
               )}
               <Item.Extra className="rel-mt-1">
                 <p>
@@ -163,27 +194,7 @@ const ResultsListItemComponent = ({ result }) => {
                 </p>
               </Item.Extra>
             </Grid.Column>
-
-            <Grid.Column width={3}>
-              <List>
-                <List.Item>This section is unclear</List.Item>
-                <List.Item>
-                  <Label>License</Label>
-                </List.Item>
-                <List.Item>
-                  <Label>Počet souborů</Label>
-                </List.Item>
-                <List.Item>
-                  <Label>Verze: {result.metadata?.version}</Label>
-                </List.Item>
-                <List.Item>
-                  <Label>Typ souboru</Label>
-                </List.Item>
-                <List.Item>
-                  <Label>Originál záznam</Label>
-                </List.Item>
-              </List>
-            </Grid.Column>
+            <Grid.Column width={3}></Grid.Column>
           </Grid.Row>
         </Grid>
       </Item.Content>
