@@ -46,7 +46,7 @@ vocabulary-relation-types:
       en: Relation Type
   - source: relation-types-4.6.yaml
 
-time-reference-types:
+vocabulary-time-reference-types:
   - writer: vocabulary
     update: true
     vocabulary: time-reference-types
@@ -55,3 +55,13 @@ time-reference-types:
       cs: Typ časového odkazu
       en: Time Reference Type
   - source: time-reference-types.yaml
+
+vocabulary-access-rights:
+  - writer: vocabulary
+    update: true
+    vocabulary: access-rights
+    pid_type: v-ar
+    title:
+      cs: Práva přístupu
+      en: Access Rights
+  - source: access-rights.yaml
