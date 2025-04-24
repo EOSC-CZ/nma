@@ -1,5 +1,18 @@
-.ui.label.active-filter-label {
-  background-color: @lightPrimaryColor;
-  border-radius: 6px;
-  margin-right: 0.5rem;
+.ui.label {
+  &.active-filter-label {
+    background-color: @lightPrimaryColor;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+    font-size: inherit;
+  }
+  &.subjects {
+    background-color: inherit;
+    border: 1px solid @borderColor;
+    color: black;
+    font-weight: 400;
+    font-size: inherit;
+  }
+  &.active-filters-count-label {
+    background-color: @lightPrimaryColor;
+  }
 }

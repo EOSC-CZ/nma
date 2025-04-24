@@ -407,9 +407,7 @@ dl.details-list {
 
 .facets-container {
   background-color: @backgroundColor;
-  @media all and (min-width: @largestTabletScreen) {
-    border-top: 1px solid @borderColor;
-  }
+
   .facet-list {
     .ui.card:first-child {
       .content:first-child {
@@ -442,4 +440,14 @@ dl.details-list {
     right: 25px;
     bottom: 148px;
   }
+}
+
+#user-profile-menu.ui.menu {
+  width: inherit;
+  background-color: rgb(255, 255, 255);
+  z-index: 100;
+}
+
+.search-bar-tip {
+  margin-top: 0.5rem;
 }
