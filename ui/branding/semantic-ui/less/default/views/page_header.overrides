@@ -39,4 +39,9 @@
       }
     }
   }
+  .ui.auth_form {
+    a.ui.button {
+      background-color: @primaryColor;
+    }
+  }
 }

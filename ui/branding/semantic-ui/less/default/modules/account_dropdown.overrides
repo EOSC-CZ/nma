@@ -11,7 +11,7 @@
 }
 
 #user-profile-dropdown-btn {
-    padding-left: 1.5rem !important;
-    padding-right: 2rem !important;
-  }
+  background-color: @primaryColor !important;
+  padding-left: 1.5rem !important;
+  padding-right: 2rem !important;
 }
