@@ -1,183 +1,183 @@
-id: ContactPerson
+id: contactperson
 props:
   dataCiteCode: ContactPerson
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#contactperson
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#contactperson
 title:
   cs: kontaktní osoba
   en: contact person
 ---
-id: DataCollector
+id: datacollector
 props:
   dataCiteCode: DataCollector
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#datacollector
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#datacollector
 title:
   cs: sběratel dat
   en: data collector
 ---
-id: DataCurator
+id: datacurator
 props:
   dataCiteCode: DataCurator
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#datacurator
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#datacurator
 title:
   cs: kurátor dat
   en: data curator
 ---
-id: DataManager
+id: datamanager
 props:
   dataCiteCode: DataManager
   marcCode: dtm
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#datamanager
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#datamanager
 title:
   cs: manažer dat
   en: data manager
 ---
-id: Distributor
+id: distributor
 props:
   dataCiteCode: Distributor
   marcCode: dst
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#distributor
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#distributor
 title:
   cs: distributor
   en: distributor
 ---
-id: Editor
+id: editor
 props:
   dataCiteCode: Editor
   marcCode: edt
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#editor
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#editor
 title:
   cs: editor
   en: editor
 ---
-id: Producer
+id: producer
 props:
   dataCiteCode: Producer
   marcCode: pro
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#producer
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#producer
 title:
   cs: producent
   en: producer
 ---
-id: ProjectLeader
+id: projectleader
 props:
   dataCiteCode: ProjectLeader
   marcCode: rth
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#projectleader
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#projectleader
 title:
   cs: vedoucí projektu
   en: project leader
 ---
-id: ProjectManager
+id: projectmanager
 props:
   dataCiteCode: ProjectManager
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#projectmanager
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#projectmanager
 title:
   cs: projektový manažer
   en: project manager
 ---
-id: ProjectMember
+id: projectmember
 props:
   dataCiteCode: ProjectMember
   marcCode: rtm
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#projectmember
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#projectmember
 title:
   cs: člen projektu
   en: project member
 ---
-id: Researcher
+id: researcher
 props:
   dataCiteCode: Researcher
   marcCode: res
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#researcher
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#researcher
 title:
   cs: výzkumník
   en: researcher
 ---
-id: ResearchGroup
+id: researchgroup
 props:
   dataCiteCode: ResearchGroup
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#researchgroup
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#researchgroup
 title:
   cs: výzkumná skupina
   en: research group
 ---
-id: RightsHolder
+id: rightsholder
 props:
   dataCiteCode: RightsHolder
   marcCode: asg
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#rightsholder
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#rightsholder
 title:
   cs: majitel práv
   en: rights holder
 ---
-id: Supervisor
+id: supervisor
 props:
   dataCiteCode: Supervisor
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#supervisor
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#supervisor
 title:
   cs: supervizor
   en: supervisor
 ---
-id: HostingInstitution
+id: hostinginstitution
 props:
   dataCiteCode: HostingInstitution
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#hostinginstitution
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#hostinginstitution
 title:
   cs: instituce poskytující zázemí
   en: hosting institution
 ---
-id: RegistrationAgency
+id: registrationagency
 props:
   dataCiteCode: RegistrationAgency
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#registrationagency
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#registrationagency
 title:
   cs: registrační agentura
   en: registration agency
 ---
-id: RegistrationAuthority
+id: registrationauthority
 props:
   dataCiteCode: RegistrationAuthority
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#registrationauthority
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#registrationauthority
 title:
   cs: registrační autorita
   en: registration authority
 ---
-id: RelatedPerson
+id: relatedperson
 props:
   dataCiteCode: RelatedPerson
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#relatedperson
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#relatedperson
 title:
   cs: příbuzná osoba
   en: related person
 ---
-id: Sponsor
+id: sponsor
 props:
   dataCiteCode: Sponsor
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#sponsor
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#sponsor
 title:
   cs: sponzor
   en: sponsor
 ---
-id: Translator
+id: translator
 props:
   dataCiteCode: Translator
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#translator
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#translator
 title:
   cs: překladatel
   en: translator
 ---
-id: WorkPackageLeader
+id: workpackageleader
 props:
   dataCiteCode: WorkPackageLeader
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#workpackageleader
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#workpackageleader
 title:
   cs: vedoucí pracovního balíčku
   en: work package leader
 ---
-id: Other
+id: other
 props:
   dataCiteCode: Other
-  definitionURL: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#other
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#other
 title:
   cs: jiný
   en: other
