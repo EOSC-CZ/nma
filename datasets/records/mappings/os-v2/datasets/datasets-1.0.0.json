@@ -1088,45 +1088,28 @@
                                     "role": {
                                         "type": "object",
                                         "properties": {
-                                            "labels_cs": {
-                                                "type": "text",
+                                            "id": {
                                                 "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
+                                                    "text": {
+                                                        "type": "search_as_you_type"
                                                     }
-                                                }
-                                            },
-                                            "labels_en": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            },
-                                            "iri": {
+                                                },
                                                 "type": "keyword",
                                                 "ignore_above": 1024
                                             },
-                                            "labels": {
-                                                "type": "nested",
+                                            "title": {
+                                                "dynamic": true,
                                                 "properties": {
-                                                    "lang": {
-                                                        "ignore_above": 256,
-                                                        "type": "keyword"
-                                                    },
-                                                    "value": {
-                                                        "type": "text",
-                                                        "fields": {
-                                                            "keyword": {
-                                                                "type": "keyword",
-                                                                "ignore_above": 256
-                                                            }
-                                                        }
+                                                    "en": {
+                                                        "type": "search_as_you_type",
+                                                        "copy_to": "title_sort"
                                                     }
-                                                }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "@v": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
                                             }
                                         }
                                     }

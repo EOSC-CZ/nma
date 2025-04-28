@@ -22,7 +22,6 @@ class MultilingualSearchDumperExt(MultilingualDumper):
         "/metadata/is_described_by/qualified_relations/person/affiliations/contact_points/addresses/labels",
         "/metadata/is_described_by/qualified_relations/person/affiliations/name",
         "/metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels",
-        "/metadata/is_described_by/qualified_relations/role/labels",
         "/metadata/locations/geometry/labels",
         "/metadata/locations/related_object_identifiers/qualified_relations/organization/alternate_names",
         "/metadata/locations/related_object_identifiers/qualified_relations/organization/contact_points/addresses/labels",

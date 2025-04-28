@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-04-23T16:21:46.634803\n"
-"PO-Revision-Date: 2025-04-23T16:21:46.634818\n"
+"POT-Creation-Date: 2025-04-24T15:30:22.917492\n"
+"PO-Revision-Date: 2025-04-24T15:30:22.917504\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1624,40 +1624,31 @@ msgstr ""
 msgid "metadata/is_described_by/qualified_relations/role.hint"
 msgstr ""
 
-msgid "metadata/is_described_by/qualified_relations/role/iri.help"
+msgid "metadata/is_described_by/qualified_relations/role/id.help"
 msgstr ""
 
-msgid "metadata/is_described_by/qualified_relations/role/iri.label"
+msgid "metadata/is_described_by/qualified_relations/role/id.label"
 msgstr ""
 
-msgid "metadata/is_described_by/qualified_relations/role/iri.hint"
+msgid "metadata/is_described_by/qualified_relations/role/id.hint"
 msgstr ""
 
-msgid "metadata/is_described_by/qualified_relations/role/labels.label"
-msgstr "Label"
-
-msgid "metadata/is_described_by/qualified_relations/role/labels.help"
-msgstr "Metadata agent role type label"
-
-msgid "metadata/is_described_by/qualified_relations/role/labels.hint"
+msgid "metadata/is_described_by/qualified_relations/role/title.help"
 msgstr ""
 
-msgid "metadata/is_described_by/qualified_relations/role/labels/lang.label"
-msgstr "Language"
-
-msgid "metadata/is_described_by/qualified_relations/role/labels/lang.help"
+msgid "metadata/is_described_by/qualified_relations/role/title.label"
 msgstr ""
 
-msgid "metadata/is_described_by/qualified_relations/role/labels/lang.hint"
+msgid "metadata/is_described_by/qualified_relations/role/title.hint"
 msgstr ""
 
-msgid "metadata/is_described_by/qualified_relations/role/labels/value.label"
-msgstr "Text"
-
-msgid "metadata/is_described_by/qualified_relations/role/labels/value.help"
+msgid "metadata/is_described_by/qualified_relations/role/@v.help"
 msgstr ""
 
-msgid "metadata/is_described_by/qualified_relations/role/labels/value.hint"
+msgid "metadata/is_described_by/qualified_relations/role/@v.label"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/role/@v.hint"
 msgstr ""
 
 msgid "metadata/locations.label"

@@ -1379,6 +1379,11 @@
                                 "format": {
                                     "type": "vocabulary",
                                     "vocabulary-type": "file-types",
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "common.services.schema.CCMMVocabularySchema",
+                                        "unknown": "INCLUDE"
+                                    },
                                     "label.en": "Format",
                                     "help.en": "The file format of the Distribution.",
                                     "imports": [
@@ -1391,11 +1396,6 @@
                                         "id",
                                         "title"
                                     ],
-                                    "marshmallow": {
-                                        "unknown": "INCLUDE",
-                                        "generate": true,
-                                        "class": "datasets.services.records.schema.FormatSchema"
-                                    },
                                     "ui": {
                                         "marshmallow": {
                                             "unknown": "INCLUDE",
@@ -1777,6 +1777,11 @@
                                     "items": {
                                         "type": "vocabulary",
                                         "vocabulary-type": "languages",
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "common.services.schema.CCMMVocabularySchema",
+                                            "unknown": "INCLUDE"
+                                        },
                                         "imports": [
                                             {
                                                 "import": "oarepo_vocabularies.records.api.Vocabulary"
@@ -1787,11 +1792,6 @@
                                             "id",
                                             "title"
                                         ],
-                                        "marshmallow": {
-                                            "unknown": "INCLUDE",
-                                            "generate": false,
-                                            "class": "datasets.services.records.schema.FormatSchema"
-                                        },
                                         "ui": {
                                             "marshmallow": {
                                                 "unknown": "INCLUDE",
@@ -1968,7 +1968,6 @@
                                             },
                                             "organization": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": true,
                                                     "class": "datasets.services.records.schema.OrganizationSchema"
@@ -2186,7 +2185,6 @@
                                             },
                                             "person": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": true,
                                                     "class": "datasets.services.records.schema.PersonSchema"
@@ -2562,61 +2560,111 @@
                                                 }
                                             },
                                             "role": {
-                                                "type": "object",
+                                                "type": "vocabulary",
                                                 "required": true,
-                                                "label.en": "had role - The function of an entity or agent with respect to another entity or resource.",
+                                                "vocabulary-type": "contributor-types",
                                                 "marshmallow": {
                                                     "generate": false,
-                                                    "class": "datasets.services.records.schema.DocumentationsItemSchema"
+                                                    "class": "common.services.schema.CCMMVocabularySchema",
+                                                    "unknown": "INCLUDE"
                                                 },
+                                                "label.en": "had role - The function of an entity or agent with respect to another entity or resource.",
+                                                "imports": [
+                                                    {
+                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
+                                                    }
+                                                ],
+                                                "model": "vocabularies",
+                                                "keys": [
+                                                    "id",
+                                                    "title"
+                                                ],
                                                 "ui": {
                                                     "marshmallow": {
+                                                        "unknown": "INCLUDE",
                                                         "generate": false,
-                                                        "class": "datasets.services.records.ui_schema.DocumentationsItemUISchema"
-                                                    }
+                                                        "class": "datasets.services.records.ui_schema.FormatUISchema"
+                                                    },
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item"
+                                                },
+                                                "pid-field": "Vocabulary.pid.with_type_ctx(\"contributor-types\")",
+                                                "facets": {
+                                                    "args": [
+                                                        "vocabulary='contributor-types'"
+                                                    ]
                                                 },
                                                 "properties": {
-                                                    "iri": {
-                                                        "type": "keyword"
-                                                    },
-                                                    "labels": {
-                                                        "type": "array",
-                                                        "label.en": "Label",
-                                                        "help.en": "Metadata agent role type label",
-                                                        "items": {
-                                                            "type": "i18nStr",
+                                                    "id": {
+                                                        "marshmallow": {
+                                                            "field-class": "marshmallow.fields.String",
+                                                            "validators": [],
+                                                            "imports": []
+                                                        },
+                                                        "ui": {
                                                             "marshmallow": {
-                                                                "class": null,
-                                                                "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
-                                                                "generate": false
-                                                            },
-                                                            "ui": {
-                                                                "detail": "multilingual",
-                                                                "marshmallow": {
-                                                                    "class": null,
-                                                                    "field-class": "oarepo_runtime.services.schema.i18n_ui.I18nStrUIField"
-                                                                }
-                                                            },
-                                                            "sample": {
-                                                                "skip": false
-                                                            },
-                                                            "properties": {
-                                                                "lang": {
-                                                                    "type": "keyword",
-                                                                    "mapping": {
-                                                                        "ignore_above": 256
-                                                                    },
-                                                                    "required": true,
-                                                                    "label.cs": "Jazyk",
-                                                                    "label.en": "Language"
-                                                                },
-                                                                "value": {
-                                                                    "type": "fulltext+keyword",
-                                                                    "required": true,
-                                                                    "label.cs": "Text",
-                                                                    "label.en": "Text"
+                                                                "field-class": "marshmallow.fields.String",
+                                                                "validators": [],
+                                                                "imports": []
+                                                            }
+                                                        },
+                                                        "type": "keyword",
+                                                        "mapping": {
+                                                            "fields": {
+                                                                "text": {
+                                                                    "type": "search_as_you_type"
                                                                 }
                                                             }
+                                                        },
+                                                        "sample": {
+                                                            "skip": true
+                                                        }
+                                                    },
+                                                    "title": {
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "field": "{{invenio_vocabularies.services.schema.i18n_strings}}",
+                                                            "field-class": "marshmallow.fields.Nested",
+                                                            "validators": [],
+                                                            "class": "invenio_vocabularies.services.records.schema.TitleSchema"
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "field": "{{oarepo_vocabularies.services.ui_schema.VocabularyI18nStrUIField}}()",
+                                                                "generate": false
+                                                            }
+                                                        },
+                                                        "mapping": {
+                                                            "dynamic": true,
+                                                            "properties": {
+                                                                "en": {
+                                                                    "type": "search_as_you_type",
+                                                                    "copy_to": "title_sort"
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": "object",
+                                                        "propertyNames": {
+                                                            "pattern": "^[a-z]{2}$"
+                                                        },
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "marshmallow": {
+                                                            "field-name": "_version",
+                                                            "field-class": "marshmallow.fields.String"
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "field-name": "_version",
+                                                                "field-class": "marshmallow.fields.String"
+                                                            }
+                                                        },
+                                                        "facets": {
+                                                            "facet": false
                                                         }
                                                     }
                                                 }
@@ -2819,13 +2867,13 @@
                                                 "items": {
                                                     "type": "object",
                                                     "marshmallow": {
-                                                        "generate": true,
-                                                        "class": "datasets.services.records.schema.RelatedObjectIdentifiersItemQualifiedRelationsItemSchema"
+                                                        "generate": false,
+                                                        "class": "datasets.services.records.schema.QualifiedRelationsItemSchema"
                                                     },
                                                     "ui": {
                                                         "marshmallow": {
-                                                            "generate": true,
-                                                            "class": "datasets.services.records.ui_schema.RelatedObjectIdentifiersItemQualifiedRelationsItemUISchema"
+                                                            "generate": false,
+                                                            "class": "datasets.services.records.ui_schema.QualifiedRelationsItemUISchema"
                                                         }
                                                     },
                                                     "properties": {
@@ -2834,7 +2882,6 @@
                                                         },
                                                         "organization": {
                                                             "type": "object",
-                                                            "required": true,
                                                             "marshmallow": {
                                                                 "generate": false,
                                                                 "class": "datasets.services.records.schema.OrganizationSchema"
@@ -3052,7 +3099,6 @@
                                                         },
                                                         "person": {
                                                             "type": "object",
-                                                            "required": true,
                                                             "marshmallow": {
                                                                 "generate": false,
                                                                 "class": "datasets.services.records.schema.PersonSchema"
@@ -3431,6 +3477,11 @@
                                                             "type": "vocabulary",
                                                             "required": true,
                                                             "vocabulary-type": "contributor-types",
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "common.services.schema.CCMMVocabularySchema",
+                                                                "unknown": "INCLUDE"
+                                                            },
                                                             "label.en": "had role - The function of an entity or agent with respect to another entity or resource.",
                                                             "imports": [
                                                                 {
@@ -3442,11 +3493,6 @@
                                                                 "id",
                                                                 "title"
                                                             ],
-                                                            "marshmallow": {
-                                                                "unknown": "INCLUDE",
-                                                                "generate": false,
-                                                                "class": "datasets.services.records.schema.FormatSchema"
-                                                            },
                                                             "ui": {
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -3543,6 +3589,11 @@
                                             "relation_type": {
                                                 "type": "vocabulary",
                                                 "vocabulary-type": "relation-types",
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "common.services.schema.CCMMVocabularySchema",
+                                                    "unknown": "INCLUDE"
+                                                },
                                                 "label.en": "Relation type",
                                                 "help.en": "Type of the relation between Dataset and related resource.",
                                                 "imports": [
@@ -3555,11 +3606,6 @@
                                                     "id",
                                                     "title"
                                                 ],
-                                                "marshmallow": {
-                                                    "unknown": "INCLUDE",
-                                                    "generate": false,
-                                                    "class": "datasets.services.records.schema.FormatSchema"
-                                                },
                                                 "ui": {
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -3679,6 +3725,11 @@
                                                         "date_type": {
                                                             "type": "vocabulary",
                                                             "vocabulary-type": "time-reference-types",
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "common.services.schema.CCMMVocabularySchema",
+                                                                "unknown": "INCLUDE"
+                                                            },
                                                             "label.en": "Date type",
                                                             "help.en": "Type of the date.",
                                                             "imports": [
@@ -3691,11 +3742,6 @@
                                                                 "id",
                                                                 "title"
                                                             ],
-                                                            "marshmallow": {
-                                                                "unknown": "INCLUDE",
-                                                                "generate": false,
-                                                                "class": "datasets.services.records.schema.FormatSchema"
-                                                            },
                                                             "ui": {
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -3815,6 +3861,11 @@
                         "items": {
                             "type": "vocabulary",
                             "vocabulary-type": "languages",
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "common.services.schema.CCMMVocabularySchema",
+                                "unknown": "INCLUDE"
+                            },
                             "imports": [
                                 {
                                     "import": "oarepo_vocabularies.records.api.Vocabulary"
@@ -3825,11 +3876,6 @@
                                 "id",
                                 "title"
                             ],
-                            "marshmallow": {
-                                "unknown": "INCLUDE",
-                                "generate": false,
-                                "class": "datasets.services.records.schema.FormatSchema"
-                            },
                             "ui": {
                                 "marshmallow": {
                                     "unknown": "INCLUDE",
@@ -3924,6 +3970,11 @@
                     "primary_language": {
                         "type": "vocabulary",
                         "vocabulary-type": "languages",
+                        "marshmallow": {
+                            "generate": false,
+                            "class": "common.services.schema.CCMMVocabularySchema",
+                            "unknown": "INCLUDE"
+                        },
                         "label.en": "Other language",
                         "help.en": "The primary language of the resource.",
                         "imports": [
@@ -3936,11 +3987,6 @@
                             "id",
                             "title"
                         ],
-                        "marshmallow": {
-                            "unknown": "INCLUDE",
-                            "generate": false,
-                            "class": "datasets.services.records.schema.FormatSchema"
-                        },
                         "ui": {
                             "marshmallow": {
                                 "unknown": "INCLUDE",
@@ -4106,12 +4152,12 @@
                             "type": "object",
                             "marshmallow": {
                                 "generate": false,
-                                "class": "datasets.services.records.schema.RelatedObjectIdentifiersItemQualifiedRelationsItemSchema"
+                                "class": "datasets.services.records.schema.QualifiedRelationsItemSchema"
                             },
                             "ui": {
                                 "marshmallow": {
                                     "generate": false,
-                                    "class": "datasets.services.records.ui_schema.RelatedObjectIdentifiersItemQualifiedRelationsItemUISchema"
+                                    "class": "datasets.services.records.ui_schema.QualifiedRelationsItemUISchema"
                                 }
                             },
                             "properties": {
@@ -4120,7 +4166,6 @@
                                 },
                                 "organization": {
                                     "type": "object",
-                                    "required": true,
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "datasets.services.records.schema.OrganizationSchema"
@@ -4338,7 +4383,6 @@
                                 },
                                 "person": {
                                     "type": "object",
-                                    "required": true,
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "datasets.services.records.schema.PersonSchema"
@@ -4717,6 +4761,11 @@
                                     "type": "vocabulary",
                                     "required": true,
                                     "vocabulary-type": "contributor-types",
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "common.services.schema.CCMMVocabularySchema",
+                                        "unknown": "INCLUDE"
+                                    },
                                     "label.en": "had role - The function of an entity or agent with respect to another entity or resource.",
                                     "imports": [
                                         {
@@ -4728,11 +4777,6 @@
                                         "id",
                                         "title"
                                     ],
-                                    "marshmallow": {
-                                        "unknown": "INCLUDE",
-                                        "generate": false,
-                                        "class": "datasets.services.records.schema.FormatSchema"
-                                    },
                                     "ui": {
                                         "marshmallow": {
                                             "unknown": "INCLUDE",
@@ -4885,12 +4929,12 @@
                                         "type": "object",
                                         "marshmallow": {
                                             "generate": false,
-                                            "class": "datasets.services.records.schema.RelatedObjectIdentifiersItemQualifiedRelationsItemSchema"
+                                            "class": "datasets.services.records.schema.QualifiedRelationsItemSchema"
                                         },
                                         "ui": {
                                             "marshmallow": {
                                                 "generate": false,
-                                                "class": "datasets.services.records.ui_schema.RelatedObjectIdentifiersItemQualifiedRelationsItemUISchema"
+                                                "class": "datasets.services.records.ui_schema.QualifiedRelationsItemUISchema"
                                             }
                                         },
                                         "properties": {
@@ -4899,7 +4943,6 @@
                                             },
                                             "organization": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.OrganizationSchema"
@@ -5117,7 +5160,6 @@
                                             },
                                             "person": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.PersonSchema"
@@ -5496,6 +5538,11 @@
                                                 "type": "vocabulary",
                                                 "required": true,
                                                 "vocabulary-type": "contributor-types",
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "common.services.schema.CCMMVocabularySchema",
+                                                    "unknown": "INCLUDE"
+                                                },
                                                 "label.en": "had role - The function of an entity or agent with respect to another entity or resource.",
                                                 "imports": [
                                                     {
@@ -5507,11 +5554,6 @@
                                                     "id",
                                                     "title"
                                                 ],
-                                                "marshmallow": {
-                                                    "unknown": "INCLUDE",
-                                                    "generate": false,
-                                                    "class": "datasets.services.records.schema.FormatSchema"
-                                                },
                                                 "ui": {
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -5608,6 +5650,11 @@
                                 "relation_type": {
                                     "type": "vocabulary",
                                     "vocabulary-type": "relation-types",
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "common.services.schema.CCMMVocabularySchema",
+                                        "unknown": "INCLUDE"
+                                    },
                                     "label.en": "Relation type",
                                     "help.en": "Type of the relation between Dataset and related resource.",
                                     "imports": [
@@ -5620,11 +5667,6 @@
                                         "id",
                                         "title"
                                     ],
-                                    "marshmallow": {
-                                        "unknown": "INCLUDE",
-                                        "generate": false,
-                                        "class": "datasets.services.records.schema.FormatSchema"
-                                    },
                                     "ui": {
                                         "marshmallow": {
                                             "unknown": "INCLUDE",
@@ -5744,6 +5786,11 @@
                                             "date_type": {
                                                 "type": "vocabulary",
                                                 "vocabulary-type": "time-reference-types",
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "common.services.schema.CCMMVocabularySchema",
+                                                    "unknown": "INCLUDE"
+                                                },
                                                 "label.en": "Date type",
                                                 "help.en": "Type of the date.",
                                                 "imports": [
@@ -5756,11 +5803,6 @@
                                                     "id",
                                                     "title"
                                                 ],
-                                                "marshmallow": {
-                                                    "unknown": "INCLUDE",
-                                                    "generate": false,
-                                                    "class": "datasets.services.records.schema.FormatSchema"
-                                                },
                                                 "ui": {
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -5873,6 +5915,11 @@
                     "resource_type": {
                         "type": "vocabulary",
                         "vocabulary-type": "resource-types",
+                        "marshmallow": {
+                            "generate": false,
+                            "class": "common.services.schema.CCMMVocabularySchema",
+                            "unknown": "INCLUDE"
+                        },
                         "label.en": "Resource type",
                         "help.en": "A description of the resource.",
                         "imports": [
@@ -5885,11 +5932,6 @@
                             "id",
                             "title"
                         ],
-                        "marshmallow": {
-                            "unknown": "INCLUDE",
-                            "generate": false,
-                            "class": "datasets.services.records.schema.FormatSchema"
-                        },
                         "ui": {
                             "marshmallow": {
                                 "unknown": "INCLUDE",
@@ -6164,6 +6206,11 @@
                                     "items": {
                                         "type": "vocabulary",
                                         "vocabulary-type": "access-rights",
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "common.services.schema.CCMMVocabularySchema",
+                                            "unknown": "INCLUDE"
+                                        },
                                         "imports": [
                                             {
                                                 "import": "oarepo_vocabularies.records.api.Vocabulary"
@@ -6174,11 +6221,6 @@
                                             "id",
                                             "title"
                                         ],
-                                        "marshmallow": {
-                                            "unknown": "INCLUDE",
-                                            "generate": false,
-                                            "class": "datasets.services.records.schema.FormatSchema"
-                                        },
                                         "ui": {
                                             "marshmallow": {
                                                 "unknown": "INCLUDE",
@@ -6289,7 +6331,6 @@
                                         "properties": {
                                             "organization": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.OrganizationSchema"
@@ -6507,7 +6548,6 @@
                                             },
                                             "person": {
                                                 "type": "object",
-                                                "required": true,
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "datasets.services.records.schema.PersonSchema"
@@ -6962,6 +7002,11 @@
                                 "date_type": {
                                     "type": "vocabulary",
                                     "vocabulary-type": "time-reference-types",
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "common.services.schema.CCMMVocabularySchema",
+                                        "unknown": "INCLUDE"
+                                    },
                                     "label.en": "Date type",
                                     "help.en": "Type of the date.",
                                     "imports": [
@@ -6974,11 +7019,6 @@
                                         "id",
                                         "title"
                                     ],
-                                    "marshmallow": {
-                                        "unknown": "INCLUDE",
-                                        "generate": false,
-                                        "class": "datasets.services.records.schema.FormatSchema"
-                                    },
                                     "ui": {
                                         "marshmallow": {
                                             "unknown": "INCLUDE",
@@ -7209,7 +7249,9 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "uniqueItems": true,
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -7225,9 +7267,7 @@
                             }
                         }
                     },
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
+                    "uniqueItems": true,
                     "type": "object"
                 },
                 "ui": {

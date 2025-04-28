@@ -333,17 +333,8 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_is_described_by_qualified_relations_person_iri": (
             facets.metadata_is_described_by_qualified_relations_person_iri
         ),
-        "metadata_is_described_by_qualified_relations_role_iri": (
-            facets.metadata_is_described_by_qualified_relations_role_iri
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_cs": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_cs
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_en": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_en
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_lang": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_lang
+        "metadata_is_described_by_qualified_relations_role": (
+            facets.metadata_is_described_by_qualified_relations_role
         ),
         "metadata_locations_bbox_LowerCorners": (
             facets.metadata_locations_bbox_LowerCorners
@@ -1403,17 +1394,8 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_is_described_by_qualified_relations_person_iri": (
             facets.metadata_is_described_by_qualified_relations_person_iri
         ),
-        "metadata_is_described_by_qualified_relations_role_iri": (
-            facets.metadata_is_described_by_qualified_relations_role_iri
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_cs": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_cs
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_en": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_en
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_lang": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_lang
+        "metadata_is_described_by_qualified_relations_role": (
+            facets.metadata_is_described_by_qualified_relations_role
         ),
         "metadata_locations_bbox_LowerCorners": (
             facets.metadata_locations_bbox_LowerCorners

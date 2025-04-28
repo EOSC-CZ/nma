@@ -94,6 +94,11 @@ class DatasetsRecord(RDMRecord):
             pid_field=Vocabulary.pid.with_type_ctx("languages"),
         ),
         role=PIDRelation(
+            "metadata.is_described_by.qualified_relations.role",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        qualified_relations_role=PIDRelation(
             "metadata.locations.related_object_identifiers.qualified_relations.role",
             keys=["id", "title"],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
@@ -118,7 +123,7 @@ class DatasetsRecord(RDMRecord):
             keys=["id", "title"],
             pid_field=Vocabulary.pid.with_type_ctx("languages"),
         ),
-        qualified_relations_role=PIDRelation(
+        metadata_qualified_relations_role=PIDRelation(
             "metadata.qualified_relations.role",
             keys=["id", "title"],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
@@ -230,6 +235,11 @@ class DatasetsDraft(RDMDraft):
             pid_field=Vocabulary.pid.with_type_ctx("languages"),
         ),
         role=PIDRelation(
+            "metadata.is_described_by.qualified_relations.role",
+            keys=["id", "title"],
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        qualified_relations_role=PIDRelation(
             "metadata.locations.related_object_identifiers.qualified_relations.role",
             keys=["id", "title"],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
@@ -254,7 +264,7 @@ class DatasetsDraft(RDMDraft):
             keys=["id", "title"],
             pid_field=Vocabulary.pid.with_type_ctx("languages"),
         ),
-        qualified_relations_role=PIDRelation(
+        metadata_qualified_relations_role=PIDRelation(
             "metadata.qualified_relations.role",
             keys=["id", "title"],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),

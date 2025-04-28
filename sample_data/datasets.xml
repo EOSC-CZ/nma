@@ -1,0 +1,40 @@
+<dataset>
+  <iri>https://original_record_url</iri>
+  <publication_year>2023</publication_year>
+  <version>1.1</version>
+  <description xml:lang="en">Climate data for European cities from 2000-2020</description>
+  <description xml:lang="es">Datos climáticos para ciudades europeas de 2000-2020</description>
+  <primary_language>
+    <iri>http://publications.europa.eu/resource/authority/language/ENG</iri>
+  </primary_language>
+  <other_language>
+    <iri>http://publications.europa.eu/resource/authority/language/ESP</iri>
+  </other_language>
+  <resource_type>
+    <iri>https://vocabularies.coar-repositories.org/resource_types/2H0M-X761/</iri>
+  </resource_type>
+  <title>European Climate Data 2000-2020</title>
+  <qualified_relation>
+    <role><iri>https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#supervisor</iri></role>
+    <person>
+      <iri>https://orcid.org/0000-0002-1825-0097</iri>
+      <has_identifier>
+        <value>0000-0002-1825-0097</value>
+        <type>ORCID</type>
+      </has_identifier>
+      <full_name>John A. Smith</full_name>
+      <family_name>Smith</family_name>
+      <given_name>John</given_name>
+      <given_name>Andrew</given_name>
+      <has_affiliation>
+        <iri>https://ror.org/03yrm5c26</iri>
+        <has_identifier>
+            <value>03yrm5c26</value>
+            <type>ROR</type>
+        </has_identifier>
+        <contact_point>...</contact_point> 
+        <name xml:lang="en">Example University</name>
+      </has_affiliation>
+    </person>
+  </qualified_relation>
+</dataset>

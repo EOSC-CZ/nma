@@ -1076,7 +1076,6 @@
                                         "organization": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/is_described_by/qualified_relations/organization.help",
                                             "label": "metadata/is_described_by/qualified_relations/organization.label",
                                             "hint": "metadata/is_described_by/qualified_relations/organization.hint",
@@ -1306,7 +1305,6 @@
                                         "person": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/is_described_by/qualified_relations/person.help",
                                             "label": "metadata/is_described_by/qualified_relations/person.label",
                                             "hint": "metadata/is_described_by/qualified_relations/person.hint",
@@ -1733,54 +1731,35 @@
                                             }
                                         },
                                         "role": {
-                                            "detail": false,
-                                            "input": false,
+                                            "detail": "vocabulary_item",
+                                            "edit": "vocabulary_item",
+                                            "input": "vocabulary",
                                             "required": true,
                                             "help": "metadata/is_described_by/qualified_relations/role.help",
                                             "label": "metadata/is_described_by/qualified_relations/role.label",
                                             "hint": "metadata/is_described_by/qualified_relations/role.hint",
+                                            "facet": "metadata_is_described_by_qualified_relations_role",
                                             "children": {
-                                                "iri": {
+                                                "id": {
                                                     "detail": "keyword",
                                                     "input": "keyword",
-                                                    "help": "metadata/is_described_by/qualified_relations/role/iri.help",
-                                                    "label": "metadata/is_described_by/qualified_relations/role/iri.label",
-                                                    "hint": "metadata/is_described_by/qualified_relations/role/iri.hint",
-                                                    "facet": "metadata_is_described_by_qualified_relations_role_iri"
+                                                    "help": "metadata/is_described_by/qualified_relations/role/id.help",
+                                                    "label": "metadata/is_described_by/qualified_relations/role/id.label",
+                                                    "hint": "metadata/is_described_by/qualified_relations/role/id.hint"
                                                 },
-                                                "labels": {
-                                                    "detail": "array",
-                                                    "input": "array",
-                                                    "help": "metadata/is_described_by/qualified_relations/role/labels.help",
-                                                    "label": "metadata/is_described_by/qualified_relations/role/labels.label",
-                                                    "hint": "metadata/is_described_by/qualified_relations/role/labels.hint",
-                                                    "child": {
-                                                        "detail": "multilingual",
-                                                        "input": "i18nStr",
-                                                        "help": "metadata/is_described_by/qualified_relations/role/labels.help",
-                                                        "label": "metadata/is_described_by/qualified_relations/role/labels.label",
-                                                        "hint": "metadata/is_described_by/qualified_relations/role/labels.hint",
-                                                        "facet": "metadata_is_described_by_qualified_relations_role_labels_cs",
-                                                        "children": {
-                                                            "lang": {
-                                                                "detail": "keyword",
-                                                                "input": "keyword",
-                                                                "required": true,
-                                                                "help": "metadata/is_described_by/qualified_relations/role/labels/lang.help",
-                                                                "label": "metadata/is_described_by/qualified_relations/role/labels/lang.label",
-                                                                "hint": "metadata/is_described_by/qualified_relations/role/labels/lang.hint",
-                                                                "facet": "metadata_is_described_by_qualified_relations_role_labels_lang"
-                                                            },
-                                                            "value": {
-                                                                "detail": "fulltext+keyword",
-                                                                "input": "fulltext+keyword",
-                                                                "required": true,
-                                                                "help": "metadata/is_described_by/qualified_relations/role/labels/value.help",
-                                                                "label": "metadata/is_described_by/qualified_relations/role/labels/value.label",
-                                                                "hint": "metadata/is_described_by/qualified_relations/role/labels/value.hint"
-                                                            }
-                                                        }
-                                                    }
+                                                "title": {
+                                                    "detail": false,
+                                                    "input": false,
+                                                    "help": "metadata/is_described_by/qualified_relations/role/title.help",
+                                                    "label": "metadata/is_described_by/qualified_relations/role/title.label",
+                                                    "hint": "metadata/is_described_by/qualified_relations/role/title.hint"
+                                                },
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/is_described_by/qualified_relations/role/@v.help",
+                                                    "label": "metadata/is_described_by/qualified_relations/role/@v.label",
+                                                    "hint": "metadata/is_described_by/qualified_relations/role/@v.hint"
                                                 }
                                             }
                                         }
@@ -2029,7 +2008,6 @@
                                                     "organization": {
                                                         "detail": false,
                                                         "input": false,
-                                                        "required": true,
                                                         "help": "metadata/locations/related_object_identifiers/qualified_relations/organization.help",
                                                         "label": "metadata/locations/related_object_identifiers/qualified_relations/organization.label",
                                                         "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization.hint",
@@ -2259,7 +2237,6 @@
                                                     "person": {
                                                         "detail": false,
                                                         "input": false,
-                                                        "required": true,
                                                         "help": "metadata/locations/related_object_identifiers/qualified_relations/person.help",
                                                         "label": "metadata/locations/related_object_identifiers/qualified_relations/person.label",
                                                         "hint": "metadata/locations/related_object_identifiers/qualified_relations/person.hint",
@@ -3008,7 +2985,6 @@
                             "organization": {
                                 "detail": false,
                                 "input": false,
-                                "required": true,
                                 "help": "metadata/qualified_relations/organization.help",
                                 "label": "metadata/qualified_relations/organization.label",
                                 "hint": "metadata/qualified_relations/organization.hint",
@@ -3238,7 +3214,6 @@
                             "person": {
                                 "detail": false,
                                 "input": false,
-                                "required": true,
                                 "help": "metadata/qualified_relations/person.help",
                                 "label": "metadata/qualified_relations/person.label",
                                 "hint": "metadata/qualified_relations/person.hint",
@@ -3780,7 +3755,6 @@
                                         "organization": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/related_resources/qualified_relations/organization.help",
                                             "label": "metadata/related_resources/qualified_relations/organization.label",
                                             "hint": "metadata/related_resources/qualified_relations/organization.hint",
@@ -4010,7 +3984,6 @@
                                         "person": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/related_resources/qualified_relations/person.help",
                                             "label": "metadata/related_resources/qualified_relations/person.label",
                                             "hint": "metadata/related_resources/qualified_relations/person.hint",
@@ -4833,7 +4806,6 @@
                                         "organization": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/terms_of_use/contacts/organization.help",
                                             "label": "metadata/terms_of_use/contacts/organization.label",
                                             "hint": "metadata/terms_of_use/contacts/organization.hint",
@@ -5063,7 +5035,6 @@
                                         "person": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/terms_of_use/contacts/person.help",
                                             "label": "metadata/terms_of_use/contacts/person.label",
                                             "hint": "metadata/terms_of_use/contacts/person.hint",

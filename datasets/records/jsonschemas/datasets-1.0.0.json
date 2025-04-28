@@ -737,22 +737,14 @@
                                         "role": {
                                             "type": "object",
                                             "properties": {
-                                                "iri": {
+                                                "id": {
                                                     "type": "string"
                                                 },
-                                                "labels": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "lang": {
-                                                                "type": "string"
-                                                            },
-                                                            "value": {
-                                                                "type": "string"
-                                                            }
-                                                        }
-                                                    }
+                                                "title": {
+                                                    "type": "object"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
                                                 }
                                             }
                                         }
@@ -2423,7 +2415,9 @@
             }
         },
         "pids": {
-            "uniqueItems": true,
+            "propertyNames": {
+                "pattern": "^[a-z_-][a-z0-9_-]*$"
+            },
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2439,9 +2433,7 @@
                     }
                 }
             },
-            "propertyNames": {
-                "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
+            "uniqueItems": true,
             "type": "object"
         },
         "state": {

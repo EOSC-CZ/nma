@@ -9,7 +9,7 @@
             "enabled": false
         },
         "metadata": {
-            "iri": "http://example.org/dataset/ecoli-microscopy",
+            "iri": "....",
             "publication_year": 2023,
             "version": "1.0",
             "descriptions": [
@@ -18,7 +18,9 @@
                     "value": "<p>        This dataset comprises a comprehensive collection of high-resolution microscopic images of <em>Escherichia coli</em> (E. coli) bacteria, captured under a variety of experimental conditions to support advanced research in microbiology and cellular biology. The images were acquired using state-of-the-art fluorescence and electron microscopy techniques, providing detailed visualizations of bacterial morphology, cellular structures, and dynamic processes such as cell division, motility, and response to environmental stressors. Each image is accompanied by metadata detailing the experimental setup, including growth conditions, staining protocols, and microscope settings, ensuring reproducibility and facilitating comparative analysis. The dataset is particularly valuable for researchers studying bacterial behavior, antibiotic resistance mechanisms, and the development of novel therapeutic strategies.    </p>    <p>        In addition to the raw image data, the dataset includes pre-processed and annotated subsets, such as segmented images highlighting specific cellular components (e.g., membranes, flagella, and nucleoids) and time-lapse sequences capturing bacterial growth and movement. These annotations were generated using machine learning algorithms and validated by domain experts, ensuring high accuracy and reliability. The dataset is intended to serve as a resource for both computational and experimental biologists, enabling the development of new image analysis tools, the validation of theoretical models, and the exploration of fundamental biological questions. By providing open access to this rich and diverse collection, we aim to foster collaboration and innovation in the scientific community, advancing our understanding of bacterial biology and its implications for health and disease.</p>"
                 }
             ],
-            "primary_language": "en",
+            "primary_language": {
+                "iri": "http://publications.europa.eu/resource/authority/language/ENG"
+            },
             "title": "E. coli Microscopy Dataset",
             "alternate_titles": [
                 {
@@ -27,7 +29,7 @@
                         "lang": "en",
                         "value": "Microscopic Images of Escherichia coli"
                     },
-                    "type": "alternative"
+                    "type": "AlternativeTitle"
                 }
             ],
             "is_described_by": [
@@ -35,13 +37,15 @@
                     "iri": "http://example.org/metadata/ecoli",
                     "date_created": "2023-10-01",
                     "languages": [
-                        "en"
+                        {
+                            "id": "ENG"
+                        }
                     ],
                     "qualified_relations": [
                         {
                             "iri": "http://example.org/metadata-to-agent/1",
                             "role": {
-                                "iri": "http://example.org/roles/creator"
+                                "id": "Supervisor"
                             },
                             "person": {
                                 "iri": "http://example.org/person/researcher",
@@ -63,7 +67,7 @@
                         {
                             "iri": "http://example.org/metadata-to-agent/1",
                             "role": {
-                                "iri": "http://example.org/roles/creator"
+                                "id": "Supervisor"
                             },
                             "organization": {
                                 "iri": "http://example.org/organization/biology-lab",
@@ -127,9 +131,8 @@
             ],
             "qualified_relations": [
                 {
-                    "iri": "http://example.org/resource-to-agent/1",
                     "role": {
-                        "iri": "http://example.org/roles/contributor"
+                        "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#supervisor"
                     },
                     "person": {
                         "iri": "http://example.org/person/imaging-specialist",
@@ -142,7 +145,7 @@
                 {
                     "iri": "http://example.org/resource-to-agent/1",
                     "role": {
-                        "iri": "http://example.org/roles/contributor"
+                        "id": "Supervisor"
                     },
                     "organization": {
                         "iri": "http://example.org/organization/imaging-center",
@@ -157,7 +160,9 @@
                 {
                     "iri": "http://example.org/time-reference/ecoli",
                     "date": "2023-09-15",
-                    "date_type": "created"
+                    "date_type": {
+                        "id": "Accepted"
+                    }
                 }
             ],
             "subjects": [
@@ -199,6 +204,7 @@
                     "funders": [
                         {
                             "iri": "http://example.org/funder/nih",
+                            "funder_identifier_value": "Blah blah",
                             "funder_identifier_type": "NIH Grant",
                             "funder_identifier_scheme_uri": "http://example.org/funder-scheme/nih"
                         }
@@ -208,10 +214,15 @@
             "terms_of_use": [
                 {
                     "iri": "http://example.org/terms/ecoli",
-                    "description": "This dataset is available under the Creative Commons Attribution 4.0 International License.",
+                    "description": {
+                        "lang": "en",
+                        "value": "This dataset is available under the Creative Commons Attribution 4.0 International License."
+                    },
                     "license": "CC-BY-4.0",
                     "access_rights": [
-                        "public"
+                        {
+                            "id": "c_abf2"
+                        }
                     ],
                     "contacts": [
                         {
@@ -265,7 +276,9 @@
                     "title": "E. coli Microscopy Images",
                     "checksum": "a1b2c3d4e5f6",
                     "byte_size": 104857600,
-                    "format": "http://example.org/formats/tiff",
+                    "format": {
+                        "id": "RPM"
+                    },
                     "access_urls": [
                         "http://download.example.org/ecoli-images"
                     ],

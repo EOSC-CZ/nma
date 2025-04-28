@@ -5,6 +5,11 @@
 # to the internal ccmm model.
 #
 $defs:
+  vocabulary:
+    type: vocabulary
+    marshmallow:
+      class: common.services.schema.CCMMVocabularySchema
+      generate: false
   address:
     properties:
       iri:
@@ -67,10 +72,8 @@ $defs:
     properties:
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
   contact_details:
     # TODO
     properties:
@@ -137,17 +140,17 @@ $defs:
         help.en: A free-text account of the Dataset.
         required: true
       other_languages[]:
-        type: vocabulary
+        use: "./ccmm.yaml#/$defs/vocabulary"
         vocabulary-type: languages
         ^label.en: Other language
         ^help.en: The primary language of the resource.
       primary_language:
-        type: vocabulary
+        use: "./ccmm.yaml#/$defs/vocabulary"
         vocabulary-type: languages
         label.en: Other language
         help.en: The primary language of the resource.
       resource_type:
-        type: vocabulary
+        use: "./ccmm.yaml#/$defs/vocabulary"
         vocabulary-type: resource-types
         label.en: Resource type
         help.en: A description of the resource.
@@ -286,7 +289,7 @@ $defs:
         label.en: Byte size
         help.en: The size of a Distribution in bytes.
       format:
-        type: vocabulary
+        use: "./ccmm.yaml#/$defs/vocabulary"
         vocabulary-type: file-types
         label.en: Format
         help.en: The file format of the Distribution.
@@ -434,15 +437,8 @@ $defs:
         label.en: Label
         help.en: Media type label
   metadata_agent_role_type:
-    properties:
-      iri:
-        type: keyword
-      labels:
-        type: array
-        items:
-          type: i18nStr
-        label.en: Label
-        help.en: Metadata agent role type label
+    use: "./ccmm.yaml#/$defs/vocabulary"
+    vocabulary-type: contributor-types
   metadata_record:
     properties:
       iri:
@@ -458,7 +454,7 @@ $defs:
         label.en: Date Created
         help.en: The date on which the metadata record was created.
       languages[]:
-        type: vocabulary
+        use: "./ccmm.yaml#/$defs/vocabulary"
         vocabulary-type: languages
         ^label.en: Language
         ^help.en: Language of the metadata record
@@ -494,10 +490,8 @@ $defs:
         required: true
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
   organization:
     properties:
       alternate_names:
@@ -608,7 +602,7 @@ $defs:
       iri:
         type: keyword
       relation_type:
-        type: vocabulary
+        use: "./ccmm.yaml#/$defs/vocabulary"
         vocabulary-type: relation-types
         label.en: Relation type
         help.en: Type of the relation between Dataset and related resource.
@@ -638,7 +632,7 @@ $defs:
           use: ./ccmm.yaml#/$defs/time_reference
         label.en: time reference
   resource_agent_role_type:
-    type: vocabulary
+    use: "./ccmm.yaml#/$defs/vocabulary"
     vocabulary-type: contributor-types
   resource_to_agent_relationship:
     properties:
@@ -652,10 +646,8 @@ $defs:
         required: true
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
   subject:
     properties:
       iri:
@@ -692,7 +684,7 @@ $defs:
     properties:
       iri:
         type: keyword
-      description:
+      description: #TODO: this should be multilingual/array of descriptions
         type: i18nStr
         label.en: Description
         help.en: Descriptive text on details of rights and licensing.
@@ -701,7 +693,7 @@ $defs:
         label.en: License
         help.en: Information about licensing details of the resource.
       access_rights[]:
-        type: vocabulary
+        use: "./ccmm.yaml#/$defs/vocabulary"
         vocabulary-type: access-rights
         ^label.en: Access rights
         ^help.en:
@@ -722,7 +714,7 @@ $defs:
         label.en: Date information
         help.en: Additional information to the date in text form.
       date_type:
-        type: vocabulary
+        use: "./ccmm.yaml#/$defs/vocabulary"
         vocabulary-type: time-reference-types
         label.en: Date type
         help.en: Type of the date.

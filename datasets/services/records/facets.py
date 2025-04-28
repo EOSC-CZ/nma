@@ -726,27 +726,10 @@ metadata_is_described_by_qualified_relations_person_iri = TermsFacet(
     label=_("metadata/is_described_by/qualified_relations/person/iri.label"),
 )
 
-metadata_is_described_by_qualified_relations_role_iri = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.role.iri",
-    label=_("metadata/is_described_by/qualified_relations/role/iri.label"),
-)
-
-metadata_is_described_by_qualified_relations_role_labels_cs = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.role.labels.cs.keyword",
-    label=_("metadata/is_described_by/qualified_relations/role/labels.label"),
-)
-
-metadata_is_described_by_qualified_relations_role_labels_en = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.role.labels.en.keyword",
-    label=_("metadata/is_described_by/qualified_relations/role/labels.label"),
-)
-
-metadata_is_described_by_qualified_relations_role_labels_lang = NestedLabeledFacet(
-    path="metadata.is_described_by.qualified_relations.role.labels",
-    nested_facet=TermsFacet(
-        field="metadata.is_described_by.qualified_relations.role.labels.lang",
-        label=_("metadata/is_described_by/qualified_relations/role/labels/lang.label"),
-    ),
+metadata_is_described_by_qualified_relations_role = VocabularyFacet(
+    field="metadata.is_described_by.qualified_relations.role",
+    label=_("metadata/is_described_by/qualified_relations/role.label"),
+    vocabulary="contributor-types",
 )
 
 metadata_locations_bbox_LowerCorners = TermsFacet(
