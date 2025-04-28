@@ -10,6 +10,10 @@ $defs:
     marshmallow:
       class: common.services.schema.CCMMVocabularySchema
       generate: false
+    keys:
+      - id
+      - title
+      - props.iri
   address:
     properties:
       iri:

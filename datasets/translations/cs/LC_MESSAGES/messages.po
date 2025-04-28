@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-04-24T15:30:22.917576\n"
-"PO-Revision-Date: 2025-04-24T15:30:22.917595\n"
+"POT-Creation-Date: 2025-04-28T21:22:20.515654\n"
+"PO-Revision-Date: 2025-04-28T21:22:20.515655\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -558,6 +558,15 @@ msgstr ""
 msgid "metadata/distribution_downloadable_files/format/title.hint"
 msgstr ""
 
+msgid "metadata/distribution_downloadable_files/format/iri.help"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/iri.label"
+msgstr ""
+
+msgid "metadata/distribution_downloadable_files/format/iri.hint"
+msgstr ""
+
 msgid "metadata/distribution_downloadable_files/format/@v.help"
 msgstr ""
 
@@ -880,6 +889,15 @@ msgid "metadata/is_described_by/languages/title.label"
 msgstr ""
 
 msgid "metadata/is_described_by/languages/title.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/iri.help"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/iri.label"
+msgstr ""
+
+msgid "metadata/is_described_by/languages/iri.hint"
 msgstr ""
 
 msgid "metadata/is_described_by/languages/@v.help"
@@ -1627,6 +1645,15 @@ msgid "metadata/is_described_by/qualified_relations/role/title.label"
 msgstr ""
 
 msgid "metadata/is_described_by/qualified_relations/role/title.hint"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/role/iri.help"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/role/iri.label"
+msgstr ""
+
+msgid "metadata/is_described_by/qualified_relations/role/iri.hint"
 msgstr ""
 
 msgid "metadata/is_described_by/qualified_relations/role/@v.help"
@@ -2552,6 +2579,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/qualified_relations/role/iri.hint"
+msgstr ""
+
+msgid ""
 "metadata/locations/related_object_identifiers/qualified_relations/role/@v.help"
 msgstr ""
 
@@ -2589,6 +2628,15 @@ msgid ""
 msgstr ""
 
 msgid "metadata/locations/related_object_identifiers/relation_type/title.hint"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/iri.help"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/iri.label"
+msgstr ""
+
+msgid "metadata/locations/related_object_identifiers/relation_type/iri.hint"
 msgstr ""
 
 msgid "metadata/locations/related_object_identifiers/relation_type/@v.help"
@@ -2670,6 +2718,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/iri.help"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/iri.label"
+msgstr ""
+
+msgid ""
+"metadata/locations/related_object_identifiers/time_references/date_type/iri.hint"
+msgstr ""
+
+msgid ""
 "metadata/locations/related_object_identifiers/time_references/date_type/@v.help"
 msgstr ""
 
@@ -2736,6 +2796,15 @@ msgstr ""
 msgid "metadata/other_languages/title.hint"
 msgstr ""
 
+msgid "metadata/other_languages/iri.help"
+msgstr ""
+
+msgid "metadata/other_languages/iri.label"
+msgstr ""
+
+msgid "metadata/other_languages/iri.hint"
+msgstr ""
+
 msgid "metadata/other_languages/@v.help"
 msgstr ""
 
@@ -2770,6 +2839,15 @@ msgid "metadata/primary_language/title.label"
 msgstr ""
 
 msgid "metadata/primary_language/title.hint"
+msgstr ""
+
+msgid "metadata/primary_language/iri.help"
+msgstr ""
+
+msgid "metadata/primary_language/iri.label"
+msgstr ""
+
+msgid "metadata/primary_language/iri.hint"
 msgstr ""
 
 msgid "metadata/primary_language/@v.help"
@@ -3451,6 +3529,15 @@ msgid "metadata/qualified_relations/role/title.label"
 msgstr ""
 
 msgid "metadata/qualified_relations/role/title.hint"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/iri.help"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/iri.label"
+msgstr ""
+
+msgid "metadata/qualified_relations/role/iri.hint"
 msgstr ""
 
 msgid "metadata/qualified_relations/role/@v.help"
@@ -4214,6 +4301,15 @@ msgstr ""
 msgid "metadata/related_resources/qualified_relations/role/title.hint"
 msgstr ""
 
+msgid "metadata/related_resources/qualified_relations/role/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/qualified_relations/role/iri.hint"
+msgstr ""
+
 msgid "metadata/related_resources/qualified_relations/role/@v.help"
 msgstr ""
 
@@ -4248,6 +4344,15 @@ msgid "metadata/related_resources/relation_type/title.label"
 msgstr ""
 
 msgid "metadata/related_resources/relation_type/title.hint"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/relation_type/iri.hint"
 msgstr ""
 
 msgid "metadata/related_resources/relation_type/@v.help"
@@ -4313,6 +4418,15 @@ msgstr ""
 msgid "metadata/related_resources/time_references/date_type/title.hint"
 msgstr ""
 
+msgid "metadata/related_resources/time_references/date_type/iri.help"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/iri.label"
+msgstr ""
+
+msgid "metadata/related_resources/time_references/date_type/iri.hint"
+msgstr ""
+
 msgid "metadata/related_resources/time_references/date_type/@v.help"
 msgstr ""
 
@@ -4374,6 +4488,15 @@ msgid "metadata/resource_type/title.label"
 msgstr ""
 
 msgid "metadata/resource_type/title.hint"
+msgstr ""
+
+msgid "metadata/resource_type/iri.help"
+msgstr ""
+
+msgid "metadata/resource_type/iri.label"
+msgstr ""
+
+msgid "metadata/resource_type/iri.hint"
 msgstr ""
 
 msgid "metadata/resource_type/@v.help"
@@ -4545,6 +4668,15 @@ msgid "metadata/terms_of_use/access_rights/title.label"
 msgstr ""
 
 msgid "metadata/terms_of_use/access_rights/title.hint"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/iri.help"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/iri.label"
+msgstr ""
+
+msgid "metadata/terms_of_use/access_rights/iri.hint"
 msgstr ""
 
 msgid "metadata/terms_of_use/access_rights/@v.help"
@@ -5245,6 +5377,15 @@ msgid "metadata/time_references/date_type/title.label"
 msgstr ""
 
 msgid "metadata/time_references/date_type/title.hint"
+msgstr ""
+
+msgid "metadata/time_references/date_type/iri.help"
+msgstr ""
+
+msgid "metadata/time_references/date_type/iri.label"
+msgstr ""
+
+msgid "metadata/time_references/date_type/iri.hint"
 msgstr ""
 
 msgid "metadata/time_references/date_type/@v.help"

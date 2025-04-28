@@ -3,6 +3,10 @@
         "type": "model",
         "mapping": {
             "template": {
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200
+                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -58,10 +62,6 @@
                             }
                         }
                     ]
-                },
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200
                 }
             },
             "generate": true,
@@ -1378,6 +1378,17 @@
                                 },
                                 "format": {
                                     "type": "vocabulary",
+                                    "keys": [
+                                        "id",
+                                        "title",
+                                        {
+                                            "key": "props.iri",
+                                            "model": {
+                                                "type": "keyword"
+                                            },
+                                            "target": "iri"
+                                        }
+                                    ],
                                     "vocabulary-type": "file-types",
                                     "marshmallow": {
                                         "generate": false,
@@ -1392,10 +1403,6 @@
                                         }
                                     ],
                                     "model": "vocabularies",
-                                    "keys": [
-                                        "id",
-                                        "title"
-                                    ],
                                     "ui": {
                                         "marshmallow": {
                                             "unknown": "INCLUDE",
@@ -1467,6 +1474,9 @@
                                             "additionalProperties": {
                                                 "type": "string"
                                             }
+                                        },
+                                        "iri": {
+                                            "type": "keyword"
                                         },
                                         "@v": {
                                             "type": "keyword",
@@ -1776,6 +1786,17 @@
                                     "help.en": "Language of the metadata record",
                                     "items": {
                                         "type": "vocabulary",
+                                        "keys": [
+                                            "id",
+                                            "title",
+                                            {
+                                                "key": "props.iri",
+                                                "model": {
+                                                    "type": "keyword"
+                                                },
+                                                "target": "iri"
+                                            }
+                                        ],
                                         "vocabulary-type": "languages",
                                         "marshmallow": {
                                             "generate": false,
@@ -1788,10 +1809,6 @@
                                             }
                                         ],
                                         "model": "vocabularies",
-                                        "keys": [
-                                            "id",
-                                            "title"
-                                        ],
                                         "ui": {
                                             "marshmallow": {
                                                 "unknown": "INCLUDE",
@@ -1863,6 +1880,9 @@
                                                 "additionalProperties": {
                                                     "type": "string"
                                                 }
+                                            },
+                                            "iri": {
+                                                "type": "keyword"
                                             },
                                             "@v": {
                                                 "type": "keyword",
@@ -2562,6 +2582,17 @@
                                             "role": {
                                                 "type": "vocabulary",
                                                 "required": true,
+                                                "keys": [
+                                                    "id",
+                                                    "title",
+                                                    {
+                                                        "key": "props.iri",
+                                                        "model": {
+                                                            "type": "keyword"
+                                                        },
+                                                        "target": "iri"
+                                                    }
+                                                ],
                                                 "vocabulary-type": "contributor-types",
                                                 "marshmallow": {
                                                     "generate": false,
@@ -2575,10 +2606,6 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "keys": [
-                                                    "id",
-                                                    "title"
-                                                ],
                                                 "ui": {
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -2650,6 +2677,9 @@
                                                         "additionalProperties": {
                                                             "type": "string"
                                                         }
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword"
                                                     },
                                                     "@v": {
                                                         "type": "keyword",
@@ -3476,6 +3506,17 @@
                                                         "role": {
                                                             "type": "vocabulary",
                                                             "required": true,
+                                                            "keys": [
+                                                                "id",
+                                                                "title",
+                                                                {
+                                                                    "key": "props.iri",
+                                                                    "model": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "target": "iri"
+                                                                }
+                                                            ],
                                                             "vocabulary-type": "contributor-types",
                                                             "marshmallow": {
                                                                 "generate": false,
@@ -3489,10 +3530,6 @@
                                                                 }
                                                             ],
                                                             "model": "vocabularies",
-                                                            "keys": [
-                                                                "id",
-                                                                "title"
-                                                            ],
                                                             "ui": {
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -3565,6 +3602,9 @@
                                                                         "type": "string"
                                                                     }
                                                                 },
+                                                                "iri": {
+                                                                    "type": "keyword"
+                                                                },
                                                                 "@v": {
                                                                     "type": "keyword",
                                                                     "marshmallow": {
@@ -3588,6 +3628,17 @@
                                             },
                                             "relation_type": {
                                                 "type": "vocabulary",
+                                                "keys": [
+                                                    "id",
+                                                    "title",
+                                                    {
+                                                        "key": "props.iri",
+                                                        "model": {
+                                                            "type": "keyword"
+                                                        },
+                                                        "target": "iri"
+                                                    }
+                                                ],
                                                 "vocabulary-type": "relation-types",
                                                 "marshmallow": {
                                                     "generate": false,
@@ -3602,10 +3653,6 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "keys": [
-                                                    "id",
-                                                    "title"
-                                                ],
                                                 "ui": {
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -3678,6 +3725,9 @@
                                                             "type": "string"
                                                         }
                                                     },
+                                                    "iri": {
+                                                        "type": "keyword"
+                                                    },
                                                     "@v": {
                                                         "type": "keyword",
                                                         "marshmallow": {
@@ -3724,6 +3774,17 @@
                                                         },
                                                         "date_type": {
                                                             "type": "vocabulary",
+                                                            "keys": [
+                                                                "id",
+                                                                "title",
+                                                                {
+                                                                    "key": "props.iri",
+                                                                    "model": {
+                                                                        "type": "keyword"
+                                                                    },
+                                                                    "target": "iri"
+                                                                }
+                                                            ],
                                                             "vocabulary-type": "time-reference-types",
                                                             "marshmallow": {
                                                                 "generate": false,
@@ -3738,10 +3799,6 @@
                                                                 }
                                                             ],
                                                             "model": "vocabularies",
-                                                            "keys": [
-                                                                "id",
-                                                                "title"
-                                                            ],
                                                             "ui": {
                                                                 "marshmallow": {
                                                                     "unknown": "INCLUDE",
@@ -3814,6 +3871,9 @@
                                                                         "type": "string"
                                                                     }
                                                                 },
+                                                                "iri": {
+                                                                    "type": "keyword"
+                                                                },
                                                                 "@v": {
                                                                     "type": "keyword",
                                                                     "marshmallow": {
@@ -3860,6 +3920,17 @@
                         "help.en": "The primary language of the resource.",
                         "items": {
                             "type": "vocabulary",
+                            "keys": [
+                                "id",
+                                "title",
+                                {
+                                    "key": "props.iri",
+                                    "model": {
+                                        "type": "keyword"
+                                    },
+                                    "target": "iri"
+                                }
+                            ],
                             "vocabulary-type": "languages",
                             "marshmallow": {
                                 "generate": false,
@@ -3872,10 +3943,6 @@
                                 }
                             ],
                             "model": "vocabularies",
-                            "keys": [
-                                "id",
-                                "title"
-                            ],
                             "ui": {
                                 "marshmallow": {
                                     "unknown": "INCLUDE",
@@ -3948,6 +4015,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "iri": {
+                                    "type": "keyword"
+                                },
                                 "@v": {
                                     "type": "keyword",
                                     "marshmallow": {
@@ -3969,6 +4039,17 @@
                     },
                     "primary_language": {
                         "type": "vocabulary",
+                        "keys": [
+                            "id",
+                            "title",
+                            {
+                                "key": "props.iri",
+                                "model": {
+                                    "type": "keyword"
+                                },
+                                "target": "iri"
+                            }
+                        ],
                         "vocabulary-type": "languages",
                         "marshmallow": {
                             "generate": false,
@@ -3983,10 +4064,6 @@
                             }
                         ],
                         "model": "vocabularies",
-                        "keys": [
-                            "id",
-                            "title"
-                        ],
                         "ui": {
                             "marshmallow": {
                                 "unknown": "INCLUDE",
@@ -4058,6 +4135,9 @@
                                 "additionalProperties": {
                                     "type": "string"
                                 }
+                            },
+                            "iri": {
+                                "type": "keyword"
                             },
                             "@v": {
                                 "type": "keyword",
@@ -4760,6 +4840,17 @@
                                 "role": {
                                     "type": "vocabulary",
                                     "required": true,
+                                    "keys": [
+                                        "id",
+                                        "title",
+                                        {
+                                            "key": "props.iri",
+                                            "model": {
+                                                "type": "keyword"
+                                            },
+                                            "target": "iri"
+                                        }
+                                    ],
                                     "vocabulary-type": "contributor-types",
                                     "marshmallow": {
                                         "generate": false,
@@ -4773,10 +4864,6 @@
                                         }
                                     ],
                                     "model": "vocabularies",
-                                    "keys": [
-                                        "id",
-                                        "title"
-                                    ],
                                     "ui": {
                                         "marshmallow": {
                                             "unknown": "INCLUDE",
@@ -4848,6 +4935,9 @@
                                             "additionalProperties": {
                                                 "type": "string"
                                             }
+                                        },
+                                        "iri": {
+                                            "type": "keyword"
                                         },
                                         "@v": {
                                             "type": "keyword",
@@ -5537,6 +5627,17 @@
                                             "role": {
                                                 "type": "vocabulary",
                                                 "required": true,
+                                                "keys": [
+                                                    "id",
+                                                    "title",
+                                                    {
+                                                        "key": "props.iri",
+                                                        "model": {
+                                                            "type": "keyword"
+                                                        },
+                                                        "target": "iri"
+                                                    }
+                                                ],
                                                 "vocabulary-type": "contributor-types",
                                                 "marshmallow": {
                                                     "generate": false,
@@ -5550,10 +5651,6 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "keys": [
-                                                    "id",
-                                                    "title"
-                                                ],
                                                 "ui": {
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -5626,6 +5723,9 @@
                                                             "type": "string"
                                                         }
                                                     },
+                                                    "iri": {
+                                                        "type": "keyword"
+                                                    },
                                                     "@v": {
                                                         "type": "keyword",
                                                         "marshmallow": {
@@ -5649,6 +5749,17 @@
                                 },
                                 "relation_type": {
                                     "type": "vocabulary",
+                                    "keys": [
+                                        "id",
+                                        "title",
+                                        {
+                                            "key": "props.iri",
+                                            "model": {
+                                                "type": "keyword"
+                                            },
+                                            "target": "iri"
+                                        }
+                                    ],
                                     "vocabulary-type": "relation-types",
                                     "marshmallow": {
                                         "generate": false,
@@ -5663,10 +5774,6 @@
                                         }
                                     ],
                                     "model": "vocabularies",
-                                    "keys": [
-                                        "id",
-                                        "title"
-                                    ],
                                     "ui": {
                                         "marshmallow": {
                                             "unknown": "INCLUDE",
@@ -5739,6 +5846,9 @@
                                                 "type": "string"
                                             }
                                         },
+                                        "iri": {
+                                            "type": "keyword"
+                                        },
                                         "@v": {
                                             "type": "keyword",
                                             "marshmallow": {
@@ -5785,6 +5895,17 @@
                                             },
                                             "date_type": {
                                                 "type": "vocabulary",
+                                                "keys": [
+                                                    "id",
+                                                    "title",
+                                                    {
+                                                        "key": "props.iri",
+                                                        "model": {
+                                                            "type": "keyword"
+                                                        },
+                                                        "target": "iri"
+                                                    }
+                                                ],
                                                 "vocabulary-type": "time-reference-types",
                                                 "marshmallow": {
                                                     "generate": false,
@@ -5799,10 +5920,6 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "keys": [
-                                                    "id",
-                                                    "title"
-                                                ],
                                                 "ui": {
                                                     "marshmallow": {
                                                         "unknown": "INCLUDE",
@@ -5875,6 +5992,9 @@
                                                             "type": "string"
                                                         }
                                                     },
+                                                    "iri": {
+                                                        "type": "keyword"
+                                                    },
                                                     "@v": {
                                                         "type": "keyword",
                                                         "marshmallow": {
@@ -5914,6 +6034,17 @@
                     },
                     "resource_type": {
                         "type": "vocabulary",
+                        "keys": [
+                            "id",
+                            "title",
+                            {
+                                "key": "props.iri",
+                                "model": {
+                                    "type": "keyword"
+                                },
+                                "target": "iri"
+                            }
+                        ],
                         "vocabulary-type": "resource-types",
                         "marshmallow": {
                             "generate": false,
@@ -5928,10 +6059,6 @@
                             }
                         ],
                         "model": "vocabularies",
-                        "keys": [
-                            "id",
-                            "title"
-                        ],
                         "ui": {
                             "marshmallow": {
                                 "unknown": "INCLUDE",
@@ -6003,6 +6130,9 @@
                                 "additionalProperties": {
                                     "type": "string"
                                 }
+                            },
+                            "iri": {
+                                "type": "keyword"
                             },
                             "@v": {
                                 "type": "keyword",
@@ -6205,6 +6335,17 @@
                                     "help.en": "Information about who access the resource or an indication of its security status.",
                                     "items": {
                                         "type": "vocabulary",
+                                        "keys": [
+                                            "id",
+                                            "title",
+                                            {
+                                                "key": "props.iri",
+                                                "model": {
+                                                    "type": "keyword"
+                                                },
+                                                "target": "iri"
+                                            }
+                                        ],
                                         "vocabulary-type": "access-rights",
                                         "marshmallow": {
                                             "generate": false,
@@ -6217,10 +6358,6 @@
                                             }
                                         ],
                                         "model": "vocabularies",
-                                        "keys": [
-                                            "id",
-                                            "title"
-                                        ],
                                         "ui": {
                                             "marshmallow": {
                                                 "unknown": "INCLUDE",
@@ -6292,6 +6429,9 @@
                                                 "additionalProperties": {
                                                     "type": "string"
                                                 }
+                                            },
+                                            "iri": {
+                                                "type": "keyword"
                                             },
                                             "@v": {
                                                 "type": "keyword",
@@ -7001,6 +7141,17 @@
                                 },
                                 "date_type": {
                                     "type": "vocabulary",
+                                    "keys": [
+                                        "id",
+                                        "title",
+                                        {
+                                            "key": "props.iri",
+                                            "model": {
+                                                "type": "keyword"
+                                            },
+                                            "target": "iri"
+                                        }
+                                    ],
                                     "vocabulary-type": "time-reference-types",
                                     "marshmallow": {
                                         "generate": false,
@@ -7015,10 +7166,6 @@
                                         }
                                     ],
                                     "model": "vocabularies",
-                                    "keys": [
-                                        "id",
-                                        "title"
-                                    ],
                                     "ui": {
                                         "marshmallow": {
                                             "unknown": "INCLUDE",
@@ -7090,6 +7237,9 @@
                                             "additionalProperties": {
                                                 "type": "string"
                                             }
+                                        },
+                                        "iri": {
+                                            "type": "keyword"
                                         },
                                         "@v": {
                                             "type": "keyword",
@@ -7249,6 +7399,7 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "type": "object",
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
@@ -7267,8 +7418,7 @@
                             }
                         }
                     },
-                    "uniqueItems": true,
-                    "type": "object"
+                    "uniqueItems": true
                 },
                 "ui": {
                     "marshmallow": {

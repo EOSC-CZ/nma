@@ -616,6 +616,13 @@
                                         "label": "metadata/distribution_downloadable_files/format/title.label",
                                         "hint": "metadata/distribution_downloadable_files/format/title.hint"
                                     },
+                                    "iri": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/distribution_downloadable_files/format/iri.help",
+                                        "label": "metadata/distribution_downloadable_files/format/iri.label",
+                                        "hint": "metadata/distribution_downloadable_files/format/iri.hint"
+                                    },
                                     "@v": {
                                         "detail": "keyword",
                                         "input": "keyword",
@@ -983,6 +990,13 @@
                                             "help": "metadata/is_described_by/languages/title.help",
                                             "label": "metadata/is_described_by/languages/title.label",
                                             "hint": "metadata/is_described_by/languages/title.hint"
+                                        },
+                                        "iri": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/is_described_by/languages/iri.help",
+                                            "label": "metadata/is_described_by/languages/iri.label",
+                                            "hint": "metadata/is_described_by/languages/iri.hint"
                                         },
                                         "@v": {
                                             "detail": "keyword",
@@ -1753,6 +1767,13 @@
                                                     "help": "metadata/is_described_by/qualified_relations/role/title.help",
                                                     "label": "metadata/is_described_by/qualified_relations/role/title.label",
                                                     "hint": "metadata/is_described_by/qualified_relations/role/title.hint"
+                                                },
+                                                "iri": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/is_described_by/qualified_relations/role/iri.help",
+                                                    "label": "metadata/is_described_by/qualified_relations/role/iri.label",
+                                                    "hint": "metadata/is_described_by/qualified_relations/role/iri.hint"
                                                 },
                                                 "@v": {
                                                     "detail": "keyword",
@@ -2686,6 +2707,13 @@
                                                                 "label": "metadata/locations/related_object_identifiers/qualified_relations/role/title.label",
                                                                 "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/title.hint"
                                                             },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/role/iri.help",
+                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/role/iri.label",
+                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/iri.hint"
+                                                            },
                                                             "@v": {
                                                                 "detail": "keyword",
                                                                 "input": "keyword",
@@ -2720,6 +2748,13 @@
                                                     "help": "metadata/locations/related_object_identifiers/relation_type/title.help",
                                                     "label": "metadata/locations/related_object_identifiers/relation_type/title.label",
                                                     "hint": "metadata/locations/related_object_identifiers/relation_type/title.hint"
+                                                },
+                                                "iri": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/locations/related_object_identifiers/relation_type/iri.help",
+                                                    "label": "metadata/locations/related_object_identifiers/relation_type/iri.label",
+                                                    "hint": "metadata/locations/related_object_identifiers/relation_type/iri.hint"
                                                 },
                                                 "@v": {
                                                     "detail": "keyword",
@@ -2781,6 +2816,13 @@
                                                                 "help": "metadata/locations/related_object_identifiers/time_references/date_type/title.help",
                                                                 "label": "metadata/locations/related_object_identifiers/time_references/date_type/title.label",
                                                                 "hint": "metadata/locations/related_object_identifiers/time_references/date_type/title.hint"
+                                                            },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/locations/related_object_identifiers/time_references/date_type/iri.help",
+                                                                "label": "metadata/locations/related_object_identifiers/time_references/date_type/iri.label",
+                                                                "hint": "metadata/locations/related_object_identifiers/time_references/date_type/iri.hint"
                                                             },
                                                             "@v": {
                                                                 "detail": "keyword",
@@ -2853,6 +2895,13 @@
                                 "label": "metadata/other_languages/title.label",
                                 "hint": "metadata/other_languages/title.hint"
                             },
+                            "iri": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/other_languages/iri.help",
+                                "label": "metadata/other_languages/iri.label",
+                                "hint": "metadata/other_languages/iri.hint"
+                            },
                             "@v": {
                                 "detail": "keyword",
                                 "input": "keyword",
@@ -2885,6 +2934,13 @@
                             "help": "metadata/primary_language/title.help",
                             "label": "metadata/primary_language/title.label",
                             "hint": "metadata/primary_language/title.hint"
+                        },
+                        "iri": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/primary_language/iri.help",
+                            "label": "metadata/primary_language/iri.label",
+                            "hint": "metadata/primary_language/iri.hint"
                         },
                         "@v": {
                             "detail": "keyword",
@@ -3663,6 +3719,13 @@
                                         "label": "metadata/qualified_relations/role/title.label",
                                         "hint": "metadata/qualified_relations/role/title.hint"
                                     },
+                                    "iri": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/qualified_relations/role/iri.help",
+                                        "label": "metadata/qualified_relations/role/iri.label",
+                                        "hint": "metadata/qualified_relations/role/iri.hint"
+                                    },
                                     "@v": {
                                         "detail": "keyword",
                                         "input": "keyword",
@@ -4433,6 +4496,13 @@
                                                     "label": "metadata/related_resources/qualified_relations/role/title.label",
                                                     "hint": "metadata/related_resources/qualified_relations/role/title.hint"
                                                 },
+                                                "iri": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/related_resources/qualified_relations/role/iri.help",
+                                                    "label": "metadata/related_resources/qualified_relations/role/iri.label",
+                                                    "hint": "metadata/related_resources/qualified_relations/role/iri.hint"
+                                                },
                                                 "@v": {
                                                     "detail": "keyword",
                                                     "input": "keyword",
@@ -4467,6 +4537,13 @@
                                         "help": "metadata/related_resources/relation_type/title.help",
                                         "label": "metadata/related_resources/relation_type/title.label",
                                         "hint": "metadata/related_resources/relation_type/title.hint"
+                                    },
+                                    "iri": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/related_resources/relation_type/iri.help",
+                                        "label": "metadata/related_resources/relation_type/iri.label",
+                                        "hint": "metadata/related_resources/relation_type/iri.hint"
                                     },
                                     "@v": {
                                         "detail": "keyword",
@@ -4529,6 +4606,13 @@
                                                     "label": "metadata/related_resources/time_references/date_type/title.label",
                                                     "hint": "metadata/related_resources/time_references/date_type/title.hint"
                                                 },
+                                                "iri": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/related_resources/time_references/date_type/iri.help",
+                                                    "label": "metadata/related_resources/time_references/date_type/iri.label",
+                                                    "hint": "metadata/related_resources/time_references/date_type/iri.hint"
+                                                },
                                                 "@v": {
                                                     "detail": "keyword",
                                                     "input": "keyword",
@@ -4590,6 +4674,13 @@
                             "help": "metadata/resource_type/title.help",
                             "label": "metadata/resource_type/title.label",
                             "hint": "metadata/resource_type/title.hint"
+                        },
+                        "iri": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/resource_type/iri.help",
+                            "label": "metadata/resource_type/iri.label",
+                            "hint": "metadata/resource_type/iri.hint"
                         },
                         "@v": {
                             "detail": "keyword",
@@ -4779,6 +4870,13 @@
                                             "help": "metadata/terms_of_use/access_rights/title.help",
                                             "label": "metadata/terms_of_use/access_rights/title.label",
                                             "hint": "metadata/terms_of_use/access_rights/title.hint"
+                                        },
+                                        "iri": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/terms_of_use/access_rights/iri.help",
+                                            "label": "metadata/terms_of_use/access_rights/iri.label",
+                                            "hint": "metadata/terms_of_use/access_rights/iri.hint"
                                         },
                                         "@v": {
                                             "detail": "keyword",
@@ -5560,6 +5658,13 @@
                                         "help": "metadata/time_references/date_type/title.help",
                                         "label": "metadata/time_references/date_type/title.label",
                                         "hint": "metadata/time_references/date_type/title.hint"
+                                    },
+                                    "iri": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/time_references/date_type/iri.help",
+                                        "label": "metadata/time_references/date_type/iri.label",
+                                        "hint": "metadata/time_references/date_type/iri.hint"
                                     },
                                     "@v": {
                                         "detail": "keyword",

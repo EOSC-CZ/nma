@@ -38,14 +38,14 @@
                     "date_created": "2023-10-01",
                     "languages": [
                         {
-                            "id": "ENG"
+                            "iri": "http://publications.europa.eu/resource/authority/language/ENG"
                         }
                     ],
                     "qualified_relations": [
                         {
                             "iri": "http://example.org/metadata-to-agent/1",
                             "role": {
-                                "id": "Supervisor"
+                                "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#supervisor"
                             },
                             "person": {
                                 "iri": "http://example.org/person/researcher",
@@ -67,7 +67,7 @@
                         {
                             "iri": "http://example.org/metadata-to-agent/1",
                             "role": {
-                                "id": "Supervisor"
+                                "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#supervisor"
                             },
                             "organization": {
                                 "iri": "http://example.org/organization/biology-lab",
@@ -145,7 +145,7 @@
                 {
                     "iri": "http://example.org/resource-to-agent/1",
                     "role": {
-                        "id": "Supervisor"
+                        "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#supervisor"
                     },
                     "organization": {
                         "iri": "http://example.org/organization/imaging-center",
@@ -161,7 +161,7 @@
                     "iri": "http://example.org/time-reference/ecoli",
                     "date": "2023-09-15",
                     "date_type": {
-                        "id": "Accepted"
+                        "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/dateType/#accepted"
                     }
                 }
             ],
@@ -221,7 +221,7 @@
                     "license": "CC-BY-4.0",
                     "access_rights": [
                         {
-                            "id": "c_abf2"
+                            "iri": "http://purl.org/coar/access_right/c_abf2"
                         }
                     ],
                     "contacts": [
@@ -277,7 +277,7 @@
                     "checksum": "a1b2c3d4e5f6",
                     "byte_size": 104857600,
                     "format": {
-                        "id": "RPM"
+                        "iri": "http://publications.europa.eu/resource/authority/file-type/RPM"
                     },
                     "access_urls": [
                         "http://download.example.org/ecoli-images"

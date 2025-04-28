@@ -416,6 +416,10 @@
                                         },
                                         "type": "object"
                                     },
+                                    "iri": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
                                     "@v": {
                                         "type": "keyword",
                                         "ignore_above": 1024
@@ -625,6 +629,10 @@
                                             }
                                         },
                                         "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
                                     },
                                     "@v": {
                                         "type": "keyword",
@@ -1106,6 +1114,10 @@
                                                     }
                                                 },
                                                 "type": "object"
+                                            },
+                                            "iri": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
                                             },
                                             "@v": {
                                                 "type": "keyword",
@@ -1649,6 +1661,10 @@
                                                         },
                                                         "type": "object"
                                                     },
+                                                    "iri": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
+                                                    },
                                                     "@v": {
                                                         "type": "keyword",
                                                         "ignore_above": 1024
@@ -1678,6 +1694,10 @@
                                                     }
                                                 },
                                                 "type": "object"
+                                            },
+                                            "iri": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
                                             },
                                             "@v": {
                                                 "type": "keyword",
@@ -1717,6 +1737,10 @@
                                                             }
                                                         },
                                                         "type": "object"
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 1024
                                                     },
                                                     "@v": {
                                                         "type": "keyword",
@@ -1764,6 +1788,10 @@
                                 },
                                 "type": "object"
                             },
+                            "iri": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
                             "@v": {
                                 "type": "keyword",
                                 "ignore_above": 1024
@@ -1791,6 +1819,10 @@
                                     }
                                 },
                                 "type": "object"
+                            },
+                            "iri": {
+                                "type": "keyword",
+                                "ignore_above": 1024
                             },
                             "@v": {
                                 "type": "keyword",
@@ -2276,6 +2308,10 @@
                                         },
                                         "type": "object"
                                     },
+                                    "iri": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
+                                    },
                                     "@v": {
                                         "type": "keyword",
                                         "ignore_above": 1024
@@ -2738,6 +2774,10 @@
                                                 },
                                                 "type": "object"
                                             },
+                                            "iri": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
+                                            },
                                             "@v": {
                                                 "type": "keyword",
                                                 "ignore_above": 1024
@@ -2767,6 +2807,10 @@
                                             }
                                         },
                                         "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
                                     },
                                     "@v": {
                                         "type": "keyword",
@@ -2806,6 +2850,10 @@
                                                     }
                                                 },
                                                 "type": "object"
+                                            },
+                                            "iri": {
+                                                "type": "keyword",
+                                                "ignore_above": 1024
                                             },
                                             "@v": {
                                                 "type": "keyword",
@@ -2850,6 +2898,10 @@
                                     }
                                 },
                                 "type": "object"
+                            },
+                            "iri": {
+                                "type": "keyword",
+                                "ignore_above": 1024
                             },
                             "@v": {
                                 "type": "keyword",
@@ -3029,6 +3081,10 @@
                                             }
                                         },
                                         "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
                                     },
                                     "@v": {
                                         "type": "keyword",
@@ -3502,6 +3558,10 @@
                                             }
                                         },
                                         "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "keyword",
+                                        "ignore_above": 1024
                                     },
                                     "@v": {
                                         "type": "keyword",

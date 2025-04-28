@@ -9,6 +9,7 @@ class CCMMVocabularySchema(ma.Schema):
     _id = ma.fields.Str(attribute="id", data_key="id", required=True)
     _version = ma.fields.Str(data_key="@v", attribute="@v")
     title = i18n_strings
+    iri = ma.fields.Str(dump_only=True)
 
     @ma.pre_load
     def load_from_iri(self, data, **kwargs):
@@ -26,7 +27,7 @@ class CCMMVocabularySchema(ma.Schema):
             raise NotImplementedError(
                 "Vocabulary type is not implemented in load_from_iri."
             )
-        # crude implementation
+        # not a proper implementation, should fetch the vocabulary here instead
         if "#" in iri:
             _id = iri.rsplit("#")[-1]
         else:
