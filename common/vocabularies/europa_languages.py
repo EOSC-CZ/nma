@@ -1,3 +1,5 @@
+import yaml
+
 from common.vocabularies.europa_base import EuropaBaseTypeReader
 
 
@@ -21,5 +23,8 @@ class EuropaLanguagesTypeReader(EuropaBaseTypeReader):
 
 if __name__ == "__main__":
     reader = EuropaLanguagesTypeReader()
+    data = []
     for entry in reader:
-        pass
+        data.append(entry.entry)
+    with open("fixtures/vocabulary-languages.yaml", "w") as f:
+        f.write(yaml.dump_all(data, sort_keys=True, allow_unicode=True))

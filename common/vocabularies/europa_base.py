@@ -104,25 +104,42 @@ class EuropaBaseTypeReader(BaseReader):
         code = description.find("./europa:authority-code", namespaces=nsmap).text
 
         title = {}
+        all_titles = {}
         for label in description.findall("./skos:prefLabel", namespaces=nsmap):
             lang = label.attrib.get("{http://www.w3.org/XML/1998/namespace}lang")
             if lang in self._languages:
                 title[lang] = label.text
+            all_titles[lang] = label.text
 
         if not title:
-            log.warning("entity %s has no title in selected entities", code)
-            return (
-                StreamEntry(
-                    id=code,
-                    filtered=True,
-                    entry={
-                        "id": code,
-                        "props": {"iri": about},
-                        "title": {},
-                    },
-                ),
-                about,
+            if not all_titles:
+                log.warning("entity %s has no title", code)
+                return (
+                    StreamEntry(
+                        id=code,
+                        filtered=True,
+                        entry={
+                            "id": code,
+                            "props": {"iri": about},
+                            "title": {},
+                        },
+                    ),
+                    about,
+                )
+            first_language, first_title = next(iter(all_titles.items()))
+            log.warning(
+                "entity %s has no title in languages %s, Will use language %s, name %s as English",
+                code,
+                self._languages,
+                first_language,
+                first_title,
             )
+            title["en"] = first_title
+
+        for lang in self._languages:
+            if lang not in title:
+                # if lang is not found, use English title
+                title[lang] = title["en"]
 
         notations = {}
         for notation in description.findall("./skos:notation", namespaces=nsmap):
