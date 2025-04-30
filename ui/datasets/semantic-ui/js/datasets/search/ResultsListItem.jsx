@@ -189,7 +189,7 @@ const ResultsListItemComponent = ({ result }) => {
                     </p>
                   ))}
                   {language && (
-                    <span className="rel-ml-1">{language.toUpperCase()}</span>
+                    <span className="rel-ml-1">{language.id.toUpperCase()}</span>
                   )}
                 </p>
               </Item.Extra>

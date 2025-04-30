@@ -10,19 +10,57 @@ api_record: an API version of the record
 
 #}
 
+{%- set title = d.metadata.title ~ " | " ~ _("National Metadata Directory") %}
+
 {%- block head_links %}
 {{ super() }}
 {%- endblock %}
 
-{% block record_main_content %}
-    <Metadata d={d.metadata} />
-    <FilesViewer files={extra_context.files} />
+{%- block page_body %}
+<div class="ui main container">
+  <div class="ui stackable grid">
+    <div class="row detail-search-menu">
+      <div class="sixteen wide mobile four wide computer column left floated detail-back-to-search-link">
+        <a href="{{ url_for('datasets.search') }}" class="text-big" aria-label="{{ _('Back to search results') }}">
+          <div>
+            <i class="left chevron icon"></i>{{ _('Back to search results')|upper }}
+          </div>
+        </a>
+      </div>
+      <div class="sixteen wide mobile twelve wide computer column center aligned right floated">
+        <form action="{{ url_for('datasets.search') }}" class="ui form" role="search">
+          <div class="ui fluid action input search-input">
+            <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}">
+            <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}"><i
+                class="search icon"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="two column row">
+      {# Main content #}
+      <article class="sixteen wide tablet twelve wide computer column main-record-content">
+        {% block record_main_content %}
+        <Main record={record} extra_context={extra_context} md={d.metadata} />
+        {# <Metadata d={d.metadata} />
+        <FilesViewer files={extra_context.files} /> #}
+        {% endblock %}
+      </article>
+      <div class="ui divider hidden tablet mobile only"></div>
+      {# Sidebar #}
+      <aside class="sixteen wide tablet four wide computer column sidebar" aria-label="{{ _('Record details') }}">
+        {% block record_sidebar %}
+        {# <Sidebar metadata={d.metadata} ui={ui} extra_context={extra_context} record={record} d={d} /> #}
+        <Sidebar  record={record} is_preview={is_preview} extra_context={extra_context} />
+        {% endblock record_sidebar %}
+      </aside>
+    </div>
+  </div>
+</div>
+
+<pre>{{record|pprint}}</pre>
 {% endblock %}
-
-{% block record_sidebar %}
-    <Sidebar  record={record} is_preview={is_preview} extra_context={extra_context} />
-{% endblock record_sidebar %}
-
 
 {%- block javascript %}
 {{ super() }}
