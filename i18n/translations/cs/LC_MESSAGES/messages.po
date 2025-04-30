@@ -90,3 +90,20 @@ msgstr "nahoru"
 
 msgid "Missing title"
 msgstr "Chybějící název"
+
+#: /home/dusanst/Projects/nma/ui/branding/templates/header.html:27
+msgid "Menu"
+msgstr "Nabídka"
+
+#: /home/dusanst/Projects/nma/ui/branding/templates/header.html:46
+msgid "Close menu"
+msgstr "Zavřít nabídku"
+
+msgid "Cancel all"
+msgstr "Zrušit vše"
+
+msgid "(show less)"
+msgstr "(zobrazit méně)"
+
+msgid "(show more)"
+msgstr "(zobrazit více)"

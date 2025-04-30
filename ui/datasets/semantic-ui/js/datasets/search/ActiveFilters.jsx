@@ -61,9 +61,10 @@ const ActiveFiltersElementComponent = ({
         })
       )}
       <ClearFiltersButton
-        content={i18next.t("Clear all")}
+        content={i18next.t("Cancel all")}
         icon={null}
         labelPosition={null}
+        size="medium"
       />
     </div>
   );

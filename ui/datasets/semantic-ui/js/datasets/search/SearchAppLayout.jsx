@@ -10,6 +10,7 @@ import {
   Button,
   Icon,
   TransitionablePortal,
+  Divider,
 } from "semantic-ui-react";
 import { i18next } from "@translations/i18next";
 import {
@@ -58,10 +59,11 @@ export const SearchAppResultsGrid = ({
         >
           <ShouldActiveFiltersRender>
             <ClearFiltersButton
-              className={"clear-filters-button mobile tablet only"}
+              className={"clear-filters-button mobile tablet only borderless"}
               icon={null}
               labelPosition={null}
-              content={i18next.t("Clear all")}
+              content={i18next.t("Cancel all")}
+              size="medium"
             />
           </ShouldActiveFiltersRender>
           <ShouldActiveFiltersRender>
@@ -69,8 +71,10 @@ export const SearchAppResultsGrid = ({
               className={"clear-filters-button computer only borderless"}
               icon={null}
               labelPosition={null}
-              content={i18next.t("Clear all")}
+              content={i18next.t("Cancel all")}
+              size="medium"
             />
+            <Divider className="mb-0 mt-5" />
           </ShouldActiveFiltersRender>
           <SearchAppFacets
             aggs={config.aggs}
@@ -106,7 +110,7 @@ export const SearchAppResultsGrid = ({
             )}
             <Grid.Column width={14} floated="right" only="mobile tablet">
               <SearchBar buildUID={buildUID} appName={appName} />
-              <p className="right-floated">
+              <p className="right-floated search-bar-tip">
                 {i18next.t(
                   "TIP: Most content is in English language. You will find more results by using English terminology."
                 )}
@@ -114,7 +118,7 @@ export const SearchAppResultsGrid = ({
             </Grid.Column>
             <Grid.Column width={16} floated="right" only="computer">
               <SearchBar buildUID={buildUID} appName={appName} />
-              <p className="right-floated">
+              <p className="right-floated search-bar-tip">
                 <em>
                   {i18next.t(
                     "TIP: Most content is in English language. You will find more results by using English terminology."
@@ -132,11 +136,17 @@ export const SearchAppResultsGrid = ({
             <ResultOptionsWithState />
           </Grid.Row>
           <Grid.Row verticalAlign="middle">
-            <SearchAppResultsPane
-              layoutOptions={config.layoutOptions}
-              appName={appName}
-              buildUID={buildUID}
-            />
+            <Grid.Column
+              as="section"
+              aria-label={i18next.t("Search results")}
+              width={16}
+            >
+              <SearchAppResultsPane
+                layoutOptions={config.layoutOptions}
+                appName={appName}
+                buildUID={buildUID}
+              />
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </Grid.Column>

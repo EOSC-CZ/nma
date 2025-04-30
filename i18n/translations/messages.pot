@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-04 08:14+0200\n"
+"POT-Creation-Date: 2025-04-23 10:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,6 +35,14 @@ msgstr ""
 
 #: /home/dusanst/Projects/nma/common/workflows/default.py:364
 msgid "state:deleted"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/branding/templates/header.html:27
+msgid "Menu"
+msgstr ""
+
+#: /home/dusanst/Projects/nma/ui/branding/templates/header.html:46
+msgid "Close menu"
 msgstr ""
 
 #: /home/dusanst/Projects/nma/ui/branding/templates/header_frontpage.html:40
@@ -66,7 +74,7 @@ msgstr ""
 msgid "Show all records"
 msgstr ""
 
-msgid "Clear all"
+msgid "Cancel all"
 msgstr ""
 
 msgid "Search datasets.."
@@ -88,6 +96,12 @@ msgid "Sort"
 msgstr ""
 
 msgid "Missing title"
+msgstr ""
+
+msgid "(show less)"
+msgstr ""
+
+msgid "(show more)"
 msgstr ""
 
 msgid "Filter results"
