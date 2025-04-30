@@ -2779,8 +2779,8 @@
                                                 "hint": "metadata/locations/related_object_identifiers/time_references.hint",
                                                 "children": {
                                                     "date": {
-                                                        "detail": "date",
-                                                        "input": "date",
+                                                        "detail": "edtf-time",
+                                                        "input": "edtf-time",
                                                         "help": "metadata/locations/related_object_identifiers/time_references/date.help",
                                                         "label": "metadata/locations/related_object_identifiers/time_references/date.label",
                                                         "hint": "metadata/locations/related_object_identifiers/time_references/date.hint",
@@ -4568,8 +4568,8 @@
                                     "hint": "metadata/related_resources/time_references.hint",
                                     "children": {
                                         "date": {
-                                            "detail": "date",
-                                            "input": "date",
+                                            "detail": "edtf-time",
+                                            "input": "edtf-time",
                                             "help": "metadata/related_resources/time_references/date.help",
                                             "label": "metadata/related_resources/time_references/date.label",
                                             "hint": "metadata/related_resources/time_references/date.hint",
@@ -5621,8 +5621,8 @@
                         "hint": "metadata/time_references.hint",
                         "children": {
                             "date": {
-                                "detail": "date",
-                                "input": "date",
+                                "detail": "edtf-time",
+                                "input": "edtf-time",
                                 "help": "metadata/time_references/date.help",
                                 "label": "metadata/time_references/date.label",
                                 "hint": "metadata/time_references/date.hint",

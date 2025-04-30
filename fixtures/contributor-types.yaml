@@ -181,3 +181,17 @@ props:
 title:
   cs: jiný
   en: other
+---
+id: creator
+props:
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/creator/
+title:
+  cs: autor
+  en: creator
+---
+id: publisher
+props:
+  iri: https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/publisher/
+title:
+  cs: vydavatel
+  en: publisher

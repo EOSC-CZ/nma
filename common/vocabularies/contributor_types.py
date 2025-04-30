@@ -52,7 +52,7 @@ class ContributorTypeReader(BaseReader):
                 entry={
                     "id": value,
                     "props": {
-                        "definitionURL": f"https://schema.datacite.org/meta/kernel-4.6/include/datacite-contributorType-v4.xsd#{value}"
+                        "iri": f"https://schema.datacite.org/meta/kernel-4.6/include/datacite-contributorType-v4.xsd#{value}"
                     },
                     "title": {"en": value, "cs": value},
                 },

@@ -1710,7 +1710,7 @@
                                         "properties": {
                                             "date": {
                                                 "type": "date",
-                                                "format": "basic_date||strict_date"
+                                                "format": "strict_date_time||strict_date_time_no_millis||strict_date||yyyy-MM||yyyy"
                                             },
                                             "date_information": {
                                                 "type": "keyword",
@@ -2823,7 +2823,7 @@
                                 "properties": {
                                     "date": {
                                         "type": "date",
-                                        "format": "basic_date||strict_date"
+                                        "format": "strict_date_time||strict_date_time_no_millis||strict_date||yyyy-MM||yyyy"
                                     },
                                     "date_information": {
                                         "type": "keyword",
@@ -3531,7 +3531,7 @@
                         "properties": {
                             "date": {
                                 "type": "date",
-                                "format": "basic_date||strict_date"
+                                "format": "strict_date_time||strict_date_time_no_millis||strict_date||yyyy-MM||yyyy"
                             },
                             "date_information": {
                                 "type": "keyword",

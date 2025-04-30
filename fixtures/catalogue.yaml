@@ -6,18 +6,7 @@ vocabulary-resource-types:
     title:
       cs: Typ zdroje
       en: Resource type
-  - reader: coar-resource-types
-
-# too slow to run every time, so using local cache below
-# vocabulary-languages:
-#   - writer: vocabulary
-#     update: true
-#     vocabulary: languages
-#     pid_type: v-lang
-#     title:
-#       cs: Jazyky
-#       en: Languages
-#   - reader: europa-languages
+  - source: coar-resource-types.yaml
 
 vocabulary-languages:
   - pid_type: v-lang

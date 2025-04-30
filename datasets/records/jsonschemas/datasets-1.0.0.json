@@ -1177,7 +1177,7 @@
                                                 "properties": {
                                                     "date": {
                                                         "type": "string",
-                                                        "format": "date"
+                                                        "format": "date-time"
                                                     },
                                                     "date_information": {
                                                         "type": "string"
@@ -1934,7 +1934,7 @@
                                     "properties": {
                                         "date": {
                                             "type": "string",
-                                            "format": "date"
+                                            "format": "date-time"
                                         },
                                         "date_information": {
                                             "type": "string"
@@ -2381,7 +2381,7 @@
                         "properties": {
                             "date": {
                                 "type": "string",
-                                "format": "date"
+                                "format": "date-time"
                             },
                             "date_information": {
                                 "type": "string"
@@ -2460,10 +2460,6 @@
             }
         },
         "pids": {
-            "type": "object",
-            "propertyNames": {
-                "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2479,7 +2475,11 @@
                     }
                 }
             },
-            "uniqueItems": true
+            "type": "object",
+            "uniqueItems": true,
+            "propertyNames": {
+                "pattern": "^[a-z_-][a-z0-9_-]*$"
+            }
         },
         "state": {
             "type": "string"

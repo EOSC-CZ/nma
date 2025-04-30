@@ -59,6 +59,7 @@ $defs:
           - AlternativeTitle
           - Subtitle
           - TranslatedTitle
+          - Other
         label.en: Type
         help.en: Type of alternate title.
   application_profile:
@@ -723,7 +724,7 @@ $defs:
         label.en: Date type
         help.en: Type of the date.
       date:
-        type: date
+        type: edtf-time
         label.en: Date
         help.en:
           A point or period of time associated with an event in the lifecycle

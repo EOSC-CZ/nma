@@ -3,10 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -62,6 +58,10 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200
                 }
             },
             "generate": true,
@@ -957,7 +957,8 @@
                                     "enum": [
                                         "AlternativeTitle",
                                         "Subtitle",
-                                        "TranslatedTitle"
+                                        "TranslatedTitle",
+                                        "Other"
                                     ],
                                     "label.en": "Type",
                                     "help.en": "Type of alternate title."
@@ -3763,7 +3764,7 @@
                                                     },
                                                     "properties": {
                                                         "date": {
-                                                            "type": "date",
+                                                            "type": "edtf-time",
                                                             "label.en": "Date",
                                                             "help.en": "A point or period of time associated with an event in the lifecycle of the resource."
                                                         },
@@ -5884,7 +5885,7 @@
                                         },
                                         "properties": {
                                             "date": {
-                                                "type": "date",
+                                                "type": "edtf-time",
                                                 "label.en": "Date",
                                                 "help.en": "A point or period of time associated with an event in the lifecycle of the resource."
                                             },
@@ -7130,7 +7131,7 @@
                             },
                             "properties": {
                                 "date": {
-                                    "type": "date",
+                                    "type": "edtf-time",
                                     "label.en": "Date",
                                     "help.en": "A point or period of time associated with an event in the lifecycle of the resource."
                                 },
@@ -7399,10 +7400,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -7418,7 +7415,11 @@
                             }
                         }
                     },
-                    "uniqueItems": true
+                    "type": "object",
+                    "uniqueItems": true,
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    }
                 },
                 "ui": {
                     "marshmallow": {

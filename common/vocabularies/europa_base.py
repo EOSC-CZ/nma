@@ -89,7 +89,7 @@ class EuropaBaseTypeReader(BaseReader):
                     filtered=True,
                     entry={
                         "id": None,
-                        "props": {"definitionURL": about},
+                        "props": {"iri": about},
                         "title": {},
                     },
                 ),
@@ -117,7 +117,7 @@ class EuropaBaseTypeReader(BaseReader):
                     filtered=True,
                     entry={
                         "id": code,
-                        "props": {"definitionURL": about},
+                        "props": {"iri": about},
                         "title": {},
                     },
                 ),
@@ -148,7 +148,7 @@ class EuropaBaseTypeReader(BaseReader):
                 id=code,
                 entry={
                     "id": code,
-                    "props": {**notations, "definitionURL": about},
+                    "props": {**notations, "iri": about},
                     "title": title,
                     "description": definitions,
                 },

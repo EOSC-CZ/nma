@@ -1,4 +1,6 @@
 import marshmallow as ma
+from edtf import Date as EDTFDate
+from edtf import DateAndTime as EDTFDateAndTime
 from invenio_rdm_records.services.schemas.access import AccessSchema
 from invenio_rdm_records.services.schemas.pids import PIDSchema
 from invenio_rdm_records.services.schemas.record import validate_scheme
@@ -7,7 +9,7 @@ from marshmallow import fields as ma_fields
 from marshmallow.fields import Dict, Nested
 from marshmallow.utils import get_value
 from marshmallow.validate import OneOf
-from marshmallow_utils.fields import SanitizedUnicode
+from marshmallow_utils.fields import SanitizedUnicode, TrimmedString
 from marshmallow_utils.fields.nestedattr import NestedAttribute
 from oarepo_communities.schemas.parent import CommunitiesParentSchema
 from oarepo_runtime.services.schema.i18n import I18nStrField
@@ -15,7 +17,11 @@ from oarepo_runtime.services.schema.marshmallow import (
     DictOnlySchema,
     RDMBaseRecordSchema,
 )
-from oarepo_runtime.services.schema.validation import validate_date, validate_datetime
+from oarepo_runtime.services.schema.validation import (
+    CachedMultilayerEDTFValidator,
+    validate_date,
+    validate_datetime,
+)
 from oarepo_workflows.services.records.schema import RDMWorkflowParentSchema
 
 from common.services.schema import CCMMVocabularySchema
@@ -390,7 +396,7 @@ class AlternateTitlesItemSchema(DictOnlySchema):
     title = I18nStrField(required=True)
 
     type = ma_fields.String(
-        validate=[OneOf(["AlternativeTitle", "Subtitle", "TranslatedTitle"])]
+        validate=[OneOf(["AlternativeTitle", "Subtitle", "TranslatedTitle", "Other"])]
     )
 
 
@@ -446,7 +452,16 @@ class TimeReferencesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    date = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
+    date = TrimmedString(
+        validate=[
+            CachedMultilayerEDTFValidator(
+                types=(
+                    EDTFDateAndTime,
+                    EDTFDate,
+                )
+            )
+        ]
+    )
 
     date_information = ma_fields.String()
 

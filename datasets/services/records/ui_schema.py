@@ -9,6 +9,7 @@ from oarepo_runtime.services.schema.ui import (
     InvenioRDMUISchema,
     LocalizedDate,
     LocalizedDateTime,
+    LocalizedEDTFTime,
 )
 
 
@@ -357,7 +358,7 @@ class AlternateTitlesItemUISchema(DictOnlySchema):
     title = I18nStrUIField(required=True)
 
     type = ma_fields.String(
-        validate=[OneOf(["AlternativeTitle", "Subtitle", "TranslatedTitle"])]
+        validate=[OneOf(["AlternativeTitle", "Subtitle", "TranslatedTitle", "Other"])]
     )
 
 
@@ -413,7 +414,7 @@ class TimeReferencesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    date = LocalizedDate()
+    date = LocalizedEDTFTime()
 
     date_information = ma_fields.String()
 
