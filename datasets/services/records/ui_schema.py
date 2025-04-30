@@ -225,7 +225,7 @@ class PersonUISchema(DictOnlySchema):
 
     family_name = ma_fields.String(required=True)
 
-    given_names = ma_fields.List(ma_fields.String(), required=True)
+    given_names = ma_fields.List(ma_fields.String())
 
     iri = ma_fields.String()
 

@@ -3,6 +3,10 @@
         "type": "model",
         "mapping": {
             "template": {
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200
+                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -58,10 +62,6 @@
                             }
                         }
                     ]
-                },
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200
                 }
             },
             "generate": true,
@@ -2569,7 +2569,6 @@
                                                     },
                                                     "given_names": {
                                                         "type": "array",
-                                                        "required": true,
                                                         "label.en": "Given name",
                                                         "help.en": "The given name associated with the object",
                                                         "items": {
@@ -3493,7 +3492,6 @@
                                                                 },
                                                                 "given_names": {
                                                                     "type": "array",
-                                                                    "required": true,
                                                                     "label.en": "Given name",
                                                                     "help.en": "The given name associated with the object",
                                                                     "items": {
@@ -4827,7 +4825,6 @@
                                         },
                                         "given_names": {
                                             "type": "array",
-                                            "required": true,
                                             "label.en": "Given name",
                                             "help.en": "The given name associated with the object",
                                             "items": {
@@ -5614,7 +5611,6 @@
                                                     },
                                                     "given_names": {
                                                         "type": "array",
-                                                        "required": true,
                                                         "label.en": "Given name",
                                                         "help.en": "The given name associated with the object",
                                                         "items": {
@@ -7052,7 +7048,6 @@
                                                     },
                                                     "given_names": {
                                                         "type": "array",
-                                                        "required": true,
                                                         "label.en": "Given name",
                                                         "help.en": "The given name associated with the object",
                                                         "items": {
@@ -7441,10 +7436,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "type": "object",
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -7460,7 +7451,11 @@
                             }
                         }
                     },
-                    "uniqueItems": true
+                    "type": "object",
+                    "uniqueItems": true,
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    }
                 },
                 "ui": {
                     "marshmallow": {
