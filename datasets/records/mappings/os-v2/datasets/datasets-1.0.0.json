@@ -3630,6 +3630,24 @@
                     }
                 }
             },
+            "oai": {
+                "type": "object",
+                "properties": {
+                    "harvest": {
+                        "type": "object",
+                        "properties": {
+                            "datestamp": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            },
+                            "identifier": {
+                                "type": "keyword",
+                                "ignore_above": 1024
+                            }
+                        }
+                    }
+                }
+            },
             "pid": {
                 "type": "object",
                 "properties": {

@@ -1059,6 +1059,8 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
             facets.metadata_validation_results_labels_lang
         ),
         "metadata_version": facets.metadata_version,
+        "oai_harvest_datestamp": facets.oai_harvest_datestamp,
+        "oai_harvest_identifier": facets.oai_harvest_identifier,
         "state": facets.state,
         "state_timestamp": facets.state_timestamp,
         **getattr(I18nRDMSearchOptions, "facets", {}),
@@ -2120,6 +2122,8 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
             facets.metadata_validation_results_labels_lang
         ),
         "metadata_version": facets.metadata_version,
+        "oai_harvest_datestamp": facets.oai_harvest_datestamp,
+        "oai_harvest_identifier": facets.oai_harvest_identifier,
         "state": facets.state,
         "state_timestamp": facets.state_timestamp,
         "expires_at": facets.expires_at,

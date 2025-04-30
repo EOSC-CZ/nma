@@ -1,0 +1,17 @@
+properties:
+  oai:
+    properties:
+      harvest:
+        properties:
+          identifier:
+            type: keyword
+            label.cs: OAI identifikátor
+            label.en: OAI identifier
+          datestamp:
+            type: keyword
+            label.cs: Datum poslední změny
+            label.en: Datestamp
+
+service-config:
+  components:
+    - "{{oarepo_oaipmh_harvester.components.OaiSectionComponent}}"

@@ -27,6 +27,8 @@ class DatasetsUISchema(UIRequestsSerializationMixin, InvenioRDMUISchema):
 
     metadata = ma_fields.Nested(lambda: DatasetsMetadataUISchema())
 
+    oai = ma_fields.Nested(lambda: OaiUISchema())
+
     state = ma_fields.String(dump_only=True)
 
     state_timestamp = LocalizedDateTime(dump_only=True)
@@ -223,7 +225,7 @@ class PersonUISchema(DictOnlySchema):
 
     family_name = ma_fields.String(required=True)
 
-    given_names = ma_fields.List(ma_fields.String(), required=True)
+    given_names = ma_fields.List(ma_fields.String())
 
     iri = ma_fields.String()
 
@@ -325,6 +327,13 @@ class FundingReferencesItemUISchema(DictOnlySchema):
     local_identifier = ma_fields.String()
 
 
+class OaiUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    harvest = ma_fields.Nested(lambda: HarvestUISchema())
+
+
 class SubjectsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -399,6 +408,15 @@ class FundersItemUISchema(DictOnlySchema):
     funder_name = ma_fields.String()
 
     iri = ma_fields.String()
+
+
+class HarvestUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    datestamp = ma_fields.String()
+
+    identifier = ma_fields.String()
 
 
 class IdentifiersItemUISchema(DictOnlySchema):

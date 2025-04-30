@@ -2442,6 +2442,22 @@
                 }
             }
         },
+        "oai": {
+            "type": "object",
+            "properties": {
+                "harvest": {
+                    "type": "object",
+                    "properties": {
+                        "datestamp": {
+                            "type": "string"
+                        },
+                        "identifier": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "pid": {
             "type": "object",
             "properties": {
@@ -2460,10 +2476,6 @@
             }
         },
         "pids": {
-            "uniqueItems": true,
-            "propertyNames": {
-                "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2479,7 +2491,11 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "uniqueItems": true,
+            "propertyNames": {
+                "pattern": "^[a-z_-][a-z0-9_-]*$"
+            }
         },
         "state": {
             "type": "string"

@@ -1721,7 +1721,6 @@
                                                 "given_names": {
                                                     "detail": "array",
                                                     "input": "array",
-                                                    "required": true,
                                                     "help": "metadata/is_described_by/qualified_relations/person/given_names.help",
                                                     "label": "metadata/is_described_by/qualified_relations/person/given_names.label",
                                                     "hint": "metadata/is_described_by/qualified_relations/person/given_names.hint",
@@ -2660,7 +2659,6 @@
                                                             "given_names": {
                                                                 "detail": "array",
                                                                 "input": "array",
-                                                                "required": true,
                                                                 "help": "metadata/locations/related_object_identifiers/qualified_relations/person/given_names.help",
                                                                 "label": "metadata/locations/related_object_identifiers/qualified_relations/person/given_names.label",
                                                                 "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/given_names.hint",
@@ -3672,7 +3670,6 @@
                                     "given_names": {
                                         "detail": "array",
                                         "input": "array",
-                                        "required": true,
                                         "help": "metadata/qualified_relations/person/given_names.help",
                                         "label": "metadata/qualified_relations/person/given_names.label",
                                         "hint": "metadata/qualified_relations/person/given_names.hint",
@@ -4449,7 +4446,6 @@
                                                 "given_names": {
                                                     "detail": "array",
                                                     "input": "array",
-                                                    "required": true,
                                                     "help": "metadata/related_resources/qualified_relations/person/given_names.help",
                                                     "label": "metadata/related_resources/qualified_relations/person/given_names.label",
                                                     "hint": "metadata/related_resources/qualified_relations/person/given_names.hint",
@@ -5535,7 +5531,6 @@
                                                 "given_names": {
                                                     "detail": "array",
                                                     "input": "array",
-                                                    "required": true,
                                                     "help": "metadata/terms_of_use/contacts/person/given_names.help",
                                                     "label": "metadata/terms_of_use/contacts/person/given_names.label",
                                                     "hint": "metadata/terms_of_use/contacts/person/given_names.hint",
@@ -5760,6 +5755,40 @@
                     "label": "metadata/version.label",
                     "hint": "metadata/version.hint",
                     "facet": "metadata_version"
+                }
+            }
+        },
+        "oai": {
+            "detail": false,
+            "input": false,
+            "help": "oai.help",
+            "label": "oai.label",
+            "hint": "oai.hint",
+            "children": {
+                "harvest": {
+                    "detail": false,
+                    "input": false,
+                    "help": "oai/harvest.help",
+                    "label": "oai/harvest.label",
+                    "hint": "oai/harvest.hint",
+                    "children": {
+                        "datestamp": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "oai/harvest/datestamp.help",
+                            "label": "oai/harvest/datestamp.label",
+                            "hint": "oai/harvest/datestamp.hint",
+                            "facet": "oai_harvest_datestamp"
+                        },
+                        "identifier": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "oai/harvest/identifier.help",
+                            "label": "oai/harvest/identifier.label",
+                            "hint": "oai/harvest/identifier.hint",
+                            "facet": "oai_harvest_identifier"
+                        }
+                    }
                 }
             }
         },
