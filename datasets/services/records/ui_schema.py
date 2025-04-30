@@ -12,6 +12,8 @@ from oarepo_runtime.services.schema.ui import (
     LocalizedEDTFTime,
 )
 
+from common.services.ui_schema import CCMMVocabularyUISchema
+
 
 class DatasetsUISchema(UIRequestsSerializationMixin, InvenioRDMUISchema):
     class Meta:
@@ -66,9 +68,9 @@ class DatasetsMetadataUISchema(Schema):
 
     locations = ma_fields.List(ma_fields.Nested(lambda: LocationsItemUISchema()))
 
-    other_languages = ma_fields.List(ma_fields.Nested(lambda: FormatUISchema()))
+    other_languages = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularyUISchema()))
 
-    primary_language = ma_fields.Nested(lambda: FormatUISchema())
+    primary_language = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     provenances = ma_fields.List(ma_fields.Nested(lambda: DocumentationsItemUISchema()))
 
@@ -82,7 +84,7 @@ class DatasetsMetadataUISchema(Schema):
         ma_fields.Nested(lambda: RelatedObjectIdentifiersItemUISchema())
     )
 
-    resource_type = ma_fields.Nested(lambda: FormatUISchema())
+    resource_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     subjects = ma_fields.List(ma_fields.Nested(lambda: SubjectsItemUISchema()))
 
@@ -134,7 +136,7 @@ class IsDescribedByItemUISchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    languages = ma_fields.List(ma_fields.Nested(lambda: FormatUISchema()))
+    languages = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularyUISchema()))
 
     original_repositories = ma_fields.List(
         ma_fields.Nested(lambda: DocumentationsItemUISchema())
@@ -157,7 +159,7 @@ class RelatedObjectIdentifiersItemUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: QualifiedRelationsItemUISchema())
     )
 
-    relation_type = ma_fields.Nested(lambda: FormatUISchema())
+    relation_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     time_references = ma_fields.List(
         ma_fields.Nested(lambda: TimeReferencesItemUISchema())
@@ -172,7 +174,7 @@ class TermsOfUseItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    access_rights = ma_fields.List(ma_fields.Nested(lambda: FormatUISchema()))
+    access_rights = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularyUISchema()))
 
     contacts = ma_fields.List(ma_fields.Nested(lambda: ContactsItemUISchema()))
 
@@ -202,7 +204,7 @@ class QualifiedRelationsItemUISchema(DictOnlySchema):
 
     person = ma_fields.Nested(lambda: PersonUISchema())
 
-    role = ma_fields.Nested(lambda: FormatUISchema(), required=True)
+    role = ma_fields.Nested(lambda: CCMMVocabularyUISchema(), required=True)
 
 
 class PersonUISchema(DictOnlySchema):
@@ -299,7 +301,7 @@ class DistributionDownloadableFilesItemUISchema(DictOnlySchema):
 
     download_urls = ma_fields.List(ma_fields.String())
 
-    format = ma_fields.Nested(lambda: FormatUISchema())
+    format = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     iri = ma_fields.String()
 
@@ -418,6 +420,6 @@ class TimeReferencesItemUISchema(DictOnlySchema):
 
     date_information = ma_fields.String()
 
-    date_type = ma_fields.Nested(lambda: FormatUISchema())
+    date_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     iri = ma_fields.String()

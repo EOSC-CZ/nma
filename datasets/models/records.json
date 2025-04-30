@@ -3,6 +3,10 @@
         "type": "model",
         "mapping": {
             "template": {
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200
+                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -58,10 +62,6 @@
                             }
                         }
                     ]
-                },
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200
                 }
             },
             "generate": true,
@@ -1391,6 +1391,15 @@
                                         }
                                     ],
                                     "vocabulary-type": "file-types",
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                            "unknown": "INCLUDE"
+                                        },
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item"
+                                    },
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "common.services.schema.CCMMVocabularySchema",
@@ -1404,15 +1413,6 @@
                                         }
                                     ],
                                     "model": "vocabularies",
-                                    "ui": {
-                                        "marshmallow": {
-                                            "unknown": "INCLUDE",
-                                            "generate": true,
-                                            "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                        },
-                                        "detail": "vocabulary_item",
-                                        "edit": "vocabulary_item"
-                                    },
                                     "pid-field": "Vocabulary.pid.with_type_ctx(\"file-types\")",
                                     "facets": {
                                         "args": [
@@ -1799,6 +1799,15 @@
                                             }
                                         ],
                                         "vocabulary-type": "languages",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                                "unknown": "INCLUDE"
+                                            },
+                                            "detail": "vocabulary_item",
+                                            "edit": "vocabulary_item"
+                                        },
                                         "marshmallow": {
                                             "generate": false,
                                             "class": "common.services.schema.CCMMVocabularySchema",
@@ -1810,15 +1819,6 @@
                                             }
                                         ],
                                         "model": "vocabularies",
-                                        "ui": {
-                                            "marshmallow": {
-                                                "unknown": "INCLUDE",
-                                                "generate": false,
-                                                "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                            },
-                                            "detail": "vocabulary_item",
-                                            "edit": "vocabulary_item"
-                                        },
                                         "pid-field": "Vocabulary.pid.with_type_ctx(\"languages\")",
                                         "facets": {
                                             "args": [
@@ -2595,6 +2595,15 @@
                                                     }
                                                 ],
                                                 "vocabulary-type": "contributor-types",
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                                        "unknown": "INCLUDE"
+                                                    },
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item"
+                                                },
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "common.services.schema.CCMMVocabularySchema",
@@ -2607,15 +2616,6 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "ui": {
-                                                    "marshmallow": {
-                                                        "unknown": "INCLUDE",
-                                                        "generate": false,
-                                                        "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                                    },
-                                                    "detail": "vocabulary_item",
-                                                    "edit": "vocabulary_item"
-                                                },
                                                 "pid-field": "Vocabulary.pid.with_type_ctx(\"contributor-types\")",
                                                 "facets": {
                                                     "args": [
@@ -3519,6 +3519,15 @@
                                                                 }
                                                             ],
                                                             "vocabulary-type": "contributor-types",
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "generate": false,
+                                                                    "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                                                    "unknown": "INCLUDE"
+                                                                },
+                                                                "detail": "vocabulary_item",
+                                                                "edit": "vocabulary_item"
+                                                            },
                                                             "marshmallow": {
                                                                 "generate": false,
                                                                 "class": "common.services.schema.CCMMVocabularySchema",
@@ -3531,15 +3540,6 @@
                                                                 }
                                                             ],
                                                             "model": "vocabularies",
-                                                            "ui": {
-                                                                "marshmallow": {
-                                                                    "unknown": "INCLUDE",
-                                                                    "generate": false,
-                                                                    "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                                                },
-                                                                "detail": "vocabulary_item",
-                                                                "edit": "vocabulary_item"
-                                                            },
                                                             "pid-field": "Vocabulary.pid.with_type_ctx(\"contributor-types\")",
                                                             "facets": {
                                                                 "args": [
@@ -3641,6 +3641,15 @@
                                                     }
                                                 ],
                                                 "vocabulary-type": "relation-types",
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                                        "unknown": "INCLUDE"
+                                                    },
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item"
+                                                },
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "common.services.schema.CCMMVocabularySchema",
@@ -3654,15 +3663,6 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "ui": {
-                                                    "marshmallow": {
-                                                        "unknown": "INCLUDE",
-                                                        "generate": false,
-                                                        "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                                    },
-                                                    "detail": "vocabulary_item",
-                                                    "edit": "vocabulary_item"
-                                                },
                                                 "pid-field": "Vocabulary.pid.with_type_ctx(\"relation-types\")",
                                                 "facets": {
                                                     "args": [
@@ -3787,6 +3787,15 @@
                                                                 }
                                                             ],
                                                             "vocabulary-type": "time-reference-types",
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "generate": false,
+                                                                    "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                                                    "unknown": "INCLUDE"
+                                                                },
+                                                                "detail": "vocabulary_item",
+                                                                "edit": "vocabulary_item"
+                                                            },
                                                             "marshmallow": {
                                                                 "generate": false,
                                                                 "class": "common.services.schema.CCMMVocabularySchema",
@@ -3800,15 +3809,6 @@
                                                                 }
                                                             ],
                                                             "model": "vocabularies",
-                                                            "ui": {
-                                                                "marshmallow": {
-                                                                    "unknown": "INCLUDE",
-                                                                    "generate": false,
-                                                                    "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                                                },
-                                                                "detail": "vocabulary_item",
-                                                                "edit": "vocabulary_item"
-                                                            },
                                                             "pid-field": "Vocabulary.pid.with_type_ctx(\"time-reference-types\")",
                                                             "facets": {
                                                                 "args": [
@@ -3933,6 +3933,15 @@
                                 }
                             ],
                             "vocabulary-type": "languages",
+                            "ui": {
+                                "marshmallow": {
+                                    "generate": false,
+                                    "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                    "unknown": "INCLUDE"
+                                },
+                                "detail": "vocabulary_item",
+                                "edit": "vocabulary_item"
+                            },
                             "marshmallow": {
                                 "generate": false,
                                 "class": "common.services.schema.CCMMVocabularySchema",
@@ -3944,15 +3953,6 @@
                                 }
                             ],
                             "model": "vocabularies",
-                            "ui": {
-                                "marshmallow": {
-                                    "unknown": "INCLUDE",
-                                    "generate": false,
-                                    "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                },
-                                "detail": "vocabulary_item",
-                                "edit": "vocabulary_item"
-                            },
                             "pid-field": "Vocabulary.pid.with_type_ctx(\"languages\")",
                             "facets": {
                                 "args": [
@@ -4052,6 +4052,15 @@
                             }
                         ],
                         "vocabulary-type": "languages",
+                        "ui": {
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                "unknown": "INCLUDE"
+                            },
+                            "detail": "vocabulary_item",
+                            "edit": "vocabulary_item"
+                        },
                         "marshmallow": {
                             "generate": false,
                             "class": "common.services.schema.CCMMVocabularySchema",
@@ -4065,15 +4074,6 @@
                             }
                         ],
                         "model": "vocabularies",
-                        "ui": {
-                            "marshmallow": {
-                                "unknown": "INCLUDE",
-                                "generate": false,
-                                "class": "datasets.services.records.ui_schema.FormatUISchema"
-                            },
-                            "detail": "vocabulary_item",
-                            "edit": "vocabulary_item"
-                        },
                         "pid-field": "Vocabulary.pid.with_type_ctx(\"languages\")",
                         "facets": {
                             "args": [
@@ -4853,6 +4853,15 @@
                                         }
                                     ],
                                     "vocabulary-type": "contributor-types",
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                            "unknown": "INCLUDE"
+                                        },
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item"
+                                    },
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "common.services.schema.CCMMVocabularySchema",
@@ -4865,15 +4874,6 @@
                                         }
                                     ],
                                     "model": "vocabularies",
-                                    "ui": {
-                                        "marshmallow": {
-                                            "unknown": "INCLUDE",
-                                            "generate": false,
-                                            "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                        },
-                                        "detail": "vocabulary_item",
-                                        "edit": "vocabulary_item"
-                                    },
                                     "pid-field": "Vocabulary.pid.with_type_ctx(\"contributor-types\")",
                                     "facets": {
                                         "args": [
@@ -5640,6 +5640,15 @@
                                                     }
                                                 ],
                                                 "vocabulary-type": "contributor-types",
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                                        "unknown": "INCLUDE"
+                                                    },
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item"
+                                                },
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "common.services.schema.CCMMVocabularySchema",
@@ -5652,15 +5661,6 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "ui": {
-                                                    "marshmallow": {
-                                                        "unknown": "INCLUDE",
-                                                        "generate": false,
-                                                        "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                                    },
-                                                    "detail": "vocabulary_item",
-                                                    "edit": "vocabulary_item"
-                                                },
                                                 "pid-field": "Vocabulary.pid.with_type_ctx(\"contributor-types\")",
                                                 "facets": {
                                                     "args": [
@@ -5762,6 +5762,15 @@
                                         }
                                     ],
                                     "vocabulary-type": "relation-types",
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                            "unknown": "INCLUDE"
+                                        },
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item"
+                                    },
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "common.services.schema.CCMMVocabularySchema",
@@ -5775,15 +5784,6 @@
                                         }
                                     ],
                                     "model": "vocabularies",
-                                    "ui": {
-                                        "marshmallow": {
-                                            "unknown": "INCLUDE",
-                                            "generate": false,
-                                            "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                        },
-                                        "detail": "vocabulary_item",
-                                        "edit": "vocabulary_item"
-                                    },
                                     "pid-field": "Vocabulary.pid.with_type_ctx(\"relation-types\")",
                                     "facets": {
                                         "args": [
@@ -5908,6 +5908,15 @@
                                                     }
                                                 ],
                                                 "vocabulary-type": "time-reference-types",
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                                        "unknown": "INCLUDE"
+                                                    },
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item"
+                                                },
                                                 "marshmallow": {
                                                     "generate": false,
                                                     "class": "common.services.schema.CCMMVocabularySchema",
@@ -5921,15 +5930,6 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "ui": {
-                                                    "marshmallow": {
-                                                        "unknown": "INCLUDE",
-                                                        "generate": false,
-                                                        "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                                    },
-                                                    "detail": "vocabulary_item",
-                                                    "edit": "vocabulary_item"
-                                                },
                                                 "pid-field": "Vocabulary.pid.with_type_ctx(\"time-reference-types\")",
                                                 "facets": {
                                                     "args": [
@@ -6047,6 +6047,15 @@
                             }
                         ],
                         "vocabulary-type": "resource-types",
+                        "ui": {
+                            "marshmallow": {
+                                "generate": false,
+                                "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                "unknown": "INCLUDE"
+                            },
+                            "detail": "vocabulary_item",
+                            "edit": "vocabulary_item"
+                        },
                         "marshmallow": {
                             "generate": false,
                             "class": "common.services.schema.CCMMVocabularySchema",
@@ -6060,15 +6069,6 @@
                             }
                         ],
                         "model": "vocabularies",
-                        "ui": {
-                            "marshmallow": {
-                                "unknown": "INCLUDE",
-                                "generate": false,
-                                "class": "datasets.services.records.ui_schema.FormatUISchema"
-                            },
-                            "detail": "vocabulary_item",
-                            "edit": "vocabulary_item"
-                        },
                         "pid-field": "Vocabulary.pid.with_type_ctx(\"resource-types\")",
                         "facets": {
                             "args": [
@@ -6348,6 +6348,15 @@
                                             }
                                         ],
                                         "vocabulary-type": "access-rights",
+                                        "ui": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                                "unknown": "INCLUDE"
+                                            },
+                                            "detail": "vocabulary_item",
+                                            "edit": "vocabulary_item"
+                                        },
                                         "marshmallow": {
                                             "generate": false,
                                             "class": "common.services.schema.CCMMVocabularySchema",
@@ -6359,15 +6368,6 @@
                                             }
                                         ],
                                         "model": "vocabularies",
-                                        "ui": {
-                                            "marshmallow": {
-                                                "unknown": "INCLUDE",
-                                                "generate": false,
-                                                "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                            },
-                                            "detail": "vocabulary_item",
-                                            "edit": "vocabulary_item"
-                                        },
                                         "pid-field": "Vocabulary.pid.with_type_ctx(\"access-rights\")",
                                         "facets": {
                                             "args": [
@@ -7154,6 +7154,15 @@
                                         }
                                     ],
                                     "vocabulary-type": "time-reference-types",
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                            "unknown": "INCLUDE"
+                                        },
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item"
+                                    },
                                     "marshmallow": {
                                         "generate": false,
                                         "class": "common.services.schema.CCMMVocabularySchema",
@@ -7167,15 +7176,6 @@
                                         }
                                     ],
                                     "model": "vocabularies",
-                                    "ui": {
-                                        "marshmallow": {
-                                            "unknown": "INCLUDE",
-                                            "generate": false,
-                                            "class": "datasets.services.records.ui_schema.FormatUISchema"
-                                        },
-                                        "detail": "vocabulary_item",
-                                        "edit": "vocabulary_item"
-                                    },
                                     "pid-field": "Vocabulary.pid.with_type_ctx(\"time-reference-types\")",
                                     "facets": {
                                         "args": [
@@ -7400,6 +7400,10 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
+                    "uniqueItems": true,
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -7415,11 +7419,7 @@
                             }
                         }
                     },
-                    "type": "object",
-                    "uniqueItems": true,
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    }
+                    "type": "object"
                 },
                 "ui": {
                     "marshmallow": {
