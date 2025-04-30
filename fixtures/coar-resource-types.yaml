@@ -1,0 +1,991 @@
+id: http://purl.org/coar/resource_type/scheme
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type
+title:
+  cs: Resource Types
+  en: Resource Types
+---
+id: F8RT-TJK0
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/F8RT-TJK0
+title:
+  cs: artistic work
+  en: artistic work
+---
+id: c_12cc
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_12cc
+title:
+  cs: kartografický dokument
+  en: cartographic material
+---
+hierarchy:
+  parent: c_12cc
+id: c_12cd
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_12cd
+title:
+  cs: mapa
+  en: map
+---
+id: RMP5-3GQ6
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/RMP5-3GQ6
+title:
+  cs: collection
+  en: collection
+---
+hierarchy:
+  parent: RMP5-3GQ6
+id: YC9F-HGCF
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/YC9F-HGCF
+title:
+  cs: archival collection
+  en: archival collection
+---
+hierarchy:
+  parent: RMP5-3GQ6
+id: 1YTN-RJZE
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/1YTN-RJZE
+title:
+  cs: court documents
+  en: court documents
+---
+id: c_ddb1
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_ddb1
+title:
+  cs: datová sada
+  en: dataset
+---
+hierarchy:
+  parent: c_ddb1
+id: ACF7-8YT9
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/ACF7-8YT9
+title:
+  cs: aggregated data
+  en: aggregated data
+---
+hierarchy:
+  parent: c_ddb1
+id: c_cb28
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_cb28
+title:
+  cs: clinical trial data
+  en: clinical trial data
+---
+hierarchy:
+  parent: c_ddb1
+id: FXF3-D3G7
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/FXF3-D3G7
+title:
+  cs: compiled data
+  en: compiled data
+---
+hierarchy:
+  parent: c_ddb1
+id: AM6W-6QAW
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/AM6W-6QAW
+title:
+  cs: encoded data
+  en: encoded data
+---
+hierarchy:
+  parent: c_ddb1
+id: 63NG-B465
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/63NG-B465
+title:
+  cs: experimental data
+  en: experimental data
+---
+hierarchy:
+  parent: c_ddb1
+id: A8F1-NPV9
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/A8F1-NPV9
+title:
+  cs: genomic data
+  en: genomic data
+---
+hierarchy:
+  parent: c_ddb1
+id: 2H0M-X761
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/2H0M-X761
+title:
+  cs: geospatial data
+  en: geospatial data
+---
+hierarchy:
+  parent: c_ddb1
+id: H41Y-FW7B
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/H41Y-FW7B
+title:
+  cs: laboratory notebook
+  en: laboratory notebook
+---
+hierarchy:
+  parent: c_ddb1
+id: DD58-GFSX
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/DD58-GFSX
+title:
+  cs: measurement and test data
+  en: measurement and test data
+---
+hierarchy:
+  parent: c_ddb1
+id: FF4C-28RK
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/FF4C-28RK
+title:
+  cs: observational data
+  en: observational data
+---
+hierarchy:
+  parent: c_ddb1
+id: CQMR-7K63
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/CQMR-7K63
+title:
+  cs: recorded data
+  en: recorded data
+---
+hierarchy:
+  parent: c_ddb1
+id: W2XT-7017
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/W2XT-7017
+title:
+  cs: simulation data
+  en: simulation data
+---
+hierarchy:
+  parent: c_ddb1
+id: NHD0-W6SY
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/NHD0-W6SY
+title:
+  cs: survey data
+  en: survey data
+---
+id: 542X-3S04
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/542X-3S04
+title:
+  cs: design
+  en: design
+---
+hierarchy:
+  parent: 542X-3S04
+id: JBNF-DYAD
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/JBNF-DYAD
+title:
+  cs: industrial design
+  en: industrial design
+---
+hierarchy:
+  parent: 542X-3S04
+id: BW7T-YM2G
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/BW7T-YM2G
+title:
+  cs: layout design
+  en: layout design
+---
+id: c_c513
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_c513
+title:
+  cs: obraz
+  en: image
+---
+hierarchy:
+  parent: c_c513
+id: c_8a7e
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_8a7e
+title:
+  cs: pohyblivý obraz
+  en: moving image
+---
+hierarchy:
+  parent: c_8a7e
+id: c_12ce
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_12ce
+title:
+  cs: video
+  en: video
+---
+hierarchy:
+  parent: c_c513
+id: c_ecc8
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_ecc8
+title:
+  cs: nepohyblivý obraz
+  en: still image
+---
+id: c_e9a0
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_e9a0
+title:
+  cs: interaktivní zdroj
+  en: interactive resource
+---
+hierarchy:
+  parent: c_e9a0
+id: c_7ad9
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_7ad9
+title:
+  cs: webové sídlo
+  en: website
+---
+id: GSZA-Y7V7
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/GSZA-Y7V7
+title:
+  cs: knowledge organization system
+  en: knowledge organization system
+---
+id: c_e059
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_e059
+title:
+  cs: learning object
+  en: learning object
+---
+id: c_1843
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_1843
+title:
+  cs: ostatní
+  en: other
+---
+id: c_15cd
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_15cd
+title:
+  cs: patent
+  en: patent
+---
+hierarchy:
+  parent: c_15cd
+id: SB3Y-W4EH
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/SB3Y-W4EH
+title:
+  cs: PCT application
+  en: PCT application
+---
+hierarchy:
+  parent: c_15cd
+id: C53B-JCY5
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/C53B-JCY5
+title:
+  cs: design patent
+  en: design patent
+---
+hierarchy:
+  parent: c_15cd
+id: Z907-YMBB
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/Z907-YMBB
+title:
+  cs: plant patent
+  en: plant patent
+---
+hierarchy:
+  parent: c_15cd
+id: GPQ7-G5VE
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/GPQ7-G5VE
+title:
+  cs: plant variety protection
+  en: plant variety protection
+---
+hierarchy:
+  parent: c_15cd
+id: MW8G-3CR8
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/MW8G-3CR8
+title:
+  cs: software patent
+  en: software patent
+---
+hierarchy:
+  parent: c_15cd
+id: 9DKX-KSAF
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/9DKX-KSAF
+title:
+  cs: utility model
+  en: utility model
+---
+id: S7R1-K5P0
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/S7R1-K5P0
+title:
+  cs: physical sample
+  en: physical sample
+---
+id: 8KJG-QS0Y
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/8KJG-QS0Y
+title:
+  cs: research instrument
+  en: research instrument
+---
+id: c_5ce6
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_5ce6
+title:
+  cs: software
+  en: software
+---
+hierarchy:
+  parent: c_5ce6
+id: c_c950
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_c950
+title:
+  cs: research software
+  en: research software
+---
+hierarchy:
+  parent: c_5ce6
+id: QH80-2R4E
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/QH80-2R4E
+title:
+  cs: source code
+  en: source code
+---
+id: c_18cc
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18cc
+title:
+  cs: zvuk
+  en: sound
+---
+hierarchy:
+  parent: c_18cc
+id: c_18cd
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18cd
+title:
+  cs: hudební skladba
+  en: musical composition
+---
+id: c_18cf
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18cf
+title:
+  cs: text
+  en: text
+---
+hierarchy:
+  parent: c_18cf
+id: c_1162
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_1162
+title:
+  cs: právní komentář rozsudku nebo rozhodnutí
+  en: annotation
+---
+hierarchy:
+  parent: c_18cf
+id: c_86bc
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_86bc
+title:
+  cs: bibliografie
+  en: bibliography
+---
+hierarchy:
+  parent: c_18cf
+id: c_6947
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_6947
+title:
+  cs: blog post
+  en: blog post
+---
+hierarchy:
+  parent: c_18cf
+id: c_2f33
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_2f33
+title:
+  cs: kniha
+  en: book
+---
+hierarchy:
+  parent: c_2f33
+id: c_3248
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_3248
+title:
+  cs: část knihy
+  en: book part
+---
+hierarchy:
+  parent: c_18cf
+id: c_c94f
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_c94f
+title:
+  cs: conference output
+  en: conference output
+---
+hierarchy:
+  parent: c_c94f
+id: c_18cp
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18cp
+title:
+  cs: konferenční příspěvek nezahrnutý ve sborníku
+  en: conference paper not in proceedings
+---
+hierarchy:
+  parent: c_c94f
+id: c_18co
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18co
+title:
+  cs: konferenční poster nezahrnutý ve sborníku
+  en: conference poster not in proceedings
+---
+hierarchy:
+  parent: c_c94f
+id: R60J-J5BD
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/R60J-J5BD
+title:
+  cs: conference presentation
+  en: conference presentation
+---
+hierarchy:
+  parent: c_c94f
+id: c_f744
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_f744
+title:
+  cs: sborník konference
+  en: conference proceedings
+---
+hierarchy:
+  parent: c_f744
+id: c_5794
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_5794
+title:
+  cs: příspěvek na konferenci
+  en: conference paper
+---
+hierarchy:
+  parent: c_f744
+id: c_6670
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_6670
+title:
+  cs: poster na konferenci
+  en: conference poster
+---
+hierarchy:
+  parent: c_18cf
+id: c_0640
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_0640
+title:
+  cs: odborné periodikum
+  en: journal
+---
+hierarchy:
+  parent: c_0640
+id: c_b239
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_b239
+title:
+  cs: úvodník
+  en: editorial
+---
+hierarchy:
+  parent: c_0640
+id: c_6501
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_6501
+title:
+  cs: článek v odborném časopisu
+  en: journal article
+---
+hierarchy:
+  parent: c_6501
+id: c_7acd
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_7acd
+title:
+  cs: corrigendum
+  en: corrigendum
+---
+hierarchy:
+  parent: c_6501
+id: c_beb9
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_beb9
+title:
+  cs: článek o datové sadě
+  en: data paper
+---
+hierarchy:
+  parent: c_6501
+id: c_2df8fbb1
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_2df8fbb1
+title:
+  cs: původní článek
+  en: research article
+---
+hierarchy:
+  parent: c_6501
+id: c_dcae04bc
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_dcae04bc
+title:
+  cs: přehledový článek
+  en: review article
+---
+hierarchy:
+  parent: c_6501
+id: c_7bab
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_7bab
+title:
+  cs: software paper
+  en: software paper
+---
+hierarchy:
+  parent: c_0640
+id: c_545b
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_545b
+title:
+  cs: dopis redakci
+  en: letter to the editor
+---
+hierarchy:
+  parent: c_18cf
+id: c_8544
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_8544
+title:
+  cs: přednáška
+  en: lecture
+---
+hierarchy:
+  parent: c_18cf
+id: c_0857
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_0857
+title:
+  cs: dopis
+  en: letter
+---
+hierarchy:
+  parent: c_18cf
+id: c_2cd9
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_2cd9
+title:
+  cs: magazine
+  en: magazine
+---
+hierarchy:
+  parent: c_2cd9
+id: 43KC-T6DC
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/43KC-T6DC
+title:
+  cs: magazine article
+  en: magazine article
+---
+hierarchy:
+  parent: c_18cf
+id: c_0040
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_0040
+title:
+  cs: manuscript
+  en: manuscript
+---
+hierarchy:
+  parent: c_18cf
+id: c_18cw
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18cw
+title:
+  cs: hudební zápis
+  en: musical notation
+---
+hierarchy:
+  parent: c_18cf
+id: c_2fe3
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_2fe3
+title:
+  cs: newspaper
+  en: newspaper
+---
+hierarchy:
+  parent: c_2fe3
+id: c_998f
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_998f
+title:
+  cs: newspaper article
+  en: newspaper article
+---
+hierarchy:
+  parent: c_18cf
+id: QX5C-AR31
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/QX5C-AR31
+title:
+  cs: other periodical
+  en: other periodical
+---
+hierarchy:
+  parent: c_18cf
+id: c_816b
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_816b
+title:
+  cs: preprint
+  en: preprint
+---
+hierarchy:
+  parent: c_18cf
+id: c_93fc
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_93fc
+title:
+  cs: zpráva
+  en: report
+---
+hierarchy:
+  parent: c_93fc
+id: c_7877
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_7877
+title:
+  cs: clinical study
+  en: clinical study
+---
+hierarchy:
+  parent: c_93fc
+id: c_ab20
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_ab20
+title:
+  cs: data management plan
+  en: data management plan
+---
+hierarchy:
+  parent: c_93fc
+id: DX5J-TA9R
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/DX5J-TA9R
+title:
+  cs: knowledge synthesis protocol
+  en: knowledge synthesis protocol
+---
+hierarchy:
+  parent: c_93fc
+id: c_18wz
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18wz
+title:
+  cs: memorandum
+  en: memorandum
+---
+hierarchy:
+  parent: c_93fc
+id: c_186u
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_186u
+title:
+  cs: zpráva k politice nebo strategii
+  en: policy report
+---
+hierarchy:
+  parent: c_93fc
+id: c_18op
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18op
+title:
+  cs: výstup projektu
+  en: project deliverable
+---
+hierarchy:
+  parent: c_93fc
+id: YZ1N-ZFT9
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/YZ1N-ZFT9
+title:
+  cs: research protocol
+  en: research protocol
+---
+hierarchy:
+  parent: c_93fc
+id: c_18ws
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18ws
+title:
+  cs: výzkumná zpráva
+  en: research report
+---
+hierarchy:
+  parent: c_93fc
+id: c_18gh
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_18gh
+title:
+  cs: technická zpráva
+  en: technical report
+---
+hierarchy:
+  parent: c_18cf
+id: c_baaf
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_baaf
+title:
+  cs: návrh výzkumného projektu
+  en: research proposal
+---
+hierarchy:
+  parent: c_18cf
+id: c_efa0
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_efa0
+title:
+  cs: recenze
+  en: review
+---
+hierarchy:
+  parent: c_efa0
+id: c_ba08
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_ba08
+title:
+  cs: recenze knihy
+  en: book review
+---
+hierarchy:
+  parent: c_efa0
+id: D97F-VB57
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/D97F-VB57
+title:
+  cs: commentary
+  en: commentary
+---
+hierarchy:
+  parent: c_efa0
+id: H9BQ-739P
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/H9BQ-739P
+title:
+  cs: peer review
+  en: peer review
+---
+hierarchy:
+  parent: c_18cf
+id: c_71bd
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_71bd
+title:
+  cs: technická dokumentace
+  en: technical documentation
+---
+hierarchy:
+  parent: c_18cf
+id: c_46ec
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_46ec
+title:
+  cs: kvalifikační práce
+  en: thesis
+---
+hierarchy:
+  parent: c_46ec
+id: c_7a1f
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_7a1f
+title:
+  cs: bakalářská práce
+  en: bachelor thesis
+---
+hierarchy:
+  parent: c_46ec
+id: c_db06
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_db06
+title:
+  cs: disertační práce
+  en: doctoral thesis
+---
+hierarchy:
+  parent: c_46ec
+id: c_bdcc
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_bdcc
+title:
+  cs: diplomová práce
+  en: master thesis
+---
+hierarchy:
+  parent: c_18cf
+id: 6NC7-GK9S
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/6NC7-GK9S
+title:
+  cs: transcription
+  en: transcription
+---
+hierarchy:
+  parent: c_18cf
+id: c_8042
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_8042
+title:
+  cs: pracovní dokument
+  en: working paper
+---
+id: H6QP-SC1X
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/H6QP-SC1X
+title:
+  cs: trademark
+  en: trademark
+---
+id: c_393c
+props:
+  coarVersion: '3.2'
+  iri: http://purl.org/coar/resource_type/c_393c
+title:
+  cs: pracovní postup
+  en: workflow

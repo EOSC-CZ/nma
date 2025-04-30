@@ -1,4 +1,23 @@
+#
+# This file is a definition of the CCMM model, as used inside the NMA. It does not
+# give the communication ccmm model - there the controlled vocabularies are implemented
+# differently (with RDF URIs). The harvesting layer is responsible for converting those
+# to the internal ccmm model.
+#
 $defs:
+  vocabulary:
+    type: vocabulary
+    marshmallow:
+      class: common.services.schema.CCMMVocabularySchema
+      generate: false
+    ui:
+      marshmallow:
+        class: common.services.ui_schema.CCMMVocabularyUISchema
+        generate: false
+    keys:
+      - id
+      - title
+      - props.iri
   address:
     properties:
       iri:
@@ -26,7 +45,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/contact_details
         label.en: Contact point
-        help.en: Relevant contact information for the catalogued resource. Use of
+        help.en:
+          Relevant contact information for the catalogued resource. Use of
           vCard is recommended.
   alternate_title:
     properties:
@@ -39,6 +59,11 @@ $defs:
         required: true
       type:
         type: keyword
+        enum:
+          - AlternativeTitle
+          - Subtitle
+          - TranslatedTitle
+          - Other
         label.en: Type
         help.en: Type of alternate title.
   application_profile:
@@ -52,14 +77,14 @@ $defs:
         label.en: Label
         help.en: Label of application profile
   contact:
+    # TODO
     properties:
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
   contact_details:
+    # TODO
     properties:
       iri:
         type: keyword
@@ -123,18 +148,19 @@ $defs:
         label.en: Description
         help.en: A free-text account of the Dataset.
         required: true
-      other_languages:
-        type: array
-        items:
-          type: keyword
-        label.en: Other language
-        help.en: The primary language of the resource.
+      other_languages[]:
+        use: "./ccmm.yaml#/$defs/vocabulary"
+        vocabulary-type: languages
+        ^label.en: Other language
+        ^help.en: The primary language of the resource.
       primary_language:
-        type: keyword
+        use: "./ccmm.yaml#/$defs/vocabulary"
+        vocabulary-type: languages
         label.en: Other language
         help.en: The primary language of the resource.
       resource_type:
-        type: keyword
+        use: "./ccmm.yaml#/$defs/vocabulary"
+        vocabulary-type: resource-types
         label.en: Resource type
         help.en: A description of the resource.
       title:
@@ -249,7 +275,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/data_service
         label.en: Access service
-        help.en: A site or end-point that gives access to the distribution of the
+        help.en:
+          A site or end-point that gives access to the distribution of the
           dataset.
       iri:
         type: keyword
@@ -262,7 +289,8 @@ $defs:
       checksum:
         type: keyword
         label.en: Checksum
-        help.en: A mechanism that can be used to verify that the contents of a distribution
+        help.en:
+          A mechanism that can be used to verify that the contents of a distribution
           have not changed.
         required: true
       byte_size:
@@ -270,7 +298,8 @@ $defs:
         label.en: Byte size
         help.en: The size of a Distribution in bytes.
       format:
-        type: url
+        use: "./ccmm.yaml#/$defs/vocabulary"
+        vocabulary-type: file-types
         label.en: Format
         help.en: The file format of the Distribution.
       conforms_to_schemas:
@@ -417,15 +446,8 @@ $defs:
         label.en: Label
         help.en: Media type label
   metadata_agent_role_type:
-    properties:
-      iri:
-        type: keyword
-      labels:
-        type: array
-        items:
-          type: i18nStr
-        label.en: Label
-        help.en: Metadata agent role type label
+    use: "./ccmm.yaml#/$defs/vocabulary"
+    vocabulary-type: contributor-types
   metadata_record:
     properties:
       iri:
@@ -440,12 +462,11 @@ $defs:
         type: date
         label.en: Date Created
         help.en: The date on which the metadata record was created.
-      languages:
-        type: array
-        items:
-          type: keyword
-        label.en: Language
-        help.en: Language of the metadata record
+      languages[]:
+        use: "./ccmm.yaml#/$defs/vocabulary"
+        vocabulary-type: languages
+        ^label.en: Language
+        ^help.en: Language of the metadata record
       qualified_relations:
         type: array
         items:
@@ -457,7 +478,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/repository
         label.en: Original repository
-        help.en: Link to the repository from which the metadata were originally stored
+        help.en:
+          Link to the repository from which the metadata were originally stored
           and curated.
       conforms_to_standards:
         type: array
@@ -471,15 +493,14 @@ $defs:
         type: keyword
       role:
         use: ./ccmm.yaml#/$defs/metadata_agent_role_type
-        label.en: had role - The function of an entity or agent with respect to another
+        label.en:
+          had role - The function of an entity or agent with respect to another
           entity or resource.
         required: true
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
   organization:
     properties:
       alternate_names:
@@ -508,7 +529,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/contact_details
         label.en: Contact point
-        help.en: Relevant contact information for the catalogued resource. Use of
+        help.en:
+          Relevant contact information for the catalogued resource. Use of
           vCard is recommended.
   ows:BoundingBoxType:
     properties:
@@ -561,7 +583,8 @@ $defs:
         items:
           use: ./ccmm.yaml#/$defs/contact_details
         label.en: Contact point
-        help.en: Relevant contact information for the catalogued resource. Use of
+        help.en:
+          Relevant contact information for the catalogued resource. Use of
           vCard is recommended.
   provenance_statement:
     properties:
@@ -588,13 +611,15 @@ $defs:
       iri:
         type: keyword
       relation_type:
-        type: keyword
+        use: "./ccmm.yaml#/$defs/vocabulary"
+        vocabulary-type: relation-types
         label.en: Relation type
         help.en: Type of the relation between Dataset and related resource.
       type:
         type: keyword
         label.en: Type
-        help.en: A description of the resource. Gets the value from controlled list
+        help.en:
+          A description of the resource. Gets the value from controlled list
           https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/resourceTypeGeneral/.
       title:
         type: keyword
@@ -616,30 +641,22 @@ $defs:
           use: ./ccmm.yaml#/$defs/time_reference
         label.en: time reference
   resource_agent_role_type:
-    properties:
-      iri:
-        type: keyword
-      labels:
-        type: array
-        items:
-          type: i18nStr
-        label.en: Label
-        help.en: Resource to agent role label
+    use: "./ccmm.yaml#/$defs/vocabulary"
+    vocabulary-type: contributor-types
   resource_to_agent_relationship:
     properties:
       iri:
         type: keyword
       role:
         use: ./ccmm.yaml#/$defs/resource_agent_role_type
-        label.en: had role - The function of an entity or agent with respect to another
+        label.en:
+          had role - The function of an entity or agent with respect to another
           entity or resource.
         required: true
       organization:
         use: ./ccmm.yaml#/$defs/organization
-        required: true
       person:
         use: ./ccmm.yaml#/$defs/person
-        required: true
   subject:
     properties:
       iri:
@@ -656,7 +673,8 @@ $defs:
       classification_code:
         type: keyword
         label.en: Classification code
-        help.en: The classification code used for the subject term in the subject
+        help.en:
+          The classification code used for the subject term in the subject
           scheme.
       in_subject_scheme:
         use: ./ccmm.yaml#/$defs/subject_scheme
@@ -675,7 +693,7 @@ $defs:
     properties:
       iri:
         type: keyword
-      description:
+      description: #TODO: this should be multilingual/array of descriptions
         type: i18nStr
         label.en: Description
         help.en: Descriptive text on details of rights and licensing.
@@ -683,12 +701,12 @@ $defs:
         type: keyword
         label.en: License
         help.en: Information about licensing details of the resource.
-      access_rights:
-        type: array
-        items:
-          type: keyword
-        label.en: Access rights
-        help.en: Information about who access the resource or an indication of its
+      access_rights[]:
+        use: "./ccmm.yaml#/$defs/vocabulary"
+        vocabulary-type: access-rights
+        ^label.en: Access rights
+        ^help.en:
+          Information about who access the resource or an indication of its
           security status.
       contacts:
         type: array
@@ -705,13 +723,15 @@ $defs:
         label.en: Date information
         help.en: Additional information to the date in text form.
       date_type:
-        type: keyword
+        use: "./ccmm.yaml#/$defs/vocabulary"
+        vocabulary-type: time-reference-types
         label.en: Date type
         help.en: Type of the date.
       date:
-        type: date
+        type: edtf-time
         label.en: Date
-        help.en: A point or period of time associated with an event in the lifecycle
+        help.en:
+          A point or period of time associated with an event in the lifecycle
           of the resource.
   validation_result:
     properties:

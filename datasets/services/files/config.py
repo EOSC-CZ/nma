@@ -33,6 +33,7 @@ class DatasetsFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
     record_cls = DatasetsRecord
 
     service_id = "datasets_file"
+    indexer_queue_name = "datasets_file"
 
     search_item_links_template = LinksTemplate
     allowed_mimetypes = []
@@ -47,16 +48,27 @@ class DatasetsFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
 
     @property
     def file_links_list(self):
-        return {
+        try:
+            supercls_links = super().file_links_list
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "self": RecordLink(
                 "{+api}/datasets/{id}/files",
                 when=has_permission_file_service("list_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def file_links_item(self):
-        return {
+        try:
+            supercls_links = super().file_links_item
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "commit": FileLink(
                 "{+api}/datasets/{id}/files/{key}/commit",
                 when=has_permission_file_service("commit_files"),
@@ -71,6 +83,7 @@ class DatasetsFileServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig
                 when=has_permission_file_service("read_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
 
 class DatasetsFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceConfig):
@@ -85,8 +98,10 @@ class DatasetsFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceC
     record_cls = DatasetsDraft
 
     service_id = "datasets_file_draft"
+    indexer_queue_name = "datasets_file_draft"
 
     search_item_links_template = LinksTemplate
+    permission_action_prefix = "draft_"
 
     @property
     def components(self):
@@ -96,16 +111,27 @@ class DatasetsFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceC
 
     @property
     def file_links_list(self):
-        return {
+        try:
+            supercls_links = super().file_links_list
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "self": RecordLink(
                 "{+api}/datasets/{id}/draft/files",
-                when=has_file_permission("list_files"),
+                when=has_file_permission("read_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}
 
     @property
     def file_links_item(self):
-        return {
+        try:
+            supercls_links = super().file_links_item
+        except AttributeError:  # if they aren't defined in the superclass
+            supercls_links = {}
+        links = {
+            **supercls_links,
             "commit": FileLink(
                 "{+api}/datasets/{id}/draft/files/{key}/commit",
                 when=has_file_permission("commit_files"),
@@ -120,3 +146,4 @@ class DatasetsFileDraftServiceConfig(PermissionsPresetsConfigMixin, FileServiceC
                 when=has_file_permission("read_files"),
             ),
         }
+        return {k: v for k, v in links.items() if v is not None}

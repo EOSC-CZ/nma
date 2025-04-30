@@ -1,6 +1,7 @@
 from typing import Iterator
 
 import requests
+import yaml
 from lxml import etree
 from lxml.etree import ElementBase
 from oarepo_runtime.datastreams.readers import BaseReader, StreamEntry
@@ -69,7 +70,7 @@ class COARResourceTypeReader(BaseReader):
                 id=node_id,
                 entry={
                     "id": node_id,
-                    "props": {"coarURL": key, "coarVersion": self._coar_version},
+                    "props": {"iri": key, "coarVersion": self._coar_version},
                     "title": {},
                 },
             )
@@ -113,5 +114,8 @@ Defined as a representation normally to scale and on a flat medium, of a selecti
 
 if __name__ == "__main__":
     reader = COARResourceTypeReader()
+    data = []
     for entry in reader:
-        print(entry)
+        data.append(entry.entry)
+    with open("fixtures/coar-resource-types.yaml", "w") as f:
+        f.write(yaml.dump_all(data, sort_keys=True, allow_unicode=True))

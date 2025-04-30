@@ -333,17 +333,8 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_is_described_by_qualified_relations_person_iri": (
             facets.metadata_is_described_by_qualified_relations_person_iri
         ),
-        "metadata_is_described_by_qualified_relations_role_iri": (
-            facets.metadata_is_described_by_qualified_relations_role_iri
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_cs": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_cs
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_en": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_en
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_lang": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_lang
+        "metadata_is_described_by_qualified_relations_role": (
+            facets.metadata_is_described_by_qualified_relations_role
         ),
         "metadata_locations_bbox_LowerCorners": (
             facets.metadata_locations_bbox_LowerCorners
@@ -524,17 +515,8 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_locations_related_object_identifiers_qualified_relations_person_iri": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_iri
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_role_iri": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_role_iri
-        ),
-        "metadata_locations_related_object_identifiers_qualified_relations_role_labels_cs": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_role_labels_cs
-        ),
-        "metadata_locations_related_object_identifiers_qualified_relations_role_labels_en": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_role_labels_en
-        ),
-        "metadata_locations_related_object_identifiers_qualified_relations_role_labels_lang": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_role_labels_lang
+        "metadata_locations_related_object_identifiers_qualified_relations_role": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_role
         ),
         "metadata_locations_related_object_identifiers_relation_type": (
             facets.metadata_locations_related_object_identifiers_relation_type
@@ -706,18 +688,7 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_qualified_relations_person_iri": (
             facets.metadata_qualified_relations_person_iri
         ),
-        "metadata_qualified_relations_role_iri": (
-            facets.metadata_qualified_relations_role_iri
-        ),
-        "metadata_qualified_relations_role_labels_cs": (
-            facets.metadata_qualified_relations_role_labels_cs
-        ),
-        "metadata_qualified_relations_role_labels_en": (
-            facets.metadata_qualified_relations_role_labels_en
-        ),
-        "metadata_qualified_relations_role_labels_lang": (
-            facets.metadata_qualified_relations_role_labels_lang
-        ),
+        "metadata_qualified_relations_role": facets.metadata_qualified_relations_role,
         "metadata_related_resources_identifier_identifier_scheme": (
             facets.metadata_related_resources_identifier_identifier_scheme
         ),
@@ -872,17 +843,8 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_related_resources_qualified_relations_person_iri": (
             facets.metadata_related_resources_qualified_relations_person_iri
         ),
-        "metadata_related_resources_qualified_relations_role_iri": (
-            facets.metadata_related_resources_qualified_relations_role_iri
-        ),
-        "metadata_related_resources_qualified_relations_role_labels_cs": (
-            facets.metadata_related_resources_qualified_relations_role_labels_cs
-        ),
-        "metadata_related_resources_qualified_relations_role_labels_en": (
-            facets.metadata_related_resources_qualified_relations_role_labels_en
-        ),
-        "metadata_related_resources_qualified_relations_role_labels_lang": (
-            facets.metadata_related_resources_qualified_relations_role_labels_lang
+        "metadata_related_resources_qualified_relations_role": (
+            facets.metadata_related_resources_qualified_relations_role
         ),
         "metadata_related_resources_relation_type": (
             facets.metadata_related_resources_relation_type
@@ -1432,17 +1394,8 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_is_described_by_qualified_relations_person_iri": (
             facets.metadata_is_described_by_qualified_relations_person_iri
         ),
-        "metadata_is_described_by_qualified_relations_role_iri": (
-            facets.metadata_is_described_by_qualified_relations_role_iri
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_cs": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_cs
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_en": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_en
-        ),
-        "metadata_is_described_by_qualified_relations_role_labels_lang": (
-            facets.metadata_is_described_by_qualified_relations_role_labels_lang
+        "metadata_is_described_by_qualified_relations_role": (
+            facets.metadata_is_described_by_qualified_relations_role
         ),
         "metadata_locations_bbox_LowerCorners": (
             facets.metadata_locations_bbox_LowerCorners
@@ -1623,17 +1576,8 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_locations_related_object_identifiers_qualified_relations_person_iri": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_iri
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_role_iri": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_role_iri
-        ),
-        "metadata_locations_related_object_identifiers_qualified_relations_role_labels_cs": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_role_labels_cs
-        ),
-        "metadata_locations_related_object_identifiers_qualified_relations_role_labels_en": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_role_labels_en
-        ),
-        "metadata_locations_related_object_identifiers_qualified_relations_role_labels_lang": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_role_labels_lang
+        "metadata_locations_related_object_identifiers_qualified_relations_role": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_role
         ),
         "metadata_locations_related_object_identifiers_relation_type": (
             facets.metadata_locations_related_object_identifiers_relation_type
@@ -1805,18 +1749,7 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_qualified_relations_person_iri": (
             facets.metadata_qualified_relations_person_iri
         ),
-        "metadata_qualified_relations_role_iri": (
-            facets.metadata_qualified_relations_role_iri
-        ),
-        "metadata_qualified_relations_role_labels_cs": (
-            facets.metadata_qualified_relations_role_labels_cs
-        ),
-        "metadata_qualified_relations_role_labels_en": (
-            facets.metadata_qualified_relations_role_labels_en
-        ),
-        "metadata_qualified_relations_role_labels_lang": (
-            facets.metadata_qualified_relations_role_labels_lang
-        ),
+        "metadata_qualified_relations_role": facets.metadata_qualified_relations_role,
         "metadata_related_resources_identifier_identifier_scheme": (
             facets.metadata_related_resources_identifier_identifier_scheme
         ),
@@ -1971,17 +1904,8 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_related_resources_qualified_relations_person_iri": (
             facets.metadata_related_resources_qualified_relations_person_iri
         ),
-        "metadata_related_resources_qualified_relations_role_iri": (
-            facets.metadata_related_resources_qualified_relations_role_iri
-        ),
-        "metadata_related_resources_qualified_relations_role_labels_cs": (
-            facets.metadata_related_resources_qualified_relations_role_labels_cs
-        ),
-        "metadata_related_resources_qualified_relations_role_labels_en": (
-            facets.metadata_related_resources_qualified_relations_role_labels_en
-        ),
-        "metadata_related_resources_qualified_relations_role_labels_lang": (
-            facets.metadata_related_resources_qualified_relations_role_labels_lang
+        "metadata_related_resources_qualified_relations_role": (
+            facets.metadata_related_resources_qualified_relations_role
         ),
         "metadata_related_resources_relation_type": (
             facets.metadata_related_resources_relation_type
