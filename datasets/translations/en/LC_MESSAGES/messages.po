@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2025-04-30T12:01:22.920032\n"
-"PO-Revision-Date: 2025-04-30T12:01:22.920044\n"
+"POT-Creation-Date: 2025-04-30T15:02:29.195781\n"
+"PO-Revision-Date: 2025-04-30T15:02:29.195794\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5528,6 +5528,42 @@ msgid "metadata/version.help"
 msgstr "The version indicator (name or identifier) of a resource."
 
 msgid "metadata/version.hint"
+msgstr ""
+
+msgid "oai.help"
+msgstr ""
+
+msgid "oai.label"
+msgstr ""
+
+msgid "oai.hint"
+msgstr ""
+
+msgid "oai/harvest.help"
+msgstr ""
+
+msgid "oai/harvest.label"
+msgstr ""
+
+msgid "oai/harvest.hint"
+msgstr ""
+
+msgid "oai/harvest/datestamp.label"
+msgstr "Datestamp"
+
+msgid "oai/harvest/datestamp.help"
+msgstr ""
+
+msgid "oai/harvest/datestamp.hint"
+msgstr ""
+
+msgid "oai/harvest/identifier.label"
+msgstr "OAI identifier"
+
+msgid "oai/harvest/identifier.help"
+msgstr ""
+
+msgid "oai/harvest/identifier.hint"
 msgstr ""
 
 msgid "pid.help"

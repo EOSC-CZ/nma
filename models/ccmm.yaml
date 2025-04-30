@@ -561,7 +561,6 @@ $defs:
           type: keyword
         label.en: Given name
         help.en: The given name associated with the object
-        required: true
       affiliations:
         type: array
         items:

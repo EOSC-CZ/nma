@@ -20,10 +20,11 @@ LINDAT_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/languag
 requests_session = requests.Session()
 
 
-class LinDatTransformer(OAIRuleTransformer):
+class LinDatDCTransformer(OAIRuleTransformer):
     def transform(self, entry: StreamEntry):
 
         md = entry.transformed.setdefault("metadata", {})
+        entry.transformed.setdefault("files", {"enabled": False})
         entry.entry = entry.context["oai"]["metadata"]
 
         transform_title(md, entry)

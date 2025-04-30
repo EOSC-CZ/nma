@@ -3,10 +3,6 @@
         "type": "model",
         "mapping": {
             "template": {
-                "settings": {
-                    "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200
-                },
                 "mappings": {
                     "dynamic_templates": [
                         {
@@ -62,6 +58,10 @@
                             }
                         }
                     ]
+                },
+                "settings": {
+                    "index.mapping.total_fields.limit": 3000,
+                    "index.mapping.nested_fields.limit": 200
                 }
             },
             "generate": true,
@@ -95,6 +95,27 @@
             "extra-code": ""
         },
         "searchable": true,
+        "service-config": {
+            "components": [
+                "{{oarepo_oaipmh_harvester.components.OaiSectionComponent}}",
+                "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
+                "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
+                "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
+                "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
+            ],
+            "base-classes": [
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
+                "invenio_rdm_records.services.config.RDMRecordServiceConfig"
+            ],
+            "generate": true,
+            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
+            "module": "datasets.services.records.config",
+            "class": "datasets.services.records.config.DatasetsServiceConfig",
+            "extra-code": "",
+            "service-id": "datasets",
+            "additional-args": [],
+            "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
+        },
         "ui": {
             "marshmallow": {
                 "imports": [],
@@ -409,26 +430,6 @@
                 "\"object_key\"": "\"ui\"",
                 "\"identity\"": "{{ flask.g{g.identity} }}"
             }
-        },
-        "service-config": {
-            "components": [
-                "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
-                "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
-                "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
-                "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
-            ],
-            "base-classes": [
-                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
-                "invenio_rdm_records.services.config.RDMRecordServiceConfig"
-            ],
-            "generate": true,
-            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
-            "module": "datasets.services.records.config",
-            "class": "datasets.services.records.config.DatasetsServiceConfig",
-            "extra-code": "",
-            "service-id": "datasets",
-            "additional-args": [],
-            "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
         },
         "translations": {
             "module": "datasets.translations",
@@ -7341,6 +7342,46 @@
                     }
                 }
             },
+            "oai": {
+                "type": "object",
+                "marshmallow": {
+                    "generate": true,
+                    "class": "datasets.services.records.schema.OaiSchema"
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "class": "datasets.services.records.ui_schema.OaiUISchema"
+                    }
+                },
+                "properties": {
+                    "harvest": {
+                        "type": "object",
+                        "marshmallow": {
+                            "generate": true,
+                            "class": "datasets.services.records.schema.HarvestSchema"
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "datasets.services.records.ui_schema.HarvestUISchema"
+                            }
+                        },
+                        "properties": {
+                            "datestamp": {
+                                "type": "keyword",
+                                "label.cs": "Datum poslední změny",
+                                "label.en": "Datestamp"
+                            },
+                            "identifier": {
+                                "type": "keyword",
+                                "label.cs": "OAI identifikátor",
+                                "label.en": "OAI identifier"
+                            }
+                        }
+                    }
+                }
+            },
             "pid": {
                 "type": "object",
                 "facets": {
@@ -7400,7 +7441,7 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "uniqueItems": true,
+                    "type": "object",
                     "propertyNames": {
                         "pattern": "^[a-z_-][a-z0-9_-]*$"
                     },
@@ -7419,7 +7460,7 @@
                             }
                         }
                     },
-                    "type": "object"
+                    "uniqueItems": true
                 },
                 "ui": {
                     "marshmallow": {

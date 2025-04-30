@@ -28,6 +28,7 @@ record:
   use:
     - invenio
     - rdm
+    - ./datasets-harvest.yaml
   properties:
     metadata:
       use:

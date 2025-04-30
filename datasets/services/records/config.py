@@ -10,6 +10,7 @@ from oarepo_communities.services.components.default_workflow import (
 )
 from oarepo_communities.services.components.include import CommunityInclusionComponent
 from oarepo_communities.services.links import CommunitiesLinks
+from oarepo_oaipmh_harvester.components import OaiSectionComponent
 from oarepo_runtime.services.components import (
     CustomFieldsComponent,
     process_service_configs,
@@ -65,6 +66,7 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
     def components(self):
         return process_service_configs(
             self,
+            OaiSectionComponent,
             CommunityDefaultWorkflowComponent,
             CommunityInclusionComponent,
             CustomFieldsComponent,

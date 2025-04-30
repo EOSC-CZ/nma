@@ -43,6 +43,8 @@ class DatasetsSchema(RDMBaseRecordSchema):
 
     metadata = ma_fields.Nested(lambda: DatasetsMetadataSchema())
 
+    oai = ma_fields.Nested(lambda: OaiSchema())
+
     pids = Dict(
         keys=SanitizedUnicode(validate=validate_scheme),
         values=Nested(PIDSchema),
@@ -361,6 +363,13 @@ class FundingReferencesItemSchema(DictOnlySchema):
     local_identifier = ma_fields.String()
 
 
+class OaiSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    harvest = ma_fields.Nested(lambda: HarvestSchema())
+
+
 class SubjectsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -435,6 +444,15 @@ class FundersItemSchema(DictOnlySchema):
     funder_name = ma_fields.String()
 
     iri = ma_fields.String()
+
+
+class HarvestSchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    datestamp = ma_fields.String()
+
+    identifier = ma_fields.String()
 
 
 class IdentifiersItemSchema(DictOnlySchema):
