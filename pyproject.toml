@@ -13,6 +13,7 @@ dependencies = [
     "oarepo-doi==1.*",
     "oarepo-glitchtip==1.*",
     "oarepo-global-search==1.*",
+    "oarepo-oai-pmh-harvester",
     "oarepo-requests==2.*",
     "oarepo-runtime==1.*",
     "oarepo-ui==5.*",

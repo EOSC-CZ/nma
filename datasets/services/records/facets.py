@@ -4,6 +4,7 @@ from invenio_records_resources.services.records.facets import TermsFacet
 from oarepo_runtime.i18n import lazy_gettext as _
 from oarepo_runtime.services.facets.date import DateTimeFacet
 from oarepo_runtime.services.facets.nested_facet import NestedLabeledFacet
+from oarepo_vocabularies.services.facets import VocabularyFacet
 
 access_embargo_active = TermsFacet(
     field="access.embargo.active", label=_("access/embargo/active.label")
@@ -215,9 +216,10 @@ metadata_distribution_downloadable_files_download_urls = TermsFacet(
     label=_("metadata/distribution_downloadable_files/download_urls.label"),
 )
 
-metadata_distribution_downloadable_files_format = TermsFacet(
+metadata_distribution_downloadable_files_format = VocabularyFacet(
     field="metadata.distribution_downloadable_files.format",
     label=_("metadata/distribution_downloadable_files/format.label"),
+    vocabulary="file-types",
 )
 
 metadata_distribution_downloadable_files_iri = TermsFacet(
@@ -352,9 +354,10 @@ metadata_is_described_by_iri = TermsFacet(
     field="metadata.is_described_by.iri", label=_("metadata/is_described_by/iri.label")
 )
 
-metadata_is_described_by_languages = TermsFacet(
+metadata_is_described_by_languages = VocabularyFacet(
     field="metadata.is_described_by.languages",
     label=_("metadata/is_described_by/languages.label"),
+    vocabulary="languages",
 )
 
 metadata_is_described_by_original_repositories_iri = TermsFacet(
@@ -723,27 +726,10 @@ metadata_is_described_by_qualified_relations_person_iri = TermsFacet(
     label=_("metadata/is_described_by/qualified_relations/person/iri.label"),
 )
 
-metadata_is_described_by_qualified_relations_role_iri = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.role.iri",
-    label=_("metadata/is_described_by/qualified_relations/role/iri.label"),
-)
-
-metadata_is_described_by_qualified_relations_role_labels_cs = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.role.labels.cs.keyword",
-    label=_("metadata/is_described_by/qualified_relations/role/labels.label"),
-)
-
-metadata_is_described_by_qualified_relations_role_labels_en = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.role.labels.en.keyword",
-    label=_("metadata/is_described_by/qualified_relations/role/labels.label"),
-)
-
-metadata_is_described_by_qualified_relations_role_labels_lang = NestedLabeledFacet(
-    path="metadata.is_described_by.qualified_relations.role.labels",
-    nested_facet=TermsFacet(
-        field="metadata.is_described_by.qualified_relations.role.labels.lang",
-        label=_("metadata/is_described_by/qualified_relations/role/labels/lang.label"),
-    ),
+metadata_is_described_by_qualified_relations_role = VocabularyFacet(
+    field="metadata.is_described_by.qualified_relations.role",
+    label=_("metadata/is_described_by/qualified_relations/role.label"),
+    vocabulary="contributor-types",
 )
 
 metadata_locations_bbox_LowerCorners = TermsFacet(
@@ -1181,40 +1167,18 @@ metadata_locations_related_object_identifiers_qualified_relations_person_iri = T
     ),
 )
 
-metadata_locations_related_object_identifiers_qualified_relations_role_iri = TermsFacet(
-    field="metadata.locations.related_object_identifiers.qualified_relations.role.iri",
+metadata_locations_related_object_identifiers_qualified_relations_role = VocabularyFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.role",
     label=_(
-        "metadata/locations/related_object_identifiers/qualified_relations/role/iri.label"
+        "metadata/locations/related_object_identifiers/qualified_relations/role.label"
     ),
+    vocabulary="contributor-types",
 )
 
-metadata_locations_related_object_identifiers_qualified_relations_role_labels_cs = TermsFacet(
-    field="metadata.locations.related_object_identifiers.qualified_relations.role.labels.cs.keyword",
-    label=_(
-        "metadata/locations/related_object_identifiers/qualified_relations/role/labels.label"
-    ),
-)
-
-metadata_locations_related_object_identifiers_qualified_relations_role_labels_en = TermsFacet(
-    field="metadata.locations.related_object_identifiers.qualified_relations.role.labels.en.keyword",
-    label=_(
-        "metadata/locations/related_object_identifiers/qualified_relations/role/labels.label"
-    ),
-)
-
-metadata_locations_related_object_identifiers_qualified_relations_role_labels_lang = NestedLabeledFacet(
-    path="metadata.locations.related_object_identifiers.qualified_relations.role.labels",
-    nested_facet=TermsFacet(
-        field="metadata.locations.related_object_identifiers.qualified_relations.role.labels.lang",
-        label=_(
-            "metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.label"
-        ),
-    ),
-)
-
-metadata_locations_related_object_identifiers_relation_type = TermsFacet(
+metadata_locations_related_object_identifiers_relation_type = VocabularyFacet(
     field="metadata.locations.related_object_identifiers.relation_type",
     label=_("metadata/locations/related_object_identifiers/relation_type.label"),
+    vocabulary="relation-types",
 )
 
 metadata_locations_related_object_identifiers_time_references_date = DateTimeFacet(
@@ -1229,11 +1193,12 @@ metadata_locations_related_object_identifiers_time_references_date_information =
     ),
 )
 
-metadata_locations_related_object_identifiers_time_references_date_type = TermsFacet(
+metadata_locations_related_object_identifiers_time_references_date_type = VocabularyFacet(
     field="metadata.locations.related_object_identifiers.time_references.date_type",
     label=_(
         "metadata/locations/related_object_identifiers/time_references/date_type.label"
     ),
+    vocabulary="time-reference-types",
 )
 
 metadata_locations_related_object_identifiers_time_references_iri = TermsFacet(
@@ -1251,12 +1216,16 @@ metadata_locations_related_object_identifiers_type = TermsFacet(
     label=_("metadata/locations/related_object_identifiers/type.label"),
 )
 
-metadata_other_languages = TermsFacet(
-    field="metadata.other_languages", label=_("metadata/other_languages.label")
+metadata_other_languages = VocabularyFacet(
+    field="metadata.other_languages",
+    label=_("metadata/other_languages.label"),
+    vocabulary="languages",
 )
 
-metadata_primary_language = TermsFacet(
-    field="metadata.primary_language", label=_("metadata/primary_language.label")
+metadata_primary_language = VocabularyFacet(
+    field="metadata.primary_language",
+    label=_("metadata/primary_language.label"),
+    vocabulary="languages",
 )
 
 metadata_provenances_iri = TermsFacet(
@@ -1582,27 +1551,10 @@ metadata_qualified_relations_person_iri = TermsFacet(
     label=_("metadata/qualified_relations/person/iri.label"),
 )
 
-metadata_qualified_relations_role_iri = TermsFacet(
-    field="metadata.qualified_relations.role.iri",
-    label=_("metadata/qualified_relations/role/iri.label"),
-)
-
-metadata_qualified_relations_role_labels_cs = TermsFacet(
-    field="metadata.qualified_relations.role.labels.cs.keyword",
-    label=_("metadata/qualified_relations/role/labels.label"),
-)
-
-metadata_qualified_relations_role_labels_en = TermsFacet(
-    field="metadata.qualified_relations.role.labels.en.keyword",
-    label=_("metadata/qualified_relations/role/labels.label"),
-)
-
-metadata_qualified_relations_role_labels_lang = NestedLabeledFacet(
-    path="metadata.qualified_relations.role.labels",
-    nested_facet=TermsFacet(
-        field="metadata.qualified_relations.role.labels.lang",
-        label=_("metadata/qualified_relations/role/labels/lang.label"),
-    ),
+metadata_qualified_relations_role = VocabularyFacet(
+    field="metadata.qualified_relations.role",
+    label=_("metadata/qualified_relations/role.label"),
+    vocabulary="contributor-types",
 )
 
 metadata_related_resources_identifier_identifier_scheme = TermsFacet(
@@ -1968,34 +1920,16 @@ metadata_related_resources_qualified_relations_person_iri = TermsFacet(
     label=_("metadata/related_resources/qualified_relations/person/iri.label"),
 )
 
-metadata_related_resources_qualified_relations_role_iri = TermsFacet(
-    field="metadata.related_resources.qualified_relations.role.iri",
-    label=_("metadata/related_resources/qualified_relations/role/iri.label"),
+metadata_related_resources_qualified_relations_role = VocabularyFacet(
+    field="metadata.related_resources.qualified_relations.role",
+    label=_("metadata/related_resources/qualified_relations/role.label"),
+    vocabulary="contributor-types",
 )
 
-metadata_related_resources_qualified_relations_role_labels_cs = TermsFacet(
-    field="metadata.related_resources.qualified_relations.role.labels.cs.keyword",
-    label=_("metadata/related_resources/qualified_relations/role/labels.label"),
-)
-
-metadata_related_resources_qualified_relations_role_labels_en = TermsFacet(
-    field="metadata.related_resources.qualified_relations.role.labels.en.keyword",
-    label=_("metadata/related_resources/qualified_relations/role/labels.label"),
-)
-
-metadata_related_resources_qualified_relations_role_labels_lang = NestedLabeledFacet(
-    path="metadata.related_resources.qualified_relations.role.labels",
-    nested_facet=TermsFacet(
-        field="metadata.related_resources.qualified_relations.role.labels.lang",
-        label=_(
-            "metadata/related_resources/qualified_relations/role/labels/lang.label"
-        ),
-    ),
-)
-
-metadata_related_resources_relation_type = TermsFacet(
+metadata_related_resources_relation_type = VocabularyFacet(
     field="metadata.related_resources.relation_type",
     label=_("metadata/related_resources/relation_type.label"),
+    vocabulary="relation-types",
 )
 
 metadata_related_resources_time_references_date = DateTimeFacet(
@@ -2008,9 +1942,10 @@ metadata_related_resources_time_references_date_information = TermsFacet(
     label=_("metadata/related_resources/time_references/date_information.label"),
 )
 
-metadata_related_resources_time_references_date_type = TermsFacet(
+metadata_related_resources_time_references_date_type = VocabularyFacet(
     field="metadata.related_resources.time_references.date_type",
     label=_("metadata/related_resources/time_references/date_type.label"),
+    vocabulary="time-reference-types",
 )
 
 metadata_related_resources_time_references_iri = TermsFacet(
@@ -2028,8 +1963,10 @@ metadata_related_resources_type = TermsFacet(
     label=_("metadata/related_resources/type.label"),
 )
 
-metadata_resource_type = TermsFacet(
-    field="metadata.resource_type", label=_("metadata/resource_type.label")
+metadata_resource_type = VocabularyFacet(
+    field="metadata.resource_type",
+    label=_("metadata/resource_type.label"),
+    vocabulary="resource-types",
 )
 
 metadata_subjects_classification_code = TermsFacet(
@@ -2098,9 +2035,10 @@ metadata_subjects_title_lang = NestedLabeledFacet(
     ),
 )
 
-metadata_terms_of_use_access_rights = TermsFacet(
+metadata_terms_of_use_access_rights = VocabularyFacet(
     field="metadata.terms_of_use.access_rights",
     label=_("metadata/terms_of_use/access_rights.label"),
+    vocabulary="access-rights",
 )
 
 metadata_terms_of_use_contacts_organization_alternate_names_cs = TermsFacet(
@@ -2438,9 +2376,10 @@ metadata_time_references_date_information = TermsFacet(
     label=_("metadata/time_references/date_information.label"),
 )
 
-metadata_time_references_date_type = TermsFacet(
+metadata_time_references_date_type = VocabularyFacet(
     field="metadata.time_references.date_type",
     label=_("metadata/time_references/date_type.label"),
+    vocabulary="time-reference-types",
 )
 
 metadata_time_references_iri = TermsFacet(

@@ -177,6 +177,7 @@
                                 "help": "metadata/alternate_titles/type.help",
                                 "label": "metadata/alternate_titles/type.label",
                                 "hint": "metadata/alternate_titles/type.hint",
+                                "enum": "metadata/alternate_titles/type.enum",
                                 "facet": "metadata_alternate_titles_type"
                             }
                         }
@@ -593,12 +594,43 @@
                                 }
                             },
                             "format": {
-                                "detail": "url",
-                                "input": "url",
+                                "detail": "vocabulary_item",
+                                "edit": "vocabulary_item",
+                                "input": "vocabulary",
                                 "help": "metadata/distribution_downloadable_files/format.help",
                                 "label": "metadata/distribution_downloadable_files/format.label",
                                 "hint": "metadata/distribution_downloadable_files/format.hint",
-                                "facet": "metadata_distribution_downloadable_files_format"
+                                "facet": "metadata_distribution_downloadable_files_format",
+                                "children": {
+                                    "id": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/distribution_downloadable_files/format/id.help",
+                                        "label": "metadata/distribution_downloadable_files/format/id.label",
+                                        "hint": "metadata/distribution_downloadable_files/format/id.hint"
+                                    },
+                                    "title": {
+                                        "detail": false,
+                                        "input": false,
+                                        "help": "metadata/distribution_downloadable_files/format/title.help",
+                                        "label": "metadata/distribution_downloadable_files/format/title.label",
+                                        "hint": "metadata/distribution_downloadable_files/format/title.hint"
+                                    },
+                                    "iri": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/distribution_downloadable_files/format/iri.help",
+                                        "label": "metadata/distribution_downloadable_files/format/iri.label",
+                                        "hint": "metadata/distribution_downloadable_files/format/iri.hint"
+                                    },
+                                    "@v": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/distribution_downloadable_files/format/@v.help",
+                                        "label": "metadata/distribution_downloadable_files/format/@v.label",
+                                        "hint": "metadata/distribution_downloadable_files/format/@v.hint"
+                                    }
+                                }
                             },
                             "iri": {
                                 "detail": "keyword",
@@ -937,12 +969,43 @@
                                 "label": "metadata/is_described_by/languages.label",
                                 "hint": "metadata/is_described_by/languages.hint",
                                 "child": {
-                                    "detail": "keyword",
-                                    "input": "keyword",
+                                    "detail": "vocabulary_item",
+                                    "edit": "vocabulary_item",
+                                    "input": "vocabulary",
                                     "help": "metadata/is_described_by/languages.help",
                                     "label": "metadata/is_described_by/languages.label",
                                     "hint": "metadata/is_described_by/languages.hint",
-                                    "facet": "metadata_is_described_by_languages"
+                                    "facet": "metadata_is_described_by_languages",
+                                    "children": {
+                                        "id": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/is_described_by/languages/id.help",
+                                            "label": "metadata/is_described_by/languages/id.label",
+                                            "hint": "metadata/is_described_by/languages/id.hint"
+                                        },
+                                        "title": {
+                                            "detail": false,
+                                            "input": false,
+                                            "help": "metadata/is_described_by/languages/title.help",
+                                            "label": "metadata/is_described_by/languages/title.label",
+                                            "hint": "metadata/is_described_by/languages/title.hint"
+                                        },
+                                        "iri": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/is_described_by/languages/iri.help",
+                                            "label": "metadata/is_described_by/languages/iri.label",
+                                            "hint": "metadata/is_described_by/languages/iri.hint"
+                                        },
+                                        "@v": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/is_described_by/languages/@v.help",
+                                            "label": "metadata/is_described_by/languages/@v.label",
+                                            "hint": "metadata/is_described_by/languages/@v.hint"
+                                        }
+                                    }
                                 }
                             },
                             "original_repositories": {
@@ -1027,7 +1090,6 @@
                                         "organization": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/is_described_by/qualified_relations/organization.help",
                                             "label": "metadata/is_described_by/qualified_relations/organization.label",
                                             "hint": "metadata/is_described_by/qualified_relations/organization.hint",
@@ -1257,7 +1319,6 @@
                                         "person": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/is_described_by/qualified_relations/person.help",
                                             "label": "metadata/is_described_by/qualified_relations/person.label",
                                             "hint": "metadata/is_described_by/qualified_relations/person.hint",
@@ -1684,54 +1745,42 @@
                                             }
                                         },
                                         "role": {
-                                            "detail": false,
-                                            "input": false,
+                                            "detail": "vocabulary_item",
+                                            "edit": "vocabulary_item",
+                                            "input": "vocabulary",
                                             "required": true,
                                             "help": "metadata/is_described_by/qualified_relations/role.help",
                                             "label": "metadata/is_described_by/qualified_relations/role.label",
                                             "hint": "metadata/is_described_by/qualified_relations/role.hint",
+                                            "facet": "metadata_is_described_by_qualified_relations_role",
                                             "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/is_described_by/qualified_relations/role/id.help",
+                                                    "label": "metadata/is_described_by/qualified_relations/role/id.label",
+                                                    "hint": "metadata/is_described_by/qualified_relations/role/id.hint"
+                                                },
+                                                "title": {
+                                                    "detail": false,
+                                                    "input": false,
+                                                    "help": "metadata/is_described_by/qualified_relations/role/title.help",
+                                                    "label": "metadata/is_described_by/qualified_relations/role/title.label",
+                                                    "hint": "metadata/is_described_by/qualified_relations/role/title.hint"
+                                                },
                                                 "iri": {
                                                     "detail": "keyword",
                                                     "input": "keyword",
                                                     "help": "metadata/is_described_by/qualified_relations/role/iri.help",
                                                     "label": "metadata/is_described_by/qualified_relations/role/iri.label",
-                                                    "hint": "metadata/is_described_by/qualified_relations/role/iri.hint",
-                                                    "facet": "metadata_is_described_by_qualified_relations_role_iri"
+                                                    "hint": "metadata/is_described_by/qualified_relations/role/iri.hint"
                                                 },
-                                                "labels": {
-                                                    "detail": "array",
-                                                    "input": "array",
-                                                    "help": "metadata/is_described_by/qualified_relations/role/labels.help",
-                                                    "label": "metadata/is_described_by/qualified_relations/role/labels.label",
-                                                    "hint": "metadata/is_described_by/qualified_relations/role/labels.hint",
-                                                    "child": {
-                                                        "detail": "multilingual",
-                                                        "input": "i18nStr",
-                                                        "help": "metadata/is_described_by/qualified_relations/role/labels.help",
-                                                        "label": "metadata/is_described_by/qualified_relations/role/labels.label",
-                                                        "hint": "metadata/is_described_by/qualified_relations/role/labels.hint",
-                                                        "facet": "metadata_is_described_by_qualified_relations_role_labels_cs",
-                                                        "children": {
-                                                            "lang": {
-                                                                "detail": "keyword",
-                                                                "input": "keyword",
-                                                                "required": true,
-                                                                "help": "metadata/is_described_by/qualified_relations/role/labels/lang.help",
-                                                                "label": "metadata/is_described_by/qualified_relations/role/labels/lang.label",
-                                                                "hint": "metadata/is_described_by/qualified_relations/role/labels/lang.hint",
-                                                                "facet": "metadata_is_described_by_qualified_relations_role_labels_lang"
-                                                            },
-                                                            "value": {
-                                                                "detail": "fulltext+keyword",
-                                                                "input": "fulltext+keyword",
-                                                                "required": true,
-                                                                "help": "metadata/is_described_by/qualified_relations/role/labels/value.help",
-                                                                "label": "metadata/is_described_by/qualified_relations/role/labels/value.label",
-                                                                "hint": "metadata/is_described_by/qualified_relations/role/labels/value.hint"
-                                                            }
-                                                        }
-                                                    }
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/is_described_by/qualified_relations/role/@v.help",
+                                                    "label": "metadata/is_described_by/qualified_relations/role/@v.label",
+                                                    "hint": "metadata/is_described_by/qualified_relations/role/@v.hint"
                                                 }
                                             }
                                         }
@@ -1980,7 +2029,6 @@
                                                     "organization": {
                                                         "detail": false,
                                                         "input": false,
-                                                        "required": true,
                                                         "help": "metadata/locations/related_object_identifiers/qualified_relations/organization.help",
                                                         "label": "metadata/locations/related_object_identifiers/qualified_relations/organization.label",
                                                         "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization.hint",
@@ -2210,7 +2258,6 @@
                                                     "person": {
                                                         "detail": false,
                                                         "input": false,
-                                                        "required": true,
                                                         "help": "metadata/locations/related_object_identifiers/qualified_relations/person.help",
                                                         "label": "metadata/locations/related_object_identifiers/qualified_relations/person.label",
                                                         "hint": "metadata/locations/related_object_identifiers/qualified_relations/person.hint",
@@ -2637,54 +2684,42 @@
                                                         }
                                                     },
                                                     "role": {
-                                                        "detail": false,
-                                                        "input": false,
+                                                        "detail": "vocabulary_item",
+                                                        "edit": "vocabulary_item",
+                                                        "input": "vocabulary",
                                                         "required": true,
                                                         "help": "metadata/locations/related_object_identifiers/qualified_relations/role.help",
                                                         "label": "metadata/locations/related_object_identifiers/qualified_relations/role.label",
                                                         "hint": "metadata/locations/related_object_identifiers/qualified_relations/role.hint",
+                                                        "facet": "metadata_locations_related_object_identifiers_qualified_relations_role",
                                                         "children": {
+                                                            "id": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/role/id.help",
+                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/role/id.label",
+                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/id.hint"
+                                                            },
+                                                            "title": {
+                                                                "detail": false,
+                                                                "input": false,
+                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/role/title.help",
+                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/role/title.label",
+                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/title.hint"
+                                                            },
                                                             "iri": {
                                                                 "detail": "keyword",
                                                                 "input": "keyword",
                                                                 "help": "metadata/locations/related_object_identifiers/qualified_relations/role/iri.help",
                                                                 "label": "metadata/locations/related_object_identifiers/qualified_relations/role/iri.label",
-                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/iri.hint",
-                                                                "facet": "metadata_locations_related_object_identifiers_qualified_relations_role_iri"
+                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/iri.hint"
                                                             },
-                                                            "labels": {
-                                                                "detail": "array",
-                                                                "input": "array",
-                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/role/labels.help",
-                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/role/labels.label",
-                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/labels.hint",
-                                                                "child": {
-                                                                    "detail": "multilingual",
-                                                                    "input": "i18nStr",
-                                                                    "help": "metadata/locations/related_object_identifiers/qualified_relations/role/labels.help",
-                                                                    "label": "metadata/locations/related_object_identifiers/qualified_relations/role/labels.label",
-                                                                    "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/labels.hint",
-                                                                    "facet": "metadata_locations_related_object_identifiers_qualified_relations_role_labels_cs",
-                                                                    "children": {
-                                                                        "lang": {
-                                                                            "detail": "keyword",
-                                                                            "input": "keyword",
-                                                                            "required": true,
-                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.help",
-                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.label",
-                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/labels/lang.hint",
-                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_role_labels_lang"
-                                                                        },
-                                                                        "value": {
-                                                                            "detail": "fulltext+keyword",
-                                                                            "input": "fulltext+keyword",
-                                                                            "required": true,
-                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/role/labels/value.help",
-                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/role/labels/value.label",
-                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/labels/value.hint"
-                                                                        }
-                                                                    }
-                                                                }
+                                                            "@v": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/role/@v.help",
+                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/role/@v.label",
+                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/role/@v.hint"
                                                             }
                                                         }
                                                     }
@@ -2692,12 +2727,43 @@
                                             }
                                         },
                                         "relation_type": {
-                                            "detail": "keyword",
-                                            "input": "keyword",
+                                            "detail": "vocabulary_item",
+                                            "edit": "vocabulary_item",
+                                            "input": "vocabulary",
                                             "help": "metadata/locations/related_object_identifiers/relation_type.help",
                                             "label": "metadata/locations/related_object_identifiers/relation_type.label",
                                             "hint": "metadata/locations/related_object_identifiers/relation_type.hint",
-                                            "facet": "metadata_locations_related_object_identifiers_relation_type"
+                                            "facet": "metadata_locations_related_object_identifiers_relation_type",
+                                            "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/locations/related_object_identifiers/relation_type/id.help",
+                                                    "label": "metadata/locations/related_object_identifiers/relation_type/id.label",
+                                                    "hint": "metadata/locations/related_object_identifiers/relation_type/id.hint"
+                                                },
+                                                "title": {
+                                                    "detail": false,
+                                                    "input": false,
+                                                    "help": "metadata/locations/related_object_identifiers/relation_type/title.help",
+                                                    "label": "metadata/locations/related_object_identifiers/relation_type/title.label",
+                                                    "hint": "metadata/locations/related_object_identifiers/relation_type/title.hint"
+                                                },
+                                                "iri": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/locations/related_object_identifiers/relation_type/iri.help",
+                                                    "label": "metadata/locations/related_object_identifiers/relation_type/iri.label",
+                                                    "hint": "metadata/locations/related_object_identifiers/relation_type/iri.hint"
+                                                },
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/locations/related_object_identifiers/relation_type/@v.help",
+                                                    "label": "metadata/locations/related_object_identifiers/relation_type/@v.label",
+                                                    "hint": "metadata/locations/related_object_identifiers/relation_type/@v.hint"
+                                                }
+                                            }
                                         },
                                         "time_references": {
                                             "detail": "array",
@@ -2713,8 +2779,8 @@
                                                 "hint": "metadata/locations/related_object_identifiers/time_references.hint",
                                                 "children": {
                                                     "date": {
-                                                        "detail": "date",
-                                                        "input": "date",
+                                                        "detail": "edtf-time",
+                                                        "input": "edtf-time",
                                                         "help": "metadata/locations/related_object_identifiers/time_references/date.help",
                                                         "label": "metadata/locations/related_object_identifiers/time_references/date.label",
                                                         "hint": "metadata/locations/related_object_identifiers/time_references/date.hint",
@@ -2729,12 +2795,43 @@
                                                         "facet": "metadata_locations_related_object_identifiers_time_references_date_information"
                                                     },
                                                     "date_type": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
+                                                        "detail": "vocabulary_item",
+                                                        "edit": "vocabulary_item",
+                                                        "input": "vocabulary",
                                                         "help": "metadata/locations/related_object_identifiers/time_references/date_type.help",
                                                         "label": "metadata/locations/related_object_identifiers/time_references/date_type.label",
                                                         "hint": "metadata/locations/related_object_identifiers/time_references/date_type.hint",
-                                                        "facet": "metadata_locations_related_object_identifiers_time_references_date_type"
+                                                        "facet": "metadata_locations_related_object_identifiers_time_references_date_type",
+                                                        "children": {
+                                                            "id": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/locations/related_object_identifiers/time_references/date_type/id.help",
+                                                                "label": "metadata/locations/related_object_identifiers/time_references/date_type/id.label",
+                                                                "hint": "metadata/locations/related_object_identifiers/time_references/date_type/id.hint"
+                                                            },
+                                                            "title": {
+                                                                "detail": false,
+                                                                "input": false,
+                                                                "help": "metadata/locations/related_object_identifiers/time_references/date_type/title.help",
+                                                                "label": "metadata/locations/related_object_identifiers/time_references/date_type/title.label",
+                                                                "hint": "metadata/locations/related_object_identifiers/time_references/date_type/title.hint"
+                                                            },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/locations/related_object_identifiers/time_references/date_type/iri.help",
+                                                                "label": "metadata/locations/related_object_identifiers/time_references/date_type/iri.label",
+                                                                "hint": "metadata/locations/related_object_identifiers/time_references/date_type/iri.hint"
+                                                            },
+                                                            "@v": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/locations/related_object_identifiers/time_references/date_type/@v.help",
+                                                                "label": "metadata/locations/related_object_identifiers/time_references/date_type/@v.label",
+                                                                "hint": "metadata/locations/related_object_identifiers/time_references/date_type/@v.hint"
+                                                            }
+                                                        }
                                                     },
                                                     "iri": {
                                                         "detail": "keyword",
@@ -2776,21 +2873,83 @@
                     "label": "metadata/other_languages.label",
                     "hint": "metadata/other_languages.hint",
                     "child": {
-                        "detail": "keyword",
-                        "input": "keyword",
+                        "detail": "vocabulary_item",
+                        "edit": "vocabulary_item",
+                        "input": "vocabulary",
                         "help": "metadata/other_languages.help",
                         "label": "metadata/other_languages.label",
                         "hint": "metadata/other_languages.hint",
-                        "facet": "metadata_other_languages"
+                        "facet": "metadata_other_languages",
+                        "children": {
+                            "id": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/other_languages/id.help",
+                                "label": "metadata/other_languages/id.label",
+                                "hint": "metadata/other_languages/id.hint"
+                            },
+                            "title": {
+                                "detail": false,
+                                "input": false,
+                                "help": "metadata/other_languages/title.help",
+                                "label": "metadata/other_languages/title.label",
+                                "hint": "metadata/other_languages/title.hint"
+                            },
+                            "iri": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/other_languages/iri.help",
+                                "label": "metadata/other_languages/iri.label",
+                                "hint": "metadata/other_languages/iri.hint"
+                            },
+                            "@v": {
+                                "detail": "keyword",
+                                "input": "keyword",
+                                "help": "metadata/other_languages/@v.help",
+                                "label": "metadata/other_languages/@v.label",
+                                "hint": "metadata/other_languages/@v.hint"
+                            }
+                        }
                     }
                 },
                 "primary_language": {
-                    "detail": "keyword",
-                    "input": "keyword",
+                    "detail": "vocabulary_item",
+                    "edit": "vocabulary_item",
+                    "input": "vocabulary",
                     "help": "metadata/primary_language.help",
                     "label": "metadata/primary_language.label",
                     "hint": "metadata/primary_language.hint",
-                    "facet": "metadata_primary_language"
+                    "facet": "metadata_primary_language",
+                    "children": {
+                        "id": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/primary_language/id.help",
+                            "label": "metadata/primary_language/id.label",
+                            "hint": "metadata/primary_language/id.hint"
+                        },
+                        "title": {
+                            "detail": false,
+                            "input": false,
+                            "help": "metadata/primary_language/title.help",
+                            "label": "metadata/primary_language/title.label",
+                            "hint": "metadata/primary_language/title.hint"
+                        },
+                        "iri": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/primary_language/iri.help",
+                            "label": "metadata/primary_language/iri.label",
+                            "hint": "metadata/primary_language/iri.hint"
+                        },
+                        "@v": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/primary_language/@v.help",
+                            "label": "metadata/primary_language/@v.label",
+                            "hint": "metadata/primary_language/@v.hint"
+                        }
+                    }
                 },
                 "provenances": {
                     "detail": "array",
@@ -2882,7 +3041,6 @@
                             "organization": {
                                 "detail": false,
                                 "input": false,
-                                "required": true,
                                 "help": "metadata/qualified_relations/organization.help",
                                 "label": "metadata/qualified_relations/organization.label",
                                 "hint": "metadata/qualified_relations/organization.hint",
@@ -3112,7 +3270,6 @@
                             "person": {
                                 "detail": false,
                                 "input": false,
-                                "required": true,
                                 "help": "metadata/qualified_relations/person.help",
                                 "label": "metadata/qualified_relations/person.label",
                                 "hint": "metadata/qualified_relations/person.hint",
@@ -3539,54 +3696,42 @@
                                 }
                             },
                             "role": {
-                                "detail": false,
-                                "input": false,
+                                "detail": "vocabulary_item",
+                                "edit": "vocabulary_item",
+                                "input": "vocabulary",
                                 "required": true,
                                 "help": "metadata/qualified_relations/role.help",
                                 "label": "metadata/qualified_relations/role.label",
                                 "hint": "metadata/qualified_relations/role.hint",
+                                "facet": "metadata_qualified_relations_role",
                                 "children": {
+                                    "id": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/qualified_relations/role/id.help",
+                                        "label": "metadata/qualified_relations/role/id.label",
+                                        "hint": "metadata/qualified_relations/role/id.hint"
+                                    },
+                                    "title": {
+                                        "detail": false,
+                                        "input": false,
+                                        "help": "metadata/qualified_relations/role/title.help",
+                                        "label": "metadata/qualified_relations/role/title.label",
+                                        "hint": "metadata/qualified_relations/role/title.hint"
+                                    },
                                     "iri": {
                                         "detail": "keyword",
                                         "input": "keyword",
                                         "help": "metadata/qualified_relations/role/iri.help",
                                         "label": "metadata/qualified_relations/role/iri.label",
-                                        "hint": "metadata/qualified_relations/role/iri.hint",
-                                        "facet": "metadata_qualified_relations_role_iri"
+                                        "hint": "metadata/qualified_relations/role/iri.hint"
                                     },
-                                    "labels": {
-                                        "detail": "array",
-                                        "input": "array",
-                                        "help": "metadata/qualified_relations/role/labels.help",
-                                        "label": "metadata/qualified_relations/role/labels.label",
-                                        "hint": "metadata/qualified_relations/role/labels.hint",
-                                        "child": {
-                                            "detail": "multilingual",
-                                            "input": "i18nStr",
-                                            "help": "metadata/qualified_relations/role/labels.help",
-                                            "label": "metadata/qualified_relations/role/labels.label",
-                                            "hint": "metadata/qualified_relations/role/labels.hint",
-                                            "facet": "metadata_qualified_relations_role_labels_cs",
-                                            "children": {
-                                                "lang": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
-                                                    "required": true,
-                                                    "help": "metadata/qualified_relations/role/labels/lang.help",
-                                                    "label": "metadata/qualified_relations/role/labels/lang.label",
-                                                    "hint": "metadata/qualified_relations/role/labels/lang.hint",
-                                                    "facet": "metadata_qualified_relations_role_labels_lang"
-                                                },
-                                                "value": {
-                                                    "detail": "fulltext+keyword",
-                                                    "input": "fulltext+keyword",
-                                                    "required": true,
-                                                    "help": "metadata/qualified_relations/role/labels/value.help",
-                                                    "label": "metadata/qualified_relations/role/labels/value.label",
-                                                    "hint": "metadata/qualified_relations/role/labels/value.hint"
-                                                }
-                                            }
-                                        }
+                                    "@v": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/qualified_relations/role/@v.help",
+                                        "label": "metadata/qualified_relations/role/@v.label",
+                                        "hint": "metadata/qualified_relations/role/@v.hint"
                                     }
                                 }
                             }
@@ -3673,7 +3818,6 @@
                                         "organization": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/related_resources/qualified_relations/organization.help",
                                             "label": "metadata/related_resources/qualified_relations/organization.label",
                                             "hint": "metadata/related_resources/qualified_relations/organization.hint",
@@ -3903,7 +4047,6 @@
                                         "person": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/related_resources/qualified_relations/person.help",
                                             "label": "metadata/related_resources/qualified_relations/person.label",
                                             "hint": "metadata/related_resources/qualified_relations/person.hint",
@@ -4330,54 +4473,42 @@
                                             }
                                         },
                                         "role": {
-                                            "detail": false,
-                                            "input": false,
+                                            "detail": "vocabulary_item",
+                                            "edit": "vocabulary_item",
+                                            "input": "vocabulary",
                                             "required": true,
                                             "help": "metadata/related_resources/qualified_relations/role.help",
                                             "label": "metadata/related_resources/qualified_relations/role.label",
                                             "hint": "metadata/related_resources/qualified_relations/role.hint",
+                                            "facet": "metadata_related_resources_qualified_relations_role",
                                             "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/related_resources/qualified_relations/role/id.help",
+                                                    "label": "metadata/related_resources/qualified_relations/role/id.label",
+                                                    "hint": "metadata/related_resources/qualified_relations/role/id.hint"
+                                                },
+                                                "title": {
+                                                    "detail": false,
+                                                    "input": false,
+                                                    "help": "metadata/related_resources/qualified_relations/role/title.help",
+                                                    "label": "metadata/related_resources/qualified_relations/role/title.label",
+                                                    "hint": "metadata/related_resources/qualified_relations/role/title.hint"
+                                                },
                                                 "iri": {
                                                     "detail": "keyword",
                                                     "input": "keyword",
                                                     "help": "metadata/related_resources/qualified_relations/role/iri.help",
                                                     "label": "metadata/related_resources/qualified_relations/role/iri.label",
-                                                    "hint": "metadata/related_resources/qualified_relations/role/iri.hint",
-                                                    "facet": "metadata_related_resources_qualified_relations_role_iri"
+                                                    "hint": "metadata/related_resources/qualified_relations/role/iri.hint"
                                                 },
-                                                "labels": {
-                                                    "detail": "array",
-                                                    "input": "array",
-                                                    "help": "metadata/related_resources/qualified_relations/role/labels.help",
-                                                    "label": "metadata/related_resources/qualified_relations/role/labels.label",
-                                                    "hint": "metadata/related_resources/qualified_relations/role/labels.hint",
-                                                    "child": {
-                                                        "detail": "multilingual",
-                                                        "input": "i18nStr",
-                                                        "help": "metadata/related_resources/qualified_relations/role/labels.help",
-                                                        "label": "metadata/related_resources/qualified_relations/role/labels.label",
-                                                        "hint": "metadata/related_resources/qualified_relations/role/labels.hint",
-                                                        "facet": "metadata_related_resources_qualified_relations_role_labels_cs",
-                                                        "children": {
-                                                            "lang": {
-                                                                "detail": "keyword",
-                                                                "input": "keyword",
-                                                                "required": true,
-                                                                "help": "metadata/related_resources/qualified_relations/role/labels/lang.help",
-                                                                "label": "metadata/related_resources/qualified_relations/role/labels/lang.label",
-                                                                "hint": "metadata/related_resources/qualified_relations/role/labels/lang.hint",
-                                                                "facet": "metadata_related_resources_qualified_relations_role_labels_lang"
-                                                            },
-                                                            "value": {
-                                                                "detail": "fulltext+keyword",
-                                                                "input": "fulltext+keyword",
-                                                                "required": true,
-                                                                "help": "metadata/related_resources/qualified_relations/role/labels/value.help",
-                                                                "label": "metadata/related_resources/qualified_relations/role/labels/value.label",
-                                                                "hint": "metadata/related_resources/qualified_relations/role/labels/value.hint"
-                                                            }
-                                                        }
-                                                    }
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/related_resources/qualified_relations/role/@v.help",
+                                                    "label": "metadata/related_resources/qualified_relations/role/@v.label",
+                                                    "hint": "metadata/related_resources/qualified_relations/role/@v.hint"
                                                 }
                                             }
                                         }
@@ -4385,12 +4516,43 @@
                                 }
                             },
                             "relation_type": {
-                                "detail": "keyword",
-                                "input": "keyword",
+                                "detail": "vocabulary_item",
+                                "edit": "vocabulary_item",
+                                "input": "vocabulary",
                                 "help": "metadata/related_resources/relation_type.help",
                                 "label": "metadata/related_resources/relation_type.label",
                                 "hint": "metadata/related_resources/relation_type.hint",
-                                "facet": "metadata_related_resources_relation_type"
+                                "facet": "metadata_related_resources_relation_type",
+                                "children": {
+                                    "id": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/related_resources/relation_type/id.help",
+                                        "label": "metadata/related_resources/relation_type/id.label",
+                                        "hint": "metadata/related_resources/relation_type/id.hint"
+                                    },
+                                    "title": {
+                                        "detail": false,
+                                        "input": false,
+                                        "help": "metadata/related_resources/relation_type/title.help",
+                                        "label": "metadata/related_resources/relation_type/title.label",
+                                        "hint": "metadata/related_resources/relation_type/title.hint"
+                                    },
+                                    "iri": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/related_resources/relation_type/iri.help",
+                                        "label": "metadata/related_resources/relation_type/iri.label",
+                                        "hint": "metadata/related_resources/relation_type/iri.hint"
+                                    },
+                                    "@v": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/related_resources/relation_type/@v.help",
+                                        "label": "metadata/related_resources/relation_type/@v.label",
+                                        "hint": "metadata/related_resources/relation_type/@v.hint"
+                                    }
+                                }
                             },
                             "time_references": {
                                 "detail": "array",
@@ -4406,8 +4568,8 @@
                                     "hint": "metadata/related_resources/time_references.hint",
                                     "children": {
                                         "date": {
-                                            "detail": "date",
-                                            "input": "date",
+                                            "detail": "edtf-time",
+                                            "input": "edtf-time",
                                             "help": "metadata/related_resources/time_references/date.help",
                                             "label": "metadata/related_resources/time_references/date.label",
                                             "hint": "metadata/related_resources/time_references/date.hint",
@@ -4422,12 +4584,43 @@
                                             "facet": "metadata_related_resources_time_references_date_information"
                                         },
                                         "date_type": {
-                                            "detail": "keyword",
-                                            "input": "keyword",
+                                            "detail": "vocabulary_item",
+                                            "edit": "vocabulary_item",
+                                            "input": "vocabulary",
                                             "help": "metadata/related_resources/time_references/date_type.help",
                                             "label": "metadata/related_resources/time_references/date_type.label",
                                             "hint": "metadata/related_resources/time_references/date_type.hint",
-                                            "facet": "metadata_related_resources_time_references_date_type"
+                                            "facet": "metadata_related_resources_time_references_date_type",
+                                            "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/related_resources/time_references/date_type/id.help",
+                                                    "label": "metadata/related_resources/time_references/date_type/id.label",
+                                                    "hint": "metadata/related_resources/time_references/date_type/id.hint"
+                                                },
+                                                "title": {
+                                                    "detail": false,
+                                                    "input": false,
+                                                    "help": "metadata/related_resources/time_references/date_type/title.help",
+                                                    "label": "metadata/related_resources/time_references/date_type/title.label",
+                                                    "hint": "metadata/related_resources/time_references/date_type/title.hint"
+                                                },
+                                                "iri": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/related_resources/time_references/date_type/iri.help",
+                                                    "label": "metadata/related_resources/time_references/date_type/iri.label",
+                                                    "hint": "metadata/related_resources/time_references/date_type/iri.hint"
+                                                },
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/related_resources/time_references/date_type/@v.help",
+                                                    "label": "metadata/related_resources/time_references/date_type/@v.label",
+                                                    "hint": "metadata/related_resources/time_references/date_type/@v.hint"
+                                                }
+                                            }
                                         },
                                         "iri": {
                                             "detail": "keyword",
@@ -4460,12 +4653,43 @@
                     }
                 },
                 "resource_type": {
-                    "detail": "keyword",
-                    "input": "keyword",
+                    "detail": "vocabulary_item",
+                    "edit": "vocabulary_item",
+                    "input": "vocabulary",
                     "help": "metadata/resource_type.help",
                     "label": "metadata/resource_type.label",
                     "hint": "metadata/resource_type.hint",
-                    "facet": "metadata_resource_type"
+                    "facet": "metadata_resource_type",
+                    "children": {
+                        "id": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/resource_type/id.help",
+                            "label": "metadata/resource_type/id.label",
+                            "hint": "metadata/resource_type/id.hint"
+                        },
+                        "title": {
+                            "detail": false,
+                            "input": false,
+                            "help": "metadata/resource_type/title.help",
+                            "label": "metadata/resource_type/title.label",
+                            "hint": "metadata/resource_type/title.hint"
+                        },
+                        "iri": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/resource_type/iri.help",
+                            "label": "metadata/resource_type/iri.label",
+                            "hint": "metadata/resource_type/iri.hint"
+                        },
+                        "@v": {
+                            "detail": "keyword",
+                            "input": "keyword",
+                            "help": "metadata/resource_type/@v.help",
+                            "label": "metadata/resource_type/@v.label",
+                            "hint": "metadata/resource_type/@v.hint"
+                        }
+                    }
                 },
                 "subjects": {
                     "detail": "array",
@@ -4625,12 +4849,43 @@
                                 "label": "metadata/terms_of_use/access_rights.label",
                                 "hint": "metadata/terms_of_use/access_rights.hint",
                                 "child": {
-                                    "detail": "keyword",
-                                    "input": "keyword",
+                                    "detail": "vocabulary_item",
+                                    "edit": "vocabulary_item",
+                                    "input": "vocabulary",
                                     "help": "metadata/terms_of_use/access_rights.help",
                                     "label": "metadata/terms_of_use/access_rights.label",
                                     "hint": "metadata/terms_of_use/access_rights.hint",
-                                    "facet": "metadata_terms_of_use_access_rights"
+                                    "facet": "metadata_terms_of_use_access_rights",
+                                    "children": {
+                                        "id": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/terms_of_use/access_rights/id.help",
+                                            "label": "metadata/terms_of_use/access_rights/id.label",
+                                            "hint": "metadata/terms_of_use/access_rights/id.hint"
+                                        },
+                                        "title": {
+                                            "detail": false,
+                                            "input": false,
+                                            "help": "metadata/terms_of_use/access_rights/title.help",
+                                            "label": "metadata/terms_of_use/access_rights/title.label",
+                                            "hint": "metadata/terms_of_use/access_rights/title.hint"
+                                        },
+                                        "iri": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/terms_of_use/access_rights/iri.help",
+                                            "label": "metadata/terms_of_use/access_rights/iri.label",
+                                            "hint": "metadata/terms_of_use/access_rights/iri.hint"
+                                        },
+                                        "@v": {
+                                            "detail": "keyword",
+                                            "input": "keyword",
+                                            "help": "metadata/terms_of_use/access_rights/@v.help",
+                                            "label": "metadata/terms_of_use/access_rights/@v.label",
+                                            "hint": "metadata/terms_of_use/access_rights/@v.hint"
+                                        }
+                                    }
                                 }
                             },
                             "contacts": {
@@ -4649,7 +4904,6 @@
                                         "organization": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/terms_of_use/contacts/organization.help",
                                             "label": "metadata/terms_of_use/contacts/organization.label",
                                             "hint": "metadata/terms_of_use/contacts/organization.hint",
@@ -4879,7 +5133,6 @@
                                         "person": {
                                             "detail": false,
                                             "input": false,
-                                            "required": true,
                                             "help": "metadata/terms_of_use/contacts/person.help",
                                             "label": "metadata/terms_of_use/contacts/person.label",
                                             "hint": "metadata/terms_of_use/contacts/person.hint",
@@ -5368,8 +5621,8 @@
                         "hint": "metadata/time_references.hint",
                         "children": {
                             "date": {
-                                "detail": "date",
-                                "input": "date",
+                                "detail": "edtf-time",
+                                "input": "edtf-time",
                                 "help": "metadata/time_references/date.help",
                                 "label": "metadata/time_references/date.label",
                                 "hint": "metadata/time_references/date.hint",
@@ -5384,12 +5637,43 @@
                                 "facet": "metadata_time_references_date_information"
                             },
                             "date_type": {
-                                "detail": "keyword",
-                                "input": "keyword",
+                                "detail": "vocabulary_item",
+                                "edit": "vocabulary_item",
+                                "input": "vocabulary",
                                 "help": "metadata/time_references/date_type.help",
                                 "label": "metadata/time_references/date_type.label",
                                 "hint": "metadata/time_references/date_type.hint",
-                                "facet": "metadata_time_references_date_type"
+                                "facet": "metadata_time_references_date_type",
+                                "children": {
+                                    "id": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/time_references/date_type/id.help",
+                                        "label": "metadata/time_references/date_type/id.label",
+                                        "hint": "metadata/time_references/date_type/id.hint"
+                                    },
+                                    "title": {
+                                        "detail": false,
+                                        "input": false,
+                                        "help": "metadata/time_references/date_type/title.help",
+                                        "label": "metadata/time_references/date_type/title.label",
+                                        "hint": "metadata/time_references/date_type/title.hint"
+                                    },
+                                    "iri": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/time_references/date_type/iri.help",
+                                        "label": "metadata/time_references/date_type/iri.label",
+                                        "hint": "metadata/time_references/date_type/iri.hint"
+                                    },
+                                    "@v": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/time_references/date_type/@v.help",
+                                        "label": "metadata/time_references/date_type/@v.label",
+                                        "hint": "metadata/time_references/date_type/@v.hint"
+                                    }
+                                }
                             },
                             "iri": {
                                 "detail": "keyword",

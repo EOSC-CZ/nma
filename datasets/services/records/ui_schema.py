@@ -1,6 +1,7 @@
 import marshmallow as ma
 from marshmallow import Schema
 from marshmallow import fields as ma_fields
+from marshmallow.validate import OneOf
 from oarepo_requests.services.ui_schema import UIRequestsSerializationMixin
 from oarepo_runtime.services.schema.i18n_ui import I18nStrUIField
 from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
@@ -8,7 +9,10 @@ from oarepo_runtime.services.schema.ui import (
     InvenioRDMUISchema,
     LocalizedDate,
     LocalizedDateTime,
+    LocalizedEDTFTime,
 )
+
+from common.services.ui_schema import CCMMVocabularyUISchema
 
 
 class DatasetsUISchema(UIRequestsSerializationMixin, InvenioRDMUISchema):
@@ -64,9 +68,9 @@ class DatasetsMetadataUISchema(Schema):
 
     locations = ma_fields.List(ma_fields.Nested(lambda: LocationsItemUISchema()))
 
-    other_languages = ma_fields.List(ma_fields.String())
+    other_languages = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularyUISchema()))
 
-    primary_language = ma_fields.String()
+    primary_language = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     provenances = ma_fields.List(ma_fields.Nested(lambda: DocumentationsItemUISchema()))
 
@@ -80,7 +84,7 @@ class DatasetsMetadataUISchema(Schema):
         ma_fields.Nested(lambda: RelatedObjectIdentifiersItemUISchema())
     )
 
-    resource_type = ma_fields.String()
+    resource_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     subjects = ma_fields.List(ma_fields.Nested(lambda: SubjectsItemUISchema()))
 
@@ -132,7 +136,7 @@ class IsDescribedByItemUISchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    languages = ma_fields.List(ma_fields.String())
+    languages = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularyUISchema()))
 
     original_repositories = ma_fields.List(
         ma_fields.Nested(lambda: DocumentationsItemUISchema())
@@ -155,7 +159,7 @@ class RelatedObjectIdentifiersItemUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: QualifiedRelationsItemUISchema())
     )
 
-    relation_type = ma_fields.String()
+    relation_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     time_references = ma_fields.List(
         ma_fields.Nested(lambda: TimeReferencesItemUISchema())
@@ -170,7 +174,7 @@ class TermsOfUseItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    access_rights = ma_fields.List(ma_fields.String())
+    access_rights = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularyUISchema()))
 
     contacts = ma_fields.List(ma_fields.Nested(lambda: ContactsItemUISchema()))
 
@@ -185,9 +189,9 @@ class ContactsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    organization = ma_fields.Nested(lambda: OrganizationUISchema(), required=True)
+    organization = ma_fields.Nested(lambda: OrganizationUISchema())
 
-    person = ma_fields.Nested(lambda: PersonUISchema(), required=True)
+    person = ma_fields.Nested(lambda: PersonUISchema())
 
 
 class QualifiedRelationsItemUISchema(DictOnlySchema):
@@ -196,11 +200,11 @@ class QualifiedRelationsItemUISchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    organization = ma_fields.Nested(lambda: OrganizationUISchema(), required=True)
+    organization = ma_fields.Nested(lambda: OrganizationUISchema())
 
-    person = ma_fields.Nested(lambda: PersonUISchema(), required=True)
+    person = ma_fields.Nested(lambda: PersonUISchema())
 
-    role = ma_fields.Nested(lambda: DocumentationsItemUISchema(), required=True)
+    role = ma_fields.Nested(lambda: CCMMVocabularyUISchema(), required=True)
 
 
 class PersonUISchema(DictOnlySchema):
@@ -297,7 +301,7 @@ class DistributionDownloadableFilesItemUISchema(DictOnlySchema):
 
     download_urls = ma_fields.List(ma_fields.String())
 
-    format = ma_fields.String()
+    format = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     iri = ma_fields.String()
 
@@ -355,7 +359,9 @@ class AlternateTitlesItemUISchema(DictOnlySchema):
 
     title = I18nStrUIField(required=True)
 
-    type = ma_fields.String()
+    type = ma_fields.String(
+        validate=[OneOf(["AlternativeTitle", "Subtitle", "TranslatedTitle", "Other"])]
+    )
 
 
 class BboxUISchema(DictOnlySchema):
@@ -410,10 +416,10 @@ class TimeReferencesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    date = LocalizedDate()
+    date = LocalizedEDTFTime()
 
     date_information = ma_fields.String()
 
-    date_type = ma_fields.String()
+    date_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     iri = ma_fields.String()

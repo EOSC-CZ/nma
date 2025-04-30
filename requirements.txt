@@ -16,9 +16,9 @@ oarepo-dashboard==1.0.20
 oarepo-doi==1.0.19
 oarepo-glitchtip==1.0.1
 oarepo-global-search==1.0.43
-oarepo-requests==2.4.3
-oarepo-runtime==1.5.124
-oarepo-ui==5.2.64
+oarepo-requests==2.4.4
+oarepo-runtime==1.5.126
+oarepo-ui==5.2.66
 oarepo-vocabularies==2.1.24
 oarepo-workflows==1.1.14
 openpyxl==3.1.5

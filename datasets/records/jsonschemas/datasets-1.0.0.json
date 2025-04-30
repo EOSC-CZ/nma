@@ -258,7 +258,21 @@
                                 }
                             },
                             "format": {
-                                "type": "string"
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
                             },
                             "iri": {
                                 "type": "string"
@@ -401,7 +415,21 @@
                             "languages": {
                                 "type": "array",
                                 "items": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "title": {
+                                            "type": "object"
+                                        },
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "@v": {
+                                            "type": "string"
+                                        }
+                                    }
                                 }
                             },
                             "original_repositories": {
@@ -715,22 +743,17 @@
                                         "role": {
                                             "type": "object",
                                             "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
                                                 "iri": {
                                                     "type": "string"
                                                 },
-                                                "labels": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "lang": {
-                                                                "type": "string"
-                                                            },
-                                                            "value": {
-                                                                "type": "string"
-                                                            }
-                                                        }
-                                                    }
+                                                "@v": {
+                                                    "type": "string"
                                                 }
                                             }
                                         }
@@ -1113,22 +1136,17 @@
                                                     "role": {
                                                         "type": "object",
                                                         "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
                                                             "iri": {
                                                                 "type": "string"
                                                             },
-                                                            "labels": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "lang": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "value": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                }
+                                                            "@v": {
+                                                                "type": "string"
                                                             }
                                                         }
                                                     }
@@ -1136,7 +1154,21 @@
                                             }
                                         },
                                         "relation_type": {
-                                            "type": "string"
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
                                         },
                                         "time_references": {
                                             "type": "array",
@@ -1145,13 +1177,27 @@
                                                 "properties": {
                                                     "date": {
                                                         "type": "string",
-                                                        "format": "date"
+                                                        "format": "date-time"
                                                     },
                                                     "date_information": {
                                                         "type": "string"
                                                     },
                                                     "date_type": {
-                                                        "type": "string"
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
+                                                                "type": "string"
+                                                            }
+                                                        }
                                                     },
                                                     "iri": {
                                                         "type": "string"
@@ -1174,11 +1220,39 @@
                 "other_languages": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "object"
+                            },
+                            "iri": {
+                                "type": "string"
+                            },
+                            "@v": {
+                                "type": "string"
+                            }
+                        }
                     }
                 },
                 "primary_language": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "object"
+                        },
+                        "iri": {
+                            "type": "string"
+                        },
+                        "@v": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "provenances": {
                     "type": "array",
@@ -1494,22 +1568,17 @@
                             "role": {
                                 "type": "object",
                                 "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
                                     "iri": {
                                         "type": "string"
                                     },
-                                    "labels": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {
-                                                "lang": {
-                                                    "type": "string"
-                                                },
-                                                "value": {
-                                                    "type": "string"
-                                                }
-                                            }
-                                        }
+                                    "@v": {
+                                        "type": "string"
                                     }
                                 }
                             }
@@ -1824,22 +1893,17 @@
                                         "role": {
                                             "type": "object",
                                             "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
                                                 "iri": {
                                                     "type": "string"
                                                 },
-                                                "labels": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "lang": {
-                                                                "type": "string"
-                                                            },
-                                                            "value": {
-                                                                "type": "string"
-                                                            }
-                                                        }
-                                                    }
+                                                "@v": {
+                                                    "type": "string"
                                                 }
                                             }
                                         }
@@ -1847,7 +1911,21 @@
                                 }
                             },
                             "relation_type": {
-                                "type": "string"
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
                             },
                             "time_references": {
                                 "type": "array",
@@ -1856,13 +1934,27 @@
                                     "properties": {
                                         "date": {
                                             "type": "string",
-                                            "format": "date"
+                                            "format": "date-time"
                                         },
                                         "date_information": {
                                             "type": "string"
                                         },
                                         "date_type": {
-                                            "type": "string"
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
                                         },
                                         "iri": {
                                             "type": "string"
@@ -1880,7 +1972,21 @@
                     }
                 },
                 "resource_type": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "object"
+                        },
+                        "iri": {
+                            "type": "string"
+                        },
+                        "@v": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "subjects": {
                     "type": "array",
@@ -1948,7 +2054,21 @@
                             "access_rights": {
                                 "type": "array",
                                 "items": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "title": {
+                                            "type": "object"
+                                        },
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "@v": {
+                                            "type": "string"
+                                        }
+                                    }
                                 }
                             },
                             "contacts": {
@@ -2261,13 +2381,27 @@
                         "properties": {
                             "date": {
                                 "type": "string",
-                                "format": "date"
+                                "format": "date-time"
                             },
                             "date_information": {
                                 "type": "string"
                             },
                             "date_type": {
-                                "type": "string"
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
                             },
                             "iri": {
                                 "type": "string"
@@ -2326,6 +2460,10 @@
             }
         },
         "pids": {
+            "uniqueItems": true,
+            "propertyNames": {
+                "pattern": "^[a-z_-][a-z0-9_-]*$"
+            },
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2341,10 +2479,6 @@
                     }
                 }
             },
-            "propertyNames": {
-                "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
-            "uniqueItems": true,
             "type": "object"
         },
         "state": {

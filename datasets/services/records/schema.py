@@ -1,4 +1,6 @@
 import marshmallow as ma
+from edtf import Date as EDTFDate
+from edtf import DateAndTime as EDTFDateAndTime
 from invenio_rdm_records.services.schemas.access import AccessSchema
 from invenio_rdm_records.services.schemas.pids import PIDSchema
 from invenio_rdm_records.services.schemas.record import validate_scheme
@@ -6,7 +8,8 @@ from marshmallow import Schema
 from marshmallow import fields as ma_fields
 from marshmallow.fields import Dict, Nested
 from marshmallow.utils import get_value
-from marshmallow_utils.fields import SanitizedUnicode
+from marshmallow.validate import OneOf
+from marshmallow_utils.fields import SanitizedUnicode, TrimmedString
 from marshmallow_utils.fields.nestedattr import NestedAttribute
 from oarepo_communities.schemas.parent import CommunitiesParentSchema
 from oarepo_runtime.services.schema.i18n import I18nStrField
@@ -14,11 +17,17 @@ from oarepo_runtime.services.schema.marshmallow import (
     DictOnlySchema,
     RDMBaseRecordSchema,
 )
-from oarepo_runtime.services.schema.validation import validate_date, validate_datetime
-from oarepo_workflows.services.records.schema import WorkflowParentSchema
+from oarepo_runtime.services.schema.validation import (
+    CachedMultilayerEDTFValidator,
+    validate_date,
+    validate_datetime,
+)
+from oarepo_workflows.services.records.schema import RDMWorkflowParentSchema
+
+from common.services.schema import CCMMVocabularySchema
 
 
-class GeneratedParentSchema(WorkflowParentSchema):
+class GeneratedParentSchema(RDMWorkflowParentSchema):
     """"""
 
     owners = ma.fields.List(ma.fields.Dict(), load_only=True)
@@ -97,9 +106,9 @@ class DatasetsMetadataSchema(Schema):
 
     locations = ma_fields.List(ma_fields.Nested(lambda: LocationsItemSchema()))
 
-    other_languages = ma_fields.List(ma_fields.String())
+    other_languages = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularySchema()))
 
-    primary_language = ma_fields.String()
+    primary_language = ma_fields.Nested(lambda: CCMMVocabularySchema())
 
     provenances = ma_fields.List(ma_fields.Nested(lambda: DocumentationsItemSchema()))
 
@@ -113,7 +122,7 @@ class DatasetsMetadataSchema(Schema):
         ma_fields.Nested(lambda: RelatedObjectIdentifiersItemSchema())
     )
 
-    resource_type = ma_fields.String()
+    resource_type = ma_fields.Nested(lambda: CCMMVocabularySchema())
 
     subjects = ma_fields.List(ma_fields.Nested(lambda: SubjectsItemSchema()))
 
@@ -167,7 +176,7 @@ class IsDescribedByItemSchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    languages = ma_fields.List(ma_fields.String())
+    languages = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularySchema()))
 
     original_repositories = ma_fields.List(
         ma_fields.Nested(lambda: DocumentationsItemSchema())
@@ -190,7 +199,7 @@ class RelatedObjectIdentifiersItemSchema(DictOnlySchema):
         ma_fields.Nested(lambda: QualifiedRelationsItemSchema())
     )
 
-    relation_type = ma_fields.String()
+    relation_type = ma_fields.Nested(lambda: CCMMVocabularySchema())
 
     time_references = ma_fields.List(
         ma_fields.Nested(lambda: TimeReferencesItemSchema())
@@ -205,7 +214,7 @@ class TermsOfUseItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    access_rights = ma_fields.List(ma_fields.String())
+    access_rights = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularySchema()))
 
     contacts = ma_fields.List(ma_fields.Nested(lambda: ContactsItemSchema()))
 
@@ -220,9 +229,9 @@ class ContactsItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    organization = ma_fields.Nested(lambda: OrganizationSchema(), required=True)
+    organization = ma_fields.Nested(lambda: OrganizationSchema())
 
-    person = ma_fields.Nested(lambda: PersonSchema(), required=True)
+    person = ma_fields.Nested(lambda: PersonSchema())
 
 
 class QualifiedRelationsItemSchema(DictOnlySchema):
@@ -231,11 +240,11 @@ class QualifiedRelationsItemSchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    organization = ma_fields.Nested(lambda: OrganizationSchema(), required=True)
+    organization = ma_fields.Nested(lambda: OrganizationSchema())
 
-    person = ma_fields.Nested(lambda: PersonSchema(), required=True)
+    person = ma_fields.Nested(lambda: PersonSchema())
 
-    role = ma_fields.Nested(lambda: DocumentationsItemSchema(), required=True)
+    role = ma_fields.Nested(lambda: CCMMVocabularySchema(), required=True)
 
 
 class PersonSchema(DictOnlySchema):
@@ -328,7 +337,7 @@ class DistributionDownloadableFilesItemSchema(DictOnlySchema):
 
     download_urls = ma_fields.List(ma_fields.String())
 
-    format = ma_fields.String()
+    format = ma_fields.Nested(lambda: CCMMVocabularySchema())
 
     iri = ma_fields.String()
 
@@ -386,7 +395,9 @@ class AlternateTitlesItemSchema(DictOnlySchema):
 
     title = I18nStrField(required=True)
 
-    type = ma_fields.String()
+    type = ma_fields.String(
+        validate=[OneOf(["AlternativeTitle", "Subtitle", "TranslatedTitle", "Other"])]
+    )
 
 
 class BboxSchema(DictOnlySchema):
@@ -441,11 +452,20 @@ class TimeReferencesItemSchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    date = ma_fields.String(validate=[validate_date("%Y-%m-%d")])
+    date = TrimmedString(
+        validate=[
+            CachedMultilayerEDTFValidator(
+                types=(
+                    EDTFDateAndTime,
+                    EDTFDate,
+                )
+            )
+        ]
+    )
 
     date_information = ma_fields.String()
 
-    date_type = ma_fields.String()
+    date_type = ma_fields.Nested(lambda: CCMMVocabularySchema())
 
     iri = ma_fields.String()
 
