@@ -9,6 +9,7 @@ theme = WebpackThemeBundle(
             "entry": {},
             "dependencies": {
                 "react-searchkit": "^2.0.0",
+                "react-invenio-forms": "3.5.2",
             },
             "devDependencies": {},
             "aliases": {

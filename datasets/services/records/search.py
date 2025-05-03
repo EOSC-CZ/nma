@@ -225,11 +225,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_is_described_by_qualified_relations_organization_contact_points_phones": (
             facets.metadata_is_described_by_qualified_relations_organization_contact_points_phones
         ),
-        "metadata_is_described_by_qualified_relations_organization_external_identifier_type": (
-            facets.metadata_is_described_by_qualified_relations_organization_external_identifier_type
+        "metadata_is_described_by_qualified_relations_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_is_described_by_qualified_relations_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_is_described_by_qualified_relations_organization_external_identifiers": (
-            facets.metadata_is_described_by_qualified_relations_organization_external_identifiers
+        "metadata_is_described_by_qualified_relations_organization_external_identifiers_iri": (
+            facets.metadata_is_described_by_qualified_relations_organization_external_identifiers_iri
+        ),
+        "metadata_is_described_by_qualified_relations_organization_external_identifiers_value": (
+            facets.metadata_is_described_by_qualified_relations_organization_external_identifiers_value
         ),
         "metadata_is_described_by_qualified_relations_organization_iri": (
             facets.metadata_is_described_by_qualified_relations_organization_iri
@@ -276,11 +279,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_is_described_by_qualified_relations_person_affiliations_contact_points_phones": (
             facets.metadata_is_described_by_qualified_relations_person_affiliations_contact_points_phones
         ),
-        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifier_type": (
-            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifier_type
+        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers": (
-            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers
+        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_iri": (
+            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_value": (
+            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_value
         ),
         "metadata_is_described_by_qualified_relations_person_affiliations_iri": (
             facets.metadata_is_described_by_qualified_relations_person_affiliations_iri
@@ -318,11 +324,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_is_described_by_qualified_relations_person_contact_points_phones": (
             facets.metadata_is_described_by_qualified_relations_person_contact_points_phones
         ),
-        "metadata_is_described_by_qualified_relations_person_external_identifier_type": (
-            facets.metadata_is_described_by_qualified_relations_person_external_identifier_type
+        "metadata_is_described_by_qualified_relations_person_external_identifiers_identifier_scheme": (
+            facets.metadata_is_described_by_qualified_relations_person_external_identifiers_identifier_scheme
         ),
-        "metadata_is_described_by_qualified_relations_person_external_identifiers": (
-            facets.metadata_is_described_by_qualified_relations_person_external_identifiers
+        "metadata_is_described_by_qualified_relations_person_external_identifiers_iri": (
+            facets.metadata_is_described_by_qualified_relations_person_external_identifiers_iri
+        ),
+        "metadata_is_described_by_qualified_relations_person_external_identifiers_value": (
+            facets.metadata_is_described_by_qualified_relations_person_external_identifiers_value
         ),
         "metadata_is_described_by_qualified_relations_person_family_name": (
             facets.metadata_is_described_by_qualified_relations_person_family_name
@@ -407,11 +416,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_phones": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_phones
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifier_type": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifier_type
+        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers
+        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_iri": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_iri
+        ),
+        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_value": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_value
         ),
         "metadata_locations_related_object_identifiers_qualified_relations_organization_iri": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_organization_iri
@@ -458,11 +470,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_phones": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_phones
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifier_type": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifier_type
+        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers
+        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_iri": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_value": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_value
         ),
         "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_iri": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_iri
@@ -500,11 +515,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_phones": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_phones
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifier_type": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifier_type
+        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_identifier_scheme": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_identifier_scheme
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers
+        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_iri": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_iri
+        ),
+        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_value": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_value
         ),
         "metadata_locations_related_object_identifiers_qualified_relations_person_family_name": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_family_name
@@ -580,11 +598,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_qualified_relations_organization_contact_points_phones": (
             facets.metadata_qualified_relations_organization_contact_points_phones
         ),
-        "metadata_qualified_relations_organization_external_identifier_type": (
-            facets.metadata_qualified_relations_organization_external_identifier_type
+        "metadata_qualified_relations_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_qualified_relations_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_qualified_relations_organization_external_identifiers": (
-            facets.metadata_qualified_relations_organization_external_identifiers
+        "metadata_qualified_relations_organization_external_identifiers_iri": (
+            facets.metadata_qualified_relations_organization_external_identifiers_iri
+        ),
+        "metadata_qualified_relations_organization_external_identifiers_value": (
+            facets.metadata_qualified_relations_organization_external_identifiers_value
         ),
         "metadata_qualified_relations_organization_iri": (
             facets.metadata_qualified_relations_organization_iri
@@ -631,11 +652,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_qualified_relations_person_affiliations_contact_points_phones": (
             facets.metadata_qualified_relations_person_affiliations_contact_points_phones
         ),
-        "metadata_qualified_relations_person_affiliations_external_identifier_type": (
-            facets.metadata_qualified_relations_person_affiliations_external_identifier_type
+        "metadata_qualified_relations_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_qualified_relations_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_qualified_relations_person_affiliations_external_identifiers": (
-            facets.metadata_qualified_relations_person_affiliations_external_identifiers
+        "metadata_qualified_relations_person_affiliations_external_identifiers_iri": (
+            facets.metadata_qualified_relations_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_qualified_relations_person_affiliations_external_identifiers_value": (
+            facets.metadata_qualified_relations_person_affiliations_external_identifiers_value
         ),
         "metadata_qualified_relations_person_affiliations_iri": (
             facets.metadata_qualified_relations_person_affiliations_iri
@@ -673,11 +697,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_qualified_relations_person_contact_points_phones": (
             facets.metadata_qualified_relations_person_contact_points_phones
         ),
-        "metadata_qualified_relations_person_external_identifier_type": (
-            facets.metadata_qualified_relations_person_external_identifier_type
+        "metadata_qualified_relations_person_external_identifiers_identifier_scheme": (
+            facets.metadata_qualified_relations_person_external_identifiers_identifier_scheme
         ),
-        "metadata_qualified_relations_person_external_identifiers": (
-            facets.metadata_qualified_relations_person_external_identifiers
+        "metadata_qualified_relations_person_external_identifiers_iri": (
+            facets.metadata_qualified_relations_person_external_identifiers_iri
+        ),
+        "metadata_qualified_relations_person_external_identifiers_value": (
+            facets.metadata_qualified_relations_person_external_identifiers_value
         ),
         "metadata_qualified_relations_person_family_name": (
             facets.metadata_qualified_relations_person_family_name
@@ -735,11 +762,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_related_resources_qualified_relations_organization_contact_points_phones": (
             facets.metadata_related_resources_qualified_relations_organization_contact_points_phones
         ),
-        "metadata_related_resources_qualified_relations_organization_external_identifier_type": (
-            facets.metadata_related_resources_qualified_relations_organization_external_identifier_type
+        "metadata_related_resources_qualified_relations_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_related_resources_qualified_relations_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_related_resources_qualified_relations_organization_external_identifiers": (
-            facets.metadata_related_resources_qualified_relations_organization_external_identifiers
+        "metadata_related_resources_qualified_relations_organization_external_identifiers_iri": (
+            facets.metadata_related_resources_qualified_relations_organization_external_identifiers_iri
+        ),
+        "metadata_related_resources_qualified_relations_organization_external_identifiers_value": (
+            facets.metadata_related_resources_qualified_relations_organization_external_identifiers_value
         ),
         "metadata_related_resources_qualified_relations_organization_iri": (
             facets.metadata_related_resources_qualified_relations_organization_iri
@@ -786,11 +816,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_related_resources_qualified_relations_person_affiliations_contact_points_phones": (
             facets.metadata_related_resources_qualified_relations_person_affiliations_contact_points_phones
         ),
-        "metadata_related_resources_qualified_relations_person_affiliations_external_identifier_type": (
-            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifier_type
+        "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers": (
-            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifiers
+        "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_iri": (
+            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_value": (
+            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_value
         ),
         "metadata_related_resources_qualified_relations_person_affiliations_iri": (
             facets.metadata_related_resources_qualified_relations_person_affiliations_iri
@@ -828,11 +861,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_related_resources_qualified_relations_person_contact_points_phones": (
             facets.metadata_related_resources_qualified_relations_person_contact_points_phones
         ),
-        "metadata_related_resources_qualified_relations_person_external_identifier_type": (
-            facets.metadata_related_resources_qualified_relations_person_external_identifier_type
+        "metadata_related_resources_qualified_relations_person_external_identifiers_identifier_scheme": (
+            facets.metadata_related_resources_qualified_relations_person_external_identifiers_identifier_scheme
         ),
-        "metadata_related_resources_qualified_relations_person_external_identifiers": (
-            facets.metadata_related_resources_qualified_relations_person_external_identifiers
+        "metadata_related_resources_qualified_relations_person_external_identifiers_iri": (
+            facets.metadata_related_resources_qualified_relations_person_external_identifiers_iri
+        ),
+        "metadata_related_resources_qualified_relations_person_external_identifiers_value": (
+            facets.metadata_related_resources_qualified_relations_person_external_identifiers_value
         ),
         "metadata_related_resources_qualified_relations_person_family_name": (
             facets.metadata_related_resources_qualified_relations_person_family_name
@@ -922,11 +958,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_terms_of_use_contacts_organization_contact_points_phones": (
             facets.metadata_terms_of_use_contacts_organization_contact_points_phones
         ),
-        "metadata_terms_of_use_contacts_organization_external_identifier_type": (
-            facets.metadata_terms_of_use_contacts_organization_external_identifier_type
+        "metadata_terms_of_use_contacts_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_terms_of_use_contacts_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_terms_of_use_contacts_organization_external_identifiers": (
-            facets.metadata_terms_of_use_contacts_organization_external_identifiers
+        "metadata_terms_of_use_contacts_organization_external_identifiers_iri": (
+            facets.metadata_terms_of_use_contacts_organization_external_identifiers_iri
+        ),
+        "metadata_terms_of_use_contacts_organization_external_identifiers_value": (
+            facets.metadata_terms_of_use_contacts_organization_external_identifiers_value
         ),
         "metadata_terms_of_use_contacts_organization_iri": (
             facets.metadata_terms_of_use_contacts_organization_iri
@@ -973,11 +1012,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_terms_of_use_contacts_person_affiliations_contact_points_phones": (
             facets.metadata_terms_of_use_contacts_person_affiliations_contact_points_phones
         ),
-        "metadata_terms_of_use_contacts_person_affiliations_external_identifier_type": (
-            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifier_type
+        "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_terms_of_use_contacts_person_affiliations_external_identifiers": (
-            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifiers
+        "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_iri": (
+            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_value": (
+            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifiers_value
         ),
         "metadata_terms_of_use_contacts_person_affiliations_iri": (
             facets.metadata_terms_of_use_contacts_person_affiliations_iri
@@ -1015,11 +1057,14 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_terms_of_use_contacts_person_contact_points_phones": (
             facets.metadata_terms_of_use_contacts_person_contact_points_phones
         ),
-        "metadata_terms_of_use_contacts_person_external_identifier_type": (
-            facets.metadata_terms_of_use_contacts_person_external_identifier_type
+        "metadata_terms_of_use_contacts_person_external_identifiers_identifier_scheme": (
+            facets.metadata_terms_of_use_contacts_person_external_identifiers_identifier_scheme
         ),
-        "metadata_terms_of_use_contacts_person_external_identifiers": (
-            facets.metadata_terms_of_use_contacts_person_external_identifiers
+        "metadata_terms_of_use_contacts_person_external_identifiers_iri": (
+            facets.metadata_terms_of_use_contacts_person_external_identifiers_iri
+        ),
+        "metadata_terms_of_use_contacts_person_external_identifiers_value": (
+            facets.metadata_terms_of_use_contacts_person_external_identifiers_value
         ),
         "metadata_terms_of_use_contacts_person_family_name": (
             facets.metadata_terms_of_use_contacts_person_family_name
@@ -1288,11 +1333,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_is_described_by_qualified_relations_organization_contact_points_phones": (
             facets.metadata_is_described_by_qualified_relations_organization_contact_points_phones
         ),
-        "metadata_is_described_by_qualified_relations_organization_external_identifier_type": (
-            facets.metadata_is_described_by_qualified_relations_organization_external_identifier_type
+        "metadata_is_described_by_qualified_relations_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_is_described_by_qualified_relations_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_is_described_by_qualified_relations_organization_external_identifiers": (
-            facets.metadata_is_described_by_qualified_relations_organization_external_identifiers
+        "metadata_is_described_by_qualified_relations_organization_external_identifiers_iri": (
+            facets.metadata_is_described_by_qualified_relations_organization_external_identifiers_iri
+        ),
+        "metadata_is_described_by_qualified_relations_organization_external_identifiers_value": (
+            facets.metadata_is_described_by_qualified_relations_organization_external_identifiers_value
         ),
         "metadata_is_described_by_qualified_relations_organization_iri": (
             facets.metadata_is_described_by_qualified_relations_organization_iri
@@ -1339,11 +1387,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_is_described_by_qualified_relations_person_affiliations_contact_points_phones": (
             facets.metadata_is_described_by_qualified_relations_person_affiliations_contact_points_phones
         ),
-        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifier_type": (
-            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifier_type
+        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers": (
-            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers
+        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_iri": (
+            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_value": (
+            facets.metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_value
         ),
         "metadata_is_described_by_qualified_relations_person_affiliations_iri": (
             facets.metadata_is_described_by_qualified_relations_person_affiliations_iri
@@ -1381,11 +1432,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_is_described_by_qualified_relations_person_contact_points_phones": (
             facets.metadata_is_described_by_qualified_relations_person_contact_points_phones
         ),
-        "metadata_is_described_by_qualified_relations_person_external_identifier_type": (
-            facets.metadata_is_described_by_qualified_relations_person_external_identifier_type
+        "metadata_is_described_by_qualified_relations_person_external_identifiers_identifier_scheme": (
+            facets.metadata_is_described_by_qualified_relations_person_external_identifiers_identifier_scheme
         ),
-        "metadata_is_described_by_qualified_relations_person_external_identifiers": (
-            facets.metadata_is_described_by_qualified_relations_person_external_identifiers
+        "metadata_is_described_by_qualified_relations_person_external_identifiers_iri": (
+            facets.metadata_is_described_by_qualified_relations_person_external_identifiers_iri
+        ),
+        "metadata_is_described_by_qualified_relations_person_external_identifiers_value": (
+            facets.metadata_is_described_by_qualified_relations_person_external_identifiers_value
         ),
         "metadata_is_described_by_qualified_relations_person_family_name": (
             facets.metadata_is_described_by_qualified_relations_person_family_name
@@ -1470,11 +1524,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_phones": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_organization_contact_points_phones
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifier_type": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifier_type
+        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers
+        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_iri": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_iri
+        ),
+        "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_value": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_value
         ),
         "metadata_locations_related_object_identifiers_qualified_relations_organization_iri": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_organization_iri
@@ -1521,11 +1578,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_phones": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_contact_points_phones
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifier_type": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifier_type
+        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers
+        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_iri": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_value": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_value
         ),
         "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_iri": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_iri
@@ -1563,11 +1623,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_phones": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_contact_points_phones
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifier_type": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifier_type
+        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_identifier_scheme": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_identifier_scheme
         ),
-        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers": (
-            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers
+        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_iri": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_iri
+        ),
+        "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_value": (
+            facets.metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_value
         ),
         "metadata_locations_related_object_identifiers_qualified_relations_person_family_name": (
             facets.metadata_locations_related_object_identifiers_qualified_relations_person_family_name
@@ -1643,11 +1706,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_qualified_relations_organization_contact_points_phones": (
             facets.metadata_qualified_relations_organization_contact_points_phones
         ),
-        "metadata_qualified_relations_organization_external_identifier_type": (
-            facets.metadata_qualified_relations_organization_external_identifier_type
+        "metadata_qualified_relations_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_qualified_relations_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_qualified_relations_organization_external_identifiers": (
-            facets.metadata_qualified_relations_organization_external_identifiers
+        "metadata_qualified_relations_organization_external_identifiers_iri": (
+            facets.metadata_qualified_relations_organization_external_identifiers_iri
+        ),
+        "metadata_qualified_relations_organization_external_identifiers_value": (
+            facets.metadata_qualified_relations_organization_external_identifiers_value
         ),
         "metadata_qualified_relations_organization_iri": (
             facets.metadata_qualified_relations_organization_iri
@@ -1694,11 +1760,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_qualified_relations_person_affiliations_contact_points_phones": (
             facets.metadata_qualified_relations_person_affiliations_contact_points_phones
         ),
-        "metadata_qualified_relations_person_affiliations_external_identifier_type": (
-            facets.metadata_qualified_relations_person_affiliations_external_identifier_type
+        "metadata_qualified_relations_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_qualified_relations_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_qualified_relations_person_affiliations_external_identifiers": (
-            facets.metadata_qualified_relations_person_affiliations_external_identifiers
+        "metadata_qualified_relations_person_affiliations_external_identifiers_iri": (
+            facets.metadata_qualified_relations_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_qualified_relations_person_affiliations_external_identifiers_value": (
+            facets.metadata_qualified_relations_person_affiliations_external_identifiers_value
         ),
         "metadata_qualified_relations_person_affiliations_iri": (
             facets.metadata_qualified_relations_person_affiliations_iri
@@ -1736,11 +1805,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_qualified_relations_person_contact_points_phones": (
             facets.metadata_qualified_relations_person_contact_points_phones
         ),
-        "metadata_qualified_relations_person_external_identifier_type": (
-            facets.metadata_qualified_relations_person_external_identifier_type
+        "metadata_qualified_relations_person_external_identifiers_identifier_scheme": (
+            facets.metadata_qualified_relations_person_external_identifiers_identifier_scheme
         ),
-        "metadata_qualified_relations_person_external_identifiers": (
-            facets.metadata_qualified_relations_person_external_identifiers
+        "metadata_qualified_relations_person_external_identifiers_iri": (
+            facets.metadata_qualified_relations_person_external_identifiers_iri
+        ),
+        "metadata_qualified_relations_person_external_identifiers_value": (
+            facets.metadata_qualified_relations_person_external_identifiers_value
         ),
         "metadata_qualified_relations_person_family_name": (
             facets.metadata_qualified_relations_person_family_name
@@ -1798,11 +1870,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_related_resources_qualified_relations_organization_contact_points_phones": (
             facets.metadata_related_resources_qualified_relations_organization_contact_points_phones
         ),
-        "metadata_related_resources_qualified_relations_organization_external_identifier_type": (
-            facets.metadata_related_resources_qualified_relations_organization_external_identifier_type
+        "metadata_related_resources_qualified_relations_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_related_resources_qualified_relations_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_related_resources_qualified_relations_organization_external_identifiers": (
-            facets.metadata_related_resources_qualified_relations_organization_external_identifiers
+        "metadata_related_resources_qualified_relations_organization_external_identifiers_iri": (
+            facets.metadata_related_resources_qualified_relations_organization_external_identifiers_iri
+        ),
+        "metadata_related_resources_qualified_relations_organization_external_identifiers_value": (
+            facets.metadata_related_resources_qualified_relations_organization_external_identifiers_value
         ),
         "metadata_related_resources_qualified_relations_organization_iri": (
             facets.metadata_related_resources_qualified_relations_organization_iri
@@ -1849,11 +1924,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_related_resources_qualified_relations_person_affiliations_contact_points_phones": (
             facets.metadata_related_resources_qualified_relations_person_affiliations_contact_points_phones
         ),
-        "metadata_related_resources_qualified_relations_person_affiliations_external_identifier_type": (
-            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifier_type
+        "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers": (
-            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifiers
+        "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_iri": (
+            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_value": (
+            facets.metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_value
         ),
         "metadata_related_resources_qualified_relations_person_affiliations_iri": (
             facets.metadata_related_resources_qualified_relations_person_affiliations_iri
@@ -1891,11 +1969,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_related_resources_qualified_relations_person_contact_points_phones": (
             facets.metadata_related_resources_qualified_relations_person_contact_points_phones
         ),
-        "metadata_related_resources_qualified_relations_person_external_identifier_type": (
-            facets.metadata_related_resources_qualified_relations_person_external_identifier_type
+        "metadata_related_resources_qualified_relations_person_external_identifiers_identifier_scheme": (
+            facets.metadata_related_resources_qualified_relations_person_external_identifiers_identifier_scheme
         ),
-        "metadata_related_resources_qualified_relations_person_external_identifiers": (
-            facets.metadata_related_resources_qualified_relations_person_external_identifiers
+        "metadata_related_resources_qualified_relations_person_external_identifiers_iri": (
+            facets.metadata_related_resources_qualified_relations_person_external_identifiers_iri
+        ),
+        "metadata_related_resources_qualified_relations_person_external_identifiers_value": (
+            facets.metadata_related_resources_qualified_relations_person_external_identifiers_value
         ),
         "metadata_related_resources_qualified_relations_person_family_name": (
             facets.metadata_related_resources_qualified_relations_person_family_name
@@ -1985,11 +2066,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_terms_of_use_contacts_organization_contact_points_phones": (
             facets.metadata_terms_of_use_contacts_organization_contact_points_phones
         ),
-        "metadata_terms_of_use_contacts_organization_external_identifier_type": (
-            facets.metadata_terms_of_use_contacts_organization_external_identifier_type
+        "metadata_terms_of_use_contacts_organization_external_identifiers_identifier_scheme": (
+            facets.metadata_terms_of_use_contacts_organization_external_identifiers_identifier_scheme
         ),
-        "metadata_terms_of_use_contacts_organization_external_identifiers": (
-            facets.metadata_terms_of_use_contacts_organization_external_identifiers
+        "metadata_terms_of_use_contacts_organization_external_identifiers_iri": (
+            facets.metadata_terms_of_use_contacts_organization_external_identifiers_iri
+        ),
+        "metadata_terms_of_use_contacts_organization_external_identifiers_value": (
+            facets.metadata_terms_of_use_contacts_organization_external_identifiers_value
         ),
         "metadata_terms_of_use_contacts_organization_iri": (
             facets.metadata_terms_of_use_contacts_organization_iri
@@ -2036,11 +2120,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_terms_of_use_contacts_person_affiliations_contact_points_phones": (
             facets.metadata_terms_of_use_contacts_person_affiliations_contact_points_phones
         ),
-        "metadata_terms_of_use_contacts_person_affiliations_external_identifier_type": (
-            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifier_type
+        "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_identifier_scheme": (
+            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifiers_identifier_scheme
         ),
-        "metadata_terms_of_use_contacts_person_affiliations_external_identifiers": (
-            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifiers
+        "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_iri": (
+            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifiers_iri
+        ),
+        "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_value": (
+            facets.metadata_terms_of_use_contacts_person_affiliations_external_identifiers_value
         ),
         "metadata_terms_of_use_contacts_person_affiliations_iri": (
             facets.metadata_terms_of_use_contacts_person_affiliations_iri
@@ -2078,11 +2165,14 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_terms_of_use_contacts_person_contact_points_phones": (
             facets.metadata_terms_of_use_contacts_person_contact_points_phones
         ),
-        "metadata_terms_of_use_contacts_person_external_identifier_type": (
-            facets.metadata_terms_of_use_contacts_person_external_identifier_type
+        "metadata_terms_of_use_contacts_person_external_identifiers_identifier_scheme": (
+            facets.metadata_terms_of_use_contacts_person_external_identifiers_identifier_scheme
         ),
-        "metadata_terms_of_use_contacts_person_external_identifiers": (
-            facets.metadata_terms_of_use_contacts_person_external_identifiers
+        "metadata_terms_of_use_contacts_person_external_identifiers_iri": (
+            facets.metadata_terms_of_use_contacts_person_external_identifiers_iri
+        ),
+        "metadata_terms_of_use_contacts_person_external_identifiers_value": (
+            facets.metadata_terms_of_use_contacts_person_external_identifiers_value
         ),
         "metadata_terms_of_use_contacts_person_family_name": (
             facets.metadata_terms_of_use_contacts_person_family_name
