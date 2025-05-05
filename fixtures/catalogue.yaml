@@ -64,3 +64,13 @@ vocabulary-file-types:
       cs: Typ souboru
       en: File Type
   - source: file-types.yaml
+
+vocabulary-subject-schemes:
+  - writer: vocabulary
+    update: true
+    vocabulary: subject-schemes
+    pid_type: v-ss
+    title:
+      cs: Schémata předmětových hesel
+      en: Subject Schemes
+  - source: subject-schemes.yaml

@@ -539,19 +539,16 @@
                                                 "external_identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "identifier_scheme": {
-                                                                    "type": "string"
-                                                                },
-                                                                "iri": {
-                                                                    "type": "string"
-                                                                },
-                                                                "value": {
-                                                                    "type": "string"
-                                                                }
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
                                                             }
                                                         }
                                                     }
@@ -651,19 +648,16 @@
                                                             "external_identifiers": {
                                                                 "type": "array",
                                                                 "items": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "identifier_scheme": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "iri": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "string"
-                                                                            }
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
                                                                         }
                                                                     }
                                                                 }
@@ -742,19 +736,16 @@
                                                 "external_identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "identifier_scheme": {
-                                                                    "type": "string"
-                                                                },
-                                                                "iri": {
-                                                                    "type": "string"
-                                                                },
-                                                                "value": {
-                                                                    "type": "string"
-                                                                }
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
                                                             }
                                                         }
                                                     }
@@ -965,19 +956,16 @@
                                                             "external_identifiers": {
                                                                 "type": "array",
                                                                 "items": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "identifier_scheme": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "iri": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "string"
-                                                                            }
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
                                                                         }
                                                                     }
                                                                 }
@@ -1077,19 +1065,16 @@
                                                                         "external_identifiers": {
                                                                             "type": "array",
                                                                             "items": {
-                                                                                "type": "array",
-                                                                                "items": {
-                                                                                    "type": "object",
-                                                                                    "properties": {
-                                                                                        "identifier_scheme": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "iri": {
-                                                                                            "type": "string"
-                                                                                        },
-                                                                                        "value": {
-                                                                                            "type": "string"
-                                                                                        }
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "identifier_scheme": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "iri": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
                                                                                     }
                                                                                 }
                                                                             }
@@ -1168,19 +1153,16 @@
                                                             "external_identifiers": {
                                                                 "type": "array",
                                                                 "items": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "identifier_scheme": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "iri": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "string"
-                                                                            }
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
                                                                         }
                                                                     }
                                                                 }
@@ -1275,7 +1257,21 @@
                                             "type": "string"
                                         },
                                         "type": {
-                                            "type": "string"
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -1430,19 +1426,16 @@
                                     "external_identifiers": {
                                         "type": "array",
                                         "items": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "identifier_scheme": {
-                                                        "type": "string"
-                                                    },
-                                                    "iri": {
-                                                        "type": "string"
-                                                    },
-                                                    "value": {
-                                                        "type": "string"
-                                                    }
+                                            "type": "object",
+                                            "properties": {
+                                                "identifier_scheme": {
+                                                    "type": "string"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
                                                 }
                                             }
                                         }
@@ -1542,19 +1535,16 @@
                                                 "external_identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "identifier_scheme": {
-                                                                    "type": "string"
-                                                                },
-                                                                "iri": {
-                                                                    "type": "string"
-                                                                },
-                                                                "value": {
-                                                                    "type": "string"
-                                                                }
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
                                                             }
                                                         }
                                                     }
@@ -1633,19 +1623,16 @@
                                     "external_identifiers": {
                                         "type": "array",
                                         "items": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "identifier_scheme": {
-                                                        "type": "string"
-                                                    },
-                                                    "iri": {
-                                                        "type": "string"
-                                                    },
-                                                    "value": {
-                                                        "type": "string"
-                                                    }
+                                            "type": "object",
+                                            "properties": {
+                                                "identifier_scheme": {
+                                                    "type": "string"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
                                                 }
                                             }
                                         }
@@ -1788,19 +1775,16 @@
                                                 "external_identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "identifier_scheme": {
-                                                                    "type": "string"
-                                                                },
-                                                                "iri": {
-                                                                    "type": "string"
-                                                                },
-                                                                "value": {
-                                                                    "type": "string"
-                                                                }
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
                                                             }
                                                         }
                                                     }
@@ -1900,19 +1884,16 @@
                                                             "external_identifiers": {
                                                                 "type": "array",
                                                                 "items": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "identifier_scheme": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "iri": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "string"
-                                                                            }
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
                                                                         }
                                                                     }
                                                                 }
@@ -1991,19 +1972,16 @@
                                                 "external_identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "identifier_scheme": {
-                                                                    "type": "string"
-                                                                },
-                                                                "iri": {
-                                                                    "type": "string"
-                                                                },
-                                                                "value": {
-                                                                    "type": "string"
-                                                                }
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
                                                             }
                                                         }
                                                     }
@@ -2098,7 +2076,21 @@
                                 "type": "string"
                             },
                             "type": {
-                                "type": "string"
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         }
                     }
@@ -2142,22 +2134,17 @@
                             "in_subject_scheme": {
                                 "type": "object",
                                 "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
                                     "iri": {
                                         "type": "string"
                                     },
-                                    "labels": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {
-                                                "lang": {
-                                                    "type": "string"
-                                                },
-                                                "value": {
-                                                    "type": "string"
-                                                }
-                                            }
-                                        }
+                                    "@v": {
+                                        "type": "string"
                                     }
                                 }
                             },
@@ -2282,19 +2269,16 @@
                                                 "external_identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "identifier_scheme": {
-                                                                    "type": "string"
-                                                                },
-                                                                "iri": {
-                                                                    "type": "string"
-                                                                },
-                                                                "value": {
-                                                                    "type": "string"
-                                                                }
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
                                                             }
                                                         }
                                                     }
@@ -2394,19 +2378,16 @@
                                                             "external_identifiers": {
                                                                 "type": "array",
                                                                 "items": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                            "identifier_scheme": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "iri": {
-                                                                                "type": "string"
-                                                                            },
-                                                                            "value": {
-                                                                                "type": "string"
-                                                                            }
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
                                                                         }
                                                                     }
                                                                 }
@@ -2485,19 +2466,16 @@
                                                 "external_identifiers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "identifier_scheme": {
-                                                                    "type": "string"
-                                                                },
-                                                                "iri": {
-                                                                    "type": "string"
-                                                                },
-                                                                "value": {
-                                                                    "type": "string"
-                                                                }
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
                                                             }
                                                         }
                                                     }
@@ -2644,10 +2622,6 @@
             }
         },
         "pids": {
-            "propertyNames": {
-                "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
-            "uniqueItems": true,
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -2663,6 +2637,10 @@
                     }
                 }
             },
+            "propertyNames": {
+                "pattern": "^[a-z_-][a-z0-9_-]*$"
+            },
+            "uniqueItems": true,
             "type": "object"
         },
         "state": {

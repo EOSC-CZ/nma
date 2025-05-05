@@ -1253,9 +1253,10 @@ metadata_locations_related_object_identifiers_title = TermsFacet(
     label=_("metadata/locations/related_object_identifiers/title.label"),
 )
 
-metadata_locations_related_object_identifiers_type = TermsFacet(
+metadata_locations_related_object_identifiers_type = VocabularyFacet(
     field="metadata.locations.related_object_identifiers.type",
     label=_("metadata/locations/related_object_identifiers/type.label"),
+    vocabulary="resource-types",
 )
 
 metadata_other_languages = VocabularyFacet(
@@ -2044,9 +2045,10 @@ metadata_related_resources_title = TermsFacet(
     label=_("metadata/related_resources/title.label"),
 )
 
-metadata_related_resources_type = TermsFacet(
+metadata_related_resources_type = VocabularyFacet(
     field="metadata.related_resources.type",
     label=_("metadata/related_resources/type.label"),
+    vocabulary="resource-types",
 )
 
 metadata_resource_type = VocabularyFacet(
@@ -2078,27 +2080,10 @@ metadata_subjects_definition_lang = NestedLabeledFacet(
     ),
 )
 
-metadata_subjects_in_subject_scheme_iri = TermsFacet(
-    field="metadata.subjects.in_subject_scheme.iri",
-    label=_("metadata/subjects/in_subject_scheme/iri.label"),
-)
-
-metadata_subjects_in_subject_scheme_labels_cs = TermsFacet(
-    field="metadata.subjects.in_subject_scheme.labels.cs.keyword",
-    label=_("metadata/subjects/in_subject_scheme/labels.label"),
-)
-
-metadata_subjects_in_subject_scheme_labels_en = TermsFacet(
-    field="metadata.subjects.in_subject_scheme.labels.en.keyword",
-    label=_("metadata/subjects/in_subject_scheme/labels.label"),
-)
-
-metadata_subjects_in_subject_scheme_labels_lang = NestedLabeledFacet(
-    path="metadata.subjects.in_subject_scheme.labels",
-    nested_facet=TermsFacet(
-        field="metadata.subjects.in_subject_scheme.labels.lang",
-        label=_("metadata/subjects/in_subject_scheme/labels/lang.label"),
-    ),
+metadata_subjects_in_subject_scheme = VocabularyFacet(
+    field="metadata.subjects.in_subject_scheme",
+    label=_("metadata/subjects/in_subject_scheme.label"),
+    vocabulary="subject-schemes",
 )
 
 metadata_subjects_iri = TermsFacet(

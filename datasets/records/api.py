@@ -113,6 +113,11 @@ class DatasetsRecord(RDMRecord):
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
         ),
+        type=PIDRelation(
+            "metadata.locations.related_object_identifiers.type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
         other_languages=PIDRelation(
             "metadata.other_languages",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
@@ -143,10 +148,20 @@ class DatasetsRecord(RDMRecord):
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
         ),
+        related_resources_type=PIDRelation(
+            "metadata.related_resources.type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
         resource_type=PIDRelation(
             "metadata.resource_type",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
+        in_subject_scheme=PIDRelation(
+            "metadata.subjects.in_subject_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("subject-schemes"),
         ),
         access_rights=PIDRelation(
             "metadata.terms_of_use.access_rights",
@@ -254,6 +269,11 @@ class DatasetsDraft(RDMDraft):
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
         ),
+        type=PIDRelation(
+            "metadata.locations.related_object_identifiers.type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
         other_languages=PIDRelation(
             "metadata.other_languages",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
@@ -284,10 +304,20 @@ class DatasetsDraft(RDMDraft):
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
         ),
+        related_resources_type=PIDRelation(
+            "metadata.related_resources.type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
         resource_type=PIDRelation(
             "metadata.resource_type",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
+        in_subject_scheme=PIDRelation(
+            "metadata.subjects.in_subject_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("subject-schemes"),
         ),
         access_rights=PIDRelation(
             "metadata.terms_of_use.access_rights",

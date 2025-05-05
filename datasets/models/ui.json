@@ -1256,44 +1256,37 @@
                                                     "label": "metadata/is_described_by/qualified_relations/organization/external_identifiers.label",
                                                     "hint": "metadata/is_described_by/qualified_relations/organization/external_identifiers.hint",
                                                     "child": {
-                                                        "detail": "array",
-                                                        "input": "array",
+                                                        "detail": "external_identifier",
+                                                        "input": "external_identifier",
                                                         "help": "metadata/is_described_by/qualified_relations/organization/external_identifiers.help",
                                                         "label": "metadata/is_described_by/qualified_relations/organization/external_identifiers.label",
                                                         "hint": "metadata/is_described_by/qualified_relations/organization/external_identifiers.hint",
-                                                        "child": {
-                                                            "detail": "external_identifier",
-                                                            "input": "external_identifier",
-                                                            "help": "metadata/is_described_by/qualified_relations/organization/external_identifiers.help",
-                                                            "label": "metadata/is_described_by/qualified_relations/organization/external_identifiers.label",
-                                                            "hint": "metadata/is_described_by/qualified_relations/organization/external_identifiers.hint",
-                                                            "children": {
-                                                                "identifier_scheme": {
-                                                                    "detail": "url",
-                                                                    "input": "url",
-                                                                    "required": true,
-                                                                    "help": "metadata/is_described_by/qualified_relations/organization/external_identifiers/identifier_scheme.help",
-                                                                    "label": "metadata/is_described_by/qualified_relations/organization/external_identifiers/identifier_scheme.label",
-                                                                    "hint": "metadata/is_described_by/qualified_relations/organization/external_identifiers/identifier_scheme.hint",
-                                                                    "facet": "metadata_is_described_by_qualified_relations_organization_external_identifiers_identifier_scheme"
-                                                                },
-                                                                "iri": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/is_described_by/qualified_relations/organization/external_identifiers/iri.help",
-                                                                    "label": "metadata/is_described_by/qualified_relations/organization/external_identifiers/iri.label",
-                                                                    "hint": "metadata/is_described_by/qualified_relations/organization/external_identifiers/iri.hint",
-                                                                    "facet": "metadata_is_described_by_qualified_relations_organization_external_identifiers_iri"
-                                                                },
-                                                                "value": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "required": true,
-                                                                    "help": "metadata/is_described_by/qualified_relations/organization/external_identifiers/value.help",
-                                                                    "label": "metadata/is_described_by/qualified_relations/organization/external_identifiers/value.label",
-                                                                    "hint": "metadata/is_described_by/qualified_relations/organization/external_identifiers/value.hint",
-                                                                    "facet": "metadata_is_described_by_qualified_relations_organization_external_identifiers_value"
-                                                                }
+                                                        "children": {
+                                                            "identifier_scheme": {
+                                                                "detail": "url",
+                                                                "input": "url",
+                                                                "required": true,
+                                                                "help": "metadata/is_described_by/qualified_relations/organization/external_identifiers/identifier_scheme.help",
+                                                                "label": "metadata/is_described_by/qualified_relations/organization/external_identifiers/identifier_scheme.label",
+                                                                "hint": "metadata/is_described_by/qualified_relations/organization/external_identifiers/identifier_scheme.hint",
+                                                                "facet": "metadata_is_described_by_qualified_relations_organization_external_identifiers_identifier_scheme"
+                                                            },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/is_described_by/qualified_relations/organization/external_identifiers/iri.help",
+                                                                "label": "metadata/is_described_by/qualified_relations/organization/external_identifiers/iri.label",
+                                                                "hint": "metadata/is_described_by/qualified_relations/organization/external_identifiers/iri.hint",
+                                                                "facet": "metadata_is_described_by_qualified_relations_organization_external_identifiers_iri"
+                                                            },
+                                                            "value": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "required": true,
+                                                                "help": "metadata/is_described_by/qualified_relations/organization/external_identifiers/value.help",
+                                                                "label": "metadata/is_described_by/qualified_relations/organization/external_identifiers/value.label",
+                                                                "hint": "metadata/is_described_by/qualified_relations/organization/external_identifiers/value.hint",
+                                                                "facet": "metadata_is_described_by_qualified_relations_organization_external_identifiers_value"
                                                             }
                                                         }
                                                     }
@@ -1524,44 +1517,37 @@
                                                                 "label": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.label",
                                                                 "hint": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.hint",
                                                                 "child": {
-                                                                    "detail": "array",
-                                                                    "input": "array",
+                                                                    "detail": "external_identifier",
+                                                                    "input": "external_identifier",
                                                                     "help": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.help",
                                                                     "label": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.label",
                                                                     "hint": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.hint",
-                                                                    "child": {
-                                                                        "detail": "external_identifier",
-                                                                        "input": "external_identifier",
-                                                                        "help": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.help",
-                                                                        "label": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.label",
-                                                                        "hint": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.hint",
-                                                                        "children": {
-                                                                            "identifier_scheme": {
-                                                                                "detail": "url",
-                                                                                "input": "url",
-                                                                                "required": true,
-                                                                                "help": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.help",
-                                                                                "label": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label",
-                                                                                "hint": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.hint",
-                                                                                "facet": "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_identifier_scheme"
-                                                                            },
-                                                                            "iri": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "help": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/iri.help",
-                                                                                "label": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/iri.label",
-                                                                                "hint": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/iri.hint",
-                                                                                "facet": "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_iri"
-                                                                            },
-                                                                            "value": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "required": true,
-                                                                                "help": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/value.help",
-                                                                                "label": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/value.label",
-                                                                                "hint": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/value.hint",
-                                                                                "facet": "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_value"
-                                                                            }
+                                                                    "children": {
+                                                                        "identifier_scheme": {
+                                                                            "detail": "url",
+                                                                            "input": "url",
+                                                                            "required": true,
+                                                                            "help": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.help",
+                                                                            "label": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label",
+                                                                            "hint": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.hint",
+                                                                            "facet": "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_identifier_scheme"
+                                                                        },
+                                                                        "iri": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/iri.help",
+                                                                            "label": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/iri.label",
+                                                                            "hint": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/iri.hint",
+                                                                            "facet": "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_iri"
+                                                                        },
+                                                                        "value": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "required": true,
+                                                                            "help": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/value.help",
+                                                                            "label": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/value.label",
+                                                                            "hint": "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/value.hint",
+                                                                            "facet": "metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_value"
                                                                         }
                                                                     }
                                                                 }
@@ -1739,44 +1725,37 @@
                                                     "label": "metadata/is_described_by/qualified_relations/person/external_identifiers.label",
                                                     "hint": "metadata/is_described_by/qualified_relations/person/external_identifiers.hint",
                                                     "child": {
-                                                        "detail": "array",
-                                                        "input": "array",
+                                                        "detail": "external_identifier",
+                                                        "input": "external_identifier",
                                                         "help": "metadata/is_described_by/qualified_relations/person/external_identifiers.help",
                                                         "label": "metadata/is_described_by/qualified_relations/person/external_identifiers.label",
                                                         "hint": "metadata/is_described_by/qualified_relations/person/external_identifiers.hint",
-                                                        "child": {
-                                                            "detail": "external_identifier",
-                                                            "input": "external_identifier",
-                                                            "help": "metadata/is_described_by/qualified_relations/person/external_identifiers.help",
-                                                            "label": "metadata/is_described_by/qualified_relations/person/external_identifiers.label",
-                                                            "hint": "metadata/is_described_by/qualified_relations/person/external_identifiers.hint",
-                                                            "children": {
-                                                                "identifier_scheme": {
-                                                                    "detail": "url",
-                                                                    "input": "url",
-                                                                    "required": true,
-                                                                    "help": "metadata/is_described_by/qualified_relations/person/external_identifiers/identifier_scheme.help",
-                                                                    "label": "metadata/is_described_by/qualified_relations/person/external_identifiers/identifier_scheme.label",
-                                                                    "hint": "metadata/is_described_by/qualified_relations/person/external_identifiers/identifier_scheme.hint",
-                                                                    "facet": "metadata_is_described_by_qualified_relations_person_external_identifiers_identifier_scheme"
-                                                                },
-                                                                "iri": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/is_described_by/qualified_relations/person/external_identifiers/iri.help",
-                                                                    "label": "metadata/is_described_by/qualified_relations/person/external_identifiers/iri.label",
-                                                                    "hint": "metadata/is_described_by/qualified_relations/person/external_identifiers/iri.hint",
-                                                                    "facet": "metadata_is_described_by_qualified_relations_person_external_identifiers_iri"
-                                                                },
-                                                                "value": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "required": true,
-                                                                    "help": "metadata/is_described_by/qualified_relations/person/external_identifiers/value.help",
-                                                                    "label": "metadata/is_described_by/qualified_relations/person/external_identifiers/value.label",
-                                                                    "hint": "metadata/is_described_by/qualified_relations/person/external_identifiers/value.hint",
-                                                                    "facet": "metadata_is_described_by_qualified_relations_person_external_identifiers_value"
-                                                                }
+                                                        "children": {
+                                                            "identifier_scheme": {
+                                                                "detail": "url",
+                                                                "input": "url",
+                                                                "required": true,
+                                                                "help": "metadata/is_described_by/qualified_relations/person/external_identifiers/identifier_scheme.help",
+                                                                "label": "metadata/is_described_by/qualified_relations/person/external_identifiers/identifier_scheme.label",
+                                                                "hint": "metadata/is_described_by/qualified_relations/person/external_identifiers/identifier_scheme.hint",
+                                                                "facet": "metadata_is_described_by_qualified_relations_person_external_identifiers_identifier_scheme"
+                                                            },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/is_described_by/qualified_relations/person/external_identifiers/iri.help",
+                                                                "label": "metadata/is_described_by/qualified_relations/person/external_identifiers/iri.label",
+                                                                "hint": "metadata/is_described_by/qualified_relations/person/external_identifiers/iri.hint",
+                                                                "facet": "metadata_is_described_by_qualified_relations_person_external_identifiers_iri"
+                                                            },
+                                                            "value": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "required": true,
+                                                                "help": "metadata/is_described_by/qualified_relations/person/external_identifiers/value.help",
+                                                                "label": "metadata/is_described_by/qualified_relations/person/external_identifiers/value.label",
+                                                                "hint": "metadata/is_described_by/qualified_relations/person/external_identifiers/value.hint",
+                                                                "facet": "metadata_is_described_by_qualified_relations_person_external_identifiers_value"
                                                             }
                                                         }
                                                     }
@@ -2272,44 +2251,37 @@
                                                                 "label": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.label",
                                                                 "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.hint",
                                                                 "child": {
-                                                                    "detail": "array",
-                                                                    "input": "array",
+                                                                    "detail": "external_identifier",
+                                                                    "input": "external_identifier",
                                                                     "help": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.help",
                                                                     "label": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.label",
                                                                     "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.hint",
-                                                                    "child": {
-                                                                        "detail": "external_identifier",
-                                                                        "input": "external_identifier",
-                                                                        "help": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.help",
-                                                                        "label": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.label",
-                                                                        "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.hint",
-                                                                        "children": {
-                                                                            "identifier_scheme": {
-                                                                                "detail": "url",
-                                                                                "input": "url",
-                                                                                "required": true,
-                                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/identifier_scheme.help",
-                                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/identifier_scheme.label",
-                                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/identifier_scheme.hint",
-                                                                                "facet": "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_identifier_scheme"
-                                                                            },
-                                                                            "iri": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/iri.help",
-                                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/iri.label",
-                                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/iri.hint",
-                                                                                "facet": "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_iri"
-                                                                            },
-                                                                            "value": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "required": true,
-                                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/value.help",
-                                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/value.label",
-                                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/value.hint",
-                                                                                "facet": "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_value"
-                                                                            }
+                                                                    "children": {
+                                                                        "identifier_scheme": {
+                                                                            "detail": "url",
+                                                                            "input": "url",
+                                                                            "required": true,
+                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/identifier_scheme.help",
+                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/identifier_scheme.label",
+                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/identifier_scheme.hint",
+                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_identifier_scheme"
+                                                                        },
+                                                                        "iri": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/iri.help",
+                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/iri.label",
+                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/iri.hint",
+                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_iri"
+                                                                        },
+                                                                        "value": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "required": true,
+                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/value.help",
+                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/value.label",
+                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/value.hint",
+                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_value"
                                                                         }
                                                                     }
                                                                 }
@@ -2540,44 +2512,37 @@
                                                                             "label": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.label",
                                                                             "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.hint",
                                                                             "child": {
-                                                                                "detail": "array",
-                                                                                "input": "array",
+                                                                                "detail": "external_identifier",
+                                                                                "input": "external_identifier",
                                                                                 "help": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.help",
                                                                                 "label": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.label",
                                                                                 "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.hint",
-                                                                                "child": {
-                                                                                    "detail": "external_identifier",
-                                                                                    "input": "external_identifier",
-                                                                                    "help": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.help",
-                                                                                    "label": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.label",
-                                                                                    "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.hint",
-                                                                                    "children": {
-                                                                                        "identifier_scheme": {
-                                                                                            "detail": "url",
-                                                                                            "input": "url",
-                                                                                            "required": true,
-                                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.help",
-                                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label",
-                                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.hint",
-                                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_identifier_scheme"
-                                                                                        },
-                                                                                        "iri": {
-                                                                                            "detail": "keyword",
-                                                                                            "input": "keyword",
-                                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/iri.help",
-                                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/iri.label",
-                                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/iri.hint",
-                                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_iri"
-                                                                                        },
-                                                                                        "value": {
-                                                                                            "detail": "keyword",
-                                                                                            "input": "keyword",
-                                                                                            "required": true,
-                                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/value.help",
-                                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/value.label",
-                                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/value.hint",
-                                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_value"
-                                                                                        }
+                                                                                "children": {
+                                                                                    "identifier_scheme": {
+                                                                                        "detail": "url",
+                                                                                        "input": "url",
+                                                                                        "required": true,
+                                                                                        "help": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.help",
+                                                                                        "label": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label",
+                                                                                        "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.hint",
+                                                                                        "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_identifier_scheme"
+                                                                                    },
+                                                                                    "iri": {
+                                                                                        "detail": "keyword",
+                                                                                        "input": "keyword",
+                                                                                        "help": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/iri.help",
+                                                                                        "label": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/iri.label",
+                                                                                        "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/iri.hint",
+                                                                                        "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_iri"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "detail": "keyword",
+                                                                                        "input": "keyword",
+                                                                                        "required": true,
+                                                                                        "help": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/value.help",
+                                                                                        "label": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/value.label",
+                                                                                        "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/value.hint",
+                                                                                        "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_value"
                                                                                     }
                                                                                 }
                                                                             }
@@ -2755,44 +2720,37 @@
                                                                 "label": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.label",
                                                                 "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.hint",
                                                                 "child": {
-                                                                    "detail": "array",
-                                                                    "input": "array",
+                                                                    "detail": "external_identifier",
+                                                                    "input": "external_identifier",
                                                                     "help": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.help",
                                                                     "label": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.label",
                                                                     "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.hint",
-                                                                    "child": {
-                                                                        "detail": "external_identifier",
-                                                                        "input": "external_identifier",
-                                                                        "help": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.help",
-                                                                        "label": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.label",
-                                                                        "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.hint",
-                                                                        "children": {
-                                                                            "identifier_scheme": {
-                                                                                "detail": "url",
-                                                                                "input": "url",
-                                                                                "required": true,
-                                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/identifier_scheme.help",
-                                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/identifier_scheme.label",
-                                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/identifier_scheme.hint",
-                                                                                "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_identifier_scheme"
-                                                                            },
-                                                                            "iri": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/iri.help",
-                                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/iri.label",
-                                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/iri.hint",
-                                                                                "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_iri"
-                                                                            },
-                                                                            "value": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "required": true,
-                                                                                "help": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/value.help",
-                                                                                "label": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/value.label",
-                                                                                "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/value.hint",
-                                                                                "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_value"
-                                                                            }
+                                                                    "children": {
+                                                                        "identifier_scheme": {
+                                                                            "detail": "url",
+                                                                            "input": "url",
+                                                                            "required": true,
+                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/identifier_scheme.help",
+                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/identifier_scheme.label",
+                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/identifier_scheme.hint",
+                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_identifier_scheme"
+                                                                        },
+                                                                        "iri": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/iri.help",
+                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/iri.label",
+                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/iri.hint",
+                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_iri"
+                                                                        },
+                                                                        "value": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "required": true,
+                                                                            "help": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/value.help",
+                                                                            "label": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/value.label",
+                                                                            "hint": "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/value.hint",
+                                                                            "facet": "metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_value"
                                                                         }
                                                                     }
                                                                 }
@@ -3001,12 +2959,43 @@
                                             "facet": "metadata_locations_related_object_identifiers_title"
                                         },
                                         "type": {
-                                            "detail": "keyword",
-                                            "input": "keyword",
+                                            "detail": "vocabulary_item",
+                                            "edit": "vocabulary_item",
+                                            "input": "vocabulary",
                                             "help": "metadata/locations/related_object_identifiers/type.help",
                                             "label": "metadata/locations/related_object_identifiers/type.label",
                                             "hint": "metadata/locations/related_object_identifiers/type.hint",
-                                            "facet": "metadata_locations_related_object_identifiers_type"
+                                            "facet": "metadata_locations_related_object_identifiers_type",
+                                            "children": {
+                                                "id": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/locations/related_object_identifiers/type/id.help",
+                                                    "label": "metadata/locations/related_object_identifiers/type/id.label",
+                                                    "hint": "metadata/locations/related_object_identifiers/type/id.hint"
+                                                },
+                                                "title": {
+                                                    "detail": false,
+                                                    "input": false,
+                                                    "help": "metadata/locations/related_object_identifiers/type/title.help",
+                                                    "label": "metadata/locations/related_object_identifiers/type/title.label",
+                                                    "hint": "metadata/locations/related_object_identifiers/type/title.hint"
+                                                },
+                                                "iri": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/locations/related_object_identifiers/type/iri.help",
+                                                    "label": "metadata/locations/related_object_identifiers/type/iri.label",
+                                                    "hint": "metadata/locations/related_object_identifiers/type/iri.hint"
+                                                },
+                                                "@v": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/locations/related_object_identifiers/type/@v.help",
+                                                    "label": "metadata/locations/related_object_identifiers/type/@v.label",
+                                                    "hint": "metadata/locations/related_object_identifiers/type/@v.hint"
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -3361,44 +3350,37 @@
                                         "label": "metadata/qualified_relations/organization/external_identifiers.label",
                                         "hint": "metadata/qualified_relations/organization/external_identifiers.hint",
                                         "child": {
-                                            "detail": "array",
-                                            "input": "array",
+                                            "detail": "external_identifier",
+                                            "input": "external_identifier",
                                             "help": "metadata/qualified_relations/organization/external_identifiers.help",
                                             "label": "metadata/qualified_relations/organization/external_identifiers.label",
                                             "hint": "metadata/qualified_relations/organization/external_identifiers.hint",
-                                            "child": {
-                                                "detail": "external_identifier",
-                                                "input": "external_identifier",
-                                                "help": "metadata/qualified_relations/organization/external_identifiers.help",
-                                                "label": "metadata/qualified_relations/organization/external_identifiers.label",
-                                                "hint": "metadata/qualified_relations/organization/external_identifiers.hint",
-                                                "children": {
-                                                    "identifier_scheme": {
-                                                        "detail": "url",
-                                                        "input": "url",
-                                                        "required": true,
-                                                        "help": "metadata/qualified_relations/organization/external_identifiers/identifier_scheme.help",
-                                                        "label": "metadata/qualified_relations/organization/external_identifiers/identifier_scheme.label",
-                                                        "hint": "metadata/qualified_relations/organization/external_identifiers/identifier_scheme.hint",
-                                                        "facet": "metadata_qualified_relations_organization_external_identifiers_identifier_scheme"
-                                                    },
-                                                    "iri": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/qualified_relations/organization/external_identifiers/iri.help",
-                                                        "label": "metadata/qualified_relations/organization/external_identifiers/iri.label",
-                                                        "hint": "metadata/qualified_relations/organization/external_identifiers/iri.hint",
-                                                        "facet": "metadata_qualified_relations_organization_external_identifiers_iri"
-                                                    },
-                                                    "value": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "required": true,
-                                                        "help": "metadata/qualified_relations/organization/external_identifiers/value.help",
-                                                        "label": "metadata/qualified_relations/organization/external_identifiers/value.label",
-                                                        "hint": "metadata/qualified_relations/organization/external_identifiers/value.hint",
-                                                        "facet": "metadata_qualified_relations_organization_external_identifiers_value"
-                                                    }
+                                            "children": {
+                                                "identifier_scheme": {
+                                                    "detail": "url",
+                                                    "input": "url",
+                                                    "required": true,
+                                                    "help": "metadata/qualified_relations/organization/external_identifiers/identifier_scheme.help",
+                                                    "label": "metadata/qualified_relations/organization/external_identifiers/identifier_scheme.label",
+                                                    "hint": "metadata/qualified_relations/organization/external_identifiers/identifier_scheme.hint",
+                                                    "facet": "metadata_qualified_relations_organization_external_identifiers_identifier_scheme"
+                                                },
+                                                "iri": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/qualified_relations/organization/external_identifiers/iri.help",
+                                                    "label": "metadata/qualified_relations/organization/external_identifiers/iri.label",
+                                                    "hint": "metadata/qualified_relations/organization/external_identifiers/iri.hint",
+                                                    "facet": "metadata_qualified_relations_organization_external_identifiers_iri"
+                                                },
+                                                "value": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "required": true,
+                                                    "help": "metadata/qualified_relations/organization/external_identifiers/value.help",
+                                                    "label": "metadata/qualified_relations/organization/external_identifiers/value.label",
+                                                    "hint": "metadata/qualified_relations/organization/external_identifiers/value.hint",
+                                                    "facet": "metadata_qualified_relations_organization_external_identifiers_value"
                                                 }
                                             }
                                         }
@@ -3629,44 +3611,37 @@
                                                     "label": "metadata/qualified_relations/person/affiliations/external_identifiers.label",
                                                     "hint": "metadata/qualified_relations/person/affiliations/external_identifiers.hint",
                                                     "child": {
-                                                        "detail": "array",
-                                                        "input": "array",
+                                                        "detail": "external_identifier",
+                                                        "input": "external_identifier",
                                                         "help": "metadata/qualified_relations/person/affiliations/external_identifiers.help",
                                                         "label": "metadata/qualified_relations/person/affiliations/external_identifiers.label",
                                                         "hint": "metadata/qualified_relations/person/affiliations/external_identifiers.hint",
-                                                        "child": {
-                                                            "detail": "external_identifier",
-                                                            "input": "external_identifier",
-                                                            "help": "metadata/qualified_relations/person/affiliations/external_identifiers.help",
-                                                            "label": "metadata/qualified_relations/person/affiliations/external_identifiers.label",
-                                                            "hint": "metadata/qualified_relations/person/affiliations/external_identifiers.hint",
-                                                            "children": {
-                                                                "identifier_scheme": {
-                                                                    "detail": "url",
-                                                                    "input": "url",
-                                                                    "required": true,
-                                                                    "help": "metadata/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.help",
-                                                                    "label": "metadata/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label",
-                                                                    "hint": "metadata/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.hint",
-                                                                    "facet": "metadata_qualified_relations_person_affiliations_external_identifiers_identifier_scheme"
-                                                                },
-                                                                "iri": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/qualified_relations/person/affiliations/external_identifiers/iri.help",
-                                                                    "label": "metadata/qualified_relations/person/affiliations/external_identifiers/iri.label",
-                                                                    "hint": "metadata/qualified_relations/person/affiliations/external_identifiers/iri.hint",
-                                                                    "facet": "metadata_qualified_relations_person_affiliations_external_identifiers_iri"
-                                                                },
-                                                                "value": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "required": true,
-                                                                    "help": "metadata/qualified_relations/person/affiliations/external_identifiers/value.help",
-                                                                    "label": "metadata/qualified_relations/person/affiliations/external_identifiers/value.label",
-                                                                    "hint": "metadata/qualified_relations/person/affiliations/external_identifiers/value.hint",
-                                                                    "facet": "metadata_qualified_relations_person_affiliations_external_identifiers_value"
-                                                                }
+                                                        "children": {
+                                                            "identifier_scheme": {
+                                                                "detail": "url",
+                                                                "input": "url",
+                                                                "required": true,
+                                                                "help": "metadata/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.help",
+                                                                "label": "metadata/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label",
+                                                                "hint": "metadata/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.hint",
+                                                                "facet": "metadata_qualified_relations_person_affiliations_external_identifiers_identifier_scheme"
+                                                            },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/qualified_relations/person/affiliations/external_identifiers/iri.help",
+                                                                "label": "metadata/qualified_relations/person/affiliations/external_identifiers/iri.label",
+                                                                "hint": "metadata/qualified_relations/person/affiliations/external_identifiers/iri.hint",
+                                                                "facet": "metadata_qualified_relations_person_affiliations_external_identifiers_iri"
+                                                            },
+                                                            "value": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "required": true,
+                                                                "help": "metadata/qualified_relations/person/affiliations/external_identifiers/value.help",
+                                                                "label": "metadata/qualified_relations/person/affiliations/external_identifiers/value.label",
+                                                                "hint": "metadata/qualified_relations/person/affiliations/external_identifiers/value.hint",
+                                                                "facet": "metadata_qualified_relations_person_affiliations_external_identifiers_value"
                                                             }
                                                         }
                                                     }
@@ -3844,44 +3819,37 @@
                                         "label": "metadata/qualified_relations/person/external_identifiers.label",
                                         "hint": "metadata/qualified_relations/person/external_identifiers.hint",
                                         "child": {
-                                            "detail": "array",
-                                            "input": "array",
+                                            "detail": "external_identifier",
+                                            "input": "external_identifier",
                                             "help": "metadata/qualified_relations/person/external_identifiers.help",
                                             "label": "metadata/qualified_relations/person/external_identifiers.label",
                                             "hint": "metadata/qualified_relations/person/external_identifiers.hint",
-                                            "child": {
-                                                "detail": "external_identifier",
-                                                "input": "external_identifier",
-                                                "help": "metadata/qualified_relations/person/external_identifiers.help",
-                                                "label": "metadata/qualified_relations/person/external_identifiers.label",
-                                                "hint": "metadata/qualified_relations/person/external_identifiers.hint",
-                                                "children": {
-                                                    "identifier_scheme": {
-                                                        "detail": "url",
-                                                        "input": "url",
-                                                        "required": true,
-                                                        "help": "metadata/qualified_relations/person/external_identifiers/identifier_scheme.help",
-                                                        "label": "metadata/qualified_relations/person/external_identifiers/identifier_scheme.label",
-                                                        "hint": "metadata/qualified_relations/person/external_identifiers/identifier_scheme.hint",
-                                                        "facet": "metadata_qualified_relations_person_external_identifiers_identifier_scheme"
-                                                    },
-                                                    "iri": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "help": "metadata/qualified_relations/person/external_identifiers/iri.help",
-                                                        "label": "metadata/qualified_relations/person/external_identifiers/iri.label",
-                                                        "hint": "metadata/qualified_relations/person/external_identifiers/iri.hint",
-                                                        "facet": "metadata_qualified_relations_person_external_identifiers_iri"
-                                                    },
-                                                    "value": {
-                                                        "detail": "keyword",
-                                                        "input": "keyword",
-                                                        "required": true,
-                                                        "help": "metadata/qualified_relations/person/external_identifiers/value.help",
-                                                        "label": "metadata/qualified_relations/person/external_identifiers/value.label",
-                                                        "hint": "metadata/qualified_relations/person/external_identifiers/value.hint",
-                                                        "facet": "metadata_qualified_relations_person_external_identifiers_value"
-                                                    }
+                                            "children": {
+                                                "identifier_scheme": {
+                                                    "detail": "url",
+                                                    "input": "url",
+                                                    "required": true,
+                                                    "help": "metadata/qualified_relations/person/external_identifiers/identifier_scheme.help",
+                                                    "label": "metadata/qualified_relations/person/external_identifiers/identifier_scheme.label",
+                                                    "hint": "metadata/qualified_relations/person/external_identifiers/identifier_scheme.hint",
+                                                    "facet": "metadata_qualified_relations_person_external_identifiers_identifier_scheme"
+                                                },
+                                                "iri": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "help": "metadata/qualified_relations/person/external_identifiers/iri.help",
+                                                    "label": "metadata/qualified_relations/person/external_identifiers/iri.label",
+                                                    "hint": "metadata/qualified_relations/person/external_identifiers/iri.hint",
+                                                    "facet": "metadata_qualified_relations_person_external_identifiers_iri"
+                                                },
+                                                "value": {
+                                                    "detail": "keyword",
+                                                    "input": "keyword",
+                                                    "required": true,
+                                                    "help": "metadata/qualified_relations/person/external_identifiers/value.help",
+                                                    "label": "metadata/qualified_relations/person/external_identifiers/value.label",
+                                                    "hint": "metadata/qualified_relations/person/external_identifiers/value.hint",
+                                                    "facet": "metadata_qualified_relations_person_external_identifiers_value"
                                                 }
                                             }
                                         }
@@ -4215,44 +4183,37 @@
                                                     "label": "metadata/related_resources/qualified_relations/organization/external_identifiers.label",
                                                     "hint": "metadata/related_resources/qualified_relations/organization/external_identifiers.hint",
                                                     "child": {
-                                                        "detail": "array",
-                                                        "input": "array",
+                                                        "detail": "external_identifier",
+                                                        "input": "external_identifier",
                                                         "help": "metadata/related_resources/qualified_relations/organization/external_identifiers.help",
                                                         "label": "metadata/related_resources/qualified_relations/organization/external_identifiers.label",
                                                         "hint": "metadata/related_resources/qualified_relations/organization/external_identifiers.hint",
-                                                        "child": {
-                                                            "detail": "external_identifier",
-                                                            "input": "external_identifier",
-                                                            "help": "metadata/related_resources/qualified_relations/organization/external_identifiers.help",
-                                                            "label": "metadata/related_resources/qualified_relations/organization/external_identifiers.label",
-                                                            "hint": "metadata/related_resources/qualified_relations/organization/external_identifiers.hint",
-                                                            "children": {
-                                                                "identifier_scheme": {
-                                                                    "detail": "url",
-                                                                    "input": "url",
-                                                                    "required": true,
-                                                                    "help": "metadata/related_resources/qualified_relations/organization/external_identifiers/identifier_scheme.help",
-                                                                    "label": "metadata/related_resources/qualified_relations/organization/external_identifiers/identifier_scheme.label",
-                                                                    "hint": "metadata/related_resources/qualified_relations/organization/external_identifiers/identifier_scheme.hint",
-                                                                    "facet": "metadata_related_resources_qualified_relations_organization_external_identifiers_identifier_scheme"
-                                                                },
-                                                                "iri": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/related_resources/qualified_relations/organization/external_identifiers/iri.help",
-                                                                    "label": "metadata/related_resources/qualified_relations/organization/external_identifiers/iri.label",
-                                                                    "hint": "metadata/related_resources/qualified_relations/organization/external_identifiers/iri.hint",
-                                                                    "facet": "metadata_related_resources_qualified_relations_organization_external_identifiers_iri"
-                                                                },
-                                                                "value": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "required": true,
-                                                                    "help": "metadata/related_resources/qualified_relations/organization/external_identifiers/value.help",
-                                                                    "label": "metadata/related_resources/qualified_relations/organization/external_identifiers/value.label",
-                                                                    "hint": "metadata/related_resources/qualified_relations/organization/external_identifiers/value.hint",
-                                                                    "facet": "metadata_related_resources_qualified_relations_organization_external_identifiers_value"
-                                                                }
+                                                        "children": {
+                                                            "identifier_scheme": {
+                                                                "detail": "url",
+                                                                "input": "url",
+                                                                "required": true,
+                                                                "help": "metadata/related_resources/qualified_relations/organization/external_identifiers/identifier_scheme.help",
+                                                                "label": "metadata/related_resources/qualified_relations/organization/external_identifiers/identifier_scheme.label",
+                                                                "hint": "metadata/related_resources/qualified_relations/organization/external_identifiers/identifier_scheme.hint",
+                                                                "facet": "metadata_related_resources_qualified_relations_organization_external_identifiers_identifier_scheme"
+                                                            },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/related_resources/qualified_relations/organization/external_identifiers/iri.help",
+                                                                "label": "metadata/related_resources/qualified_relations/organization/external_identifiers/iri.label",
+                                                                "hint": "metadata/related_resources/qualified_relations/organization/external_identifiers/iri.hint",
+                                                                "facet": "metadata_related_resources_qualified_relations_organization_external_identifiers_iri"
+                                                            },
+                                                            "value": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "required": true,
+                                                                "help": "metadata/related_resources/qualified_relations/organization/external_identifiers/value.help",
+                                                                "label": "metadata/related_resources/qualified_relations/organization/external_identifiers/value.label",
+                                                                "hint": "metadata/related_resources/qualified_relations/organization/external_identifiers/value.hint",
+                                                                "facet": "metadata_related_resources_qualified_relations_organization_external_identifiers_value"
                                                             }
                                                         }
                                                     }
@@ -4483,44 +4444,37 @@
                                                                 "label": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.label",
                                                                 "hint": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.hint",
                                                                 "child": {
-                                                                    "detail": "array",
-                                                                    "input": "array",
+                                                                    "detail": "external_identifier",
+                                                                    "input": "external_identifier",
                                                                     "help": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.help",
                                                                     "label": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.label",
                                                                     "hint": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.hint",
-                                                                    "child": {
-                                                                        "detail": "external_identifier",
-                                                                        "input": "external_identifier",
-                                                                        "help": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.help",
-                                                                        "label": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.label",
-                                                                        "hint": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.hint",
-                                                                        "children": {
-                                                                            "identifier_scheme": {
-                                                                                "detail": "url",
-                                                                                "input": "url",
-                                                                                "required": true,
-                                                                                "help": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.help",
-                                                                                "label": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label",
-                                                                                "hint": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.hint",
-                                                                                "facet": "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_identifier_scheme"
-                                                                            },
-                                                                            "iri": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "help": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/iri.help",
-                                                                                "label": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/iri.label",
-                                                                                "hint": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/iri.hint",
-                                                                                "facet": "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_iri"
-                                                                            },
-                                                                            "value": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "required": true,
-                                                                                "help": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/value.help",
-                                                                                "label": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/value.label",
-                                                                                "hint": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/value.hint",
-                                                                                "facet": "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_value"
-                                                                            }
+                                                                    "children": {
+                                                                        "identifier_scheme": {
+                                                                            "detail": "url",
+                                                                            "input": "url",
+                                                                            "required": true,
+                                                                            "help": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.help",
+                                                                            "label": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label",
+                                                                            "hint": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.hint",
+                                                                            "facet": "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_identifier_scheme"
+                                                                        },
+                                                                        "iri": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/iri.help",
+                                                                            "label": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/iri.label",
+                                                                            "hint": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/iri.hint",
+                                                                            "facet": "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_iri"
+                                                                        },
+                                                                        "value": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "required": true,
+                                                                            "help": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/value.help",
+                                                                            "label": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/value.label",
+                                                                            "hint": "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/value.hint",
+                                                                            "facet": "metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_value"
                                                                         }
                                                                     }
                                                                 }
@@ -4698,44 +4652,37 @@
                                                     "label": "metadata/related_resources/qualified_relations/person/external_identifiers.label",
                                                     "hint": "metadata/related_resources/qualified_relations/person/external_identifiers.hint",
                                                     "child": {
-                                                        "detail": "array",
-                                                        "input": "array",
+                                                        "detail": "external_identifier",
+                                                        "input": "external_identifier",
                                                         "help": "metadata/related_resources/qualified_relations/person/external_identifiers.help",
                                                         "label": "metadata/related_resources/qualified_relations/person/external_identifiers.label",
                                                         "hint": "metadata/related_resources/qualified_relations/person/external_identifiers.hint",
-                                                        "child": {
-                                                            "detail": "external_identifier",
-                                                            "input": "external_identifier",
-                                                            "help": "metadata/related_resources/qualified_relations/person/external_identifiers.help",
-                                                            "label": "metadata/related_resources/qualified_relations/person/external_identifiers.label",
-                                                            "hint": "metadata/related_resources/qualified_relations/person/external_identifiers.hint",
-                                                            "children": {
-                                                                "identifier_scheme": {
-                                                                    "detail": "url",
-                                                                    "input": "url",
-                                                                    "required": true,
-                                                                    "help": "metadata/related_resources/qualified_relations/person/external_identifiers/identifier_scheme.help",
-                                                                    "label": "metadata/related_resources/qualified_relations/person/external_identifiers/identifier_scheme.label",
-                                                                    "hint": "metadata/related_resources/qualified_relations/person/external_identifiers/identifier_scheme.hint",
-                                                                    "facet": "metadata_related_resources_qualified_relations_person_external_identifiers_identifier_scheme"
-                                                                },
-                                                                "iri": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/related_resources/qualified_relations/person/external_identifiers/iri.help",
-                                                                    "label": "metadata/related_resources/qualified_relations/person/external_identifiers/iri.label",
-                                                                    "hint": "metadata/related_resources/qualified_relations/person/external_identifiers/iri.hint",
-                                                                    "facet": "metadata_related_resources_qualified_relations_person_external_identifiers_iri"
-                                                                },
-                                                                "value": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "required": true,
-                                                                    "help": "metadata/related_resources/qualified_relations/person/external_identifiers/value.help",
-                                                                    "label": "metadata/related_resources/qualified_relations/person/external_identifiers/value.label",
-                                                                    "hint": "metadata/related_resources/qualified_relations/person/external_identifiers/value.hint",
-                                                                    "facet": "metadata_related_resources_qualified_relations_person_external_identifiers_value"
-                                                                }
+                                                        "children": {
+                                                            "identifier_scheme": {
+                                                                "detail": "url",
+                                                                "input": "url",
+                                                                "required": true,
+                                                                "help": "metadata/related_resources/qualified_relations/person/external_identifiers/identifier_scheme.help",
+                                                                "label": "metadata/related_resources/qualified_relations/person/external_identifiers/identifier_scheme.label",
+                                                                "hint": "metadata/related_resources/qualified_relations/person/external_identifiers/identifier_scheme.hint",
+                                                                "facet": "metadata_related_resources_qualified_relations_person_external_identifiers_identifier_scheme"
+                                                            },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/related_resources/qualified_relations/person/external_identifiers/iri.help",
+                                                                "label": "metadata/related_resources/qualified_relations/person/external_identifiers/iri.label",
+                                                                "hint": "metadata/related_resources/qualified_relations/person/external_identifiers/iri.hint",
+                                                                "facet": "metadata_related_resources_qualified_relations_person_external_identifiers_iri"
+                                                            },
+                                                            "value": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "required": true,
+                                                                "help": "metadata/related_resources/qualified_relations/person/external_identifiers/value.help",
+                                                                "label": "metadata/related_resources/qualified_relations/person/external_identifiers/value.label",
+                                                                "hint": "metadata/related_resources/qualified_relations/person/external_identifiers/value.hint",
+                                                                "facet": "metadata_related_resources_qualified_relations_person_external_identifiers_value"
                                                             }
                                                         }
                                                     }
@@ -4944,12 +4891,43 @@
                                 "facet": "metadata_related_resources_title"
                             },
                             "type": {
-                                "detail": "keyword",
-                                "input": "keyword",
+                                "detail": "vocabulary_item",
+                                "edit": "vocabulary_item",
+                                "input": "vocabulary",
                                 "help": "metadata/related_resources/type.help",
                                 "label": "metadata/related_resources/type.label",
                                 "hint": "metadata/related_resources/type.hint",
-                                "facet": "metadata_related_resources_type"
+                                "facet": "metadata_related_resources_type",
+                                "children": {
+                                    "id": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/related_resources/type/id.help",
+                                        "label": "metadata/related_resources/type/id.label",
+                                        "hint": "metadata/related_resources/type/id.hint"
+                                    },
+                                    "title": {
+                                        "detail": false,
+                                        "input": false,
+                                        "help": "metadata/related_resources/type/title.help",
+                                        "label": "metadata/related_resources/type/title.label",
+                                        "hint": "metadata/related_resources/type/title.hint"
+                                    },
+                                    "iri": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/related_resources/type/iri.help",
+                                        "label": "metadata/related_resources/type/iri.label",
+                                        "hint": "metadata/related_resources/type/iri.hint"
+                                    },
+                                    "@v": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/related_resources/type/@v.help",
+                                        "label": "metadata/related_resources/type/@v.label",
+                                        "hint": "metadata/related_resources/type/@v.hint"
+                                    }
+                                }
                             }
                         }
                     }
@@ -5042,53 +5020,41 @@
                                 }
                             },
                             "in_subject_scheme": {
-                                "detail": false,
-                                "input": false,
+                                "detail": "vocabulary_item",
+                                "edit": "vocabulary_item",
+                                "input": "vocabulary",
                                 "help": "metadata/subjects/in_subject_scheme.help",
                                 "label": "metadata/subjects/in_subject_scheme.label",
                                 "hint": "metadata/subjects/in_subject_scheme.hint",
+                                "facet": "metadata_subjects_in_subject_scheme",
                                 "children": {
+                                    "id": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/subjects/in_subject_scheme/id.help",
+                                        "label": "metadata/subjects/in_subject_scheme/id.label",
+                                        "hint": "metadata/subjects/in_subject_scheme/id.hint"
+                                    },
+                                    "title": {
+                                        "detail": false,
+                                        "input": false,
+                                        "help": "metadata/subjects/in_subject_scheme/title.help",
+                                        "label": "metadata/subjects/in_subject_scheme/title.label",
+                                        "hint": "metadata/subjects/in_subject_scheme/title.hint"
+                                    },
                                     "iri": {
                                         "detail": "keyword",
                                         "input": "keyword",
                                         "help": "metadata/subjects/in_subject_scheme/iri.help",
                                         "label": "metadata/subjects/in_subject_scheme/iri.label",
-                                        "hint": "metadata/subjects/in_subject_scheme/iri.hint",
-                                        "facet": "metadata_subjects_in_subject_scheme_iri"
+                                        "hint": "metadata/subjects/in_subject_scheme/iri.hint"
                                     },
-                                    "labels": {
-                                        "detail": "array",
-                                        "input": "array",
-                                        "help": "metadata/subjects/in_subject_scheme/labels.help",
-                                        "label": "metadata/subjects/in_subject_scheme/labels.label",
-                                        "hint": "metadata/subjects/in_subject_scheme/labels.hint",
-                                        "child": {
-                                            "detail": "multilingual",
-                                            "input": "i18nStr",
-                                            "help": "metadata/subjects/in_subject_scheme/labels.help",
-                                            "label": "metadata/subjects/in_subject_scheme/labels.label",
-                                            "hint": "metadata/subjects/in_subject_scheme/labels.hint",
-                                            "facet": "metadata_subjects_in_subject_scheme_labels_cs",
-                                            "children": {
-                                                "lang": {
-                                                    "detail": "keyword",
-                                                    "input": "keyword",
-                                                    "required": true,
-                                                    "help": "metadata/subjects/in_subject_scheme/labels/lang.help",
-                                                    "label": "metadata/subjects/in_subject_scheme/labels/lang.label",
-                                                    "hint": "metadata/subjects/in_subject_scheme/labels/lang.hint",
-                                                    "facet": "metadata_subjects_in_subject_scheme_labels_lang"
-                                                },
-                                                "value": {
-                                                    "detail": "fulltext+keyword",
-                                                    "input": "fulltext+keyword",
-                                                    "required": true,
-                                                    "help": "metadata/subjects/in_subject_scheme/labels/value.help",
-                                                    "label": "metadata/subjects/in_subject_scheme/labels/value.label",
-                                                    "hint": "metadata/subjects/in_subject_scheme/labels/value.hint"
-                                                }
-                                            }
-                                        }
+                                    "@v": {
+                                        "detail": "keyword",
+                                        "input": "keyword",
+                                        "help": "metadata/subjects/in_subject_scheme/@v.help",
+                                        "label": "metadata/subjects/in_subject_scheme/@v.label",
+                                        "hint": "metadata/subjects/in_subject_scheme/@v.hint"
                                     }
                                 }
                             },
@@ -5378,44 +5344,37 @@
                                                     "label": "metadata/terms_of_use/contacts/organization/external_identifiers.label",
                                                     "hint": "metadata/terms_of_use/contacts/organization/external_identifiers.hint",
                                                     "child": {
-                                                        "detail": "array",
-                                                        "input": "array",
+                                                        "detail": "external_identifier",
+                                                        "input": "external_identifier",
                                                         "help": "metadata/terms_of_use/contacts/organization/external_identifiers.help",
                                                         "label": "metadata/terms_of_use/contacts/organization/external_identifiers.label",
                                                         "hint": "metadata/terms_of_use/contacts/organization/external_identifiers.hint",
-                                                        "child": {
-                                                            "detail": "external_identifier",
-                                                            "input": "external_identifier",
-                                                            "help": "metadata/terms_of_use/contacts/organization/external_identifiers.help",
-                                                            "label": "metadata/terms_of_use/contacts/organization/external_identifiers.label",
-                                                            "hint": "metadata/terms_of_use/contacts/organization/external_identifiers.hint",
-                                                            "children": {
-                                                                "identifier_scheme": {
-                                                                    "detail": "url",
-                                                                    "input": "url",
-                                                                    "required": true,
-                                                                    "help": "metadata/terms_of_use/contacts/organization/external_identifiers/identifier_scheme.help",
-                                                                    "label": "metadata/terms_of_use/contacts/organization/external_identifiers/identifier_scheme.label",
-                                                                    "hint": "metadata/terms_of_use/contacts/organization/external_identifiers/identifier_scheme.hint",
-                                                                    "facet": "metadata_terms_of_use_contacts_organization_external_identifiers_identifier_scheme"
-                                                                },
-                                                                "iri": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/terms_of_use/contacts/organization/external_identifiers/iri.help",
-                                                                    "label": "metadata/terms_of_use/contacts/organization/external_identifiers/iri.label",
-                                                                    "hint": "metadata/terms_of_use/contacts/organization/external_identifiers/iri.hint",
-                                                                    "facet": "metadata_terms_of_use_contacts_organization_external_identifiers_iri"
-                                                                },
-                                                                "value": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "required": true,
-                                                                    "help": "metadata/terms_of_use/contacts/organization/external_identifiers/value.help",
-                                                                    "label": "metadata/terms_of_use/contacts/organization/external_identifiers/value.label",
-                                                                    "hint": "metadata/terms_of_use/contacts/organization/external_identifiers/value.hint",
-                                                                    "facet": "metadata_terms_of_use_contacts_organization_external_identifiers_value"
-                                                                }
+                                                        "children": {
+                                                            "identifier_scheme": {
+                                                                "detail": "url",
+                                                                "input": "url",
+                                                                "required": true,
+                                                                "help": "metadata/terms_of_use/contacts/organization/external_identifiers/identifier_scheme.help",
+                                                                "label": "metadata/terms_of_use/contacts/organization/external_identifiers/identifier_scheme.label",
+                                                                "hint": "metadata/terms_of_use/contacts/organization/external_identifiers/identifier_scheme.hint",
+                                                                "facet": "metadata_terms_of_use_contacts_organization_external_identifiers_identifier_scheme"
+                                                            },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/terms_of_use/contacts/organization/external_identifiers/iri.help",
+                                                                "label": "metadata/terms_of_use/contacts/organization/external_identifiers/iri.label",
+                                                                "hint": "metadata/terms_of_use/contacts/organization/external_identifiers/iri.hint",
+                                                                "facet": "metadata_terms_of_use_contacts_organization_external_identifiers_iri"
+                                                            },
+                                                            "value": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "required": true,
+                                                                "help": "metadata/terms_of_use/contacts/organization/external_identifiers/value.help",
+                                                                "label": "metadata/terms_of_use/contacts/organization/external_identifiers/value.label",
+                                                                "hint": "metadata/terms_of_use/contacts/organization/external_identifiers/value.hint",
+                                                                "facet": "metadata_terms_of_use_contacts_organization_external_identifiers_value"
                                                             }
                                                         }
                                                     }
@@ -5646,44 +5605,37 @@
                                                                 "label": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.label",
                                                                 "hint": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.hint",
                                                                 "child": {
-                                                                    "detail": "array",
-                                                                    "input": "array",
+                                                                    "detail": "external_identifier",
+                                                                    "input": "external_identifier",
                                                                     "help": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.help",
                                                                     "label": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.label",
                                                                     "hint": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.hint",
-                                                                    "child": {
-                                                                        "detail": "external_identifier",
-                                                                        "input": "external_identifier",
-                                                                        "help": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.help",
-                                                                        "label": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.label",
-                                                                        "hint": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.hint",
-                                                                        "children": {
-                                                                            "identifier_scheme": {
-                                                                                "detail": "url",
-                                                                                "input": "url",
-                                                                                "required": true,
-                                                                                "help": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/identifier_scheme.help",
-                                                                                "label": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/identifier_scheme.label",
-                                                                                "hint": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/identifier_scheme.hint",
-                                                                                "facet": "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_identifier_scheme"
-                                                                            },
-                                                                            "iri": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "help": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/iri.help",
-                                                                                "label": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/iri.label",
-                                                                                "hint": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/iri.hint",
-                                                                                "facet": "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_iri"
-                                                                            },
-                                                                            "value": {
-                                                                                "detail": "keyword",
-                                                                                "input": "keyword",
-                                                                                "required": true,
-                                                                                "help": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/value.help",
-                                                                                "label": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/value.label",
-                                                                                "hint": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/value.hint",
-                                                                                "facet": "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_value"
-                                                                            }
+                                                                    "children": {
+                                                                        "identifier_scheme": {
+                                                                            "detail": "url",
+                                                                            "input": "url",
+                                                                            "required": true,
+                                                                            "help": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/identifier_scheme.help",
+                                                                            "label": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/identifier_scheme.label",
+                                                                            "hint": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/identifier_scheme.hint",
+                                                                            "facet": "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_identifier_scheme"
+                                                                        },
+                                                                        "iri": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "help": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/iri.help",
+                                                                            "label": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/iri.label",
+                                                                            "hint": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/iri.hint",
+                                                                            "facet": "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_iri"
+                                                                        },
+                                                                        "value": {
+                                                                            "detail": "keyword",
+                                                                            "input": "keyword",
+                                                                            "required": true,
+                                                                            "help": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/value.help",
+                                                                            "label": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/value.label",
+                                                                            "hint": "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/value.hint",
+                                                                            "facet": "metadata_terms_of_use_contacts_person_affiliations_external_identifiers_value"
                                                                         }
                                                                     }
                                                                 }
@@ -5861,44 +5813,37 @@
                                                     "label": "metadata/terms_of_use/contacts/person/external_identifiers.label",
                                                     "hint": "metadata/terms_of_use/contacts/person/external_identifiers.hint",
                                                     "child": {
-                                                        "detail": "array",
-                                                        "input": "array",
+                                                        "detail": "external_identifier",
+                                                        "input": "external_identifier",
                                                         "help": "metadata/terms_of_use/contacts/person/external_identifiers.help",
                                                         "label": "metadata/terms_of_use/contacts/person/external_identifiers.label",
                                                         "hint": "metadata/terms_of_use/contacts/person/external_identifiers.hint",
-                                                        "child": {
-                                                            "detail": "external_identifier",
-                                                            "input": "external_identifier",
-                                                            "help": "metadata/terms_of_use/contacts/person/external_identifiers.help",
-                                                            "label": "metadata/terms_of_use/contacts/person/external_identifiers.label",
-                                                            "hint": "metadata/terms_of_use/contacts/person/external_identifiers.hint",
-                                                            "children": {
-                                                                "identifier_scheme": {
-                                                                    "detail": "url",
-                                                                    "input": "url",
-                                                                    "required": true,
-                                                                    "help": "metadata/terms_of_use/contacts/person/external_identifiers/identifier_scheme.help",
-                                                                    "label": "metadata/terms_of_use/contacts/person/external_identifiers/identifier_scheme.label",
-                                                                    "hint": "metadata/terms_of_use/contacts/person/external_identifiers/identifier_scheme.hint",
-                                                                    "facet": "metadata_terms_of_use_contacts_person_external_identifiers_identifier_scheme"
-                                                                },
-                                                                "iri": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "help": "metadata/terms_of_use/contacts/person/external_identifiers/iri.help",
-                                                                    "label": "metadata/terms_of_use/contacts/person/external_identifiers/iri.label",
-                                                                    "hint": "metadata/terms_of_use/contacts/person/external_identifiers/iri.hint",
-                                                                    "facet": "metadata_terms_of_use_contacts_person_external_identifiers_iri"
-                                                                },
-                                                                "value": {
-                                                                    "detail": "keyword",
-                                                                    "input": "keyword",
-                                                                    "required": true,
-                                                                    "help": "metadata/terms_of_use/contacts/person/external_identifiers/value.help",
-                                                                    "label": "metadata/terms_of_use/contacts/person/external_identifiers/value.label",
-                                                                    "hint": "metadata/terms_of_use/contacts/person/external_identifiers/value.hint",
-                                                                    "facet": "metadata_terms_of_use_contacts_person_external_identifiers_value"
-                                                                }
+                                                        "children": {
+                                                            "identifier_scheme": {
+                                                                "detail": "url",
+                                                                "input": "url",
+                                                                "required": true,
+                                                                "help": "metadata/terms_of_use/contacts/person/external_identifiers/identifier_scheme.help",
+                                                                "label": "metadata/terms_of_use/contacts/person/external_identifiers/identifier_scheme.label",
+                                                                "hint": "metadata/terms_of_use/contacts/person/external_identifiers/identifier_scheme.hint",
+                                                                "facet": "metadata_terms_of_use_contacts_person_external_identifiers_identifier_scheme"
+                                                            },
+                                                            "iri": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "help": "metadata/terms_of_use/contacts/person/external_identifiers/iri.help",
+                                                                "label": "metadata/terms_of_use/contacts/person/external_identifiers/iri.label",
+                                                                "hint": "metadata/terms_of_use/contacts/person/external_identifiers/iri.hint",
+                                                                "facet": "metadata_terms_of_use_contacts_person_external_identifiers_iri"
+                                                            },
+                                                            "value": {
+                                                                "detail": "keyword",
+                                                                "input": "keyword",
+                                                                "required": true,
+                                                                "help": "metadata/terms_of_use/contacts/person/external_identifiers/value.help",
+                                                                "label": "metadata/terms_of_use/contacts/person/external_identifiers/value.label",
+                                                                "hint": "metadata/terms_of_use/contacts/person/external_identifiers/value.hint",
+                                                                "facet": "metadata_terms_of_use_contacts_person_external_identifiers_value"
                                                             }
                                                         }
                                                     }

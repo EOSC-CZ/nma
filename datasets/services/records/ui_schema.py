@@ -167,7 +167,7 @@ class RelatedObjectIdentifiersItemUISchema(DictOnlySchema):
 
     title = ma_fields.String()
 
-    type = ma_fields.String()
+    type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
 
 class TermsOfUseItemUISchema(DictOnlySchema):
@@ -218,7 +218,7 @@ class PersonUISchema(DictOnlySchema):
     )
 
     external_identifiers = ma_fields.List(
-        ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemUISchema()))
+        ma_fields.Nested(lambda: IdentifiersItemUISchema())
     )
 
     family_name = ma_fields.String(required=True)
@@ -239,7 +239,7 @@ class OrganizationUISchema(DictOnlySchema):
     )
 
     external_identifiers = ma_fields.List(
-        ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemUISchema()))
+        ma_fields.Nested(lambda: IdentifiersItemUISchema())
     )
 
     iri = ma_fields.String()
@@ -332,21 +332,6 @@ class OaiUISchema(DictOnlySchema):
     harvest = ma_fields.Nested(lambda: HarvestUISchema())
 
 
-class SubjectsItemUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    classification_code = ma_fields.String()
-
-    definition = I18nStrUIField()
-
-    in_subject_scheme = ma_fields.Nested(lambda: DocumentationsItemUISchema())
-
-    iri = ma_fields.String()
-
-    title = I18nStrUIField(required=True)
-
-
 class AccessServicesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
@@ -426,6 +411,21 @@ class IdentifiersItemUISchema(DictOnlySchema):
     iri = ma_fields.String()
 
     value = ma_fields.String(required=True)
+
+
+class SubjectsItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    classification_code = ma_fields.String()
+
+    definition = I18nStrUIField()
+
+    in_subject_scheme = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
+
+    iri = ma_fields.String()
+
+    title = I18nStrUIField(required=True)
 
 
 class TimeReferencesItemUISchema(DictOnlySchema):

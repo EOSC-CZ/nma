@@ -906,17 +906,8 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
         "metadata_subjects_definition_cs": facets.metadata_subjects_definition_cs,
         "metadata_subjects_definition_en": facets.metadata_subjects_definition_en,
         "metadata_subjects_definition_lang": facets.metadata_subjects_definition_lang,
-        "metadata_subjects_in_subject_scheme_iri": (
-            facets.metadata_subjects_in_subject_scheme_iri
-        ),
-        "metadata_subjects_in_subject_scheme_labels_cs": (
-            facets.metadata_subjects_in_subject_scheme_labels_cs
-        ),
-        "metadata_subjects_in_subject_scheme_labels_en": (
-            facets.metadata_subjects_in_subject_scheme_labels_en
-        ),
-        "metadata_subjects_in_subject_scheme_labels_lang": (
-            facets.metadata_subjects_in_subject_scheme_labels_lang
+        "metadata_subjects_in_subject_scheme": (
+            facets.metadata_subjects_in_subject_scheme
         ),
         "metadata_subjects_iri": facets.metadata_subjects_iri,
         "metadata_subjects_title_cs": facets.metadata_subjects_title_cs,
@@ -2014,17 +2005,8 @@ class DatasetsDraftSearchOptions(I18nRDMDraftsSearchOptions):
         "metadata_subjects_definition_cs": facets.metadata_subjects_definition_cs,
         "metadata_subjects_definition_en": facets.metadata_subjects_definition_en,
         "metadata_subjects_definition_lang": facets.metadata_subjects_definition_lang,
-        "metadata_subjects_in_subject_scheme_iri": (
-            facets.metadata_subjects_in_subject_scheme_iri
-        ),
-        "metadata_subjects_in_subject_scheme_labels_cs": (
-            facets.metadata_subjects_in_subject_scheme_labels_cs
-        ),
-        "metadata_subjects_in_subject_scheme_labels_en": (
-            facets.metadata_subjects_in_subject_scheme_labels_en
-        ),
-        "metadata_subjects_in_subject_scheme_labels_lang": (
-            facets.metadata_subjects_in_subject_scheme_labels_lang
+        "metadata_subjects_in_subject_scheme": (
+            facets.metadata_subjects_in_subject_scheme
         ),
         "metadata_subjects_iri": facets.metadata_subjects_iri,
         "metadata_subjects_title_cs": facets.metadata_subjects_title_cs,

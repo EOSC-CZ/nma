@@ -40,11 +40,10 @@ class DataRepoLoader(BaseReader):
             if record is None:
                 yield None
             else:
-                # files_link = record["links"]["self"] + "/files/"
-                # files = url_get(files_link, headers={"Accept": "application/json"})
-                # files.raise_for_status()
-                # record["files"] = files.json()
-                record["files"] = []  # for now, no files, just converting metadata
+                files_link = record["links"]["self"] + "/files/"
+                files = url_get(files_link, headers={"Accept": "application/json"})
+                files.raise_for_status()
+                record["files"] = files.json()
                 yield StreamEntry(
                     entry=record,
                     seq=seq,

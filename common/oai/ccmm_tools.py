@@ -1,6 +1,8 @@
 import time
+from collections import defaultdict
 from typing import Any
 
+import pycountry
 from invenio_access.permissions import system_identity
 from invenio_search.engine import dsl
 from invenio_vocabularies.proxies import current_service as vocabulary_service
@@ -100,3 +102,91 @@ def full_name_to_person(value):
         person["given_names"] = given_names
 
     return person
+
+
+def file_formats_by_extension():
+    alternatives = defaultdict(list)
+    for rec in vocabulary_service.scan(
+        system_identity,
+        fields=["id", "props"],
+        extra_filter=dsl.Q("term", type__id="file-types"),
+    ):
+        iri = rec["props"]["iri"]
+
+        file_ext = None
+        iana_mediatype = None
+        file_ext = rec["props"].get("FILE_EXT")
+        if not file_ext:
+            continue
+
+        iana_mediatype = rec["props"].get("IANA_MT")
+        if not iana_mediatype:
+            continue
+
+        alternatives[file_ext].append((iri, iana_mediatype))
+
+    ret = {}
+    for file_ext, values in alternatives.items():
+        if len(values) == 1:
+            ret[file_ext] = values[0]
+            continue
+
+        # multiple values for the same file extension. Take the one that matches
+        # the file extension in the IRI if there is one. If not, take the shortest iri
+        # (in terms of the number of characters)
+        shortest = None
+        for iri, iana_mediatype in values:
+            if iri.endswith(f"/{file_ext[1:].upper()}"):
+                ret[file_ext] = (iri, iana_mediatype)
+                break
+            if not shortest:
+                shortest = (iri, iana_mediatype)
+            elif len(iri) < len(shortest[0]):
+                shortest = (iri, iana_mediatype)
+        else:
+            # if no match found, take the shortest iri
+            # with the same file extension
+            ret[file_ext] = shortest
+
+    return ret
+
+
+def file_formats_by_iana():
+    ret = {}
+    for rec in vocabulary_service.scan(
+        system_identity,
+        fields=["id", "props"],
+        extra_filter=dsl.Q("term", type__id="file-types"),
+    ):
+        iri = rec["props"]["iri"]
+
+        file_ext = None
+        iana_mediatype = None
+        file_ext = rec["props"].get("FILE_EXT")
+        if not file_ext:
+            continue
+
+        iana_mediatype = rec["props"].get("IANA_MT")
+        if not iana_mediatype:
+            continue
+
+        iana_mediatype = iana_mediatype.lower()
+        if iana_mediatype in ret:
+            if len(ret[iana_mediatype]) < len(iri):
+                continue
+        ret[iana_mediatype] = iri
+
+    return ret
+
+
+def lang_dict_to_2(_lang):
+    if isinstance(_lang, dict):
+        _lang = _lang.get("id", "und")
+    if len(_lang) == 3:
+        # convert from 3 to 2 letter code
+        try:
+            _lang = pycountry.languages.get(alpha_3=_lang).alpha_2
+        except AttributeError:
+            # no alpha 2 code found, return the original value
+            return _lang
+    return _lang
