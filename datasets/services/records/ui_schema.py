@@ -44,7 +44,7 @@ class DatasetsMetadataUISchema(Schema):
         ma_fields.Nested(lambda: AlternateTitlesItemUISchema())
     )
 
-    descriptions = ma_fields.List(I18nStrUIField(), required=True)
+    descriptions = ma_fields.List(I18nStrUIField())
 
     distribution_data_services = ma_fields.List(
         ma_fields.Nested(lambda: DistributionDataServicesItemUISchema())
@@ -58,9 +58,7 @@ class DatasetsMetadataUISchema(Schema):
         ma_fields.Nested(lambda: FundingReferencesItemUISchema())
     )
 
-    identifiers = ma_fields.List(
-        ma_fields.Nested(lambda: IdentifiersItemUISchema()), required=True
-    )
+    identifiers = ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemUISchema()))
 
     iri = ma_fields.String()
 
@@ -169,7 +167,7 @@ class RelatedObjectIdentifiersItemUISchema(DictOnlySchema):
 
     title = ma_fields.String()
 
-    type = ma_fields.String()
+    type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
 
 class TermsOfUseItemUISchema(DictOnlySchema):
@@ -180,7 +178,7 @@ class TermsOfUseItemUISchema(DictOnlySchema):
 
     contacts = ma_fields.List(ma_fields.Nested(lambda: ContactsItemUISchema()))
 
-    description = I18nStrUIField()
+    description = ma_fields.List(I18nStrUIField())
 
     iri = ma_fields.String()
 
@@ -219,9 +217,9 @@ class PersonUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: ContactPointsItemUISchema())
     )
 
-    external_identifier_type = ma_fields.String()
-
-    external_identifiers = ma_fields.List(ma_fields.String())
+    external_identifiers = ma_fields.List(
+        ma_fields.Nested(lambda: IdentifiersItemUISchema())
+    )
 
     family_name = ma_fields.String(required=True)
 
@@ -240,9 +238,9 @@ class OrganizationUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: ContactPointsItemUISchema())
     )
 
-    external_identifier_type = ma_fields.String()
-
-    external_identifiers = ma_fields.List(ma_fields.String())
+    external_identifiers = ma_fields.List(
+        ma_fields.Nested(lambda: IdentifiersItemUISchema())
+    )
 
     iri = ma_fields.String()
 
@@ -291,11 +289,11 @@ class DistributionDownloadableFilesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    access_urls = ma_fields.List(ma_fields.String(), required=True)
+    access_urls = ma_fields.List(ma_fields.String())
 
     byte_size = ma_fields.Integer()
 
-    checksum = ma_fields.String(required=True)
+    checksum = ma_fields.String()
 
     conforms_to_schemas = ma_fields.List(
         ma_fields.Nested(lambda: DocumentationsItemUISchema())
@@ -332,21 +330,6 @@ class OaiUISchema(DictOnlySchema):
         unknown = ma.RAISE
 
     harvest = ma_fields.Nested(lambda: HarvestUISchema())
-
-
-class SubjectsItemUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    classification_code = ma_fields.String()
-
-    definition = I18nStrUIField()
-
-    in_subject_scheme = ma_fields.Nested(lambda: DocumentationsItemUISchema())
-
-    iri = ma_fields.String()
-
-    title = I18nStrUIField(required=True)
 
 
 class AccessServicesItemUISchema(DictOnlySchema):
@@ -401,9 +384,9 @@ class FundersItemUISchema(DictOnlySchema):
 
     funder_identifier_scheme_uri = ma_fields.String()
 
-    funder_identifier_type = ma_fields.String(required=True)
+    funder_identifier_type = ma_fields.String()
 
-    funder_identifier_value = ma_fields.String(required=True)
+    funder_identifier_value = ma_fields.String()
 
     funder_name = ma_fields.String()
 
@@ -428,6 +411,21 @@ class IdentifiersItemUISchema(DictOnlySchema):
     iri = ma_fields.String()
 
     value = ma_fields.String(required=True)
+
+
+class SubjectsItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    classification_code = ma_fields.String()
+
+    definition = I18nStrUIField()
+
+    in_subject_scheme = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
+
+    iri = ma_fields.String()
+
+    title = I18nStrUIField(required=True)
 
 
 class TimeReferencesItemUISchema(DictOnlySchema):

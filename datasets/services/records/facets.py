@@ -471,17 +471,24 @@ metadata_is_described_by_qualified_relations_organization_contact_points_phones 
     ),
 )
 
-metadata_is_described_by_qualified_relations_organization_external_identifier_type = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.organization.external_identifier_type",
+metadata_is_described_by_qualified_relations_organization_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/is_described_by/qualified_relations/organization/external_identifier_type.label"
+        "metadata/is_described_by/qualified_relations/organization/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_is_described_by_qualified_relations_organization_external_identifiers = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.organization.external_identifiers",
+metadata_is_described_by_qualified_relations_organization_external_identifiers_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.external_identifiers.iri",
     label=_(
-        "metadata/is_described_by/qualified_relations/organization/external_identifiers.label"
+        "metadata/is_described_by/qualified_relations/organization/external_identifiers/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_organization_external_identifiers_value = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.organization.external_identifiers.value",
+    label=_(
+        "metadata/is_described_by/qualified_relations/organization/external_identifiers/value.label"
     ),
 )
 
@@ -593,17 +600,24 @@ metadata_is_described_by_qualified_relations_person_affiliations_contact_points_
     ),
 )
 
-metadata_is_described_by_qualified_relations_person_affiliations_external_identifier_type = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.person.affiliations.external_identifier_type",
+metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/is_described_by/qualified_relations/person/affiliations/external_identifier_type.label"
+        "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.person.affiliations.external_identifiers",
+metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.external_identifiers.iri",
     label=_(
-        "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers.label"
+        "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_affiliations_external_identifiers_value = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.affiliations.external_identifiers.value",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/affiliations/external_identifiers/value.label"
     ),
 )
 
@@ -697,17 +711,24 @@ metadata_is_described_by_qualified_relations_person_contact_points_phones = Term
     ),
 )
 
-metadata_is_described_by_qualified_relations_person_external_identifier_type = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.person.external_identifier_type",
+metadata_is_described_by_qualified_relations_person_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/is_described_by/qualified_relations/person/external_identifier_type.label"
+        "metadata/is_described_by/qualified_relations/person/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_is_described_by_qualified_relations_person_external_identifiers = TermsFacet(
-    field="metadata.is_described_by.qualified_relations.person.external_identifiers",
+metadata_is_described_by_qualified_relations_person_external_identifiers_iri = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.external_identifiers.iri",
     label=_(
-        "metadata/is_described_by/qualified_relations/person/external_identifiers.label"
+        "metadata/is_described_by/qualified_relations/person/external_identifiers/iri.label"
+    ),
+)
+
+metadata_is_described_by_qualified_relations_person_external_identifiers_value = TermsFacet(
+    field="metadata.is_described_by.qualified_relations.person.external_identifiers.value",
+    label=_(
+        "metadata/is_described_by/qualified_relations/person/external_identifiers/value.label"
     ),
 )
 
@@ -900,17 +921,24 @@ metadata_locations_related_object_identifiers_qualified_relations_organization_c
     ),
 )
 
-metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifier_type = TermsFacet(
-    field="metadata.locations.related_object_identifiers.qualified_relations.organization.external_identifier_type",
+metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifier_type.label"
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers = TermsFacet(
-    field="metadata.locations.related_object_identifiers.qualified_relations.organization.external_identifiers",
+metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.external_identifiers.iri",
     label=_(
-        "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers.label"
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_organization_external_identifiers_value = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.organization.external_identifiers.value",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/organization/external_identifiers/value.label"
     ),
 )
 
@@ -1028,17 +1056,24 @@ metadata_locations_related_object_identifiers_qualified_relations_person_affilia
     ),
 )
 
-metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifier_type = TermsFacet(
-    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.external_identifier_type",
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifier_type.label"
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers = TermsFacet(
-    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.external_identifiers",
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.external_identifiers.iri",
     label=_(
-        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers.label"
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_affiliations_external_identifiers_value = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.affiliations.external_identifiers.value",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/affiliations/external_identifiers/value.label"
     ),
 )
 
@@ -1132,17 +1167,24 @@ metadata_locations_related_object_identifiers_qualified_relations_person_contact
     ),
 )
 
-metadata_locations_related_object_identifiers_qualified_relations_person_external_identifier_type = TermsFacet(
-    field="metadata.locations.related_object_identifiers.qualified_relations.person.external_identifier_type",
+metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifier_type.label"
+        "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers = TermsFacet(
-    field="metadata.locations.related_object_identifiers.qualified_relations.person.external_identifiers",
+metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_iri = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.external_identifiers.iri",
     label=_(
-        "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers.label"
+        "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/iri.label"
+    ),
+)
+
+metadata_locations_related_object_identifiers_qualified_relations_person_external_identifiers_value = TermsFacet(
+    field="metadata.locations.related_object_identifiers.qualified_relations.person.external_identifiers.value",
+    label=_(
+        "metadata/locations/related_object_identifiers/qualified_relations/person/external_identifiers/value.label"
     ),
 )
 
@@ -1211,9 +1253,10 @@ metadata_locations_related_object_identifiers_title = TermsFacet(
     label=_("metadata/locations/related_object_identifiers/title.label"),
 )
 
-metadata_locations_related_object_identifiers_type = TermsFacet(
+metadata_locations_related_object_identifiers_type = VocabularyFacet(
     field="metadata.locations.related_object_identifiers.type",
     label=_("metadata/locations/related_object_identifiers/type.label"),
+    vocabulary="resource-types",
 )
 
 metadata_other_languages = VocabularyFacet(
@@ -1328,14 +1371,23 @@ metadata_qualified_relations_organization_contact_points_phones = TermsFacet(
     label=_("metadata/qualified_relations/organization/contact_points/phones.label"),
 )
 
-metadata_qualified_relations_organization_external_identifier_type = TermsFacet(
-    field="metadata.qualified_relations.organization.external_identifier_type",
-    label=_("metadata/qualified_relations/organization/external_identifier_type.label"),
+metadata_qualified_relations_organization_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.qualified_relations.organization.external_identifiers.identifier_scheme",
+    label=_(
+        "metadata/qualified_relations/organization/external_identifiers/identifier_scheme.label"
+    ),
 )
 
-metadata_qualified_relations_organization_external_identifiers = TermsFacet(
-    field="metadata.qualified_relations.organization.external_identifiers",
-    label=_("metadata/qualified_relations/organization/external_identifiers.label"),
+metadata_qualified_relations_organization_external_identifiers_iri = TermsFacet(
+    field="metadata.qualified_relations.organization.external_identifiers.iri",
+    label=_("metadata/qualified_relations/organization/external_identifiers/iri.label"),
+)
+
+metadata_qualified_relations_organization_external_identifiers_value = TermsFacet(
+    field="metadata.qualified_relations.organization.external_identifiers.value",
+    label=_(
+        "metadata/qualified_relations/organization/external_identifiers/value.label"
+    ),
 )
 
 metadata_qualified_relations_organization_iri = TermsFacet(
@@ -1440,17 +1492,24 @@ metadata_qualified_relations_person_affiliations_contact_points_phones = TermsFa
     ),
 )
 
-metadata_qualified_relations_person_affiliations_external_identifier_type = TermsFacet(
-    field="metadata.qualified_relations.person.affiliations.external_identifier_type",
+metadata_qualified_relations_person_affiliations_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/qualified_relations/person/affiliations/external_identifier_type.label"
+        "metadata/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_qualified_relations_person_affiliations_external_identifiers = TermsFacet(
-    field="metadata.qualified_relations.person.affiliations.external_identifiers",
+metadata_qualified_relations_person_affiliations_external_identifiers_iri = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.external_identifiers.iri",
     label=_(
-        "metadata/qualified_relations/person/affiliations/external_identifiers.label"
+        "metadata/qualified_relations/person/affiliations/external_identifiers/iri.label"
+    ),
+)
+
+metadata_qualified_relations_person_affiliations_external_identifiers_value = TermsFacet(
+    field="metadata.qualified_relations.person.affiliations.external_identifiers.value",
+    label=_(
+        "metadata/qualified_relations/person/affiliations/external_identifiers/value.label"
     ),
 )
 
@@ -1526,14 +1585,21 @@ metadata_qualified_relations_person_contact_points_phones = TermsFacet(
     label=_("metadata/qualified_relations/person/contact_points/phones.label"),
 )
 
-metadata_qualified_relations_person_external_identifier_type = TermsFacet(
-    field="metadata.qualified_relations.person.external_identifier_type",
-    label=_("metadata/qualified_relations/person/external_identifier_type.label"),
+metadata_qualified_relations_person_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.qualified_relations.person.external_identifiers.identifier_scheme",
+    label=_(
+        "metadata/qualified_relations/person/external_identifiers/identifier_scheme.label"
+    ),
 )
 
-metadata_qualified_relations_person_external_identifiers = TermsFacet(
-    field="metadata.qualified_relations.person.external_identifiers",
-    label=_("metadata/qualified_relations/person/external_identifiers.label"),
+metadata_qualified_relations_person_external_identifiers_iri = TermsFacet(
+    field="metadata.qualified_relations.person.external_identifiers.iri",
+    label=_("metadata/qualified_relations/person/external_identifiers/iri.label"),
+)
+
+metadata_qualified_relations_person_external_identifiers_value = TermsFacet(
+    field="metadata.qualified_relations.person.external_identifiers.value",
+    label=_("metadata/qualified_relations/person/external_identifiers/value.label"),
 )
 
 metadata_qualified_relations_person_family_name = TermsFacet(
@@ -1665,17 +1731,24 @@ metadata_related_resources_qualified_relations_organization_contact_points_phone
     ),
 )
 
-metadata_related_resources_qualified_relations_organization_external_identifier_type = TermsFacet(
-    field="metadata.related_resources.qualified_relations.organization.external_identifier_type",
+metadata_related_resources_qualified_relations_organization_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/related_resources/qualified_relations/organization/external_identifier_type.label"
+        "metadata/related_resources/qualified_relations/organization/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_related_resources_qualified_relations_organization_external_identifiers = TermsFacet(
-    field="metadata.related_resources.qualified_relations.organization.external_identifiers",
+metadata_related_resources_qualified_relations_organization_external_identifiers_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.external_identifiers.iri",
     label=_(
-        "metadata/related_resources/qualified_relations/organization/external_identifiers.label"
+        "metadata/related_resources/qualified_relations/organization/external_identifiers/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_organization_external_identifiers_value = TermsFacet(
+    field="metadata.related_resources.qualified_relations.organization.external_identifiers.value",
+    label=_(
+        "metadata/related_resources/qualified_relations/organization/external_identifiers/value.label"
     ),
 )
 
@@ -1787,17 +1860,24 @@ metadata_related_resources_qualified_relations_person_affiliations_contact_point
     ),
 )
 
-metadata_related_resources_qualified_relations_person_affiliations_external_identifier_type = TermsFacet(
-    field="metadata.related_resources.qualified_relations.person.affiliations.external_identifier_type",
+metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/related_resources/qualified_relations/person/affiliations/external_identifier_type.label"
+        "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_related_resources_qualified_relations_person_affiliations_external_identifiers = TermsFacet(
-    field="metadata.related_resources.qualified_relations.person.affiliations.external_identifiers",
+metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.external_identifiers.iri",
     label=_(
-        "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers.label"
+        "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_affiliations_external_identifiers_value = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.affiliations.external_identifiers.value",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/affiliations/external_identifiers/value.label"
     ),
 )
 
@@ -1891,17 +1971,24 @@ metadata_related_resources_qualified_relations_person_contact_points_phones = Te
     ),
 )
 
-metadata_related_resources_qualified_relations_person_external_identifier_type = TermsFacet(
-    field="metadata.related_resources.qualified_relations.person.external_identifier_type",
+metadata_related_resources_qualified_relations_person_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/related_resources/qualified_relations/person/external_identifier_type.label"
+        "metadata/related_resources/qualified_relations/person/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_related_resources_qualified_relations_person_external_identifiers = TermsFacet(
-    field="metadata.related_resources.qualified_relations.person.external_identifiers",
+metadata_related_resources_qualified_relations_person_external_identifiers_iri = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.external_identifiers.iri",
     label=_(
-        "metadata/related_resources/qualified_relations/person/external_identifiers.label"
+        "metadata/related_resources/qualified_relations/person/external_identifiers/iri.label"
+    ),
+)
+
+metadata_related_resources_qualified_relations_person_external_identifiers_value = TermsFacet(
+    field="metadata.related_resources.qualified_relations.person.external_identifiers.value",
+    label=_(
+        "metadata/related_resources/qualified_relations/person/external_identifiers/value.label"
     ),
 )
 
@@ -1958,9 +2045,10 @@ metadata_related_resources_title = TermsFacet(
     label=_("metadata/related_resources/title.label"),
 )
 
-metadata_related_resources_type = TermsFacet(
+metadata_related_resources_type = VocabularyFacet(
     field="metadata.related_resources.type",
     label=_("metadata/related_resources/type.label"),
+    vocabulary="resource-types",
 )
 
 metadata_resource_type = VocabularyFacet(
@@ -1992,27 +2080,10 @@ metadata_subjects_definition_lang = NestedLabeledFacet(
     ),
 )
 
-metadata_subjects_in_subject_scheme_iri = TermsFacet(
-    field="metadata.subjects.in_subject_scheme.iri",
-    label=_("metadata/subjects/in_subject_scheme/iri.label"),
-)
-
-metadata_subjects_in_subject_scheme_labels_cs = TermsFacet(
-    field="metadata.subjects.in_subject_scheme.labels.cs.keyword",
-    label=_("metadata/subjects/in_subject_scheme/labels.label"),
-)
-
-metadata_subjects_in_subject_scheme_labels_en = TermsFacet(
-    field="metadata.subjects.in_subject_scheme.labels.en.keyword",
-    label=_("metadata/subjects/in_subject_scheme/labels.label"),
-)
-
-metadata_subjects_in_subject_scheme_labels_lang = NestedLabeledFacet(
-    path="metadata.subjects.in_subject_scheme.labels",
-    nested_facet=TermsFacet(
-        field="metadata.subjects.in_subject_scheme.labels.lang",
-        label=_("metadata/subjects/in_subject_scheme/labels/lang.label"),
-    ),
+metadata_subjects_in_subject_scheme = VocabularyFacet(
+    field="metadata.subjects.in_subject_scheme",
+    label=_("metadata/subjects/in_subject_scheme.label"),
+    vocabulary="subject-schemes",
 )
 
 metadata_subjects_iri = TermsFacet(
@@ -2114,16 +2185,25 @@ metadata_terms_of_use_contacts_organization_contact_points_phones = TermsFacet(
     label=_("metadata/terms_of_use/contacts/organization/contact_points/phones.label"),
 )
 
-metadata_terms_of_use_contacts_organization_external_identifier_type = TermsFacet(
-    field="metadata.terms_of_use.contacts.organization.external_identifier_type",
+metadata_terms_of_use_contacts_organization_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/terms_of_use/contacts/organization/external_identifier_type.label"
+        "metadata/terms_of_use/contacts/organization/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_terms_of_use_contacts_organization_external_identifiers = TermsFacet(
-    field="metadata.terms_of_use.contacts.organization.external_identifiers",
-    label=_("metadata/terms_of_use/contacts/organization/external_identifiers.label"),
+metadata_terms_of_use_contacts_organization_external_identifiers_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.external_identifiers.iri",
+    label=_(
+        "metadata/terms_of_use/contacts/organization/external_identifiers/iri.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_organization_external_identifiers_value = TermsFacet(
+    field="metadata.terms_of_use.contacts.organization.external_identifiers.value",
+    label=_(
+        "metadata/terms_of_use/contacts/organization/external_identifiers/value.label"
+    ),
 )
 
 metadata_terms_of_use_contacts_organization_iri = TermsFacet(
@@ -2228,17 +2308,24 @@ metadata_terms_of_use_contacts_person_affiliations_contact_points_phones = Terms
     ),
 )
 
-metadata_terms_of_use_contacts_person_affiliations_external_identifier_type = TermsFacet(
-    field="metadata.terms_of_use.contacts.person.affiliations.external_identifier_type",
+metadata_terms_of_use_contacts_person_affiliations_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.external_identifiers.identifier_scheme",
     label=_(
-        "metadata/terms_of_use/contacts/person/affiliations/external_identifier_type.label"
+        "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/identifier_scheme.label"
     ),
 )
 
-metadata_terms_of_use_contacts_person_affiliations_external_identifiers = TermsFacet(
-    field="metadata.terms_of_use.contacts.person.affiliations.external_identifiers",
+metadata_terms_of_use_contacts_person_affiliations_external_identifiers_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.external_identifiers.iri",
     label=_(
-        "metadata/terms_of_use/contacts/person/affiliations/external_identifiers.label"
+        "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/iri.label"
+    ),
+)
+
+metadata_terms_of_use_contacts_person_affiliations_external_identifiers_value = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.affiliations.external_identifiers.value",
+    label=_(
+        "metadata/terms_of_use/contacts/person/affiliations/external_identifiers/value.label"
     ),
 )
 
@@ -2314,14 +2401,21 @@ metadata_terms_of_use_contacts_person_contact_points_phones = TermsFacet(
     label=_("metadata/terms_of_use/contacts/person/contact_points/phones.label"),
 )
 
-metadata_terms_of_use_contacts_person_external_identifier_type = TermsFacet(
-    field="metadata.terms_of_use.contacts.person.external_identifier_type",
-    label=_("metadata/terms_of_use/contacts/person/external_identifier_type.label"),
+metadata_terms_of_use_contacts_person_external_identifiers_identifier_scheme = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.external_identifiers.identifier_scheme",
+    label=_(
+        "metadata/terms_of_use/contacts/person/external_identifiers/identifier_scheme.label"
+    ),
 )
 
-metadata_terms_of_use_contacts_person_external_identifiers = TermsFacet(
-    field="metadata.terms_of_use.contacts.person.external_identifiers",
-    label=_("metadata/terms_of_use/contacts/person/external_identifiers.label"),
+metadata_terms_of_use_contacts_person_external_identifiers_iri = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.external_identifiers.iri",
+    label=_("metadata/terms_of_use/contacts/person/external_identifiers/iri.label"),
+)
+
+metadata_terms_of_use_contacts_person_external_identifiers_value = TermsFacet(
+    field="metadata.terms_of_use.contacts.person.external_identifiers.value",
+    label=_("metadata/terms_of_use/contacts/person/external_identifiers/value.label"),
 )
 
 metadata_terms_of_use_contacts_person_family_name = TermsFacet(
