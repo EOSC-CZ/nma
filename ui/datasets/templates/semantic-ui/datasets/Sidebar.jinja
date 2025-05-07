@@ -1,56 +1,24 @@
-{#def metadata, record #}
-<section aria-label="{{_('metadata/objectIdentifiers.label')}}" class="bottom-tab">
-  <AccordionField label={_('metadata/objectIdentifiers.label')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
-    <div class="ui link list">
-      <div class="item">
-        <i class="external alternate icon"></i>
-        <div class="content">
-          {% set _data = {
-          "href": metadata.url,
-          "title": _('metadata/originalRecord.label'),
-          "label": _('metadata/originalRecord.label')
-          } %}
-          <URL className="header" data={_data}></URL>
-        </div>
-      </div>
-    </div>
-  </AccordionField>
+
+{#def  record, extra_context, is_preview  #}
+{%set recordRequests = record.expanded.requests and record.expanded.requests|selectattr('status', 'in', ['submitted', 'created'])|list%}
+{% if record.expanded.request_types or recordRequests or record.links.edit_html %}
+<section class="ui segment" aria-label='{{ _("Actions") }}'>
+<h2 class="ui small header detail-sidebar-header">{{ _("Actions") }}</h2>
+{% if record.links.edit_html%}
+  <div class="mb-10">
+    <SidebarLink icon="pencil" href={record.links.edit_html}>
+      {{_('Edit')}}
+    </SidebarLink>
+  </div>
+{% endif %}
+{% if record.expanded.request_types or recordRequests %}
+  <RecordRequests record={record} />
+{% endif %}
 </section>
-<section id="export-record" aria-label="{{_('Export')}}" class="bottom-tab">
-  <AccordionField label={_('Export')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
-    <div class="ui link list">
-      <div class="item">
-        <i class="download link icon"></i>
-        <div class="content">
-          {% set _data = {
-          "href": record.links.export_path|e ~ "/json",
-          "title": _('Export') ~ ' JSON',
-          "label": "JSON"
-          } %}
-          <URL className="header" data={_data}></URL>
-        </div>
-      </div>
-      <div class="item">
-        <i class="download link icon"></i>
-        <div class="content">
-          {% set _data = {
-          "href": record.links.export_path|e ~ "/dcat-ap",
-          "title": _('Export') ~ ' DCAT AP',
-          "label": "DCAT-AP"
-          } %}
-          <URL className="header" data={_data}></URL>
-        </div>
-      </div>
-    </div>
-  </AccordionField>
-</section>
-<section aria-label="{{_('API') ~ ' ' ~ _('Links')}}" class="bottom-tab">
-  <AccordionField label={_('API') ~ ' ' ~ _('Links')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
-    <SidebarApiLinks links={record.links}></SidebarApiLinks>
-  </AccordionField>
-</section>
-<section aria-label="{{_('Citations')}}">
-  <AccordionField label={_('Citations')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
-    <RecordCitations record={record} />
-  </AccordionField>
-</section>
+{% endif %}
+{% if record.expanded.communities %}
+  <RecordCommunities communities={record.expanded.communities} />
+{% endif %}
+<IdentifiersAndLinks originalRecordUrl={record.metadata.originalRecord} objectIdentifiers={record.metadata.objectIdentifiers}/>
+<RecordVersions record={record} is_preview={is_preview} />
+<RecordExport record={record} metadata={record.metadata} extra_context={extra_context}/>

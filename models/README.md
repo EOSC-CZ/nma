@@ -1,27 +1,20 @@
 # `models` folder
 
-Contains generated models. 
+This folder contains your models. Models are the core of your
+repository - they define the structure of your metadata and how
+it is stored in the database.
 
-## Creating models
+## Usage
+
+## Adding new model
 
 ```bash
-nrp model add <model-name> --config <custom config> \
-  --use <custom model>[:<jsonpath>] \
-  --no-input
+nrp model create <model-name>
 ```
 
-Will create a new model. You can provide your own oarepo.yaml
-config for the model via the --config option (to get the format,
-run the command without --config, answer all the questions
-and then copy the model part of the oarepo.yaml to your own file)
-
-You can also include a custom model. The file will be copied
-to the destination and referenced from the generated model file.
-If no path is specified, it will be referenced from the root
-of the file, with path the reference will be put there.
-
-Use `--no-input` to disable asking questions (and be sure to
-run it with `--config`)
+Will create a template for a new model. When finished, you can
+start modifying the metadata schema of the model to suit your needs.
+When you are done, compile the model.
 
 ## Compiling models
 
@@ -29,22 +22,6 @@ run it with `--config`)
 nrp model compile <model-name>
 ```
 
-This command will compile your model into invenio sources
-
-## Installing models
-
-```bash
-nrp model install <model-name> [<site-name>]
-```
-
-Will install the model into the given site. Site name 
-can be omitted if there is only one site in the monorepo.
-
-## Uninstalling models
-
-```bash
-nrp model uninstall <model-name> [<site-name>] [--remove-directory]
-```
-
-Will uninstall the model from the given site. Site name 
-can be omitted if there is only one site in the monorepo.
+This command will compile your model into invenio sources. You should
+not modify those sources directly, as they will be overwritten when
+you recompile the model.

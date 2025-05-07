@@ -11,7 +11,7 @@ export devtools_cli_directory="$nrp_directory/devtools"
 
 echo "base_directory: $base_directory"
 
-NRP_VERSION=1
+NRP_VERSION=12
 
 # This script runs the NRP repository tools
 
@@ -36,11 +36,11 @@ if [ -f ~/.envrc.local ] ; then
   source ~/.envrc.local
 fi
 
-
+PYTHON_VERSION="${PYTHON_VERSION:-3.12}"
 SUPPORTED_PYTHON_PATHS=(
-  /usr/bin/python3.12
-  /opt/homebrew/bin/python3.12
-  /usr/local/bin/python3.12
+  "/usr/bin/python${PYTHON_VERSION}"
+  "/opt/homebrew/bin/python${PYTHON_VERSION}"
+  "/usr/local/bin/python${PYTHON_VERSION}"
 )
 
 if [ -z "$PYTHON" ] ; then
@@ -95,160 +95,9 @@ check_create_nrp_venv() {
   fi
 }
 
-run_service() {
-  service_name=$1
-  shift
-
-  cmd=$1
-  shift
-
-  echo "Checking if should run $service_name ..."
-
-  while [ -f $nrp_directory/.run_${service_name} ] ; do
-    echo "Trying to run $service_name ..."
-    "$cmd" "$@" </dev/null &
-    pid=$!
-    echo "Running $service_name with pid $pid ..."
-    echo "$pid" > $nrp_directory/.${service_name}_pid
-    # wait up a bit if the process dies immediately
-    sleep 10
-    # wait for the process to finish
-    while kill -0 "$pid" 2>/dev/null; do
-      sleep 1
-    done
-  done
-}
-
-
-run_file_watcher() {
-  touch "$nrp_directory/.run_watcher"
-  run_service watcher \
-    "$devtools_cli_directory"/bin/nrp-devtools watch
-}
-
-run_backend() {
-  touch "$nrp_directory/.run_backend"
-  run_service backend \
-    "$venv_directory"/bin/invenio run \
-    --cert $base_directory/docker/development.crt \
-    --key $base_directory/docker/development.key </dev/null
-}
-
-run_frontend() {
-  touch "$nrp_directory/.run_frontend"
-  cd "$venv_directory"/var/instance/assets
-  run_service frontend npm run start
-}
-
-stop_gracefully() {
-  # check if process $1 exists and kill it
-  if [ ! -f $1 ] ; then
-    return
-  fi
-  pid=$(cat "$1")
-
-  if kill -0 "$pid" 2>/dev/null; then
-    kill $pid || true
-  fi
-
-  sleep 1
-
-  if kill -0 "$pid" 2>/dev/null; then
-    sleep 5
-  fi
-
-  if kill -0 "$pid" 2>/dev/null; then
-    kill -9 $pid || true
-  fi
-
-  rm -f "$1" || true
-}
-
-stop_watcher() {
-  stop_gracefully "$nrp_directory/.watcher_pid"
-}
-
-stop_backend() {
-  stop_gracefully "$nrp_directory/.backend_pid"
-}
-
-stop_frontend() {
-  stop_gracefully "$nrp_directory/.frontend_pid"
-}
-
-develop_cleanup() {
-  rm -f "$nrp_directory/.run_watcher"
-  rm -f "$nrp_directory/.run_backend"
-  rm -f "$nrp_directory/.run_frontend"
-
-  echo "Stopping watcher ..."
-  stop_watcher
-  echo "Stopping backend ..."
-  stop_backend
-  echo "Stopping frontend ..."
-  stop_frontend
-
-  exit 1
-}
-
-
-run_user_develop_input() {
-  while true ; do
-    echo
-    echo "1 or server     - restart python server"
-    echo "2 or ui         - restart webpack server"
-    echo "0 or stop       - stop the server (Ctrl-C also works)"
-    echo
-    if read -t 30 -p "Enter command: " cmd ; then
-      echo
-      echo "Executing: $cmd"
-      if [ "$cmd" == "stop" -o "$cmd" == "0" ] ; then
-        break
-      fi
-      if [ "$cmd" == "server" -o "$cmd" == "1" ] ; then
-        stop_backend
-      elif [ "$cmd" == "frontend" -o "$cmd" == "2" ] ; then
-        stop_frontend
-      fi
-    fi
-  done
-}
-
-run_develop_with_shell() {
-  # check if there is a develop --shell commands anywhere in arguments
-  develop_called=0
-
-  # Loop through all arguments
-  for arg in "$@"; do
-    if [[ "$arg" == "develop" ]]; then
-      develop_called=1
-    elif [[ "$arg" == "--shell" ]]; then
-      return 0
-    fi
-  done
-  return 1
-}
-
 
 # main entrypoint in here
 
 check_create_nrp_venv
 source "$devtools_cli_directory"/bin/activate
 "$devtools_cli_directory"/bin/nrp-devtools "$@"
-
-# if running nrp develop in shell,
-# start the services and run the input cmd watcher
-if run_develop_with_shell "$@" ; then
-  # register cleanup at exit and sigint
-  trap develop_cleanup EXIT
-  trap develop_cleanup SIGINT
-
-  run_file_watcher &
-  sleep 2
-  run_backend &
-  sleep 2
-  run_frontend &
-
-  sleep 20
-  run_user_develop_input
-fi

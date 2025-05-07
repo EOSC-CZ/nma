@@ -1,10 +1,8 @@
-.ui.checkbox.facet-checkbox {
-  line-height: normal;
+.ui.toggle.checkbox {
+  label::before {
+    background-color: @darkGrey;
+  }
 }
-
-/* Checked */
-.ui.checkbox input:checked ~ .box:after,
-.ui.checkbox input:checked ~ label:after {
-  color: @white;
-  content: '✕';
+.ui.toggle.checkbox input:focus ~ label:before {
+  background-color: @darkGrey;
 }

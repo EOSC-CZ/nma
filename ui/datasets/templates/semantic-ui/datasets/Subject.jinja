@@ -1,0 +1,11 @@
+{# def d, level #}
+<ITable>
+  <ITableField d={d.classification_code} level={level}/>
+  <ITableField d={d.definition} level={level}>
+      <IMultilingual d={d.definition} />
+  </ITableField>
+  <ITableField d={d.iri} level={level}/>
+  <ITableField d={d.title} level={level}>
+      <IMultilingual d={d.title} />
+  </ITableField>
+</ITable>

@@ -1,63 +1,155 @@
-@fontName: "Roboto";
-@pageFont: @fontName;
-@importGoogleFonts: false;
-@fontSize: 16px;
-
-// @mobileBreakpoint            : 320px;
-// @tabletBreakpoint            : 768px;
-// @computerBreakpoint          : 992px;
-// @largeMonitorBreakpoint      : 1200px;
-// @widescreenMonitorBreakpoint : 1920px;
-
-/*-------------------
-      Site Colors
---------------------*/
-@brandColor: hsl(0deg, 0%, 100% / 50%);
-@teal: #008691;
-@pink: #ff5b7f;
-@black: #040305;
-@lightGrey: #d9d9d9;
-@grey: #707075;
-@darkGrey: #333333;
-
-@navbar_background_color: #fff;
-
-@borderColor: @teal;
-
-@highlightHeaderColor: @lightGrey;
-
-@pageBackground: hsl(0, 0%, 96.5%);
-// @pageBackground: hsl(0, 0%, 98%);
-
-// @hoveredTextColor: @pink;
+/***********************************************
+    Invenio NRP Site Styling Variables
+***********************************************/
 
 /*-------------------
     Brand Colors
 --------------------*/
-
-@primaryColor: @teal;
-@secondaryColor: @pink;
-
-@lightPrimaryColor: lighten(@teal, 50%);
-@lightSecondaryColor: lighten(@pink, 50%);
+@backgroundColor: #f9f9f9;
+@livelyGreen: #008691;
+@pink: #ff5b7f;
+@primaryColor: #23d26e;
+@borderColor: @primaryColor;
+@secondaryColor: #0478f0;
+@tertiaryColor: #9c27b0;
+@darkGrey: #9a9a9a;
+@lightGrey: #d9d9d9;
+@black: #040305;
+@white: #ffffff;
+@lightBackground: #f2f2f2;
+@lightPrimaryColor: #adf0ca;
+@lightSecondaryColor: #7db8f5;
+@primaryDarkenColor: @darkGrey;
 
 @selectionBackground: @lightGrey;
-@celledBorderColor: @teal;
+@celledBorderColor: @primaryColor;
 
-@loaderFillColor: @lightGrey;
-@loaderLineColor: lighten(@pink, 25%);
+// for backwards compatibility
+@brandColor: @primaryColor;
+@brand-primary: @primaryColor;
 
 /*-------------------
-       Links
+      Site Colors
 --------------------*/
 
-@linkColor: @teal;
+@green: #00b691;
+@red: darken(@pink, 20);
+@signupColor: @green;
+
+@accessRightOpen: @green;
+@accessRightRestricted: @red;
+@accessRightEmbargoed: @yellow;
+@accessRightMetadataOnly: @teal;
+
+@restricted-components-background-color: #feeaea;
+@restricted-components-border-color: #e0b4b4;
+@embargoed-components-background-color: #fbf8ee;
+@embargoed-components-border-color: #c9ba9b;
+
+@footerLightColor: #0377cd;
+@footerDarkColor: #0047a8;
+@subFooterColor: @footerDarkColor;
+@footerTextLightColor: #ffffff;
+@footerTextDarkColor: #ffffff;
+
+@navbar_background_image: #ffffffaa;
+@navbar_background_color: #ffffffaa;
+
+@coverPageBackgroundColor: @livelyGreen;
+
+@errorTextColor: #9f3a38;
+@focusedFormBorderColor: #2185d0;
+@focusedFormMutedBorderColor: #2185d0;
+
+@highlightHeaderColor: @lightGrey;
+@highlightBackgroundColor: @highlightHeaderColor;
+@highlightBackgroundColorHover: darken(
+  saturate(@highlightHeaderColor, 20),
+  15,
+  relative
+);
+@highlightLandingPageBackgroundColor: rgba(173, 206, 224, 0.52);
+@selectedColor: #ededed;
+
+@navbarBackgroundImage: linear-gradient(
+  12deg,
+  rgba(3, 119, 205, 1),
+  rgba(3, 119, 205, 1) 15%,
+  rgba(251, 130, 115, 0.69)
+);
+@navbarBackgroundColor: rgba(3, 119, 205, 1);
+@versionActiveColor: #d9edf7;
+
+@mutedAccordionHeaderColor: #f5f5f5;
+@defaultBrandColor: #434c5e;
+
+/*-------------------
+      Links
+--------------------*/
+
+@linkColor: #005b9e;
+@linkUnderline: none;
+@linkHoverColor: darken(saturate(@linkColor, 20), 15, relative);
 @linkHoverUnderline: underline;
-@linkHoverColor: @pink;
 
 /*-------------------
-    Focused Input
+    Breakpoints
+--------------------*/
+@mobileBreakpoint: 320px;
+@tabletBreakpoint: 768px;
+@computerBreakpoint: 1300px;
+@largeMonitorBreakpoint: 1680px;
+@widescreenMonitorBreakpoint: 1920px;
+
+/*-------------------
+      Fonts
+--------------------*/
+@importGoogleFonts: false;
+@fontSizeBase: 16px;
+@font-size-small: 0.9rem;
+@font-size-tiny: 0.8rem;
+@font-size-massive: 2.5rem;
+@fontName: "Roboto";
+
+/*-------------------
+     Em Sizes
 --------------------*/
 
-/* Used on inputs, textarea etc */
-@focusedFormBorderColor: @pink;
+@75px: unit((75 / @emSize), rem);
+@relative75px: unit((75 / @emSize), em);
+
+/*-------------------
+  negative spacing
+--------------------*/
+@coverPageDefaultMargin: 0;
+
+/* borders */
+
+@dashedBorder: 2px dashed @borderColor;
+@defaultBorder: 1px solid @solidBorderColor;
+
+/*------------------
+  checkboxes
+------------------*/
+
+@checkboxSize: @relative17px;
+
+/*------------------
+  tables
+------------------*/
+
+@cellVerticalPadding: @relativeMini;
+@cellHorizontalPadding: @relativeMini;
+
+/*------------------
+  Images
+------------------*/
+
+@userDashboardAvatarSize: 40px;
+@communityItemLogoWidth: 115px;
+
+/*------------------
+  Separators
+------------------*/
+@listSeparator: ";";
+@listCommaSeparator: ",";

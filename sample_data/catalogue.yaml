@@ -1,4 +1,6 @@
-theses:
-- source: data.yaml
-- writer: service
-  service: datasets
+datasets:
+  - writer: service
+    service: datasets
+  - writer: publish
+    service: datasets
+  - source: datasets.json

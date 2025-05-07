@@ -1,8 +1,0 @@
-{#def data #}
-{% if data %}
-<dl class='detail-subfields'>
-    {% for location in data %}
-    {{location.geoLocationPlace}}: {{location.geoLocationPoint.pointLongitude}}, {{location.geoLocationPoint.pointLatitude}}
-    {% endfor %}
-</dl>
-{% endif %}

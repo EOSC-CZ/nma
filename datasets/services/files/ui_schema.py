@@ -8,3 +8,8 @@ class DatasetsFileUISchema(InvenioUISchema):
         unknown = ma.RAISE
 
     caption = ma_fields.String()
+
+
+class DatasetsFileDraftUISchema(InvenioUISchema):
+    class Meta:
+        unknown = ma.RAISE

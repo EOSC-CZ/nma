@@ -8,9 +8,10 @@ properties:
             label.cs: OAI identifikátor
             label.en: OAI identifier
           datestamp:
-              type: keyword
-              label.cs: Datum poslední změny
-              label.en: Datestamp
+            type: keyword
+            label.cs: Datum poslední změny
+            label.en: Datestamp
+
 service-config:
   components:
-  - "{{invenio_records_resources.services.records.components.DataComponent}}"
+    - "{{oarepo_oaipmh_harvester.components.OaiSectionComponent}}"

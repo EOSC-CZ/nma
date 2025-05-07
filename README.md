@@ -1,21 +1,10 @@
-# NMA
+# National Metadata Directory
 
-## Importing data
-
-### Lindat harvest
-
-To import data from Lindat, run the following command:
+## Installation
 
 ```bash
-./scripts/harvest_lindat.sh
-```
 
-### NR DataPilot harvest
+./nrp develop
+invenio oarepo fixtures load --no-system-fixtures ./sample_data --verbose
 
-### Sample data
-
-To import sample data, run the following command:
-
-```bash
-invenio oarepo fixtures load sample_data --verbose
 ```

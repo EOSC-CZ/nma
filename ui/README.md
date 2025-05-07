@@ -2,32 +2,12 @@
 
 Contains user interface for your repository.
 
-## Creating UI
+## Branding, title page, etc
 
-```bash
-nrp ui add <model-name> --config <custom config> \
-  --no-input
-```
+Follow the documentation at [customization page](https://nrp-cz.github.io/docs/customize)
 
-Will create a template of a UI.
+## Model UI
 
-Use `--no-input` to disable asking questions (and be sure to
-run it with `--config`)
-
-## Installing UI
-
-```bash
-nrp ui install <ui-name> [<site-name>]
-```
-
-Will install the ui into the given site. Site name 
-can be omitted if there is only one site in the monorepo.
-
-## Uninstalling UI
-
-```bash
-nrp ui uninstall <ui-name> [<site-name>] [--remove-directory]
-```
-
-Will uninstall the ui from the given site. Site name 
-can be omitted if there is only one site in the monorepo.
+When you create a new model, the UI for the model will be created automatically
+and a folder with sources will be placed in the `ui` directory.
+Please modify the sources, they will not be touched later.

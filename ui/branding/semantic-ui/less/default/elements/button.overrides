@@ -1,5 +1,11 @@
 .ui.button {
-  &.transparent {
+  font-weight: 400;
+  &.clear-filters-button {
+    border-radius: 8px;
+    border: 1px solid @lightSecondaryColor;
     background-color: transparent;
+    height: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }

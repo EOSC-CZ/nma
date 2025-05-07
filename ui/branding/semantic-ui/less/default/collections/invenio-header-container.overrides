@@ -1,0 +1,5 @@
+.invenio-header-container {
+  .ui.menu {
+    background: @headerContainerBackground;
+  }
+}

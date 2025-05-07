@@ -6,11 +6,10 @@ theme = WebpackThemeBundle(
     default="semantic-ui",
     themes={
         "semantic-ui": {
-            "entry": {
-                "branding": "./js/branding.js",
-            },
+            "entry": {},
             "dependencies": {
-                "react-searchkit": "^2.0.0",
+                "react-invenio-forms": "3.5.2",
+                "react-searchkit": "2.3.0",
             },
             "devDependencies": {},
             "aliases": {

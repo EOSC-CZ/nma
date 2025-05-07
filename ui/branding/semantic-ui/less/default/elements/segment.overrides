@@ -1,3 +1,6 @@
-.ui.segment.detail-main-record-segment {
-  border-radius: 10px;
+.ui.segment.ui.overlay {
+  background-color: @backgroundColor;
+  .ui.small.basic.button {
+    box-shadow: none;
+  }
 }

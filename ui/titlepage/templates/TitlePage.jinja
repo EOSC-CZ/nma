@@ -1,7 +1,7 @@
 {%- extends "invenio_theme/frontpage.html" %}
 
 {%- block page_header %}
-{% include "header_frontpage.html" %}
+{% include "header.html" %}
 {%- endblock page_header %}
 
 {%- block page_body %}
@@ -17,7 +17,7 @@
 
 {%- block grid_section %}
 <div class="backdrop">
-  <div class="main-centered-content">
+  <div class="ui main container">
     <div class="sixteen wide column center aligned centered content-container">
         {% block main_column %}
         {% block main_column_content %}

@@ -1,5 +1,0 @@
-.ui.search-link {
-  :hover::before {
-    content: none;
-  }
-}

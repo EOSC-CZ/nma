@@ -1,11 +1,9 @@
 i18n:
-  babel_input_translations:
-  - datasets/translations
+  babel_input_translations: []
   babel_output_translations: i18n/translations
   babel_source_paths:
   - common
   - ui
-  - datasets
   i18next_input_translations: []
   i18next_output_translations: i18n/semantic-ui/translations
   i18next_source_paths:
@@ -14,23 +12,12 @@ i18n:
   - en
   - cs
 models:
-- api_prefix: datasets
-  base_model: empty
-  features: [multilingual, tests, relations, custom_fields, files]
-  model_description: NMA datasets
+- model_description: A generic dataset model
+  model_human_name: Datasets
   model_name: datasets
-  model_package: datasets
-  pid_type: dtsts
 repository:
-  model_package: models
-  oarepo_version: 12
-  repository_human_name: NMA
-  repository_package: nma
-  shared_package: common
-  ui_package: ui
-uis:
-- api_service: datasets
-  endpoint: /datasets/
-  model: datasets
-  name: datasets
-  ui_serializer_class: datasets.resources.records.ui.DatasetsUIJSONSerializer
+  repository_description: Repository for aggregating metadata of datasets in the Czech
+    Republic
+  repository_human_name: National Metadata Directory
+  repository_name: nma
+uis: []

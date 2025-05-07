@@ -62,9 +62,17 @@ Sample output:
 @import (optional, multiple)
   "@{siteFolder}/oarepo_ui/themes/@{theme}/@{type}s/@{element}.variables";
 
-/* Oarepo-Vocabularies-UI components variables */
 @import (optional, multiple)
   "@{siteFolder}/oarepo_vocabularies_ui/themes/@{theme}/@{type}s/@{element}.variables";
+
+@import (optional, multiple)
+  "@{siteFolder}/oarepo_dashboard/themes/@{theme}/@{type}s/@{element}.variables";
+
+@import (optional, multiple)
+  "@{siteFolder}/oarepo_communities/themes/@{theme}/@{type}s/@{element}.variables";
+
+@import (optional, multiple)
+  "@{siteFolder}/oarepo_requests_ui/themes/@{theme}/@{type}s/@{element}.variables";
 
 /* Components folder inside ui */
 @import (optional, multiple)
@@ -107,25 +115,30 @@ Sample output:
   /* invenio global css styles */
   @import (optional, multiple) "themes/invenio/@{type}s/@{element}.overrides";
 
-  // /* oarepo-ui overrides */
-  // @import (optional, multiple)
-  //   "@{siteFolder}/oarepo_ui/themes/default/globals/site.overrides";
-  // @import (optional, multiple) "@{siteFolder}/globals/site.overrides";
-
   @import (optional, multiple)
     "@{siteFolder}/oarepo_ui/themes/@{theme}/@{type}s/@{element}.overrides";
 
   @import (optional, multiple)
     "@{siteFolder}/oarepo_vocabularies_ui/themes/@{theme}/@{type}s/@{element}.overrides";
 
+  @import (optional, multiple)
+    "@{siteFolder}/oarepo_dashboard/themes/@{theme}/@{type}s/@{element}.overrides";
+
+  @import (optional, multiple)
+    "@{siteFolder}/oarepo_communities/themes/@{theme}/@{type}s/@{element}.overrides";
+
+  @import (optional, multiple)
+    "@{siteFolder}/oarepo_requests_ui/themes/@{theme}/@{type}s/@{element}.overrides";
+
   /* components overrides theme css style */
   @import (optional, multiple)
     "@{siteFolder}/components/@{theme}/@{type}s/@{element}.overrides";
 
   /* site theme css style */
+  /* this one imports overrides for components located in the site itself i.e. button, 
+  container etc. */
   @import (optional, multiple)
     "@{siteFolder}/@{theme}/@{type}s/@{element}.overrides";
-  
-  /* this one imports overrides for global folder */
+  /* this one imports overrides for global folder i.e. site.overrides. */
   @import (optional, multiple) "@{siteFolder}/@{type}s/@{element}.overrides";
 }

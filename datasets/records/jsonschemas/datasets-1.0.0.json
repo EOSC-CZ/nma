@@ -4,180 +4,83 @@
         "$schema": {
             "type": "string"
         },
+        "access": {
+            "type": "object",
+            "properties": {
+                "embargo": {
+                    "type": "object",
+                    "properties": {
+                        "active": {
+                            "type": [
+                                "boolean",
+                                "null"
+                            ]
+                        },
+                        "reason": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "until": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "format": "date"
+                        }
+                    }
+                },
+                "files": {
+                    "type": "string"
+                },
+                "record": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
         "created": {
             "type": "string",
             "format": "date-time"
         },
+        "deletion_status": {
+            "type": "string"
+        },
         "id": {
             "type": "string"
+        },
+        "is_deleted": {
+            "type": "boolean"
+        },
+        "is_published": {
+            "type": "boolean"
         },
         "metadata": {
             "type": "object",
             "properties": {
-                "alternateIdentifiers": {
+                "alternate_titles": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "alternateIdentifier": {
+                            "iri": {
                                 "type": "string"
                             },
-                            "alternateIdentifierType": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "container": {
-                    "type": "object",
-                    "properties": {
-                        "firstPage": {
-                            "type": "string"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "type": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "contributors": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "affiliation": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "affiliationIdentifier": {
-                                            "type": "string"
-                                        },
-                                        "affiliationIdentifierScheme": {
-                                            "type": "string"
-                                        },
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "schemeURI": {
-                                            "type": "string"
-                                        }
+                            "title": {
+                                "type": "object",
+                                "properties": {
+                                    "lang": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
                                     }
                                 }
                             },
-                            "contributorType": {
-                                "type": "string"
-                            },
-                            "familyName": {
-                                "type": "string"
-                            },
-                            "givenName": {
-                                "type": "string"
-                            },
-                            "lang": {
-                                "type": "string"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "nameIdentifiers": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "nameIdentifier": {
-                                            "type": "string"
-                                        },
-                                        "nameIdentifierScheme": {
-                                            "type": "string"
-                                        },
-                                        "schemeURI": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            },
-                            "nameType": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "creators": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "affiliation": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "affiliationIdentifier": {
-                                            "type": "string"
-                                        },
-                                        "affiliationIdentifierScheme": {
-                                            "type": "string"
-                                        },
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "schemeURI": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            },
-                            "familyName": {
-                                "type": "string"
-                            },
-                            "givenName": {
-                                "type": "string"
-                            },
-                            "lang": {
-                                "type": "string"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "nameIdentifiers": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "nameIdentifier": {
-                                            "type": "string"
-                                        },
-                                        "nameIdentifierScheme": {
-                                            "type": "string"
-                                        },
-                                        "schemeURI": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            },
-                            "nameType": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "dates": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "date": {
-                                "type": "string",
-                                "format": "date-time"
-                            },
-                            "dateInformation": {
-                                "type": "string"
-                            },
-                            "dateType": {
+                            "type": {
                                 "type": "string"
                             }
                         }
@@ -188,116 +91,693 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "description": {
-                                "type": "string"
-                            },
-                            "descriptionType": {
-                                "type": "string"
-                            },
                             "lang": {
                                 "type": "string"
-                            }
-                        }
-                    }
-                },
-                "doi": {
-                    "type": "string"
-                },
-                "formats": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "fundingReferences": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "awardNumber": {
-                                "type": "string"
                             },
-                            "awardTitle": {
-                                "type": "string"
-                            },
-                            "awardURI": {
-                                "type": "string"
-                            },
-                            "funderIdentifier": {
-                                "type": "string"
-                            },
-                            "funderIdentifierType": {
-                                "type": "string"
-                            },
-                            "funderName": {
+                            "value": {
                                 "type": "string"
                             }
                         }
                     }
                 },
-                "geoLocations": {
+                "distribution_data_services": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "geoLocationBox": {
-                                "type": "object",
-                                "properties": {
-                                    "eastBoundLongitude": {
-                                        "type": "number"
-                                    },
-                                    "northBoundLatitude": {
-                                        "type": "number"
-                                    },
-                                    "southBoundLatitude": {
-                                        "type": "number"
-                                    },
-                                    "westBoundLongitude": {
-                                        "type": "number"
-                                    }
-                                }
-                            },
-                            "geoLocationPlace": {
-                                "type": "string"
-                            },
-                            "geoLocationPoint": {
-                                "type": "object",
-                                "properties": {
-                                    "pointLatitude": {
-                                        "type": "number"
-                                    },
-                                    "pointLongitude": {
-                                        "type": "number"
-                                    }
-                                }
-                            },
-                            "geoLocationPolygons": {
+                            "access_services": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "inPolygonPoint": {
+                                        "endpoint_urls": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "labels": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "lang": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "descriptions": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "documentations": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "labels": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "lang": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "iri": {
+                                "type": "string"
+                            },
+                            "specifications": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "labels": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "lang": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "title": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "distribution_downloadable_files": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "access_urls": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "byte_size": {
+                                "type": "integer"
+                            },
+                            "checksum": {
+                                "type": "string"
+                            },
+                            "conforms_to_schemas": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "labels": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "lang": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "download_urls": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "format": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "iri": {
+                                "type": "string"
+                            },
+                            "media_type": {
+                                "type": "object",
+                                "properties": {
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "labels": {
+                                        "type": "array",
+                                        "items": {
                                             "type": "object",
                                             "properties": {
-                                                "pointLatitude": {
-                                                    "type": "number"
+                                                "lang": {
+                                                    "type": "string"
                                                 },
-                                                "pointLongitude": {
-                                                    "type": "number"
+                                                "value": {
+                                                    "type": "string"
                                                 }
                                             }
+                                        }
+                                    }
+                                }
+                            },
+                            "title": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "funding_references": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "award_title": {
+                                "type": "string"
+                            },
+                            "funders": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "funder_identifier_scheme_uri": {
+                                            "type": "string"
                                         },
-                                        "polygonPoints": {
+                                        "funder_identifier_type": {
+                                            "type": "string"
+                                        },
+                                        "funder_identifier_value": {
+                                            "type": "string"
+                                        },
+                                        "funder_name": {
+                                            "type": "string"
+                                        },
+                                        "iri": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "funding_program": {
+                                "type": "string"
+                            },
+                            "iri": {
+                                "type": "string"
+                            },
+                            "local_identifier": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "identifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "identifier_scheme": {
+                                "type": "string"
+                            },
+                            "iri": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "iri": {
+                    "type": "string"
+                },
+                "is_described_by": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "conforms_to_standards": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "labels": {
                                             "type": "array",
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "pointLatitude": {
-                                                        "type": "number"
+                                                    "lang": {
+                                                        "type": "string"
                                                     },
-                                                    "pointLongitude": {
-                                                        "type": "number"
+                                                    "value": {
+                                                        "type": "string"
                                                     }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "date_created": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "dates_updated": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "date"
+                                }
+                            },
+                            "iri": {
+                                "type": "string"
+                            },
+                            "languages": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "title": {
+                                            "type": "object"
+                                        },
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "@v": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "original_repositories": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "labels": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "lang": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "qualified_relations": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "organization": {
+                                            "type": "object",
+                                            "properties": {
+                                                "alternate_names": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "lang": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "contact_points": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "addresses": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "labels": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "lang": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "dataBoxes": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "emails": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "phones": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "external_identifiers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "lang": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "person": {
+                                            "type": "object",
+                                            "properties": {
+                                                "affiliations": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "alternate_names": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "lang": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "contact_points": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "addresses": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "iri": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "labels": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "lang": {
+                                                                                                    "type": "string"
+                                                                                                },
+                                                                                                "value": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "dataBoxes": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "emails": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "phones": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "external_identifiers": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "lang": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "contact_points": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "addresses": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "labels": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "lang": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "dataBoxes": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "emails": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "phones": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "external_identifiers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "family_name": {
+                                                    "type": "string"
+                                                },
+                                                "given_names": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "role": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
                                                 }
                                             }
                                         }
@@ -307,309 +787,1329 @@
                         }
                     }
                 },
-                "language": {
-                    "type": "string"
-                },
-                "publicationYear": {
-                    "type": "string"
-                },
-                "publisher": {
-                    "type": "object",
-                    "properties": {
-                        "lang": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "publisherIdentifier": {
-                            "type": "string"
-                        },
-                        "publisherIdentifierScheme": {
-                            "type": "string"
-                        },
-                        "schemeURI": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "relatedIdentifiers": {
+                "locations": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "relatedIdentifier": {
-                                "type": "string"
-                            },
-                            "relatedIdentifierType": {
-                                "type": "string"
-                            },
-                            "relatedMetadataScheme": {
-                                "type": "string"
-                            },
-                            "relationType": {
-                                "type": "string"
-                            },
-                            "resourceTypeGeneral": {
-                                "type": "string"
-                            },
-                            "schemeType": {
-                                "type": "string"
-                            },
-                            "schemeURI": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "relatedItems": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "contributors": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "affiliation": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "affiliationIdentifier": {
-                                                        "type": "string"
-                                                    },
-                                                    "affiliationIdentifierScheme": {
-                                                        "type": "string"
-                                                    },
-                                                    "name": {
-                                                        "type": "string"
-                                                    },
-                                                    "schemeURI": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "contributorType": {
-                                            "type": "string"
-                                        },
-                                        "familyName": {
-                                            "type": "string"
-                                        },
-                                        "givenName": {
-                                            "type": "string"
-                                        },
-                                        "lang": {
-                                            "type": "string"
-                                        },
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "nameIdentifiers": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "nameIdentifier": {
-                                                        "type": "string"
-                                                    },
-                                                    "nameIdentifierScheme": {
-                                                        "type": "string"
-                                                    },
-                                                    "schemeURI": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "nameType": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            },
-                            "creators": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "affiliation": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "affiliationIdentifier": {
-                                                        "type": "string"
-                                                    },
-                                                    "affiliationIdentifierScheme": {
-                                                        "type": "string"
-                                                    },
-                                                    "name": {
-                                                        "type": "string"
-                                                    },
-                                                    "schemeURI": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "familyName": {
-                                            "type": "string"
-                                        },
-                                        "givenName": {
-                                            "type": "string"
-                                        },
-                                        "lang": {
-                                            "type": "string"
-                                        },
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "nameIdentifiers": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "nameIdentifier": {
-                                                        "type": "string"
-                                                    },
-                                                    "nameIdentifierScheme": {
-                                                        "type": "string"
-                                                    },
-                                                    "schemeURI": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "nameType": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            },
-                            "edition": {
-                                "type": "string"
-                            },
-                            "firstPage": {
-                                "type": "string"
-                            },
-                            "issue": {
-                                "type": "string"
-                            },
-                            "lastPage": {
-                                "type": "string"
-                            },
-                            "number": {
-                                "type": "string"
-                            },
-                            "numberType": {
-                                "type": "string"
-                            },
-                            "publicationYear": {
-                                "type": "string"
-                            },
-                            "publisher": {
-                                "type": "string"
-                            },
-                            "relatedItemIdentifier": {
+                            "bbox": {
                                 "type": "object",
                                 "properties": {
-                                    "relatedItemIdentifier": {
+                                    "LowerCorners": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "UpperCorners": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "crs": {
                                         "type": "string"
                                     },
-                                    "relatedItemIdentifierType": {
-                                        "type": "string"
+                                    "dimensions": {
+                                        "type": "integer"
                                     }
                                 }
                             },
-                            "relatedItemType": {
+                            "dataset_relations": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "geometry": {
+                                "type": "object",
+                                "properties": {
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "labels": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "lang": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "iri": {
                                 "type": "string"
                             },
-                            "relatedMetadataScheme": {
-                                "type": "string"
+                            "location_names": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
                             },
-                            "relationType": {
-                                "type": "string"
-                            },
-                            "resourceTypeGeneral": {
-                                "type": "string"
-                            },
-                            "schemeType": {
-                                "type": "string"
-                            },
-                            "schemeURI": {
-                                "type": "string"
-                            },
-                            "titles": {
+                            "related_object_identifiers": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        "lang": {
+                                        "identifier": {
+                                            "type": "object",
+                                            "properties": {
+                                                "identifier_scheme": {
+                                                    "type": "string"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "iri": {
                                             "type": "string"
+                                        },
+                                        "qualified_relations": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "iri": {
+                                                        "type": "string"
+                                                    },
+                                                    "organization": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "alternate_names": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "lang": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "contact_points": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "addresses": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "iri": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "labels": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "lang": {
+                                                                                                    "type": "string"
+                                                                                                },
+                                                                                                "value": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "dataBoxes": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "emails": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "phones": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "external_identifiers": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "lang": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "person": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "affiliations": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "alternate_names": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "lang": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "contact_points": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "addresses": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "iri": {
+                                                                                                    "type": "string"
+                                                                                                },
+                                                                                                "labels": {
+                                                                                                    "type": "array",
+                                                                                                    "items": {
+                                                                                                        "type": "object",
+                                                                                                        "properties": {
+                                                                                                            "lang": {
+                                                                                                                "type": "string"
+                                                                                                            },
+                                                                                                            "value": {
+                                                                                                                "type": "string"
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    },
+                                                                                    "dataBoxes": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "emails": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    },
+                                                                                    "iri": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "phones": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "external_identifiers": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "identifier_scheme": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "iri": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "name": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "lang": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "contact_points": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "addresses": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "iri": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "labels": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "lang": {
+                                                                                                    "type": "string"
+                                                                                                },
+                                                                                                "value": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "dataBoxes": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "emails": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "phones": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "external_identifiers": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "family_name": {
+                                                                "type": "string"
+                                                            },
+                                                            "given_names": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "role": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "relation_type": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "time_references": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "date": {
+                                                        "type": "string",
+                                                        "format": "date-time"
+                                                    },
+                                                    "date_information": {
+                                                        "type": "string"
+                                                    },
+                                                    "date_type": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "title": {
+                                                                "type": "object"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "@v": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "iri": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
                                         },
                                         "title": {
                                             "type": "string"
                                         },
-                                        "titleType": {
+                                        "type": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "other_languages": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "object"
+                            },
+                            "iri": {
+                                "type": "string"
+                            },
+                            "@v": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "primary_language": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "object"
+                        },
+                        "iri": {
+                            "type": "string"
+                        },
+                        "@v": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "provenances": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "iri": {
+                                "type": "string"
+                            },
+                            "labels": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "publication_year": {
+                    "type": "integer"
+                },
+                "qualified_relations": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "iri": {
+                                "type": "string"
+                            },
+                            "organization": {
+                                "type": "object",
+                                "properties": {
+                                    "alternate_names": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "lang": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "contact_points": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "addresses": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "labels": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "lang": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "dataBoxes": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "emails": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "phones": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "external_identifiers": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "identifier_scheme": {
+                                                    "type": "string"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "object",
+                                        "properties": {
+                                            "lang": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "person": {
+                                "type": "object",
+                                "properties": {
+                                    "affiliations": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "alternate_names": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "lang": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "contact_points": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "addresses": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "labels": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "lang": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "dataBoxes": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "emails": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "phones": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "external_identifiers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "lang": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "contact_points": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "addresses": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "labels": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "lang": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "dataBoxes": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "emails": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "phones": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "external_identifiers": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "identifier_scheme": {
+                                                    "type": "string"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "value": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "family_name": {
+                                        "type": "string"
+                                    },
+                                    "given_names": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "role": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "related_resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "identifier": {
+                                "type": "object",
+                                "properties": {
+                                    "identifier_scheme": {
+                                        "type": "string"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "iri": {
+                                "type": "string"
+                            },
+                            "qualified_relations": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "organization": {
+                                            "type": "object",
+                                            "properties": {
+                                                "alternate_names": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "lang": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "contact_points": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "addresses": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "labels": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "lang": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "dataBoxes": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "emails": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "phones": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "external_identifiers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "lang": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "person": {
+                                            "type": "object",
+                                            "properties": {
+                                                "affiliations": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "alternate_names": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "lang": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "contact_points": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "addresses": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "iri": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "labels": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "lang": {
+                                                                                                    "type": "string"
+                                                                                                },
+                                                                                                "value": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "dataBoxes": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "emails": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "phones": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "external_identifiers": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "lang": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "contact_points": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "addresses": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "labels": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "lang": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "dataBoxes": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "emails": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "phones": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "external_identifiers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "family_name": {
+                                                    "type": "string"
+                                                },
+                                                "given_names": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "role": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "relation_type": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "time_references": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "date": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "date_information": {
+                                            "type": "string"
+                                        },
+                                        "date_type": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "object"
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "iri": {
                                             "type": "string"
                                         }
                                     }
                                 }
                             },
-                            "volume": {
+                            "title": {
                                 "type": "string"
+                            },
+                            "type": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         }
                     }
                 },
-                "resourceType": {
+                "resource_type": {
                     "type": "object",
                     "properties": {
-                        "resourceType": {
+                        "id": {
                             "type": "string"
                         },
-                        "resourceTypeGeneral": {
+                        "title": {
+                            "type": "object"
+                        },
+                        "iri": {
+                            "type": "string"
+                        },
+                        "@v": {
                             "type": "string"
                         }
-                    }
-                },
-                "rightsList": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "lang": {
-                                "type": "string"
-                            },
-                            "rights": {
-                                "type": "string"
-                            },
-                            "rightsIdentifier": {
-                                "type": "string"
-                            },
-                            "rightsIdentifierScheme": {
-                                "type": "string"
-                            },
-                            "rightsURI": {
-                                "type": "string"
-                            },
-                            "schemeURI": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "schemaVersion": {
-                    "type": "string"
-                },
-                "sizes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
                     }
                 },
                 "subjects": {
@@ -617,46 +2117,471 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "classificationCode": {
+                            "classification_code": {
                                 "type": "string"
                             },
-                            "lang": {
+                            "definition": {
+                                "type": "object",
+                                "properties": {
+                                    "lang": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "in_subject_scheme": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "iri": {
                                 "type": "string"
                             },
-                            "schemeURI": {
-                                "type": "string"
-                            },
-                            "subject": {
-                                "type": "string"
-                            },
-                            "subjectScheme": {
-                                "type": "string"
-                            },
-                            "valueURI": {
-                                "type": "string"
+                            "title": {
+                                "type": "object",
+                                "properties": {
+                                    "lang": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         }
                     }
                 },
-                "titles": {
+                "terms_of_use": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "lang": {
+                            "access_rights": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "title": {
+                                            "type": "object"
+                                        },
+                                        "iri": {
+                                            "type": "string"
+                                        },
+                                        "@v": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "contacts": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "organization": {
+                                            "type": "object",
+                                            "properties": {
+                                                "alternate_names": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "lang": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "contact_points": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "addresses": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "labels": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "lang": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "dataBoxes": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "emails": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "phones": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "external_identifiers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "lang": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "person": {
+                                            "type": "object",
+                                            "properties": {
+                                                "affiliations": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "alternate_names": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "lang": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "contact_points": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "addresses": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "iri": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "labels": {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "lang": {
+                                                                                                    "type": "string"
+                                                                                                },
+                                                                                                "value": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "dataBoxes": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "emails": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "phones": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "external_identifiers": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "identifier_scheme": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "lang": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "contact_points": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "addresses": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "iri": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "labels": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "lang": {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "dataBoxes": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "emails": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "phones": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "external_identifiers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "identifier_scheme": {
+                                                                "type": "string"
+                                                            },
+                                                            "iri": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "family_name": {
+                                                    "type": "string"
+                                                },
+                                                "given_names": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "iri": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "description": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "iri": {
                                 "type": "string"
                             },
-                            "title": {
-                                "type": "string"
-                            },
-                            "titleType": {
+                            "license": {
                                 "type": "string"
                             }
                         }
                     }
                 },
-                "url": {
+                "time_references": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "date": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "date_information": {
+                                "type": "string"
+                            },
+                            "date_type": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "object"
+                                    },
+                                    "iri": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "iri": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "title": {
                     "type": "string"
+                },
+                "validation_results": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "iri": {
+                                "type": "string"
+                            },
+                            "labels": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "version": {
                     "type": "string"
@@ -696,9 +2621,64 @@
                 }
             }
         },
+        "pids": {
+            "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "identifier": {
+                        "type": "string"
+                    },
+                    "provider": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    }
+                }
+            },
+            "propertyNames": {
+                "pattern": "^[a-z_-][a-z0-9_-]*$"
+            },
+            "uniqueItems": true,
+            "type": "object"
+        },
+        "state": {
+            "type": "string"
+        },
+        "state_timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
         "updated": {
             "type": "string",
             "format": "date-time"
+        },
+        "version_id": {
+            "type": "integer"
+        },
+        "versions": {
+            "type": "object",
+            "properties": {
+                "index": {
+                    "type": "integer"
+                },
+                "is_latest": {
+                    "type": "boolean"
+                },
+                "is_latest_draft": {
+                    "type": "boolean"
+                },
+                "latest_id": {
+                    "type": "string"
+                },
+                "latest_index": {
+                    "type": "integer"
+                },
+                "next_draft_id": {
+                    "type": "string"
+                }
+            }
         }
     }
 }

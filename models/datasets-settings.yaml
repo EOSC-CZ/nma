@@ -1,0 +1,7 @@
+record:
+  mapping:
+    template:
+      settings:
+        index.mapping.total_fields.limit: 3000
+        index.mapping.nested_fields.limit: 200
+        index.mapping.ignore_malformed: true

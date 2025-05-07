@@ -1,1 +1,2 @@
-@pageFooterBackgroundColor: @white;
+@pageFooterBackgroundColor: #ffffff;
+@pageFooterMinHeight: 7rem;
