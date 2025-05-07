@@ -1,0 +1,33 @@
+{#def identifiers=None, creatibutorName #}
+{%if identifiers | length > 0%}
+  {% set ns = namespace(selected_identifier = None) %}
+
+  {% for identifier in identifiers %}
+
+    {% if identifier.identifier_scheme %}
+    {% set current_scheme = identifier.identifier_scheme|string|lower %}
+    {% else %}
+    {% set current_scheme = "" %}
+    {% endif %}
+
+    {% set iri = identifier.iri|string %}
+    {% if "orcid" in current_scheme %}
+      {% set ns.selected_identifier = {
+        "scheme": "orcid",
+        "identifier": identifier.value|string,
+        "url": iri if "http" in iri else "",
+      }%}
+    {% elif "ror" in current_scheme %}
+      {% set ns.selected_identifier = {
+        "scheme": "ror",
+        "identifier": identifier.value|string,
+        "url": iri if "http" in iri else "",
+      }%}
+    {% endif %}
+  {% endfor %}
+  {% if not ns.selected_identifier %}
+    {% set ns.selected_identifier = identifiers[0] %}
+  {% endif %}
+
+  <IdentifierBadge identifier={ns.selected_identifier} creatibutorName={creatibutorName} />
+{% endif %}

@@ -1,0 +1,32 @@
+{#def qualified_relations, search_link #}
+{% set ns = namespace(creators = [], contributors = []) %}
+{% for qr in array(qualified_relations) %}
+    {% if qr.role.id|string == 'creator' %}
+        {% set ns.creators = ns.creators + [qr] %}
+    {% elif qr.role.id|string == 'other' %}
+        {% set ns.contributors = ns.contributors + [qr] %}
+    {% endif %}
+{% endfor %}
+
+{% if ns.creators or ns.contributors %}
+    <div class="ui double separated">
+        <div role="list">
+            {% for creatibutor in array(ns.creators) %}
+                <Creatibutor creatibutor={creatibutor} search_link={search_link} />
+            {% endfor %}
+        </div>
+        {% if ns.contributors %}
+            {% if ns.creators %}
+                <div class="double separator"></div>
+            {% endif %}
+            <div role="list" class="ui horizontal separated creatibutors list">
+                {% for contributor in array(ns.contributors) %}
+                    {% if contributor.role %}
+                        {% set role = contributor.role %}
+                    {% endif %}
+                    <Creatibutor creatibutor={contributor} search_link={search_link} role={role} />
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}

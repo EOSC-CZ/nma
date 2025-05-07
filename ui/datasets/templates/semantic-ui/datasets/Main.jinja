@@ -7,29 +7,31 @@
     <span title="{{_('metadata/time_references/date_type.label')}}" aria-description="{{_('metadata/time_references/date_type.help')}}">
       <IValue value={md.time_references|first|attr('date')} />
     </span>
-    {% if md['version'] is defined %}|
+    {% if md.version._has_value %}|
     <span title="{{_('metadata/version.label')}}" aria-description="{{_('metadata/version.help')}}">
       {{_('metadata/version.label')}} <IValue value={md.version} />
     </span>
     {% endif %}
   </div>
-
+  
   <h1 class="ui header">
-    <IValue value={md.title} placeholder={_('Title unknown')} />
+    <IValue value={md.title} placeholder={md.alternateTitles.0.value if md.alternateTitles._has_value else _('Title unknown')} />
   </h1>
 
-  <dl class="ui very basic table">
-    <Field d={md.alternateTitles}>
+  <hr class="ui divider" />
+
+  <dl>
+    <IField d={md.alternateTitles}>
       {# <AdditionalTitles d={md.alternateTitles}></AdditionalTitles> #}
       {% for title in array(md.alternateTitles) %}
         <Multilingual data={title} />
       {% endfor %}
-    </Field>
-
-    {# <IField label={_('People')}>
-      <People md={md} search_link={record.links.search_link}></People>
     </IField>
 
+    <Creatibutors qualified_relations={md.qualified_relations} search_link={record.links.search_link}></Creatibutors>
+
+    <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource_type" search_link={record.links.search_link} search_facet="metadata_resource_type" />
+{# 
     {% if md.dates._filter(dateType="Submitted")._select("date")._first() %}
     <IField label={_('metadata/dates/dateType.enum.Submitted')}>
       {{md.dates._filter(dateType="Submitted")._select("date")._first()}}
@@ -42,13 +44,6 @@
 
     <IField d={md.publisher}>
       <Publisher publisher={md.publisher} search_link={record.links.search_link}></Publisher>
-    </IField>
-
-    <IField d={md.resourceType}>
-      {% for it in array(md.resourceType.resourceTypeGeneral, md.resourceType.resourceType) %}
-      {% if not loop.first %}, {% endif %}
-      {{ it }}
-      {% endfor %}
     </IField>
 
     <IField d={md.accessibility} />
