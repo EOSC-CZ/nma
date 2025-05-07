@@ -46,7 +46,6 @@ class MultilingualSearchDumperExt(MultilingualDumper):
         "/metadata/related_resources/qualified_relations/person/affiliations/name",
         "/metadata/related_resources/qualified_relations/person/contact_points/addresses/labels",
         "/metadata/subjects/definition",
-        "/metadata/subjects/in_subject_scheme/labels",
         "/metadata/subjects/title",
         "/metadata/terms_of_use/contacts/organization/alternate_names",
         "/metadata/terms_of_use/contacts/organization/contact_points/addresses/labels",

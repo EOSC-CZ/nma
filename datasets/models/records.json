@@ -5,7 +5,8 @@
             "template": {
                 "settings": {
                     "index.mapping.total_fields.limit": 3000,
-                    "index.mapping.nested_fields.limit": 200
+                    "index.mapping.nested_fields.limit": 200,
+                    "index.mapping.ignore_malformed": true
                 },
                 "mappings": {
                     "dynamic_templates": [
@@ -110,6 +111,27 @@
             "module": "datasets.models",
             "file": "datasets/models/ui.json",
             "alias": "datasets"
+        },
+        "service-config": {
+            "components": [
+                "{{oarepo_oaipmh_harvester.components.OaiSectionComponent}}",
+                "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
+                "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
+                "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
+                "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
+            ],
+            "base-classes": [
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
+                "invenio_rdm_records.services.config.RDMRecordServiceConfig"
+            ],
+            "generate": true,
+            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
+            "module": "datasets.services.records.config",
+            "class": "datasets.services.records.config.DatasetsServiceConfig",
+            "extra-code": "",
+            "service-id": "datasets",
+            "additional-args": [],
+            "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
         },
         "resource-config": {
             "base-url": "/datasets/",
@@ -299,52 +321,6 @@
                 ]
             }
         },
-        "config": {
-            "generate": true,
-            "module": "datasets.config",
-            "extra_code": "",
-            "imports": []
-        },
-        "ext": {
-            "generate": true,
-            "module": "datasets.ext",
-            "class": "datasets.ext.DatasetsExt",
-            "base-classes": [],
-            "extra_code": "",
-            "alias": "datasets",
-            "imports": []
-        },
-        "api-blueprint": {
-            "generate": true,
-            "alias": "datasets",
-            "extra_code": "",
-            "module": "datasets.views.records.api",
-            "function": "datasets.views.records.api.create_api_blueprint",
-            "imports": []
-        },
-        "app-blueprint": {
-            "generate": true,
-            "alias": "datasets",
-            "extra_code": "",
-            "module": "datasets.views.records.app",
-            "function": "datasets.views.records.app.create_app_blueprint",
-            "imports": []
-        },
-        "facets": {
-            "generate": true,
-            "module": "datasets.services.records.facets",
-            "extra-code": "",
-            "groups": true
-        },
-        "saved-model": {
-            "file": "datasets/models/records.json",
-            "module": "datasets.models",
-            "alias": "datasets"
-        },
-        "proxy": {
-            "module": "datasets.proxies",
-            "generate": true
-        },
         "record": {
             "fields": {
                 "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
@@ -394,6 +370,52 @@
             "generate": true,
             "class": "oarepo_requests.resolvers.ui.RecordEntityReferenceUIResolver"
         },
+        "config": {
+            "generate": true,
+            "module": "datasets.config",
+            "extra_code": "",
+            "imports": []
+        },
+        "ext": {
+            "generate": true,
+            "module": "datasets.ext",
+            "class": "datasets.ext.DatasetsExt",
+            "base-classes": [],
+            "extra_code": "",
+            "alias": "datasets",
+            "imports": []
+        },
+        "api-blueprint": {
+            "generate": true,
+            "alias": "datasets",
+            "extra_code": "",
+            "module": "datasets.views.records.api",
+            "function": "datasets.views.records.api.create_api_blueprint",
+            "imports": []
+        },
+        "app-blueprint": {
+            "generate": true,
+            "alias": "datasets",
+            "extra_code": "",
+            "module": "datasets.views.records.app",
+            "function": "datasets.views.records.app.create_app_blueprint",
+            "imports": []
+        },
+        "facets": {
+            "generate": true,
+            "module": "datasets.services.records.facets",
+            "extra-code": "",
+            "groups": true
+        },
+        "saved-model": {
+            "file": "datasets/models/records.json",
+            "module": "datasets.models",
+            "alias": "datasets"
+        },
+        "proxy": {
+            "module": "datasets.proxies",
+            "generate": true
+        },
         "json-serializer": {
             "module": "datasets.resources.records.ui",
             "class": "datasets.resources.records.ui.DatasetsUIJSONSerializer",
@@ -409,26 +431,6 @@
                 "\"object_key\"": "\"ui\"",
                 "\"identity\"": "{{ flask.g{g.identity} }}"
             }
-        },
-        "service-config": {
-            "components": [
-                "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
-                "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
-                "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
-                "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
-            ],
-            "base-classes": [
-                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
-                "invenio_rdm_records.services.config.RDMRecordServiceConfig"
-            ],
-            "generate": true,
-            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
-            "module": "datasets.services.records.config",
-            "class": "datasets.services.records.config.DatasetsServiceConfig",
-            "extra-code": "",
-            "service-id": "datasets",
-            "additional-args": [],
-            "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
         },
         "translations": {
             "module": "datasets.translations",
@@ -968,7 +970,6 @@
                     },
                     "descriptions": {
                         "type": "array",
-                        "required": true,
                         "label.en": "Description",
                         "help.en": "A free-text account of the Dataset.",
                         "items": {
@@ -1288,7 +1289,6 @@
                             "properties": {
                                 "access_urls": {
                                     "type": "array",
-                                    "required": true,
                                     "label.en": "Access URL",
                                     "help.en": "A URL that gives access to a Distribution of the Dataset.",
                                     "items": {
@@ -1296,13 +1296,15 @@
                                     }
                                 },
                                 "byte_size": {
-                                    "type": "integer",
+                                    "type": "long-integer",
+                                    "mapping": {
+                                        "ignore_malformed": true
+                                    },
                                     "label.en": "Byte size",
                                     "help.en": "The size of a Distribution in bytes."
                                 },
                                 "checksum": {
                                     "type": "keyword",
-                                    "required": true,
                                     "label.en": "Checksum",
                                     "help.en": "A mechanism that can be used to verify that the contents of a distribution have not changed."
                                 },
@@ -1402,7 +1404,7 @@
                                     },
                                     "marshmallow": {
                                         "generate": false,
-                                        "class": "common.services.schema.CCMMVocabularySchema",
+                                        "class": "common.services.schema.CCMMFileTypesVocabularySchema",
                                         "unknown": "INCLUDE"
                                     },
                                     "label.en": "Format",
@@ -1612,13 +1614,11 @@
                                             },
                                             "funder_identifier_type": {
                                                 "type": "keyword",
-                                                "required": true,
                                                 "label.en": "Funder identifier type",
                                                 "help.en": "The type of the funderIdentifier."
                                             },
                                             "funder_identifier_value": {
-                                                "type": "keyword",
-                                                "required": true
+                                                "type": "keyword"
                                             },
                                             "funder_name": {
                                                 "type": "keyword"
@@ -1647,7 +1647,6 @@
                     },
                     "identifiers": {
                         "type": "array",
-                        "required": true,
                         "label.en": "identifier",
                         "help.en": "has identifier",
                         "items": {
@@ -1810,7 +1809,7 @@
                                         },
                                         "marshmallow": {
                                             "generate": false,
-                                            "class": "common.services.schema.CCMMVocabularySchema",
+                                            "class": "common.services.schema.CCMMLanguagesVocabularySchema",
                                             "unknown": "INCLUDE"
                                         },
                                         "imports": [
@@ -2150,15 +2149,39 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword"
-                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
-                                                        "label.en": "External identifier",
-                                                        "help.en": "External identifer of an Agent.",
+                                                        "label.en": "External identifiers",
+                                                        "help.en": "External identifers of an Agent.",
                                                         "items": {
-                                                            "type": "keyword"
+                                                            "type": "object",
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "generate": false,
+                                                                    "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                }
+                                                            },
+                                                            "properties": {
+                                                                "identifier_scheme": {
+                                                                    "type": "url",
+                                                                    "required": true,
+                                                                    "label.en": "Identifier scheme",
+                                                                    "help.en": "Scheme URI of the identifier."
+                                                                },
+                                                                "iri": {
+                                                                    "type": "keyword"
+                                                                },
+                                                                "value": {
+                                                                    "type": "keyword",
+                                                                    "required": true,
+                                                                    "label.en": "Value",
+                                                                    "help.en": "Value of the identifer within the given identifier scheme."
+                                                                }
+                                                            }
                                                         }
                                                     },
                                                     "iri": {
@@ -2384,15 +2407,39 @@
                                                                         }
                                                                     }
                                                                 },
-                                                                "external_identifier_type": {
-                                                                    "type": "keyword"
-                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
-                                                                    "label.en": "External identifier",
-                                                                    "help.en": "External identifer of an Agent.",
+                                                                    "label.en": "External identifiers",
+                                                                    "help.en": "External identifers of an Agent.",
                                                                     "items": {
-                                                                        "type": "keyword"
+                                                                        "type": "object",
+                                                                        "marshmallow": {
+                                                                            "generate": false,
+                                                                            "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                                        },
+                                                                        "ui": {
+                                                                            "marshmallow": {
+                                                                                "generate": false,
+                                                                                "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                            }
+                                                                        },
+                                                                        "properties": {
+                                                                            "identifier_scheme": {
+                                                                                "type": "url",
+                                                                                "required": true,
+                                                                                "label.en": "Identifier scheme",
+                                                                                "help.en": "Scheme URI of the identifier."
+                                                                            },
+                                                                            "iri": {
+                                                                                "type": "keyword"
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "keyword",
+                                                                                "required": true,
+                                                                                "label.en": "Value",
+                                                                                "help.en": "Value of the identifer within the given identifier scheme."
+                                                                            }
+                                                                        }
                                                                     }
                                                                 },
                                                                 "iri": {
@@ -2549,15 +2596,39 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword"
-                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
-                                                        "label.en": "External identifier",
-                                                        "help.en": "External identifer of an Agent.",
+                                                        "label.en": "External identifiers",
+                                                        "help.en": "External identifers of an Agent.",
                                                         "items": {
-                                                            "type": "keyword"
+                                                            "type": "object",
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "generate": false,
+                                                                    "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                }
+                                                            },
+                                                            "properties": {
+                                                                "identifier_scheme": {
+                                                                    "type": "url",
+                                                                    "required": true,
+                                                                    "label.en": "Identifier scheme",
+                                                                    "help.en": "Scheme URI of the identifier."
+                                                                },
+                                                                "iri": {
+                                                                    "type": "keyword"
+                                                                },
+                                                                "value": {
+                                                                    "type": "keyword",
+                                                                    "required": true,
+                                                                    "label.en": "Value",
+                                                                    "help.en": "Value of the identifer within the given identifier scheme."
+                                                                }
+                                                            }
                                                         }
                                                     },
                                                     "family_name": {
@@ -2568,7 +2639,6 @@
                                                     },
                                                     "given_names": {
                                                         "type": "array",
-                                                        "required": true,
                                                         "label.en": "Given name",
                                                         "help.en": "The given name associated with the object",
                                                         "items": {
@@ -2606,7 +2676,7 @@
                                                 },
                                                 "marshmallow": {
                                                     "generate": false,
-                                                    "class": "common.services.schema.CCMMVocabularySchema",
+                                                    "class": "common.services.schema.CCMMContributorTypesVocabularySchema",
                                                     "unknown": "INCLUDE"
                                                 },
                                                 "label.en": "had role - The function of an entity or agent with respect to another entity or resource.",
@@ -3074,15 +3144,39 @@
                                                                         }
                                                                     }
                                                                 },
-                                                                "external_identifier_type": {
-                                                                    "type": "keyword"
-                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
-                                                                    "label.en": "External identifier",
-                                                                    "help.en": "External identifer of an Agent.",
+                                                                    "label.en": "External identifiers",
+                                                                    "help.en": "External identifers of an Agent.",
                                                                     "items": {
-                                                                        "type": "keyword"
+                                                                        "type": "object",
+                                                                        "marshmallow": {
+                                                                            "generate": false,
+                                                                            "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                                        },
+                                                                        "ui": {
+                                                                            "marshmallow": {
+                                                                                "generate": false,
+                                                                                "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                            }
+                                                                        },
+                                                                        "properties": {
+                                                                            "identifier_scheme": {
+                                                                                "type": "url",
+                                                                                "required": true,
+                                                                                "label.en": "Identifier scheme",
+                                                                                "help.en": "Scheme URI of the identifier."
+                                                                            },
+                                                                            "iri": {
+                                                                                "type": "keyword"
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "keyword",
+                                                                                "required": true,
+                                                                                "label.en": "Value",
+                                                                                "help.en": "Value of the identifer within the given identifier scheme."
+                                                                            }
+                                                                        }
                                                                     }
                                                                 },
                                                                 "iri": {
@@ -3308,15 +3402,39 @@
                                                                                     }
                                                                                 }
                                                                             },
-                                                                            "external_identifier_type": {
-                                                                                "type": "keyword"
-                                                                            },
                                                                             "external_identifiers": {
                                                                                 "type": "array",
-                                                                                "label.en": "External identifier",
-                                                                                "help.en": "External identifer of an Agent.",
+                                                                                "label.en": "External identifiers",
+                                                                                "help.en": "External identifers of an Agent.",
                                                                                 "items": {
-                                                                                    "type": "keyword"
+                                                                                    "type": "object",
+                                                                                    "marshmallow": {
+                                                                                        "generate": false,
+                                                                                        "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                                                    },
+                                                                                    "ui": {
+                                                                                        "marshmallow": {
+                                                                                            "generate": false,
+                                                                                            "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                                        }
+                                                                                    },
+                                                                                    "properties": {
+                                                                                        "identifier_scheme": {
+                                                                                            "type": "url",
+                                                                                            "required": true,
+                                                                                            "label.en": "Identifier scheme",
+                                                                                            "help.en": "Scheme URI of the identifier."
+                                                                                        },
+                                                                                        "iri": {
+                                                                                            "type": "keyword"
+                                                                                        },
+                                                                                        "value": {
+                                                                                            "type": "keyword",
+                                                                                            "required": true,
+                                                                                            "label.en": "Value",
+                                                                                            "help.en": "Value of the identifer within the given identifier scheme."
+                                                                                        }
+                                                                                    }
                                                                                 }
                                                                             },
                                                                             "iri": {
@@ -3473,15 +3591,39 @@
                                                                         }
                                                                     }
                                                                 },
-                                                                "external_identifier_type": {
-                                                                    "type": "keyword"
-                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
-                                                                    "label.en": "External identifier",
-                                                                    "help.en": "External identifer of an Agent.",
+                                                                    "label.en": "External identifiers",
+                                                                    "help.en": "External identifers of an Agent.",
                                                                     "items": {
-                                                                        "type": "keyword"
+                                                                        "type": "object",
+                                                                        "marshmallow": {
+                                                                            "generate": false,
+                                                                            "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                                        },
+                                                                        "ui": {
+                                                                            "marshmallow": {
+                                                                                "generate": false,
+                                                                                "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                            }
+                                                                        },
+                                                                        "properties": {
+                                                                            "identifier_scheme": {
+                                                                                "type": "url",
+                                                                                "required": true,
+                                                                                "label.en": "Identifier scheme",
+                                                                                "help.en": "Scheme URI of the identifier."
+                                                                            },
+                                                                            "iri": {
+                                                                                "type": "keyword"
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "keyword",
+                                                                                "required": true,
+                                                                                "label.en": "Value",
+                                                                                "help.en": "Value of the identifer within the given identifier scheme."
+                                                                            }
+                                                                        }
                                                                     }
                                                                 },
                                                                 "family_name": {
@@ -3492,7 +3634,6 @@
                                                                 },
                                                                 "given_names": {
                                                                     "type": "array",
-                                                                    "required": true,
                                                                     "label.en": "Given name",
                                                                     "help.en": "The given name associated with the object",
                                                                     "items": {
@@ -3530,7 +3671,7 @@
                                                             },
                                                             "marshmallow": {
                                                                 "generate": false,
-                                                                "class": "common.services.schema.CCMMVocabularySchema",
+                                                                "class": "common.services.schema.CCMMContributorTypesVocabularySchema",
                                                                 "unknown": "INCLUDE"
                                                             },
                                                             "label.en": "had role - The function of an entity or agent with respect to another entity or resource.",
@@ -3652,7 +3793,7 @@
                                                 },
                                                 "marshmallow": {
                                                     "generate": false,
-                                                    "class": "common.services.schema.CCMMVocabularySchema",
+                                                    "class": "common.services.schema.CCMMRelationTypesVocabularySchema",
                                                     "unknown": "INCLUDE"
                                                 },
                                                 "label.en": "Relation type",
@@ -3765,6 +3906,9 @@
                                                     "properties": {
                                                         "date": {
                                                             "type": "edtf-time",
+                                                            "mapping": {
+                                                                "ignore_malformed": true
+                                                            },
                                                             "label.en": "Date",
                                                             "help.en": "A point or period of time associated with an event in the lifecycle of the resource."
                                                         },
@@ -3798,7 +3942,7 @@
                                                             },
                                                             "marshmallow": {
                                                                 "generate": false,
-                                                                "class": "common.services.schema.CCMMVocabularySchema",
+                                                                "class": "common.services.schema.CCMMTimeReferenceTypesVocabularySchema",
                                                                 "unknown": "INCLUDE"
                                                             },
                                                             "label.en": "Date type",
@@ -3905,9 +4049,124 @@
                                                 "help.en": "A name given to the Catalogue Record."
                                             },
                                             "type": {
-                                                "type": "keyword",
+                                                "type": "vocabulary",
+                                                "keys": [
+                                                    "id",
+                                                    "title",
+                                                    {
+                                                        "key": "props.iri",
+                                                        "model": {
+                                                            "type": "keyword"
+                                                        },
+                                                        "target": "iri"
+                                                    }
+                                                ],
+                                                "vocabulary-type": "resource-types",
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                                        "unknown": "INCLUDE"
+                                                    },
+                                                    "detail": "vocabulary_item",
+                                                    "edit": "vocabulary_item"
+                                                },
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "common.services.schema.CCMMResourceTypesVocabularySchema",
+                                                    "unknown": "INCLUDE"
+                                                },
                                                 "label.en": "Type",
-                                                "help.en": "A description of the resource. Gets the value from controlled list https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/resourceTypeGeneral/."
+                                                "help.en": "A description of the resource. Gets the value from controlled list https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/resourceTypeGeneral/.",
+                                                "imports": [
+                                                    {
+                                                        "import": "oarepo_vocabularies.records.api.Vocabulary"
+                                                    }
+                                                ],
+                                                "model": "vocabularies",
+                                                "pid-field": "Vocabulary.pid.with_type_ctx(\"resource-types\")",
+                                                "facets": {
+                                                    "args": [
+                                                        "vocabulary='resource-types'"
+                                                    ]
+                                                },
+                                                "properties": {
+                                                    "id": {
+                                                        "marshmallow": {
+                                                            "field-class": "marshmallow.fields.String",
+                                                            "validators": [],
+                                                            "imports": []
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "field-class": "marshmallow.fields.String",
+                                                                "validators": [],
+                                                                "imports": []
+                                                            }
+                                                        },
+                                                        "type": "keyword",
+                                                        "mapping": {
+                                                            "fields": {
+                                                                "text": {
+                                                                    "type": "search_as_you_type"
+                                                                }
+                                                            }
+                                                        },
+                                                        "sample": {
+                                                            "skip": true
+                                                        }
+                                                    },
+                                                    "title": {
+                                                        "marshmallow": {
+                                                            "generate": false,
+                                                            "field": "{{invenio_vocabularies.services.schema.i18n_strings}}",
+                                                            "field-class": "marshmallow.fields.Nested",
+                                                            "validators": [],
+                                                            "class": "invenio_vocabularies.services.records.schema.TitleSchema"
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "field": "{{oarepo_vocabularies.services.ui_schema.VocabularyI18nStrUIField}}()",
+                                                                "generate": false
+                                                            }
+                                                        },
+                                                        "mapping": {
+                                                            "dynamic": true,
+                                                            "properties": {
+                                                                "en": {
+                                                                    "type": "search_as_you_type",
+                                                                    "copy_to": "title_sort"
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": "object",
+                                                        "propertyNames": {
+                                                            "pattern": "^[a-z]{2}$"
+                                                        },
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "@v": {
+                                                        "type": "keyword",
+                                                        "marshmallow": {
+                                                            "field-name": "_version",
+                                                            "field-class": "marshmallow.fields.String"
+                                                        },
+                                                        "ui": {
+                                                            "marshmallow": {
+                                                                "field-name": "_version",
+                                                                "field-class": "marshmallow.fields.String"
+                                                            }
+                                                        },
+                                                        "facets": {
+                                                            "facet": false
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -3944,7 +4203,7 @@
                             },
                             "marshmallow": {
                                 "generate": false,
-                                "class": "common.services.schema.CCMMVocabularySchema",
+                                "class": "common.services.schema.CCMMLanguagesVocabularySchema",
                                 "unknown": "INCLUDE"
                             },
                             "imports": [
@@ -4063,10 +4322,10 @@
                         },
                         "marshmallow": {
                             "generate": false,
-                            "class": "common.services.schema.CCMMVocabularySchema",
+                            "class": "common.services.schema.CCMMLanguagesVocabularySchema",
                             "unknown": "INCLUDE"
                         },
-                        "label.en": "Other language",
+                        "label.en": "Primary language",
                         "help.en": "The primary language of the resource.",
                         "imports": [
                             {
@@ -4408,15 +4667,39 @@
                                                 }
                                             }
                                         },
-                                        "external_identifier_type": {
-                                            "type": "keyword"
-                                        },
                                         "external_identifiers": {
                                             "type": "array",
-                                            "label.en": "External identifier",
-                                            "help.en": "External identifer of an Agent.",
+                                            "label.en": "External identifiers",
+                                            "help.en": "External identifers of an Agent.",
                                             "items": {
-                                                "type": "keyword"
+                                                "type": "object",
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                    }
+                                                },
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "url",
+                                                        "required": true,
+                                                        "label.en": "Identifier scheme",
+                                                        "help.en": "Scheme URI of the identifier."
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "required": true,
+                                                        "label.en": "Value",
+                                                        "help.en": "Value of the identifer within the given identifier scheme."
+                                                    }
+                                                }
                                             }
                                         },
                                         "iri": {
@@ -4642,15 +4925,39 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword"
-                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
-                                                        "label.en": "External identifier",
-                                                        "help.en": "External identifer of an Agent.",
+                                                        "label.en": "External identifiers",
+                                                        "help.en": "External identifers of an Agent.",
                                                         "items": {
-                                                            "type": "keyword"
+                                                            "type": "object",
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "generate": false,
+                                                                    "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                }
+                                                            },
+                                                            "properties": {
+                                                                "identifier_scheme": {
+                                                                    "type": "url",
+                                                                    "required": true,
+                                                                    "label.en": "Identifier scheme",
+                                                                    "help.en": "Scheme URI of the identifier."
+                                                                },
+                                                                "iri": {
+                                                                    "type": "keyword"
+                                                                },
+                                                                "value": {
+                                                                    "type": "keyword",
+                                                                    "required": true,
+                                                                    "label.en": "Value",
+                                                                    "help.en": "Value of the identifer within the given identifier scheme."
+                                                                }
+                                                            }
                                                         }
                                                     },
                                                     "iri": {
@@ -4807,15 +5114,39 @@
                                                 }
                                             }
                                         },
-                                        "external_identifier_type": {
-                                            "type": "keyword"
-                                        },
                                         "external_identifiers": {
                                             "type": "array",
-                                            "label.en": "External identifier",
-                                            "help.en": "External identifer of an Agent.",
+                                            "label.en": "External identifiers",
+                                            "help.en": "External identifers of an Agent.",
                                             "items": {
-                                                "type": "keyword"
+                                                "type": "object",
+                                                "marshmallow": {
+                                                    "generate": false,
+                                                    "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                },
+                                                "ui": {
+                                                    "marshmallow": {
+                                                        "generate": false,
+                                                        "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                    }
+                                                },
+                                                "properties": {
+                                                    "identifier_scheme": {
+                                                        "type": "url",
+                                                        "required": true,
+                                                        "label.en": "Identifier scheme",
+                                                        "help.en": "Scheme URI of the identifier."
+                                                    },
+                                                    "iri": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "value": {
+                                                        "type": "keyword",
+                                                        "required": true,
+                                                        "label.en": "Value",
+                                                        "help.en": "Value of the identifer within the given identifier scheme."
+                                                    }
+                                                }
                                             }
                                         },
                                         "family_name": {
@@ -4826,7 +5157,6 @@
                                         },
                                         "given_names": {
                                             "type": "array",
-                                            "required": true,
                                             "label.en": "Given name",
                                             "help.en": "The given name associated with the object",
                                             "items": {
@@ -4864,7 +5194,7 @@
                                     },
                                     "marshmallow": {
                                         "generate": false,
-                                        "class": "common.services.schema.CCMMVocabularySchema",
+                                        "class": "common.services.schema.CCMMContributorTypesVocabularySchema",
                                         "unknown": "INCLUDE"
                                     },
                                     "label.en": "had role - The function of an entity or agent with respect to another entity or resource.",
@@ -5195,15 +5525,39 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword"
-                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
-                                                        "label.en": "External identifier",
-                                                        "help.en": "External identifer of an Agent.",
+                                                        "label.en": "External identifiers",
+                                                        "help.en": "External identifers of an Agent.",
                                                         "items": {
-                                                            "type": "keyword"
+                                                            "type": "object",
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "generate": false,
+                                                                    "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                }
+                                                            },
+                                                            "properties": {
+                                                                "identifier_scheme": {
+                                                                    "type": "url",
+                                                                    "required": true,
+                                                                    "label.en": "Identifier scheme",
+                                                                    "help.en": "Scheme URI of the identifier."
+                                                                },
+                                                                "iri": {
+                                                                    "type": "keyword"
+                                                                },
+                                                                "value": {
+                                                                    "type": "keyword",
+                                                                    "required": true,
+                                                                    "label.en": "Value",
+                                                                    "help.en": "Value of the identifer within the given identifier scheme."
+                                                                }
+                                                            }
                                                         }
                                                     },
                                                     "iri": {
@@ -5429,15 +5783,39 @@
                                                                         }
                                                                     }
                                                                 },
-                                                                "external_identifier_type": {
-                                                                    "type": "keyword"
-                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
-                                                                    "label.en": "External identifier",
-                                                                    "help.en": "External identifer of an Agent.",
+                                                                    "label.en": "External identifiers",
+                                                                    "help.en": "External identifers of an Agent.",
                                                                     "items": {
-                                                                        "type": "keyword"
+                                                                        "type": "object",
+                                                                        "marshmallow": {
+                                                                            "generate": false,
+                                                                            "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                                        },
+                                                                        "ui": {
+                                                                            "marshmallow": {
+                                                                                "generate": false,
+                                                                                "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                            }
+                                                                        },
+                                                                        "properties": {
+                                                                            "identifier_scheme": {
+                                                                                "type": "url",
+                                                                                "required": true,
+                                                                                "label.en": "Identifier scheme",
+                                                                                "help.en": "Scheme URI of the identifier."
+                                                                            },
+                                                                            "iri": {
+                                                                                "type": "keyword"
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "keyword",
+                                                                                "required": true,
+                                                                                "label.en": "Value",
+                                                                                "help.en": "Value of the identifer within the given identifier scheme."
+                                                                            }
+                                                                        }
                                                                     }
                                                                 },
                                                                 "iri": {
@@ -5594,15 +5972,39 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword"
-                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
-                                                        "label.en": "External identifier",
-                                                        "help.en": "External identifer of an Agent.",
+                                                        "label.en": "External identifiers",
+                                                        "help.en": "External identifers of an Agent.",
                                                         "items": {
-                                                            "type": "keyword"
+                                                            "type": "object",
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "generate": false,
+                                                                    "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                }
+                                                            },
+                                                            "properties": {
+                                                                "identifier_scheme": {
+                                                                    "type": "url",
+                                                                    "required": true,
+                                                                    "label.en": "Identifier scheme",
+                                                                    "help.en": "Scheme URI of the identifier."
+                                                                },
+                                                                "iri": {
+                                                                    "type": "keyword"
+                                                                },
+                                                                "value": {
+                                                                    "type": "keyword",
+                                                                    "required": true,
+                                                                    "label.en": "Value",
+                                                                    "help.en": "Value of the identifer within the given identifier scheme."
+                                                                }
+                                                            }
                                                         }
                                                     },
                                                     "family_name": {
@@ -5613,7 +6015,6 @@
                                                     },
                                                     "given_names": {
                                                         "type": "array",
-                                                        "required": true,
                                                         "label.en": "Given name",
                                                         "help.en": "The given name associated with the object",
                                                         "items": {
@@ -5651,7 +6052,7 @@
                                                 },
                                                 "marshmallow": {
                                                     "generate": false,
-                                                    "class": "common.services.schema.CCMMVocabularySchema",
+                                                    "class": "common.services.schema.CCMMContributorTypesVocabularySchema",
                                                     "unknown": "INCLUDE"
                                                 },
                                                 "label.en": "had role - The function of an entity or agent with respect to another entity or resource.",
@@ -5773,7 +6174,7 @@
                                     },
                                     "marshmallow": {
                                         "generate": false,
-                                        "class": "common.services.schema.CCMMVocabularySchema",
+                                        "class": "common.services.schema.CCMMRelationTypesVocabularySchema",
                                         "unknown": "INCLUDE"
                                     },
                                     "label.en": "Relation type",
@@ -5886,6 +6287,9 @@
                                         "properties": {
                                             "date": {
                                                 "type": "edtf-time",
+                                                "mapping": {
+                                                    "ignore_malformed": true
+                                                },
                                                 "label.en": "Date",
                                                 "help.en": "A point or period of time associated with an event in the lifecycle of the resource."
                                             },
@@ -5919,7 +6323,7 @@
                                                 },
                                                 "marshmallow": {
                                                     "generate": false,
-                                                    "class": "common.services.schema.CCMMVocabularySchema",
+                                                    "class": "common.services.schema.CCMMTimeReferenceTypesVocabularySchema",
                                                     "unknown": "INCLUDE"
                                                 },
                                                 "label.en": "Date type",
@@ -6026,9 +6430,124 @@
                                     "help.en": "A name given to the Catalogue Record."
                                 },
                                 "type": {
-                                    "type": "keyword",
+                                    "type": "vocabulary",
+                                    "keys": [
+                                        "id",
+                                        "title",
+                                        {
+                                            "key": "props.iri",
+                                            "model": {
+                                                "type": "keyword"
+                                            },
+                                            "target": "iri"
+                                        }
+                                    ],
+                                    "vocabulary-type": "resource-types",
+                                    "ui": {
+                                        "marshmallow": {
+                                            "generate": false,
+                                            "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                            "unknown": "INCLUDE"
+                                        },
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item"
+                                    },
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "common.services.schema.CCMMResourceTypesVocabularySchema",
+                                        "unknown": "INCLUDE"
+                                    },
                                     "label.en": "Type",
-                                    "help.en": "A description of the resource. Gets the value from controlled list https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/resourceTypeGeneral/."
+                                    "help.en": "A description of the resource. Gets the value from controlled list https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/resourceTypeGeneral/.",
+                                    "imports": [
+                                        {
+                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
+                                        }
+                                    ],
+                                    "model": "vocabularies",
+                                    "pid-field": "Vocabulary.pid.with_type_ctx(\"resource-types\")",
+                                    "facets": {
+                                        "args": [
+                                            "vocabulary='resource-types'"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "id": {
+                                            "marshmallow": {
+                                                "field-class": "marshmallow.fields.String",
+                                                "validators": [],
+                                                "imports": []
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "field-class": "marshmallow.fields.String",
+                                                    "validators": [],
+                                                    "imports": []
+                                                }
+                                            },
+                                            "type": "keyword",
+                                            "mapping": {
+                                                "fields": {
+                                                    "text": {
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                }
+                                            },
+                                            "sample": {
+                                                "skip": true
+                                            }
+                                        },
+                                        "title": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "field": "{{invenio_vocabularies.services.schema.i18n_strings}}",
+                                                "field-class": "marshmallow.fields.Nested",
+                                                "validators": [],
+                                                "class": "invenio_vocabularies.services.records.schema.TitleSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "field": "{{oarepo_vocabularies.services.ui_schema.VocabularyI18nStrUIField}}()",
+                                                    "generate": false
+                                                }
+                                            },
+                                            "mapping": {
+                                                "dynamic": true,
+                                                "properties": {
+                                                    "en": {
+                                                        "type": "search_as_you_type",
+                                                        "copy_to": "title_sort"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object",
+                                            "propertyNames": {
+                                                "pattern": "^[a-z]{2}$"
+                                            },
+                                            "additionalProperties": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "iri": {
+                                            "type": "keyword"
+                                        },
+                                        "@v": {
+                                            "type": "keyword",
+                                            "marshmallow": {
+                                                "field-name": "_version",
+                                                "field-class": "marshmallow.fields.String"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "field-name": "_version",
+                                                    "field-class": "marshmallow.fields.String"
+                                                }
+                                            },
+                                            "facets": {
+                                                "facet": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -6058,7 +6577,7 @@
                         },
                         "marshmallow": {
                             "generate": false,
-                            "class": "common.services.schema.CCMMVocabularySchema",
+                            "class": "common.services.schema.CCMMResourceTypesVocabularySchema",
                             "unknown": "INCLUDE"
                         },
                         "label.en": "Resource type",
@@ -6212,60 +6731,121 @@
                                     }
                                 },
                                 "in_subject_scheme": {
-                                    "type": "object",
-                                    "label.en": "in subject scheme",
-                                    "marshmallow": {
-                                        "generate": false,
-                                        "class": "datasets.services.records.schema.DocumentationsItemSchema"
-                                    },
+                                    "type": "vocabulary",
+                                    "keys": [
+                                        "id",
+                                        "title",
+                                        {
+                                            "key": "props.iri",
+                                            "model": {
+                                                "type": "keyword"
+                                            },
+                                            "target": "iri"
+                                        }
+                                    ],
+                                    "vocabulary-type": "subject-schemes",
                                     "ui": {
                                         "marshmallow": {
                                             "generate": false,
-                                            "class": "datasets.services.records.ui_schema.DocumentationsItemUISchema"
+                                            "class": "common.services.ui_schema.CCMMVocabularyUISchema",
+                                            "unknown": "INCLUDE"
+                                        },
+                                        "detail": "vocabulary_item",
+                                        "edit": "vocabulary_item"
+                                    },
+                                    "marshmallow": {
+                                        "generate": false,
+                                        "class": "common.services.schema.CCMMSubjectSchemesVocabularySchema",
+                                        "unknown": "INCLUDE"
+                                    },
+                                    "label.en": "in subject scheme",
+                                    "help.en": "A controlled vocabulary or classification scheme used to describe the subject of a resource. Concepts have a unique id within the subject scheme.",
+                                    "imports": [
+                                        {
+                                            "import": "oarepo_vocabularies.records.api.Vocabulary"
                                         }
+                                    ],
+                                    "model": "vocabularies",
+                                    "pid-field": "Vocabulary.pid.with_type_ctx(\"subject-schemes\")",
+                                    "facets": {
+                                        "args": [
+                                            "vocabulary='subject-schemes'"
+                                        ]
                                     },
                                     "properties": {
+                                        "id": {
+                                            "marshmallow": {
+                                                "field-class": "marshmallow.fields.String",
+                                                "validators": [],
+                                                "imports": []
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "field-class": "marshmallow.fields.String",
+                                                    "validators": [],
+                                                    "imports": []
+                                                }
+                                            },
+                                            "type": "keyword",
+                                            "mapping": {
+                                                "fields": {
+                                                    "text": {
+                                                        "type": "search_as_you_type"
+                                                    }
+                                                }
+                                            },
+                                            "sample": {
+                                                "skip": true
+                                            }
+                                        },
+                                        "title": {
+                                            "marshmallow": {
+                                                "generate": false,
+                                                "field": "{{invenio_vocabularies.services.schema.i18n_strings}}",
+                                                "field-class": "marshmallow.fields.Nested",
+                                                "validators": [],
+                                                "class": "invenio_vocabularies.services.records.schema.TitleSchema"
+                                            },
+                                            "ui": {
+                                                "marshmallow": {
+                                                    "field": "{{oarepo_vocabularies.services.ui_schema.VocabularyI18nStrUIField}}()",
+                                                    "generate": false
+                                                }
+                                            },
+                                            "mapping": {
+                                                "dynamic": true,
+                                                "properties": {
+                                                    "en": {
+                                                        "type": "search_as_you_type",
+                                                        "copy_to": "title_sort"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object",
+                                            "propertyNames": {
+                                                "pattern": "^[a-z]{2}$"
+                                            },
+                                            "additionalProperties": {
+                                                "type": "string"
+                                            }
+                                        },
                                         "iri": {
                                             "type": "keyword"
                                         },
-                                        "labels": {
-                                            "type": "array",
-                                            "label.en": "Label",
-                                            "help.en": "Subject scheme label",
-                                            "items": {
-                                                "type": "i18nStr",
+                                        "@v": {
+                                            "type": "keyword",
+                                            "marshmallow": {
+                                                "field-name": "_version",
+                                                "field-class": "marshmallow.fields.String"
+                                            },
+                                            "ui": {
                                                 "marshmallow": {
-                                                    "class": null,
-                                                    "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
-                                                    "generate": false
-                                                },
-                                                "ui": {
-                                                    "detail": "multilingual",
-                                                    "marshmallow": {
-                                                        "class": null,
-                                                        "field-class": "oarepo_runtime.services.schema.i18n_ui.I18nStrUIField"
-                                                    }
-                                                },
-                                                "sample": {
-                                                    "skip": false
-                                                },
-                                                "properties": {
-                                                    "lang": {
-                                                        "type": "keyword",
-                                                        "mapping": {
-                                                            "ignore_above": 256
-                                                        },
-                                                        "required": true,
-                                                        "label.cs": "Jazyk",
-                                                        "label.en": "Language"
-                                                    },
-                                                    "value": {
-                                                        "type": "fulltext+keyword",
-                                                        "required": true,
-                                                        "label.cs": "Text",
-                                                        "label.en": "Text"
-                                                    }
+                                                    "field-name": "_version",
+                                                    "field-class": "marshmallow.fields.String"
                                                 }
+                                            },
+                                            "facets": {
+                                                "facet": false
                                             }
                                         }
                                     }
@@ -6359,7 +6939,7 @@
                                         },
                                         "marshmallow": {
                                             "generate": false,
-                                            "class": "common.services.schema.CCMMVocabularySchema",
+                                            "class": "common.services.schema.CCMMAccessRightsVocabularySchema",
                                             "unknown": "INCLUDE"
                                         },
                                         "imports": [
@@ -6633,15 +7213,39 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword"
-                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
-                                                        "label.en": "External identifier",
-                                                        "help.en": "External identifer of an Agent.",
+                                                        "label.en": "External identifiers",
+                                                        "help.en": "External identifers of an Agent.",
                                                         "items": {
-                                                            "type": "keyword"
+                                                            "type": "object",
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "generate": false,
+                                                                    "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                }
+                                                            },
+                                                            "properties": {
+                                                                "identifier_scheme": {
+                                                                    "type": "url",
+                                                                    "required": true,
+                                                                    "label.en": "Identifier scheme",
+                                                                    "help.en": "Scheme URI of the identifier."
+                                                                },
+                                                                "iri": {
+                                                                    "type": "keyword"
+                                                                },
+                                                                "value": {
+                                                                    "type": "keyword",
+                                                                    "required": true,
+                                                                    "label.en": "Value",
+                                                                    "help.en": "Value of the identifer within the given identifier scheme."
+                                                                }
+                                                            }
                                                         }
                                                     },
                                                     "iri": {
@@ -6867,15 +7471,39 @@
                                                                         }
                                                                     }
                                                                 },
-                                                                "external_identifier_type": {
-                                                                    "type": "keyword"
-                                                                },
                                                                 "external_identifiers": {
                                                                     "type": "array",
-                                                                    "label.en": "External identifier",
-                                                                    "help.en": "External identifer of an Agent.",
+                                                                    "label.en": "External identifiers",
+                                                                    "help.en": "External identifers of an Agent.",
                                                                     "items": {
-                                                                        "type": "keyword"
+                                                                        "type": "object",
+                                                                        "marshmallow": {
+                                                                            "generate": false,
+                                                                            "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                                        },
+                                                                        "ui": {
+                                                                            "marshmallow": {
+                                                                                "generate": false,
+                                                                                "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                            }
+                                                                        },
+                                                                        "properties": {
+                                                                            "identifier_scheme": {
+                                                                                "type": "url",
+                                                                                "required": true,
+                                                                                "label.en": "Identifier scheme",
+                                                                                "help.en": "Scheme URI of the identifier."
+                                                                            },
+                                                                            "iri": {
+                                                                                "type": "keyword"
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "keyword",
+                                                                                "required": true,
+                                                                                "label.en": "Value",
+                                                                                "help.en": "Value of the identifer within the given identifier scheme."
+                                                                            }
+                                                                        }
                                                                     }
                                                                 },
                                                                 "iri": {
@@ -7032,15 +7660,39 @@
                                                             }
                                                         }
                                                     },
-                                                    "external_identifier_type": {
-                                                        "type": "keyword"
-                                                    },
                                                     "external_identifiers": {
                                                         "type": "array",
-                                                        "label.en": "External identifier",
-                                                        "help.en": "External identifer of an Agent.",
+                                                        "label.en": "External identifiers",
+                                                        "help.en": "External identifers of an Agent.",
                                                         "items": {
-                                                            "type": "keyword"
+                                                            "type": "object",
+                                                            "marshmallow": {
+                                                                "generate": false,
+                                                                "class": "datasets.services.records.schema.IdentifiersItemSchema"
+                                                            },
+                                                            "ui": {
+                                                                "marshmallow": {
+                                                                    "generate": false,
+                                                                    "class": "datasets.services.records.ui_schema.IdentifiersItemUISchema"
+                                                                }
+                                                            },
+                                                            "properties": {
+                                                                "identifier_scheme": {
+                                                                    "type": "url",
+                                                                    "required": true,
+                                                                    "label.en": "Identifier scheme",
+                                                                    "help.en": "Scheme URI of the identifier."
+                                                                },
+                                                                "iri": {
+                                                                    "type": "keyword"
+                                                                },
+                                                                "value": {
+                                                                    "type": "keyword",
+                                                                    "required": true,
+                                                                    "label.en": "Value",
+                                                                    "help.en": "Value of the identifer within the given identifier scheme."
+                                                                }
+                                                            }
                                                         }
                                                     },
                                                     "family_name": {
@@ -7051,7 +7703,6 @@
                                                     },
                                                     "given_names": {
                                                         "type": "array",
-                                                        "required": true,
                                                         "label.en": "Given name",
                                                         "help.en": "The given name associated with the object",
                                                         "items": {
@@ -7067,39 +7718,42 @@
                                     }
                                 },
                                 "description": {
-                                    "type": "i18nStr",
-                                    "label.en": "Description",
-                                    "help.en": "Descriptive text on details of rights and licensing.",
-                                    "marshmallow": {
-                                        "class": null,
-                                        "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
-                                        "generate": false
-                                    },
-                                    "ui": {
-                                        "detail": "multilingual",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "i18nStr",
+                                        "label.en": "Description",
+                                        "help.en": "Descriptive text on details of rights and licensing.",
                                         "marshmallow": {
                                             "class": null,
-                                            "field-class": "oarepo_runtime.services.schema.i18n_ui.I18nStrUIField"
-                                        }
-                                    },
-                                    "sample": {
-                                        "skip": false
-                                    },
-                                    "properties": {
-                                        "lang": {
-                                            "type": "keyword",
-                                            "mapping": {
-                                                "ignore_above": 256
-                                            },
-                                            "required": true,
-                                            "label.cs": "Jazyk",
-                                            "label.en": "Language"
+                                            "field-class": "oarepo_runtime.services.schema.i18n.I18nStrField",
+                                            "generate": false
                                         },
-                                        "value": {
-                                            "type": "fulltext+keyword",
-                                            "required": true,
-                                            "label.cs": "Text",
-                                            "label.en": "Text"
+                                        "ui": {
+                                            "detail": "multilingual",
+                                            "marshmallow": {
+                                                "class": null,
+                                                "field-class": "oarepo_runtime.services.schema.i18n_ui.I18nStrUIField"
+                                            }
+                                        },
+                                        "sample": {
+                                            "skip": false
+                                        },
+                                        "properties": {
+                                            "lang": {
+                                                "type": "keyword",
+                                                "mapping": {
+                                                    "ignore_above": 256
+                                                },
+                                                "required": true,
+                                                "label.cs": "Jazyk",
+                                                "label.en": "Language"
+                                            },
+                                            "value": {
+                                                "type": "fulltext+keyword",
+                                                "required": true,
+                                                "label.cs": "Text",
+                                                "label.en": "Text"
+                                            }
                                         }
                                     }
                                 },
@@ -7132,6 +7786,9 @@
                             "properties": {
                                 "date": {
                                     "type": "edtf-time",
+                                    "mapping": {
+                                        "ignore_malformed": true
+                                    },
                                     "label.en": "Date",
                                     "help.en": "A point or period of time associated with an event in the lifecycle of the resource."
                                 },
@@ -7165,7 +7822,7 @@
                                     },
                                     "marshmallow": {
                                         "generate": false,
-                                        "class": "common.services.schema.CCMMVocabularySchema",
+                                        "class": "common.services.schema.CCMMTimeReferenceTypesVocabularySchema",
                                         "unknown": "INCLUDE"
                                     },
                                     "label.en": "Date type",
@@ -7341,6 +7998,46 @@
                     }
                 }
             },
+            "oai": {
+                "type": "object",
+                "marshmallow": {
+                    "generate": true,
+                    "class": "datasets.services.records.schema.OaiSchema"
+                },
+                "ui": {
+                    "marshmallow": {
+                        "generate": true,
+                        "class": "datasets.services.records.ui_schema.OaiUISchema"
+                    }
+                },
+                "properties": {
+                    "harvest": {
+                        "type": "object",
+                        "marshmallow": {
+                            "generate": true,
+                            "class": "datasets.services.records.schema.HarvestSchema"
+                        },
+                        "ui": {
+                            "marshmallow": {
+                                "generate": true,
+                                "class": "datasets.services.records.ui_schema.HarvestUISchema"
+                            }
+                        },
+                        "properties": {
+                            "datestamp": {
+                                "type": "keyword",
+                                "label.cs": "Datum poslední změny",
+                                "label.en": "Datestamp"
+                            },
+                            "identifier": {
+                                "type": "keyword",
+                                "label.cs": "OAI identifikátor",
+                                "label.en": "OAI identifier"
+                            }
+                        }
+                    }
+                }
+            },
             "pid": {
                 "type": "object",
                 "facets": {
@@ -7400,10 +8097,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "uniqueItems": true,
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -7419,6 +8112,10 @@
                             }
                         }
                     },
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
+                    },
+                    "uniqueItems": true,
                     "type": "object"
                 },
                 "ui": {

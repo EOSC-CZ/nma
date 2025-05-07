@@ -1,12 +1,13 @@
 import sys
+from functools import cached_property
 from urllib.parse import urljoin, urlparse
 
 import lxml.html
 import pycountry
-import requests
 import tqdm
 import yaml
 from invenio_access.permissions import system_identity
+from lxml import etree
 from oarepo_oaipmh_harvester.readers.sickle import SickleReader
 from oarepo_oaipmh_harvester.transformers.rule import (
     OAIRuleTransformer,
@@ -14,17 +15,54 @@ from oarepo_oaipmh_harvester.transformers.rule import (
 )
 from oarepo_runtime.datastreams import StreamBatch, StreamEntry
 
+from common.oai.ccmm_tools import (
+    file_formats_by_extension,
+    file_formats_by_iana,
+    full_name_to_person,
+)
+from common.oai.http import url_get
+
 LINDAT_LANGUAGE = "en"
 LINDAT_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/ENG"
 
-requests_session = requests.Session()
 
+class LinDatDCTransformer(OAIRuleTransformer):
+    def __init__(self, *args, repository_url=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.repository_url = repository_url
 
-class LinDatTransformer(OAIRuleTransformer):
+    @cached_property
+    def file_formats_by_extension(self):
+        """Cache the file formats by extension."""
+        return file_formats_by_extension()
+
+    @cached_property
+    def file_formats_by_iana(self):
+        """Cache the file formats by IANA type."""
+        return file_formats_by_iana()
+
     def transform(self, entry: StreamEntry):
+        if entry.deleted:
+            return
 
         md = entry.transformed.setdefault("metadata", {})
+        entry.transformed.setdefault("files", {"enabled": False})
         entry.entry = entry.context["oai"]["metadata"]
+
+        md["is_described_by"] = [
+            {
+                "dates_updated": [],
+                "languages": [{"iri": LINDAT_LANGUAGE_IRI}],
+                "original_repositories": [
+                    {
+                        "iri": self.repository_url or entry.context["oai"]["oai_url"],
+                        "labels": [
+                            {"lang": "en", "value": "LINDAT/CLARIAH-CZ"},
+                        ],
+                    }
+                ],
+            }
+        ]
 
         transform_title(md, entry)
         transform_creator(md, entry)
@@ -42,22 +80,14 @@ class LinDatTransformer(OAIRuleTransformer):
         transform_coverage(md, entry)
         transform_right(md, entry)
 
-        md["is_described_by"] = [
-            {
-                "iri": md.get("iri"),
-                "dates_updated": [],
-                "languages": [{"iri": LINDAT_LANGUAGE_IRI}],
-                "original_repositories": [
-                    {
-                        "iri": "https://lindat.mff.cuni.cz/repository/",
-                        "labels": [
-                            {"lang": "en", "value": "LINDAT/CLARIAH-CZ"},
-                        ],
-                    }
-                ],
-            }
-        ]
         md.setdefault("descriptions", [])
+        parse_depositions(
+            md,
+            entry.context["oai"]["oai_url"],
+            entry.context["oai"]["identifier"],
+            self.file_formats_by_extension,
+            self.file_formats_by_iana,
+        )
 
 
 @matches("right")
@@ -132,7 +162,7 @@ def transform_identifier(md, entry, value):
         {"value": value, "identifier_scheme": id_type}
     )
     if id_type == "https://handle.net/":
-        md["iri"] = value
+        md["is_described_by"][0]["iri"] = value
 
 
 @matches("format")
@@ -199,23 +229,13 @@ def transform_creator(md, entry, value):
 
 
 def transform_person(md, value, role):
-    value = value.split(", ")
-    if len(value) > 1:
-        family_name = value[0]
-        given_names = value[1:]
-    else:
-        family_name = value[0]
-        given_names = []
 
     md.setdefault("qualified_relations", []).append(
         {
             "role": {
                 "iri": role,
             },
-            "person": {
-                "family_name": family_name,
-                "given_names": given_names,
-            },
+            "person": full_name_to_person(value),
         }
     )
 
@@ -317,11 +337,7 @@ def type_general_converter(input_type):
 def get_page_title(url, allow_refresh=True) -> str | None:
     try:
         # Fetch the page content
-        response = requests_session.get(
-            url,
-            headers={"User-Agent": "Lindat Harvester"},  # Some sites require user-agent
-            timeout=(2, 5),  # Connect timeout, read timeout
-        )
+        response = url_get(url)
         response.raise_for_status()  # Raise exception for HTTP errors
 
         # Parse the HTML with lxml
@@ -346,15 +362,103 @@ def get_page_title(url, allow_refresh=True) -> str | None:
         return None
 
 
-if __name__ == "__main__":
+def parse_depositions(
+    md, oai_url, oai_identifier, file_formats_by_extension, file_formats_by_iana
+):
 
+    from metsrw import NAMESPACES
+
+    from common.oai.transformers.lindat_mets import LindatMETSDocument
+
+    NS = {
+        "oai": "http://www.openarchives.org/OAI/2.0/",
+        **NAMESPACES,
+        "premis": "http://www.loc.gov/standards/premis",
+    }
+
+    response = url_get(
+        oai_url,
+        params=dict(
+            verb="GetRecord",
+            identifier=oai_identifier,
+            metadataPrefix="mets",
+        ),
+    )
+    response.raise_for_status()
+    xml = etree.fromstring(response.content)
+
+    mets_element = xml.find("./oai:GetRecord/oai:record/oai:metadata/mets:mets", NS)
+    if not mets_element:
+        print(response.content)
+        return
+
+    mets_document = LindatMETSDocument.fromtree(mets_element)
+
+    downloadable_files = md.setdefault("distribution_downloadable_files", [])
+    for f in mets_document.all_files():
+        if f.type == "Directory" or not f.path:
+            continue
+        ext = "." + f.path.split(".")[-1].lower()
+
+        # metsrw does not provide file size in API, so we need to extract it from the techMD
+        # section
+        file_size = None
+        iana_type = None
+        for amdsec in f.amdsecs:
+            for subsect in amdsec.subsections:
+                if subsect.subsection == "techMD":
+                    contents = subsect.contents.serialize()
+                    file_size_el = contents.find(".//premis:size", namespaces=NS)
+                    if file_size_el is not None and file_size_el.text:
+                        file_size = int(file_size_el.text)
+
+                    format_el = contents.find(
+                        ".//premis:format/premis:formatDesignation/premis:formatName",
+                        namespaces=NS,
+                    )
+                    if format_el is not None and format_el.text:
+                        iana_type = format_el.text
+
+        file_format = None
+        if iana_type:
+            file_format = file_formats_by_iana.get(iana_type.lower())
+
+        if not file_format and ext in file_formats_by_extension:
+            file_format, _guessed_iana_type = file_formats_by_extension[ext]
+            if not iana_type:
+                iana_type = _guessed_iana_type
+
+        downloadable_file = {
+            "checksum": (
+                f.checksumtype.lower() + ":" + f.checksum
+                if f.checksumtype and f.checksum
+                else None
+            ),
+            "format": (({"iri": file_format}) if file_format else None),
+            "byte_size": file_size,
+            "media_type": (
+                {"iri": (f"https://www.iana.org/assignments/media-types/{iana_type}")}
+                if iana_type
+                else None
+            ),
+            "download_urls": [f.path],
+            "access_urls": [md["is_described_by"][0]["iri"]],
+            "title": f.label,
+        }
+        downloadable_files.append({k: v for k, v in downloadable_file.items() if v})
+
+
+if __name__ == "__main__":
+    from oarepo_runtime.cli import oarepo
+
+    @oarepo.command("sample-harvest-to-file")
     def harvest():
         with open("lindat_harvested.yaml", "w") as f:
             reader = SickleReader(
                 oai_config={"setspecs": "", "metadataprefix": "oai_dc"},
                 source="http://lindat.mff.cuni.cz/repository/oai/request?",
             )
-            transformer = LinDatTransformer(identity=system_identity)
+            transformer = LinDatDCTransformer(identity=system_identity)
             first = True
             for entry in tqdm.tqdm(reader):
                 if entry.deleted:
@@ -383,4 +487,8 @@ if __name__ == "__main__":
                 yaml.safe_dump(entry.entry, f, allow_unicode=True)
                 f.flush()
 
-    harvest()
+    # run invenio with this command
+    # to test the transformer
+    from invenio_app.cli import cli
+
+    cli.main(["oarepo", "sample-harvest-to-file"])

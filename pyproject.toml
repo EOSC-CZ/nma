@@ -8,6 +8,7 @@ dependencies = [
     "deepmerge>=1.1.0",
     "json5",
     "marshmallow-i18n-messages",
+    "metsrw",
     "oarepo-communities==5.*",
     "oarepo-dashboard==1.*",
     "oarepo-doi==1.*",
