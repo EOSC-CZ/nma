@@ -1,0 +1,46 @@
+{# def data #}
+
+{% if data._has_value %}
+    {% set data = array(data) %}
+
+    {# issue in Jinja while setting a variable inside of the loop. namespace solves the issue #}
+    {% set ns = namespace(language_found=False, has_undetermined_lang=False) %}  
+    {% for item in data %}
+        {% if item.lang|string == current_i18n.language %}
+            {% set ns.language_found = True %}  
+        {% elif item.lang|string == 'und' %}
+            {% set ns.has_undetermined_lang = True %}
+        {% endif %}
+    {% endfor %}
+
+    {% if ns.has_undetermined_lang and data|length == 1 %}
+    <div>
+        {{ data.0._ui_value.value|safe }}
+    </div>
+    {% else %}
+    <div class="ui multilingual-tabs">
+        <div class="ui compact text menu separated">
+            {% for item in data %}
+                <a class="green item 
+                   {{ 'active' if (item.lang == current_i18n.language and ns.language_found) or 
+                                  (loop.first and not ns.language_found) else '' }}" 
+                   data-tab="{{ item|id }}-{{ item.lang|e }}">
+                    {{ item.lang|upper }}
+                </a>
+                {% if not loop.last %}
+                <div class="single separator"></div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        {% for item in data %}
+        <div class="ui tab 
+            {{ 'active' if (item.lang == current_i18n.language and ns.language_found) or 
+                           (loop.first and not ns.language_found) else '' }}" 
+            data-tab="{{ item|id }}-{{ item.lang|e }}">
+            {{ item._ui_value.value|safe }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endif %}

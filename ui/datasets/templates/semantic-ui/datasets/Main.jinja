@@ -1,13 +1,26 @@
 {#def record, extra_context, md #}
 
+{% set ns = namespace(localized_title=None, issued_found=False)%}
+{% if md.alternate_titles %}
+    {% for additionalTitle in array(md.alternate_titles) %}
+        {% if additionalTitle.type == "TranslatedTitle" and additionalTitle.title.lang|string == current_i18n.language %}
+            {% set ns.localized_title = additionalTitle.title.value|string %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
 <div class="ui borderless padded segment detail-main-record-segment">
   <div>
     {# <span class="text-medium">{{_('metadata/time_references/date_type.label')}}</span>: #}
-    {# Change to issued #}
-    <span title="{{_('metadata/time_references/date_type.label')}}" aria-description="{{_('metadata/time_references/date_type.help')}}">
-      <IValue value={md.time_references|first|attr('date')} />
-    </span>
-    {% if md.version._has_value %}|
+    {% for date in array(md.time_references) if not ns.issued_found %}
+      {% if date.date_type.id|string == "issued" %}
+        <span title="{{_('metadata/time_references/date_type.label')}}" aria-description="{{_('metadata/time_references/date_type.help')}}"></span>
+          <IValue value={date.date} />
+        </span>
+        {% set ns.issued_found = True %}
+      {% endif %}
+    {% endfor %}
+    {% if md.version._has_value %}{% if ns.issued_found %}|{% endif %}
     <span title="{{_('metadata/version.label')}}" aria-description="{{_('metadata/version.help')}}">
       {{_('metadata/version.label')}} <IValue value={md.version} />
     </span>
@@ -15,22 +28,76 @@
   </div>
   
   <h1 class="ui header">
-    <IValue value={md.title} placeholder={md.alternateTitles.0.value if md.alternateTitles._has_value else _('Title unknown')} />
+    {% if ns.localized_title %}
+      {{ ns.localized_title }}
+    {% else %}
+      <IValue value={md.title} placeholder={md.alternateTitles.0.value if md.alternateTitles._has_value else _("Title not provided")} />
+    {% endif %}
   </h1>
 
   <hr class="ui divider" />
 
   <dl>
-    <IField d={md.alternateTitles}>
-      {# <AdditionalTitles d={md.alternateTitles}></AdditionalTitles> #}
-      {% for title in array(md.alternateTitles) %}
-        <Multilingual data={title} />
-      {% endfor %}
+    <IField d={md.alternate_titles}>
+      <Multilingual data={md.alternate_titles|map(attribute='title')} />
     </IField>
 
     <Creatibutors qualified_relations={md.qualified_relations} search_link={record.links.search_link}></Creatibutors>
 
-    <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource_type" search_link={record.links.search_link} search_facet="metadata_resource_type" />
+    <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource_type" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
+
+    <Subjects subjects={md.subjects} search_link={record.links.search_link} />
+
+    {# <AccordionField label={_('metadata/descriptions.label')} title_class="detail-record-description">
+      <Multilingual data={md.descriptions} />
+    </AccordionField> #}
+
+    <IField d={md.descriptions}>
+      <Multilingual data={md.descriptions} />
+    </IField>
+
+    <AccordionField label={_('Additional details')} title_class="detail-record-description" active>
+      <ITable>
+        <ITableField d={md.primary_language}>
+          <VocabularyItem vocabulary={md.primary_language} vocabulary_type="languages" search_link={record.links.search_link} searchFacet="metadata_primary_language" />
+        </ITableField>
+
+        <ITableField d={md.funding_references}>
+          <FundingReference funding_references={md.funding_references} search_link={record.links.search_link} />
+        </ITableField>
+
+        {% for date in array(md.time_references) %}
+          {% if date.date_type.id|string != "issued" %}
+            <ITableField d={date} label={date.date_type.title|capitalize}>
+              <IValue value={date.date} />
+            </ITableField>
+          {% endif %}
+        {% endfor %}
+
+        {% if array(md.locations)|selectattr('location_names') %}
+        <ITableField d={md.locations}>
+          <div class="ui list">
+            <div class="item">
+            {# NOTE: FieldData in BE should be fixed cause this is HORIBLE to DEBUG (whole server memory leaks/freezes) #}
+              <Array data={array(array(md.locations)|map(attribute='location_names')|first|first)} />
+            </div>
+          </div>
+        </ITableField>
+        {% endif %}
+
+        {# {% if md.primary_language %}
+        <Field label={_('metadata/primary_language.label')}>
+          <VocabularyItem vocabulary={md.primary_language} vocabulary_type="languages" search_link={record.links.search_link} searchFacet="metadata_primary_language" />
+        </Field>
+        {% endif %} #}
+
+        {# {% if md.funding_references %}
+        <Field label={ _('metadata/funding_references.label') }>
+          <FundingReference funding_references={md.funding_references} search_link={record.links.search_link} />
+        </Field>
+        {% endif %} #}
+      </ITable>
+    </AccordionField>
 {# 
     {% if md.dates._filter(dateType="Submitted")._select("date")._first() %}
     <IField label={_('metadata/dates/dateType.enum.Submitted')}>

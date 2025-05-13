@@ -1,0 +1,35 @@
+{#def funding_references, search_link #}
+
+<dl class='detail-subfields'>
+    {% for fr in array(funding_references) %}
+        <IField d={fr.award_title} />
+        <IField d={fr.local_identifier} />
+        <IField d={fr.funding_program} />
+        <dl class="ui relaxed divided list">
+        {% for funder in array(fr.funders) %}
+            {% if funder.funder_name %}
+            <div class="item">
+                <IField d={funder.funder_name} label_class="header" />
+            </div>
+            {% endif %}
+            {% if funder.funder_identifier_value %}
+            <div class="item">
+                <IField d={funder.funder_identifier_value} label_class="header">
+                    <IValue value={funder.funder_identifier_value} />
+                </IField>
+            </div>
+            {% endif %}
+            {% if funder.funder_identifier_type %}
+            <div class="item">
+                <Field d={funder.funder_identifier_type} label_class="header" />
+            </div>
+            {% endif %}
+            {% if funder.funder_identifier_scheme_uri %}
+            <div class="item">
+                <IField d={funder.funder_identifier_scheme_uri} label_class="header" />
+            </div>
+            {% endif %}
+        {% endfor %}
+        </dl>
+    {% endfor %}
+</dl>

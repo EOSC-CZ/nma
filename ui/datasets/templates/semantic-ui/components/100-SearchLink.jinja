@@ -1,6 +1,6 @@
 {#def className=None, search_link, searchFacet, data, searchFacetValue=None, hasTooltip=True #}
 {% set data_dict = data | to_dict %}
-{% set href = search_link ~ "?q=&f=" ~ searchFacet ~ ":" ~ searchFacetValue if searchFacetValue else data_dict.value %}
+{% set href = search_link ~ "?q=&f=" ~ searchFacet ~ ":" ~ (searchFacetValue|urlencode if searchFacetValue else data_dict.value|urlencode) %}
 
 {% set url_data = {
     "href": href,

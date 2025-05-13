@@ -5,13 +5,13 @@
   {% set searchFacet = "metadata_qualified_relations_person_family_name" %}
   {% set name = creatibutor_dict.person.family_name ~ ', ' ~ array(creatibutor_dict.person.given_names)|join(" ") if creatibutor_dict.person.given_names._has_value
       else creatibutor_dict.person.family_name %}
-  {% set identifiers = array(creatibutor_dict.person.external_identifiers) %}
+  {% set identifiers = array(creatibutor_dict.person.external_identifiers) if creatibutor_dict.person.external_identifiers else [] %}
   {% set searchFacetValue = creatibutor_dict.person.family_name %}
 {% elif creatibutor_dict.organization is defined %}
   {% set title = _("Find more records by this organization") %}
   {% set searchFacet = "metadata_qualified_relations_organization_name_value" %}
   {% set name = creatibutor_dict.organization.name %}
-  {% set identifiers = array(creatibutor_dict.organization.external_identifiers) %}
+  {% set identifiers = array(creatibutor_dict.organization.external_identifiers) if creatibutor_dict.organization.external_identifiers else [] %}
   {% set searchFacetValue = creatibutor_dict.organization.name.value %}
 {% endif %}
 

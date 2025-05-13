@@ -1,0 +1,26 @@
+{#def subjects, search_link #}
+
+{% if subjects._has_value %}
+{% set searchFacet = "metadata_subjects_title_value" %}
+{% for lang, subjects in array(subjects)|groupby('title.lang')%}
+<div role="list" class="ui horizontal medium subjects list">
+  {% for a in subjects %}
+  {% set subject = a | to_dict %}
+  <div role="listitem" class="item">
+    {% set data = {
+    "value": subject.title.value,
+    "title": _("Find more records with this subject"),
+    "label": subject.title.value
+    } %}
+    <div class="ui green basic label keyword-subjects">
+      {# NOTE: lang == und are undefined languages #}
+      {% if lang._has_value and lang|string != "und" %}
+      <span>{{lang|upper}} </span>
+      {% endif %}
+      <SearchLink search_link={search_link} className="subject-link" searchFacet={searchFacet} data={data} />
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+{% endif %}
