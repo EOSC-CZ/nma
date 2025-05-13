@@ -3,7 +3,7 @@
 {% for qr in array(qualified_relations) %}
     {% if qr.role.id|string == 'creator' %}
         {% set ns.creators = ns.creators + [qr] %}
-    {% elif qr.role.id|string == 'other' %}
+    {% elif qr.person %}
         {% set ns.contributors = ns.contributors + [qr] %}
     {% endif %}
 {% endfor %}

@@ -2,15 +2,17 @@
 {% set creatibutor_dict = creatibutor | to_dict %}
 {% if creatibutor_dict.person is defined %}
   {% set title = _("Find more records by this person") %}
-  {% set searchFacet = "metadata_qualified_relations_person_external_identifiers_iri" %}
+  {% set searchFacet = "metadata_qualified_relations_person_family_name" %}
   {% set name = creatibutor_dict.person.family_name ~ ', ' ~ array(creatibutor_dict.person.given_names)|join(" ") if creatibutor_dict.person.given_names._has_value
       else creatibutor_dict.person.family_name %}
   {% set identifiers = array(creatibutor_dict.person.external_identifiers) %}
+  {% set searchFacetValue = creatibutor_dict.person.family_name %}
 {% elif creatibutor_dict.organization is defined %}
   {% set title = _("Find more records by this organization") %}
-  {% set searchFacet = "metadata_qualified_relations_organization_external_identifiers_iri" %}
+  {% set searchFacet = "metadata_qualified_relations_organization_name_value" %}
   {% set name = creatibutor_dict.organization.name %}
   {% set identifiers = array(creatibutor_dict.organization.external_identifiers) %}
+  {% set searchFacetValue = creatibutor_dict.organization.name.value %}
 {% endif %}
 
 {% if name %}
@@ -22,7 +24,7 @@
 } %}
 <div role="listitem" class="item creatibutor-wrap separated">
   <div class="content">
-      <SearchLink data={data} searchFacet={searchFacet} search_link={search_link} />
+      <SearchLink data={data} searchFacet={searchFacet} search_link={search_link} searchFacetValue={searchFacetValue} />
       <CreatibutorIdentifier identifiers={identifiers} creatibutorName={name} />
       {%- if role.title -%} &nbsp;({{ role.title }}){%- endif -%}
   </div>
