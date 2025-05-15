@@ -44,7 +44,7 @@
 
     <Creatibutors qualified_relations={md.qualified_relations} search_link={record.links.search_link}></Creatibutors>
 
-    <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource_type" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
+    <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource-types" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
 
     <Subjects subjects={md.subjects} search_link={record.links.search_link} />
 
@@ -55,6 +55,7 @@
     <IField d={md.descriptions}>
       <Multilingual data={md.descriptions} />
     </IField>
+    {# Change from Multilingual to display descriptions under each other with a batch #}
 
     <AccordionField label={_('Additional details')} title_class="detail-record-description" active>
       <ITable>
@@ -84,6 +85,10 @@
           </div>
         </ITableField>
         {% endif %}
+
+        <ITableField d={md.related_resources}>
+          <RelatedResources related_resources={md.related_resources} search_link={record.links.search_link} />
+        </ITableField>
 
         {# {% if md.primary_language %}
         <Field label={_('metadata/primary_language.label')}>

@@ -1,0 +1,44 @@
+{#def related_resources, search_link #}
+
+{% set related_resources = array(related_resources) %}
+
+<div role="list" class="ui divided list">
+  {% for resource in related_resources %}
+  <div class="item">
+    <ListItemField d={resource.title}>
+      <SeparatedProperty d={resource.title} />
+    </ListItemField>
+    <ListItemField d={resource.relation_type}>
+      <SeparatedProperty d={resource.relation_type}>
+        <IVocabularyItem item={resource.relation_type} hide_definition />
+      </SeparatedProperty>
+    </ListItemField>
+    <ListItemField d={resource.iri}>
+      <SeparatedProperty d={resource.iri}>
+        <IRI iri={resource.iri} />
+      </SeparatedProperty>
+    </ListItemField>
+    <ListItemField d={resource.type}>
+      <SeparatedProperty d={resource.type}>
+        <IVocabularyItem item={resource.type} hide_definition />
+      </SeparatedProperty>
+    </ListItemField>
+    <ListItemField d={resource.identifier}>
+      <strong>{{ _('metadata/related_resources_identifier.label') }}:</strong>
+      <div role="list" class="list">
+        <ListItemField d={resource.identifier.iri}>
+          <SeparatedProperty d={resource.identifier.iri}>
+            <IRI iri={resource.identifier.iri} />
+          </SeparatedProperty>
+        </ListItemField>
+        <ListItemField d={resource.identifier.identifier_scheme}>
+          <SeparatedProperty d={resource.identifier.identifier_scheme} />
+        </ListItemField>
+        <ListItemField d={resource.identifier.value}>
+          <SeparatedProperty d={resource.identifier.value} />
+        </ListItemField>
+      </div>
+    </ListItemField>
+  </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,20 @@
+{#def d=True, isLast=True, label=None, renderLabel=True, ui={"separator_class": "double separator"} #}
+{% if d is true or d._has_value %}
+  {% if renderLabel%}
+  <span class="{% if ui.label_class is defined %}{{ui.label_class}}{% endif %}">
+      <strong>
+          {{label or d._ui_label}}: 
+      </strong>
+  </span>
+  {% endif %}
+  <span class="{% if ui.content_class is defined %}{{ui.content_class}}{% endif %}">
+    {% if content is not none and ((content is not string) or content.strip()) %}
+    {{ content }}
+    {% else %}
+    <IValue value={d._ui_value} />
+    {% endif %}
+  </span>
+  {% if not isLast %}
+      <span class="{{ui.separator_class}}"></span>
+  {% endif %}
+{% endif %}

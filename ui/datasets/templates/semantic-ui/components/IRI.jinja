@@ -1,0 +1,8 @@
+{#def iri #}
+
+{% set iri_str = iri|string %}
+{% if "http" in iri_str %}
+<IURL href={iri_str} title={iri_str} />
+{% else %}
+<IValue value={iri_str} />
+{% endif %}
