@@ -75,16 +75,9 @@
           {% endif %}
         {% endfor %}
 
-        {% if array(md.locations)|selectattr('location_names') %}
         <ITableField d={md.locations}>
-          <div class="ui list">
-            <div class="item">
-            {# NOTE: FieldData in BE should be fixed cause this is HORIBLE to DEBUG (whole server memory leaks/freezes) #}
-              <Array data={array(array(md.locations)|map(attribute='location_names')|first|first)} />
-            </div>
-          </div>
+          <Locations locations={md.locations} search_link={record.links.search_link} />
         </ITableField>
-        {% endif %}
 
         <ITableField d={md.related_resources}>
           <RelatedResources related_resources={md.related_resources} search_link={record.links.search_link} />

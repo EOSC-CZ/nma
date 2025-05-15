@@ -1,0 +1,32 @@
+{#def locations, search_link #}
+
+{% set locations = array(locations) %}
+
+<div role="list" class="ui divided list">
+  {% for location in locations %}
+  <div class="item">
+    <ListItemField d={location.iri}>
+      <SeparatedProperty d={location.iri}>
+        <IRI iri={location.iri} />
+      </SeparatedProperty>
+    </ListItemField>
+    <ListItemField d={location.bbox}>
+      <SeparatedProperty d={location.bbox} />
+    </ListItemField>
+    <ListItemField d={location.location_names}>
+      <SeparatedProperty d={location.location_names}>
+        <Array data={array(location.location_names)} />
+      </SeparatedProperty>
+    </ListItemField>
+    <ListItemField d={location.dataset_relations}>
+      <SeparatedProperty d={location.dataset_relations} />
+    </ListItemField>
+    <ListItemField d={location.geometry}>
+      <SeparatedProperty d={location.geometry} />
+    </ListItemField>
+    <ListItemField d={location.related_object_identifiers}>
+      <SeparatedProperty d={location.related_object_identifiers} />
+    </ListItemField>
+  </div>
+  {% endfor %}
+</div>
