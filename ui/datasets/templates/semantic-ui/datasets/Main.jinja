@@ -98,6 +98,12 @@
         {% endif %} #}
       </ITable>
     </AccordionField>
+
+    {% if md.distribution_downloadable_files %}
+    <AccordionField label={_('Files')} title_class="detail-record-description" active>
+      <FilesTable files={md.distribution_downloadable_files} search_link={record.links.search_link} />
+    </AccordionField>
+    {% endif %}
 {# 
     {% if md.dates._filter(dateType="Submitted")._select("date")._first() %}
     <IField label={_('metadata/dates/dateType.enum.Submitted')}>

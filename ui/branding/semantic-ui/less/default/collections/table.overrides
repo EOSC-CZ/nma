@@ -1,0 +1,4 @@
+.ui.table.files {
+  width: 100%;
+  overflow-wrap: anywhere;
+}

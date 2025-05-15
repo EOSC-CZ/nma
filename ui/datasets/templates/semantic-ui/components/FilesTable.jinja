@@ -1,0 +1,99 @@
+{# def files, search_link #}
+
+{% set files = array(files) %}
+
+{% if files|length > 0 %}
+<table class="ui table striped rel-mb-1 files">
+  <thead>
+    <tr>
+      <th class="six wide">{{ _("File") }}</th>
+      {# <th>{{ _("IRI") }}</th> #}
+      <th>{{ _("Size") }}</th>
+      <th>{{ _('Checksum') }}</th>
+      <th>{{ _("Format") }}</th>
+      {# <th>{{ _("Media Type") }}</th> #}
+      <th>{{ _("Actions") }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for file in files %}
+    <tr>
+      <td class="file-info">
+        <IValue value={file.title} placeholder={file.iri if file.iri else loop.index} />
+      </td>
+      {# <td>
+        {% if file.iri %}
+        <IRI iri={file.iri} />
+        {% else %}
+        <span title="{{ _('IRI not available') }}">
+          {{ _('N/A') }}
+        </span>
+        {% endif %}
+      </td> #}
+      <td>
+        {% if file.byte_size %}
+        {{ (file.byte_size|string or 0) | filesizeformat }}
+        {% else %}
+        <span title="{{ _('File size not available') }}">
+          {{ _('N/A') }}
+        </span>
+        {% endif %}
+      </td>
+      <td>
+        {% if file.checksum %}
+        {{ file.checksum }}
+        {% else %}
+        <span title="{{ _('Checksum not available') }}">
+          {{ _('N/A') }}
+        </span>
+        {% endif %}
+      </td>
+      <td>
+        {% if file.format %}
+        <VocabularyItem vocabulary={file.format} vocabulary_type="file-types" search_link={search_link}
+          searchFacet="metadata_distribution_downloadable_files_format" />
+        {% if file.media_type %} |
+        <IRI iri={file.media_type.iri} title="IANA" />
+        {% endif %}
+        {% else %}
+        <span title="{{ _('Format not available') }}">
+          {{ _('N/A') }}
+        </span>
+        {% endif %}
+      </td>
+      {# <td>
+        {% if file.media_type %}
+        <IValue value={file.media_type.iri} />
+        {% else %}
+        <span title="{{ _('Media type not available') }}">
+          {{ _('N/A') }}
+        </span>
+        {% endif %}
+      </td> #}
+      <td>
+        {% if not file.download_urls and not file.access_urls %}
+        <span title="{{ _('No download or access URLs available') }}">
+          {{ _('N/A') }}
+        </span>
+        {% else %}
+        {% if file.download_urls %}
+        {% for url in array(file.download_urls) %}
+        <button class="ui button transparent" title="{{ _('Download file') }}">
+          <a href="{{ url|string }}"><i class="ui icon download"></i></a>
+        </button>
+        {% endfor %}
+        {% endif %}
+        {% if file.access_urls %}
+        {% for url in array(file.access_urls) %}
+        <button class="ui button transparent" title="{{ _('Access file') }}">
+          <a href="{{ url|string }}"><i class="ui icon external"></i></a>
+        </button>
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
