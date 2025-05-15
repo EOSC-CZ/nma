@@ -67,13 +67,15 @@
           <FundingReference funding_references={md.funding_references} search_link={record.links.search_link} />
         </ITableField>
 
-        {% for date in array(md.time_references) %}
+        <TableTimeReferences time_references={md.time_references} excluded_date_types={["issued"]} search_link={record.links.search_link} />
+
+        {# {% for date in array(md.time_references) %}
           {% if date.date_type.id|string != "issued" %}
             <ITableField d={date} label={date.date_type.title|capitalize}>
               <IValue value={date.date} />
             </ITableField>
           {% endif %}
-        {% endfor %}
+        {% endfor %} #}
 
         <ITableField d={md.locations}>
           <Locations locations={md.locations} search_link={record.links.search_link} />

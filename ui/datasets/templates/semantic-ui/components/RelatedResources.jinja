@@ -24,7 +24,7 @@
       </SeparatedProperty>
     </ListItemField>
     <ListItemField d={resource.identifier}>
-      <strong>{{ _('metadata/related_resources_identifier.label') }}:</strong>
+      <strong>{{ resource.identifier._ui_label }}:</strong>
       <div role="list" class="list">
         <ListItemField d={resource.identifier.iri}>
           <SeparatedProperty d={resource.identifier.iri}>
@@ -38,6 +38,10 @@
           <SeparatedProperty d={resource.identifier.value} />
         </ListItemField>
       </div>
+    </ListItemField>
+    <ListItemField d={resource.time_references}>
+      <strong>{{ resource.time_references._ui_label }}:</strong>
+      <TimeReferences time_references={resource.time_references} search_link={search_link} />
     </ListItemField>
   </div>
   {% endfor %}

@@ -1,0 +1,19 @@
+{#def time_references, excluded_date_types=[], search_link #}
+
+{% set time_references = array(time_references) %}
+
+{% for time_reference in time_references if time_reference.date_type.id|string not in excluded_date_types %}
+<ITableField d={time_reference} label={time_reference.date_type.title|capitalize}>
+  <ListItemField d={time_reference.date_type}>
+    <SeparatedProperty d={time_reference.date_type}>
+      <IVocabularyItem item={time_reference.date_type} hide_definition />
+    </SeparatedProperty>
+  </ListItemField>
+  <ListItemField d={time_reference.date}>
+    <SeparatedProperty d={time_reference.date} />
+  </ListItemField>
+  <ListItemField d={time_reference.date_information}>
+    <SeparatedProperty d={time_reference.date_information} />
+  </ListItemField>
+</ITableField>
+{% endfor %}
