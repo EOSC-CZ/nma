@@ -14,7 +14,7 @@
     {# <span class="text-medium">{{_('metadata/time_references/date_type.label')}}</span>: #}
     {% for date in array(md.time_references) if not ns.issued_found %}
       {% if date.date_type.id|string == "issued" %}
-        <span title="{{_('metadata/time_references/date_type.label')}}" aria-description="{{_('metadata/time_references/date_type.help')}}"></span>
+        <span title="{{_('metadata/time_references/date_type.label')}}" aria-description="{{_('metadata/time_references/date_type.help')}}">
           <IValue value={date.date} />
         </span>
         {% set ns.issued_found = True %}
@@ -22,7 +22,7 @@
     {% endfor %}
     {% if md.version._has_value %}{% if ns.issued_found %}|{% endif %}
     <span title="{{_('metadata/version.label')}}" aria-description="{{_('metadata/version.help')}}">
-      {{_('metadata/version.label')}} <IValue value={md.version} />
+      {{_('metadata/version.label')}}: <IValue value={md.version} />
     </span>
     {% endif %}
   </div>
@@ -163,3 +163,5 @@
   </dl>
 
 </div>
+
+<pre>{{extra_context|pprint}}</pre>

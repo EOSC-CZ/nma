@@ -1,0 +1,39 @@
+{# def identifiers, search_link #}
+
+{% if identifiers._has_value %}
+<div role="list" class="ui medium list">
+  {% for id in array(identifiers) %}
+  {% set value = id.value|string %}
+  <div role="listitem" class="item">
+    <div class="ui teal tiny basic label alt-identifiers">
+      {% if id.identifier_scheme %}
+        {% set id_scheme = id.identifier_scheme|string %}
+        {% if "doi" in id_scheme %}
+        {% set scheme = "DOI" %}
+        {% elif "handle" in id_scheme %}
+        {% set scheme = "HANDLE" %}
+        {% else %}
+        {% set scheme = id_scheme|upper %}
+        {% endif %}
+        <span class="detail-identifier-type">{{scheme}}</span>
+      {% endif %}
+      {% if "http" in id.iri|string %}
+      <a href="{{ id.iri|string|e }}" target="_blank"
+        class="detail detail-identifier-value">{{value}}</a>
+      {% else %}
+      {% set searchFacet = "metadata_identifiers_value" %}
+      {% set data = {
+        "value": value,
+        "title": _("Lookup identifier"),
+        "label": value,
+      } %}
+      <SearchLink search_link={search_link} className="subject-link" searchFacet={searchFacet} data={data} />
+      {% endif %}
+    </div>
+    <i class="copy outline link teal icon copy-button" role="button"
+      title="{{_('Click to copy') ~ ': ' ~ value}}"
+      data-clipboard-text="{{value}}"></i>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
