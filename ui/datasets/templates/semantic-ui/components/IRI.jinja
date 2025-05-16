@@ -1,8 +1,15 @@
-{#def iri, title=None, tooltip=None #}
+{#def iri, title=None, hasTooltip=False, className=None #}
 
 {% set iri_str = iri|string %}
-{% if "http" in iri_str %}
-<IURL href={iri_str} title={title or iri_str} />
+{# NOTE: "http" is used to determine if the IRI is a URL or not. This is a simple check and may not be sufficient for all cases - may not be resolvable #}
+{% if iri_str.startswith("http://") or iri_str.startswith("https://") %}
+{% set data = {
+  "href": iri_str,
+  "title": title or iri_str,
+  "label": title or iri_str,
+  "aria": iri._ui_label ~ ": " ~ iri_str if iri._ui_label else "IRI: " ~ iri_str,
+} %}
+<URL data={data} className={className} target="_blank" rel="noopener noreferrer" hasTooltip={hasTooltip}  />
 {% else %}
 <IValue value={iri_str} />
 {% endif %}

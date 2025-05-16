@@ -17,9 +17,9 @@
         {% endif %}
         <span class="detail-identifier-type">{{scheme}}</span>
       {% endif %}
-      {% if "http" in id.iri|string %}
-      <a href="{{ id.iri|string|e }}" target="_blank"
-        class="detail detail-identifier-value">{{value}}</a>
+      {% set iri_is_resolvable = ((id.iri|string).startswith("http://") or (id.iri|string).startswith("https://")) if id.iri else False %}
+      {% if iri_is_resolvable %}
+      <IRI iri={id.iri} title={value} className="detail detail-identifier-value" />
       {% else %}
       {% set searchFacet = "metadata_identifiers_value" %}
       {% set data = {
