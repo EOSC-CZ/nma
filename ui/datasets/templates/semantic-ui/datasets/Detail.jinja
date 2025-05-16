@@ -43,15 +43,12 @@ api_record: an API version of the record
       <article class="sixteen wide tablet twelve wide computer column main-record-content">
         {% block record_main_content %}
         <Main record={record} extra_context={extra_context} md={d.metadata} />
-        {# <Metadata d={d.metadata} />
-        <FilesViewer files={extra_context.files} /> #}
         {% endblock %}
       </article>
       <div class="ui divider hidden tablet mobile only"></div>
       {# Sidebar #}
       <aside class="sixteen wide tablet four wide computer column sidebar" aria-label="{{ _('Record details') }}">
         {% block record_sidebar %}
-        {# <Sidebar metadata={d.metadata} ui={ui} extra_context={extra_context} record={record} d={d} /> #}
         <Sidebar record={record} md={d.metadata} is_preview={is_preview} extra_context={extra_context} />
         {% endblock record_sidebar %}
       </aside>

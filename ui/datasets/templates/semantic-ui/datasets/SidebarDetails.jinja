@@ -7,41 +7,41 @@
   "metadata only access": "partialy_closed_access.svg",
 }%}
 
-<section class="ui segment bottom-tab" aria-label="{{_('Record details')}}">
-  <AccordionField label={_('Record details')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
-    {% if md.terms_of_use %}
-      {% set terms_of_use = array(md.terms_of_use)|sort(attribute='access_rights') %}
-      {% for term in terms_of_use %}
-        {% if term.access_rights %}
-        {% for right in array(term.access_rights) %}
-          {% set id = right.id|string %}
-          {% set title = right.title|string %}
-          <div>
-            <a href="/vocabularies/access-rights/{{id}}">
-              <img 
-                class="ui tiny middle aligned image license-rights"
-                src="/static/icons/locks/{{lock_icons[title]}}"
-                title="{{title}}"
-                alt="{{title}}"
-                aria-label="{{title}}"
-              />
-            </a>
-            <IValue value={right.title} />
-          </div>
-        {% endfor %}
-        {% endif %}
-        <SeparatedProperty d={term.iri} />
-        <SeparatedProperty d={term.description}>
-          <Array data={array(term.description)|map(attribute='value')} />
-        </SeparatedProperty>
-        <SeparatedProperty d={term.license} />
-    {% endfor %}
-    {% endif %}
-
-    <div>
-      <SeparatedProperty d={md.identifiers}>
-        <Identifiers identifiers={md.identifiers} search_link={record.links.search_link} />
+<section class="ui segment basic sidebar-section bottom-tab" aria-label="{{_('Record details')}}">
+  {% if md.terms_of_use %}
+    {% set terms_of_use = array(md.terms_of_use)|sort(attribute='access_rights') %}
+    {% for term in terms_of_use %}
+      {% if term.access_rights %}
+      {% for right in array(term.access_rights) %}
+        {% set id = right.id|string %}
+        {% set title = right.title|string %}
+        <div>
+          <a href="/vocabularies/access-rights/{{id}}">
+            <img 
+              class="ui tiny middle aligned image license-rights"
+              src="/static/icons/locks/{{lock_icons[title]}}"
+              title="{{title}}"
+              alt="{{title}}"
+              aria-label="{{title}}"
+            />
+          </a>
+          <IValue value={right.title} />
+        </div>
+      {% endfor %}
+      {% endif %}
+      <SeparatedProperty d={term.iri}>
+        <IRI iri={term.iri} />
       </SeparatedProperty>
-    </div>
-  </AccordionField>
+      <SeparatedProperty d={term.description}>
+        <Array data={array(term.description)|map(attribute='value')} />
+      </SeparatedProperty>
+      <SeparatedProperty d={term.license} />
+  {% endfor %}
+  {% endif %}
+
+  <div>
+    <SeparatedProperty d={md.identifiers}>
+      <Identifiers identifiers={md.identifiers} search_link={record.links.search_link} />
+    </SeparatedProperty>
+  </div>
 </section>

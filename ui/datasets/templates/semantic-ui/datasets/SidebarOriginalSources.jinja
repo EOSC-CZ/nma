@@ -1,0 +1,26 @@
+{#def record, md #}
+
+{% set ns = namespace(publishers = []) %}
+{% for qr in array(md.qualified_relations) %}
+  {% if qr.role.id|string == 'publisher' %}
+    {% set ns.publishers = ns.publishers + [qr] %}
+  {% endif %}
+{% endfor %}
+{# Sort to show persons first if they exist #}
+{% set ns.publishers = array(ns.publishers)|sort(attribute='person') %}
+
+<segment class="ui segment basic sidebar-section bottom-tab" aria-label="{{_('Original sources')}}">
+  <AccordionField label={_('Original sources')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
+    <div>
+      {% if ns.publishers|length > 0 %}
+      <SeparatedProperty d={ns.publishers.0} label={ns.publishers.0.role.title|string|capitalize}>
+        <div role="list" class="ui horizontal separated creatibutors list">
+          {% for publisher in ns.publishers %}
+          <Creatibutor creatibutor={publisher} search_link={record.links.search_link} />
+          {% endfor %}
+        </div>
+      </SeparatedProperty>
+      {% endif %}
+    </div>
+  </AccordionField>
+</segment>

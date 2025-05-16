@@ -18,7 +18,7 @@
 
 {% if ns.person_creators or ns.org_creators or ns.person_contributors or ns.org_contributors %}
     <div class="ui double separated">
-        <div role="list">
+        <div role="list" class="ui horizontal separated creatibutors list">
             {% for creatibutor in array(ns.person_creators) %}
                 <Creatibutor creatibutor={creatibutor} search_link={search_link} />
             {% endfor %}
