@@ -8,9 +8,11 @@
 @backgroundColor: #f9f9f9;
 @livelyGreen: #008691;
 @pink: #ff5b7f;
-@primaryColor: #23d26e;
+@blue: #0478f0;
+@green: #23d26e;
+@primaryColor: @green;
 @borderColor: @primaryColor;
-@secondaryColor: #0478f0;
+@secondaryColor: @blue;
 @tertiaryColor: #9c27b0;
 @darkGrey: #9a9a9a;
 @lightGrey: #d9d9d9;
@@ -32,7 +34,6 @@
       Site Colors
 --------------------*/
 
-@green: #00b691;
 @red: darken(@pink, 20);
 @signupColor: @green;
 

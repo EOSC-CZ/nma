@@ -15,4 +15,36 @@
   &.active-filters-count-label {
     background-color: @lightPrimaryColor;
   }
+
+  &.keyword-subjects, &.alt-identifiers {
+    font-size: 0.75rem;
+    text-wrap: nowrap;
+    border-radius: 6px;
+    padding: 0.5rem;
+    background-color: transparent;
+
+    .subject-link {
+      color: @black;
+    }
+  }
+
+  &.alt-identifiers {
+    padding-left: 0;
+    
+    .detail-identifier-type {
+      padding: 0.5rem;
+      background-color: @primaryColor;
+      color: @white;
+      border-radius: 6px 0 0 6px;
+    }
+  }
+
+  &.external-subjects {
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    background-color: transparent;
+    a {
+      color: @primaryColor;
+    }
+  }
 }

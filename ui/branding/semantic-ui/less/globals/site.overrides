@@ -6,6 +6,50 @@
 // https://www.joshwcomeau.com/css/custom-css-reset/
 // https://github.com/inveniosoftware/invenio-app-rdm/blob/d21af4eac1f6aca4ddd524cccfb621ae259f8411/invenio_app_rdm/theme/assets/semantic-ui/less/invenio_app_rdm/theme/globals/site.overrides#L4
 
+// Fonts
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: url("~@less/fonts/Roboto-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("~@less/fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  src: url("~@less/fonts/Roboto-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("~@less/fonts/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("~@less/fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  src: url("~@less/fonts/Roboto-Black.ttf") format("truetype");
+}
+
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -556,9 +600,244 @@ dl.details-list {
   min-height: 16px;
   width: auto;
   vertical-align: text-bottom;
+  display: inline-block;
 }
 
 button:focus-visible,
 a:focus-visible {
   outline: 3px solid @focusedFormBorderColor !important;
+}
+
+
+//
+// Detail page
+//
+
+a {
+  color: @linkColor;
+
+  &:hover {
+    color: @linkHoverColor;
+    text-decoration: @linkHoverUnderline;
+  }
+}
+
+a.accordion-title {
+  text-decoration: none;
+
+  p {
+    .text-big();
+    color: @black;
+    display: flex;
+    justify-content: space-between;
+    line-height: normal;
+    word-wrap: anywhere;
+
+    span:hover {
+      text-decoration: underline;
+    }
+
+    .accordion-dropdown-icon {
+      display: inline-block;
+      color: @blue;
+      opacity: 1;
+      width: initial;
+      height: initial;
+      transition: transform 0.1s ease, opacity 0.1s ease, color 0.1s ease;
+      text-decoration: none;
+    }
+  }
+}
+
+a.logo-link {
+  margin-left: 1rem;
+  display: block;
+
+  img {
+    max-height: 3.5rem;
+    height: 100%;
+  }
+}
+
+/* Styles for sidebar sections used in the Detail page */
+.sidebar-section {
+  margin-bottom: 1rem;
+  
+  &.bottom-tab {
+    padding-bottom: 1rem;
+  }
+  
+  .license-rights {
+    margin-right: 0.5rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+/* Styles for sidebar links */
+.ui.segment .sidebar-link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  
+  .icon {
+    margin-right: 0.5rem;
+  }
+}
+
+/* Main layout for detail page */
+.main-record-content {
+  margin-bottom: 2rem;
+}
+
+/* Detail page search menu */
+.detail-search-menu {
+  margin-bottom: 1.5rem;
+}
+
+.detail-back-to-search-link {
+  a {
+    color: @primaryColor;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    
+    .icon {
+      margin-right: 0.3rem;
+    }
+  }
+}
+
+/* Table styling for content display */
+// .ui.table.itable {
+//   background: transparent;
+//   border: none;
+//   box-shadow: none;
+  
+//   td, th {
+//     border-top: none;
+//     padding: 0.5em 0.8em;
+//   }
+// }
+
+/* License rights icon styling */
+img.license-rights {
+  height: 24px;
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.detail-record-description {
+  border-bottom: 1px solid @grey;
+}
+
+.detail-sidebar-header {
+  font-size: 1.25rem;
+  // border-bottom: 1px solid @grey;
+}
+
+.detail-sidebar-title {
+  .text-regular();
+  line-height: 1.438rem;
+}
+
+// Custom classes
+
+#header-page-title {
+  .text-regular();
+  font-size: 2rem;
+  color: @darkGrey;
+  margin-left: 35px;
+}
+
+/*
+ * Utility classes
+ */
+
+ .text-massive {
+  font-weight: 900;
+}
+
+.text-big {
+  font-weight: 700;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+.text-regular {
+  font-weight: 400;
+}
+
+.text-small {
+  font-weight: 300;
+}
+
+.top-tab {
+  margin-top: 0.5rem;
+}
+
+.bottom-tab {
+  margin-bottom: 0.5rem;
+}
+
+.left-tab {
+  margin-left: 1rem;
+}
+
+.right-tab {
+  margin-right: 1rem;
+}
+
+.right-floated {
+  float: right;
+}
+
+.left-floated {
+  float: left;
+}
+
+.left-aligned {
+  text-align: left;
+}
+
+.centered {
+  text-align: center;
+}
+
+.right-aligned {
+  text-align: right;
+}
+
+.white {
+  color: white;
+}
+
+.grey {
+  color: @grey;
+}
+
+.dark-grey {
+  color: @darkGrey;
+}
+
+.light-grey {
+  color: @lightGrey;
+}
+
+.blue {
+  color: @blue;
+}
+
+.green {
+  color: @green;
+}
+
+.pink {
+  color: @pink;
 }

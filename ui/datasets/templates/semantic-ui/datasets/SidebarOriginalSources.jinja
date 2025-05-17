@@ -9,7 +9,7 @@
 {# Sort to show persons first if they exist #}
 {% set ns.publishers = array(ns.publishers)|sort(attribute='person') %}
 
-<segment class="ui segment basic sidebar-section bottom-tab" aria-label="{{_('Original sources')}}">
+<section class="ui segment basic sidebar-section bottom-tab" aria-label="{{_('Original sources')}}">
   <AccordionField label={_('Original sources')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
     <div>
       {% if ns.publishers|length > 0 %}
@@ -23,4 +23,4 @@
       {% endif %}
     </div>
   </AccordionField>
-</segment>
+</section>
