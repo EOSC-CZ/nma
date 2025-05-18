@@ -6,6 +6,8 @@
 // https://www.joshwcomeau.com/css/custom-css-reset/
 // https://github.com/inveniosoftware/invenio-app-rdm/blob/d21af4eac1f6aca4ddd524cccfb621ae259f8411/invenio_app_rdm/theme/assets/semantic-ui/less/invenio_app_rdm/theme/globals/site.overrides#L4
 
+@import "./site.variables";
+
 // Fonts
 
 @font-face {
@@ -659,32 +661,6 @@ a.logo-link {
   }
 }
 
-/* Styles for sidebar sections used in the Detail page */
-.sidebar-section {
-  margin-bottom: 1rem;
-  
-  &.bottom-tab {
-    padding-bottom: 1rem;
-  }
-  
-  .license-rights {
-    margin-right: 0.5rem;
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
-
-/* Styles for sidebar links */
-.ui.segment .sidebar-link {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  
-  .icon {
-    margin-right: 0.5rem;
-  }
-}
-
 /* Main layout for detail page */
 .main-record-content {
   margin-bottom: 2rem;
@@ -693,23 +669,6 @@ a.logo-link {
 /* Detail page search menu */
 .detail-search-menu {
   margin-bottom: 1.5rem;
-}
-
-.detail-back-to-search-link {
-  a {
-    color: @primaryColor;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    
-    &:hover {
-      text-decoration: underline;
-    }
-    
-    .icon {
-      margin-right: 0.3rem;
-    }
-  }
 }
 
 /* Table styling for content display */
@@ -723,13 +682,6 @@ a.logo-link {
 //     padding: 0.5em 0.8em;
 //   }
 // }
-
-/* License rights icon styling */
-img.license-rights {
-  height: 24px;
-  width: auto;
-  margin-right: 0.5rem;
-}
 
 .detail-record-description {
   border-bottom: 1px solid @grey;
@@ -752,6 +704,11 @@ img.license-rights {
   font-size: 2rem;
   color: @darkGrey;
   margin-left: 35px;
+}
+
+#recordExportDownload .ui.button {
+  background-color: @primaryColor;
+  color: @black;
 }
 
 /*

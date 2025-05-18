@@ -2,26 +2,26 @@
 {#def record, md, extra_context, is_preview  #}
 {%set recordRequests = record.expanded.requests and record.expanded.requests|selectattr('status', 'in', ['submitted', 'created'])|list%}
 {% if record.expanded.request_types or recordRequests or record.links.edit_html %}
-<section class="ui segment" aria-label='{{ _("Actions") }}'>
-<h2 class="ui small header detail-sidebar-header">{{ _("Actions") }}</h2>
-{% if record.links.edit_html%}
-  <div class="mb-10">
-    <SidebarLink icon="pencil" href={record.links.edit_html}>
-      {{_('Edit')}}
-    </SidebarLink>
-  </div>
-{% endif %}
-{% if record.expanded.request_types or recordRequests %}
-  <RecordRequests record={record} />
-{% endif %}
+<section class="ui segment detail-sidebar-section" aria-label='{{ _("Actions") }}'>
+  <h2 class="ui small header detail-sidebar-header">{{ _("Actions") }}</h2>
+  {% if record.links.edit_html%}
+    <div class="mb-10">
+      <SidebarLink icon="pencil" href={record.links.edit_html}>
+        {{_('Edit')}}
+      </SidebarLink>
+    </div>
+  {% endif %}
+  {% if record.expanded.request_types or recordRequests %}
+    <RecordRequests record={record} />
+  {% endif %}
 </section>
 {% endif %}
 
 <SidebarDetails record={record} md={md} />
-<SidebarOriginalSources record={record} md={md} />
-{% if record.expanded.communities %}
+<SidebarOriginalSources record={record} md={md} communities={record.expanded.communities} originalRecordUrl={record.metadata.is_described_by.0.iri} />
+{# {% if record.expanded.communities %}
   <RecordCommunities communities={record.expanded.communities} />
-{% endif %}
-<IdentifiersAndLinks originalRecordUrl={record.metadata.is_described_by.0.iri} objectIdentifiers={record.metadata.objectIdentifiers} pids={record.pids} />
+{% endif %} #}
+{# <IdentifiersAndLinks originalRecordUrl={record.metadata.is_described_by.0.iri} objectIdentifiers={record.metadata.objectIdentifiers} pids={record.pids} /> #}
 <RecordVersions record={record} is_preview={is_preview} />
 <RecordExport record={record} metadata={record.metadata} extra_context={extra_context} />

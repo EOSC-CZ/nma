@@ -1,2 +1,2 @@
 @boxShadow: none;
-@borderRadius: 20px;
+@borderRadius: 6px;

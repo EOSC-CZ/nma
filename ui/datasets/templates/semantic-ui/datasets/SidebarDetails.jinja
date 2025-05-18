@@ -1,13 +1,13 @@
 {#def record, md #}
 
-{% set lock_icons = {
-  "open access": "open_access.svg",
-  "restricted access": "partialy_closed_access_grey.svg",
-  "embargoed access": "closed_access.svg",
-  "metadata only access": "partialy_closed_access.svg",
+{% set id_to_lock_icons = {
+  "c_abf2": "open_access.svg",
+  "c_16ec": "partialy_closed_access_grey.svg",
+  "c_f1cf": "closed_access.svg",
+  "c_14cb": "partialy_closed_access.svg",
 }%}
 
-<section class="ui segment basic sidebar-section bottom-tab" aria-label="{{_('Record details')}}">
+<section class="ui segment basic detail-sidebar-section" aria-label="{{_('Record details')}}">
   {% if md.terms_of_use %}
     {% set terms_of_use = array(md.terms_of_use)|sort(attribute='access_rights') %}
     {% for term in terms_of_use %}
@@ -15,11 +15,11 @@
       {% for right in array(term.access_rights) %}
         {% set id = right.id|string %}
         {% set title = right.title|string %}
-        <div>
+        <div aria-label='{{ term.access_rights._ui_label }}'>
           <a href="/vocabularies/access-rights/{{id}}">
             <img 
               class="ui tiny middle aligned image license-rights"
-              src="/static/icons/locks/{{lock_icons[title]}}"
+              src="/static/icons/locks/{{id_to_lock_icons[id]}}"
               title="{{title}}"
               alt="{{title}}"
               aria-label="{{title}}"
@@ -29,19 +29,33 @@
         </div>
       {% endfor %}
       {% endif %}
-      <SeparatedProperty d={term.iri}>
-        <IRI iri={term.iri} />
-      </SeparatedProperty>
-      <SeparatedProperty d={term.description}>
-        <Array data={array(term.description)|map(attribute='value')} />
-      </SeparatedProperty>
-      <SeparatedProperty d={term.license} />
+      {% if term.license%}
+      <div aria-label="{{ term.iri._ui_label }}">
+        <SeparatedProperty d={term.iri}>
+          <IRI iri={term.iri} />
+        </SeparatedProperty>
+      </div>
+      {% endif %}
+      {% if term.description %}
+      <div aria-label="{{ term.description._ui_label }}">
+        <SeparatedProperty d={term.description}>
+          <Array data={array(term.description)|map(attribute='value')} />
+        </SeparatedProperty>
+      </div>
+      {% endif %}
+      {% if term.license %}
+      <div aria-label="{{ term.license._ui_label }}">
+        <SeparatedProperty d={term.license} />
+      </div>
+      {% endif %}
   {% endfor %}
   {% endif %}
 
-  <div>
+  {% if md.identifiers %}
+  <div aria-label="{{ md.identifiers._ui_label|capitalize }}">
     <SeparatedProperty d={md.identifiers}>
       <Identifiers identifiers={md.identifiers} search_link={record.links.search_link} />
     </SeparatedProperty>
   </div>
+  {% endif %}
 </section>

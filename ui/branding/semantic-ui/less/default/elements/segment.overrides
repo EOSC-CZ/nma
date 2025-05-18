@@ -7,7 +7,14 @@
     }
   }
 
-  .detail-main-record-segment {
-    border-radius: 10px;
+  &.detail-main-record-segment, &.detail-sidebar-section {
+    border: none;
+    border-top: 1px solid @borderColor;
+    border-radius: @borderRadius;
+  }
+
+  &.detail-sidebar-section {
+    margin-bottom: 0.5rem;
+    overflow-wrap: break-word
   }
 }
