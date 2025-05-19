@@ -19,12 +19,12 @@
   & > .column.detail-back-to-search-link {
       display: flex;
       align-items: center;
-      color: @black;
 
       a {
         font-weight: normal;
         display: flex;
         align-items: center;
+        color: @linkColor;
         
         &:hover {
           text-decoration: underline;
@@ -33,7 +33,6 @@
         .left.chevron.icon {
           display: inline-block;
           margin-right: 10px;
-          color: @primaryColor;
         }
       }
   }

@@ -10,11 +10,12 @@
 @pink: #ff5b7f;
 @blue: #0478f0;
 @green: #23d26e;
+@grey: #9a9a9a;
 @primaryColor: @green;
 @borderColor: @primaryColor;
 @secondaryColor: @blue;
 @tertiaryColor: #9c27b0;
-@darkGrey: #9a9a9a;
+@darkGrey: #57575c;
 @lightGrey: #d9d9d9;
 @black: #040305;
 @white: #ffffff;

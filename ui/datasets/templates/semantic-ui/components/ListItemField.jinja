@@ -1,7 +1,7 @@
 {# def d=True, label=None, keep=false, label_class="ui field-data", data_class="ui field-data" #}
 
 {%- if d is true or d._has_value or keep -%}
-<div class="item">
+<div role="listitem" class="item">
   {%- if content is not none and ((content is not string) or content.strip()) -%}
   {{ content }}
   {%- else -%}

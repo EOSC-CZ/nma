@@ -628,8 +628,7 @@ a.accordion-title {
   text-decoration: none;
 
   p {
-    .text-big();
-    color: @black;
+    color: @darkGrey;
     display: flex;
     justify-content: space-between;
     line-height: normal;
@@ -684,6 +683,8 @@ a.logo-link {
 // }
 
 .detail-record-description {
+  .text-medium();
+  color: @darkGrey;
   border-bottom: 1px solid @grey;
 }
 
@@ -693,8 +694,14 @@ a.logo-link {
 }
 
 .detail-sidebar-title {
-  .text-regular();
+  .text-medium();
   line-height: 1.438rem;
+}
+
+dt.field-data {
+  color: @darkGrey;
+  .text-big();
+  margin-bottom: 0.2rem;
 }
 
 // Custom classes

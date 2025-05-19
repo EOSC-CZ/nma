@@ -53,7 +53,17 @@
     </AccordionField> #}
 
     <IField d={md.descriptions}>
-      <Multilingual data={md.descriptions} />
+      {% set descriptions = array(md.descriptions)|sort(reverse=true, attribute='lang') %}
+      {% for description in descriptions %}
+      <div role="list" class="ui list">
+        <div role="listitem" class="item" aria-label="{{ description._ui_label }}">
+          {# {% if description.lang|string|lower != "und" %} #}
+          <span class="dark-grey" title="{{description.lang._ui_label}}" aria-description="{{description.lang._ui_help}}">[{{ description.lang|string|upper }}]</span> 
+          {# {% endif %} #}
+          {{ description._ui_value.value|safe }}
+        </div>
+      </div>
+      {% endfor %}
     </IField>
     {# Change from Multilingual to display descriptions under each other with a batch #}
 
@@ -104,64 +114,5 @@
       <FilesTable files={md.distribution_downloadable_files} search_link={record.links.search_link} />
     </AccordionField>
     {% endif %}
-{# 
-    {% if md.dates._filter(dateType="Submitted")._select("date")._first() %}
-    <IField label={_('metadata/dates/dateType.enum.Submitted')}>
-      {{md.dates._filter(dateType="Submitted")._select("date")._first()}}
-    </IField>
-    {% endif %}
-
-    <IField d={md.dates._filter(dateType="Modified" )._select("date")._first()} />
-
-    <IField d={md.language} />
-
-    <IField d={md.publisher}>
-      <Publisher publisher={md.publisher} search_link={record.links.search_link}></Publisher>
-    </IField>
-
-    <IField d={md.accessibility} />
-    <IField d={md.rights} />
-
-    <IField d={md.subjects}>
-      <Subjects subjects={md.subjects} search_link={record.links.search_link}></Subjects>
-    </IField>
-
-    <IField d={ md.events }>
-      <NrEvents data={md.events}></NrEvents>
-    </IField>
-
-    <IField d={ md.externalLocation }>
-      <NrExternalLocation data={md.externalLocation}></NrExternalLocation>
-    </IField>
-
-    {% if md.fundingReferences %}
-    <IField d={md.fundingReferences}>
-      <FundingReference funders={md.fundingReferences} search_link={record.links.search_link}>
-      </FundingReference>
-    </IField>
-    {% endif %}
-
-    <IField d={md.alternateIdentifiers}>
-      <AlternateIdentifiers identifiers={md.alternateIdentifiers} search_link={record.links.search_link}>
-      </AlternateIdentifiers>
-    </IField>
-
-    <IField d={md.rightsList}>
-      <RightsList rights={md.rightsList} search_link={record.links.search_link}></RightsList>
-    </IField>
-
-    {% set abstracts = md.descriptions._filter(descriptionType="Abstract") %}
-    <IField label={_('abstract')|capitalize}>
-      <Multilingual data={abstracts} field="description" />
-    </IField>
-
-    {% for description in array(md.descriptions._filter(descriptionType__ne="Abstract")) %}
-    <AccordionField label={description.descriptionType} title_class="detail-record-description">
-      <p>{{description.description | safe}}</p>
-    </AccordionField>
-    {% endfor %} #}
   </dl>
-
 </div>
-
-<pre>{{extra_context|pprint}}</pre>

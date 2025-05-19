@@ -30,9 +30,9 @@ api_record: an API version of the record
       <div class="sixteen wide mobile twelve wide computer column center aligned right floated">
         <form action="{{ url_for('datasets.search') }}" class="ui form" role="search">
           <div class="ui fluid action input search-input">
-            <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}">
-            <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}"><i
-                class="search icon"></i>
+            <input type="text" name="q" class="form-control" placeholder="{{ _('Search datasets..') }}">
+            <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}">
+              {{ _('Search') }}
             </button>
           </div>
         </form>
