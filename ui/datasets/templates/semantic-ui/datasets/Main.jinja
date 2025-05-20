@@ -11,7 +11,6 @@
 
 <div class="ui padded segment detail-main-record-segment">
   <div>
-    {# <span class="text-medium">{{_('metadata/time_references/date_type.label')}}</span>: #}
     {% for date in array(md.time_references) if not ns.issued_found %}
       {% if date.date_type.id|string == "issued" %}
         <span title="{{_('metadata/time_references/date_type.label')}}" aria-description="{{_('metadata/time_references/date_type.help')}}">
@@ -48,10 +47,6 @@
 
     <Subjects subjects={md.subjects} search_link={record.links.search_link} />
 
-    {# <AccordionField label={_('metadata/descriptions.label')} title_class="detail-record-description">
-      <Multilingual data={md.descriptions} />
-    </AccordionField> #}
-
     <IField d={md.descriptions}>
       {% set descriptions = array(md.descriptions)|sort(reverse=true, attribute='lang') %}
       {% for description in descriptions %}
@@ -65,7 +60,6 @@
       </div>
       {% endfor %}
     </IField>
-    {# Change from Multilingual to display descriptions under each other with a batch #}
 
     <AccordionField label={_('Additional details')} title_class="detail-record-description" active>
       <ITable>
@@ -79,14 +73,6 @@
 
         <TableTimeReferences time_references={md.time_references} excluded_date_types={["issued"]} search_link={record.links.search_link} />
 
-        {# {% for date in array(md.time_references) %}
-          {% if date.date_type.id|string != "issued" %}
-            <ITableField d={date} label={date.date_type.title|capitalize}>
-              <IValue value={date.date} />
-            </ITableField>
-          {% endif %}
-        {% endfor %} #}
-
         <ITableField d={md.locations}>
           <Locations locations={md.locations} search_link={record.links.search_link} />
         </ITableField>
@@ -94,18 +80,7 @@
         <ITableField d={md.related_resources}>
           <RelatedResources related_resources={md.related_resources} search_link={record.links.search_link} />
         </ITableField>
-
-        {# {% if md.primary_language %}
-        <Field label={_('metadata/primary_language.label')}>
-          <VocabularyItem vocabulary={md.primary_language} vocabulary_type="languages" search_link={record.links.search_link} searchFacet="metadata_primary_language" />
-        </Field>
-        {% endif %} #}
-
-        {# {% if md.funding_references %}
-        <Field label={ _('metadata/funding_references.label') }>
-          <FundingReference funding_references={md.funding_references} search_link={record.links.search_link} />
-        </Field>
-        {% endif %} #}
+        
       </ITable>
     </AccordionField>
 
