@@ -31,7 +31,10 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
       {(total || null) && (
         <>
           <Grid.Column textAlign="left" width={3}>
-            <p>{i18next.t("Results: {{count}}", { count: total })}</p>
+            <p>
+              {i18next.t("Results: ")}
+              <strong>{total}</strong>
+            </p>
           </Grid.Column>
           <Grid.Column
             textAlign="right"
