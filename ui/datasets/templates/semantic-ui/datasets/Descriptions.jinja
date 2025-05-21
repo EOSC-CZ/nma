@@ -1,0 +1,22 @@
+{#def descriptions #}
+
+{# Try to sort by language so that the "UND" (udetermined) language is at the start. #}
+{% set descriptions = array(descriptions)|sort(reverse=true, attribute='lang') %}
+
+
+<div role="list" class="ui list">
+  {% for description in descriptions %}
+  <div role="listitem" class="item detail-description-container" aria-label="{{ description._ui_label }}" aria-description="{{ description._ui_hint }}">
+    <input type="checkbox" id="detail-description-expanded-{{loop.index}}" aria-hidden="true">
+    <div id="detail-description-{{loop.index}}" class="detail-description">
+      {# {% if description.lang|string|lower != "und" %} #}
+      <span class="dark-grey" title="{{description.lang._ui_label}}"
+        aria-description="{{description.lang._ui_help}}">[{{ description.lang|string|upper }}]</span>
+      {# {% endif %} #}
+      {% set description_text = description._ui_value.value|safe %}
+      <span class="description-text">{{ description_text }}</span>
+    </div>
+    <label for="detail-description-expanded-{{loop.index}}" role="button">{{ _('show more') }} <i class="caret down fitted link icon custom-caret"></i></label>
+  </div>
+  {% endfor %}
+</div>

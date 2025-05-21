@@ -8,8 +8,8 @@ theme = WebpackThemeBundle(
         "semantic-ui": {
             "entry": {},
             "dependencies": {
-                "react-invenio-forms": "3.5.2",
-                "react-searchkit": "2.3.0",
+                "react-invenio-forms": "3.5.3",
+                "react-searchkit": "2.3.1",
             },
             "devDependencies": {},
             "aliases": {

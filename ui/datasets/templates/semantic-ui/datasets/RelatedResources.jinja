@@ -1,4 +1,4 @@
-{#def related_resources, search_link #}
+{#def related_resources, record, search_link #}
 
 {% set related_resources = array(related_resources) %}
 
@@ -10,7 +10,7 @@
     </ListItemField>
     <ListItemField d={resource.relation_type}>
       <SeparatedProperty d={resource.relation_type}>
-        <IVocabularyItem item={resource.relation_type} hide_definition />
+        <VocabularyItem vocabulary={resource.relation_type} vocabulary_type="relation-types" search_link={record.links.search_link} searchFacet="metadata_related_resources_relation_type" />
       </SeparatedProperty>
     </ListItemField>
     <ListItemField d={resource.iri}>
@@ -20,7 +20,7 @@
     </ListItemField>
     <ListItemField d={resource.type}>
       <SeparatedProperty d={resource.type}>
-        <IVocabularyItem item={resource.type} hide_definition />
+        <VocabularyItem vocabulary={resource.type} vocabulary_type="resource-types" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
       </SeparatedProperty>
     </ListItemField>
     <ListItemField d={resource.identifier}>
