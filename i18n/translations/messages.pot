@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-20 10:09+0200\n"
+"POT-Creation-Date: 2025-05-22 22:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgstr ""
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:3
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:27
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:33
-#: i18n/translations/jinjax_messages.jinja:7
+#: i18n/translations/jinjax_messages.jinja:9
 msgid "Identifiers and links"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:2
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:42
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:43
-#: i18n/translations/jinjax_messages.jinja:4
+#: i18n/translations/jinjax_messages.jinja:6
 msgid "Communities"
 msgstr ""
 
@@ -91,12 +91,12 @@ msgid "Show all communities"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordExport.jinja:13
-#: i18n/translations/jinjax_messages.jinja:6
+#: i18n/translations/jinjax_messages.jinja:8
 msgid "Export"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordVersions.jinja:3
-#: i18n/translations/jinjax_messages.jinja:5
+#: i18n/translations/jinjax_messages.jinja:7
 msgid "Versions"
 msgstr ""
 
@@ -116,8 +116,13 @@ msgstr ""
 msgid "Find more records by this organization"
 msgstr ""
 
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:6
+#: i18n/translations/jinjax_messages.jinja:5
+msgid "Files"
+msgstr ""
+
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:9
-msgid "File"
+msgid "Name"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:11
@@ -177,6 +182,10 @@ msgstr ""
 msgid "Click to copy"
 msgstr ""
 
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Descriptions.jinja:19
+msgid "show more"
+msgstr ""
+
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:13
 msgid "National Metadata Directory"
 msgstr ""
@@ -193,23 +202,6 @@ msgstr ""
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:50
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarDetails.jinja:10
 msgid "Record details"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:16
-msgid "metadata/time_references/date_type.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:16
-msgid "metadata/time_references/date_type.help"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:23
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:24
-msgid "metadata/version.label"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:23
-msgid "metadata/version.help"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
@@ -242,11 +234,12 @@ msgid "Show all records"
 msgstr ""
 
 #: i18n/translations/jinjax_messages.jinja:2
-msgid "Additional details"
+msgid "Main details"
 msgstr ""
 
 #: i18n/translations/jinjax_messages.jinja:3
-msgid "Files"
+#: i18n/translations/jinjax_messages.jinja:4
+msgid "Additional details"
 msgstr ""
 
 msgid "Cancel all"
@@ -258,11 +251,8 @@ msgstr ""
 msgid "Sort:"
 msgstr ""
 
-msgid "Results: {{count}}"
-msgid_plural "Results: {{count}}"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgid "Results: "
+msgstr ""
 
 msgid "Sort"
 msgstr ""
@@ -270,10 +260,13 @@ msgstr ""
 msgid "Missing title"
 msgstr ""
 
-msgid "(show less)"
+msgid "Published"
 msgstr ""
 
-msgid "(show more)"
+msgid "Published in"
+msgstr ""
+
+msgid "Language"
 msgstr ""
 
 msgid "Filter results"

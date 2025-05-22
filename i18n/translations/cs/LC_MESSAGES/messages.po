@@ -286,3 +286,27 @@ msgstr "Vydavatelé"
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Subjects.jinja:12
 msgid "Find more records with this subject"
 msgstr "Najít další záznamy s tímto předmětem"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:9
+msgid "Name"
+msgstr "Název"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Descriptions.jinja:19
+msgid "show more"
+msgstr "zobrazit více"
+
+#: i18n/translations/jinjax_messages.jinja:2
+msgid "Main details"
+msgstr "Podrobnosti o záznamu"
+
+msgid "Results: "
+msgstr "Výsledky: "
+
+msgid "Published"
+msgstr "Zveřejněné"
+
+msgid "Published in"
+msgstr "Zveřejněno v"
+
+msgid "Language"
+msgstr "Jazyk"
