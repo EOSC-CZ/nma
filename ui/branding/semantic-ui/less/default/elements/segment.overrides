@@ -1,20 +1,25 @@
 .ui.segment {
   .ui.overlay {
     background-color: @backgroundColor;
-    
+
     .ui.small.basic.button {
       box-shadow: none;
     }
   }
 
-  &.detail-main-record-segment, &.detail-sidebar-section {
+  &.detail-main-record-segment,
+  &.detail-sidebar-section {
     border: none;
-    border-top: 1px solid @borderColor;
     border-radius: @borderRadius;
   }
 
+  &.detail-main-record-segment {
+    border-top: 1px solid @grey;
+  }
+
   &.detail-sidebar-section {
+    border-top: 1px solid @borderColor;
     margin-bottom: 0.5rem;
-    overflow-wrap: break-word
+    overflow-wrap: break-word;
   }
 }

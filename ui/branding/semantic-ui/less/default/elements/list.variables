@@ -1,2 +1,2 @@
 @dividedBorderWidth: 1.5px;
-@dividedBorder: @dividedBorderWidth solid @secondaryColor;
+@dividedBorder: @dividedBorderWidth solid @lightGrey;

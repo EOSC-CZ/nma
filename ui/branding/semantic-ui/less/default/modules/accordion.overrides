@@ -1,4 +1,32 @@
-.ui.accordion .active.title .icon:not(.button),
-.ui.accordion .accordion .active.title .icon:not(.button) {
-  color: @secondaryColor;
+.ui.accordion {
+  .active.title .icon:not(.button),
+  .accordion .active.title .icon:not(.button) {
+    color: @secondaryColor;
+  }
+
+  a.accordion-title {
+    text-decoration: none;
+  
+    p {
+      color: @darkGrey;
+      display: flex;
+      justify-content: space-between;
+      line-height: normal;
+      word-wrap: anywhere;
+  
+      span:hover {
+        text-decoration: underline;
+      }
+  
+      .accordion-dropdown-icon {
+        display: inline-block;
+        color: @blue;
+        opacity: 1;
+        width: initial;
+        height: initial;
+        transition: transform 0.1s ease, opacity 0.1s ease, color 0.1s ease;
+        text-decoration: none;
+      }
+    }
+  }
 }

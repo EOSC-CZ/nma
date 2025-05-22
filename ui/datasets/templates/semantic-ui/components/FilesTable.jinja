@@ -3,10 +3,10 @@
 {% set files = array(files) %}
 
 {% if files|length > 0 %}
-<table class="ui table striped rel-mb-1 files">
+<table class="ui table very basic celled files" aria-label="{{ _('Files') }}">
   <thead>
     <tr>
-      <th>{{ _("File") }}</th>
+      <th>{{ _("Name") }}</th>
       {# <th>{{ _("IRI") }}</th> #}
       <th>{{ _("Size") }}</th>
       <th>{{ _('Checksum') }}</th>

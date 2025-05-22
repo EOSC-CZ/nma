@@ -36,42 +36,51 @@
 
   <hr class="ui divider" />
 
-  <dl>
-    <IField d={md.alternate_titles}>
+  <dl aria-label="{{_('Main details')}}">
+    <IField d={md.alternate_titles} data_class="ui field-data bottom-tab">
       <Multilingual data={md.alternate_titles|map(attribute='title')} />
     </IField>
 
-    <Creatibutors qualified_relations={md.qualified_relations} search_link={record.links.search_link}></Creatibutors>
+    <IField d={md.qualified_relations} label_class="ui field-data hidden" data_class="ui field-data bottom-tab">
+      <Creatibutors qualified_relations={md.qualified_relations} search_link={record.links.search_link} />
+    </IField>
 
-    <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource-types" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
+    <IField d={md.resource_type} label_class="ui field-data hidden" data_class="ui field-data bottom-tab">
+      <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource-types" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
+    </IField>
 
-    <Subjects subjects={md.subjects} search_link={record.links.search_link} />
+    <IField d={md.subjects} label_class="ui field-data hidden" data_class="ui field-data bottom-tab">
+      <Subjects subjects={md.subjects} search_link={record.links.search_link} />
+    </IField>
 
-    <IField d={md.descriptions}>
+    <IField d={md.descriptions} data_class="ui field-data bottom-tab">
       <Descriptions descriptions={md.descriptions} />
     </IField>
 
-    <AccordionField label={_('Additional details')} title_class="detail-record-description" active>
-      <ITable>
-        <ITableField d={md.primary_language}>
-          <VocabularyItem vocabulary={md.primary_language} vocabulary_type="languages" search_link={record.links.search_link} searchFacet="metadata_primary_language" />
-        </ITableField>
+    <hr class="ui divider hidden" />
 
-        <ITableField d={md.funding_references}>
-          <FundingReference funding_references={md.funding_references} search_link={record.links.search_link} />
-        </ITableField>
-
-        <TableTimeReferences time_references={md.time_references} excluded_date_types={["issued"]} search_link={record.links.search_link} />
-
-        <ITableField d={md.locations}>
-          <Locations locations={md.locations} search_link={record.links.search_link} />
-        </ITableField>
-
-        <ITableField d={md.related_resources}>
-          <RelatedResources related_resources={md.related_resources} record={record} search_link={record.links.search_link} />
-        </ITableField>
+    <AccordionField label={_('Additional details')} title_class="detail-record-description" accordion_class="bottom-tab" active>
+      <dl aria-label="{{_('Additional details')}}">
+        <table class='ui table very basic detail-definition-table'>
+          <ITableField d={md.primary_language}>
+            <VocabularyItem vocabulary={md.primary_language} vocabulary_type="languages" search_link={record.links.search_link} searchFacet="metadata_primary_language" />
+          </ITableField>
         
-      </ITable>
+          <ITableField d={md.funding_references}>
+            <FundingReference funding_references={md.funding_references} search_link={record.links.search_link} />
+          </ITableField>
+        
+          <TableTimeReferences time_references={md.time_references} excluded_date_types={["issued"]} search_link={record.links.search_link} />
+        
+          <ITableField d={md.locations}>
+            <Locations locations={md.locations} search_link={record.links.search_link} />
+          </ITableField>
+        
+          <ITableField d={md.related_resources}>
+            <RelatedResources related_resources={md.related_resources} record={record} search_link={record.links.search_link} />
+          </ITableField>
+        </table>
+      </dl>
     </AccordionField>
 
     {% if md.distribution_downloadable_files %}
