@@ -10,3 +10,9 @@ node_modules
 .env
 .editable-requirements.txt
 .mypy_cache
+datarepo_harvested.yaml
+lindat_harvested.yaml
+lindat_validation.log
+validation.log
+zenodo_harvested.yaml
+zenodo_validation.log
