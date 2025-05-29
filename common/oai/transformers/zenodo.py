@@ -24,7 +24,22 @@ log = logging.getLogger("oai.zenodo")
 
 UNKNOWN_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/UND"
 
-allowed_tags = set([*bleach.ALLOWED_TAGS, "span", "p", "br"])
+allowed_tags = set(
+    [
+        *bleach.ALLOWED_TAGS,
+        "span",
+        "p",
+        "br",
+        "pre",
+        "code",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+    ]
+)
 
 
 class ZenodoTransformer(BaseTransformer):
@@ -671,7 +686,9 @@ class ZenodoTransformer(BaseTransformer):
             return [
                 {
                     "lang": "und",
-                    "value": bleach.clean(orig_description, tags=allowed_tags),
+                    "value": bleach.clean(
+                        orig_description, tags=allowed_tags, strip=True
+                    ),
                 }
             ]
         raise NotImplementedError(
