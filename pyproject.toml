@@ -5,6 +5,7 @@ description = ""
 packages = []
 authors = []
 dependencies = [
+    "ccmm-invenio",
     "deepmerge>=1.1.0",
     "json5",
     "marshmallow-i18n-messages",

@@ -43,7 +43,7 @@ invenio communities custom-fields init
 invenio files location create --default default s3://${BUCKET_NAME};
 
 invenio oarepo fixtures load --batch-size 1000 --verbose
-invenio oarepo fixtures load --no-system-fixtures ./fixtures --batch-size 10 --verbose
+# invenio oarepo fixtures load --no-system-fixtures ./fixtures --batch-size 10 --verbose
 
 invenio oarepo communities create generic "Obecná komunita"
 

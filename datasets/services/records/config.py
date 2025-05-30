@@ -11,12 +11,13 @@ from oarepo_communities.services.components.default_workflow import (
 from oarepo_communities.services.components.include import CommunityInclusionComponent
 from oarepo_communities.services.links import CommunitiesLinks
 from oarepo_oaipmh_harvester.components import OaiSectionComponent
+from oarepo_requests.services.components.autorequest import AutorequestComponent
 from oarepo_runtime.services.components import (
     CustomFieldsComponent,
     process_service_configs,
 )
 from oarepo_runtime.services.config import (
-    has_draft,
+    has_draft_permission,
     has_file_permission,
     has_permission,
     has_published_record,
@@ -70,6 +71,7 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
             CommunityDefaultWorkflowComponent,
             CommunityInclusionComponent,
             CustomFieldsComponent,
+            AutorequestComponent,
             WorkflowComponent,
         )
 
@@ -101,12 +103,10 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
                 }
             ),
             "draft": RecordLink(
-                "{+api}/datasets/{id}/draft",
-                when=has_draft() & has_permission("read_draft"),
+                "{+api}/datasets/{id}/draft", when=has_draft_permission("read_draft")
             ),
             "edit_html": RecordLink(
-                "{+ui}/datasets/{id}/edit",
-                when=has_draft() & has_permission("update_draft"),
+                "{+ui}/datasets/{id}/edit", when=has_draft_permission("update_draft")
             ),
             "files": ConditionalLink(
                 cond=is_published_record(),

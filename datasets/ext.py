@@ -115,36 +115,20 @@ class DatasetsExt:
         )
 
     def init_app_callback_rdm_models(self, app):
-        rdm_model_config = {
-            "service_id": "datasets",
-            # deprecated
-            "model_service": "datasets.services.records.service.DatasetsService",
-            # deprecated
-            "service_config": "datasets.services.records.config.DatasetsServiceConfig",
-            "api_service": "datasets.services.records.service.DatasetsService",
-            "api_service_config": (
-                "datasets.services.records.config.DatasetsServiceConfig"
-            ),
-            "api_resource": "datasets.resources.records.resource.DatasetsResource",
-            "api_resource_config": (
-                "datasets.resources.records.config.DatasetsResourceConfig"
-            ),
-            "ui_resource_config": "ui.datasets.DatasetsUIResourceConfig",
-        }
 
         app.config.setdefault("GLOBAL_SEARCH_MODELS", [])
         for cfg in app.config["GLOBAL_SEARCH_MODELS"]:
-            if cfg["model_service"] == rdm_model_config["model_service"]:
+            if cfg["model_service"] == RDM_MODEL_CONFIG["model_service"]:
                 break
         else:
-            app.config["GLOBAL_SEARCH_MODELS"].append(rdm_model_config)
+            app.config["GLOBAL_SEARCH_MODELS"].append(RDM_MODEL_CONFIG)
 
         app.config.setdefault("RDM_MODELS", [])
         for cfg in app.config["RDM_MODELS"]:
-            if cfg["model_service"] == rdm_model_config["model_service"]:
+            if cfg["model_service"] == RDM_MODEL_CONFIG["model_service"]:
                 break
         else:
-            app.config["RDM_MODELS"].append(rdm_model_config)
+            app.config["RDM_MODELS"].append(RDM_MODEL_CONFIG)
 
     @cached_property
     def service_files(self):
@@ -185,3 +169,20 @@ class DatasetsExt:
             service=self.service_draft_files,
             config=config.DATASETS_DRAFT_FILES_RESOURCE_CONFIG(),
         )
+
+
+RDM_MODEL_CONFIG = {  # allows merging stuff from other builders
+    "service_id": "datasets",
+    # deprecated
+    "model_service": "datasets.services.records.service.DatasetsService",
+    # deprecated
+    "service_config": "datasets.services.records.config.DatasetsServiceConfig",
+    "api_service": "datasets.services.records.service.DatasetsService",
+    "api_service_config": "datasets.services.records.config.DatasetsServiceConfig",
+    "api_resource": "datasets.resources.records.resource.DatasetsResource",
+    "api_resource_config": "datasets.resources.records.config.DatasetsResourceConfig",
+    "ui_resource_config": "ui.datasets.DatasetsUIResourceConfig",
+    "record_cls": "datasets.records.api.DatasetsRecord",
+    "pid_type": "dtsts",
+    "draft_cls": "datasets.records.api.DatasetsDraft",
+}
