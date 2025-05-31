@@ -1,3 +1,4 @@
+import logging
 import time
 from collections import defaultdict
 from typing import Any
@@ -7,6 +8,8 @@ from invenio_access.permissions import system_identity
 from invenio_search.engine import dsl
 from invenio_vocabularies.proxies import current_service as vocabulary_service
 from langcodes import Language
+
+log = logging.getLogger("oai.ccmm_tools")
 
 
 class VocabularyCache:
@@ -60,6 +63,7 @@ class VocabularyCache:
 
 language_cache = VocabularyCache("languages")
 agent_roles = VocabularyCache("agent-roles")
+relation_types_cache = VocabularyCache("relation-types")
 
 
 def get_ccmm_lang_iri(lang: str, refetch_ok=True) -> str:
@@ -92,7 +96,8 @@ def get_ccmm_role(role: str, refetch=True) -> str:
             agent_roles.clear()
             return get_ccmm_role(role, refetch=False)
     if role not in contributor_types_by_prop:
-        raise ValueError(f"Role '{role}' not found in contributor types vocabulary")
+        log.error(f"Role '{role}' not found in contributor types vocabulary")
+        return contributor_types_by_prop["Other"]["props"]["iri"]
     return contributor_types_by_prop[role]["props"]["iri"]
 
 
