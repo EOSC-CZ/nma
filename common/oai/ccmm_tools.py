@@ -206,3 +206,26 @@ def lang_dict_to_2(_lang):
             # no alpha 2 code found, return the original value
             return _lang
     return _lang
+
+
+def set_publication_year(md):
+    # set publication year
+    for tr in md.get("time_references", []):
+        if (
+            tr.get("date_type", {}).get("iri")
+            == "https://vocabs.ccmm.cz/registry/codelist/TimeReference/Issued"
+        ):
+            # if the date is in format YYYY-MM-DD, we can extract the year
+            if len(tr["date"]) >= 4:
+                try:
+                    md["publication_year"] = int(tr["date"][:4])
+                    break
+                except ValueError:
+                    log.warning(
+                        "Could not convert publication year from date: %s",
+                        tr["date"],
+                    )
+            else:
+                log.warning(
+                    "Could not extract publication year from date: %s", tr["date"]
+                )

@@ -16,3 +16,4 @@ lindat_validation.log
 validation.log
 zenodo_harvested.yaml
 zenodo_validation.log
+harvest_*.log

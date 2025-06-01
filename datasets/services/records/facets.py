@@ -40,8 +40,6 @@ metadata_alternate_titles_title = MultilingualFacet(
     lang_facets={
         "cs": metadata_alternate_titles_title_cs,
         "en": metadata_alternate_titles_title_en,
-        "cs": "metadata_alternate_titles_title_cs",
-        "en": "metadata_alternate_titles_title_en",
     },
     label=_("metadata/alternate_titles/title.label"),
 )
@@ -72,8 +70,6 @@ metadata_descriptions = MultilingualFacet(
     lang_facets={
         "cs": metadata_descriptions_cs,
         "en": metadata_descriptions_en,
-        "cs": "metadata_descriptions_cs",
-        "en": "metadata_descriptions_en",
     },
     label=_("metadata/descriptions.label"),
 )
@@ -130,8 +126,6 @@ metadata_distributions_conforms_to_schemas_labels = MultilingualFacet(
     lang_facets={
         "cs": metadata_distributions_conforms_to_schemas_labels_cs,
         "en": metadata_distributions_conforms_to_schemas_labels_en,
-        "cs": "metadata_distributions_conforms_to_schemas_labels_cs",
-        "en": "metadata_distributions_conforms_to_schemas_labels_en",
     },
     label=_("metadata/distributions/conforms_to_schemas/labels.label"),
 )
@@ -188,8 +182,6 @@ metadata_funding_references_funders_organization_alternate_names = MultilingualF
     lang_facets={
         "cs": metadata_funding_references_funders_organization_alternate_names_cs,
         "en": metadata_funding_references_funders_organization_alternate_names_en,
-        "cs": "metadata_funding_references_funders_organization_alternate_names_cs",
-        "en": "metadata_funding_references_funders_organization_alternate_names_en",
     },
     label=_("metadata/funding_references/funders/organization/alternate_names.label"),
 )
@@ -260,12 +252,6 @@ metadata_funding_references_funders_organization_contact_points_addresses_labels
         ),
         "en": (
             metadata_funding_references_funders_organization_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_funding_references_funders_organization_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_funding_references_funders_organization_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -403,12 +389,6 @@ metadata_funding_references_funders_person_affiliations_alternate_names = Multil
         "en": (
             metadata_funding_references_funders_person_affiliations_alternate_names_en
         ),
-        "cs": (
-            "metadata_funding_references_funders_person_affiliations_alternate_names_cs"
-        ),
-        "en": (
-            "metadata_funding_references_funders_person_affiliations_alternate_names_en"
-        ),
     },
     label=_(
         "metadata/funding_references/funders/person/affiliations/alternate_names.label"
@@ -481,12 +461,6 @@ metadata_funding_references_funders_person_affiliations_contact_points_addresses
         ),
         "en": (
             metadata_funding_references_funders_person_affiliations_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_funding_references_funders_person_affiliations_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_funding_references_funders_person_affiliations_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -663,12 +637,6 @@ metadata_funding_references_funders_person_contact_points_addresses_labels = Mul
         "en": (
             metadata_funding_references_funders_person_contact_points_addresses_labels_en
         ),
-        "cs": (
-            "metadata_funding_references_funders_person_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_funding_references_funders_person_contact_points_addresses_labels_en"
-        ),
     },
     label=_(
         "metadata/funding_references/funders/person/contact_points/addresses/labels.label"
@@ -837,8 +805,6 @@ metadata_is_described_by_conforms_to_standards_labels = MultilingualFacet(
     lang_facets={
         "cs": metadata_is_described_by_conforms_to_standards_labels_cs,
         "en": metadata_is_described_by_conforms_to_standards_labels_en,
-        "cs": "metadata_is_described_by_conforms_to_standards_labels_cs",
-        "en": "metadata_is_described_by_conforms_to_standards_labels_en",
     },
     label=_("metadata/is_described_by/conforms_to_standards/labels.label"),
 )
@@ -890,8 +856,6 @@ metadata_is_described_by_original_repositories_labels = MultilingualFacet(
     lang_facets={
         "cs": metadata_is_described_by_original_repositories_labels_cs,
         "en": metadata_is_described_by_original_repositories_labels_en,
-        "cs": "metadata_is_described_by_original_repositories_labels_cs",
-        "en": "metadata_is_described_by_original_repositories_labels_en",
     },
     label=_("metadata/is_described_by/original_repositories/labels.label"),
 )
@@ -930,12 +894,6 @@ metadata_is_described_by_qualified_relations_organization_alternate_names = Mult
         ),
         "en": (
             metadata_is_described_by_qualified_relations_organization_alternate_names_en
-        ),
-        "cs": (
-            "metadata_is_described_by_qualified_relations_organization_alternate_names_cs"
-        ),
-        "en": (
-            "metadata_is_described_by_qualified_relations_organization_alternate_names_en"
         ),
     },
     label=_(
@@ -1009,12 +967,6 @@ metadata_is_described_by_qualified_relations_organization_contact_points_address
         ),
         "en": (
             metadata_is_described_by_qualified_relations_organization_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_is_described_by_qualified_relations_organization_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_is_described_by_qualified_relations_organization_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -1156,12 +1108,6 @@ metadata_is_described_by_qualified_relations_person_affiliations_alternate_names
         "en": (
             metadata_is_described_by_qualified_relations_person_affiliations_alternate_names_en
         ),
-        "cs": (
-            "metadata_is_described_by_qualified_relations_person_affiliations_alternate_names_cs"
-        ),
-        "en": (
-            "metadata_is_described_by_qualified_relations_person_affiliations_alternate_names_en"
-        ),
     },
     label=_(
         "metadata/is_described_by/qualified_relations/person/affiliations/alternate_names.label"
@@ -1234,12 +1180,6 @@ metadata_is_described_by_qualified_relations_person_affiliations_contact_points_
         ),
         "en": (
             metadata_is_described_by_qualified_relations_person_affiliations_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_is_described_by_qualified_relations_person_affiliations_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_is_described_by_qualified_relations_person_affiliations_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -1420,12 +1360,6 @@ metadata_is_described_by_qualified_relations_person_contact_points_addresses_lab
         "en": (
             metadata_is_described_by_qualified_relations_person_contact_points_addresses_labels_en
         ),
-        "cs": (
-            "metadata_is_described_by_qualified_relations_person_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_is_described_by_qualified_relations_person_contact_points_addresses_labels_en"
-        ),
     },
     label=_(
         "metadata/is_described_by/qualified_relations/person/contact_points/addresses/labels.label"
@@ -1598,8 +1532,6 @@ metadata_locations_geometry_labels = MultilingualFacet(
     lang_facets={
         "cs": metadata_locations_geometry_labels_cs,
         "en": metadata_locations_geometry_labels_en,
-        "cs": "metadata_locations_geometry_labels_cs",
-        "en": "metadata_locations_geometry_labels_en",
     },
     label=_("metadata/locations/geometry/labels.label"),
 )
@@ -1667,12 +1599,6 @@ metadata_locations_related_objects_qualified_relations_organization_alternate_na
         ),
         "en": (
             metadata_locations_related_objects_qualified_relations_organization_alternate_names_en
-        ),
-        "cs": (
-            "metadata_locations_related_objects_qualified_relations_organization_alternate_names_cs"
-        ),
-        "en": (
-            "metadata_locations_related_objects_qualified_relations_organization_alternate_names_en"
         ),
     },
     label=_(
@@ -1746,12 +1672,6 @@ metadata_locations_related_objects_qualified_relations_organization_contact_poin
         ),
         "en": (
             metadata_locations_related_objects_qualified_relations_organization_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_locations_related_objects_qualified_relations_organization_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_locations_related_objects_qualified_relations_organization_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -1897,12 +1817,6 @@ metadata_locations_related_objects_qualified_relations_person_affiliations_alter
         "en": (
             metadata_locations_related_objects_qualified_relations_person_affiliations_alternate_names_en
         ),
-        "cs": (
-            "metadata_locations_related_objects_qualified_relations_person_affiliations_alternate_names_cs"
-        ),
-        "en": (
-            "metadata_locations_related_objects_qualified_relations_person_affiliations_alternate_names_en"
-        ),
     },
     label=_(
         "metadata/locations/related_objects/qualified_relations/person/affiliations/alternate_names.label"
@@ -1975,12 +1889,6 @@ metadata_locations_related_objects_qualified_relations_person_affiliations_conta
         ),
         "en": (
             metadata_locations_related_objects_qualified_relations_person_affiliations_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_locations_related_objects_qualified_relations_person_affiliations_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_locations_related_objects_qualified_relations_person_affiliations_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -2161,12 +2069,6 @@ metadata_locations_related_objects_qualified_relations_person_contact_points_add
         "en": (
             metadata_locations_related_objects_qualified_relations_person_contact_points_addresses_labels_en
         ),
-        "cs": (
-            "metadata_locations_related_objects_qualified_relations_person_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_locations_related_objects_qualified_relations_person_contact_points_addresses_labels_en"
-        ),
     },
     label=_(
         "metadata/locations/related_objects/qualified_relations/person/contact_points/addresses/labels.label"
@@ -2339,8 +2241,6 @@ metadata_locations_related_objects_time_references_date_information = Multilingu
     lang_facets={
         "cs": metadata_locations_related_objects_time_references_date_information_cs,
         "en": metadata_locations_related_objects_time_references_date_information_en,
-        "cs": "metadata_locations_related_objects_time_references_date_information_cs",
-        "en": "metadata_locations_related_objects_time_references_date_information_en",
     },
     label=_(
         "metadata/locations/related_objects/time_references/date_information.label"
@@ -2415,8 +2315,6 @@ metadata_provenances_labels = MultilingualFacet(
     lang_facets={
         "cs": metadata_provenances_labels_cs,
         "en": metadata_provenances_labels_en,
-        "cs": "metadata_provenances_labels_cs",
-        "en": "metadata_provenances_labels_en",
     },
     label=_("metadata/provenances/labels.label"),
 )
@@ -2452,8 +2350,6 @@ metadata_qualified_relations_organization_alternate_names = MultilingualFacet(
     lang_facets={
         "cs": metadata_qualified_relations_organization_alternate_names_cs,
         "en": metadata_qualified_relations_organization_alternate_names_en,
-        "cs": "metadata_qualified_relations_organization_alternate_names_cs",
-        "en": "metadata_qualified_relations_organization_alternate_names_en",
     },
     label=_("metadata/qualified_relations/organization/alternate_names.label"),
 )
@@ -2522,12 +2418,6 @@ metadata_qualified_relations_organization_contact_points_addresses_labels = Mult
         ),
         "en": (
             metadata_qualified_relations_organization_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_qualified_relations_organization_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_qualified_relations_organization_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -2649,8 +2539,6 @@ metadata_qualified_relations_person_affiliations_alternate_names = MultilingualF
     lang_facets={
         "cs": metadata_qualified_relations_person_affiliations_alternate_names_cs,
         "en": metadata_qualified_relations_person_affiliations_alternate_names_en,
-        "cs": "metadata_qualified_relations_person_affiliations_alternate_names_cs",
-        "en": "metadata_qualified_relations_person_affiliations_alternate_names_en",
     },
     label=_("metadata/qualified_relations/person/affiliations/alternate_names.label"),
 )
@@ -2721,12 +2609,6 @@ metadata_qualified_relations_person_affiliations_contact_points_addresses_labels
         ),
         "en": (
             metadata_qualified_relations_person_affiliations_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_qualified_relations_person_affiliations_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_qualified_relations_person_affiliations_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -2893,8 +2775,6 @@ metadata_qualified_relations_person_contact_points_addresses_labels = Multilingu
     lang_facets={
         "cs": metadata_qualified_relations_person_contact_points_addresses_labels_cs,
         "en": metadata_qualified_relations_person_contact_points_addresses_labels_en,
-        "cs": "metadata_qualified_relations_person_contact_points_addresses_labels_cs",
-        "en": "metadata_qualified_relations_person_contact_points_addresses_labels_en",
     },
     label=_(
         "metadata/qualified_relations/person/contact_points/addresses/labels.label"
@@ -3063,12 +2943,6 @@ metadata_related_resources_qualified_relations_organization_alternate_names = Mu
         "en": (
             metadata_related_resources_qualified_relations_organization_alternate_names_en
         ),
-        "cs": (
-            "metadata_related_resources_qualified_relations_organization_alternate_names_cs"
-        ),
-        "en": (
-            "metadata_related_resources_qualified_relations_organization_alternate_names_en"
-        ),
     },
     label=_(
         "metadata/related_resources/qualified_relations/organization/alternate_names.label"
@@ -3141,12 +3015,6 @@ metadata_related_resources_qualified_relations_organization_contact_points_addre
         ),
         "en": (
             metadata_related_resources_qualified_relations_organization_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_related_resources_qualified_relations_organization_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_related_resources_qualified_relations_organization_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -3288,12 +3156,6 @@ metadata_related_resources_qualified_relations_person_affiliations_alternate_nam
         "en": (
             metadata_related_resources_qualified_relations_person_affiliations_alternate_names_en
         ),
-        "cs": (
-            "metadata_related_resources_qualified_relations_person_affiliations_alternate_names_cs"
-        ),
-        "en": (
-            "metadata_related_resources_qualified_relations_person_affiliations_alternate_names_en"
-        ),
     },
     label=_(
         "metadata/related_resources/qualified_relations/person/affiliations/alternate_names.label"
@@ -3366,12 +3228,6 @@ metadata_related_resources_qualified_relations_person_affiliations_contact_point
         ),
         "en": (
             metadata_related_resources_qualified_relations_person_affiliations_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_related_resources_qualified_relations_person_affiliations_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_related_resources_qualified_relations_person_affiliations_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -3552,12 +3408,6 @@ metadata_related_resources_qualified_relations_person_contact_points_addresses_l
         "en": (
             metadata_related_resources_qualified_relations_person_contact_points_addresses_labels_en
         ),
-        "cs": (
-            "metadata_related_resources_qualified_relations_person_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_related_resources_qualified_relations_person_contact_points_addresses_labels_en"
-        ),
     },
     label=_(
         "metadata/related_resources/qualified_relations/person/contact_points/addresses/labels.label"
@@ -3722,8 +3572,6 @@ metadata_related_resources_time_references_date_information = MultilingualFacet(
     lang_facets={
         "cs": metadata_related_resources_time_references_date_information_cs,
         "en": metadata_related_resources_time_references_date_information_en,
-        "cs": "metadata_related_resources_time_references_date_information_cs",
-        "en": "metadata_related_resources_time_references_date_information_en",
     },
     label=_("metadata/related_resources/time_references/date_information.label"),
 )
@@ -3785,8 +3633,6 @@ metadata_subjects_definitions = MultilingualFacet(
     lang_facets={
         "cs": metadata_subjects_definitions_cs,
         "en": metadata_subjects_definitions_en,
-        "cs": "metadata_subjects_definitions_cs",
-        "en": "metadata_subjects_definitions_en",
     },
     label=_("metadata/subjects/definitions.label"),
 )
@@ -3821,8 +3667,6 @@ metadata_subjects_title = MultilingualFacet(
     lang_facets={
         "cs": metadata_subjects_title_cs,
         "en": metadata_subjects_title_en,
-        "cs": "metadata_subjects_title_cs",
-        "en": "metadata_subjects_title_en",
     },
     label=_("metadata/subjects/title.label"),
 )
@@ -3855,8 +3699,6 @@ metadata_terms_of_use_contacts_organization_alternate_names = MultilingualFacet(
     lang_facets={
         "cs": metadata_terms_of_use_contacts_organization_alternate_names_cs,
         "en": metadata_terms_of_use_contacts_organization_alternate_names_en,
-        "cs": "metadata_terms_of_use_contacts_organization_alternate_names_cs",
-        "en": "metadata_terms_of_use_contacts_organization_alternate_names_en",
     },
     label=_("metadata/terms_of_use/contacts/organization/alternate_names.label"),
 )
@@ -3927,12 +3769,6 @@ metadata_terms_of_use_contacts_organization_contact_points_addresses_labels = Mu
         ),
         "en": (
             metadata_terms_of_use_contacts_organization_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_terms_of_use_contacts_organization_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_terms_of_use_contacts_organization_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -4056,8 +3892,6 @@ metadata_terms_of_use_contacts_person_affiliations_alternate_names = Multilingua
     lang_facets={
         "cs": metadata_terms_of_use_contacts_person_affiliations_alternate_names_cs,
         "en": metadata_terms_of_use_contacts_person_affiliations_alternate_names_en,
-        "cs": "metadata_terms_of_use_contacts_person_affiliations_alternate_names_cs",
-        "en": "metadata_terms_of_use_contacts_person_affiliations_alternate_names_en",
     },
     label=_("metadata/terms_of_use/contacts/person/affiliations/alternate_names.label"),
 )
@@ -4128,12 +3962,6 @@ metadata_terms_of_use_contacts_person_affiliations_contact_points_addresses_labe
         ),
         "en": (
             metadata_terms_of_use_contacts_person_affiliations_contact_points_addresses_labels_en
-        ),
-        "cs": (
-            "metadata_terms_of_use_contacts_person_affiliations_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_terms_of_use_contacts_person_affiliations_contact_points_addresses_labels_en"
         ),
     },
     label=_(
@@ -4302,12 +4130,6 @@ metadata_terms_of_use_contacts_person_contact_points_addresses_labels = Multilin
     lang_facets={
         "cs": metadata_terms_of_use_contacts_person_contact_points_addresses_labels_cs,
         "en": metadata_terms_of_use_contacts_person_contact_points_addresses_labels_en,
-        "cs": (
-            "metadata_terms_of_use_contacts_person_contact_points_addresses_labels_cs"
-        ),
-        "en": (
-            "metadata_terms_of_use_contacts_person_contact_points_addresses_labels_en"
-        ),
     },
     label=_(
         "metadata/terms_of_use/contacts/person/contact_points/addresses/labels.label"
@@ -4438,8 +4260,6 @@ metadata_terms_of_use_description = MultilingualFacet(
     lang_facets={
         "cs": metadata_terms_of_use_description_cs,
         "en": metadata_terms_of_use_description_en,
-        "cs": "metadata_terms_of_use_description_cs",
-        "en": "metadata_terms_of_use_description_en",
     },
     label=_("metadata/terms_of_use/description.label"),
 )
@@ -4475,8 +4295,6 @@ metadata_terms_of_use_license_labels = MultilingualFacet(
     lang_facets={
         "cs": metadata_terms_of_use_license_labels_cs,
         "en": metadata_terms_of_use_license_labels_en,
-        "cs": "metadata_terms_of_use_license_labels_cs",
-        "en": "metadata_terms_of_use_license_labels_en",
     },
     label=_("metadata/terms_of_use/license/labels.label"),
 )
@@ -4508,8 +4326,6 @@ metadata_time_references_date_information = MultilingualFacet(
     lang_facets={
         "cs": metadata_time_references_date_information_cs,
         "en": metadata_time_references_date_information_en,
-        "cs": "metadata_time_references_date_information_cs",
-        "en": "metadata_time_references_date_information_en",
     },
     label=_("metadata/time_references/date_information.label"),
 )
@@ -4553,8 +4369,6 @@ metadata_validation_results_labels = MultilingualFacet(
     lang_facets={
         "cs": metadata_validation_results_labels_cs,
         "en": metadata_validation_results_labels_en,
-        "cs": "metadata_validation_results_labels_cs",
-        "en": "metadata_validation_results_labels_en",
     },
     label=_("metadata/validation_results/labels.label"),
 )

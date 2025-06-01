@@ -9,38 +9,40 @@ import { IdentifierBadge } from "@js/oarepo_ui/components/IdentifierBadge";
 import _truncate from "lodash/truncate";
 
 const formatName = (person) => {
-  const lastName = person.family_name || "";
+  const lastNames = person.family_names || [];
   const givenNames = person.given_names || [];
 
+  const formattedLastName = lastNames.join(" ")
+
   if (givenNames.length === 0) {
-    return lastName;
+    return formattedLastName;
   }
 
   const formattedGivenNames = givenNames.join(" ");
 
-  return `${lastName}, ${formattedGivenNames}`;
+  return `${formattedLastName}, ${formattedGivenNames}`;
 };
 
 const Creatibutor = ({ creatibutor }) => {
   const isPerson = !!creatibutor.person;
-  const role = creatibutor?.role?.labels?.[0]?.value;
+  const role = creatibutor?.role?.title;
   const identifiers = isPerson
     ? creatibutor.person.external_identifiers
     : creatibutor.organization.external_identifiers;
   const selectedIdentifier =
     Array.isArray(identifiers) && identifiers.length > 0
       ? identifiers.find(
-          (identifier) =>
-            identifier?.scheme?.toLowerCase() === "orcid" ||
-            identifier?.scheme?.toLowerCase() === "ror"
-        ) || identifiers[0]
+        (identifier) =>
+          identifier?.scheme?.toLowerCase() === "orcid" ||
+          identifier?.scheme?.toLowerCase() === "ror"
+      ) || identifiers[0]
       : null;
   const name = isPerson
     ? formatName({
-        given_names: creatibutor.person.given_names,
-        family_name: creatibutor.person.family_name,
-      })
-    : creatibutor.organization?.name?.value;
+      given_names: creatibutor.person.given_names,
+      family_names: creatibutor.person.family_names,
+    })
+    : creatibutor.organization?.name;
 
   return (
     <React.Fragment>
@@ -85,14 +87,22 @@ Creatibutor.propTypes = {
 };
 
 const Creatibutors = ({ creatibutors }) => {
+  // If there are more creatibutors that 3, we will only show the first 3
+  // and add at al. 
   return (
     <>
-      {creatibutors.map((creatibutor, index) => (
+      {creatibutors.slice(0, 3).map((creatibutor, index) => (
         <React.Fragment key={index}>
           <Creatibutor creatibutor={creatibutor} />
           {index < creatibutors.length - 1 ? "; " : null}
         </React.Fragment>
       ))}
+      {creatibutors.length > 3 && (
+        <span>
+          {" "}
+          {i18next.t("et al.")}
+        </span>
+      )}
     </>
   );
 };
@@ -116,11 +126,12 @@ const ResultsListItemComponent = ({ result }) => {
   const publicationDate = result.metadata?.publication_year;
   const language = result.metadata?.primary_language;
   const originalRepositories =
-    result?.metadata?.is_described_by?.original_repositories?.map(
-      (originalRepository) =>
-        originalRepository.labels.find((label) => label.lang === "en")?.value ||
-        getValueFromMultilingualArray(originalRepository.labels || [])
-    ) || [];
+    result?.metadata?.is_described_by && (
+      result?.metadata?.is_described_by[0]?.original_repositories?.map(
+        (originalRepository) =>
+          originalRepository.labels.find((label) => label.lang === "en")?.value ||
+          getValueFromMultilingualArray(originalRepository.labels || [])
+      )) || [];
 
   const toggleAbstract = () => {
     setShowEntireAbstract(!showEntireAbstract);
@@ -144,14 +155,16 @@ const ResultsListItemComponent = ({ result }) => {
               <Item.Meta className="rel-mt-1">
                 <Creatibutors creatibutors={creatibutors} />
                 <Label.Group className="rel-mt-1">
-                  {subjects.map((subject, index) => (
-                    <Label
-                      className="subjects"
-                      key={`${index}.${subject.title.value}`}
-                    >
-                      {subject.title.value}
-                    </Label>
-                  ))}
+                  {
+                    // TODO: subject is multilingual, need to change model to reflect this
+                    subjects.map((subject, index) => (
+                      <Label
+                        className="subjects"
+                        key={`${index}.${subject.title[0]?.value}`}
+                      >
+                        {subject.title[0]?.value}
+                      </Label>
+                    ))}
                 </Label.Group>
               </Item.Meta>
               {abstract && (
@@ -183,13 +196,13 @@ const ResultsListItemComponent = ({ result }) => {
                 <p>
                   {publicationDate && <span>{publicationDate}</span>}
                   {originalRepositories?.map((originalRepository, index) => (
-                    <p className="rel-ml-1" key={originalRepository.id}>
+                    <span className="rel-ml-1" key={originalRepository.id}>
                       <span>{originalRepository}</span>
                       {index < originalRepositories.length - 1 ? ", " : null}
-                    </p>
+                    </span>
                   ))}
                   {language && (
-                    <span className="rel-ml-1">{language.toUpperCase()}</span>
+                    <span className="rel-ml-1">{language.title}</span>
                   )}
                 </p>
               </Item.Extra>

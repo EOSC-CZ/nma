@@ -19,6 +19,7 @@ from common.oai.ccmm_tools import (
     get_ccmm_role,
     lang_dict_to_2,
     relation_types_cache,
+    set_publication_year,
 )
 
 log = logging.getLogger("oai.zenodo")
@@ -459,6 +460,8 @@ class ZenodoTransformer(BaseTransformer):
         for k, v in list(transformed.items()):
             if isinstance(v, list):
                 transformed[k] = [vv for vv in v if vv]
+
+        set_publication_year(transformed["metadata"])
 
         self.ensureEmpty(
             orig_md,

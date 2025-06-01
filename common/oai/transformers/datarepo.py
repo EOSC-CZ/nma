@@ -18,6 +18,7 @@ from common.oai.ccmm_tools import (
     full_name_to_person,
     get_ccmm_lang_iri,
     get_ccmm_role,
+    set_publication_year,
 )
 
 UNKNOWN_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/UND"
@@ -122,6 +123,8 @@ class DataRepoTransformer(BaseTransformer):
         for k in list(md.keys()):
             if md[k] is None or (isinstance(md[k], list) and not md[k]):
                 del md[k]
+
+        set_publication_year(md)
 
         self.ensureEmpty(
             orig_md,

@@ -20,6 +20,7 @@ from common.oai.ccmm_tools import (
     file_formats_by_extension,
     file_formats_by_iana,
     full_name_to_person,
+    set_publication_year,
 )
 from common.oai.http import url_get
 
@@ -91,6 +92,9 @@ class LinDatDCTransformer(OAIRuleTransformer):
             self.file_formats_by_extension,
             self.file_formats_by_iana,
         )
+
+        # set publication year
+        set_publication_year(md)
 
 
 @matches("right")
