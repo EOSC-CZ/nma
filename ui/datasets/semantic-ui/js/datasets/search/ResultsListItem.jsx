@@ -53,9 +53,7 @@ const ResultsListItemComponent = ({ result }) => {
     : "";
 
   // Find the first access_right in the terms_of_use array
-  const accessStatus = result?.metadata?.terms_of_use?.find(
-    (term) => term.access_rights
-  )?.access_rights?.[0];
+  const accessStatus = result?.metadata?.terms_of_use?.access_rights
 
   return (
     <Item className="results-list-item-main">
@@ -72,12 +70,13 @@ const ResultsListItemComponent = ({ result }) => {
               <Item.Meta className="rel-mt-1">
                 <Creatibutors creatibutors={creatibutors} />
                 <Label.Group className="rel-mt-1">
+                  {/* title is multilingual but not at ccmm 0.5.0 model - needs to be fixed there */}
                   {subjects.map((subject, index) => (
-                    <Label
+                    < Label
                       className="subjects"
-                      key={`${index}.${subject.title.value}`}
+                      key={`${index}.${subject.title?.[0]?.value}`}
                     >
-                      {subject.title.value}
+                      {subject.title?.[0]?.value}
                     </Label>
                   ))}
                 </Label.Group>
@@ -143,7 +142,7 @@ const ResultsListItemComponent = ({ result }) => {
           </Grid.Row>
         </Grid>
       </Item.Content>
-    </Item>
+    </Item >
   );
 };
 

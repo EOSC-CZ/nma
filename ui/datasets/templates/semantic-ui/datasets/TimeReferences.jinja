@@ -5,6 +5,7 @@
 <div role="list" class="ui divided list">
   {% for time_reference in time_references if time_reference.date_type.id|string not in excluded_date_types %}
   <div class="item">
+  
     <ListItemField d={time_reference.date_type}>
       <SeparatedProperty d={time_reference.date_type}>
         <IVocabularyItem item={time_reference.date_type} hide_definition />

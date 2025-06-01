@@ -7,10 +7,7 @@ theme = WebpackThemeBundle(
     themes={
         "semantic-ui": {
             "entry": {},
-            "dependencies": {
-                "react-invenio-forms": "3.5.3",
-                "react-searchkit": "2.3.1",
-            },
+            "dependencies": {},
             "devDependencies": {},
             "aliases": {
                 "../../theme.config$": "less/theme.config",

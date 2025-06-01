@@ -1,3 +1,4 @@
+import logging
 import sys
 from functools import cached_property
 from urllib.parse import urljoin, urlparse
@@ -19,8 +20,11 @@ from common.oai.ccmm_tools import (
     file_formats_by_extension,
     file_formats_by_iana,
     full_name_to_person,
+    set_publication_year,
 )
 from common.oai.http import url_get
+
+log = logging.getLogger("oai.lindat")
 
 LINDAT_LANGUAGE = "en"
 LINDAT_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/ENG"
@@ -89,6 +93,9 @@ class LinDatDCTransformer(OAIRuleTransformer):
             self.file_formats_by_iana,
         )
 
+        # set publication year
+        set_publication_year(md)
+
 
 @matches("right")
 def transform_right(md, entry, value):
@@ -97,7 +104,7 @@ def transform_right(md, entry, value):
 
 @matches("coverage")
 def transform_coverage(md, entry, value):
-    md.setdefault("locations", []).append({"location_names": [value]})
+    md.setdefault("locations", []).append({"names": [value]})
 
 
 @matches("relation")
@@ -105,14 +112,20 @@ def transform_relation(md, entry, value):
     identifier_scheme = identifier_scheme_from_value(value)
     rel = {
         "relation_type": {
-            "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#references"
-        },
-        "identifier": {
-            "value": value,
-            "identifier_scheme": identifier_scheme,
+            "iri": "https://vocabs.ccmm.cz/registry/codelist/RelationType/References"
         },
     }
-    relation_title = get_page_title(value)
+    if identifier_scheme:
+        rel["identifiers"] = [
+            {
+                "value": value,
+                "identifier_scheme": {"iri": identifier_scheme},
+            }
+        ]
+    if value.startswith("http://") or value.startswith("https://"):
+        relation_title = get_page_title(value)
+    else:
+        relation_title = None
     if relation_title:
         rel["title"] = relation_title
     md.setdefault("related_resources", []).append(rel)
@@ -141,10 +154,12 @@ def transform_source(md, entry, value):
         "relation_type": {
             "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#issourceof"
         },
-        "identifier": {
-            "value": value,
-            "identifier_scheme": "urn:iri",
-        },
+        "identifiers": [
+            {
+                "value": value,
+                "identifier_scheme": {"iri": "urn:iri"},
+            }
+        ],
     }
 
     relation_title = get_page_title(value)
@@ -157,10 +172,10 @@ def transform_source(md, entry, value):
 @matches("identifier")
 def transform_identifier(md, entry, value):
     id_type = identifier_scheme_from_value(value)
-
-    md.setdefault("identifiers", []).append(
-        {"value": value, "identifier_scheme": id_type}
-    )
+    if id_type:
+        md.setdefault("identifiers", []).append(
+            {"value": value, "identifier_scheme": {"iri": id_type}}
+        )
     if id_type == "https://handle.net/":
         md["is_described_by"][0]["iri"] = value
 
@@ -183,7 +198,7 @@ def transform_date(md, entry, value):
         {
             "date": value,
             "date_type": {
-                "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/dateType/#issued",
+                "iri": "https://vocabs.ccmm.cz/registry/codelist/TimeReference/Issued",
             },
         }
     )
@@ -194,7 +209,7 @@ def transform_publisher(md, entry, value):
     transform_organization(
         md,
         value,
-        "https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/publisher/",
+        "https://vocabs.ccmm.cz/registry/codelist/AgentRole/Publisher",
     )
 
 
@@ -206,7 +221,7 @@ def transform_description(md, entry, value):
 @matches("subject")
 def transform_subject(md, entry, value):
     md.setdefault("subjects", []).append(
-        {"title": {"lang": LINDAT_LANGUAGE, "value": value}}
+        {"title": [{"lang": LINDAT_LANGUAGE, "value": value}]}
     )
 
 
@@ -215,7 +230,7 @@ def transform_contributor(md, entry, value):
     transform_person(
         md,
         value,
-        "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#other",
+        "https://vocabs.ccmm.cz/registry/codelist/AgentRole/Other",
     )
 
 
@@ -224,7 +239,7 @@ def transform_creator(md, entry, value):
     transform_person(
         md,
         value,
-        "https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/creator/",
+        "https://vocabs.ccmm.cz/registry/codelist/AgentRole/Creator",
     )
 
 
@@ -247,10 +262,7 @@ def transform_organization(md, value, role):
                 "iri": role,
             },
             "organization": {
-                "name": {
-                    "lang": "und",
-                    "value": value,
-                }
+                "name": value,
             },
         }
     )
@@ -263,7 +275,12 @@ def transform_title(md, entry, value):
     else:
         # set alternate title
         md.setdefault("alternate_titles", []).append(
-            {"title": {"lang": LINDAT_LANGUAGE, "value": value}, "type": "Other"}
+            {
+                "title": [{"lang": LINDAT_LANGUAGE, "value": value}],
+                "type": {
+                    "iri": "https://vocabs.ccmm.cz/registry/codelist/AlternateTitle/Other"
+                },
+            }
         )
 
 
@@ -289,7 +306,8 @@ def identifier_scheme_from_value(id):
     elif id.startswith("http://") or id.startswith("https://"):
         return "urn:iri"
     else:
-        return "ID"
+        # If it does not match any known scheme, return None
+        return None
 
 
 def type_general_converter(input_type):
@@ -337,7 +355,9 @@ def type_general_converter(input_type):
 def get_page_title(url, allow_refresh=True) -> str | None:
     try:
         # Fetch the page content
-        response = url_get(url)
+        response = url_get(url.replace("http://", "https://"), max_tries=1)
+        if not response:
+            return None
         response.raise_for_status()  # Raise exception for HTTP errors
 
         # Parse the HTML with lxml
@@ -394,7 +414,7 @@ def parse_depositions(
 
     mets_document = LindatMETSDocument.fromtree(mets_element)
 
-    downloadable_files = md.setdefault("distribution_downloadable_files", [])
+    downloadable_files = md.setdefault("distributions", [])
     for f in mets_document.all_files():
         if f.type == "Directory" or not f.path:
             continue
@@ -429,22 +449,18 @@ def parse_depositions(
                 iana_type = _guessed_iana_type
 
         downloadable_file = {
-            "checksum": (
-                f.checksumtype.lower() + ":" + f.checksum
-                if f.checksumtype and f.checksum
-                else None
-            ),
-            "format": (({"iri": file_format}) if file_format else None),
             "byte_size": file_size,
-            "media_type": (
-                {"iri": (f"https://www.iana.org/assignments/media-types/{iana_type}")}
-                if iana_type
-                else None
-            ),
-            "download_urls": [f.path],
             "access_urls": [md["is_described_by"][0]["iri"]],
             "title": f.label,
         }
+        if f.checksumtype and f.checksum:
+            if f.checksumtype.lower() != "md5":
+                log.error("unsupported checksum type %s", f.checksumtype)
+            else:
+                downloadable_file["checksum"] = {
+                    "algorithm": {"id": "md5"},
+                    "value": f.checksum,
+                }
         downloadable_files.append({k: v for k, v in downloadable_file.items() if v})
 
 

@@ -18,6 +18,7 @@ from common.oai.ccmm_tools import (
     full_name_to_person,
     get_ccmm_lang_iri,
     get_ccmm_role,
+    set_publication_year,
 )
 
 UNKNOWN_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/UND"
@@ -117,9 +118,13 @@ class DataRepoTransformer(BaseTransformer):
             orig_md.pop("relatedItems", [])
         )
 
-        md["distribution_downloadable_files"] = [
-            self.convert_file(f, link) for f in files
-        ]
+        md["distributions"] = [self.convert_file(f, link) for f in files]
+
+        for k in list(md.keys()):
+            if md[k] is None or (isinstance(md[k], list) and not md[k]):
+                del md[k]
+
+        set_publication_year(md)
 
         self.ensureEmpty(
             orig_md,
@@ -201,18 +206,13 @@ class DataRepoTransformer(BaseTransformer):
 
     def convert_person(self, orig_creator):
         converted_person = full_name_to_person(orig_creator.pop("fullName"))
-        converted_person["external_identifiers"] = self.convert_name_identifiers(
-            orig_creator
-        )
+        converted_person["identifiers"] = self.convert_name_identifiers(orig_creator)
         converted_person["affiliations"] = self.convert_affiliations(orig_creator)
         return converted_person
 
     def convert_organization(self, orig_creator):
         converted_organization = {
-            "name": {
-                "lang": "und",
-                "value": orig_creator.pop("fullName"),
-            },
+            "name": orig_creator.pop("fullName"),
             "alternate_names": [
                 {
                     "lang": lang,
@@ -221,15 +221,15 @@ class DataRepoTransformer(BaseTransformer):
                 for lang, title in orig_creator.pop("title", {}).items()
             ],
         }
-        converted_organization["external_identifiers"] = self.convert_name_identifiers(
+        converted_organization["identifiers"] = self.convert_name_identifiers(
             orig_creator
         )
         ico = orig_creator.pop("ico", None)
         if ico:
-            converted_organization["external_identifiers"].append(
+            converted_organization["identifiers"].append(
                 {
                     "value": ico,
-                    "identifier_scheme": "https://ares.gov.cz/",
+                    "identifier_scheme": {"iri": "https://ares.gov.cz/"},
                 }
             )
         return converted_organization
@@ -255,17 +255,17 @@ class DataRepoTransformer(BaseTransformer):
                 continue
 
             affiliation = {
-                "name": {"lang": "und", "value": aff.pop("fullName")},
-                "external_identifiers": [],
+                "name": aff.pop("fullName"),
+                "identifiers": [],
             }
             affiliations.append(affiliation)
 
             related_uri = aff.pop("relatedURI", {})
             if "ROR" in related_uri:
-                affiliation["external_identifiers"].append(
+                affiliation["identifiers"].append(
                     {
                         "value": related_uri["ROR"],
-                        "identifier_scheme": "https://ror.org/",
+                        "identifier_scheme": {"iri": "https://ror.org/"},
                     }
                 )
 
@@ -294,7 +294,7 @@ class DataRepoTransformer(BaseTransformer):
                 "researcherID": "https://www.webofscience.com/",
             }[ni.pop("scheme")]
             name_identifiers.append(
-                {"value": identifier, "identifier_scheme": identifier_scheme}
+                {"value": identifier, "identifier_scheme": {"iri": identifier_scheme}}
             )
             self.ensureEmpty(ni)
 
@@ -346,23 +346,25 @@ class DataRepoTransformer(BaseTransformer):
         return {"iri": rt["relatedURI"]["COAR"]}
 
     def convert_rights(self, orig_rights):
-        converted_rights = []
+        converted_rights = None
 
         for r in orig_rights:
             if r.get("is_ancestor"):
                 continue
-            converted_rights.append(
-                {
-                    "iri": r["relatedURI"]["URL"],
-                    "description": [
-                        {
-                            "lang": lang,
-                            "value": text,
-                        }
-                        for lang, text in r["title"].items()
-                    ],
-                }
-            )
+            if converted_rights:
+                raise Exception(
+                    "Multiple rights found in the record, expected only one."
+                )
+            converted_rights = {
+                "iri": r["relatedURI"]["URL"],
+                "description": [
+                    {
+                        "lang": lang,
+                        "value": text,
+                    }
+                    for lang, text in r["title"].items()
+                ],
+            }
         return converted_rights
 
     def convert_subject_categories(self, orig_subjects):
@@ -383,12 +385,14 @@ class DataRepoTransformer(BaseTransformer):
                 converted_subjects.append(
                     {
                         "iri": iri,
-                        "title": {
-                            "lang": lang,
-                            "value": title,
-                        },
+                        "title": [
+                            {
+                                "lang": lang,
+                                "value": title,
+                            }
+                        ],
                         "classification_code": classification_code,
-                        "in_subject_scheme": {"iri": in_scheme},
+                        "scheme": {"iri": in_scheme},
                     }
                 )
         return converted_subjects
@@ -397,7 +401,7 @@ class DataRepoTransformer(BaseTransformer):
         created_subjects = []
         for keyword in orig_keywords:
             for lang, title in keyword.items():
-                created_subjects.append({"title": {"value": title, "lang": lang}})
+                created_subjects.append({"title": [{"value": title, "lang": lang}]})
         return created_subjects
 
     def convert_titles(self, orig_titles):
@@ -411,11 +415,15 @@ class DataRepoTransformer(BaseTransformer):
                 elif title.get("titleType") == "subtitle":
                     alternate_titles.append(
                         {
-                            "type": "Subtitle",
-                            "title": {
-                                "lang": lang,
-                                "value": text,
+                            "type": {
+                                "iri": "https://vocabs.ccmm.cz/registry/codelist/AlternateTitle/Subtitle"
                             },
+                            "title": [
+                                {
+                                    "lang": lang,
+                                    "value": text,
+                                }
+                            ],
                         }
                     )
                 else:
@@ -444,7 +452,7 @@ class DataRepoTransformer(BaseTransformer):
             for c in orig_related_item.pop("itemContributors", []):
                 self.convert_contributor(c)
 
-            converted_item["identifier"] = self.convert_related_item_identifiers(
+            converted_item["identifiers"] = self.convert_related_item_identifiers(
                 orig_related_item.pop("itemPIDs", []),
             )
 
@@ -484,7 +492,7 @@ class DataRepoTransformer(BaseTransformer):
             if scheme == "doi":
                 converted.append(
                     {
-                        "identifier_scheme": "https://doi.org/",
+                        "identifier_scheme": {"iri": "https://doi.org/"},
                         "value": identifier,
                         "iri": "https://doi.org/" + identifier,
                     }
@@ -493,13 +501,9 @@ class DataRepoTransformer(BaseTransformer):
                 raise Exception(
                     f"Unknown identifier scheme: {scheme} for identifier: {identifier}"
                 )
-        if len(converted) > 1:
-            raise Exception(
-                f"More than one identifier found for related item: {orig_identifiers}"
-            )
         if len(converted) == 0:
             return None
-        return converted[0]
+        return converted
 
     @cached_property
     def file_formats_by_extension(self):
@@ -529,29 +533,18 @@ class DataRepoTransformer(BaseTransformer):
             'version_id': '107b1e7e-5a19-4f26-88bb-e5318a7f0479'
         }
         """
-        iana_type = f.get("mime_type")
-        ext = "." + f.get("key").split(".")[-1]
-        file_format = None
-        if iana_type:
-            file_format = self.file_formats_by_iana.get(iana_type.lower())
-
-        if not file_format and ext in self.file_formats_by_extension:
-            file_format, _guessed_iana_type = self.file_formats_by_extension[ext]
-            if not iana_type:
-                iana_type = _guessed_iana_type
         ret = {
-            "checksum": f.get("checksum"),
-            "format": (({"iri": file_format}) if file_format else None),
             "byte_size": f.get("size"),
-            "media_type": (
-                {"iri": (f"https://www.iana.org/assignments/media-types/{iana_type}")}
-                if iana_type
-                else None
-            ),
-            "download_urls": [f.get("url")] if f.get("url") else [],
             "access_urls": [record_url],
             "title": f.get("name") or f.get("key"),
         }
+        checksum = f.get("checksum")
+        if checksum:
+            # invenio always uses md5 for checksums, so we can assume that
+            ret["checksum"] = {
+                "value": checksum.split(":")[-1] if ":" in checksum else checksum,
+                "algorithm": {"id": "md5"},
+            }
         return {k: v for k, v in ret.items() if v}
 
 

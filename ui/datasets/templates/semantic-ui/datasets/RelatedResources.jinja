@@ -6,12 +6,10 @@
   {% for resource in related_resources %}
   <div class="item">
     <ListItemField d={resource.title}>
-      <SeparatedProperty d={resource.title} />
+      {{resource.title|string}}
     </ListItemField>
     <ListItemField d={resource.relation_type}>
-      <SeparatedProperty d={resource.relation_type}>
-        <VocabularyItem vocabulary={resource.relation_type} vocabulary_type="relation-types" search_link={record.links.search_link} searchFacet="metadata_related_resources_relation_type" />
-      </SeparatedProperty>
+      <VocabularyItem vocabulary={resource.relation_type} vocabulary_type="relation-types" search_link={record.links.search_link} searchFacet="metadata_related_resources_relation_type" />
     </ListItemField>
     <ListItemField d={resource.iri}>
       <SeparatedProperty d={resource.iri}>
@@ -23,22 +21,15 @@
         <VocabularyItem vocabulary={resource.type} vocabulary_type="resource-types" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
       </SeparatedProperty>
     </ListItemField>
-    <ListItemField d={resource.identifier}>
-      <strong>{{ resource.identifier._ui_label }}:</strong>
-      <div role="list" class="list">
-        <ListItemField d={resource.identifier.iri}>
-          <SeparatedProperty d={resource.identifier.iri}>
-            <IRI iri={resource.identifier.iri} />
-          </SeparatedProperty>
-        </ListItemField>
-        <ListItemField d={resource.identifier.identifier_scheme}>
-          <SeparatedProperty d={resource.identifier.identifier_scheme} />
-        </ListItemField>
-        <ListItemField d={resource.identifier.value}>
-          <SeparatedProperty d={resource.identifier.value} />
-        </ListItemField>
-      </div>
-    </ListItemField>
+    {% for identifier in array(resource.identifiers) %}
+      <ListItemField d={identifier}>
+        <div role="list" class="list">
+          <a href="{{ identifier.value }}" target="_blank" rel="noopener noreferrer">
+            {{identifier.value }}
+          </a>
+        </div>
+      </ListItemField>
+    {% endfor %}
     <ListItemField d={resource.time_references}>
       <strong>{{ resource.time_references._ui_label }}:</strong>
       <TimeReferences time_references={resource.time_references} search_link={search_link} />

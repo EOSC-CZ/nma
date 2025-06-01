@@ -18,13 +18,30 @@ from common.oai.ccmm_tools import (
     get_ccmm_lang_iri,
     get_ccmm_role,
     lang_dict_to_2,
+    relation_types_cache,
+    set_publication_year,
 )
 
 log = logging.getLogger("oai.zenodo")
 
 UNKNOWN_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/UND"
 
-allowed_tags = set([*bleach.ALLOWED_TAGS, "span", "p", "br"])
+allowed_tags = set(
+    [
+        *bleach.ALLOWED_TAGS,
+        "span",
+        "p",
+        "br",
+        "pre",
+        "code",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+    ]
+)
 
 
 class ZenodoTransformer(BaseTransformer):
@@ -395,24 +412,18 @@ class ZenodoTransformer(BaseTransformer):
         md.setdefault("qualified_relations", []).append(
             {
                 "role": {
-                    "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/publisher/",
+                    "iri": "https://vocabs.ccmm.cz/registry/codelist/AgentRole/Publisher",
                 },
                 "organization": {
-                    "name": {
-                        "lang": "en",
-                        "value": orig_md.pop("publisher", "Zenodo"),
-                    }
+                    "name": orig_md.pop("publisher", "Zenodo"),
                 },
             }
         )
 
-        md["terms_of_use"] = self.convert_rights(orig_md.pop("rights", [])) or []
-        md["terms_of_use"].append(
-            {
-                "access_rights": [
-                    self.convert_access_rights(rec.pop("access", {}), bool(files))
-                ]
-            }
+        md["terms_of_use"] = self.convert_rights(orig_md.pop("rights", []))
+
+        md["terms_of_use"]["access_rights"] = self.convert_access_rights(
+            rec.pop("access", {}), bool(files)
         )
 
         md["subjects"] = self.convert_subjects(orig_md.pop("subjects", []))
@@ -436,7 +447,7 @@ class ZenodoTransformer(BaseTransformer):
 
         orig_md.pop("dates", None)  # TODO: not translated now
 
-        md["distribution_downloadable_files"] = [
+        md["distributions"] = [
             self.convert_file(f, link) for f in files.get("entries", {}).values()
         ]
 
@@ -449,6 +460,8 @@ class ZenodoTransformer(BaseTransformer):
         for k, v in list(transformed.items()):
             if isinstance(v, list):
                 transformed[k] = [vv for vv in v if vv]
+
+        set_publication_year(transformed["metadata"])
 
         self.ensureEmpty(
             orig_md,
@@ -495,7 +508,7 @@ class ZenodoTransformer(BaseTransformer):
 
     def convert_doi(self, doi):
         return {
-            "identifier_scheme": "https://doi.org/",
+            "identifier_scheme": {"iri": "https://doi.org/"},
             "value": doi["identifier"],
             "iri": "https://doi.org/" + doi["identifier"],
         }
@@ -508,7 +521,7 @@ class ZenodoTransformer(BaseTransformer):
         self.convert_creator_contributor(
             md,
             orig_creator,
-            "https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/creator/",
+            "https://vocabs.ccmm.cz/registry/codelist/AgentRole/Creator",
         )
 
     def convert_contributor(self, md, orig_contributor):
@@ -568,35 +581,42 @@ class ZenodoTransformer(BaseTransformer):
         )
 
     def convert_person(self, orig_creator, affiliations):
+
         converted_person = {
-            "family_name": orig_creator.pop("family_name"),
+            "family_names": [orig_creator.pop("family_name")],
             "given_names": (
                 [orig_creator.pop("given_name", None)]
                 if orig_creator.get("given_name")
                 else []
             ),
         }
-        converted_person["external_identifiers"] = [
+        if converted_person["given_names"] and converted_person["family_names"]:
+            converted_person["name"] = (
+                f"{converted_person['family_names'][0]}, {converted_person['given_names'][0]}"
+            )
+        elif converted_person["given_names"]:
+            converted_person["name"] = converted_person["given_names"][0]
+        else:
+            converted_person["name"] = converted_person["family_names"][0]
+
+        converted_person["identifiers"] = [
             self.convert_identifier(i) for i in orig_creator.pop("identifiers", [])
         ]
-        converted_person["external_identifiers"] = [
-            x for x in converted_person["external_identifiers"] if x
+        converted_person["identifiers"] = [
+            x for x in converted_person["identifiers"] if x
         ]
         converted_person["affiliations"] = self.convert_affiliations(affiliations)
         return converted_person
 
     def convert_organization(self, orig_creator):
         converted_organization = {
-            "name": {
-                "lang": "und",
-                "value": orig_creator.pop("name"),
-            },
+            "name": orig_creator.pop("name"),
         }
-        converted_organization["external_identifiers"] = [
+        converted_organization["identifiers"] = [
             self.convert_identifier(i) for i in orig_creator.pop("identifiers", [])
         ]
-        converted_organization["external_identifiers"] = [
-            x for x in converted_organization["external_identifiers"] if x
+        converted_organization["identifiers"] = [
+            x for x in converted_organization["identifiers"] if x
         ]
         return converted_organization
 
@@ -610,35 +630,35 @@ class ZenodoTransformer(BaseTransformer):
         if scheme == "doi":
             iri = f"https://doi.org/{identifier}"
             identifier = {
-                "identifier_scheme": "https://doi.org/",
+                "identifier_scheme": {"iri": "https://doi.org/"},
                 "value": identifier,
                 "iri": iri,
             }
         elif scheme == "url":
             iri = identifier
             identifier = {
-                "identifier_scheme": "urn:iri",
+                "identifier_scheme": {"iri": "urn:iri"},
                 "value": identifier,
                 "iri": iri,
             }
         elif scheme == "arxiv":
             iri = f"https://arxiv.org/abs/{identifier}"
             identifier = {
-                "identifier_scheme": "https://arxiv.org/",
+                "identifier_scheme": {"iri": "https://arxiv.org/"},
                 "value": identifier,
                 "iri": iri,
             }
         elif scheme == "ror":
             iri = f"https://ror.org/{identifier}"
             identifier = {
-                "identifier_scheme": "https://ror.org/",
+                "identifier_scheme": {"iri": "https://ror.org/"},
                 "value": identifier,
                 "iri": iri,
             }
         elif scheme == "orcid":
             iri = f"https://orcid.org/{identifier}"
             identifier = {
-                "identifier_scheme": "https://orcid.org/",
+                "identifier_scheme": {"iri": "https://orcid.org/"},
                 "value": identifier,
                 "iri": iri,
             }
@@ -655,7 +675,7 @@ class ZenodoTransformer(BaseTransformer):
         for aff in affiliations:
             affiliation = {
                 "name": {"lang": "und", "value": aff.pop("name")},
-                "external_identifiers": [],
+                "identifiers": [],
             }
             affiliations.append(affiliation)
 
@@ -671,7 +691,9 @@ class ZenodoTransformer(BaseTransformer):
             return [
                 {
                     "lang": "und",
-                    "value": bleach.clean(orig_description, tags=allowed_tags),
+                    "value": bleach.clean(
+                        orig_description, tags=allowed_tags, strip=True
+                    ),
                 }
             ]
         raise NotImplementedError(
@@ -699,25 +721,37 @@ class ZenodoTransformer(BaseTransformer):
         """
         title = orig_title.pop("title")
         _lang = lang_dict_to_2(orig_title.pop("lang", "und"))
-        _type = orig_title.pop("type", {}).get("title", {}).get("en").replace(" ", "")
+        zenodo_title_types = {
+            "alternative-title": "https://vocabs.ccmm.cz/registry/codelist/AlternateTitle/AlternativeTitle",
+            "subtitle": "https://vocabs.ccmm.cz/registry/codelist/AlternateTitle/Subtitle",
+            "translated-title": "https://vocabs.ccmm.cz/registry/codelist/AlternateTitle/TranslatedTitle",
+            "other": "https://vocabs.ccmm.cz/registry/codelist/AlternateTitle/Other",
+        }
+        _type = zenodo_title_types[orig_title.pop("type", {})["id"]]
         self.ensureEmpty(orig_title)
         return {
-            "title": {
-                "lang": _lang,
-                "value": title,
-            },
-            "type": _type,
+            "title": [
+                {
+                    "lang": _lang,
+                    "value": title,
+                }
+            ],
+            "type": {"iri": _type},
         }
 
     def convert_dates(self, orig_md):
         dates = []
         dateAvailable = orig_md.pop("publication_date", None)
         if dateAvailable:
+            if "/" in dateAvailable:
+                # the date is edtf-interval, which is currently not supported
+                # we'll take the last part of the date
+                dateAvailable = dateAvailable.split("/")[-1]
             dates.append(
                 {
                     "date": dateAvailable,
                     "date_type": {
-                        "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/dateType/#issued"
+                        "iri": "https://vocabs.ccmm.cz/registry/codelist/TimeReference/Issued"
                     },
                 }
             )
@@ -735,24 +769,29 @@ class ZenodoTransformer(BaseTransformer):
         }
 
     def convert_rights(self, orig_rights):
-        converted_rights = []
+        converted_rights = {
+            "description": [],
+        }
 
         for r in orig_rights:
-            if "props" not in r or "url" not in r["props"]:
-                log.error(f"Missing props or url in rights: {r}")
-                continue
-            converted_rights.append(
+            if "props" in r and r["props"].get("url"):
+                if converted_rights.get("iri") is None:
+                    converted_rights["iri"] = r["props"]["url"]
+                else:
+                    log.warning(
+                        f"Multiple rights with URL found: "
+                        f"{converted_rights.get('iri')}, ignoring {r['props']['url']}."
+                    )
+
+            converted_rights["description"] += [
                 {
-                    "iri": r["props"]["url"],
-                    "description": [
-                        {
-                            "lang": lang,
-                            "value": text,
-                        }
-                        for lang, text in r["description"].items()
-                    ],
+                    "lang": lang,
+                    "value": text.strip(),
                 }
-            )
+                for lang, text in r["description"].items()
+                if text and text.strip()
+            ]
+
         return converted_rights
 
     def convert_access_rights(self, orig_access, has_files):
@@ -795,13 +834,13 @@ class ZenodoTransformer(BaseTransformer):
             ]}
             """
             classification_code = subject.pop("id", None)
-            in_subject_scheme = subject.pop("scheme", None)
+            scheme = subject.pop("scheme", None)
             _props = subject.pop("props", None)
             _identifiers = subject.pop("identifiers", None)
-            created_subject = {"title": {"value": subj, "lang": "und"}}
-            if classification_code and in_subject_scheme:
+            created_subject = {"title": [{"value": subj, "lang": "und"}]}
+            if classification_code and scheme:
                 created_subject["classification_code"] = classification_code
-                created_subject["in_subject_scheme"] = {"id": in_subject_scheme}
+                created_subject["scheme"] = {"id": scheme}
             # TODO: what about subject identifiers?
             created_subjects.append(created_subject)
             self.ensureEmpty(subject)
@@ -823,32 +862,22 @@ class ZenodoTransformer(BaseTransformer):
             if not identifier:
                 return None
 
+            converted_relation_type = {
+                "id": relation_types_cache.by_prop("zenodo")[relation_type["id"]]["id"]
+            }
+
             converted_item = {
                 "iri": identifier["iri"],
-                "relation_type": {
-                    "id": relation_type["id"],
-                },
+                "relation_type": converted_relation_type,
                 "type": resource_type,
                 "title": title.get("en") or next(iter(title.values()), None),
-                "identifier": identifier,
+                "identifiers": [identifier],
             }
             converted_related_items.append(
                 {k: v for k, v in converted_item.items() if v is not None}
             )
             self.ensureEmpty(orig_related_item)  # not present in datacite schema
         return converted_related_items
-
-    def convert_relation_type(self, orig_relation_type):
-        rt = next(r for r in (orig_relation_type or []) if not r.get("is_ancestor"))
-        if not rt:
-            return None
-        link = rt["links"]["self"]
-        return {
-            "iri": link.replace(
-                "https://data.narodni-repozitar.cz/2.0/taxonomies/itemRelationType/",
-                "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#",
-            )
-        }
 
     def convert_related_item_identifiers(self, orig_identifiers):
         converted = []
@@ -858,7 +887,7 @@ class ZenodoTransformer(BaseTransformer):
             if scheme == "doi":
                 converted.append(
                     {
-                        "identifier_scheme": "https://doi.org/",
+                        "identifier_scheme": {"iri": "https://doi.org/"},
                         "value": identifier,
                         "iri": "https://doi.org/" + identifier,
                     }
@@ -878,7 +907,7 @@ class ZenodoTransformer(BaseTransformer):
     def convert_location(self, orig_location):
         place = orig_location.pop("place", None)
         if place:
-            ret = {"location_names": [place]}
+            ret = {"names": [place]}
         else:
             ret = None
         self.ensureEmpty(orig_location)
@@ -925,8 +954,10 @@ class ZenodoTransformer(BaseTransformer):
             self.ensureEmpty(funder)
             ret["funders"] = [
                 {
-                    # TODO: this is not correct !!!
-                    "funder_identifier_value": funder_id,
+                    "organization": {
+                        # TODO: what to do with funder id?
+                        "name": _funder_name,
+                    }
                 }
             ]
         return {k: v for k, v in ret.items() if v}
@@ -957,35 +988,19 @@ class ZenodoTransformer(BaseTransformer):
             }
         }
         """
-        iana_type = f.get("mimetype")
-        ext = "." + f.get("key").split(".")[-1]
-        file_format = None
-
-        if not file_format and ext in self.file_formats_by_extension:
-            file_format, _guessed_iana_type = self.file_formats_by_extension[ext]
-            if not iana_type:
-                iana_type = _guessed_iana_type
-
-        if iana_type and not file_format:
-            file_format = self.file_formats_by_iana.get(iana_type.lower())
 
         ret = {
-            "checksum": f.get("checksum"),
-            "format": (({"iri": file_format}) if file_format else None),
             "byte_size": f.get("size"),
-            "media_type": (
-                {"iri": (f"https://www.iana.org/assignments/media-types/{iana_type}")}
-                if iana_type
-                else None
-            ),
-            "download_urls": (
-                [f["links"]["content"]]
-                if f.get("links", {}).get("content", None)
-                else []
-            ),
             "access_urls": [record_url],
             "title": f.get("key"),
         }
+        checksum = f.get("checksum")
+        if checksum:
+            # invenio always uses md5 for checksums, so we can assume that
+            ret["checksum"] = {
+                "value": checksum.split(":")[-1] if ":" in checksum else checksum,
+                "algorithm": {"id": "md5"},
+            }
         return {k: v for k, v in ret.items() if v}
 
 

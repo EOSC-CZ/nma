@@ -18,13 +18,14 @@ export const Creatibutors = ({ creatibutors }) => {
   const personalCreatibutors = creatibutors?.filter((c) => !!c.person) || [];
   const orgCreatibutors = creatibutors?.filter((c) => !!c.organization) || [];
   // there can be a significant number of contributors, and it can get unreadable
+  const numDisplayed = 4
   const displayedPersons = showAllPersons
     ? personalCreatibutors
-    : personalCreatibutors?.slice(0, 10);
+    : personalCreatibutors?.slice(0, numDisplayed);
 
   const displayedOrgs = showAllOrgs
     ? orgCreatibutors
-    : orgCreatibutors?.slice(0, 10);
+    : orgCreatibutors?.slice(0, numDisplayed);
 
   return (
     <div className="results-list-item creatibutors">
@@ -35,19 +36,24 @@ export const Creatibutors = ({ creatibutors }) => {
             {index < displayedPersons.length - 1 ? "; " : null}
           </React.Fragment>
         ))}
-        {personalCreatibutors.length > 10 && (
-          <Button
-            compact
-            size="tiny"
-            onClick={togglePersons}
-            className="transparent mr-3"
-          >
-            {showAllPersons ? (
-              <Icon name="left chevron" color="green" />
-            ) : (
-              <Icon name="right chevron" color="green" />
-            )}
-          </Button>
+        {personalCreatibutors.length > numDisplayed && (
+          <>
+            {
+              showAllPersons ? null : <span> et al. </span>
+            }
+            <Button
+              compact
+              size="tiny"
+              onClick={togglePersons}
+              className="transparent mr-3"
+            >
+              {showAllPersons ? (
+                <Icon name="left chevron" color="green" />
+              ) : (
+                <Icon name="right chevron" color="green" />
+              )}
+            </Button>
+          </>
         )}
       </div>
 
@@ -73,7 +79,7 @@ export const Creatibutors = ({ creatibutors }) => {
           </Button>
         )}
       </div>
-    </div>
+    </div >
   );
 };
 

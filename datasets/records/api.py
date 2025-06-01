@@ -16,6 +16,7 @@ from invenio_records_resources.records.systemfields.pid import PIDField, PIDFiel
 from oarepo_communities.records.systemfields.communities import (
     OARepoCommunitiesFieldContext,
 )
+from oarepo_runtime.records.pid_providers import UniversalPIDMixin
 from oarepo_runtime.records.relations import PIDRelation, RelationsField
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
@@ -47,7 +48,7 @@ class DatasetsParentRecord(RDMParent):
     )
 
 
-class DatasetsIdProvider(DraftRecordIdProviderV2):
+class DatasetsIdProvider(UniversalPIDMixin, DraftRecordIdProviderV2):
     pid_type = "dtsts"
 
 
@@ -83,40 +84,115 @@ class DatasetsRecord(RDMRecord):
     )
 
     relations = RelationsField(
+        type=PIDRelation(
+            "metadata.alternate_titles.type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("title-types"),
+        ),
+        algorithm=PIDRelation(
+            "metadata.distributions.checksum.algorithm",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("checksum-algorithms"),
+        ),
         format=PIDRelation(
-            "metadata.distribution_downloadable_files.format",
+            "metadata.distributions.format",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("file-types"),
+        ),
+        media_type=PIDRelation(
+            "metadata.distributions.media_type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("media-types"),
+        ),
+        identifier_scheme=PIDRelation(
+            "metadata.funding_references.funders.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        identifiers_identifier_scheme=PIDRelation(
+            "metadata.funding_references.funders.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.funding_references.funders.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        metadata_identifiers_identifier_scheme=PIDRelation(
+            "metadata.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
         ),
         languages=PIDRelation(
             "metadata.is_described_by.languages",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("languages"),
         ),
+        organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.is_described_by.qualified_relations.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.is_described_by.qualified_relations.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        qualified_relations_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.is_described_by.qualified_relations.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
         role=PIDRelation(
             "metadata.is_described_by.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
         ),
+        related_objects_identifiers_identifier_scheme=PIDRelation(
+            "metadata.locations.related_objects.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        qualified_relations_organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.locations.related_objects.qualified_relations.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        person_affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.locations.related_objects.qualified_relations.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        related_objects_qualified_relations_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.locations.related_objects.qualified_relations.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
         qualified_relations_role=PIDRelation(
-            "metadata.locations.related_object_identifiers.qualified_relations.role",
+            "metadata.locations.related_objects.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
         ),
         relation_type=PIDRelation(
-            "metadata.locations.related_object_identifiers.relation_type",
+            "metadata.locations.related_objects.relation_type",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("relation-types"),
         ),
         date_type=PIDRelation(
-            "metadata.locations.related_object_identifiers.time_references.date_type",
+            "metadata.locations.related_objects.time_references.date_type",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
         ),
-        type=PIDRelation(
-            "metadata.locations.related_object_identifiers.type",
+        related_objects_type=PIDRelation(
+            "metadata.locations.related_objects.type",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
+        locations_relation_type=PIDRelation(
+            "metadata.locations.relation_type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("location-relation-types"),
         ),
         other_languages=PIDRelation(
             "metadata.other_languages",
@@ -128,10 +204,45 @@ class DatasetsRecord(RDMRecord):
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("languages"),
         ),
+        metadata_qualified_relations_organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.qualified_relations.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        qualified_relations_person_affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.qualified_relations.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        metadata_qualified_relations_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.qualified_relations.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
         metadata_qualified_relations_role=PIDRelation(
             "metadata.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        related_resources_identifiers_identifier_scheme=PIDRelation(
+            "metadata.related_resources.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        related_resources_qualified_relations_organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.related_resources.qualified_relations.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        related_resources_qualified_relations_person_affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.related_resources.qualified_relations.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        related_resources_qualified_relations_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.related_resources.qualified_relations.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
         ),
         related_resources_qualified_relations_role=PIDRelation(
             "metadata.related_resources.qualified_relations.role",
@@ -158,8 +269,8 @@ class DatasetsRecord(RDMRecord):
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
         ),
-        in_subject_scheme=PIDRelation(
-            "metadata.subjects.in_subject_scheme",
+        scheme=PIDRelation(
+            "metadata.subjects.scheme",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("subject-schemes"),
         ),
@@ -167,6 +278,21 @@ class DatasetsRecord(RDMRecord):
             "metadata.terms_of_use.access_rights",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("access-rights"),
+        ),
+        contacts_organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.terms_of_use.contacts.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        contacts_person_affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.terms_of_use.contacts.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        contacts_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.terms_of_use.contacts.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
         ),
         metadata_time_references_date_type=PIDRelation(
             "metadata.time_references.date_type",
@@ -239,40 +365,115 @@ class DatasetsDraft(RDMDraft):
     )
 
     relations = RelationsField(
+        type=PIDRelation(
+            "metadata.alternate_titles.type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("title-types"),
+        ),
+        algorithm=PIDRelation(
+            "metadata.distributions.checksum.algorithm",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("checksum-algorithms"),
+        ),
         format=PIDRelation(
-            "metadata.distribution_downloadable_files.format",
+            "metadata.distributions.format",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("file-types"),
+        ),
+        media_type=PIDRelation(
+            "metadata.distributions.media_type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("media-types"),
+        ),
+        identifier_scheme=PIDRelation(
+            "metadata.funding_references.funders.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        identifiers_identifier_scheme=PIDRelation(
+            "metadata.funding_references.funders.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.funding_references.funders.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        metadata_identifiers_identifier_scheme=PIDRelation(
+            "metadata.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
         ),
         languages=PIDRelation(
             "metadata.is_described_by.languages",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("languages"),
         ),
+        organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.is_described_by.qualified_relations.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.is_described_by.qualified_relations.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        qualified_relations_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.is_described_by.qualified_relations.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
         role=PIDRelation(
             "metadata.is_described_by.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
         ),
+        related_objects_identifiers_identifier_scheme=PIDRelation(
+            "metadata.locations.related_objects.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        qualified_relations_organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.locations.related_objects.qualified_relations.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        person_affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.locations.related_objects.qualified_relations.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        related_objects_qualified_relations_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.locations.related_objects.qualified_relations.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
         qualified_relations_role=PIDRelation(
-            "metadata.locations.related_object_identifiers.qualified_relations.role",
+            "metadata.locations.related_objects.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
         ),
         relation_type=PIDRelation(
-            "metadata.locations.related_object_identifiers.relation_type",
+            "metadata.locations.related_objects.relation_type",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("relation-types"),
         ),
         date_type=PIDRelation(
-            "metadata.locations.related_object_identifiers.time_references.date_type",
+            "metadata.locations.related_objects.time_references.date_type",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("time-reference-types"),
         ),
-        type=PIDRelation(
-            "metadata.locations.related_object_identifiers.type",
+        related_objects_type=PIDRelation(
+            "metadata.locations.related_objects.type",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
+        ),
+        locations_relation_type=PIDRelation(
+            "metadata.locations.relation_type",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("location-relation-types"),
         ),
         other_languages=PIDRelation(
             "metadata.other_languages",
@@ -284,10 +485,45 @@ class DatasetsDraft(RDMDraft):
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("languages"),
         ),
+        metadata_qualified_relations_organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.qualified_relations.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        qualified_relations_person_affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.qualified_relations.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        metadata_qualified_relations_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.qualified_relations.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
         metadata_qualified_relations_role=PIDRelation(
             "metadata.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+        ),
+        related_resources_identifiers_identifier_scheme=PIDRelation(
+            "metadata.related_resources.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        related_resources_qualified_relations_organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.related_resources.qualified_relations.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        related_resources_qualified_relations_person_affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.related_resources.qualified_relations.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        related_resources_qualified_relations_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.related_resources.qualified_relations.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
         ),
         related_resources_qualified_relations_role=PIDRelation(
             "metadata.related_resources.qualified_relations.role",
@@ -314,8 +550,8 @@ class DatasetsDraft(RDMDraft):
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
         ),
-        in_subject_scheme=PIDRelation(
-            "metadata.subjects.in_subject_scheme",
+        scheme=PIDRelation(
+            "metadata.subjects.scheme",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("subject-schemes"),
         ),
@@ -323,6 +559,21 @@ class DatasetsDraft(RDMDraft):
             "metadata.terms_of_use.access_rights",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
             pid_field=Vocabulary.pid.with_type_ctx("access-rights"),
+        ),
+        contacts_organization_identifiers_identifier_scheme=PIDRelation(
+            "metadata.terms_of_use.contacts.organization.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        contacts_person_affiliations_identifiers_identifier_scheme=PIDRelation(
+            "metadata.terms_of_use.contacts.person.affiliations.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
+        ),
+        contacts_person_identifiers_identifier_scheme=PIDRelation(
+            "metadata.terms_of_use.contacts.person.identifiers.identifier_scheme",
+            keys=["id", "title", {"key": "props.iri", "target": "iri"}],
+            pid_field=Vocabulary.pid.with_type_ctx("identifier-schemes"),
         ),
         metadata_time_references_date_type=PIDRelation(
             "metadata.time_references.date_type",

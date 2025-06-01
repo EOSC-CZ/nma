@@ -1,3 +1,4 @@
+import logging
 import time
 from collections import defaultdict
 from typing import Any
@@ -7,6 +8,8 @@ from invenio_access.permissions import system_identity
 from invenio_search.engine import dsl
 from invenio_vocabularies.proxies import current_service as vocabulary_service
 from langcodes import Language
+
+log = logging.getLogger("oai.ccmm_tools")
 
 
 class VocabularyCache:
@@ -46,9 +49,21 @@ class VocabularyCache:
         self.caches[prop] = by_prop
         return by_prop
 
+    def by_id(self):
+        if "id" in self.caches:
+            return self.caches["id"]
+
+        by_id = {}
+        for val in self.values:
+            by_id[val["id"]] = val
+
+        self.caches["id"] = by_id
+        return by_id
+
 
 language_cache = VocabularyCache("languages")
-contributor_types = VocabularyCache("contributor-types")
+agent_roles = VocabularyCache("agent-roles")
+relation_types_cache = VocabularyCache("relation-types")
 
 
 def get_ccmm_lang_iri(lang: str, refetch_ok=True) -> str:
@@ -70,36 +85,37 @@ def get_ccmm_lang_iri(lang: str, refetch_ok=True) -> str:
         language_cache.clear()
         return get_ccmm_lang_iri(lang, refetch_ok=False)
 
-    return by_3["und"]["props"]["iri"]  # default to und
+    return language_cache.by_id()["UND"]["props"]["iri"]  # default to und
 
 
 def get_ccmm_role(role: str, refetch=True) -> str:
-    contributor_types_by_prop = contributor_types.by_prop("dataCiteCode")
+    contributor_types_by_prop = agent_roles.by_prop("dataCiteCode")
     if role not in contributor_types_by_prop:
         if refetch:
             print(f"Role '{role}' not found, refetching...")
-            contributor_types.clear()
+            agent_roles.clear()
             return get_ccmm_role(role, refetch=False)
     if role not in contributor_types_by_prop:
-        raise ValueError(f"Role '{role}' not found in contributor types vocabulary")
+        log.error(f"Role '{role}' not found in contributor types vocabulary")
+        return contributor_types_by_prop["Other"]["props"]["iri"]
     return contributor_types_by_prop[role]["props"]["iri"]
 
 
 def full_name_to_person(value):
     """Convert a full name string to a person dict."""
-    value = value.split(", ")
+    value = value.split(", ", maxsplit=1)
     if len(value) > 1:
-        family_name = value[0]
-        given_names = value[1:]
+        family_names = value[0].split()
+        given_names = value[1].split()
     else:
-        family_name = value[0]
+        family_names = value[0].split()
         given_names = []
 
     person = {
-        "family_name": family_name,
+        "family_names": [x for x in family_names if x],
     }
     if given_names:
-        person["given_names"] = given_names
+        person["given_names"] = [x for x in given_names if x]
 
     return person
 
@@ -190,3 +206,26 @@ def lang_dict_to_2(_lang):
             # no alpha 2 code found, return the original value
             return _lang
     return _lang
+
+
+def set_publication_year(md):
+    # set publication year
+    for tr in md.get("time_references", []):
+        if (
+            tr.get("date_type", {}).get("iri")
+            == "https://vocabs.ccmm.cz/registry/codelist/TimeReference/Issued"
+        ):
+            # if the date is in format YYYY-MM-DD, we can extract the year
+            if len(tr["date"]) >= 4:
+                try:
+                    md["publication_year"] = int(tr["date"][:4])
+                    break
+                except ValueError:
+                    log.warning(
+                        "Could not convert publication year from date: %s",
+                        tr["date"],
+                    )
+            else:
+                log.warning(
+                    "Could not extract publication year from date: %s", tr["date"]
+                )

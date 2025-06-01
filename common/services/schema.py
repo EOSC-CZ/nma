@@ -112,3 +112,23 @@ class CCMMFileTypesVocabularySchema(CCMMVocabularySchema):
 
 class CCMMSubjectSchemesVocabularySchema(CCMMVocabularySchema):
     vocabulary_type = "subject-schemes"
+
+
+class CCMMTitleTypesVocabularySchema(CCMMVocabularySchema):
+    vocabulary_type = "title-types"
+
+
+class CCMMChecksumAlgorithmsVocabularySchema(CCMMVocabularySchema):
+    vocabulary_type = "checksum-algorithms"
+
+
+class CCMMIdentifierSchemesVocabularySchema(CCMMVocabularySchema):
+    vocabulary_type = "identifier-schemes"
+
+
+class CCMMLocationRelationTypesVocabularySchema(CCMMVocabularySchema):
+    vocabulary_type = "location-relation-types"
+
+
+class CCMMMediaTypesVocabularySchema(CCMMVocabularySchema):
+    vocabulary_type = "media-types"

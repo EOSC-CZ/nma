@@ -1,7 +1,6 @@
 import marshmallow as ma
 from marshmallow import Schema
 from marshmallow import fields as ma_fields
-from marshmallow.validate import OneOf
 from oarepo_requests.services.ui_schema import UIRequestsSerializationMixin
 from oarepo_runtime.services.schema.i18n_ui import I18nStrUIField
 from oarepo_runtime.services.schema.marshmallow import DictOnlySchema
@@ -46,12 +45,8 @@ class DatasetsMetadataUISchema(Schema):
 
     descriptions = ma_fields.List(I18nStrUIField())
 
-    distribution_data_services = ma_fields.List(
-        ma_fields.Nested(lambda: DistributionDataServicesItemUISchema())
-    )
-
-    distribution_downloadable_files = ma_fields.List(
-        ma_fields.Nested(lambda: DistributionDownloadableFilesItemUISchema())
+    distributions = ma_fields.List(
+        ma_fields.Nested(lambda: DistributionsItemUISchema())
     )
 
     funding_references = ma_fields.List(
@@ -63,7 +58,7 @@ class DatasetsMetadataUISchema(Schema):
     iri = ma_fields.String()
 
     is_described_by = ma_fields.List(
-        ma_fields.Nested(lambda: IsDescribedByItemUISchema()), required=True
+        ma_fields.Nested(lambda: IsDescribedByItemUISchema(), required=True)
     )
 
     locations = ma_fields.List(ma_fields.Nested(lambda: LocationsItemUISchema()))
@@ -72,7 +67,9 @@ class DatasetsMetadataUISchema(Schema):
 
     primary_language = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
-    provenances = ma_fields.List(ma_fields.Nested(lambda: DocumentationsItemUISchema()))
+    provenances = ma_fields.List(
+        ma_fields.Nested(lambda: ConformsToSchemasItemUISchema())
+    )
 
     publication_year = ma_fields.Integer()
 
@@ -81,14 +78,14 @@ class DatasetsMetadataUISchema(Schema):
     )
 
     related_resources = ma_fields.List(
-        ma_fields.Nested(lambda: RelatedObjectIdentifiersItemUISchema())
+        ma_fields.Nested(lambda: RelatedObjectsItemUISchema())
     )
 
     resource_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     subjects = ma_fields.List(ma_fields.Nested(lambda: SubjectsItemUISchema()))
 
-    terms_of_use = ma_fields.List(ma_fields.Nested(lambda: TermsOfUseItemUISchema()))
+    terms_of_use = ma_fields.Nested(lambda: TermsOfUseUISchema())
 
     time_references = ma_fields.List(
         ma_fields.Nested(lambda: TimeReferencesItemUISchema())
@@ -97,10 +94,12 @@ class DatasetsMetadataUISchema(Schema):
     title = ma_fields.String(required=True)
 
     validation_results = ma_fields.List(
-        ma_fields.Nested(lambda: DocumentationsItemUISchema())
+        ma_fields.Nested(lambda: ConformsToSchemasItemUISchema())
     )
 
     version = ma_fields.String()
+
+    versions = ma_fields.List(ma_fields.String())
 
 
 class LocationsItemUISchema(DictOnlySchema):
@@ -109,17 +108,32 @@ class LocationsItemUISchema(DictOnlySchema):
 
     bbox = ma_fields.Nested(lambda: BboxUISchema())
 
-    dataset_relations = ma_fields.List(ma_fields.String())
-
-    geometry = ma_fields.Nested(lambda: DocumentationsItemUISchema())
+    geometry = ma_fields.Nested(lambda: ConformsToSchemasItemUISchema())
 
     iri = ma_fields.String()
 
-    location_names = ma_fields.List(ma_fields.String())
+    names = ma_fields.List(ma_fields.String())
 
-    related_object_identifiers = ma_fields.List(
-        ma_fields.Nested(lambda: RelatedObjectIdentifiersItemUISchema())
+    related_objects = ma_fields.List(
+        ma_fields.Nested(lambda: RelatedObjectsItemUISchema())
     )
+
+    relation_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
+
+
+class FundingReferencesItemUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    award_title = ma_fields.String()
+
+    funders = ma_fields.List(ma_fields.Nested(lambda: FundersItemUISchema()))
+
+    funding_program = ma_fields.String()
+
+    iri = ma_fields.String()
+
+    local_identifier = ma_fields.String()
 
 
 class IsDescribedByItemUISchema(DictOnlySchema):
@@ -127,7 +141,7 @@ class IsDescribedByItemUISchema(DictOnlySchema):
         unknown = ma.RAISE
 
     conforms_to_standards = ma_fields.List(
-        ma_fields.Nested(lambda: DocumentationsItemUISchema())
+        ma_fields.Nested(lambda: ConformsToSchemasItemUISchema())
     )
 
     date_created = LocalizedDate()
@@ -139,7 +153,7 @@ class IsDescribedByItemUISchema(DictOnlySchema):
     languages = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularyUISchema()))
 
     original_repositories = ma_fields.List(
-        ma_fields.Nested(lambda: DocumentationsItemUISchema())
+        ma_fields.Nested(lambda: ConformsToSchemasItemUISchema())
     )
 
     qualified_relations = ma_fields.List(
@@ -147,11 +161,11 @@ class IsDescribedByItemUISchema(DictOnlySchema):
     )
 
 
-class RelatedObjectIdentifiersItemUISchema(DictOnlySchema):
+class RelatedObjectsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    identifier = ma_fields.Nested(lambda: IdentifiersItemUISchema())
+    identifiers = ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemUISchema()))
 
     iri = ma_fields.String()
 
@@ -160,6 +174,8 @@ class RelatedObjectIdentifiersItemUISchema(DictOnlySchema):
     )
 
     relation_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
+
+    resource_url = ma_fields.String()
 
     time_references = ma_fields.List(
         ma_fields.Nested(lambda: TimeReferencesItemUISchema())
@@ -170,22 +186,22 @@ class RelatedObjectIdentifiersItemUISchema(DictOnlySchema):
     type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
 
-class TermsOfUseItemUISchema(DictOnlySchema):
+class TermsOfUseUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    access_rights = ma_fields.List(ma_fields.Nested(lambda: CCMMVocabularyUISchema()))
+    access_rights = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
-    contacts = ma_fields.List(ma_fields.Nested(lambda: ContactsItemUISchema()))
+    contacts = ma_fields.List(ma_fields.Nested(lambda: FundersItemUISchema()))
 
     description = ma_fields.List(I18nStrUIField())
 
     iri = ma_fields.String()
 
-    license = ma_fields.String()
+    license = ma_fields.Nested(lambda: ConformsToSchemasItemUISchema())
 
 
-class ContactsItemUISchema(DictOnlySchema):
+class FundersItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -217,15 +233,15 @@ class PersonUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: ContactPointsItemUISchema())
     )
 
-    external_identifiers = ma_fields.List(
-        ma_fields.Nested(lambda: IdentifiersItemUISchema())
-    )
-
-    family_name = ma_fields.String(required=True)
+    family_names = ma_fields.List(ma_fields.String(required=True))
 
     given_names = ma_fields.List(ma_fields.String())
 
+    identifiers = ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemUISchema()))
+
     iri = ma_fields.String()
+
+    name = ma_fields.String()
 
 
 class OrganizationUISchema(DictOnlySchema):
@@ -238,20 +254,18 @@ class OrganizationUISchema(DictOnlySchema):
         ma_fields.Nested(lambda: ContactPointsItemUISchema())
     )
 
-    external_identifiers = ma_fields.List(
-        ma_fields.Nested(lambda: IdentifiersItemUISchema())
-    )
+    identifiers = ma_fields.List(ma_fields.Nested(lambda: IdentifiersItemUISchema()))
 
     iri = ma_fields.String()
 
-    name = I18nStrUIField(required=True)
+    name = ma_fields.String(required=True)
 
 
 class ContactPointsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    addresses = ma_fields.List(ma_fields.Nested(lambda: DocumentationsItemUISchema()))
+    addresses = ma_fields.List(ma_fields.Nested(lambda: AddressesItemUISchema()))
 
     dataBoxes = ma_fields.List(ma_fields.String())
 
@@ -262,30 +276,7 @@ class ContactPointsItemUISchema(DictOnlySchema):
     phones = ma_fields.List(ma_fields.String())
 
 
-class DistributionDataServicesItemUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    access_services = ma_fields.List(
-        ma_fields.Nested(lambda: AccessServicesItemUISchema())
-    )
-
-    descriptions = ma_fields.List(I18nStrUIField())
-
-    documentations = ma_fields.List(
-        ma_fields.Nested(lambda: DocumentationsItemUISchema())
-    )
-
-    iri = ma_fields.String()
-
-    specifications = ma_fields.List(
-        ma_fields.Nested(lambda: DocumentationsItemUISchema())
-    )
-
-    title = ma_fields.String()
-
-
-class DistributionDownloadableFilesItemUISchema(DictOnlySchema):
+class DistributionsItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
@@ -293,10 +284,10 @@ class DistributionDownloadableFilesItemUISchema(DictOnlySchema):
 
     byte_size = ma_fields.Integer()
 
-    checksum = ma_fields.String()
+    checksum = ma_fields.Nested(lambda: ChecksumUISchema())
 
     conforms_to_schemas = ma_fields.List(
-        ma_fields.Nested(lambda: DocumentationsItemUISchema())
+        ma_fields.Nested(lambda: ConformsToSchemasItemUISchema())
     )
 
     download_urls = ma_fields.List(ma_fields.String())
@@ -305,24 +296,9 @@ class DistributionDownloadableFilesItemUISchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    media_type = ma_fields.Nested(lambda: DocumentationsItemUISchema())
+    media_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
     title = ma_fields.String()
-
-
-class FundingReferencesItemUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    award_title = ma_fields.String()
-
-    funders = ma_fields.List(ma_fields.Nested(lambda: FundersItemUISchema()))
-
-    funding_program = ma_fields.String()
-
-    iri = ma_fields.String()
-
-    local_identifier = ma_fields.String()
 
 
 class OaiUISchema(DictOnlySchema):
@@ -332,15 +308,33 @@ class OaiUISchema(DictOnlySchema):
     harvest = ma_fields.Nested(lambda: HarvestUISchema())
 
 
-class AccessServicesItemUISchema(DictOnlySchema):
+class AddressesItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    endpoint_urls = ma_fields.List(ma_fields.String(), required=True)
+    address_areas = ma_fields.List(ma_fields.String())
+
+    administrative_unit_level_1 = ma_fields.String()
+
+    administrative_unit_level_2 = ma_fields.String()
+
+    full_address = ma_fields.String()
 
     iri = ma_fields.String()
 
     labels = ma_fields.List(I18nStrUIField())
+
+    locator_designators = ma_fields.List(ma_fields.String())
+
+    locator_names = ma_fields.List(ma_fields.String())
+
+    po_box = ma_fields.String()
+
+    post_code = ma_fields.String()
+
+    post_names = ma_fields.List(ma_fields.String())
+
+    thoroughfares = ma_fields.List(ma_fields.String())
 
 
 class AlternateTitlesItemUISchema(DictOnlySchema):
@@ -349,48 +343,42 @@ class AlternateTitlesItemUISchema(DictOnlySchema):
 
     iri = ma_fields.String()
 
-    title = I18nStrUIField(required=True)
+    title = ma_fields.List(I18nStrUIField(required=True))
 
-    type = ma_fields.String(
-        validate=[OneOf(["AlternativeTitle", "Subtitle", "TranslatedTitle", "Other"])]
-    )
+    type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
 
 class BboxUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    LowerCorners = ma_fields.List(ma_fields.Float(), required=True)
+    LowerCorners = ma_fields.List(ma_fields.Float(required=True))
 
-    UpperCorners = ma_fields.List(ma_fields.Float(), required=True)
+    UpperCorners = ma_fields.List(ma_fields.Float(required=True))
 
     crs = ma_fields.String()
 
     dimensions = ma_fields.Integer()
 
 
-class DocumentationsItemUISchema(DictOnlySchema):
+class ChecksumUISchema(DictOnlySchema):
+    class Meta:
+        unknown = ma.RAISE
+
+    algorithm = ma_fields.Nested(lambda: CCMMVocabularyUISchema(), required=True)
+
+    iri = ma_fields.String()
+
+    value = ma_fields.String(required=True)
+
+
+class ConformsToSchemasItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
     iri = ma_fields.String()
 
     labels = ma_fields.List(I18nStrUIField())
-
-
-class FundersItemUISchema(DictOnlySchema):
-    class Meta:
-        unknown = ma.RAISE
-
-    funder_identifier_scheme_uri = ma_fields.String()
-
-    funder_identifier_type = ma_fields.String()
-
-    funder_identifier_value = ma_fields.String()
-
-    funder_name = ma_fields.String()
-
-    iri = ma_fields.String()
 
 
 class HarvestUISchema(DictOnlySchema):
@@ -406,7 +394,9 @@ class IdentifiersItemUISchema(DictOnlySchema):
     class Meta:
         unknown = ma.RAISE
 
-    identifier_scheme = ma_fields.String(required=True)
+    identifier_scheme = ma_fields.Nested(
+        lambda: CCMMVocabularyUISchema(), required=True
+    )
 
     iri = ma_fields.String()
 
@@ -419,13 +409,13 @@ class SubjectsItemUISchema(DictOnlySchema):
 
     classification_code = ma_fields.String()
 
-    definition = I18nStrUIField()
-
-    in_subject_scheme = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
+    definitions = ma_fields.List(I18nStrUIField())
 
     iri = ma_fields.String()
 
-    title = I18nStrUIField(required=True)
+    scheme = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
+
+    title = ma_fields.List(I18nStrUIField(required=True))
 
 
 class TimeReferencesItemUISchema(DictOnlySchema):
@@ -434,7 +424,7 @@ class TimeReferencesItemUISchema(DictOnlySchema):
 
     date = LocalizedEDTFTime()
 
-    date_information = ma_fields.String()
+    date_information = I18nStrUIField()
 
     date_type = ma_fields.Nested(lambda: CCMMVocabularyUISchema())
 
