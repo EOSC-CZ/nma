@@ -7,29 +7,25 @@
   <thead>
     <tr>
       <th>{{ _("Name") }}</th>
-      {# <th>{{ _("IRI") }}</th> #}
       <th>{{ _("Size") }}</th>
       <th>{{ _('Checksum') }}</th>
       <th>{{ _("Format") }}</th>
-      {# <th>{{ _("Media Type") }}</th> #}
-      <th class="single line">{{ _("Actions") }}</th>
+      <th class="single line"></th>
     </tr>
   </thead>
   <tbody>
     {% for file in files %}
     <tr>
       <td class="file-info">
-        <IValue value={file.title} placeholder={file.iri if file.iri else loop.index} />
+          {# TODO: we have access urls for now. #}
+          {% if file.access_urls %}
+            <a href="{{ file.access_urls[0] }}" target="_blank" title="{{ _('Access file') }}">
+              <IValue value={file.title} placeholder={file.iri if file.iri else loop.index} />
+            </a>
+          {% else %}
+            <IValue value={file.title} placeholder={file.iri if file.iri else loop.index} />
+          {% endif %}
       </td>
-      {# <td>
-        {% if file.iri %}
-        <IRI iri={file.iri} />
-        {% else %}
-        <span title="{{ _('IRI not available') }}">
-          {{ _('N/A') }}
-        </span>
-        {% endif %}
-      </td> #}
       <td>
         {% if file.byte_size %}
         {{ (file.byte_size|string or 0) | filesizeformat }}
@@ -40,8 +36,8 @@
         {% endif %}
       </td>
       <td>
-        {% if file.checksum %}
-        {{ file.checksum }}
+        {% if file.checksum and file.checksum.algorithm and file.checksum.value %}
+          {{ file.checksum.algorithm.id|string }}:{{ file.checksum.value|string }}
         {% else %}
         <span title="{{ _('Checksum not available') }}">
           {{ _('N/A') }}
@@ -57,19 +53,10 @@
         {% endif %}
         {% else %}
         <span title="{{ _('Format not available') }}">
-          {{ _('N/A') }}
+          &mdash;
         </span>
         {% endif %}
       </td>
-      {# <td>
-        {% if file.media_type %}
-        <IValue value={file.media_type.iri} />
-        {% else %}
-        <span title="{{ _('Media type not available') }}">
-          {{ _('N/A') }}
-        </span>
-        {% endif %}
-      </td> #}
       <td>
         {% if not file.download_urls and not file.access_urls %}
         <span title="{{ _('No download or access URLs available') }}">
@@ -86,7 +73,7 @@
         {% if file.access_urls %}
         {% for url in array(file.access_urls) %}
         <button class="ui button transparent" title="{{ _('Access file') }}">
-          <a href="{{ url|string }}"><i class="ui icon external"></i></a>
+          <a href="{{ url|string }}" target="_blank"><i class="ui icon external"></i></a>
         </button>
         {% endfor %}
         {% endif %}

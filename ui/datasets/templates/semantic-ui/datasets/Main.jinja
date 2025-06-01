@@ -12,7 +12,7 @@
 <div class="ui padded segment detail-main-record-segment">
   <div>
     {% for date in array(md.time_references) if not ns.issued_found %}
-      {% if date.date_type.id|string == "issued" %}
+      {% if date.date_type.id|string == "Issued" %}
         <span title="{{date.date_type._ui_label}}" aria-description="{{date.date_type._ui_hint}}">
           <IValue value={date.date} />
         </span>
@@ -70,7 +70,7 @@
             <FundingReference funding_references={md.funding_references} search_link={record.links.search_link} />
           </ITableField>
         
-          <TableTimeReferences time_references={md.time_references} excluded_date_types={["issued"]} search_link={record.links.search_link} />
+          <TableTimeReferences time_references={md.time_references} excluded_date_types={["Issued"]} search_link={record.links.search_link} />
         
           <ITableField d={md.locations}>
             <Locations locations={md.locations} search_link={record.links.search_link} />
@@ -83,10 +83,11 @@
       </dl>
     </AccordionField>
 
-    {% if md.distribution_downloadable_files %}
+    {% if md.distributions %}
     <AccordionField label={_('Files')} title_class="detail-record-description" active>
-      <FilesTable files={md.distribution_downloadable_files} search_link={record.links.search_link} />
+      <FilesTable files={md.distributions} search_link={record.links.search_link} />
     </AccordionField>
     {% endif %}
+
   </dl>
 </div>

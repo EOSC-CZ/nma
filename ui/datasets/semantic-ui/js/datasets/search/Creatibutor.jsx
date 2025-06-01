@@ -3,32 +3,34 @@ import PropTypes from "prop-types";
 import { IdentifierBadge } from "@js/oarepo_ui/components/IdentifierBadge";
 
 const formatName = (person) => {
-  const lastName = person.family_name || "";
+  const lastNames = person.family_names || [];
   const givenNames = person.given_names || [];
 
+  const formattedLastNames = lastNames.join(" ");
+
   if (givenNames.length === 0) {
-    return lastName;
+    return formattedLastNames;
   }
 
   const formattedGivenNames = givenNames.join(" ");
 
-  return `${lastName}, ${formattedGivenNames}`;
+  return `${formattedLastNames}, ${formattedGivenNames}`;
 };
 
 export const Creatibutor = ({ creatibutor }) => {
   const isPerson = !!creatibutor.person;
-  const role = creatibutor?.role?.labels?.[0]?.value;
+  const role = creatibutor?.role?.title;
   let identifiers = isPerson
-    ? creatibutor?.person.external_identifiers?.map((identifier) => ({
-        scheme: identifier.identifier_scheme,
-        identifier: identifier.value,
-        url: identifier.iri,
-      }))
-    : creatibutor?.organization.external_identifiers?.map((identifier) => ({
-        scheme: identifier.identifier_scheme,
-        identifier: identifier.value,
-        url: identifier.iri,
-      }));
+    ? creatibutor?.person.identifiers?.map((identifier) => ({
+      scheme: identifier.identifier_scheme?.id,
+      identifier: identifier.value,
+      url: identifier.iri,
+    }))
+    : creatibutor?.organization.identifiers?.map((identifier) => ({
+      scheme: identifier.identifier_scheme?.id,
+      identifier: identifier.value,
+      url: identifier.iri,
+    }));
 
   //TODO: Hacky way to handle the identifiers, but as the schemes are various,
   // it is difficult to reuse existing component. We can remove when https://linear.app/ducesnet/issue/FE-373/identifiers
@@ -56,18 +58,18 @@ export const Creatibutor = ({ creatibutor }) => {
   const selectedIdentifier =
     Array.isArray(identifiers) && identifiers.length > 0
       ? identifiers.find(
-          (identifier) =>
-            identifier?.scheme?.toLowerCase() === "orcid" ||
-            identifier?.scheme?.toLowerCase() === "ror"
-        ) || identifiers[0]
+        (identifier) =>
+          identifier?.scheme?.toLowerCase() === "orcid" ||
+          identifier?.scheme?.toLowerCase() === "ror"
+      ) || identifiers[0]
       : null;
 
   const name = isPerson
     ? formatName({
-        given_names: creatibutor.person.given_names,
-        family_name: creatibutor.person.family_name,
-      })
-    : creatibutor.organization?.name?.value;
+      given_names: creatibutor.person.given_names,
+      family_names: creatibutor.person.family_names,
+    })
+    : creatibutor.organization?.name;
 
   return (
     <span className="mb-5 mr-0 inline-block">
@@ -92,7 +94,7 @@ Creatibutor.propTypes = {
     person: PropTypes.shape({
       given_names: PropTypes.arrayOf(PropTypes.string),
       family_name: PropTypes.string,
-      external_identifiers: PropTypes.arrayOf(
+      identifiers: PropTypes.arrayOf(
         PropTypes.shape({
           scheme: PropTypes.string,
           value: PropTypes.string,
@@ -103,7 +105,7 @@ Creatibutor.propTypes = {
       name: PropTypes.shape({
         value: PropTypes.string,
       }),
-      external_identifiers: PropTypes.arrayOf(
+      identifiers: PropTypes.arrayOf(
         PropTypes.shape({
           scheme: PropTypes.string,
           value: PropTypes.string,

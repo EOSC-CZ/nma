@@ -6,97 +6,8 @@ import sanitizeHtml from "sanitize-html";
 import { i18next } from "@translations/i18next";
 import { getValueFromMultilingualArray } from "@js/oarepo_ui/util";
 import _truncate from "lodash/truncate";
-
-const formatName = (person) => {
-  const lastName = person.family_name || "";
-  const givenNames = person.given_names || [];
-
-  if (givenNames.length === 0) {
-    return lastName;
-  }
-
-  const formattedGivenNames = givenNames.join(" ");
-
-  return `${lastName}, ${formattedGivenNames}`;
-};
-
-const Creatibutor = ({ creatibutor }) => {
-  const isPerson = !!creatibutor.person;
-  const role = creatibutor?.role?.labels?.[0]?.value;
-  const identifiers = isPerson
-    ? creatibutor.person.external_identifiers
-    : creatibutor.organization.external_identifiers;
-  const selectedIdentifier =
-    Array.isArray(identifiers) && identifiers.length > 0
-      ? identifiers.find(
-        (identifier) =>
-          identifier?.scheme?.toLowerCase() === "orcid" ||
-          identifier?.scheme?.toLowerCase() === "ror"
-      ) || identifiers[0]
-      : null;
-  const name = isPerson
-    ? formatName({
-      given_names: creatibutor.person.given_names,
-      family_name: creatibutor.person.family_name,
-    })
-    : creatibutor.organization?.name?.value;
-
-  return (
-    <React.Fragment>
-      {`${name}`}
-      <IdentifierBadge identifier={selectedIdentifier} creatibutorName={name} />
-      {role && `( ${role} )`}
-    </React.Fragment>
-  );
-};
-
-Creatibutor.propTypes = {
-  creatibutor: PropTypes.shape({
-    person: PropTypes.shape({
-      given_names: PropTypes.arrayOf(PropTypes.string),
-      family_name: PropTypes.string,
-      external_identifiers: PropTypes.arrayOf(
-        PropTypes.shape({
-          scheme: PropTypes.string,
-          value: PropTypes.string,
-        })
-      ),
-    }),
-    organization: PropTypes.shape({
-      name: PropTypes.shape({
-        value: PropTypes.string,
-      }),
-      external_identifiers: PropTypes.arrayOf(
-        PropTypes.shape({
-          scheme: PropTypes.string,
-          value: PropTypes.string,
-        })
-      ),
-    }),
-    role: PropTypes.shape({
-      labels: PropTypes.arrayOf(
-        PropTypes.shape({
-          value: PropTypes.string,
-        })
-      ),
-    }),
-  }).isRequired,
-};
-
-const Creatibutors = ({ creatibutors }) => {
-  return (
-    <>
-      {creatibutors.map((creatibutor, index) => (
-        <React.Fragment key={index}>
-          <Creatibutor creatibutor={creatibutor} />
-          {index < creatibutors.length - 1 ? "; " : null}
-        </React.Fragment>
-      ))}
-    </>
-  );
-};
-
-Creatibutors.propTypes = { creatibutors: PropTypes.array.isRequired };
+import { Creatibutors } from "./Creatibutors";
+import { ResultsItemAccessStatus } from "./ResultsItemAccessStatus";
 
 const ResultsListItemComponent = ({ result }) => {
   const [showEntireAbstract, setShowEntireAbstract] = useState(false);
@@ -142,9 +53,7 @@ const ResultsListItemComponent = ({ result }) => {
     : "";
 
   // Find the first access_right in the terms_of_use array
-  const accessStatus = result?.metadata?.terms_of_use?.find(
-    (term) => term.access_rights
-  )?.access_rights?.[0];
+  const accessStatus = result?.metadata?.terms_of_use?.access_rights
 
   return (
     <Item className="results-list-item-main">
@@ -161,16 +70,15 @@ const ResultsListItemComponent = ({ result }) => {
               <Item.Meta className="rel-mt-1">
                 <Creatibutors creatibutors={creatibutors} />
                 <Label.Group className="rel-mt-1">
-                  {
-                    // TODO: subject is multilingual, need to change model to reflect this
-                    subjects.map((subject, index) => (
-                      <Label
-                        className="subjects"
-                        key={`${index}.${subject.title[0]?.value}`}
-                      >
-                        {subject.title[0]?.value}
-                      </Label>
-                    ))}
+                  {/* title is multilingual but not at ccmm 0.5.0 model - needs to be fixed there */}
+                  {subjects.map((subject, index) => (
+                    < Label
+                      className="subjects"
+                      key={`${index}.${subject.title?.[0]?.value}`}
+                    >
+                      {subject.title?.[0]?.value}
+                    </Label>
+                  ))}
                 </Label.Group>
               </Item.Meta>
               {abstract && (
@@ -234,7 +142,7 @@ const ResultsListItemComponent = ({ result }) => {
           </Grid.Row>
         </Grid>
       </Item.Content>
-    </Item>
+    </Item >
   );
 };
 

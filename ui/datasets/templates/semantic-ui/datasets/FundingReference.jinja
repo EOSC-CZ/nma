@@ -16,17 +16,11 @@
       <strong>{{ fr.funders._ui_label }}:</strong>
       <div role="list" class="list">
         {% for funder in array(fr.funders) %}
-        <ListItemField d={funder.funder_name}>
-          <SeparatedProperty d={funder.funder_name} />
+        <ListItemField d={funder.organization.name}>
+          <SeparatedProperty d={funder.organization.name} />
         </ListItemField>
-        <ListItemField d={funder.funder_identifier_value}>
-          <SeparatedProperty d={funder.funder_identifier_value} />
-        </ListItemField>
-        <ListItemField d={funder.funder_identifier_type}>
-          <SeparatedProperty d={funder.funder_identifier_type} />
-        </ListItemField>
-        <ListItemField d={funder.funder_identifier_scheme_uri}>
-          <SeparatedProperty d={funder.funder_identifier_scheme_uri} />
+        <ListItemField d={funder.person.name}>
+          <SeparatedProperty d={funder.person.name} />
         </ListItemField>
         {% endfor %}
       </div>
