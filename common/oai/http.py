@@ -7,7 +7,7 @@ requests_session = requests.Session()
 sleep_times: dict[str, float] = {}
 
 
-def url_get(url, **kwargs):
+def url_get(url, max_tries=10, **kwargs):
     """
     Get the content of a URL using requests.
 
@@ -26,7 +26,7 @@ def url_get(url, **kwargs):
     else:
         sleep_times.pop(host, None)  # Reset sleep time on success
 
-    for retry in range(10):
+    for retry in range(max_tries):
         params = dict(
             timeout=(10, 20),
             **kwargs,  # Connect timeout, read timeout
@@ -39,8 +39,10 @@ def url_get(url, **kwargs):
             response = requests_session.get(url, **params)
         except Exception as e:
             print(f"Error fetching {url}: {e}")
-            time.sleep(2**retry)  # Exponential backoff
-            sleep_times[host] = 2**retry
+            if retry < max_tries - 1:
+                print(f"Retrying in {2**retry:.2f} seconds...")
+                time.sleep(2**retry)
+                sleep_times[host] = 2**retry
             continue
         if response.status_code == 429:
             retry_after_header = response.headers.get("Retry-After", None)
