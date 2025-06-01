@@ -1,0 +1,77 @@
+{# def originalRecordUrl=None, objectIdentifiers=None, pids=None  #}
+{% if objectIdentifiers|length > 0 or originalRecordUrl or pids %}
+<section aria-label='{{ _("Identifiers and links") }}' class="ui segment basic identifiers-and-links detail-sidebar-section">
+  <AccordionField label={_("Identifiers and links")} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
+    <div class="ui link list">
+      {% if pids %}
+        {% for scheme, pidObject in pids.items()%}
+          {% if pidObject.url%}
+            {% set _data = {
+              "href":  pidObject.url | e,
+              "title": pidObject.identifier,
+              "label": pidObject.identifier
+            }%}
+            <div class="item content">
+              <div class="header list-item">
+                <i class="external alternate icon link-icon mb-5"></i>
+                <URL target="_blank" rel="noopener noreferrer" className="inline" data={_data}></URL>
+                <ClipboardCopyButton copyText={_data["href"]} />
+              </div>
+            </div>
+          {% else %}
+            <div title="{{pidObject.identifier}}" class="item content">
+              <div class="header list-item">
+                <i class="id card icon link-icon"></i>
+                <span>{{ pidObject.identifier }}</span>
+                <ClipboardCopyButton copyText={pidObject.identifier} />
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {%endif%}
+      {% if objectIdentifiers|length > 0 %}
+        {% for objectIdentifier in objectIdentifiers %}
+        {% if objectIdentifier.url%}
+          <div class="item content">
+            {% set _data = {
+                "href": objectIdentifier.url,
+                "title": objectIdentifier.identifier,
+                "label": objectIdentifier.identifier
+            }%}
+              <div title="{{objectIdentifier.scheme}}"  class="header list-item">
+                <i class="external alternate icon link-icon mb-5"></i>
+                <URL target="_blank" rel="noopener noreferrer" className="inline" data={_data}></URL>
+                <ClipboardCopyButton copyText={objectIdentifier.url} />
+              </div>
+             
+          </div>
+        {% else %}
+        <div title="{{objectIdentifier.scheme}}" class="item content">
+          <div class="header list-item">
+            <i class="id card icon link-icon"></i>
+            <span>{{ objectIdentifier.identifier }}</span>
+            <ClipboardCopyButton copyText={objectIdentifier.identifier} />
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      {% endif %}
+    
+      {% if originalRecordUrl %}
+      <div class="item content">
+        <div class="header list-item">
+        {% set _data = {
+            "href": originalRecordUrl,
+            "title": _('metadata/originalRecord.label'),
+            "label": _('metadata/originalRecord.label')
+        }%}
+          <i class="external alternate icon link-icon mb-5"></i>
+          <URL target="_blank" rel="noopener noreferrer" className="link" data={_data}></URL>
+        </div>
+      </div>
+      {% endif %}
+     </div>
+  </AccordionField>
+</section>
+{% endif %}
+

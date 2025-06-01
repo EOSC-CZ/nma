@@ -6,6 +6,52 @@
 // https://www.joshwcomeau.com/css/custom-css-reset/
 // https://github.com/inveniosoftware/invenio-app-rdm/blob/d21af4eac1f6aca4ddd524cccfb621ae259f8411/invenio_app_rdm/theme/assets/semantic-ui/less/invenio_app_rdm/theme/globals/site.overrides#L4
 
+@import "./site.variables";
+
+// Fonts
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: url("~@less/fonts/Roboto-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("~@less/fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  src: url("~@less/fonts/Roboto-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("~@less/fonts/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("~@less/fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  src: url("~@less/fonts/Roboto-Black.ttf") format("truetype");
+}
+
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -450,4 +496,189 @@ dl.details-list {
 
 .search-bar-tip {
   margin-top: 0.5rem;
+}
+
+
+/*
+ * Global-wide CSS
+ */
+
+.borderless {
+  border: none !important;
+}
+
+.shadowless,
+.ui.borderless.facet.card {
+  box-shadow: none !important;
+}
+
+.inline-id-icon {
+  height: 1rem;
+  min-height: 16px;
+  width: auto;
+  vertical-align: text-bottom;
+  display: inline-block;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid @focusedFormBorderColor !important;
+}
+
+
+//
+// Detail page
+//
+
+a {
+  color: @linkColor;
+
+  &:hover {
+    color: @linkHoverColor;
+    text-decoration: @linkHoverUnderline;
+  }
+}
+
+a.logo-link {
+  margin-left: 1rem;
+  display: block;
+
+  img {
+    max-height: 3.5rem;
+    height: 100%;
+  }
+}
+
+/* Main layout for detail page */
+.main-record-content {
+  margin-bottom: 2rem;
+}
+
+/* Detail page search menu */
+.detail-search-menu {
+  margin-bottom: 1.5rem;
+}
+
+.detail-record-description {
+  .text-medium();
+  color: @darkGrey;
+  border-bottom: 1px solid @grey;
+}
+
+.detail-sidebar-header {
+  font-size: 1.25rem;
+  // border-bottom: 1px solid @grey;
+}
+
+.detail-sidebar-title {
+  .text-medium();
+  line-height: 1.438rem;
+}
+
+dt.field-data {
+  color: @darkGrey;
+  .text-big();
+  margin-bottom: 0.2rem;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+// Custom classes
+
+#header-page-title {
+  .text-regular();
+  font-size: 2rem;
+  color: @darkGrey;
+  margin-left: 35px;
+}
+
+#recordExportDownload .ui.button {
+  background-color: @primaryColor;
+  color: @black;
+}
+
+/*
+ * Utility classes
+ */
+
+ .text-massive {
+  font-weight: 900;
+}
+
+.text-big {
+  font-weight: 700;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+.text-regular {
+  font-weight: 400;
+}
+
+.text-small {
+  font-weight: 300;
+}
+
+.top-tab {
+  margin-top: 0.5rem;
+}
+
+.bottom-tab {
+  margin-bottom: 0.5rem;
+}
+
+.left-tab {
+  margin-left: 1rem;
+}
+
+.right-tab {
+  margin-right: 1rem;
+}
+
+.right-floated {
+  float: right;
+}
+
+.left-floated {
+  float: left;
+}
+
+.left-aligned {
+  text-align: left;
+}
+
+.centered {
+  text-align: center;
+}
+
+.right-aligned {
+  text-align: right;
+}
+
+.white {
+  color: @white;
+}
+
+.grey {
+  color: @grey;
+}
+
+.dark-grey {
+  color: @darkGrey;
+}
+
+.light-grey {
+  color: @lightGrey;
+}
+
+.blue {
+  color: @blue;
+}
+
+.green {
+  color: @green;
 }

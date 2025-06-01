@@ -1,0 +1,27 @@
+{# def communities, imagePlaceholder='/static/images/square-placeholder.png', displayedCommunities=3 #}
+<section class="ui segment basic record-communities detail-sidebar-section" aria-label='{{ _("Communities") }}'>
+    <AccordionField label={_("Communities")} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
+        <div class="ui unstackable list">
+            {% for community in communities[0:displayedCommunities] %}
+                {% set isPrimary = loop.first and communities | length > 1 %}
+                <CommunityItem community={community} isPrimary={isPrimary} isLast={loop.last} />
+            {% endfor %}
+        </div>
+        
+        {% if communities|length > displayedCommunities %}
+        <div class="ui accordion">
+            <div class="title">
+                <i class="dropdown icon"></i>
+                {{ _("Show all communities") }}
+            </div>
+            <div class="content">
+                <div class="ui unstackable list">
+                    {% for community in communities[displayedCommunities:] %}
+                        <CommunityItem community={community} isLast={loop.last}/>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </AccordionField>
+</section>

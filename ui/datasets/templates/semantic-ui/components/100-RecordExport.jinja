@@ -1,0 +1,20 @@
+{#def record, extra_context, hasApiLinks=True #}
+
+{% set format_options = [] %}
+{% for key, value in extra_context["exporters"].items() %}
+{% set _ = format_options.append({"value": key, "key": key, "text": value.name}) %}
+{% endfor %}
+
+{% set data = {
+"formatOptions": format_options,
+"exportBaseUrl": record.links.export_path
+} %}
+
+<section id="export-record" aria-label="{{_('Export')}}" class="ui segment basic exports detail-sidebar-section">
+  <AccordionField label={_('Export')} title_class="detail-sidebar-header" label_class="detail-sidebar-title" active>
+    <div data-formats='{{ data | tojson }}' id="recordExportDownload"></div>
+    {% if hasApiLinks %}
+    <SidebarApiLinks links={record.links}></SidebarApiLinks>
+    {% endif %}
+  </AccordionField>
+</section>
