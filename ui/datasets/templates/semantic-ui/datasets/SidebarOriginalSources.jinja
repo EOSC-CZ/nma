@@ -1,0 +1,70 @@
+{#def record, md, communities, displayedCommunities=3, originalRecordUrl=None #}
+
+{% set ns = namespace(publishers = []) %}
+{% for qr in array(md.qualified_relations) %}
+{% if qr.role.id|string == 'publisher' %}
+{% set ns.publishers = ns.publishers + [qr] %}
+{% endif %}
+{% endfor %}
+{# Sort to show persons first if they exist #}
+{% set ns.publishers = array(ns.publishers)|sort(attribute='person') %}
+
+<section class="ui segment basic detail-sidebar-section" aria-label="{{_('Original sources')}}">
+  <AccordionField label={_('Original sources')} title_class="detail-sidebar-header" label_class="detail-sidebar-title"
+    active>
+    {% if ns.publishers|length > 0 %}
+    <div aria-label='{{ _("Publishers") }}'>
+      <SeparatedProperty d={ns.publishers.0} label={ns.publishers.0.role.title|string|capitalize}>
+        <div role="list" class="ui horizontal separated creatibutors list">
+          {% for publisher in ns.publishers %}
+          <Creatibutor creatibutor={publisher} search_link={record.links.search_link} />
+          {% endfor %}
+        </div>
+      </SeparatedProperty>
+    </div>
+    {% endif %}
+    
+    {% if originalRecordUrl %}
+    <div aria-label='{{ _("Identifiers and links") }}'>
+      {% set _data = {
+      "href": originalRecordUrl,
+      "title": _('metadata/originalRecord.label'),
+      "label": _('metadata/originalRecord.label')
+      }%}
+      <strong>{{ _("Identifiers and links") }}:</strong>
+      <div>
+        <i class="external alternate icon link-icon grey mb-5"></i>
+        <URL target="_blank" rel="noopener noreferrer" className="link" data={_data}></URL>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if communities|length > 0 %}
+    <div aria-label='{{ _("Communities") }}'>
+      <strong>{{ _("Communities") }}:</strong>
+      <div class="ui unstackable list">
+        {% for community in communities[0:displayedCommunities] %}
+        {% set isPrimary = loop.first and communities | length > 1 %}
+        <CommunityItem community={community} isPrimary={isPrimary} isLast={loop.last} />
+        {% endfor %}
+      </div>
+
+      {% if communities|length > displayedCommunities %}
+      <div class="accordion">
+        <div class="title">
+          <i class="dropdown icon"></i>
+          {{ _("Show all communities") }}
+        </div>
+        <div class="content">
+          <div class="ui unstackable list">
+            {% for community in communities[displayedCommunities:] %}
+            <CommunityItem community={community} isLast={loop.last} />
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </AccordionField>
+</section>

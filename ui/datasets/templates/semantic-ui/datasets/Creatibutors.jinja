@@ -1,0 +1,43 @@
+{#def qualified_relations, search_link #}
+{% set ns = namespace(person_creators = [], org_creators = [], person_contributors = [], org_contributors = []) %}
+{% for qr in array(qualified_relations) %}
+    {% if qr.role.id|string == 'creator' %}
+        {% if qr.person._has_value %}
+            {% set ns.person_creators = ns.person_creators + [qr] %}
+        {% elif qr.organization._has_value %}
+            {% set ns.org_creators = ns.org_creators + [qr] %}
+        {% endif %}
+    {% elif qr.role.id|string != 'publisher' %}
+        {% if qr.person._has_value %}
+            {% set ns.person_contributors = ns.person_contributors + [qr] %}
+        {% elif qr.organization._has_value %}
+            {% set ns.org_contributors = ns.org_contributors + [qr] %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% if ns.person_creators or ns.org_creators or ns.person_contributors or ns.org_contributors %}
+    <div class="ui double separated bottom-tab">
+        <div role="list" class="ui horizontal separated creatibutors list">
+            {% for creatibutor in array(ns.person_creators) %}
+                <Creatibutor creatibutor={creatibutor} search_link={search_link} />
+            {% endfor %}
+            {% for creatibutor in array(ns.org_creators) %}
+                <Creatibutor creatibutor={creatibutor} search_link={search_link} />
+            {% endfor %}
+        </div>
+        {% if ns.person_contributors or ns.org_contributors %}
+            {% if ns.person_creators or ns.org_creators %}
+                <div class="double separator"></div>
+            {% endif %}
+            <div role="list" class="ui horizontal separated creatibutors list">
+                {% for contributor in array(ns.person_contributors) %}
+                    <Creatibutor creatibutor={contributor} search_link={search_link} role={contributor.role} />
+                {% endfor %}
+                {% for contributor in array(ns.org_contributors) %}
+                    <Creatibutor creatibutor={contributor} search_link={search_link} role={contributor.role} />
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}

@@ -1,12 +1,36 @@
-{# def d, level #}
-<ITable>
-  <ITableField d={d.award_title} level={level}/>
-  <ITableField d={d.funding_program} level={level}/>
-  <ITableField d={d.iri} level={level}/>
-  <ITableField d={d.local_identifier} level={level}/>
-</ITable>
-{% for item in array(d.funders) %}
-  <ITableSection d={item} level={level} >
-    <Funder d={item}  level={level}/>
-  </ITableSection>
-{% endfor %}
+{#def funding_references, search_link #}
+
+<div role="list" class='ui divided list'>
+  {% for fr in array(funding_references) %}
+  <div class="item">
+    <ListItemField d={fr.award_title}>
+      <SeparatedProperty d={fr.award_title} />
+    </ListItemField>
+    <ListItemField d={fr.local_identifier}>
+      <SeparatedProperty d={fr.local_identifier} />
+    </ListItemField>
+    <ListItemField d={fr.funding_program}>
+      <SeparatedProperty d={fr.funding_program} />
+    </ListItemField>
+    <ListItemField d={fr.funders}>
+      <strong>{{ fr.funders._ui_label }}:</strong>
+      <div role="list" class="list">
+        {% for funder in array(fr.funders) %}
+        <ListItemField d={funder.funder_name}>
+          <SeparatedProperty d={funder.funder_name} />
+        </ListItemField>
+        <ListItemField d={funder.funder_identifier_value}>
+          <SeparatedProperty d={funder.funder_identifier_value} />
+        </ListItemField>
+        <ListItemField d={funder.funder_identifier_type}>
+          <SeparatedProperty d={funder.funder_identifier_type} />
+        </ListItemField>
+        <ListItemField d={funder.funder_identifier_scheme_uri}>
+          <SeparatedProperty d={funder.funder_identifier_scheme_uri} />
+        </ListItemField>
+        {% endfor %}
+      </div>
+    </ListItemField>
+  </div>
+  {% endfor %}
+</div>

@@ -28,28 +28,28 @@ msgstr ""
 #: /home/dusanst/Projects/nma/ui/titlepage/templates/TitlePage.jinja:33
 #: /home/dusanst/Projects/nma/ui/titlepage/templates/TitlePage.jinja:34
 msgid "Search"
-msgstr ""
+msgstr "Hledat"
 
 #: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "Search results"
-msgstr ""
+msgstr "Výsledky vyhledávání"
 
 #: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "datasets"
-msgstr ""
+msgstr "datové sady"
 
 #: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
 #: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
 msgid "Actions"
-msgstr ""
+msgstr "Akce"
 
 #: /home/dusanst/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 #: /home/dusanst/Projects/nma/ui/titlepage/templates/TitlePage.jinja:41
 msgid "Show all records"
-msgstr ""
+msgstr "Zobrazit všechny záznamy"
 
 msgid "Clear all"
 msgstr "Vymazat vše"
@@ -107,3 +107,206 @@ msgstr "(zobrazit méně)"
 
 msgid "(show more)"
 msgstr "(zobrazit více)"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/services/schema.py:60
+msgid "Invalid data format for dictionary. Expected an object."
+msgstr "Nesprávný formát dat pro slovník. Očekával se objekt."
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/services/schema.py:77
+#, python-brace-format
+msgid "Vocabulary with IRI '{iri}' not found in vocabulary {vocab}."
+msgstr "Slovník s IRI ‚{iri}‘ nebyl nalezen ve slovníku {vocab}."
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:3
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:4
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:27
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:33
+#: i18n/translations/jinjax_messages.jinja:7
+msgid "Identifiers and links"
+msgstr "Identifikátory a odkazy"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:65
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:66
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:30
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:31
+msgid "metadata/originalRecord.label"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:2
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:3
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:42
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:43
+#: i18n/translations/jinjax_messages.jinja:4
+msgid "Communities"
+msgstr "Komunity"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:15
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:55
+msgid "Show all communities"
+msgstr "Zobrazit všechny komunity"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordExport.jinja:13
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordExport.jinja:14
+#: i18n/translations/jinjax_messages.jinja:6
+msgid "Export"
+msgstr "Export"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordVersions.jinja:3
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordVersions.jinja:4
+#: i18n/translations/jinjax_messages.jinja:5
+msgid "Versions"
+msgstr "Verze"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-SidebarApiLinks.jinja:5
+msgid "API"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-SidebarApiLinks.jinja:5
+msgid "Links"
+msgstr "Odkazy"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Creatibutor.jinja:4
+msgid "Find more records by this person"
+msgstr "Najít další záznamy této osoby"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Creatibutor.jinja:11
+msgid "Find more records by this organization"
+msgstr "Najít další záznamy této organizace"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:9
+msgid "File"
+msgstr "Soubor"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:11
+msgid "Size"
+msgstr "Velikost"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:12
+msgid "Checksum"
+msgstr "Kontrolní součet"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:13
+msgid "Format"
+msgstr "Formát"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:37
+msgid "File size not available"
+msgstr "Velikost souboru není k dispozici"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:38
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:47
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:59
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:75
+msgid "N/A"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:46
+msgid "Checksum not available"
+msgstr "Kontrolní součet není k dispozici"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:58
+msgid "Format not available"
+msgstr "Formát není k dispozici"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:74
+msgid "No download or access URLs available"
+msgstr "Nejsou k dispozici žádné adresy URL ke stažení nebo přístupu"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:80
+msgid "Download file"
+msgstr "Stáhnout soubor"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:87
+msgid "Access file"
+msgstr "Přístup k souboru"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Identifiers.jinja:27
+msgid "Lookup identifier"
+msgstr "Hledat identifikátor"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Identifiers.jinja:34
+msgid "Click to copy"
+msgstr "Klikněte pro kopírování"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:13
+msgid "National Metadata Directory"
+msgstr "Národní Metadatový Adresář"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:24
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:26
+msgid "Back to search results"
+msgstr "Zpět na výsledky vyhledávání"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:50
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarDetails.jinja:10
+msgid "Record details"
+msgstr "Podrobnosti o záznamu"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:16
+msgid "metadata/time_references/date_type.label"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:16
+msgid "metadata/time_references/date_type.help"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:23
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:24
+msgid "metadata/version.label"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:23
+msgid "metadata/version.help"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:33
+msgid "Title not provided"
+msgstr "Název neuveden"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:64
+#: i18n/translations/jinjax_messages.jinja:2
+msgid "Additional details"
+msgstr "Další podrobnosti"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:88
+#: i18n/translations/jinjax_messages.jinja:3
+msgid "Files"
+msgstr "Soubory"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:12
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:13
+#: i18n/translations/jinjax_messages.jinja:1
+msgid "Original sources"
+msgstr "Originální zdroje"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:15
+msgid "Publishers"
+msgstr "Vydavatelé"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Subjects.jinja:12
+msgid "Find more records with this subject"
+msgstr "Najít další záznamy s tímto předmětem"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:9
+msgid "Name"
+msgstr "Název"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Descriptions.jinja:19
+msgid "show more"
+msgstr "zobrazit více"
+
+#: i18n/translations/jinjax_messages.jinja:2
+msgid "Main details"
+msgstr "Podrobnosti o záznamu"
+
+msgid "Results: "
+msgstr "Výsledky: "
+
+msgid "Published"
+msgstr "Zveřejněné"
+
+msgid "Published in"
+msgstr "Zveřejněno v"
+
+msgid "Language"
+msgstr "Jazyk"

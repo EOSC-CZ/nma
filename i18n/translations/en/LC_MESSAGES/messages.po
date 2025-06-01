@@ -105,3 +105,206 @@ msgstr ""
 
 msgid "(show more)"
 msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/services/schema.py:60
+msgid "Invalid data format for dictionary. Expected an object."
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/services/schema.py:77
+#, python-brace-format
+msgid "Vocabulary with IRI '{iri}' not found in vocabulary {vocab}."
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:3
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:4
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:27
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:33
+#: i18n/translations/jinjax_messages.jinja:7
+msgid "Identifiers and links"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:65
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:66
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:30
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:31
+msgid "metadata/originalRecord.label"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:2
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:3
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:42
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:43
+#: i18n/translations/jinjax_messages.jinja:4
+msgid "Communities"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:15
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:55
+msgid "Show all communities"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordExport.jinja:13
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordExport.jinja:14
+#: i18n/translations/jinjax_messages.jinja:6
+msgid "Export"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordVersions.jinja:3
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordVersions.jinja:4
+#: i18n/translations/jinjax_messages.jinja:5
+msgid "Versions"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-SidebarApiLinks.jinja:5
+msgid "API"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-SidebarApiLinks.jinja:5
+msgid "Links"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Creatibutor.jinja:4
+msgid "Find more records by this person"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Creatibutor.jinja:11
+msgid "Find more records by this organization"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:9
+msgid "File"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:11
+msgid "Size"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:12
+msgid "Checksum"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:13
+msgid "Format"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:37
+msgid "File size not available"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:38
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:47
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:59
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:75
+msgid "N/A"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:46
+msgid "Checksum not available"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:58
+msgid "Format not available"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:74
+msgid "No download or access URLs available"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:80
+msgid "Download file"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:87
+msgid "Access file"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Identifiers.jinja:27
+msgid "Lookup identifier"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Identifiers.jinja:34
+msgid "Click to copy"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:13
+msgid "National Metadata Directory"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:24
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:26
+msgid "Back to search results"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:50
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarDetails.jinja:10
+msgid "Record details"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:16
+msgid "metadata/time_references/date_type.label"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:16
+msgid "metadata/time_references/date_type.help"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:23
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:24
+msgid "metadata/version.label"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:23
+msgid "metadata/version.help"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:33
+msgid "Title not provided"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:64
+#: i18n/translations/jinjax_messages.jinja:2
+msgid "Additional details"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Main.jinja:88
+#: i18n/translations/jinjax_messages.jinja:3
+msgid "Files"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:12
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:13
+#: i18n/translations/jinjax_messages.jinja:1
+msgid "Original sources"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:15
+msgid "Publishers"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Subjects.jinja:12
+msgid "Find more records with this subject"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:9
+msgid "Name"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Descriptions.jinja:19
+msgid "show more"
+msgstr ""
+
+#: i18n/translations/jinjax_messages.jinja:2
+msgid "Main details"
+msgstr ""
+
+msgid "Results: "
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Published in"
+msgstr ""
+
+msgid "Language"
+msgstr ""

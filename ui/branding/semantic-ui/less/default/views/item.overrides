@@ -1,5 +1,19 @@
 .ui.relaxed.divided.items > .item.results-list-item-main {
+  position: relative;
+  .access-rights-link {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: -0.5rem;
+  }
+  .results-list-item.creatibutors {
+    max-width: 80%;
+    .inline-id-icon {
+      margin-bottom: 3px;
+    }
+  }
   .header {
+    max-width: 90%;
     a {
       color: @black;
       font-weight: 400;

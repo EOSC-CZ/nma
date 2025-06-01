@@ -1,0 +1,92 @@
+{#def record, extra_context, md #}
+
+{% set ns = namespace(localized_title=None, issued_found=False)%}
+{% if md.alternate_titles %}
+    {% for additionalTitle in array(md.alternate_titles) %}
+        {% if additionalTitle.type == "TranslatedTitle" and additionalTitle.title.lang|string == current_i18n.language %}
+            {% set ns.localized_title = additionalTitle.title.value|string %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<div class="ui padded segment detail-main-record-segment">
+  <div>
+    {% for date in array(md.time_references) if not ns.issued_found %}
+      {% if date.date_type.id|string == "issued" %}
+        <span title="{{date.date_type._ui_label}}" aria-description="{{date.date_type._ui_hint}}">
+          <IValue value={date.date} />
+        </span>
+        {% set ns.issued_found = True %}
+      {% endif %}
+    {% endfor %}
+    {% if md.version._has_value %}{% if ns.issued_found %}|{% endif %}
+    <span title="{{md.version._ui_label}}" aria-description="{{md.version._ui_hint}}">
+      {{md.version._ui_label}}: <IValue value={md.version} />
+    </span>
+    {% endif %}
+  </div>
+  
+  <h1 class="ui header">
+    {% if ns.localized_title %}
+      {{ ns.localized_title }}
+    {% else %}
+      <IValue value={md.title} placeholder={md.alternateTitles.0.value if md.alternateTitles._has_value else _("Title not provided")} />
+    {% endif %}
+  </h1>
+
+  <hr class="ui divider" />
+
+  <dl aria-label="{{_('Main details')}}">
+    <IField d={md.alternate_titles} data_class="ui field-data bottom-tab">
+      <Multilingual data={md.alternate_titles|map(attribute='title')} />
+    </IField>
+
+    <IField d={md.qualified_relations} label_class="ui field-data hidden" data_class="ui field-data bottom-tab">
+      <Creatibutors qualified_relations={md.qualified_relations} search_link={record.links.search_link} />
+    </IField>
+
+    <IField d={md.resource_type} label_class="ui field-data hidden" data_class="ui field-data bottom-tab">
+      <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource-types" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
+    </IField>
+
+    <IField d={md.subjects} label_class="ui field-data hidden" data_class="ui field-data bottom-tab">
+      <Subjects subjects={md.subjects} search_link={record.links.search_link} />
+    </IField>
+
+    <IField d={md.descriptions} data_class="ui field-data bottom-tab">
+      <Descriptions descriptions={md.descriptions} />
+    </IField>
+
+    <hr class="ui divider hidden" />
+
+    <AccordionField label={_('Additional details')} title_class="detail-record-description" accordion_class="bottom-tab" active>
+      <dl aria-label="{{_('Additional details')}}">
+        <table class='ui table very basic detail-definition-table'>
+          <ITableField d={md.primary_language}>
+            <VocabularyItem vocabulary={md.primary_language} vocabulary_type="languages" search_link={record.links.search_link} searchFacet="metadata_primary_language" />
+          </ITableField>
+        
+          <ITableField d={md.funding_references}>
+            <FundingReference funding_references={md.funding_references} search_link={record.links.search_link} />
+          </ITableField>
+        
+          <TableTimeReferences time_references={md.time_references} excluded_date_types={["issued"]} search_link={record.links.search_link} />
+        
+          <ITableField d={md.locations}>
+            <Locations locations={md.locations} search_link={record.links.search_link} />
+          </ITableField>
+        
+          <ITableField d={md.related_resources}>
+            <RelatedResources related_resources={md.related_resources} record={record} search_link={record.links.search_link} />
+          </ITableField>
+        </table>
+      </dl>
+    </AccordionField>
+
+    {% if md.distribution_downloadable_files %}
+    <AccordionField label={_('Files')} title_class="detail-record-description" active>
+      <FilesTable files={md.distribution_downloadable_files} search_link={record.links.search_link} />
+    </AccordionField>
+    {% endif %}
+  </dl>
+</div>
