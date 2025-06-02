@@ -26,7 +26,7 @@ done
 source .venv/bin/activate
 
 if [ $CREATE == "true" ] ; then
-    invenio oarepo communities create lindat "LINDAT CLARIAH CZ"
+    invenio oarepo communities create lindat "LINDAT CLARIAH CZ" || true
 
     invenio oarepo oai harvester add lindat \
             --name "LINDAT oai_dc harvester" \

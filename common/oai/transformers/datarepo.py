@@ -18,6 +18,7 @@ from common.oai.ccmm_tools import (
     full_name_to_person,
     get_ccmm_lang_iri,
     get_ccmm_role,
+    relation_types_cache,
     set_publication_year,
 )
 
@@ -90,9 +91,21 @@ class DataRepoTransformer(BaseTransformer):
         }
 
         persistent_identifiers = orig_md.pop("persistentIdentifiers", [])
+        md.setdefault("identifiers", [])
         if persistent_identifiers:
-            print("Persistent identifiers found", persistent_identifiers)
-            sys.exit(1)
+            for identifier in persistent_identifiers:
+                if identifier["scheme"] == "doi":
+                    md["identifiers"] += [
+                        {
+                            "identifier_scheme": {"iri": "https://doi.org/"},
+                            "value": identifier["identifier"],
+                            "iri": "https://doi.org/" + identifier["identifier"],
+                        }
+                    ]
+                else:
+                    raise Exception(
+                        f"Unknown persistent identifier scheme: {identifier['scheme']}"
+                    )
 
         for orig_creator in orig_md.pop("creators", []):
             self.convert_creator(md, orig_creator)
@@ -100,6 +113,16 @@ class DataRepoTransformer(BaseTransformer):
         for orig_contributor in orig_md.pop("contributors", []):
             self.convert_contributor(md, orig_contributor)
         md["descriptions"] = self.convert_abstract(orig_md.pop("abstract", {}))
+        md["descriptions"] += self.convert_abstract(orig_md.pop("methods", {}))
+        md["descriptions"] += self.convert_abstract(orig_md.pop("technicalInfo", {}))
+        for note in orig_md.pop("notes", []):
+            if note and note.strip():
+                md["descriptions"].append(
+                    {
+                        "lang": "unk",
+                        "value": bleach.clean(note, tags=allowed_tags),
+                    }
+                )
 
         md["time_references"] = self.convert_dates(orig_md)
         md["resource_type"] = self.convert_resource_type(
@@ -118,6 +141,14 @@ class DataRepoTransformer(BaseTransformer):
             orig_md.pop("relatedItems", [])
         )
 
+        publishers = [
+            self.convert_publisher(p)
+            for p in orig_md.pop("publisher", [])
+            if not p["is_ancestor"]
+        ]
+        publishers = [p for p in publishers if p]
+        md["qualified_relations"].extend(publishers)
+
         md["distributions"] = [self.convert_file(f, link) for f in files]
 
         for k in list(md.keys()):
@@ -125,6 +156,22 @@ class DataRepoTransformer(BaseTransformer):
                 del md[k]
 
         set_publication_year(md)
+
+        date_collected = orig_md.pop("dateCollected", None)
+        if date_collected:
+            md.setdefault("time_references", []).append(
+                {
+                    # can not handle edtf intervals yet, so we just take the collection end
+                    "date": date_collected.split("/")[-1],
+                    "date_type": {
+                        "iri": "https://vocabs.ccmm.cz/registry/codelist/TimeReference/Collected"
+                    },
+                }
+            )
+
+        md["funding_references"] = [
+            self.convert_funding(f) for f in orig_md.pop("fundingReferences", [])
+        ]
 
         self.ensureEmpty(
             orig_md,
@@ -134,6 +181,9 @@ class DataRepoTransformer(BaseTransformer):
             "accessRights",
             "oarepo:primaryCommunity",
             "oarepo:recordStatus",
+            "oarepo:ownedBy",
+            "oarepo:doirequest",
+            "_bucket",
         )
         return transformed
 
@@ -162,7 +212,7 @@ class DataRepoTransformer(BaseTransformer):
         self.convert_creator_contributor(
             md,
             orig_creator,
-            "https://datacite-metadata-schema.readthedocs.io/en/4.6/properties/creator/",
+            "https://vocabs.ccmm.cz/registry/codelist/AgentRole/Creator",
         )
 
     def convert_contributor(self, md, orig_contributor):
@@ -233,6 +283,28 @@ class DataRepoTransformer(BaseTransformer):
                 }
             )
         return converted_organization
+
+    def convert_publisher(self, orig_publisher):
+        if not orig_publisher:
+            return None
+
+        publisher = {
+            "name": orig_publisher["fullName"],
+        }
+        related_uris = orig_publisher.pop("relatedURI", {})
+        if "ROR" in related_uris:
+            publisher["identifiers"] = [
+                {
+                    "value": related_uris["ROR"],
+                    "identifier_scheme": {"iri": "https://ror.org/"},
+                }
+            ]
+        return {
+            "role": {
+                "iri": "https://vocabs.ccmm.cz/registry/codelist/AgentRole/Publisher",
+            },
+            "organization": publisher,
+        }
 
     vocabulary_system_fields = [
         "busy_count",
@@ -317,7 +389,7 @@ class DataRepoTransformer(BaseTransformer):
                 {
                     "date": dateAvailable,
                     "date_type": {
-                        "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/dateType/#issued"
+                        "iri": "https://vocabs.ccmm.cz/registry/codelist/TimeReference/Issued"
                     },
                 }
             )
@@ -327,7 +399,7 @@ class DataRepoTransformer(BaseTransformer):
                 {
                     "date": dateCreated,
                     "date_type": {
-                        "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/dateType/#created"
+                        "iri": "https://vocabs.ccmm.cz/registry/codelist/TimeReference/Created"
                     },
                 }
             )
@@ -374,13 +446,13 @@ class DataRepoTransformer(BaseTransformer):
                 continue
             iri = subject["links"]["self"].replace(
                 "https://data.narodni-repozitar.cz/2.0/taxonomies/subjectCategories/",
-                "https://vocabs.ccmm.cz/registry/SubjectCategories/",
+                "https://vocabs.ccmm.cz/registry/codelist/SubjectCategory/",
             )
             classification_code = subject["links"]["self"].replace(
                 "https://data.narodni-repozitar.cz/2.0/taxonomies/subjectCategories/",
                 "",
             )
-            in_scheme = "https://vocabs.ccmm.cz/registry/SubjectCategories/"
+            in_scheme = "https://vocabs.ccmm.cz/registry/codelist/SubjectCategory/"
             for lang, title in subject["title"].items():
                 converted_subjects.append(
                     {
@@ -461,7 +533,7 @@ class DataRepoTransformer(BaseTransformer):
                     {
                         "date": orig_related_item.pop("itemYear"),
                         "date_type": {
-                            "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/dateType/#issued"
+                            "iri": "https://vocabs.ccmm.cz/registry/codelist/TimeReference/Issued"
                         },
                     }
                 ]
@@ -477,12 +549,10 @@ class DataRepoTransformer(BaseTransformer):
         if not rt:
             return None
         link = rt["links"]["self"]
-        return {
-            "iri": link.replace(
-                "https://data.narodni-repozitar.cz/2.0/taxonomies/itemRelationType/",
-                "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#",
-            )
-        }
+        zenodo_id = link.replace(
+            "https://data.narodni-repozitar.cz/2.0/taxonomies/itemRelationType/", ""
+        )
+        return {"id": relation_types_cache.by_prop("zenodo")[zenodo_id]["id"]}
 
     def convert_related_item_identifiers(self, orig_identifiers):
         converted = []
@@ -504,6 +574,44 @@ class DataRepoTransformer(BaseTransformer):
         if len(converted) == 0:
             return None
         return converted
+
+    def convert_funding(self, orig_funding):
+        ret = {}
+
+        funding_program = orig_funding.pop("fundingProgram", None)
+        project_id = orig_funding.pop("projectID", None)
+        project_name = orig_funding.pop("projectName", None)
+
+        funders = [
+            x for x in orig_funding.pop("funder", []) if not x.get("is_ancestor")
+        ]
+        self.ensureEmpty(orig_funding)
+
+        if project_id:
+            ret = {
+                "funding_program": funding_program,
+                "award_title": project_name,
+                "local_identifier": project_id,
+            }
+
+        if funders:
+            ret["funders"] = [
+                {
+                    "organization": {
+                        "name": f["title"].get("cs") or f["title"].get("en"),
+                        "alternate_names": [
+                            {
+                                "lang": lang,
+                                "value": name,
+                            }
+                            for lang, name in f["title"].items()
+                        ],
+                    }
+                }
+                for f in funders
+            ]
+
+        return ret
 
     @cached_property
     def file_formats_by_extension(self):

@@ -1491,7 +1491,7 @@ metadata_is_described_by_qualified_relations_person_name = TermsFacet(
 metadata_is_described_by_qualified_relations_role = VocabularyFacet(
     field="metadata.is_described_by.qualified_relations.role",
     label=_("metadata/is_described_by/qualified_relations/role.label"),
-    vocabulary="contributor-types",
+    vocabulary="agent-roles",
 )
 
 metadata_locations_bbox_LowerCorners = TermsFacet(
@@ -2204,7 +2204,7 @@ metadata_locations_related_objects_qualified_relations_person_name = TermsFacet(
 metadata_locations_related_objects_qualified_relations_role = VocabularyFacet(
     field="metadata.locations.related_objects.qualified_relations.role",
     label=_("metadata/locations/related_objects/qualified_relations/role.label"),
-    vocabulary="contributor-types",
+    vocabulary="agent-roles",
 )
 
 metadata_locations_related_objects_relation_type = VocabularyFacet(
@@ -2892,7 +2892,7 @@ metadata_qualified_relations_person_name = TermsFacet(
 metadata_qualified_relations_role = VocabularyFacet(
     field="metadata.qualified_relations.role",
     label=_("metadata/qualified_relations/role.label"),
-    vocabulary="contributor-types",
+    vocabulary="agent-roles",
 )
 
 metadata_related_resources_identifiers_identifier_scheme = VocabularyFacet(
@@ -3539,7 +3539,7 @@ metadata_related_resources_qualified_relations_person_name = TermsFacet(
 metadata_related_resources_qualified_relations_role = VocabularyFacet(
     field="metadata.related_resources.qualified_relations.role",
     label=_("metadata/related_resources/qualified_relations/role.label"),
-    vocabulary="contributor-types",
+    vocabulary="agent-roles",
 )
 
 metadata_related_resources_relation_type = VocabularyFacet(

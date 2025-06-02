@@ -29,6 +29,7 @@ record:
     - invenio
     - rdm
     - ./datasets-harvest.yaml
+    - ./datasets-facets.yaml
   properties:
     metadata:
       use:

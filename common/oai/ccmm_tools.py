@@ -38,14 +38,22 @@ class VocabularyCache:
     def clear(self):
         self.caches = {}
 
-    def by_prop(self, prop: str):
+    def by_prop(self, prop: str, multiple=False):
         if prop in self.caches:
             return self.caches[prop]
 
         by_prop = {}
         for val in self.values:
             if prop in val["props"]:
-                by_prop[val["props"][prop]] = val
+                if multiple:
+                    prop_list = [
+                        x.strip() for x in val["props"][prop].split(",") if x.strip()
+                    ]
+                else:
+                    prop_list = [val["props"][prop]]
+                for p in prop_list:
+                    by_prop[p] = val
+
         self.caches[prop] = by_prop
         return by_prop
 
@@ -64,6 +72,7 @@ class VocabularyCache:
 language_cache = VocabularyCache("languages")
 agent_roles = VocabularyCache("agent-roles")
 relation_types_cache = VocabularyCache("relation-types")
+resource_types_cache = VocabularyCache("resource-types")
 
 
 def get_ccmm_lang_iri(lang: str, refetch_ok=True) -> str:

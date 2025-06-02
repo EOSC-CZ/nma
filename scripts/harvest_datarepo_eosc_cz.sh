@@ -26,7 +26,7 @@ done
 source .venv/bin/activate
 
 if [ $CREATE == "true" ] ; then
-    invenio oarepo communities create datarepo "EOSC CZ Data Repo"
+    invenio oarepo communities create datarepo "EOSC CZ Data Repo" || true
 
     invenio oarepo oai harvester add datarepo.eosc.cz \
             --name "EOSC CZ Data Repo harvester" \

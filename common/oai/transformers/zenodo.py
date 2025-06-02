@@ -19,6 +19,7 @@ from common.oai.ccmm_tools import (
     get_ccmm_role,
     lang_dict_to_2,
     relation_types_cache,
+    resource_types_cache,
     set_publication_year,
 )
 
@@ -331,7 +332,7 @@ class ZenodoTransformer(BaseTransformer):
         rec = copy.deepcopy(rec)
 
         links = rec.pop("links")
-        link = links["self"]
+        link = links["self_html"]
         files = rec.pop("files", {})
 
         id = rec.pop("id")
@@ -764,8 +765,21 @@ class ZenodoTransformer(BaseTransformer):
                 "iri": "http://purl.org/coar/resource_type/c_ddb1"
             }
         # return just id that should match, not an iri
+
+        local_rules = {
+            "image-other": "http://purl.org/coar/resource_type/c_c513",
+            "software": "http://purl.org/coar/resource_type/c_c950",
+        }
+
+        rt_id = rt["id"]
+        if rt_id in local_rules:
+            log.warning(
+                f"Resource type {rt_id} is not supported, using {local_rules[rt_id]} instead."
+            )
+            return {"iri": local_rules[rt_id]}
+
         return {
-            "iri": "http://purl.org/coar/resource_type/" + rdm_to_coar_mapping[rt["id"]]
+            "id": resource_types_cache.by_prop("zenodo", multiple=True)[rt_id]["id"]
         }
 
     def convert_rights(self, orig_rights):
@@ -1003,72 +1017,6 @@ class ZenodoTransformer(BaseTransformer):
             }
         return {k: v for k, v in ret.items() if v}
 
-
-rdm_to_coar_mapping = {
-    # Publication types
-    "publication-article": "http://purl.org/coar/resource_type/c_6501",  # journal article
-    "publication-book": "http://purl.org/coar/resource_type/c_2f33",  # book
-    "publication-section": "http://purl.org/coar/resource_type/c_3248",  # book part
-    "publication-conferencepaper": "http://purl.org/coar/resource_type/c_5794",  # conference paper
-    "publication-datamanagementplan": "http://purl.org/coar/resource_type/c_ab79",  # data management plan
-    "publication-deliverable": "http://purl.org/coar/resource_type/c_18op",  # project deliverable
-    "publication-annotation": "http://purl.org/coar/resource_type/c_1162",  # annotation
-    "publication-abstract": "http://purl.org/coar/resource_type/c_8544",  # abstract
-    "publication-bachelorthesis": "http://purl.org/coar/resource_type/c_7a1f",  # bachelor thesis
-    "publication-mastersthesis": "http://purl.org/coar/resource_type/c_bdcc",  # master thesis
-    "publication-doctorthesis": "http://purl.org/coar/resource_type/c_46ec",  # doctoral thesis
-    "publication-lecture": "http://purl.org/coar/resource_type/c_8544",  # lecture
-    "publication-preprint": "http://purl.org/coar/resource_type/c_816b",  # preprint
-    "publication-report": "http://purl.org/coar/resource_type/c_93fc",  # report
-    "publication-softwaredocumentation": "http://purl.org/coar/resource_type/c_71bd",  # software documentation
-    "publication-technicalnote": "http://purl.org/coar/resource_type/c_18gh",  # technical documentation
-    "publication-workingpaper": "http://purl.org/coar/resource_type/c_8042",  # working paper
-    "publication-other": "http://purl.org/coar/resource_type/c_1843",  # other
-    # Poster types
-    "poster": "http://purl.org/coar/resource_type/c_6670",  # poster
-    # Presentation types
-    "presentation": "http://purl.org/coar/resource_type/c_c94f",  # presentation
-    # Dataset types
-    "dataset": "http://purl.org/coar/resource_type/c_ddb1",  # dataset
-    # Image types
-    "image-figure": "http://purl.org/coar/resource_type/c_ecc8",  # figure
-    "image-plot": "http://purl.org/coar/resource_type/c_ecc8",  # figure (using same as figure)
-    "image-drawing": "http://purl.org/coar/resource_type/c_2cd9",  # drawing
-    "image-diagram": "http://purl.org/coar/resource_type/c_5ce6",  # diagram
-    "image-photo": "http://purl.org/coar/resource_type/c_e73b",  # photograph
-    "image-other": "http://purl.org/coar/resource_type/c_c51a",  # still image
-    # Video/Audio types
-    "video": "http://purl.org/coar/resource_type/c_12ce",  # video
-    "audio": "http://purl.org/coar/resource_type/c_18cc",  # sound
-    # Software types
-    "software": "http://purl.org/coar/resource_type/c_5ce6",  # software
-    # Lesson types
-    "lesson": "http://purl.org/coar/resource_type/c_9a1e",  # lesson
-    # Physical object types
-    "physicalobject": "http://purl.org/coar/resource_type/c_1843",  # other (closest match)
-    # Other types
-    "other": "http://purl.org/coar/resource_type/c_1843",  # other
-    "annotationcollection": "http://purl.org/coar/resource_type/c_1162",  # annotation (using same as annotation)
-    "peerreview": "http://purl.org/coar/resource_type/c_efa0",  # peer review
-    "publication-peerreview": "http://purl.org/coar/resource_type/c_efa0",  # peer review
-    "publication": "http://purl.org/coar/resource_type/c_18cf",  # generic text
-    "publication-annotationcollection": "http://purl.org/coar/resource_type/c_18cf",
-    "publication-conferenceproceeding": "http://purl.org/coar/resource_type/c_f744",
-    "publication-journal": "http://purl.org/coar/resource_type/c_0640",
-    "publication-patent": "http://purl.org/coar/resource_type/c_15cd",
-    "publication-milestone": "http://purl.org/coar/resource_type/c_18cf",
-    "publication-proposal": "http://purl.org/coar/resource_type/c_baaf",
-    "publication-taxonomictreatment": "http://purl.org/coar/resource_type/c_18cf",
-    "publication-thesis": "http://purl.org/coar/resource_type/c_46ec",
-    "publication-datapaper": "http://purl.org/coar/resource_type/c_18cf",
-    "publication-dissertation": "http://purl.org/coar/resource_type/c_46ec",
-    "publication-standard": "http://purl.org/coar/resource_type/c_18cf",
-    "event": "http://purl.org/coar/resource_type/c_1843",
-    "image": "http://purl.org/coar/resource_type/c_c513",
-    "model": "http://purl.org/coar/resource_type/c_1843",
-    "software-computationalnotebook": "http://purl.org/coar/resource_type/c_5ce6",
-    "workflow": "http://purl.org/coar/resource_type/c_393c",
-}
 
 if __name__ == "__main__":
     from oarepo_runtime.cli import oarepo

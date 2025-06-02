@@ -76,7 +76,10 @@ class DataRepoLoader(BaseReader):
                 response.raise_for_status()
                 payload = response.json()
                 for hit in payload["hits"]["hits"]:
-                    yield hit
+                    # need to re-get as we do not have all fields in the hit
+                    yield url_get(
+                        hit["links"]["self"], headers={"Accept": "application/json"}
+                    ).json()
                 if "next" in payload["links"]:
                     url = payload["links"]["next"]
                     count = 0

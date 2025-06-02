@@ -26,7 +26,7 @@ done
 source .venv/bin/activate
 
 if [ $CREATE == "true" ] ; then
-    invenio oarepo communities create cvut "ČVUT"
+    invenio oarepo communities create cvut "ČVUT" || true
 
     invenio oarepo oai harvester add zenodo-cvut \
             --name "CVUT harvester" \

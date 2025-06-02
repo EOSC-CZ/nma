@@ -8,8 +8,11 @@
     <tr>
       <th>{{ _("Name") }}</th>
       <th>{{ _("Size") }}</th>
-      <th>{{ _('Checksum') }}</th>
+      {#
+        hide checksum for now
+        <th>{{ _('Checksum') }}</th>
       <th>{{ _("Format") }}</th>
+      #}
       <th class="single line"></th>
     </tr>
   </thead>
@@ -35,6 +38,7 @@
         </span>
         {% endif %}
       </td>
+      {#
       <td>
         {% if file.checksum and file.checksum.algorithm and file.checksum.value %}
           {{ file.checksum.algorithm.id|string }}:{{ file.checksum.value|string }}
@@ -44,6 +48,8 @@
         </span>
         {% endif %}
       </td>
+      #}
+      {#
       <td>
         {% if file.format %}
         <VocabularyItem vocabulary={file.format} vocabulary_type="file-types" search_link={search_link}
@@ -57,6 +63,7 @@
         </span>
         {% endif %}
       </td>
+      #}
       <td>
         {% if not file.download_urls and not file.access_urls %}
         <span title="{{ _('No download or access URLs available') }}">

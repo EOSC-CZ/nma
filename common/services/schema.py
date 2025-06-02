@@ -1,3 +1,5 @@
+import functools
+
 import marshmallow as ma
 from invenio_access.permissions import system_identity
 from invenio_i18n import gettext as _
@@ -34,6 +36,7 @@ def escape_illegal_characters(query):
     """
     Escape illegal characters in the query string for OpenSearch.
     """
+    return f'"{query}"'
     ret = []
     for char in query:
         if char in opensearch_illegal_characters:
@@ -41,6 +44,34 @@ def escape_illegal_characters(query):
         else:
             ret.append(char)
     return "".join(ret)
+
+
+@functools.lru_cache(maxsize=10000)
+def iri_to_id(iri: str, vocabulary_type: str) -> str:
+    """
+    Convert an IRI to an ID for a given vocabulary type.
+    """
+    try:
+        assert vocabulary_type, "Vocabulary type is not set."
+        resp = vocabularies_service.search(
+            system_identity,
+            params=dict(q="props.iri.keyword:" + escape_illegal_characters(iri)),
+            type=vocabulary_type,
+        )
+        hit = next(resp.hits)
+        if hit.get("props", {}).get("iri") != iri:
+            raise ma.ValidationError(
+                _(
+                    "Vocabulary with IRI '{iri}' not found in vocabulary {vocab}."
+                ).format(iri=iri, vocab=vocabulary_type)
+            )
+        return hit["id"]
+    except:
+        raise ma.ValidationError(
+            _("Vocabulary with IRI '{iri}' not found in vocabulary {vocab}.").format(
+                iri=iri, vocab=vocabulary_type
+            )
+        )
 
 
 class CCMMVocabularySchema(ma.Schema):
@@ -59,25 +90,8 @@ class CCMMVocabularySchema(ma.Schema):
             raise ma.ValidationError(
                 _("Invalid data format for dictionary. Expected an object.")
             )
-        if "iri" not in data:
-            return data
-        iri = data.pop("iri")
-
-        assert self.vocabulary_type, "Vocabulary type is not set."
-        try:
-            resp = vocabularies_service.search(
-                system_identity,
-                params=dict(q="props.iri:" + escape_illegal_characters(iri)),
-                type=self.vocabulary_type,
-            )
-            hit = next(resp.hits)
-        except:
-            raise ma.ValidationError(
-                _(
-                    "Vocabulary with IRI '{iri}' not found in vocabulary {vocab}."
-                ).format(iri=iri, vocab=self.vocabulary_type)
-            )
-        data["id"] = hit["id"]
+        if "iri" in data:
+            data["id"] = iri_to_id(data.pop("iri"), self.vocabulary_type)
 
         return data
 
@@ -90,8 +104,8 @@ class CCMMResourceTypesVocabularySchema(CCMMVocabularySchema):
     vocabulary_type = "resource-types"
 
 
-class CCMMContributorTypesVocabularySchema(CCMMVocabularySchema):
-    vocabulary_type = "contributor-types"
+class CCMMAgentTypesVocabularySchema(CCMMVocabularySchema):
+    vocabulary_type = "agent-roles"
 
 
 class CCMMRelationTypesVocabularySchema(CCMMVocabularySchema):

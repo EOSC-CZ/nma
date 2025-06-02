@@ -27,7 +27,7 @@ from common.oai.http import url_get
 log = logging.getLogger("oai.lindat")
 
 LINDAT_LANGUAGE = "en"
-LINDAT_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/ENG"
+LINDAT_LANGUAGE_IRI = "http://publications.europa.eu/resource/authority/language/ENG"
 
 
 class LinDatDCTransformer(OAIRuleTransformer):
@@ -142,7 +142,7 @@ def convert_language_code_3_to_3(code):
 @matches("language")
 def transform_language(md, entry, value):
     md["primary_language"] = {
-        "iri": "https://publications.europa.eu/resource/authority/language/{}".format(
+        "iri": "http://publications.europa.eu/resource/authority/language/{}".format(
             convert_language_code_3_to_3(value).upper()
         ),
     }
@@ -152,7 +152,7 @@ def transform_language(md, entry, value):
 def transform_source(md, entry, value):
     rel = {
         "relation_type": {
-            "iri": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#issourceof"
+            "iri": "https://vocabs.ccmm.cz/registry/codelist/RelationType/IsSourceOf"
         },
         "identifiers": [
             {
@@ -230,7 +230,7 @@ def transform_contributor(md, entry, value):
     transform_person(
         md,
         value,
-        "https://vocabs.ccmm.cz/registry/codelist/AgentRole/Other",
+        "https://vocabs.ccmm.cz/registry/codelist/AgentRole/Contributor/Other",
     )
 
 

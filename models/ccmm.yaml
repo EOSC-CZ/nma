@@ -221,7 +221,7 @@ $defs:
         type: keyword
         # implementation note: this IRI will not be shown anywhere in the UI
       role:
-        use: "./ccmm.yaml#/$defs/vocabulary-contributor-types"
+        use: "./ccmm.yaml#/$defs/vocabulary-agent-roles"
         label.en: Role of the agent
         help.en: The function of an agent.
         required: true
@@ -699,11 +699,11 @@ $defs:
     vocabulary-type: resource-types
     marshmallow:
       class: common.services.schema.CCMMResourceTypesVocabularySchema
-  vocabulary-contributor-types:
+  vocabulary-agent-roles:
     use: "./ccmm.yaml#/$defs/vocabulary"
-    vocabulary-type: contributor-types
+    vocabulary-type: agent-roles
     marshmallow:
-      class: common.services.schema.CCMMContributorTypesVocabularySchema
+      class: common.services.schema.CCMMAgentTypesVocabularySchema
   vocabulary-relation-types:
     use: "./ccmm.yaml#/$defs/vocabulary"
     vocabulary-type: relation-types

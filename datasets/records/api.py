@@ -147,7 +147,7 @@ class DatasetsRecord(RDMRecord):
         role=PIDRelation(
             "metadata.is_described_by.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
-            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+            pid_field=Vocabulary.pid.with_type_ctx("agent-roles"),
         ),
         related_objects_identifiers_identifier_scheme=PIDRelation(
             "metadata.locations.related_objects.identifiers.identifier_scheme",
@@ -172,7 +172,7 @@ class DatasetsRecord(RDMRecord):
         qualified_relations_role=PIDRelation(
             "metadata.locations.related_objects.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
-            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+            pid_field=Vocabulary.pid.with_type_ctx("agent-roles"),
         ),
         relation_type=PIDRelation(
             "metadata.locations.related_objects.relation_type",
@@ -222,7 +222,7 @@ class DatasetsRecord(RDMRecord):
         metadata_qualified_relations_role=PIDRelation(
             "metadata.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
-            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+            pid_field=Vocabulary.pid.with_type_ctx("agent-roles"),
         ),
         related_resources_identifiers_identifier_scheme=PIDRelation(
             "metadata.related_resources.identifiers.identifier_scheme",
@@ -247,7 +247,7 @@ class DatasetsRecord(RDMRecord):
         related_resources_qualified_relations_role=PIDRelation(
             "metadata.related_resources.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
-            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+            pid_field=Vocabulary.pid.with_type_ctx("agent-roles"),
         ),
         related_resources_relation_type=PIDRelation(
             "metadata.related_resources.relation_type",
@@ -428,7 +428,7 @@ class DatasetsDraft(RDMDraft):
         role=PIDRelation(
             "metadata.is_described_by.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
-            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+            pid_field=Vocabulary.pid.with_type_ctx("agent-roles"),
         ),
         related_objects_identifiers_identifier_scheme=PIDRelation(
             "metadata.locations.related_objects.identifiers.identifier_scheme",
@@ -453,7 +453,7 @@ class DatasetsDraft(RDMDraft):
         qualified_relations_role=PIDRelation(
             "metadata.locations.related_objects.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
-            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+            pid_field=Vocabulary.pid.with_type_ctx("agent-roles"),
         ),
         relation_type=PIDRelation(
             "metadata.locations.related_objects.relation_type",
@@ -503,7 +503,7 @@ class DatasetsDraft(RDMDraft):
         metadata_qualified_relations_role=PIDRelation(
             "metadata.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
-            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+            pid_field=Vocabulary.pid.with_type_ctx("agent-roles"),
         ),
         related_resources_identifiers_identifier_scheme=PIDRelation(
             "metadata.related_resources.identifiers.identifier_scheme",
@@ -528,7 +528,7 @@ class DatasetsDraft(RDMDraft):
         related_resources_qualified_relations_role=PIDRelation(
             "metadata.related_resources.qualified_relations.role",
             keys=["id", "title", {"key": "props.iri", "target": "iri"}],
-            pid_field=Vocabulary.pid.with_type_ctx("contributor-types"),
+            pid_field=Vocabulary.pid.with_type_ctx("agent-roles"),
         ),
         related_resources_relation_type=PIDRelation(
             "metadata.related_resources.relation_type",

@@ -25,8 +25,8 @@ from oarepo_workflows.services.records.schema import RDMWorkflowParentSchema
 
 from common.services.schema import (
     CCMMAccessRightsVocabularySchema,
+    CCMMAgentTypesVocabularySchema,
     CCMMChecksumAlgorithmsVocabularySchema,
-    CCMMContributorTypesVocabularySchema,
     CCMMFileTypesVocabularySchema,
     CCMMIdentifierSchemesVocabularySchema,
     CCMMLanguagesVocabularySchema,
@@ -278,9 +278,7 @@ class QualifiedRelationsItemSchema(DictOnlySchema):
 
     person = ma_fields.Nested(lambda: PersonSchema())
 
-    role = ma_fields.Nested(
-        lambda: CCMMContributorTypesVocabularySchema(), required=True
-    )
+    role = ma_fields.Nested(lambda: CCMMAgentTypesVocabularySchema(), required=True)
 
 
 class PersonSchema(DictOnlySchema):
