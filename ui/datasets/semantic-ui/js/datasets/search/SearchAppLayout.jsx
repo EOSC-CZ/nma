@@ -57,25 +57,6 @@ export const SearchAppResultsGrid = ({
           open={sidebarVisible}
           onHideClick={() => setSidebarVisible(false)}
         >
-          <ShouldActiveFiltersRender>
-            <ClearFiltersButton
-              className={"clear-filters-button mobile tablet only borderless"}
-              icon={null}
-              labelPosition={null}
-              content={i18next.t("Cancel all")}
-              size="medium"
-            />
-          </ShouldActiveFiltersRender>
-          <ShouldActiveFiltersRender>
-            <ClearFiltersButton
-              className={"clear-filters-button computer only borderless"}
-              icon={null}
-              labelPosition={null}
-              content={i18next.t("Cancel all")}
-              size="medium"
-            />
-            <Divider className="mb-0 mt-5" />
-          </ShouldActiveFiltersRender>
           <SearchAppFacets
             aggs={config.aggs}
             appName={appName}
@@ -112,7 +93,7 @@ export const SearchAppResultsGrid = ({
               <SearchBar buildUID={buildUID} appName={appName} />
               <p className="right-floated search-bar-tip">
                 {i18next.t(
-                  "TIP: Most content is in English language. You will find more results by using English terminology."
+                  "TIP: Most of the content is in English. You can get more results by using English terms."
                 )}
               </p>
             </Grid.Column>
@@ -121,7 +102,7 @@ export const SearchAppResultsGrid = ({
               <p className="right-floated search-bar-tip">
                 <em>
                   {i18next.t(
-                    "TIP: Most content is in English language. You will find more results by using English terminology."
+                    "TIP: Most of the content is in English. You can get more results by using English terms."
                   )}
                 </em>
               </p>

@@ -1,6 +1,6 @@
 oarepo[s3,rdm]==12.2.19
 cachetools==6.0.0
-ccmm-invenio==0.2.1
+ccmm-invenio==0.2.2
 deepmerge==2.0
 et-xmlfile==2.0.0
 flask-babelex==0.9.4

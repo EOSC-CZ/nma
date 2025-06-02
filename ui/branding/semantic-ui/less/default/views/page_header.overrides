@@ -15,6 +15,10 @@
       position: relative;
       background: transparent;
       max-height: 5rem;
+
+      .item.header {
+        background: unset !important;
+      }
     }
 
     a {

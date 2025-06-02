@@ -17,6 +17,11 @@
         {%- endif %}
       {%- endblock brand %}
     </div>
+    {%- block navbar_title %}
+    <h1 class="ui item header hidden tablet computer only">
+    {{ _(config.THEME_SITENAME) }}
+    </h1>
+    {%- endblock navbar_title %}
     {%- endblock navbar_header %}
 
     {# Burger menu toggle for mobile menu #}

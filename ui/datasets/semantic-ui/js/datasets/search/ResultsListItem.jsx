@@ -15,12 +15,18 @@ const ResultsListItemComponent = ({ result }) => {
   const searchAppConfig = useContext(SearchConfigurationContext);
 
   const { allowedHtmlTags } = searchAppConfig;
+  console.log(allowedHtmlTags);
 
   const title = result.metadata?.title || i18next.t("Missing title");
 
-  const abstract =
+  const abstract = sanitizeHtml(
     result.metadata?.descriptions?.find((desc) => desc.lang === "en")?.value ||
-    getValueFromMultilingualArray(result.metadata?.descriptions || []);
+    getValueFromMultilingualArray(result.metadata?.descriptions || []), {
+      allowedTags: allowedHtmlTags,
+      allowedAttributes: {},
+      disallowedTagsMode: 'discard',
+    });
+
   const subjects = result.metadata?.subjects || [];
   const creatibutors = result.metadata?.qualified_relations;
   const publicationDate = result.metadata?.time_references?.find(
@@ -55,6 +61,7 @@ const ResultsListItemComponent = ({ result }) => {
   // Find the first access_right in the terms_of_use array
   const accessStatus = result?.metadata?.terms_of_use?.access_rights
 
+  console.log(truncatedAbstract, result.metadata?.descriptions);
   return (
     <Item className="results-list-item-main">
       <Item.Content>
@@ -85,10 +92,7 @@ const ResultsListItemComponent = ({ result }) => {
                 <Item.Description className="rel-mt-1">
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: sanitizeHtml(truncatedAbstract, {
-                        allowedTags: allowedHtmlTags,
-                        allowedAttributes: {},
-                      }),
+                      __html: truncatedAbstract
                     }}
                     className="inline"
                   />
