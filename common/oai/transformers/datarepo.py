@@ -173,12 +173,15 @@ class DataRepoTransformer(BaseTransformer):
             self.convert_funding(f) for f in orig_md.pop("fundingReferences", [])
         ]
 
+        md["terms_of_use"]["access_rights"] = self.convert_access_rights(
+            orig_md.pop("accessRights", [])
+        )
+
         self.ensureEmpty(
             orig_md,
             "$schema",
             "InvenioID",
             "_files",
-            "accessRights",
             "oarepo:primaryCommunity",
             "oarepo:recordStatus",
             "oarepo:ownedBy",
@@ -418,7 +421,7 @@ class DataRepoTransformer(BaseTransformer):
         return {"iri": rt["relatedURI"]["COAR"]}
 
     def convert_rights(self, orig_rights):
-        converted_rights = None
+        converted_rights = {}
 
         for r in orig_rights:
             if r.get("is_ancestor"):
@@ -438,6 +441,20 @@ class DataRepoTransformer(BaseTransformer):
                 ],
             }
         return converted_rights
+
+    def convert_access_rights(self, orig_access_rights):
+        if not orig_access_rights:
+            return {"iri": "http://purl.org/coar/access_right/c_abf2"}  # open access
+        access_right = next(
+            (ar for ar in orig_access_rights if not ar.get("is_ancestor")),
+            None,
+        )
+        if not access_right:
+            return {"iri": "http://purl.org/coar/access_right/c_abf2"}  # open access
+        coar = access_right.get("relatedURI", {}).get("COAR")
+        if not coar:
+            return {"iri": "http://purl.org/coar/access_right/c_abf2"}
+        return {"iri": coar}  # return the COAR access right IRI
 
     def convert_subject_categories(self, orig_subjects):
         converted_subjects = []

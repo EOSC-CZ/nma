@@ -14,13 +14,13 @@ class DatasetsSearchOptions(I18nRDMSearchOptions):
             "metadata_funding_references_award_title": facets.metadata_funding_references_award_title,
             "metadata_funding_references_funders_organization_name": facets.metadata_funding_references_funders_organization_name,
             "metadata_funding_references_funding_program": facets.metadata_funding_references_funding_program,
-            "metadata_is_described_by_original_repositories_labels_cs": (
-                facets.metadata_is_described_by_original_repositories_labels_cs
+            "metadata_is_described_by_original_repositories_labels_en": (
+                facets.metadata_is_described_by_original_repositories_labels_en
             ),
             "metadata_locations_names": facets.metadata_locations_names,
             "metadata_primary_language": facets.metadata_primary_language,
             "metadata_publication_year": facets.metadata_publication_year,
-            "metadata_subjects_title_cs": facets.metadata_subjects_title_cs,
+            "metadata_subjects_title_en": facets.metadata_subjects_title_en,
             "metadata_terms_of_use_access_rights": facets.metadata_terms_of_use_access_rights,
             **getattr(I18nRDMSearchOptions, "facet_groups", {}).get("default", {}),
         }

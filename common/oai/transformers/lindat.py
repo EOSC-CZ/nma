@@ -20,6 +20,7 @@ from common.oai.ccmm_tools import (
     file_formats_by_extension,
     file_formats_by_iana,
     full_name_to_person,
+    resource_types_cache,
     set_publication_year,
 )
 from common.oai.http import url_get
@@ -82,7 +83,7 @@ class LinDatDCTransformer(OAIRuleTransformer):
         transform_language(md, entry)
         transform_relation(md, entry)
         transform_coverage(md, entry)
-        transform_right(md, entry)
+        transform_rights(md, entry)
 
         md.setdefault("descriptions", [])
         parse_depositions(
@@ -97,9 +98,32 @@ class LinDatDCTransformer(OAIRuleTransformer):
         set_publication_year(md)
 
 
-@matches("right")
-def transform_right(md, entry, value):
-    raise Exception("Rights not supported yet", value)
+@matches("rights")
+def transform_rights(md, entry, value):
+    #
+    # <dc:rights>Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)</dc:rights>
+    # <dc:rights>http://creativecommons.org/licenses/by-nc-sa/3.0/</dc:rights>
+    # <dc:rights>PUB</dc:rights>
+
+    terms_of_use = md.setdefault("terms_of_use", {})
+    if value.startswith("http://") or value.startswith("https://"):
+        # if it is a URL, we assume it is a license URL
+        terms_of_use["iri"] = value
+    # else if value is just a couple of letters all uppercase, we assume it is a access_rights code
+    elif value.isupper():
+        match value:
+            case "PUB":
+                terms_of_use["access_rights"] = {
+                    "iri": "http://purl.org/coar/access_right/c_abf2"
+                }
+            case _:
+                terms_of_use.setdefault("description", []).append(
+                    {"lang": LINDAT_LANGUAGE, "value": value}
+                )
+    else:
+        terms_of_use.setdefault("description", []).append(
+            {"lang": LINDAT_LANGUAGE, "value": value}
+        )
 
 
 @matches("coverage")
@@ -194,6 +218,9 @@ def transform_type(md, entry, value):
 
 @matches("date")
 def transform_date(md, entry, value):
+    if value.startswith("0000"):
+        return
+
     md.setdefault("time_references", []).append(
         {
             "date": value,
@@ -311,45 +338,16 @@ def identifier_scheme_from_value(id):
 
 
 def type_general_converter(input_type):
-    enum_types = {
-        "Audiovisual": "http://purl.org/coar/resource_type/F8RT-TJK0",  # artistic work
-        "Book": "http://purl.org/coar/resource_type/c_2f33",  # book
-        "BookChapter": "http://purl.org/coar/resource_type/c_3248",  # book part
-        "Collection": "http://purl.org/coar/resource_type/RMP5-3GQ6",  # collection
-        "ComputationalNotebook": "http://purl.org/coar/resource_type/H41Y-FW7B",  # laboratory notebook
-        "ConferencePaper": "http://purl.org/coar/resource_type/c_5794",  # conference paper
-        "ConferenceProceeding": "http://purl.org/coar/resource_type/c_f744",  # conference proceedings
-        "DataPaper": "http://purl.org/coar/resource_type/c_beb9",  # data paper
-        "Dataset": "http://purl.org/coar/resource_type/c_ddb1",  # dataset
-        "Dissertation": "http://purl.org/coar/resource_type/c_db06",  # doctoral thesis
-        "Event": "http://purl.org/coar/resource_type/c_c94f",  # conference output
-        "Image": "http://purl.org/coar/resource_type/c_ecc8",  # still image
-        "Instrument": "http://purl.org/coar/resource_type/8KJG-QS0Y",  # research instrument
-        "InteractiveResource": "http://purl.org/coar/resource_type/c_e9a0",  # interactive resource
-        "Journal": "http://purl.org/coar/resource_type/c_0640",  # journal
-        "JournalArticle": "http://purl.org/coar/resource_type/c_6501",  # journal article
-        "Model": "http://purl.org/coar/resource_type/c_1843",  # other
-        "OutputManagementPlan": "http://purl.org/coar/resource_type/c_ab20",  # data management plan
-        "PeerReview": "http://purl.org/coar/resource_type/H9BQ-739P",  # peer review
-        "PhysicalObject": "http://purl.org/coar/resource_type/S7R1-K5P0",  # physical sample
-        "Preprint": "http://purl.org/coar/resource_type/c_816b",  # preprint
-        "Report": "http://purl.org/coar/resource_type/c_93fc",  # report
-        "Service": "http://purl.org/coar/resource_type/c_1843",  # other
-        "Software": "http://purl.org/coar/resource_type/c_c950",  # research software
-        "Sound": "http://purl.org/coar/resource_type/c_18cc",  # sound
-        "Standard": "http://purl.org/coar/resource_type/c_71bd",  # technical documentation
-        "StudyRegistration": "http://purl.org/coar/resource_type/YZ1N-ZFT9",  # research protocol
-        "Text": "http://purl.org/coar/resource_type/c_18cf",  # text
-        "Workflow": "http://purl.org/coar/resource_type/c_393c",  # workflow
-        "Other": "http://purl.org/coar/resource_type/c_1843",  # other
-    }
+    c = resource_types_cache.by_prop("lindat", multiple=True)
+    input_type = input_type.lower().strip()
 
-    input_type_lower = input_type.lower()
-    for enum_type, enum_value in enum_types.items():
-        if input_type_lower == enum_type.lower():
-            return enum_value, True
+    if input_type in c:
+        return c[input_type]["props"]["iri"], True
 
-    return enum_types["Other"], False
+    return (
+        "http://purl.org/coar/resource_type/c_ddb1",
+        False,
+    )  # otherwise call it dataset
 
 
 def get_page_title(url, allow_refresh=True) -> str | None:

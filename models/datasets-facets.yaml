@@ -4,9 +4,11 @@ facets:
       metadata.funding_references.award_title: 1
       metadata.funding_references.funders.organization.name: 2
       metadata.funding_references.funding_program: 3
-      metadata.is_described_by.original_repositories.labels_cs.keyword: 4
+      # TODO: make this language aware
+      metadata.is_described_by.original_repositories.labels_en.keyword: 4
       metadata.locations.names: 5
       metadata.primary_language: 6
       metadata.publication_year: 7
+      # TODO: make this language aware
       metadata.subjects.title_cs.keyword: 8
       metadata.terms_of_use.access_rights: 9
