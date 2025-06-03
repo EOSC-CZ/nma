@@ -802,7 +802,7 @@ class ZenodoTransformer(BaseTransformer):
                     "lang": lang,
                     "value": text.strip(),
                 }
-                for lang, text in r["description"].items()
+                for lang, text in r.get("description", {}).items()
                 if text and text.strip()
             ]
 
