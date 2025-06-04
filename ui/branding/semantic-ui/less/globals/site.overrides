@@ -576,6 +576,11 @@ a.logo-link {
   border-bottom: 1px solid @grey;
 }
 
+.ui.segment.detail-sidebar-section {
+  background: @white !important;
+  border-radius: 5px !important;
+}
+
 .detail-sidebar-header {
   font-size: 1.25rem;
   // border-bottom: 1px solid @grey;
