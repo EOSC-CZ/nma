@@ -14,4 +14,5 @@
   background-color: @primaryColor !important;
   padding-left: 1.5rem !important;
   padding-right: 2rem !important;
+  margin-right: 0 !important;
 }

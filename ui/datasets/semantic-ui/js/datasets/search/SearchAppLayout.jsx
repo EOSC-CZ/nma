@@ -20,7 +20,6 @@ import {
 import { ResultOptions } from "./ResultOptions";
 import {
   ShouldActiveFiltersRender,
-  ClearFiltersButton,
   ActiveFiltersCountFloatingLabel,
 } from "@js/oarepo_ui/search";
 

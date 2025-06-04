@@ -36,7 +36,7 @@ const ActiveFiltersElementComponent = ({
   const activeFilters = useActiveSearchFilters(filters);
   const groupedData = _groupBy(activeFilters, 0);
   return (
-    <div>
+    <>
       {_map(groupedData, (filters, key) =>
         filters.map((filter, index) => {
           const { label, activeFilter } = getLabel(filter, aggregations);
@@ -66,7 +66,7 @@ const ActiveFiltersElementComponent = ({
         labelPosition={null}
         size="medium"
       />
-    </div>
+    </>
   );
 };
 

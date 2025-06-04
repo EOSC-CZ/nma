@@ -28,11 +28,12 @@ const ResultsListItemComponent = ({ result }) => {
       disallowedTagsMode: 'discard',
     });
 
+  const versionString = result.metadata?.version;
   const subjects = result.metadata?.subjects || [];
   const creatibutors = result.metadata?.qualified_relations;
   const publicationDate = result.metadata?.time_references?.find(
-    ({ date_type }) => date_type?.id === "issued"
-  )?.date;
+    ({ date_type }) => date_type?.id.toLowerCase() === "issued"
+  )?.date || result.metadata?.publication_year;
   const language = result.metadata?.primary_language;
   const originalRepositories = [];
   result?.metadata?.is_described_by?.forEach((describedBy) => {
@@ -75,7 +76,7 @@ const ResultsListItemComponent = ({ result }) => {
               {accessStatus && (
                 <ResultsItemAccessStatus status={accessStatus} />
               )}
-              <Item.Meta className="rel-mt-1">
+              <Item.Meta>
                 <Creatibutors creatibutors={creatibutors} />
                 <Label.Group className="rel-mt-1">
                   {/* title is multilingual but not at ccmm 0.5.0 model - needs to be fixed there */}
@@ -118,6 +119,7 @@ const ResultsListItemComponent = ({ result }) => {
                   {publicationDate && (
                     <span className="rel-mr-1">
                       {i18next.t("Published")}: {publicationDate}
+                      {versionString && ` (${versionString})`}
                     </span>
                   )}
                   {originalRepositories?.length > 0 && (
@@ -137,7 +139,7 @@ const ResultsListItemComponent = ({ result }) => {
                   )}
 
                   {language && language?.id !== "UND" && (
-                    <span>
+                    <span className="rel-mr-1">
                       {i18next.t("Language")}: {language?.title}
                     </span>
                   )}

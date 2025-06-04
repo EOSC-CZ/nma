@@ -29,7 +29,6 @@
       color: inherit; /* Reset the color to inherit from parent */
     }
   }
-
   #invenio-menu {
     .item.main-nav-links a {
       display: block;
@@ -41,6 +40,9 @@
       @media all and (min-width: @largestTabletScreen) {
         background-color: @pageHeaderMainNavLinkLargeScreen !important;
       }
+    }
+    &.ui.menu {
+      gap: 0 !important;
     }
   }
   .ui.auth_form {

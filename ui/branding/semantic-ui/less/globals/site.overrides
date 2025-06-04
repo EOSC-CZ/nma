@@ -708,3 +708,34 @@ h2.ui.header.frontpage-subtitle {
  margin-left: 0 !important;
  padding: 0 1rem;
 }
+
+.results-list-item.creatibutors.ui.horizontal.list {
+  span.creatibutor-role {
+    color: @grey;
+  }
+
+  > .item {
+    font-size: @font-size-small;
+    margin-left: 0;
+    margin-right: 0.3rem;
+    color: @darkGrey;
+
+    i.green.right.chevron {
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+.ui.label.active-filter-label {
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  overflow: hidden;
+  max-width: 50%;
+  padding-right: 50px;
+  position: relative;
+
+  i.delete.icon {
+    position: absolute;
+    right: 10px;
+  }
+}
