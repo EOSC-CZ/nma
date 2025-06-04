@@ -8,6 +8,7 @@ import { getValueFromMultilingualArray } from "@js/oarepo_ui/util";
 import _truncate from "lodash/truncate";
 import { Creatibutors } from "./Creatibutors";
 import { ResultsItemAccessStatus } from "./ResultsItemAccessStatus";
+// import { IconPersonIdentifier } from "@nr/search";
 
 const ResultsListItemComponent = ({ result }) => {
   const [showEntireAbstract, setShowEntireAbstract] = useState(false);
