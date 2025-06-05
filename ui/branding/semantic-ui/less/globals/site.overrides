@@ -786,8 +786,8 @@ dt.ui.field-data.section {
     border-bottom: 1px dashed @linkColor;
 }
 
-.ui.tiny.pagination.menu {
-    background-color: @white;
+.ui.pagination.menu {
+    background-color: @white !important;
     border-radius: 5px;
 }
 
