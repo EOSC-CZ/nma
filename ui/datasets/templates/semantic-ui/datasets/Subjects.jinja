@@ -2,22 +2,18 @@
 
 {% if subjects._has_value %}
 {% set searchFacet = "metadata_subjects_title_value" %}
-<div role="list" class="ui horizontal medium subjects list">
-  {% for a in array(subjects) %}
-  {% set subject = a | to_dict %}
-  {% if subject.title %}
-    <div role="listitem" class="item">
+<div role="list" class="ui labels subjects rel-mt-1">
+  {%- for a in array(subjects) -%}
+  {%- set subject = a | to_dict -%}
+  {%- if subject.title -%}
       {% set data = {
       "value": subject.title[0].value,
       "title": _("Find more records with this subject"),
       "label": subject.title[0].value
       } %}
-      <div class="ui green basic label keyword-subjects">
-        <SearchLink search_link={search_link} className="subject-link" searchFacet={searchFacet} data={data} />
-      </div>
-    </div>
-    {% endif %}
-  {% endfor %}
+      <div class="ui label subjects">{{- data.label -}}</div>
+  {%- endif -%}
+  {%- endfor -%}
 </div>
 {% endif %}
 

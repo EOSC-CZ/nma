@@ -744,3 +744,59 @@ h2.ui.header.frontpage-subtitle {
     right: 10px;
   }
 }
+
+dt.ui.field-data.section {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.ui.languages {
+  &.top.attached.tabular.menu.languages {
+    border-bottom: 1px solid @borderColor;
+    font-weight: 100;
+    font-size: @font-size-tiny;
+    position: absolute;
+    top: -0.5rem;
+    right: 0;
+    display: block;
+    width: auto;
+
+    .item {
+        display: inline-block;
+        border-color: @borderColor;
+    }
+  }
+
+  &.bottom.attached.active.tab.segment {
+    padding-left: 0;
+    border: none;
+  }
+}
+
+.ui.description.section.divider {
+    margin: 1.5rem;
+    border-style: dashed !important;
+}
+
+.descriptions-section {
+    position: relative;
+}
+
+.vocabulary-item-label {
+    border-bottom: 1px dashed @linkColor;
+}
+
+.ui.tiny.pagination.menu {
+    background-color: @white;
+    border-radius: 5px;
+}
+
+.ui.avatar.image.license-rights {
+    margin: -10px 0 0 -20px;
+}
+
+.access-rights-link {
+    font-size: 1.5rem;
+    margin-right: -20px;
+    margin-left: -0.7rem;
+}

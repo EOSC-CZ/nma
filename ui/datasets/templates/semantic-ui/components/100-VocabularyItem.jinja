@@ -1,0 +1,17 @@
+{#def vocabulary, search_link=None, searchFacet=None, vocabulary_type, capitalized=True, hide_definition=False #}
+{% set vocabulary_dict = vocabulary | to_dict %}
+{% if vocabulary_dict %}
+{% set title = vocabulary_dict.title ~ ": " ~ _("Find more records with this vocabulary term") %}
+
+{% set data = {
+    "value": vocabulary_dict.id,
+    "title": _("Find more records with this vocabulary term"),
+    "label": vocabulary_dict.title,
+    "aria": title,
+} %}
+    <span class="vocabulary-item-label">{% if capitalized %}{{data.label|capitalize}}{% else %}{{ data.label }}{% endif %}</span>
+    {% if not hide_definition %}
+    {% set definitionLink = "/vocabularies/" ~ vocabulary_type ~ "/" ~ vocabulary_dict.id %}
+    <DefinitionLink  href={definitionLink}> </DefinitionLink>
+    {% endif %}
+{% endif %}

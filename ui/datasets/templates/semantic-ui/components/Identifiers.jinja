@@ -1,11 +1,13 @@
-{# def identifiers, search_link #}
+{# def identifiers, horizontal=False, copy=True, size="mini" #}
 
 {% if identifiers._has_value %}
-<div role="list" class="ui medium list">
+<div role="list" class="{% if not horizontal %}ui medium list{% endif %}">
   {% for id in array(identifiers) %}
+  {% set iri_link = id.iri or id.value %}
+  {% set iri_is_resolvable = ((iri_link|string).startswith("http://") or (iri_link|string).startswith("https://")) if iri_link else False %}
   {% set value = id.value|string %}
   <div role="listitem" class="item">
-    <div class="ui green tiny basic label alt-identifiers">
+    <a class="ui green basic label alt-identifiers mt-5 {{ size }}" {% if iri_is_resolvable %}href="{{ iri_link|string }}"{% endif %} target="_blank" rel="noopener noreferrer">
       {% if id.identifier_scheme.id %}
         {% set id_scheme = id.identifier_scheme.id|string %}
         {% if "doi" in id_scheme %}
@@ -17,22 +19,13 @@
         {% endif %}
         <span class="detail-identifier-type">{{scheme}}</span>
       {% endif %}
-      {% set iri_is_resolvable = ((id.iri|string).startswith("http://") or (id.iri|string).startswith("https://")) if id.iri else False %}
-      {% if iri_is_resolvable %}
-      <IRI iri={id.iri} title={value} className="detail detail-identifier-value" />
-      {% else %}
-      {% set searchFacet = "metadata_identifiers_value" %}
-      {% set data = {
-        "value": value,
-        "title": _("Lookup identifier"),
-        "label": value,
-      } %}
-      <SearchLink search_link={search_link} className="subject-link" searchFacet={searchFacet} data={data} />
-      {% endif %}
-    </div>
-    <i class="copy outline link green icon copy-button" role="button"
+      {{ value }}
+    </a>
+    {%- if copy -%}
+    <i class="ml-5 copy outline link green icon copy-button" role="button"
       title="{{_('Click to copy') ~ ': ' ~ value}}"
       data-clipboard-text="{{value}}"></i>
+    {%- endif -%}
   </div>
   {% endfor %}
 </div>

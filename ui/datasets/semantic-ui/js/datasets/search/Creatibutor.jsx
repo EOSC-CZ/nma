@@ -74,7 +74,6 @@ export const Creatibutor = ({ creatibutor }) => {
   return (
     <span className="mb-5 mr-0 inline-block">
       {`${name}`}
-      {role && <span className="creatibutor-role">{` (${role})`}</span>}
       {selectedIdentifier && (
         <React.Fragment>
           {" "}
@@ -85,6 +84,8 @@ export const Creatibutor = ({ creatibutor }) => {
           />
         </React.Fragment>
       )}
+      {role && role.toLowerCase() !== 'creator' && <span className="creatibutor-role">{` (${role})`}</span>}
+
     </span>
   );
 };
