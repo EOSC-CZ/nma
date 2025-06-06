@@ -15,7 +15,7 @@
     <div class="two column row">
       <div class="column"><h3 class="ui header">{{ _('Vocabulary') }}</h3></div>
       <div class="column">
-        <a href="/vocabularies/{{ vocabularyType }}">{{ _("vocabulary." + vocabularyType) }}</a>
+        <a href="/vocabularies/{{ vocabularyType }}">{{ vocabularyType|capitalize }}</a>
       </div>
     </div>
 
@@ -35,7 +35,7 @@
 
     {% if metadata.identifiers %}
     <div class="two column row">
-      <div class="column"><strong>{{ _("Identifiers") }}</strong></div>
+      <div class="column rel-mt-1"><h5 class="ui header">{{ _("Identifiers") }}</h5></div>
       <div class="column">
         <VocabularyItemIdentifiers identifiers={metadata.identifiers} />
       </div>
@@ -76,25 +76,25 @@
     {% endfor %}
 
     <div class="two column row rel-mt-1">
-      <div class="column"><strong>{{ _('Created') }}</strong></div>
+      <div class="column rel-mt-1"><h5 class="ui header">{{ _('Created') }}</h5></div>
       <div class="column">{{ metadata.created }}</div>
     </div>
     <div class="two column row rel-mt-1">
-      <div class="column"><strong>{{ _('Updated') }}</strong></div>
+      <div class="column rel-mt-1"><h5 class="ui header">{{ _('Updated') }}</h5></div>
       <div class="column">{{ metadata.updated }}</div>
     </div>
 {% set hint = metadata.get("hint", {}) %}
 
 {% if hint.get("cs") %}
 <div class="two column row">
-  <div class="column"><strong>{{ _("vocabulary.hint_cs") }}</strong></div>
+  <div class="column rel-mt-1"><h5 class="ui header">{{ _("vocabulary.hint_cs") }}</h5></div>
   <div class="column">{{ hint.get("cs") }}</div>
 </div>
 {% endif %}
 
 {% if hint.get("en") %}
 <div class="two column row">
-  <div class="column"><strong>{{ _("vocabulary.hint_en") }}</strong></div>
+  <div class="column rel-mt-1"><h5 class="ui header">{{ _("vocabulary.hint_en") }}</h5></div>
   <div class="column">{{ hint.get("en") }}</div>
 </div>
 {% endif %}
@@ -102,7 +102,7 @@
     {% if metadata.relatedURI %}
       {% for key, val in metadata.relatedURI.items() %}
       <div class="two column row">
-        <div class="column"><strong>{{ _("vocabulary.relatedURI_" + key) }}</strong></div>
+        <div class="column rel-mt-1"><h5 class="ui header">{{ _("vocabulary.relatedURI_" + key) }}</h5></div>
         <div class="column"><a href="{{ val }}">{{ val }}</a></div>
       </div>
       {% endfor %}
@@ -110,10 +110,10 @@
 
     {% if metadata.tags and metadata.tags | length > 0 %}
     <div class="two column row">
-      <div class="column"><strong>{{ _("vocabulary.tags") }}</strong></div>
+      <div class="column rel-mt-1"><h5 class="ui header">{{ _("Tags") }}</h5></div>
       <div class="column">
         {% for t in metadata.tags %}
-          <span class="ui tag label {% if t == 'featured' %}red{% endif %}">{{ t }}</span>
+          <span class="ui tag label rel-mt-1 {% if t == 'featured' %}red{% endif %}">{{ t }}</span>
         {% endfor %}
       </div>
     </div>
