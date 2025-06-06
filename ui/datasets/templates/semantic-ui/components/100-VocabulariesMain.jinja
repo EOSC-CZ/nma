@@ -1,0 +1,123 @@
+{#def metadata, record, d, extra_context, hierarchical=False #}
+{% set vocabularyType = extra_context.get("vocabularyType", "")%}
+<div class="vocabularies-main sixteen wide tablet twelve wide computer column main-record-content">
+<div class="ui padded segment detail-main-record-segment">
+  <VocabulariesBreadcrumb extra_context={extra_context} metadata={metadata} hierarchical={True} />
+  <h1 class="ui header">
+      <IValue value={d.title} />
+  </h1>
+  <div class="descriptions-section rel-mb-2">
+    <IField d={d.description.en} label_class="ui field-data section rel-mt-1" data_class="ui field-data bottom-tab">
+        <IValue value={d.description.en} />
+    </IField>
+  </div>
+  <div class="ui definition  very basic table">
+    <div class="two column row">
+      <div class="column"><h3 class="ui header">{{ _('Vocabulary') }}</h3></div>
+      <div class="column">
+        <a href="/vocabularies/{{ vocabularyType }}">{{ _("vocabulary." + vocabularyType) }}</a>
+      </div>
+    </div>
+
+    {{ catalog.render_first_existing(
+      [
+        "VocabularyExtraInfo." + extra_context.vocabularyType,
+        "EmptyComponent"
+      ],
+      metadata=metadata,
+      ui=ui,
+      url_prefix=url_prefix,
+      record=record,
+      extra_context=extra_context,
+      d=d,
+      hierarchical=hierarchical
+    ) }}
+
+    {% if metadata.identifiers %}
+    <div class="two column row">
+      <div class="column"><strong>{{ _("Identifiers") }}</strong></div>
+      <div class="column">
+        <VocabularyItemIdentifiers identifiers={metadata.identifiers} />
+      </div>
+    </div>
+    {% endif %}
+
+    {% if metadata.affiliations %}
+    <div class="two column row">
+      <div class="column"><strong>{{ _("Affiliations") }}</strong></div>
+      <div class="column">
+        {% for affiliation in metadata.affiliations %}
+          <span>{{ affiliation.name }}</span>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% for l in (metadata.nonpreferredLabels or []) %}
+      {% if l.en %}
+      <div class="two column row">
+        <div class="column"><strong>{{ _("nonpreferredLabels_en") }}</strong></div>
+        <div class="column">{{ l.en }}</div>
+      </div>
+      {% endif %}
+      {% if l.cs %}
+      <div class="two column row">
+        <div class="column"><strong>{{ _("nonpreferredLabels_cs") }}</strong></div>
+        <div class="column">{{ l.cs }}</div>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+    {% for prop, val in (metadata.props or {}).items() %}
+    <div class="two column row rel-mt-1">
+      <div class="column rel-mt-1"><h5 class="ui header">{{ _(prop|capitalize) }}</h5></div>
+        <div class="column"><p class="ui field-data">{{ val }}</p></div>
+    </div>
+    {% endfor %}
+
+    <div class="two column row rel-mt-1">
+      <div class="column"><strong>{{ _('Created') }}</strong></div>
+      <div class="column">{{ metadata.created }}</div>
+    </div>
+    <div class="two column row rel-mt-1">
+      <div class="column"><strong>{{ _('Updated') }}</strong></div>
+      <div class="column">{{ metadata.updated }}</div>
+    </div>
+{% set hint = metadata.get("hint", {}) %}
+
+{% if hint.get("cs") %}
+<div class="two column row">
+  <div class="column"><strong>{{ _("vocabulary.hint_cs") }}</strong></div>
+  <div class="column">{{ hint.get("cs") }}</div>
+</div>
+{% endif %}
+
+{% if hint.get("en") %}
+<div class="two column row">
+  <div class="column"><strong>{{ _("vocabulary.hint_en") }}</strong></div>
+  <div class="column">{{ hint.get("en") }}</div>
+</div>
+{% endif %}
+
+    {% if metadata.relatedURI %}
+      {% for key, val in metadata.relatedURI.items() %}
+      <div class="two column row">
+        <div class="column"><strong>{{ _("vocabulary.relatedURI_" + key) }}</strong></div>
+        <div class="column"><a href="{{ val }}">{{ val }}</a></div>
+      </div>
+      {% endfor %}
+    {% endif %}
+
+    {% if metadata.tags and metadata.tags | length > 0 %}
+    <div class="two column row">
+      <div class="column"><strong>{{ _("vocabulary.tags") }}</strong></div>
+      <div class="column">
+        {% for t in metadata.tags %}
+          <span class="ui tag label {% if t == 'featured' %}red{% endif %}">{{ t }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div class="ui grid">
