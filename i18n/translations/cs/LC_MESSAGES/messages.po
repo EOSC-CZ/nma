@@ -52,7 +52,7 @@ msgid "Show all records"
 msgstr "Zobrazit všechny záznamy"
 
 msgid "Clear all"
-msgstr "Vymazat vše"
+msgstr "Vymazat filtry"
 
 msgid "Search datasets.."
 msgstr "Hledat datové sady.."
@@ -78,13 +78,6 @@ msgstr "Bez názvu"
 msgid "Filter results"
 msgstr "Filtrovat výsledky"
 
-msgid ""
-"TIP: Most content is in English language. You will find more results by "
-"using English terminology."
-msgstr ""
-"TIP: Většina obsahu je v anglickém jazyce. Najdete více výsledků, pokud "
-"použijete anglickou terminologii."
-
 msgid "to top"
 msgstr "nahoru"
 
@@ -98,9 +91,6 @@ msgstr "Nabídka"
 #: /home/dusanst/Projects/nma/ui/branding/templates/header.html:46
 msgid "Close menu"
 msgstr "Zavřít nabídku"
-
-msgid "Cancel all"
-msgstr "Zrušit vše"
 
 msgid "(show less)"
 msgstr "(zobrazit méně)"
@@ -310,3 +300,18 @@ msgstr "Zveřejněno v"
 
 msgid "Language"
 msgstr "Jazyk"
+
+msgid ""
+"TIP: Most of the content is in English. You can get more results by using "
+"English terms."
+msgstr ""
+"TIP: Většina obsahu je v anglickém jazyce. Více výsledků získáte užitím "
+"anglických výrazů."
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/footer.html:34
+msgid "Documentation"
+msgstr "Dokumentace"
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/footer.html:35
+msgid "Contact"
+msgstr "Kontakt"

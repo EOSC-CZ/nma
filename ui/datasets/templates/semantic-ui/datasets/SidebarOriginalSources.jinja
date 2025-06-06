@@ -2,7 +2,7 @@
 
 {% set ns = namespace(publishers = []) %}
 {% for qr in array(md.qualified_relations) %}
-{% if qr.role.id|string == 'publisher' %}
+{% if qr.role.id|string|lower == 'publisher' %}
 {% set ns.publishers = ns.publishers + [qr] %}
 {% endif %}
 {% endfor %}
@@ -15,7 +15,7 @@
     {% if ns.publishers|length > 0 %}
     <div aria-label='{{ _("Publishers") }}'>
       <SeparatedProperty d={ns.publishers.0} label={ns.publishers.0.role.title|string|capitalize}>
-        <div role="list" class="ui horizontal separated creatibutors list">
+        <div role="list" class="ui vertical creatibutors list mt-5 mb-5">
           {% for publisher in ns.publishers %}
           <Creatibutor creatibutor={publisher} search_link={record.links.search_link} />
           {% endfor %}
@@ -25,24 +25,23 @@
     {% endif %}
     
     {% if originalRecordUrl %}
-    <div aria-label='{{ _("Identifiers and links") }}'>
       {% set _data = {
       "href": originalRecordUrl,
       "title": _('metadata/originalRecord.label'),
       "label": _('metadata/originalRecord.label')
       }%}
-      <strong>{{ _("Identifiers and links") }}:</strong>
       <div>
-        <i class="external alternate icon link-icon grey mb-5"></i>
-        <URL target="_blank" rel="noopener noreferrer" className="link" data={_data}></URL>
+        <a target="_blank" rel="noopener noreferrer" class="link" href="{{ _data.href }}">
+            {{ _data.label }}
+            <i class="ui small icon external"></i>
+        </a>
       </div>
-    </div>
     {% endif %}
 
     {% if communities|length > 0 %}
-    <div aria-label='{{ _("Communities") }}'>
-      <strong>{{ _("Communities") }}:</strong>
-      <div class="ui unstackable list">
+    <div class="rel-mt-1" aria-label='{{ _("Published in") }}'>
+      <strong>{{ _("Published in:") }}</strong>
+      <div class="ui stackable vertical list mt-5">
         {% for community in communities[0:displayedCommunities] %}
         {% set isPrimary = loop.first and communities | length > 1 %}
         <CommunityItem community={community} isPrimary={isPrimary} isLast={loop.last} />
@@ -53,10 +52,10 @@
       <div class="accordion">
         <div class="title">
           <i class="dropdown icon"></i>
-          {{ _("Show all communities") }}
+          {{ _("Show all repositories") }}
         </div>
         <div class="content">
-          <div class="ui unstackable list">
+          <div class="ui stackable vertical list">
             {% for community in communities[displayedCommunities:] %}
             <CommunityItem community={community} isLast={loop.last} />
             {% endfor %}

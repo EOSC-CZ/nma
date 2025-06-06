@@ -1,7 +1,6 @@
 {# def files, search_link #}
 
 {% set files = array(files) %}
-
 {% if files|length > 0 %}
 <table class="ui table very basic celled files" aria-label="{{ _('Files') }}">
   <thead>
@@ -20,7 +19,7 @@
     {% for file in files %}
     <tr>
       <td class="file-info">
-          {# TODO: we have access urls for now. #}
+        <div class="file-name">
           {% if file.access_urls %}
             <a href="{{ file.access_urls[0] }}" target="_blank" title="{{ _('Access file') }}">
               <IValue value={file.title} placeholder={file.iri if file.iri else loop.index} />
@@ -28,6 +27,15 @@
           {% else %}
             <IValue value={file.title} placeholder={file.iri if file.iri else loop.index} />
           {% endif %}
+        </div>
+        {% if file.checksum and file.checksum.algorithm and file.checksum.value %}
+            <small class="ui text-muted font-tiny">
+                {{ file.checksum.algorithm.title|string }}: {{ file.checksum.value|string }}
+                <div class="ui icon inline-block" data-tooltip="{{ _('This is the file fingerprint (checksum), which can be used to verify the file integrity.') }}">
+                    <i class="question circle checksum icon"></i>
+                </div>
+            </small>
+        {% endif %}
       </td>
       <td>
         {% if file.byte_size %}
@@ -38,17 +46,6 @@
         </span>
         {% endif %}
       </td>
-      {#
-      <td>
-        {% if file.checksum and file.checksum.algorithm and file.checksum.value %}
-          {{ file.checksum.algorithm.id|string }}:{{ file.checksum.value|string }}
-        {% else %}
-        <span title="{{ _('Checksum not available') }}">
-          {{ _('N/A') }}
-        </span>
-        {% endif %}
-      </td>
-      #}
       {#
       <td>
         {% if file.format %}

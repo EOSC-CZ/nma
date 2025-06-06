@@ -1,10 +1,11 @@
 .ui.page-footer {
   background-color: @pageFooterBackgroundColor;
   min-height: auto;
+  padding: 2rem 0;
   a {
     color: black;
   }
-  height: 7rem;
+  height: auto;
   #nr-footer-container {
     height: 100%;
     .ui.container {
@@ -17,17 +18,15 @@
   }
 
   .svg-container {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 0 1 350px;;
     margin-left: 1rem;
     margin-right: 1rem;
+    display: inline-block;
   }
 
   .svg-container .ui.image {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 5rem;
     width: 100%;
     height: 100%;
     object-fit: contain;

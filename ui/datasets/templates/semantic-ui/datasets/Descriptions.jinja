@@ -1,22 +1,30 @@
 {#def descriptions #}
 
 {# Try to sort by language so that the "UND" (udetermined) language is at the start. #}
-{% set descriptions = array(descriptions)|sort(reverse=true, attribute='lang') %}
+{% set descriptions = array(descriptions)|sort(reverse=true, attribute='lang')|groupby('lang')|to_dict %}
 
-
-<div role="list" class="ui list">
-  {% for description in descriptions %}
-  <div role="listitem" class="item detail-description-container" aria-label="{{ description._ui_label }}" aria-description="{{ description._ui_hint }}">
-    <input type="checkbox" id="detail-description-expanded-{{loop.index}}" aria-hidden="true">
-    <div id="detail-description-{{loop.index}}" class="detail-description">
-      {# {% if description.lang|string|lower != "und" %} #}
-      <span class="dark-grey" title="{{description.lang._ui_label}}"
-        aria-description="{{description.lang._ui_help}}">[{{ description.lang|string|upper }}]</span>
-      {# {% endif %} #}
-      {% set description_text = description._ui_value.value|safe %}
-      <span class="description-text">{{ description_text }}</span>
+{% if not (descriptions|length == 1 and descriptions|first|attr("grouper")|lower == "und") %}
+<div class="ui top attached tabular menu languages">
+    {%- for lang in descriptions -%}
+    <div class="active item"
+         data-vocabulary-item-id="{{lang.grouper|upper}}"
+         data-tab="{{lang.grouper|upper}}"
+         data-vocabulary-type="languages"
+         data-vocabulary-extra-query-prop="ISO_639_1"
+         title="{{lang.list|first|attr("lang")|attr("_ui_label")}}"
+         aria-description="{{lang.list|first|attr("lang")|attr("_ui_label")}}">
+        {{- lang.grouper|upper -}}
     </div>
-    <label for="detail-description-expanded-{{loop.index}}" role="button">{{ _('show more') }} <i class="caret down fitted link icon custom-caret"></i></label>
-  </div>
-  {% endfor %}
+    {%- endfor -%}
 </div>
+{% endif %}
+{%- for descriptionGroup in descriptions -%}
+<div class="ui bottom attached active tab segment languages" data-tab="{{descriptionGroup.grouper|upper}}">
+    {%- for description in descriptionGroup.list -%}
+        <section class="description">{{ description._ui_value.value|safe }}</section>
+        {%- if not loop.last -%}
+            <hr class="ui description section divider" />
+        {%- endif -%}
+    {%- endfor -%}
+</div>
+{%- endfor -%}

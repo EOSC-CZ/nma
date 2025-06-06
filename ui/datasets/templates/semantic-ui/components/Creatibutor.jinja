@@ -1,4 +1,4 @@
-{#def creatibutor, search_link, role = None #}
+{#def creatibutor, role = None #}
 {% set creatibutor_dict = creatibutor | to_dict %}
 {% if creatibutor_dict.person %}
   {% set title = _("Find more records by this person") %}
@@ -15,6 +15,7 @@
   {% set searchFacetValue = creatibutor_dict.organization.name|string %}
 {% endif %}
 
+
 {% if name %}
 {% set data = {
     "value": name,
@@ -22,11 +23,11 @@
     "label": name,
     "aria": name ~ ": " ~ title,
 } %}
-<div role="listitem" class="item creatibutor-wrap separated">
-  <div class="content">
-    <SearchLink data={data} searchFacet={searchFacet} search_link={search_link} searchFacetValue={searchFacetValue} />
-    <CreatibutorIdentifier identifiers={identifiers} creatibutorName={name} />
-    {%- if role.title -%} &nbsp;({{ role.title }}){%- endif -%}
-  </div>
+<div role="listitem" class="item">
+  <span class="mb-5 mr-0 inline-block">
+      <IValue value={name} />
+  </span>
+  <CreatibutorIdentifier identifiers={identifiers} creatibutorName={name} />
+  {%- if role.title -%} <span class="creatibutor-role">&nbsp;({{ role.title }}){%- endif -%}
 </div>
 {% endif %}

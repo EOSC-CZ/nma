@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import _isEmpty from "lodash/isEmpty";
 import Overridable from "react-overridable";
-import { withState, ActiveFilters } from "react-searchkit";
+import { withState, ActiveFilters, SearchBar } from "react-searchkit";
 import { GridResponsiveSidebarColumn } from "react-invenio-forms";
 import {
   Container,
@@ -10,19 +10,16 @@ import {
   Button,
   Icon,
   TransitionablePortal,
-  Divider,
 } from "semantic-ui-react";
 import { i18next } from "@translations/i18next";
 import {
   SearchAppFacets,
   SearchAppResultsPane,
-  SearchBar,
   SearchConfigurationContext,
 } from "@js/invenio_search_ui/components";
 import { ResultOptions } from "./ResultOptions";
 import {
   ShouldActiveFiltersRender,
-  ClearFiltersButton,
   ActiveFiltersCountFloatingLabel,
 } from "@js/oarepo_ui/search";
 
@@ -39,6 +36,10 @@ export const SearchAppResultsGrid = ({
   resultSortLayout,
 }) => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
+
+  const searchInputProps = {
+    clearable: true
+  };
 
   return (
     <Grid
@@ -57,25 +58,6 @@ export const SearchAppResultsGrid = ({
           open={sidebarVisible}
           onHideClick={() => setSidebarVisible(false)}
         >
-          <ShouldActiveFiltersRender>
-            <ClearFiltersButton
-              className={"clear-filters-button mobile tablet only borderless"}
-              icon={null}
-              labelPosition={null}
-              content={i18next.t("Cancel all")}
-              size="medium"
-            />
-          </ShouldActiveFiltersRender>
-          <ShouldActiveFiltersRender>
-            <ClearFiltersButton
-              className={"clear-filters-button computer only borderless"}
-              icon={null}
-              labelPosition={null}
-              content={i18next.t("Cancel all")}
-              size="medium"
-            />
-            <Divider className="mb-0 mt-5" />
-          </ShouldActiveFiltersRender>
           <SearchAppFacets
             aggs={config.aggs}
             appName={appName}
@@ -109,19 +91,19 @@ export const SearchAppResultsGrid = ({
               </Grid.Column>
             )}
             <Grid.Column width={14} floated="right" only="mobile tablet">
-              <SearchBar buildUID={buildUID} appName={appName} />
+              <SearchBar buildUID={buildUID} appName={appName} uiProps={searchInputProps} />
               <p className="right-floated search-bar-tip">
                 {i18next.t(
-                  "TIP: Most content is in English language. You will find more results by using English terminology."
+                  "TIP: Most of the content is in English. You can get more results by using English terms."
                 )}
               </p>
             </Grid.Column>
             <Grid.Column width={16} floated="right" only="computer">
-              <SearchBar buildUID={buildUID} appName={appName} />
+              <SearchBar buildUID={buildUID} appName={appName} uiProps={searchInputProps} />
               <p className="right-floated search-bar-tip">
                 <em>
                   {i18next.t(
-                    "TIP: Most content is in English language. You will find more results by using English terminology."
+                    "TIP: Most of the content is in English. You can get more results by using English terms."
                   )}
                 </em>
               </p>

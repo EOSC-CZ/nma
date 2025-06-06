@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-22 22:45+0200\n"
+"POT-Creation-Date: 2025-06-02 19:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,232 +17,234 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/services/schema.py:60
-msgid "Invalid data format for dictionary. Expected an object."
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/services/schema.py:77
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/services/schema.py:65
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/services/schema.py:71
 #, python-brace-format
 msgid "Vocabulary with IRI '{iri}' not found in vocabulary {vocab}."
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:360
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/services/schema.py:91
+msgid "Invalid data format for dictionary. Expected an object."
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:360
 msgid "state:draft"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:361
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:361
 msgid "state:published"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:362
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:362
 msgid "state:submitted"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:363
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:363
 msgid "state:retracting"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:364
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:364
 msgid "state:deleted"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/branding/templates/header.html:27
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/footer.html:34
+msgid "Documentation"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/footer.html:35
+msgid "Contact"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/header.html:27
 msgid "Menu"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/branding/templates/header.html:46
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/header.html:46
 msgid "Close menu"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/branding/templates/header_frontpage.html:40
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/branding/templates/header_frontpage.html:41
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/branding/templates/header_frontpage.html:42
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:34
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:35
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/titlepage/templates/TitlePage.jinja:33
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/titlepage/templates/TitlePage.jinja:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/header_frontpage.html:40
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/header_frontpage.html:41
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/header_frontpage.html:42
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:35
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/titlepage/templates/TitlePage.jinja:33
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/titlepage/templates/TitlePage.jinja:34
 msgid "Search"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:3
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:27
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:33
-#: i18n/translations/jinjax_messages.jinja:9
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:3
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:4
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:27
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:33
+#: i18n/translations/jinjax_messages.jinja:6
 msgid "Identifiers and links"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:65
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:66
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:30
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:31
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:65
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-IdentifiersAndLinks.jinja:66
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:30
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:31
 msgid "metadata/originalRecord.label"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:2
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:42
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:43
-#: i18n/translations/jinjax_messages.jinja:6
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:2
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:3
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:42
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:43
+#: i18n/translations/jinjax_messages.jinja:4
 msgid "Communities"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:15
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:55
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-RecordCommunities.jinja:15
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:55
 msgid "Show all communities"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordExport.jinja:13
-#: i18n/translations/jinjax_messages.jinja:8
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-RecordExport.jinja:13
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-RecordExport.jinja:14
+#: i18n/translations/jinjax_messages.jinja:7
 msgid "Export"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-RecordVersions.jinja:3
-#: i18n/translations/jinjax_messages.jinja:7
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-RecordVersions.jinja:3
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-RecordVersions.jinja:4
+#: i18n/translations/jinjax_messages.jinja:5
 msgid "Versions"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-SidebarApiLinks.jinja:5
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-SidebarApiLinks.jinja:5
 msgid "API"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/100-SidebarApiLinks.jinja:5
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/100-SidebarApiLinks.jinja:5
 msgid "Links"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Creatibutor.jinja:4
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/Creatibutor.jinja:4
 msgid "Find more records by this person"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Creatibutor.jinja:11
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/Creatibutor.jinja:11
 msgid "Find more records by this organization"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:6
-#: i18n/translations/jinjax_messages.jinja:5
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:6
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:87
+#: i18n/translations/jinjax_messages.jinja:3
 msgid "Files"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:9
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:9
 msgid "Name"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:11
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:10
 msgid "Size"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:12
-msgid "Checksum"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:13
-msgid "Format"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:15
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
-msgid "Actions"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:37
-msgid "File size not available"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:38
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:47
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:59
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:75
-msgid "N/A"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:46
-msgid "Checksum not available"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:58
-msgid "Format not available"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:74
-msgid "No download or access URLs available"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:80
-msgid "Download file"
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:87
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:25
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:81
 msgid "Access file"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Identifiers.jinja:27
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:36
+msgid "File size not available"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:37
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:69
+msgid "N/A"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:68
+msgid "No download or access URLs available"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/FilesTable.jinja:74
+msgid "Download file"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/Identifiers.jinja:27
 msgid "Lookup identifier"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/components/Identifiers.jinja:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/components/Identifiers.jinja:34
 msgid "Click to copy"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Descriptions.jinja:19
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Descriptions.jinja:19
 msgid "show more"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:13
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:13
 msgid "National Metadata Directory"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:24
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:26
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:24
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:26
 msgid "Back to search results"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:33
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:33
 msgid "Search datasets.."
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:50
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarDetails.jinja:10
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Detail.jinja:50
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarDetails.jinja:10
 msgid "Record details"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:33
+msgid "Title not provided"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:39
+msgid "Main details"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:62
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Main.jinja:63
+#: i18n/translations/jinjax_messages.jinja:2
+msgid "Additional details"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "Search results"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "datasets"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
+msgid "Actions"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
 msgid "Edit"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:13
 #: i18n/translations/jinjax_messages.jinja:1
 msgid "Original sources"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:15
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/SidebarOriginalSources.jinja:15
 msgid "Publishers"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Subjects.jinja:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Subjects.jinja:12
 msgid "Find more records with this subject"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/titlepage/templates/TitlePage.jinja:41
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/titlepage/templates/TitlePage.jinja:41
 msgid "Show all records"
 msgstr ""
 
-#: i18n/translations/jinjax_messages.jinja:2
-msgid "Main details"
-msgstr ""
-
-#: i18n/translations/jinjax_messages.jinja:3
-#: i18n/translations/jinjax_messages.jinja:4
-msgid "Additional details"
-msgstr ""
-
-msgid "Cancel all"
+msgid "Clear all"
 msgstr ""
 
 msgid "Results per page:"
@@ -273,8 +275,8 @@ msgid "Filter results"
 msgstr ""
 
 msgid ""
-"TIP: Most content is in English language. You will find more results by "
-"using English terminology."
+"TIP: Most of the content is in English. You can get more results by using "
+"English terms."
 msgstr ""
 
 msgid "to top"

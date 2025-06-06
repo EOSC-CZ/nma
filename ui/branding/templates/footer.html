@@ -10,51 +10,29 @@
     "2024_NCIP_NTK_ENG.jpg",
 ] %}
 
-<footer class="ui page-footer only computer tablet">
-  <div id="nr-footer-container">
-  <div class="ui container">
+<footer class="ui page-footer">
+  <div class="ui vertical footer segment">
+  <section class="ui center aligned container">
+    <section class="publicity-logos ui stackable four column centered grid">
     {% if current_i18n.language == 'cs' %}
     {% for svg_file in svg_files_cs %}
-      <div class="svg-container">
+      <div class="svg-container ui column">
         <img src="{{ url_for('static', filename='images/' + svg_file) }}" alt="{{ svg_file }}" class="ui image">
       </div>
     {% endfor %}
     {% else %}
     {% for svg_file in svg_files_en %}
-      <div class="svg-container">
+      <div class="svg-container ui column">
         <img src="{{ url_for('static', filename='images/' + svg_file) }}" alt="{{ svg_file }}" class="ui image">
       </div>
       {%endfor%}
     {% endif %}
-     <div id="footer-links">
-      <a class="block"  href="mailto:support@narodni-repozitar.cz">Contact</a>
-      <a href="https://nrp-cz.github.io/docs" target="_blank">Documentation</a>
+  </section>
+  <section class="ui padded basic centered segment">
+    <div id="footer-links ui center aligned padded container">
+      <a class="block" href="https://docs.nrp.eosc.cz/" target="_blank">{{ _("Documentation") }}</a>
+      <a class="block"  href="mailto:support@narodni-repozitar.cz">{{ _("Contact") }}</a>
     </div>
-  </div>
-  </div>
-</footer>
-<footer class="ui page-footer vertical only mobile">
-  <div id="nr-footer-container">
-  <div class="ui container">
-    <div class="logo-container">
-      {% if current_i18n.language == 'cs' %}
-      {% for svg_file in svg_files_cs %}
-        <div class="svg-container">
-          <img src="{{ url_for('static', filename='images/' + svg_file) }}" alt="{{ svg_file }}" class="ui image">
-        </div>
-      {% endfor %}
-      {% else %}
-      {% for svg_file in svg_files_en %}
-        <div class="svg-container">
-          <img src="{{ url_for('static', filename='images/' + svg_file) }}" alt="{{ svg_file }}" class="ui image">
-        </div>
-        {%endfor%}
-      {% endif %}
-    </div>
-    <div id="footer-links" class="mobile-centered">
-      <a class="block" href="mailto:support@narodni-repozitar.cz">Contact</a>
-      <a href="https://nrp-cz.github.io/docs" target="_blank">Documentation</a>
-    </div>
-  </div>
+  </section>
   </div>
 </footer>

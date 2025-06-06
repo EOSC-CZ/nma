@@ -5,7 +5,6 @@ import traceback
 from functools import cached_property
 from typing import Union
 
-import bleach
 import tqdm
 import yaml
 from invenio_access.permissions import system_identity
@@ -20,30 +19,12 @@ from common.oai.ccmm_tools import (
     lang_dict_to_2,
     relation_types_cache,
     resource_types_cache,
-    set_publication_year,
+    set_publication_year, sanitize_html,
 )
 
 log = logging.getLogger("oai.zenodo")
 
 UNKNOWN_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/UND"
-
-allowed_tags = set(
-    [
-        *bleach.ALLOWED_TAGS,
-        "span",
-        "p",
-        "br",
-        "pre",
-        "code",
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6",
-    ]
-)
-
 
 class ZenodoTransformer(BaseTransformer):
 
@@ -692,9 +673,7 @@ class ZenodoTransformer(BaseTransformer):
             return [
                 {
                     "lang": "und",
-                    "value": bleach.clean(
-                        orig_description, tags=allowed_tags, strip=True
-                    ),
+                    "value": sanitize_html(orig_description),
                 }
             ]
         raise NotImplementedError(

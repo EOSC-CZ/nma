@@ -13,6 +13,9 @@ import { ActiveFiltersElement } from "./ActiveFilters";
 import { Dropdown } from "semantic-ui-react";
 import { SearchAppResults } from "./SearchAppResults";
 import { i18next } from "@translations/i18next";
+import { overrideStore } from "react-overridable";
+
+const overriddenComponents = overrideStore.getAll();
 
 const SearchAppFacetsWithProps = parametrize(SearchAppFacets, {
   allVersionsToggle: true,
@@ -123,4 +126,4 @@ export const componentOverrides = {
   [`${overridableIdPrefix}.SearchApp.results`]: SearchAppResults,
 };
 
-createSearchAppsInit({ componentOverrides });
+createSearchAppsInit({ componentOverrides, ...overriddenComponents });

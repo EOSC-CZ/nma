@@ -12,16 +12,21 @@
 <div class="ui padded segment detail-main-record-segment">
   <div>
     {% for date in array(md.time_references) if not ns.issued_found %}
-      {% if date.date_type.id|string == "Issued" %}
-        <span title="{{date.date_type._ui_label}}" aria-description="{{date.date_type._ui_hint}}">
+      {% if date.date_type.id|string|lower == "issued" %}
+        <span title="{{date.date_type.title}}" aria-description="{{date.date_type.title}}">
           <IValue value={date.date} />
         </span>
         {% set ns.issued_found = True %}
       {% endif %}
     {% endfor %}
+    {% if not ns.issued_found and md.publication_year %}
+        <span title="{{md.publication_year._ui_label}}" aria-description="{{md.publication_year._ui_label}}">
+          <IValue value={md.publication_year} />
+        </span>
+    {% endif %}
     {% if md.version._has_value %}{% if ns.issued_found %}|{% endif %}
-    <span title="{{md.version._ui_label}}" aria-description="{{md.version._ui_hint}}">
-      {{md.version._ui_label}}: <IValue value={md.version} />
+    <span title="{{md.version._ui_label}}" aria-description="{{md.version._ui_label}}">
+      <IValue value={md.version} />
     </span>
     {% endif %}
   </div>
@@ -37,43 +42,46 @@
   <hr class="ui divider" />
 
   <dl aria-label="{{_('Main details')}}">
-    <IField d={md.alternate_titles} data_class="ui field-data bottom-tab">
-      <Multilingual data={md.alternate_titles|map(attribute='title')} />
-    </IField>
+{#  TODO: this causes the rendering to get stuck, e.g. on this: https://data.narodni-repozitar.cz/general/datasets/t45hr-bcw17 #}
+{#    {% for alternate_title in md.alternate_titles %}#}
+{#    <IField d={alternate_title} data_class="ui field-data bottom-tab">#}
+{#        {{ alternate_title }}#}
+{#    </IField>#}
+{#    {% endfor %}#}
 
     <IField d={md.qualified_relations} label_class="ui field-data hidden" data_class="ui field-data bottom-tab">
-      <Creatibutors qualified_relations={md.qualified_relations} search_link={record.links.search_link} />
+      <Creatibutors qualified_relations={md.qualified_relations} />
     </IField>
 
     <IField d={md.resource_type} label_class="ui field-data hidden" data_class="ui field-data bottom-tab">
-      <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource-types" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
+      <VocabularyItem vocabulary={md.resource_type} vocabulary_type="resource-types"/>
     </IField>
 
-    <IField d={md.subjects} label_class="ui field-data hidden" data_class="ui field-data bottom-tab">
+    <IField d={md.subjects} label_class="ui field-data hidden" data_class="ui field-data bottom-tab rel-mt-1">
       <Subjects subjects={md.subjects} search_link={record.links.search_link} />
     </IField>
 
-    <IField d={md.descriptions} data_class="ui field-data bottom-tab">
-      <Descriptions descriptions={md.descriptions} />
-    </IField>
+    <div class="descriptions-section">
+        <IField d={md.descriptions} label_class="ui field-data section rel-mt-1" data_class="ui field-data bottom-tab">
+          <Descriptions descriptions={md.descriptions} />
+        </IField>
+    </div>
 
-    <hr class="ui divider hidden" />
-
-    <AccordionField label={_('Additional details')} title_class="detail-record-description" accordion_class="bottom-tab" active>
+    <AccordionField label={_('Additional details')} title_class="ui field-data section rel-mt-1" accordion_class="ui field-data bottom-tab">
       <dl aria-label="{{_('Additional details')}}">
-        <table class='ui table very basic detail-definition-table'>
+        <table class='ui table very basic collapsing padded stackable celled'>
           <ITableField d={md.primary_language}>
-            <VocabularyItem vocabulary={md.primary_language} vocabulary_type="languages" search_link={record.links.search_link} searchFacet="metadata_primary_language" />
+            <VocabularyItem vocabulary={md.primary_language} vocabulary_type="languages" />
           </ITableField>
         
           <ITableField d={md.funding_references}>
-            <FundingReference funding_references={md.funding_references} search_link={record.links.search_link} />
+            <FundingReference funding_references={md.funding_references} />
           </ITableField>
         
-          <TableTimeReferences time_references={md.time_references} excluded_date_types={["Issued"]} search_link={record.links.search_link} />
+          <TableTimeReferences time_references={md.time_references} excluded_date_types={["Issued"]} />
         
           <ITableField d={md.locations}>
-            <Locations locations={md.locations} search_link={record.links.search_link} />
+            <Locations locations={md.locations} />
           </ITableField>
         
           <ITableField d={md.related_resources}>
@@ -84,7 +92,7 @@
     </AccordionField>
 
     {% if md.distributions %}
-    <AccordionField label={_('Files')} title_class="detail-record-description" active>
+    <AccordionField label={_('Files')} title_class="ui field-data section rel-mt-1" data_class="ui field-data bottom-tab" active>
       <FilesTable files={md.distributions} search_link={record.links.search_link} />
     </AccordionField>
     {% endif %}

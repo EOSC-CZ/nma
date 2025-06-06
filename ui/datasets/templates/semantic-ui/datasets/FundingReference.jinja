@@ -1,11 +1,8 @@
-{#def funding_references, search_link #}
-
-<div role="list" class='ui divided list'>
+{#def funding_references #}
+<div role="list" class='ui divided relaxed ordered list'>
   {% for fr in array(funding_references) %}
   <div class="item">
-    <ListItemField d={fr.award_title}>
-      <SeparatedProperty d={fr.award_title} />
-    </ListItemField>
+    <h5 class="header rel-mb-1"><IValue value={fr.award_title or _("No award title")} /></h5>
     <ListItemField d={fr.local_identifier}>
       <SeparatedProperty d={fr.local_identifier} />
     </ListItemField>
@@ -14,16 +11,11 @@
     </ListItemField>
     <ListItemField d={fr.funders}>
       <strong>{{ fr.funders._ui_label }}:</strong>
-      <div role="list" class="list">
         {% for funder in array(fr.funders) %}
-        <ListItemField d={funder.organization.name}>
-          <SeparatedProperty d={funder.organization.name} />
-        </ListItemField>
-        <ListItemField d={funder.person.name}>
-          <SeparatedProperty d={funder.person.name} />
-        </ListItemField>
+          <IValue value={funder.organization.name or null} />
+          <IValue value={funder.person.name or null} />
+            {{ ", " if not loop.last }}
         {% endfor %}
-      </div>
     </ListItemField>
   </div>
   {% endfor %}

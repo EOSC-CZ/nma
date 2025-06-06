@@ -6,9 +6,9 @@ export const ResultsItemAccessStatus = ({ status }) => {
 
   const idToLockIcons = {
     c_abf2: "open_access.svg",
-    c_16ec: "partialy_closed_access_grey.svg",
+    c_16ec: "partially_closed_access_grey.svg",
     c_f1cf: "closed_access.svg",
-    c_14cb: "partialy_closed_access.svg",
+    c_14cb: "partially_closed_access.svg",
   };
 
   if (!id || !idToLockIcons[id]) {

@@ -1,54 +1,82 @@
-{%- extends "header.html" %}
+{% extends "oarepo_ui/header.html" %}
 
-{#- Remove search field from top bar on frontpage #}
-{%- block navbar_search %}{% endblock navbar_search%}
 {%- block navbar %}
-{{ super() }}
+<div class="ui container invenio-header-container">
+  <nav id="invenio-nav" class="ui menu shadowless borderless p-0">
 
-{%- block frontpage_search %}
-<div id="frontpage-search-bar" class="ui container fluid frontpage-header">
-  {%- block bypasslinks %}
-  {%- endblock bypasslinks %}
-
-  {%- block top_banner %}
-  {%- endblock top_banner %}
-  <div class="ui container grid rel-mt-2">
-    <div class="row">
-      <div class="sixteen wide column center aligned">
-        {%- block frontpage_title %}
-        <h1 class="ui center aligned header inverted">
-          {%- if config.THEME_FRONTPAGE_LOGO %}
-          <img class="ui medium image"
-            src="{{ url_for('static', filename=config.THEME_LOGO.replace('<language>', current_i18n.language)) }}"
-            alt="{{ _(config.THEME_SITENAME) }}" />
-          {%- else %}
-          {{ _(config.THEME_SITENAME) }}
-          {%- endif %}
-        </h1>
-        <div class="ui label secondary">
-          <h2 class="ui header frontpage subtitle medium">{{ _(config.REPOSITORY_DESCRIPTION) }}</h2>
-        </div>
-      </div>
+    {# Main Site logo #}
+    {%- block navbar_header %}
+    <div class="item logo left-logo p-0">
+      {%- block brand %}
+        {%- if config.THEME_LOGO %}
+          <a class="logo-link" href="/">
+            <img class="ui image"
+                  src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+                  alt="{{ _(config.THEME_SITENAME) }}"/>
+          </a>
+        {%- endif %}
+      {%- endblock brand %}
     </div>
-    {%- endblock frontpage_title %}
-    {%- block frontpage_form %}
-    <div class="row">
-      <div class="sixteen wide mobile four wide computer column"></div>
-      <div class="sixteen wide mobile eight wide computer column center aligned">
-        <form action="{{ url_for('invenio_search_ui.search') }}" class="ui form" role="search">
-          <div class="ui fluid big action input">
-            <input type="text" name="q" class="form-control" aria-label="{{ _('Search') }}"
-              placeholder="{{ _('Search') }}">
-            <button type="submit" class="ui icon search button" aria-label="{{ _('Search') }}">
-              <i class="search icon"></i>
-            </button>
+    {%- endblock navbar_header %}
+
+    {# Burger menu toggle for mobile menu #}
+    <div id="invenio-burger-toggle" class="ui menu_burger">
+      <button
+        id="invenio-burger-menu-icon"
+        class="ui button transparent"
+        aria-label="{{ _('Menu') }}"
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-controls="invenio-menu"
+      >
+        <span class="navicon"></span>
+      </button>
+    </div>
+
+    {# Main menu #}
+    <div
+      role="menu"
+      id="invenio-menu"
+      aria-labelledby="invenio-burger-menu-icon"
+      class="ui fluid menu borderless mobile-hidden"
+    >
+      <button
+        id="invenio-close-burger-menu-icon"
+        class="ui button transparent"
+        aria-label="{{ _('Close menu') }}"
+      >
+        <span class="navicon"></span>
+      </button>
+
+      {# Search bar #}
+      {%- block navbar_search %}
+      {%- endblock navbar_search %}
+
+      {# Navigation links #}
+      {%- block navbar_nav %}{%- endblock navbar_nav %}
+
+      {# Language selector #}
+      {%- block navbar_right %}
+      <div class="right menu item pr-0">
+        <span class="rel-mr-1">
+          {%- include "oarepo_ui/header_login.html" %}
+        </span>
+        {%- if config.I18N_LANGUAGES %}
+        <form id="language-code-form" class="lang-select"
+            action="{{ url_for('invenio_i18n.set_lang')}}"
+            method="POST">
+          <div>
+            <select id="lang-code" name="lang_code" class="ui selection dropdown language-selector borderless shadowless">
+              {% for l in current_i18n.get_locales() %}
+                <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name() }}</option>
+              {% endfor %}
+            </select>
           </div>
         </form>
+        {%- endif %}
       </div>
+      {%- endblock navbar_right %}
     </div>
-    <div class="ui divider hidden"></div>
-    {%- endblock frontpage_form %}
-  </div>
+  </nav>
 </div>
-{%- endblock frontpage_search %}
-{%- endblock -%}
+{%- endblock navbar %}

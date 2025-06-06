@@ -308,3 +308,16 @@ msgstr ""
 
 msgid "Language"
 msgstr ""
+
+msgid ""
+"TIP: Most of the content is in English. You can get more results by using "
+"English terms."
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/footer.html:34
+msgid "Documentation"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/branding/templates/footer.html:35
+msgid "Contact"
+msgstr ""
