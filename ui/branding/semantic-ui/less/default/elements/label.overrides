@@ -4,6 +4,7 @@
     border-radius: 6px;
     margin-right: 0.5rem;
     font-size: inherit;
+    padding: 0.5rem 2rem 0.5rem 1rem;
   }
   &.subjects {
     background-color: inherit;

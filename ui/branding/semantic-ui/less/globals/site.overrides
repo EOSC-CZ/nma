@@ -274,6 +274,11 @@ ul.details-list {
   }
 }
 
+.header.item {
+  background: #f3f4f5 !important;
+}
+
+
 dl.details-list {
   margin-top: 0;
 
@@ -451,14 +456,20 @@ dl.details-list {
   }
 }
 
-.facets-container {
-  background-color: @backgroundColor;
+.facet-wrapper.content:not(.parent) {
+  align-items: center;
+}
 
-  .facet-list {
-    .ui.card:first-child {
-      .content:first-child {
-        display: none;
-      }
+.facets-container {
+  padding: 1rem;
+  background-color: @white;
+  border-radius: 5px;
+  border-top: 1px solid @borderColor;
+
+  .facet-list .item {
+    padding-right: 1rem !important;
+    &:hover {
+      background-color: @highlightBackgroundColor;
     }
   }
 }
@@ -563,6 +574,11 @@ a.logo-link {
   .text-medium();
   color: @darkGrey;
   border-bottom: 1px solid @grey;
+}
+
+.ui.segment.detail-sidebar-section {
+  background: @white !important;
+  border-radius: 5px !important;
 }
 
 .detail-sidebar-header {
@@ -681,4 +697,106 @@ dt.field-data {
 
 .green {
   color: @green;
+}
+
+h1.ui.header.frontpage-header {
+  font-size: 4rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 4rem;
+}
+
+h2.ui.header.frontpage-subtitle {
+  font-weight: 400;
+}
+
+.ui.card.foldable.borderless.facet {
+ margin-left: 0 !important;
+ padding: 0 1rem;
+}
+
+.results-list-item.creatibutors.ui.horizontal.list {
+  span.creatibutor-role {
+    color: @grey;
+  }
+
+  > .item {
+    font-size: @font-size-small;
+    margin-left: 0;
+    margin-right: 0.3rem;
+    color: @darkGrey;
+
+    i.green.right.chevron {
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+.ui.label.active-filter-label {
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  overflow: hidden;
+  max-width: 50%;
+  padding-right: 50px;
+  position: relative;
+
+  i.delete.icon {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+dt.ui.field-data.section {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.ui.languages {
+  &.top.attached.tabular.menu.languages {
+    border-bottom: 1px solid @borderColor;
+    font-weight: 100;
+    font-size: @font-size-tiny;
+    position: absolute;
+    top: -0.5rem;
+    right: 0;
+    display: block;
+    width: auto;
+
+    .item {
+        display: inline-block;
+        border-color: @borderColor;
+    }
+  }
+
+  &.bottom.attached.active.tab.segment {
+    padding-left: 0;
+    border: none;
+  }
+}
+
+.ui.description.section.divider {
+    margin: 1.5rem;
+    border-style: dashed !important;
+}
+
+.descriptions-section {
+    position: relative;
+}
+
+.vocabulary-item-label {
+    border-bottom: 1px dashed @linkColor;
+}
+
+.ui.pagination.menu {
+    background-color: @white !important;
+    border-radius: 5px;
+}
+
+.ui.avatar.image.license-rights {
+    margin: -10px 0 0 -20px;
+}
+
+.access-rights-link {
+    font-size: 1.5rem;
+    margin-right: -20px;
+    margin-left: -0.7rem;
 }

@@ -36,7 +36,7 @@ const ActiveFiltersElementComponent = ({
   const activeFilters = useActiveSearchFilters(filters);
   const groupedData = _groupBy(activeFilters, 0);
   return (
-    <div>
+    <>
       {_map(groupedData, (filters, key) =>
         filters.map((filter, index) => {
           const { label, activeFilter } = getLabel(filter, aggregations);
@@ -54,19 +54,19 @@ const ActiveFiltersElementComponent = ({
                 }
               }}
             >
-              {label}
+              {label || i18next.t("Unfilled")}
               <Icon name="delete" aria-hidden="true" />
             </Label>
           );
         })
       )}
       <ClearFiltersButton
-        content={i18next.t("Cancel all")}
+        content={i18next.t("Clear all")}
         icon={null}
         labelPosition={null}
         size="medium"
       />
-    </div>
+    </>
   );
 };
 

@@ -3,7 +3,9 @@ import time
 from collections import defaultdict
 from typing import Any
 
+import bleach
 import pycountry
+from flask import current_app
 from invenio_access.permissions import system_identity
 from invenio_search.engine import dsl
 from invenio_vocabularies.proxies import current_service as vocabulary_service
@@ -74,6 +76,14 @@ agent_roles = VocabularyCache("agent-roles")
 relation_types_cache = VocabularyCache("relation-types")
 resource_types_cache = VocabularyCache("resource-types")
 
+
+def sanitize_html(value, tags=None, attrs=None):
+    return bleach.clean(
+        value,
+        tags=tags or current_app.config.get("ALLOWED_HTML_TAGS", []),
+        attributes=attrs or current_app.config.get("ALLOWED_HTML_ATTRS", {}),
+        strip=True,
+    ).strip()
 
 def get_ccmm_lang_iri(lang: str, refetch_ok=True) -> str:
     # if the lang is 2-letter, convert it to 3-letter

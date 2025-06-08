@@ -24,12 +24,12 @@ export const Creatibutor = ({ creatibutor }) => {
     ? creatibutor?.person.identifiers?.map((identifier) => ({
       scheme: identifier.identifier_scheme?.id,
       identifier: identifier.value,
-      url: identifier.iri,
+      url: identifier.value.startsWith("https://")? identifier.value : new URL(`/${identifier.value}`, identifier.identifier_scheme.iri),
     }))
     : creatibutor?.organization.identifiers?.map((identifier) => ({
       scheme: identifier.identifier_scheme?.id,
       identifier: identifier.value,
-      url: identifier.iri,
+      url: identifier.value.startsWith("https://")? identifier.value : new URL(`/${identifier.value}`, identifier.identifier_scheme.iri),
     }));
 
   //TODO: Hacky way to handle the identifiers, but as the schemes are various,
@@ -84,7 +84,8 @@ export const Creatibutor = ({ creatibutor }) => {
           />
         </React.Fragment>
       )}
-      {role && `( ${role} )`}
+      {role && role.toLowerCase() !== 'creator' && <span className="creatibutor-role">{` (${role})`}</span>}
+
     </span>
   );
 };

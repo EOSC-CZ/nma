@@ -1,35 +1,20 @@
 {#def related_resources, record, search_link #}
-
 {% set related_resources = array(related_resources) %}
-
-<div role="list" class="ui divided list">
+<div role="list" class="ui ordered relaxed divided list">
   {% for resource in related_resources %}
   <div class="item">
-    <ListItemField d={resource.title}>
-      {{resource.title|string}}
-    </ListItemField>
-    <ListItemField d={resource.relation_type}>
-      <VocabularyItem vocabulary={resource.relation_type} vocabulary_type="relation-types" search_link={record.links.search_link} searchFacet="metadata_related_resources_relation_type" />
-    </ListItemField>
-    <ListItemField d={resource.iri}>
-      <SeparatedProperty d={resource.iri}>
+    {{ _("This dataset ") }}
+    <VocabularyItem vocabulary={resource.relation_type} vocabulary_type="relation-types" capitalized={False} />
+      <SeparatedProperty renderLabel={False}  d={resource.title}>
+          <h5 class="header mb-5 mt-5"><IValue value={resource.title|string} /></h5>
+      </SeparatedProperty>
+      <SeparatedProperty renderLabel={False} d={resource.iri}>
         <IRI iri={resource.iri} />
       </SeparatedProperty>
-    </ListItemField>
-    <ListItemField d={resource.type}>
-      <SeparatedProperty d={resource.type}>
-        <VocabularyItem vocabulary={resource.type} vocabulary_type="resource-types" search_link={record.links.search_link} searchFacet="metadata_resource_type" />
+      <SeparatedProperty renderLabel={False} d={resource.type}>
+        ( <VocabularyItem vocabulary={resource.type} vocabulary_type="resource-types" searchFacet="metadata_resource_type" />{{- ")" }}
       </SeparatedProperty>
-    </ListItemField>
-    {% for identifier in array(resource.identifiers) %}
-      <ListItemField d={identifier}>
-        <div role="list" class="list">
-          <a href="{{ identifier.value }}" target="_blank" rel="noopener noreferrer">
-            {{identifier.value }}
-          </a>
-        </div>
-      </ListItemField>
-    {% endfor %}
+      <Identifiers identifiers={resource.identifiers} horizontal={True} copy={False} size="mini" />
     <ListItemField d={resource.time_references}>
       <strong>{{ resource.time_references._ui_label }}:</strong>
       <TimeReferences time_references={resource.time_references} search_link={search_link} />

@@ -5,7 +5,6 @@ import traceback
 from functools import cached_property
 from typing import Union
 
-import bleach
 import tqdm
 import yaml
 from invenio_access.permissions import system_identity
@@ -19,13 +18,10 @@ from common.oai.ccmm_tools import (
     get_ccmm_lang_iri,
     get_ccmm_role,
     relation_types_cache,
-    set_publication_year,
+    set_publication_year, sanitize_html,
 )
 
 UNKNOWN_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/UND"
-
-allowed_tags = set([*bleach.ALLOWED_TAGS, "span", "p", "br"])
-
 
 class DataRepoTransformer(BaseTransformer):
 
@@ -120,7 +116,7 @@ class DataRepoTransformer(BaseTransformer):
                 md["descriptions"].append(
                     {
                         "lang": "unk",
-                        "value": bleach.clean(note, tags=allowed_tags),
+                        "value": sanitize_html(note),
                     }
                 )
 
@@ -379,7 +375,7 @@ class DataRepoTransformer(BaseTransformer):
         return [
             {
                 "lang": lang,
-                "value": bleach.clean(text, tags=allowed_tags),
+                "value": sanitize_html(text),
             }
             for lang, text in orig_abstract.items()
         ]

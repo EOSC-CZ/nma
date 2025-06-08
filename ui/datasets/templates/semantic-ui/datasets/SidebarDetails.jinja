@@ -15,36 +15,36 @@
       {% for right in array(term.access_rights) %}
         {% set id = right.id|string %}
         {% set title = right.title|string %}
-        <div aria-label='{{ term.access_rights._ui_label }}'>
-          <a href="/vocabularies/access-rights/{{id}}">
-            <img 
-              class="ui tiny middle aligned image license-rights"
-              src="/static/icons/locks/{{id_to_lock_icons[id]}}"
-              title="{{title}}"
-              alt="{{title}}"
-              aria-label="{{title}}"
-            />
+        <div class="rel-mb-1" aria-label='{{ term.access_rights._ui_label }}'>
+          <img
+            class="ui tiny avatar image license-rights"
+            src="/static/icons/locks/{{id_to_lock_icons[id]}}"
+            title="{{term.access_rights._ui_label}}"
+            alt="{{title}}"
+            aria-label="{{title}}"
+          />
+          <a class="access-rights-link" href="/vocabularies/access-rights/{{id}}">
+              <IValue value={right.title|capitalize} />
           </a>
-          <IValue value={right.title} />
         </div>
       {% endfor %}
       {% endif %}
-      {% if term.license%}
-      <div aria-label="{{ term.iri._ui_label }}">
-        <SeparatedProperty d={term.iri}>
-          <IRI iri={term.iri} />
-        </SeparatedProperty>
-      </div>
-      {% endif %}
       {% if term.description %}
-      <div aria-label="{{ term.description._ui_label }}">
-        <SeparatedProperty d={term.description}>
-          <Array data={array(term.description)|map(attribute='value')} />
+      <div class="rel-mb-1" aria-label="{{ term.description._ui_label }}">
+          <strong>{{ _("License:") }}</strong>
+        <SeparatedProperty renderLabel={False} d={term.description}>
+          <Multilingual data={array(term.description)|first} field_class="mb-0" />
+          {% if term.iri %}
+          <a href="{{term.iri}}" target="_blank" rel="noopener noreferrer">
+            {{ _("More info") }}
+            <i class="ui small icon external"></i>
+          </a>
+          {% endif %}
         </SeparatedProperty>
       </div>
       {% endif %}
       {% if term.license %}
-      <div aria-label="{{ term.license._ui_label }}">
+      <div class="rel-mb-1" aria-label="{{ term.license._ui_label }}">
         <SeparatedProperty d={term.license} />
       </div>
       {% endif %}

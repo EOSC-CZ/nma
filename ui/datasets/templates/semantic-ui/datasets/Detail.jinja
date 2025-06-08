@@ -58,7 +58,11 @@ api_record: an API version of the record
 {% endblock %}
 
 {%- block javascript %}
-{{ super() }}
+{% include "invenio_theme/javascript.html" %}
+{{ webpack['oarepo_ui_theme.js'] }}
+{{ webpack['oarepo_ui_components.js'] }}
+{{webpack['components.js']}}
+{{webpack["record_export.js"]}}
+{{ webpack_optional('overrides-' ~ request.endpoint ~ '.js') }}
 {{ webpack['datasets_detail.js'] }}
-{{ webpack['oarepo_requests_ui_record_requests.js']}}
 {%- endblock %}
