@@ -800,3 +800,15 @@ dt.ui.field-data.section {
     margin-right: -20px;
     margin-left: -0.7rem;
 }
+
+.ui.identifiers.list > .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .alt-identifiers {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

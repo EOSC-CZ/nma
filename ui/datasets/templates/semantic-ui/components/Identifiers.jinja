@@ -1,7 +1,7 @@
 {# def identifiers, horizontal=False, copy=True, size="mini" #}
 
 {% if identifiers._has_value %}
-<div role="list" class="{% if not horizontal %}ui medium list{% endif %}">
+<div role="list" class="{% if not horizontal %}ui medium list{% endif %} identifiers">
   {% for id in array(identifiers) %}
   {% set iri_link = id.iri or id.value %}
   {% set iri_is_resolvable = ((iri_link|string).startswith("http://") or (iri_link|string).startswith("https://")) if iri_link else False %}
