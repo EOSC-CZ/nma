@@ -23,7 +23,9 @@ done
 
 # shellcheck disable=SC1090
 #source ~/.envrc.local
-source .venv/bin/activate
+if [ -f .venv/bin/activate ]; then
+    source .venv/bin/activate
+fi
 
 if [ $CREATE == "true" ] ; then
     invenio oarepo communities create czu "ČZU" || true
