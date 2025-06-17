@@ -59,6 +59,43 @@ record:
     base-html-url: /datasets/
     base-url: /datasets/
 
+  record:
+    fields:
+      # search fields
+      search_title: "{{oarepo_runtime.records.systemfields.icu.FulltextIndexField}}(source_field='metadata.title', boost=20)"
+
+      search_person_name: "{{oarepo_runtime.records.systemfields.icu.FulltextIndexField}}(source_field='metadata.qualified_relations.person.name', boost=20)"
+      search_organization_name: "{{oarepo_runtime.records.systemfields.icu.FulltextIndexField}}(source_field='metadata.qualified_relations.organization.name', boost=20)"
+
+      search_person_id: "{{oarepo_runtime.records.systemfields.icu.TermIndexField}}(source_field='metadata.qualified_relations.person.identifiers.value', boost=20)"
+      search_organization_id: "{{oarepo_runtime.records.systemfields.icu.TermIndexField}}(source_field='metadata.qualified_relations.organization.identifiers.value', boost=20)"
+
+      search_id: "{{oarepo_runtime.records.systemfields.icu.TermIndexField}}(source_field='identifiers.value', boost=20)"
+      search_pid: "{{oarepo_runtime.records.systemfields.icu.TermIndexField}}(source_field='id', boost=20)"
+
+      search_subjects: "{{oarepo_runtime.records.systemfields.icu.FulltextIndexField}}(source_field='metadata.subjects.title.value', boost=10)"
+      search_descriptions: "{{oarepo_runtime.records.systemfields.icu.FulltextIndexField}}(source_field='metadata.descriptions.value', boost=10)"
+
+      search_alternate_titles: "{{oarepo_runtime.records.systemfields.icu.FulltextIndexField}}(source_field='metadata.alternate_titles.title.value', boost=10)"
+
+  mapping:
+    template:
+      settings:
+        index:
+          query:
+            default_field:
+              - search_title.*
+              - search_id
+              - search_pid
+              - search_person_name.*
+              - search_organization_name.*
+              - search_person_id
+              - search_organization_id
+
+              - search_descriptions.*
+              - search_subjects.*
+              - search_alternate_titles.*
+
 use: ./datasets-settings.yaml
 
 settings:

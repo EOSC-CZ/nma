@@ -1,7 +1,6 @@
 import copy
 import re
 import sys
-import traceback
 from functools import cached_property
 from typing import Union
 
@@ -18,10 +17,12 @@ from common.oai.ccmm_tools import (
     get_ccmm_lang_iri,
     get_ccmm_role,
     relation_types_cache,
-    set_publication_year, sanitize_html,
+    sanitize_html,
+    set_publication_year,
 )
 
 UNKNOWN_LANGUAGE_IRI = "https://publications.europa.eu/resource/authority/language/UND"
+
 
 class DataRepoTransformer(BaseTransformer):
 
@@ -37,8 +38,6 @@ class DataRepoTransformer(BaseTransformer):
             try:
                 self.transform_entry(entry)
             except Exception as e:
-                traceback.print_exc()
-                sys.exit(1)
                 entry.errors.append(StreamEntryError.from_exception(e))
         return batch
 
@@ -217,7 +216,10 @@ class DataRepoTransformer(BaseTransformer):
     def convert_contributor(self, md, orig_contributor):
         roles = orig_contributor.pop("role", None)
         role = next(r for r in roles if not r.get("is_ancestor"))
-        data_cite_code = role["dataCiteCode"]
+        if "dataCiteCode" not in role:
+            data_cite_code = "Other"
+        else:
+            data_cite_code = role["dataCiteCode"]
         self.convert_creator_contributor(
             md,
             orig_contributor,

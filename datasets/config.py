@@ -11,6 +11,9 @@ from oarepo_requests.resources.draft.resource import DraftRecordRequestsResource
 from oarepo_requests.resources.draft.types.resource import DraftRequestTypesResource
 from oarepo_requests.services.draft.service import DraftRecordRequestsService
 from oarepo_requests.services.draft.types.service import DraftRecordRequestTypesService
+from oarepo_runtime.records.entity_resolvers.proxies import (
+    WithDeletedServiceResultProxy,
+)
 
 from datasets.files.api import DatasetsFile, DatasetsFileDraft
 from datasets.files.requests.resolvers import DatasetsFileDraftResolver
@@ -84,7 +87,11 @@ ENTITY_REFERENCE_UI_RESOLVERS = {
 }
 REQUESTS_UI_SERIALIZATION_REFERENCED_FIELDS = []
 NOTIFICATIONS_ENTITY_RESOLVERS = [
-    ServiceResultResolver(service_id="datasets", type_key="datasets"),
+    ServiceResultResolver(
+        service_id="datasets",
+        type_key="datasets",
+        proxy_cls=WithDeletedServiceResultProxy,
+    ),
     DraftServiceResultResolver(
         service_id="datasets",
         type_key="datasets_draft",

@@ -16,6 +16,7 @@ dependencies = [
     "oarepo-glitchtip==1.*",
     "oarepo-global-search==1.*",
     "oarepo-oai-pmh-harvester",
+    "oarepo-oidc-einfra>=1.0.0",
     "oarepo-requests==2.*",
     "oarepo-runtime==1.*",
     "oarepo-ui==5.*",
@@ -23,7 +24,6 @@ dependencies = [
     "oarepo-workflows==1.*",
     "oarepo[s3,rdm]==12.*",
     "python-dotenv",
-    "oarepo-oidc-einfra>=1.0.0",
 ]
 requires-python = ">=3.12,<3.13"
 

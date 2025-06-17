@@ -3950,11 +3950,6 @@
             }
         },
         "pids": {
-            "propertyNames": {
-                "pattern": "^[a-z_-][a-z0-9_-]*$"
-            },
-            "uniqueItems": true,
-            "type": "object",
             "additionalProperties": {
                 "type": "object",
                 "additionalProperties": false,
@@ -3969,6 +3964,11 @@
                         "type": "string"
                     }
                 }
+            },
+            "uniqueItems": true,
+            "type": "object",
+            "propertyNames": {
+                "pattern": "^[a-z_-][a-z0-9_-]*$"
             }
         },
         "state": {

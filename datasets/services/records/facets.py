@@ -67,10 +67,7 @@ metadata_descriptions_en = TermsFacet(
 )
 
 metadata_descriptions = MultilingualFacet(
-    lang_facets={
-        "cs": metadata_descriptions_cs,
-        "en": metadata_descriptions_en,
-    },
+    lang_facets={"cs": metadata_descriptions_cs, "en": metadata_descriptions_en},
     label=_("metadata/descriptions.label"),
 )
 
@@ -364,7 +361,7 @@ metadata_funding_references_funders_organization_iri = TermsFacet(
 
 metadata_funding_references_funders_organization_name = TermsFacet(
     field="metadata.funding_references.funders.organization.name",
-    label=_("metadata/funding_references/funders.label"),
+    label=_("metadata/funding_references/funders/organization/name.label"),
 )
 
 metadata_funding_references_funders_person_affiliations_alternate_names_cs = TermsFacet(
@@ -849,7 +846,7 @@ metadata_is_described_by_original_repositories_labels_cs = TermsFacet(
 
 metadata_is_described_by_original_repositories_labels_en = TermsFacet(
     field="metadata.is_described_by.original_repositories.labels_en.keyword",
-    label=_("metadata/is_described_by/original_repositories.label"),
+    label=_("metadata/is_described_by/original_repositories/labels.label"),
 )
 
 metadata_is_described_by_original_repositories_labels = MultilingualFacet(
@@ -3660,14 +3657,11 @@ metadata_subjects_title_cs = TermsFacet(
 )
 
 metadata_subjects_title_en = TermsFacet(
-    field="metadata.subjects.title_en.keyword", label=_("metadata/subjects.label")
+    field="metadata.subjects.title_en.keyword", label=_("metadata/subjects/title.label")
 )
 
 metadata_subjects_title = MultilingualFacet(
-    lang_facets={
-        "cs": metadata_subjects_title_cs,
-        "en": metadata_subjects_title_en,
-    },
+    lang_facets={"cs": metadata_subjects_title_cs, "en": metadata_subjects_title_en},
     label=_("metadata/subjects/title.label"),
 )
 

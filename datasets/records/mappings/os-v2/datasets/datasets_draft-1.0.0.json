@@ -5358,6 +5358,22 @@
         ]
     },
     "settings": {
+        "index": {
+            "query": {
+                "default_field": [
+                    "search_title.*",
+                    "search_id",
+                    "search_pid",
+                    "search_person_name.*",
+                    "search_organization_name.*",
+                    "search_person_id",
+                    "search_organization_id",
+                    "search_descriptions.*",
+                    "search_subjects.*",
+                    "search_alternate_titles.*"
+                ]
+            }
+        },
         "index.mapping.total_fields.limit": 3000,
         "index.mapping.nested_fields.limit": 200,
         "index.mapping.ignore_malformed": true

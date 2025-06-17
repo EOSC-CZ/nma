@@ -60,6 +60,22 @@
                     ]
                 },
                 "settings": {
+                    "index": {
+                        "query": {
+                            "default_field": [
+                                "search_title.*",
+                                "search_id",
+                                "search_pid",
+                                "search_person_name.*",
+                                "search_organization_name.*",
+                                "search_person_id",
+                                "search_organization_id",
+                                "search_descriptions.*",
+                                "search_subjects.*",
+                                "search_alternate_titles.*"
+                            ]
+                        }
+                    },
                     "index.mapping.total_fields.limit": 3000,
                     "index.mapping.nested_fields.limit": 200,
                     "index.mapping.ignore_malformed": true
@@ -96,6 +112,55 @@
             "class": "datasets.services.records.schema.DatasetsSchema",
             "extra-code": ""
         },
+        "service-config": {
+            "components": [
+                "{{oarepo_oaipmh_harvester.components.OaiSectionComponent}}",
+                "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
+                "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
+                "{{oarepo_communities.services.components.access.CommunityRecordAccessComponent}}",
+                "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
+                "{{oarepo_requests.services.components.autorequest.AutorequestComponent}}",
+                "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
+            ],
+            "base-classes": [
+                "oarepo_runtime.services.config.service.SearchAllConfigMixin",
+                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
+                "invenio_rdm_records.services.config.RDMRecordServiceConfig"
+            ],
+            "generate": true,
+            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
+            "module": "datasets.services.records.config",
+            "class": "datasets.services.records.config.DatasetsServiceConfig",
+            "extra-code": "",
+            "service-id": "datasets",
+            "additional-args": [],
+            "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
+        },
+        "record": {
+            "fields": {
+                "search_title": "{{oarepo_runtime.records.systemfields.icu.FulltextSearchField}}(source_field='metadata.title', boost=20)",
+                "search_person_name": "{{oarepo_runtime.records.systemfields.icu.FulltextSearchField}}(source_field='metadata.qualified_relations.person.name', boost=20)",
+                "search_organization_name": "{{oarepo_runtime.records.systemfields.icu.FulltextSearchField}}(source_field='metadata.qualified_relations.organization.name', boost=20)",
+                "search_person_id": "{{oarepo_runtime.records.systemfields.icu.TermSearchField}}(source_field='metadata.qualified_relations.person.identifiers.value', boost=20)",
+                "search_organization_id": "{{oarepo_runtime.records.systemfields.icu.TermSearchField}}(source_field='metadata.qualified_relations.organization.identifiers.value', boost=20)",
+                "search_id": "{{oarepo_runtime.records.systemfields.icu.TermSearchField}}(source_field='identifiers.value', boost=20)",
+                "search_pid": "{{oarepo_runtime.records.systemfields.icu.TermSearchField}}(source_field='id', boost=20)",
+                "search_subjects": "{{oarepo_runtime.records.systemfields.icu.FulltextSearchField}}(source_field='metadata.subjects.title.value', boost=10)",
+                "search_descriptions": "{{oarepo_runtime.records.systemfields.icu.FulltextSearchField}}(source_field='metadata.descriptions.value', boost=10)",
+                "search_alternate_titles": "{{oarepo_runtime.records.systemfields.icu.FulltextSearchField}}(source_field='metadata.alternate_titles.title.value', boost=10)",
+                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
+                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()",
+                "media_files": "FilesField(key=MediaFilesAttrConfig[\"_files_attr_key\"],bucket_id_attr=MediaFilesAttrConfig[\"_files_bucket_id_attr_key\"],bucket_attr=MediaFilesAttrConfig[\"_files_bucket_attr_key\"],store=False,dump=False,file_cls={{invenio_rdm_records.records.api.RDMMediaFileRecord}},create=False,delete=False,)"
+            },
+            "base-classes": [
+                "invenio_rdm_records.records.api.RDMRecord"
+            ],
+            "generate": true,
+            "module": "datasets.records.api",
+            "class": "datasets.records.api.DatasetsRecord",
+            "imports": [],
+            "extra-code": ""
+        },
         "ui": {
             "marshmallow": {
                 "imports": [],
@@ -112,33 +177,11 @@
             "file": "datasets/models/ui.json",
             "alias": "datasets"
         },
-        "service-config": {
-            "components": [
-                "{{oarepo_oaipmh_harvester.components.OaiSectionComponent}}",
-                "{{oarepo_communities.services.components.default_workflow.CommunityDefaultWorkflowComponent}}",
-                "{{oarepo_communities.services.components.include.CommunityInclusionComponent}}",
-                "{{oarepo_runtime.services.components.CustomFieldsComponent}}",
-                "{{oarepo_requests.services.components.autorequest.AutorequestComponent}}",
-                "{{oarepo_workflows.services.components.workflow.WorkflowComponent}}"
-            ],
-            "base-classes": [
-                "oarepo_runtime.services.config.service.PermissionsPresetsConfigMixin",
-                "invenio_rdm_records.services.config.RDMRecordServiceConfig"
-            ],
-            "generate": true,
-            "config-key": "DATASETS_RECORD_SERVICE_CONFIG",
-            "module": "datasets.services.records.config",
-            "class": "datasets.services.records.config.DatasetsServiceConfig",
-            "extra-code": "",
-            "service-id": "datasets",
-            "additional-args": [],
-            "search-item-links-template-cls": "invenio_records_resources.services.LinksTemplate"
-        },
         "resource-config": {
             "base-url": "/datasets/",
             "base-html-url": "/datasets/",
             "base-classes": [
-                "invenio_drafts_resources.resources.RecordResourceConfig"
+                "oarepo_runtime.resources.config.BaseRecordResourceConfig"
             ],
             "generate": true,
             "config-key": "DATASETS_RECORD_RESOURCE_CONFIG",
@@ -147,6 +190,25 @@
             "extra-code": "",
             "imports": [],
             "additional-args": []
+        },
+        "facets": {
+            "facet-groups": {
+                "default": {
+                    "metadata.funding_references.award_title": 1,
+                    "metadata.funding_references.funders.organization.name": 2,
+                    "metadata.funding_references.funding_program": 3,
+                    "metadata.is_described_by.original_repositories.labels_en.keyword": 4,
+                    "metadata.locations.names": 5,
+                    "metadata.primary_language": 6,
+                    "metadata.publication_year": 7,
+                    "metadata.subjects.title_cs.keyword": 8,
+                    "metadata.terms_of_use.access_rights": 9
+                }
+            },
+            "generate": true,
+            "module": "datasets.services.records.facets",
+            "extra-code": "",
+            "groups": true
         },
         "module": {
             "qualified": "datasets",
@@ -255,6 +317,16 @@
                 "module": "tests"
             }
         },
+        "draft": {
+            "type": "draft_record",
+            "properties": {},
+            "searchable": true,
+            "tests": {
+                "extra-fixtures": [],
+                "extra-code": "",
+                "module": "tests"
+            }
+        },
         "draft-files": {
             "type": "draft-file",
             "properties": {},
@@ -270,42 +342,17 @@
             "extra-code": "",
             "module": "tests"
         },
-        "draft": {
-            "type": "draft_record",
-            "properties": {},
-            "searchable": true,
-            "tests": {
-                "extra-fixtures": [],
-                "extra-code": "",
-                "module": "tests"
-            }
-        },
         "sample": {
             "file": "data/sample_data.yaml"
         },
         "ext-resource": {
             "service-kwargs": {
-                "pids_service": "{{invenio_rdm_records.services.pids.PIDsService}}(config_class, {{invenio_rdm_records.services.pids.PIDManager}})"
+                "pids_service": "{{invenio_rdm_records.services.pids.PIDsService}}(service_config, {{invenio_rdm_records.services.pids.PIDManager}})"
             },
             "generate": true,
             "skip": false
         },
         "model-name": "Datasets",
-        "record": {
-            "fields": {
-                "state": "{{oarepo_workflows.records.systemfields.state.RecordStateField}}(initial='published')",
-                "state_timestamp": "{{oarepo_workflows.records.systemfields.state.RecordStateTimestampField}}()",
-                "media_files": "FilesField(key=MediaFilesAttrConfig[\"_files_attr_key\"],bucket_id_attr=MediaFilesAttrConfig[\"_files_bucket_id_attr_key\"],bucket_attr=MediaFilesAttrConfig[\"_files_bucket_attr_key\"],store=False,dump=False,file_cls={{invenio_rdm_records.records.api.RDMMediaFileRecord}},create=False,delete=False,)"
-            },
-            "base-classes": [
-                "invenio_rdm_records.records.api.RDMRecord"
-            ],
-            "generate": true,
-            "module": "datasets.records.api",
-            "class": "datasets.records.api.DatasetsRecord",
-            "imports": [],
-            "extra-code": ""
-        },
         "draft-parent-record-metadata": {
             "base-classes": [
                 "oarepo_workflows.records.models.RecordWorkflowParentModelMixin",
@@ -357,12 +404,6 @@
             "function": "datasets.views.records.app.create_app_blueprint",
             "imports": []
         },
-        "facets": {
-            "generate": true,
-            "module": "datasets.services.records.facets",
-            "extra-code": "",
-            "groups": true
-        },
         "saved-model": {
             "file": "datasets/models/records.json",
             "module": "datasets.models",
@@ -374,7 +415,7 @@
         },
         "resource": {
             "base-classes": [
-                "invenio_drafts_resources.resources.RecordResource"
+                "oarepo_runtime.resources.resource.BaseRecordResource"
             ],
             "generate": true,
             "config-key": "DATASETS_RECORD_RESOURCE_CLASS",
@@ -488,7 +529,7 @@
         "service": {
             "imports": [],
             "base-classes": [
-                "invenio_rdm_records.services.services.RDMRecordService"
+                "oarepo_runtime.services.service.SearchAllRecordsService"
             ],
             "generate": true,
             "config-key": "DATASETS_RECORD_SERVICE_CLASS",
@@ -567,9 +608,9 @@
                 "oarepo_runtime.services.results.RecordItem"
             ],
             "components": [
-                "{{oarepo_communities.services.results.RecordCommunitiesComponent}}()",
                 "{{oarepo_requests.services.results.RequestsComponent}}()",
-                "{{oarepo_requests.services.results.RequestTypesComponent}}()"
+                "{{oarepo_requests.services.results.RequestTypesComponent}}()",
+                "{{oarepo_communities.services.results.RecordCommunitiesComponent}}()"
             ],
             "imports": []
         },
@@ -607,7 +648,7 @@
             "additional-ui-resolvers": {},
             "ui-serialization-referenced-fields": [],
             "notification-resolver": [
-                "{{invenio_records_resources.references.entity_resolvers.results.ServiceResultResolver}}(service_id=\"datasets\", type_key=\"datasets\")"
+                "{{invenio_records_resources.references.entity_resolvers.results.ServiceResultResolver}}(service_id=\"datasets\", type_key=\"datasets\",proxy_cls={{oarepo_runtime.records.entity_resolvers.proxies.WithDeletedServiceResultProxy}})"
             ]
         },
         "record-requests": {
@@ -4448,7 +4489,7 @@
                                                         "target": "iri"
                                                     }
                                                 ],
-                                                "vocabulary-type": "contributor-types",
+                                                "vocabulary-type": "agent-roles",
                                                 "ui": {
                                                     "marshmallow": {
                                                         "generate": false,
@@ -4460,7 +4501,7 @@
                                                 },
                                                 "marshmallow": {
                                                     "generate": false,
-                                                    "class": "common.services.schema.CCMMContributorTypesVocabularySchema",
+                                                    "class": "common.services.schema.CCMMAgentTypesVocabularySchema",
                                                     "unknown": "INCLUDE"
                                                 },
                                                 "label.en": "Role of the agent",
@@ -4471,10 +4512,10 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "pid-field": "Vocabulary.pid.with_type_ctx(\"contributor-types\")",
+                                                "pid-field": "Vocabulary.pid.with_type_ctx(\"agent-roles\")",
                                                 "facets": {
                                                     "args": [
-                                                        "vocabulary='contributor-types'"
+                                                        "vocabulary='agent-roles'"
                                                     ]
                                                 },
                                                 "properties": {
@@ -6038,7 +6079,7 @@
                                                                     "target": "iri"
                                                                 }
                                                             ],
-                                                            "vocabulary-type": "contributor-types",
+                                                            "vocabulary-type": "agent-roles",
                                                             "ui": {
                                                                 "marshmallow": {
                                                                     "generate": false,
@@ -6050,7 +6091,7 @@
                                                             },
                                                             "marshmallow": {
                                                                 "generate": false,
-                                                                "class": "common.services.schema.CCMMContributorTypesVocabularySchema",
+                                                                "class": "common.services.schema.CCMMAgentTypesVocabularySchema",
                                                                 "unknown": "INCLUDE"
                                                             },
                                                             "label.en": "Role of the agent",
@@ -6061,10 +6102,10 @@
                                                                 }
                                                             ],
                                                             "model": "vocabularies",
-                                                            "pid-field": "Vocabulary.pid.with_type_ctx(\"contributor-types\")",
+                                                            "pid-field": "Vocabulary.pid.with_type_ctx(\"agent-roles\")",
                                                             "facets": {
                                                                 "args": [
-                                                                    "vocabulary='contributor-types'"
+                                                                    "vocabulary='agent-roles'"
                                                                 ]
                                                             },
                                                             "properties": {
@@ -8203,7 +8244,7 @@
                                             "target": "iri"
                                         }
                                     ],
-                                    "vocabulary-type": "contributor-types",
+                                    "vocabulary-type": "agent-roles",
                                     "ui": {
                                         "marshmallow": {
                                             "generate": false,
@@ -8215,7 +8256,7 @@
                                     },
                                     "marshmallow": {
                                         "generate": false,
-                                        "class": "common.services.schema.CCMMContributorTypesVocabularySchema",
+                                        "class": "common.services.schema.CCMMAgentTypesVocabularySchema",
                                         "unknown": "INCLUDE"
                                     },
                                     "label.en": "Role of the agent",
@@ -8226,10 +8267,10 @@
                                         }
                                     ],
                                     "model": "vocabularies",
-                                    "pid-field": "Vocabulary.pid.with_type_ctx(\"contributor-types\")",
+                                    "pid-field": "Vocabulary.pid.with_type_ctx(\"agent-roles\")",
                                     "facets": {
                                         "args": [
-                                            "vocabulary='contributor-types'"
+                                            "vocabulary='agent-roles'"
                                         ]
                                     },
                                     "properties": {
@@ -9664,7 +9705,7 @@
                                                         "target": "iri"
                                                     }
                                                 ],
-                                                "vocabulary-type": "contributor-types",
+                                                "vocabulary-type": "agent-roles",
                                                 "ui": {
                                                     "marshmallow": {
                                                         "generate": false,
@@ -9676,7 +9717,7 @@
                                                 },
                                                 "marshmallow": {
                                                     "generate": false,
-                                                    "class": "common.services.schema.CCMMContributorTypesVocabularySchema",
+                                                    "class": "common.services.schema.CCMMAgentTypesVocabularySchema",
                                                     "unknown": "INCLUDE"
                                                 },
                                                 "label.en": "Role of the agent",
@@ -9687,10 +9728,10 @@
                                                     }
                                                 ],
                                                 "model": "vocabularies",
-                                                "pid-field": "Vocabulary.pid.with_type_ctx(\"contributor-types\")",
+                                                "pid-field": "Vocabulary.pid.with_type_ctx(\"agent-roles\")",
                                                 "facets": {
                                                     "args": [
-                                                        "vocabulary='contributor-types'"
+                                                        "vocabulary='agent-roles'"
                                                     ]
                                                 },
                                                 "properties": {
@@ -12336,11 +12377,6 @@
             "pids": {
                 "type": "object",
                 "json-schema": {
-                    "propertyNames": {
-                        "pattern": "^[a-z_-][a-z0-9_-]*$"
-                    },
-                    "uniqueItems": true,
-                    "type": "object",
                     "additionalProperties": {
                         "type": "object",
                         "additionalProperties": false,
@@ -12355,6 +12391,11 @@
                                 "type": "string"
                             }
                         }
+                    },
+                    "uniqueItems": true,
+                    "type": "object",
+                    "propertyNames": {
+                        "pattern": "^[a-z_-][a-z0-9_-]*$"
                     }
                 },
                 "ui": {

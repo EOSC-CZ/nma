@@ -5,6 +5,7 @@ from invenio_records_resources.services import (
     RecordLink,
     pagination_links,
 )
+from oarepo_communities.services.components.access import CommunityRecordAccessComponent
 from oarepo_communities.services.components.default_workflow import (
     CommunityDefaultWorkflowComponent,
 )
@@ -23,7 +24,10 @@ from oarepo_runtime.services.config import (
     has_published_record,
     is_published_record,
 )
-from oarepo_runtime.services.config.service import PermissionsPresetsConfigMixin
+from oarepo_runtime.services.config.service import (
+    PermissionsPresetsConfigMixin,
+    SearchAllConfigMixin,
+)
 from oarepo_runtime.services.records import pagination_links_html
 from oarepo_workflows.services.components.workflow import WorkflowComponent
 
@@ -37,7 +41,9 @@ from datasets.services.records.search import (
 )
 
 
-class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfig):
+class DatasetsServiceConfig(
+    SearchAllConfigMixin, PermissionsPresetsConfigMixin, RDMRecordServiceConfig
+):
     """DatasetsRecord service config."""
 
     result_item_cls = DatasetsRecordItem
@@ -70,6 +76,7 @@ class DatasetsServiceConfig(PermissionsPresetsConfigMixin, RDMRecordServiceConfi
             OaiSectionComponent,
             CommunityDefaultWorkflowComponent,
             CommunityInclusionComponent,
+            CommunityRecordAccessComponent,
             CustomFieldsComponent,
             AutorequestComponent,
             WorkflowComponent,

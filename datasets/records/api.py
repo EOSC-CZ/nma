@@ -19,6 +19,7 @@ from oarepo_communities.records.systemfields.communities import (
 from oarepo_runtime.records.pid_providers import UniversalPIDMixin
 from oarepo_runtime.records.relations import PIDRelation, RelationsField
 from oarepo_runtime.records.systemfields.has_draftcheck import HasDraftCheckField
+from oarepo_runtime.records.systemfields.icu import FulltextIndexField, TermIndexField
 from oarepo_runtime.records.systemfields.record_status import RecordStatusSystemField
 from oarepo_vocabularies.records.api import Vocabulary
 from oarepo_workflows.records.systemfields.state import (
@@ -67,6 +68,41 @@ class DatasetsRecord(RDMRecord):
     )
 
     dumper = DatasetsDumper()
+
+    search_title = FulltextIndexField(source_field="metadata.title", boost=20)
+
+    search_person_name = FulltextIndexField(
+        source_field="metadata.qualified_relations.person.name", boost=20
+    )
+
+    search_organization_name = FulltextIndexField(
+        source_field="metadata.qualified_relations.organization.name", boost=20
+    )
+
+    search_person_id = TermIndexField(
+        source_field="metadata.qualified_relations.person.identifiers.value", boost=20
+    )
+
+    search_organization_id = TermIndexField(
+        source_field="metadata.qualified_relations.organization.identifiers.value",
+        boost=20,
+    )
+
+    search_id = TermIndexField(source_field="identifiers.value", boost=20)
+
+    search_pid = TermIndexField(source_field="id", boost=20)
+
+    search_subjects = FulltextIndexField(
+        source_field="metadata.subjects.title.value", boost=10
+    )
+
+    search_descriptions = FulltextIndexField(
+        source_field="metadata.descriptions.value", boost=10
+    )
+
+    search_alternate_titles = FulltextIndexField(
+        source_field="metadata.alternate_titles.title.value", boost=10
+    )
 
     state = RecordStateField(initial="published")
 
@@ -352,6 +388,41 @@ class DatasetsDraft(RDMDraft):
     state = RecordStateField()
 
     state_timestamp = RecordStateTimestampField()
+
+    search_title = FulltextIndexField(source_field="metadata.title", boost=20)
+
+    search_person_name = FulltextIndexField(
+        source_field="metadata.qualified_relations.person.name", boost=20
+    )
+
+    search_organization_name = FulltextIndexField(
+        source_field="metadata.qualified_relations.organization.name", boost=20
+    )
+
+    search_person_id = TermIndexField(
+        source_field="metadata.qualified_relations.person.identifiers.value", boost=20
+    )
+
+    search_organization_id = TermIndexField(
+        source_field="metadata.qualified_relations.organization.identifiers.value",
+        boost=20,
+    )
+
+    search_id = TermIndexField(source_field="identifiers.value", boost=20)
+
+    search_pid = TermIndexField(source_field="id", boost=20)
+
+    search_subjects = FulltextIndexField(
+        source_field="metadata.subjects.title.value", boost=10
+    )
+
+    search_descriptions = FulltextIndexField(
+        source_field="metadata.descriptions.value", boost=10
+    )
+
+    search_alternate_titles = FulltextIndexField(
+        source_field="metadata.alternate_titles.title.value", boost=10
+    )
 
     media_files = FilesField(
         key=MediaFilesAttrConfig["_files_attr_key"],
