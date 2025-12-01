@@ -1,5 +1,5 @@
 version: "3.5"
-name: "nma-2"
+name: "nma"
 services:
   cache:
     image: redis:7

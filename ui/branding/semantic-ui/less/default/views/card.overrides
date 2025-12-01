@@ -1,5 +1,0 @@
-.ui.card {
-  &.borderless.facet {
-    background: inherit;
-  }
-}

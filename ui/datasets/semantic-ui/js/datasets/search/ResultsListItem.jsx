@@ -1,160 +1,82 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Item, Label, Grid, Button, Icon } from "semantic-ui-react";
-import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
-import sanitizeHtml from "sanitize-html";
+import _get from "lodash/get";
+import _join from "lodash/join";
+import { Grid, Item, Label } from "semantic-ui-react";
 import { i18next } from "@translations/i18next";
-import { getValueFromMultilingualArray } from "@js/oarepo_ui/util";
-import _truncate from "lodash/truncate";
-import { Creatibutors } from "./Creatibutors";
-import { ResultsItemAccessStatus } from "./ResultsItemAccessStatus";
-// import { IconPersonIdentifier } from "@nr/search";
 
-const ResultsListItemComponent = ({ result }) => {
-  const [showEntireAbstract, setShowEntireAbstract] = useState(false);
-
-  const searchAppConfig = useContext(SearchConfigurationContext);
-
-  const { allowedHtmlTags } = searchAppConfig;
-  console.log(allowedHtmlTags);
-
-  const title = result.metadata?.title || i18next.t("Missing title");
-
-  const abstract = sanitizeHtml(
-    result.metadata?.descriptions?.find((desc) => desc.lang === "en")?.value ||
-    getValueFromMultilingualArray(result.metadata?.descriptions || []), {
-      allowedTags: allowedHtmlTags,
-      allowedAttributes: {},
-      disallowedTagsMode: 'discard',
-    });
-
-  const versionString = result.metadata?.version;
-  const subjects = result.metadata?.subjects || [];
-  const creatibutors = result.metadata?.qualified_relations;
-  const publicationDate = result.metadata?.time_references?.find(
-    ({ date_type }) => date_type?.id.toLowerCase() === "issued"
-  )?.date || result.metadata?.publication_year;
-  const language = result.metadata?.primary_language;
-  const originalRepositories = [];
-  result?.metadata?.is_described_by?.forEach((describedBy) => {
-    if (describedBy?.original_repositories?.length) {
-      describedBy.original_repositories.forEach((repo) => {
-        const repoName =
-          repo.labels?.find((label) => label.lang === "en")?.value ||
-          getValueFromMultilingualArray(repo.labels || []);
-
-        if (repoName) {
-          originalRepositories.push(repoName);
-        }
-      });
-    }
-  });
-
-  const toggleAbstract = () => {
-    setShowEntireAbstract(!showEntireAbstract);
-  };
-
-  const truncatedAbstract = abstract
-    ? showEntireAbstract
-      ? abstract
-      : _truncate(abstract, { length: 500 })
-    : "";
-
-  // Find the first access_right in the terms_of_use array
-  const accessStatus = result?.metadata?.terms_of_use?.access_rights
-
-  console.log(truncatedAbstract, result.metadata?.descriptions);
+export const ResultsListItem = ({ result, ...rest }) => {
+  const accessRights = _get(result, "ui.access_status", null);
+  const createdDate = _get(
+    result,
+    "ui.created_date_l10n_short",
+    "No creation date found."
+  );
+  const languages = _get(result, "metadata.languages", []);
+  const version = _get(result, "metadata.version", null);
+  const title = _get(result, "metadata.title", i18next.t("No title"));
   return (
-    <Item className="results-list-item-main">
+    <Item key={result.id} data-testid="result-item">
       <Item.Content>
-        <Grid className="m-0">
-          <Grid.Row columns={2}>
-            <Grid.Column width={16}>
-              <Item.Header as="h2">
-                <a href={result?.links?.self_html}>{title}</a>
-              </Item.Header>
-              {accessStatus && (
-                <ResultsItemAccessStatus status={accessStatus} />
-              )}
-              <Item.Meta>
-                <Creatibutors creatibutors={creatibutors} />
-                <Label.Group className="rel-mt-1">
-                  {/* title is multilingual but not at ccmm 0.5.0 model - needs to be fixed there */}
-                  {subjects.map((subject, index) => (
-                    < Label
-                      className="subjects"
-                      key={`${index}.${subject.title?.[0]?.value}`}
-                    >
-                      {subject.title?.[0]?.value}
+        <Grid>
+          <Grid.Row>
+            <Grid.Column className="results-list item-main">
+              <div className="justify-space-between flex">
+                <Item.Header as="h2">
+                  <a href={result.links.self_html}>{title}</a>
+                </Item.Header>
+                <div className="item-access-rights">
+                  {result.state && (
+                    <Label title={result.state_timestamp}>{result.state}</Label>
+                  )}
+                  {accessRights && accessRights.id !== "open" && (
+                    <Label title={`${accessRights.description_l10n}`}>
+                      {accessRights.title_l10n}
                     </Label>
-                  ))}
-                </Label.Group>
+                  )}
+                </div>
+              </div>
+              <Item.Meta>
+                <Grid columns={1}>
+                  <Grid.Column>
+                    <Grid.Row className="ui separated">
+                      <span
+                        aria-label={i18next.t("Languages")}
+                        title={i18next.t("Languages")}
+                      >
+                        {_join(
+                          languages.map((l) => l.title),
+                          ", "
+                        )}
+                      </span>
+                    </Grid.Row>
+                  </Grid.Column>
+                </Grid>
               </Item.Meta>
-              {abstract && (
-                <Item.Description className="rel-mt-1">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: truncatedAbstract
-                    }}
-                    className="inline"
-                  />
-                  {abstract.length > 500 && (
-                    <Button
-                      compact
-                      size="tiny"
-                      onClick={toggleAbstract}
-                      className="transparent mr-3"
-                    >
-                      {showEntireAbstract ? (
-                        <Icon name="left chevron" color="green" />
-                      ) : (
-                        <Icon name="right chevron" color="green" />
+              <Item.Extra>
+                <div>
+                  <small>
+                    <p>
+                      {createdDate && (
+                        <>
+                          {i18next.t("Uploaded on")} <span>{createdDate}</span>{" "}
+                          {version && `(${i18next.t("version")}: ${version})`}
+                        </>
                       )}
-                    </Button>
-                  )}
-                </Item.Description>
-              )}
-              <Item.Extra className="rel-mt-1">
-                <p>
-                  {publicationDate && (
-                    <span className="rel-mr-1">
-                      {i18next.t("Published")}: {publicationDate}
-                      {versionString && ` (${versionString})`}
-                    </span>
-                  )}
-                  {originalRepositories?.length > 0 && (
-                    <span className="rel-mr-1">
-                      {i18next.t("Published in")}:{" "}
-                      {originalRepositories?.map(
-                        (originalRepository, index) => (
-                          <span key={originalRepository.id}>
-                            {originalRepository}
-                            {index < originalRepositories.length - 1
-                              ? ", "
-                              : null}
-                          </span>
-                        )
-                      )}
-                    </span>
-                  )}
-
-                  {language && language?.id !== "UND" && (
-                    <span className="rel-mr-1">
-                      {i18next.t("Language")}: {language?.title}
-                    </span>
-                  )}
-                </p>
+                    </p>
+                  </small>
+                </div>
               </Item.Extra>
             </Grid.Column>
           </Grid.Row>
         </Grid>
       </Item.Content>
-    </Item >
+    </Item>
   );
 };
 
-ResultsListItemComponent.propTypes = {
+ResultsListItem.propTypes = {
   result: PropTypes.object.isRequired,
 };
 
-export default ResultsListItemComponent;
+export default ResultsListItem;

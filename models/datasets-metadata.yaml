@@ -1,6 +1,0 @@
-# extra properties for the dataset metadata
-#
-properties:
-  # note: the version is needed if you use the default publish/new version actions
-  version:
-    type: keyword
