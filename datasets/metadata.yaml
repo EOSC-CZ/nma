@@ -1,9 +1,17 @@
 # Definition of metadata for datasets. Please do not add ccmm model here,
 # add the ccmm_preset instead.
 Metadata:
+  type: object
   properties:
-    title:
-      type: fulltext+keyword
-    languages[]:
-      type: vocabulary
-      vocabulary-type: languages
+    peristent_url:
+      type: keyword
+    last_checked:
+      type: datetime
+    check_status:
+      type: keyword
+      enum:
+        - success
+        - not_found
+        - error
+    check_message:
+      type: fulltext
