@@ -20,6 +20,12 @@ dependencies = [
 ]
 requires-python = ">=3.13,<3.15"
 
+[project.entry-points."invenio_base.api_apps"]
+riv_extension = "riv.ext:RIVResolverExtension"
+
+[project.entry-points."invenio_base.apps"]
+riv_extension = "riv.ext:RIVResolverExtension"
+
 [project.entry-points."invenio_assets.webpack"]
 i18n = "i18n.webpack:theme"
 components = "ui.components.webpack:theme"
