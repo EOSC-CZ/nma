@@ -1,3 +1,11 @@
 from .base import MetadataResolver, resolve_metadata
+from .datacite import DataciteResolver
+from .handle import HandleResolver
+from .crossref import CrossrefResolver
 
-__all__ = ["MetadataResolver", "resolve_metadata"]
+__all__ = ["MetadataResolver",
+           "resolve_metadata",
+           "DataciteResolver",
+           "HandleResolver",
+           "CrossrefResolver"
+           ]
