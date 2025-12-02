@@ -14,7 +14,7 @@ from functools import cached_property
 from . import config
 
 from invenio_base.utils import obj_or_import_string
-from flask import Flask
+from flask import Flask, current_app
 from .resolvers.base import MetadataResolver
 
 if TYPE_CHECKING:  # pragma: no cover
@@ -29,11 +29,16 @@ class RIVResolverExtension:
     def init_app(self, app: Flask) -> None:
         """Flask application initialization."""
         self.app = app
+        self.init_config(app)
         app.extensions["riv-extension"] = self
 
+    def init_config(self, app: Flask) -> None:
+        """Initialize the configuration for the extension."""
+        app.config.setdefault("PERSISTENT_IDENTIFIER_RESOLVERS", config.PERSISTENT_IDENTIFIER_RESOLVERS)
+        app.config.setdefault("PERSISTENT_IDENTIFIER_PREFIXES", config.PERSISTENT_IDENTIFIER_PREFIXES)
 
     @cached_property
     def persistent_identifiers_resolvers(self)-> List[MetadataResolver]:
         """Return resolvers for persistent identifiers."""
-        return [obj_or_import_string(res)() for res in config.PERSISTENT_IDENTIFIER_RESOLVERS]
+        return [obj_or_import_string(res)() for res in current_app.config["PERSISTENT_IDENTIFIER_RESOLVERS"]]
 

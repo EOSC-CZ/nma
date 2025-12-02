@@ -3,6 +3,7 @@ from riv.proxies import current_riv_extension
 
 
 class MetadataResolver(Protocol):
+
     def resolve(self, identifier: str) -> (dict | None, str):
         """Resolve metadata by identifier.
 
@@ -20,11 +21,17 @@ def resolve_metadata(identifier: str) -> (dict | None, str):
     """
 
     resolvers = current_riv_extension.persistent_identifiers_resolvers
+    collected_messages = []
 
     for resolver in resolvers:
         metadata, message = resolver.resolve(identifier)
+        collected_messages.append(message)
+
         if metadata is not None:
             return metadata, message
 
-    raise ValueError(f"Could not resolve metadata for identifier '{identifier}'.")
+    raise ValueError(
+        f"Could not resolve metadata for identifier '{identifier}'.\n" +
+        "\n".join(collected_messages)
+    )
 
