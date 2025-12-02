@@ -1,0 +1,30 @@
+{% set record_title = notification.context.record_data.metadata.title %}
+{% set secret_link = notification.context.secret_link %}
+{% set expiration_days = notification.context.expiration_time %}
+
+{%- block subject -%}
+    {{ _("✅ Your record “%(title)s” has been created", title=record_title) }}
+{%- endblock subject -%}
+
+{%- block html_body -%}
+<p>Your record <strong>{{ record_title }}</strong> has been successfully created.</p>
+
+<p>You can access and edit it using the link below (valid for {{ expiration_days }} days):</p>
+
+<p><a href="{{ secret_link }}">{{ secret_link }}</a></p>
+{%- endblock html_body -%}
+
+{%- block plain_body -%}
+Your record "{{ record_title }}" has been successfully created.
+
+You can access and edit it using this link (valid for {{ expiration_days }} days):
+{{ secret_link }}
+{%- endblock plain_body -%}
+
+{%- block md_body -%}
+Your record **{{ record_title }}** has been successfully created.
+
+You can access and edit it using this link (valid for **{{ expiration_days }} days**):
+
+{{ secret_link }}
+{%- endblock md_body -%}
