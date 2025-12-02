@@ -1,3 +1,8 @@
+from flask_menu import current_menu
+from invenio_i18n import lazy_gettext as _
+from oarepo_ui.overrides import UIComponent
+from oarepo_ui.overrides.components import UIComponentImportMode
+from oarepo_ui.proxies import current_oarepo_ui
 from oarepo_ui.resources import BabelComponent
 from oarepo_ui.resources.components import (
     # AllowedCommunitiesComponent,
@@ -6,18 +11,14 @@ from oarepo_ui.resources.components import (
     FilesComponent,
     FilesLockedComponent,
     FilesQuotaAndTransferComponent,
-    RecordRestrictionComponent,
     PermissionsComponent,
+    RecordRestrictionComponent,
 )
 from oarepo_ui.resources.components.custom_fields import CustomFieldsComponent
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
-from flask_menu import current_menu
-from invenio_i18n import lazy_gettext as _
-from oarepo_ui.overrides import UIComponent
-from oarepo_ui.overrides.components import UIComponentImportMode
-from oarepo_ui.proxies import current_oarepo_ui
+
 
 class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -28,8 +29,13 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     search_component = UIComponent(
         "DatasetsResultsListItem",
         "@js/datasets/search/ResultsListItem",
-        UIComponentImportMode.DEFAULT
+        UIComponentImportMode.DEFAULT,
     )
+
+    routes = {
+        **RecordsUIResourceConfig.routes,
+        "create_record_riv": "create_record_riv",
+    }
 
     components = [
         AllowedHtmlTagsComponent,
@@ -43,17 +49,18 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         FilesLockedComponent,
         FilesQuotaAndTransferComponent,
     ]
-    
+
     try:
         from oarepo_vocabularies.ui.resources.components import (
             DepositVocabularyOptionsComponent,
         )
+
         components.append(DepositVocabularyOptionsComponent)
     except ImportError:
         pass
 
     application_id = "datasets"
- 
+
     templates = {
         "record_detail": "datasets.RecordDetail",
         "search": "datasets.Search",
@@ -63,7 +70,11 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
 
 
 class DatasetsUIResource(RecordsUIResource):
-    pass
+    def create_record_riv(self):
+        from riv.records.create_record import create_record
+
+        return create_record({})
+
 
 def ui_overrides(app):
     """Register UI overrides."""
@@ -76,7 +87,8 @@ def ui_overrides(app):
         and ui_resource_config.search_component
     ):
         current_oarepo_ui.register_result_list_item(
-            ui_resource_config.model.record_json_schema, ui_resource_config.search_component
+            ui_resource_config.model.record_json_schema,
+            ui_resource_config.search_component,
         )
 
 
@@ -92,14 +104,17 @@ def init_menu(app):
             visible_when=can_view_deposit_page,
         )
 
+
 def finalize_app(app):
     """Finalize app"""
     init_menu(app)
     ui_overrides(app)
 
+
 def create_blueprint(app):
     """Register blueprint for this resource."""
     blueprint = DatasetsUIResource(DatasetsUIResourceConfig()).as_blueprint()
     return blueprint
+
 
 # TODO: register init_menu to finalize_app similarly blueprints & webpack is registered
