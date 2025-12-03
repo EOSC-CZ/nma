@@ -1,3 +1,6 @@
+from functools import wraps
+
+from flask import abort, current_app, render_template
 from flask_menu import current_menu
 from invenio_i18n import lazy_gettext as _
 from oarepo_ui.overrides import UIComponent
@@ -18,6 +21,7 @@ from oarepo_ui.resources.components.custom_fields import CustomFieldsComponent
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
+from werkzeug.exceptions import HTTPException
 
 
 class DatasetsUIResourceConfig(RecordsUIResourceConfig):
@@ -69,8 +73,37 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     }
 
 
+# call internal function and catch any errors
+def handle_riv_errors(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+
+        except HTTPException as http_exc:
+            current_app.logger.error(f"HTTP error: {http_exc}")
+            return abort(http_exc.code)
+
+        except PermissionError as exc:
+            current_app.logger.error(
+                f"PermissionError while calling {func.__name__}: {exc}"
+            )
+            return abort(403)
+
+        except Exception as exc:
+            current_app.logger.exception(f"Unexpected error in {func.__name__}: {exc}")
+
+            return render_template(
+                "datasets/errors/riv_error_page.jinja", error=str(exc)
+            ), 500
+
+    return wrapper
+
+
 class DatasetsUIResource(RecordsUIResource):
+    @handle_riv_errors
     def create_record_riv(self):
+        """Create and publish record. Generate secret link and send email to user. Grant access to support."""
         from riv.records.create_record import create_record
 
         return create_record({})

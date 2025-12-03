@@ -6,8 +6,9 @@ from invenio_access.permissions import system_identity
 from invenio_accounts.models import User
 from invenio_base import invenio_url_for
 from invenio_notifications.models import Notification, Recipient
-from invenio_rdm_records.services.access.service import RecordAccessService
+from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.proxies import current_service_registry
+from invenio_records_resources.resources.errors import PermissionDeniedError
 
 from ..config import RIV_CURATORS_GROUP_ID, SECRET_LINK_EXPIRATION_DAYS
 
@@ -53,7 +54,12 @@ grant_data = {
 
 def create_record(record_data):
     if current_user.is_anonymous:
-        raise ValueError("Please login first.")
+        raise PermissionDeniedError("Please login first.")
+
+    notification_backends = current_app.config.get("NOTIFICATION_BACKENDS", {})
+    if not notification_backends.get("email"):
+        raise RuntimeError("Email notification backend is not configured.")
+
     user = User.query.filter(User.id == current_user.id).one()
 
     # disable files by default
@@ -65,9 +71,9 @@ def create_record(record_data):
     _ = datasets_service.publish(identity=system_identity, id_=draft_record["id"])
 
     # call access service and secret link
-    # TODO: is there a better way to get access service? Maybe from datasets_service directly?
-    # I didnt find any access service on datasets_service.
-    access_service = RecordAccessService(datasets_service.config)
+    access_service = (
+        current_rdm_records_service.access
+    )  # another solution: RecordAccessService(datasets_service.config)
 
     # prepare data for secret link creation
     data = {
@@ -94,12 +100,13 @@ def create_record(record_data):
         context={
             "record_data": record_data,
             "secret_link": secret_link,
-            "expiration_time": f"{SECRET_LINK_EXPIRATION_DAYS}",
+            "expiration_time": str(SECRET_LINK_EXPIRATION_DAYS),
         },
     )
     recipient = Recipient(data={"preferences": user.preferences, "email": user.email})
 
-    email_backend = current_app.config["NOTIFICATION_BACKENDS"]["email"]()
+    email_backend_cls = notification_backends.get("email")
+    email_backend = email_backend_cls()
     email_backend.send(notification, recipient)
 
     # Grant the curators group manage permission (as a support). For example to be able to create a new secret link if needed.
