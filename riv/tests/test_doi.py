@@ -13,7 +13,7 @@ def test_doi():
     data = resolver.resolve("https://doi.org/10.5281/nonexisting")
     assert data == (None, 'Could not retrieve data, code 404.')
 
-    data = resolver.resolve("http://doi.org/10.5281/zenodo.17801829")
+    data = resolver.resolve("doi.org/10.5281/zenodo.17801829")
     assert data == ({'title': 'Zum FAIRen Umgang mit qualitativen, sensiblen Forschungsdaten beim Forschungsdatenzentrum Qualiservice', 'creators': [{'person_or_org': {'type': 'personal', 'given_name': 'Paula', 'family_name': 'Lein', 'name': 'Lein, Paula'}}, {'person_or_org': {'type': 'personal', 'given_name': 'Viola', 'family_name': 'Logemann', 'name': 'Logemann, Viola'}}]}, 'OK')
 
     data = resolver.resolve("https://doii.org/10.5281/nonexisting")

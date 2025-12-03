@@ -26,11 +26,14 @@ def resolve_metadata(persistent_url: str) -> (dict | None, str):
 
     for resolver in resolvers:
         metadata, message = resolver.resolve(persistent_url)
-        collected_messages.append(message)
+
+        resolver_name = resolver.__class__.__name__
+        tagged_message = f"[{resolver_name}] {message}"
+        collected_messages.append(tagged_message)
 
         if metadata is not None:
             metadata["persistent_url"] = persistent_url
-            return metadata, message
+            return metadata, tagged_message
 
     raise ValueError(
         f"Could not resolve metadata for identifier '{persistent_url}'.\n" +

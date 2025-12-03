@@ -10,11 +10,11 @@ class DataciteResolver(MetadataResolver):
     def resolve(self, persistent_url: str) -> (dict | None, str):
 
         if not HOST_REGEX.match(persistent_url.strip()):
-            return None, f"Incorrect URL for datacite identifier."
+            return None, "Incorrect URL for datacite identifier."
 
         match = DOI_REGEX.match(persistent_url.strip())
         if not match:
-            return None, f"The URL is missing information about the DOI."
+            return None, "The URL is missing information about the DOI."
 
         doi = match.group(1)
         url = f"{DATACITE_URL}/{doi}"
@@ -48,35 +48,34 @@ class DataciteResolver(MetadataResolver):
 
     def resolve_creators(self, creators):
         creator_list = []
+
         for creator in creators:
             creator_obj = {}
-            type = creator.get('nameType', 'personal').lower()
 
-            creator_obj['type'] = type
+            creator_type = creator.get('nameType', 'personal').lower()
+            creator_obj['type'] = creator_type
 
-            given_from_data = creator.get('givenName', None)
-            family_from_data = creator.get('familyName', None)
-            if given_from_data:
-                creator_obj['given_name'] = given_from_data
-            if family_from_data:
-                creator_obj['family_name'] = family_from_data
-            if 'name' in creator: #always
-                name = creator['name']
-                creator_obj['name'] = name
-                if type == 'personal':
-                    if ',' in name:
-                        parts = [p.strip() for p in name.split(',', 1)]
-                        family = parts[0]
-                        given = parts[1] if len(parts) > 1 else ""
-                    else:
-                        family = name.strip()
-                        given = ""
+            given = creator.get('givenName')
+            family = creator.get('familyName')
 
-                    if not family_from_data:
-                        creator_obj['family_name'] = family
+            name = creator.get('name')
+            creator_obj['name'] = name
 
-                    if not given_from_data and given != "":
-                        creator_obj['given_name'] = given
+            if creator_type == 'personal':
+                if ',' in name:
+                    fam, giv = [p.strip() for p in name.split(',', 1)]
+                else:
+                    fam, giv = name.strip(), ""
+
+                family = family or fam
+                if given is None and giv:
+                    given = giv
+
+            if given:
+                creator_obj['given_name'] = given
+            if family:
+                creator_obj['family_name'] = family
 
             creator_list.append({"person_or_org": creator_obj})
+
         return creator_list
