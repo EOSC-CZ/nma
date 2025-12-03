@@ -3480,7 +3480,7 @@ dependencies = [
 requires-dist = [
     { name = "json5" },
     { name = "marshmallow-i18n-messages" },
-    { name = "oarepo", extras = ["rdm", "s3"], editable = "../../oarepo/oarepo" },
+    { name = "oarepo", extras = ["rdm", "s3"], editable = "../oarepo" },
     { name = "oarepo-dashboard", specifier = ">=2.0.0.dev1,<3.0.0" },
     { name = "oarepo-glitchtip", specifier = "==1.*" },
     { name = "oarepo-model", specifier = ">=0.1.0.dev0,<1.0.0" },
@@ -3488,14 +3488,14 @@ requires-dist = [
     { name = "oarepo-rdm", specifier = ">=1.0.0.dev0,<2.0.0" },
     { name = "oarepo-runtime", specifier = ">=2.0.0.dev0,<3.0.0" },
     { name = "oarepo-theme", specifier = ">=1.0.0.dev3,<2.0.0" },
-    { name = "oarepo-ui", editable = "../../oarepo/oarepo-ui" },
+    { name = "oarepo-ui", editable = "../oarepo-ui" },
     { name = "python-dotenv" },
 ]
 
 [[package]]
 name = "oarepo"
 version = "14.0.10"
-source = { editable = "../../oarepo/oarepo" }
+source = { editable = "../oarepo" }
 dependencies = [
     { name = "aiobotocore" },
     { name = "aiohappyeyeballs" },
@@ -4301,7 +4301,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-ui"
-source = { editable = "../../oarepo/oarepo-ui" }
+source = { editable = "../oarepo-ui" }
 dependencies = [
     { name = "deepmerge" },
     { name = "frozendict" },

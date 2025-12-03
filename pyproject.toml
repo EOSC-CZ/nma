@@ -53,8 +53,8 @@ module-name = [
 ]
 
 [tool.uv.sources]
-oarepo-ui = { path = "../../oarepo/oarepo-ui", editable = true }
-oarepo = { path = "../../oarepo/oarepo", editable = true }
+oarepo-ui = { path = "../oarepo-ui", editable = true }
+oarepo = { path = "../oarepo", editable = true }
 
 [build-system]
 requires = [

@@ -1,0 +1,69 @@
+{% extends "page.html" %}
+
+
+{%- block page_body %}
+<div class="ui container" style="margin-top: 2rem; margin-bottom: 2rem;">
+  <div class="ui raised segment">
+    <h1 class="ui header">
+      <i class="plus circle icon"></i>
+      <div class="content">
+        {{ _('Register Dataset') }}
+        <div class="sub header">{{ _('Register a dataset by providing its persistent identifier (DOI or Handle)') }}</div>
+      </div>
+    </h1>
+
+    <div class="ui divider"></div>
+
+    <form class="ui form" novalidate method="POST" action="{{ url_for('datasets_ui.register') }}">
+      {{ form.hidden_tag() }}
+
+      <div class="field{% if form.pid.errors %} error{% endif %} required">
+        <label for="pid">
+          <i class="linkify icon"></i>
+          {{ _('Persistent Identifier (PID)') }}
+        </label>
+        <div class="ui action input">
+          {{ form.pid(class="", placeholder=_("Enter DOI or Handle URL (e.g., https://doi.org/10.1234/example or https://hdl.handle.net/12345/67890)")) }}
+          <button class="ui primary button" type="submit">
+            <i class="check icon"></i>
+            {{ _('Register') }}
+          </button>
+        </div>
+        {% if form.pid.errors %}
+          <div class="ui pointing red basic label">
+            {% for error in form.pid.errors %}
+              {{ error }}
+            {% endfor %}
+          </div>
+        {% endif %}
+        <small class="ui grey text block">
+          {{ _('Supported formats: DOI URLs (https://doi.org/...) and Handle URLs (https://hdl.handle.net/...)') }}
+        </small>
+      </div>
+
+      <div class="ui  message">
+        <div class="header">
+          <i class="exclamation triangle icon"></i>
+          {{ _('Other Identifier Types') }}
+        </div>
+        <p>
+          {{ _('If your identifier is not a DOI or Handle, please contact support at') }} <a href="mailto:nrp-repo_l3@eosc.cz">nrp-repo_l3@eosc.cz</a>
+        </p>
+      </div>
+
+      <div class="ui message info">
+        <div class="header">
+          <i class="info circle icon"></i>
+          {{ _('What happens next?') }}
+        </div>
+        <ul class="list">
+          <li>{{ _('We will fetch metadata from the persistent identifier service') }}</li>
+          <li>{{ _('A new dataset record will be created with the retrieved metadata') }}</li>
+          <li>{{ _('You will be redirected to edit and complete the dataset information') }}</li>
+          <li>{{_("If the identifier was already registered in NMD, you will be redirected to the existing record") }}</li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+{%- endblock page_body %}

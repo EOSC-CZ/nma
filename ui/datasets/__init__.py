@@ -26,6 +26,8 @@ from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
 from riv.records.create_record import create_record
 from riv.resolvers import resolve_metadata
+from riv.views import register
+
 
 class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -96,9 +98,14 @@ def handle_riv_errors(func):
         except Exception as exc:
             current_app.logger.exception(f"Unexpected error in {func.__name__}: {exc}")
 
-            return render_template(
-                "datasets/errors/riv_error_page.jinja", error=str(exc), stack=traceback.format_exc()
-            ), 500
+            return (
+                render_template(
+                    "datasets/errors/riv_error_page.jinja",
+                    error=str(exc),
+                    stack=traceback.format_exc(),
+                ),
+                500,
+            )
 
     return wrapper
 
@@ -149,6 +156,9 @@ def finalize_app(app):
 def create_blueprint(app):
     """Register blueprint for this resource."""
     blueprint = DatasetsUIResource(DatasetsUIResourceConfig()).as_blueprint()
+    blueprint.add_url_rule(
+        "/datasets/uploads/register", view_func=register, methods=["GET", "POST"]
+    )
     return blueprint
 
 
