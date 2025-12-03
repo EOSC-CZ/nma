@@ -7,6 +7,7 @@ DOI_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org\/(.+)$', re.IGNORECASE)
 DATACITE_URL="https://api.datacite.org/dois"
 
 class DataciteResolver(MetadataResolver):
+    name = "Datacite"
     def resolve(self, persistent_url: str) -> (dict | None, str):
 
         if not HOST_REGEX.match(persistent_url.strip()):
@@ -47,6 +48,13 @@ class DataciteResolver(MetadataResolver):
         return ''
 
     def resolve_creators(self, creators):
+        def split_personal_name(name):
+            if ',' in name:
+                family, given = [part.strip() for part in name.split(',', 1)]
+            else:
+                family, given = name.strip(), ""
+            return family, given
+
         creator_list = []
 
         for creator in creators:
@@ -62,14 +70,10 @@ class DataciteResolver(MetadataResolver):
             creator_obj['name'] = name
 
             if creator_type == 'personal':
-                if ',' in name:
-                    fam, giv = [p.strip() for p in name.split(',', 1)]
-                else:
-                    fam, giv = name.strip(), ""
+                parsed_family, parsed_given = split_personal_name(name)
 
-                family = family or fam
-                if given is None and giv:
-                    given = giv
+                family = family or parsed_family
+                given = given or (parsed_given if parsed_given else None)
 
             if given:
                 creator_obj['given_name'] = given

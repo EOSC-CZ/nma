@@ -4,6 +4,8 @@ from riv.proxies import current_riv_extension
 
 class MetadataResolver(Protocol):
 
+    name: str
+
     def resolve(self, identifier: str) -> (dict | None, str):
         """Resolve metadata by identifier.
 
@@ -27,8 +29,7 @@ def resolve_metadata(persistent_url: str) -> (dict | None, str):
     for resolver in resolvers:
         metadata, message = resolver.resolve(persistent_url)
 
-        resolver_name = resolver.__class__.__name__
-        tagged_message = f"[{resolver_name}] {message}"
+        tagged_message = f"[{resolver.name}] {message}"
         collected_messages.append(tagged_message)
 
         if metadata is not None:
