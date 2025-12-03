@@ -1,3 +1,4 @@
+import traceback
 from functools import wraps
 
 from flask import abort, current_app, render_template
@@ -22,7 +23,8 @@ from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
-
+from riv.records.create_record import create_record
+from riv.resolvers import resolve_metadata
 
 class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -38,7 +40,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
 
     routes = {
         **RecordsUIResourceConfig.routes,
-        "create_record_riv": "create_record_riv",
+        "create_record_riv": "riv",
     }
 
     components = [
@@ -94,7 +96,7 @@ def handle_riv_errors(func):
             current_app.logger.exception(f"Unexpected error in {func.__name__}: {exc}")
 
             return render_template(
-                "datasets/errors/riv_error_page.jinja", error=str(exc)
+                "datasets/errors/riv_error_page.jinja", error=str(exc), stack=traceback.format_exc()
             ), 500
 
     return wrapper
@@ -104,9 +106,8 @@ class DatasetsUIResource(RecordsUIResource):
     @handle_riv_errors
     def create_record_riv(self):
         """Create and publish record. Generate secret link and send email to user. Grant access to support."""
-        from riv.records.create_record import create_record
-
-        return create_record({})
+        metadata = resolve_metadata("https://doi.org/10.5281/zenodo.17801829")
+        return create_record({"metadata":metadata})
 
 
 def ui_overrides(app):

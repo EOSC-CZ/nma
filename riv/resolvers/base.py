@@ -4,6 +4,8 @@ from riv.proxies import current_riv_extension
 
 class MetadataResolver(Protocol):
 
+    name: str
+
     def resolve(self, identifier: str) -> (dict | None, str):
         """Resolve metadata by identifier.
 
@@ -12,8 +14,8 @@ class MetadataResolver(Protocol):
         """
 
 
-def resolve_metadata(identifier: str) -> (dict | None, str):
-    """Resolve metadata by identifier.
+def resolve_metadata(persistent_url: str) -> (dict | None, str):
+    """Resolve metadata by persistent url.
 
     If the metadata can not be resolved, returns (None, "error_message").
     If the metadata is resolved, returns (metadata_dict, "warning message").
@@ -23,15 +25,19 @@ def resolve_metadata(identifier: str) -> (dict | None, str):
     resolvers = current_riv_extension.persistent_identifiers_resolvers
     collected_messages = []
 
+
     for resolver in resolvers:
-        metadata, message = resolver.resolve(identifier)
-        collected_messages.append(message)
+        metadata, message = resolver.resolve(persistent_url)
+
+        tagged_message = f"[{resolver.name}] {message}"
+        collected_messages.append(tagged_message)
 
         if metadata is not None:
-            return metadata, message
+            metadata["persistent_url"] = persistent_url
+            return metadata, tagged_message
 
     raise ValueError(
-        f"Could not resolve metadata for identifier '{identifier}'.\n" +
+        f"Could not resolve metadata for identifier '{persistent_url}'.\n" +
         "\n".join(collected_messages)
     )
 
