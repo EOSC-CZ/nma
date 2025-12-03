@@ -63,7 +63,7 @@ def create_record(record_data):
     user = User.query.filter(User.id == current_user.id).one()
 
     # disable files by default
-    record_data["files"] = {"enabled": False}
+    record_data = {**record_data, "files": {"enabled": False}}
 
     # create and publish
     datasets_service = current_service_registry.get("datasets")
