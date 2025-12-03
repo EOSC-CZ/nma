@@ -3,7 +3,7 @@
 Metadata:
   type: object
   properties:
-    peristent_url:
+    persistent_url:
       type: keyword
     last_checked:
       type: datetime
