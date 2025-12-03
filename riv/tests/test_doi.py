@@ -21,3 +21,7 @@ def test_doi():
 
     data = resolver.resolve("https://doi.org")
     assert data == (None, 'The URL is missing information about the DOI.')
+
+
+    data = resolver.resolve("https://doi.org/10.64000/wadve-3tj60") #crossref (doi correct, but not datacite)
+    assert data == (None, 'Could not retrieve data, code 404.')
