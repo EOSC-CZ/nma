@@ -9,7 +9,7 @@ from invenio_notifications.models import Notification, Recipient
 from invenio_rdm_records.services.access.service import RecordAccessService
 from invenio_records_resources.proxies import current_service_registry
 
-from ..config import SECRET_LINK_EXPIRATION_DAYS
+from ..config import RIV_CURATORS_GROUP_ID, SECRET_LINK_EXPIRATION_DAYS
 
 example_data = {
     "metadata": {
@@ -40,17 +40,18 @@ example_data = {
 }
 
 
+grant_data = {
+    "grants": [
+        {
+            "subject": {"type": "role", "id": RIV_CURATORS_GROUP_ID},
+            "permission": "manage",
+            "notify": True,  # Could be False?
+        }
+    ]
+}
+
+
 def create_record(record_data):
-    import debugpy
-
-    try:
-        debugpy.listen(("127.0.0.1", 5678))
-        debugpy.wait_for_client()
-        print("🚀 Debugger attached!")
-
-    except Exception as e:
-        print(f"⚠️  Failed to start debugpy listener: {e}")
-
     if current_user.is_anonymous:
         raise ValueError("Please login first.")
     user = User.query.filter(User.id == current_user.id).one()
@@ -61,12 +62,12 @@ def create_record(record_data):
     # create and publish
     datasets_service = current_service_registry.get("datasets")
     draft_record = datasets_service.create(identity=system_identity, data=example_data)
-    published_record = datasets_service.publish(
-        identity=system_identity, id_=draft_record["id"]
-    )
+    _ = datasets_service.publish(identity=system_identity, id_=draft_record["id"])
 
     # call access service and secret link
+    # TODO: is there a better way to get access service? Maybe from datasets_service directly?
     access_service = RecordAccessService(datasets_service.config)
+
     # create_secret_link
     data = {
         "permission": "edit",
@@ -100,8 +101,9 @@ def create_record(record_data):
     email_backend = current_app.config["NOTIFICATION_BACKENDS"]["email"]()
     email_backend.send(notification, recipient)
 
-    # grant na skupinu GrantSubject(type = role, , id = id skupina z configu), can_manage pravo
-    # jedna genericka grupa (treba support)
+    # Grant the curators group manage permission (as a support). For example to be able to create a new secret link if needed.
+    _ = access_service.bulk_create_grants(
+        identity=system_identity, id_=draft_record["id"], data=grant_data
+    )
 
-    # return URL
-    return "created_record_url"
+    return secret_link
