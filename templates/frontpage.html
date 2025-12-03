@@ -3,6 +3,22 @@
 {%- block page_header %}
     {%- include "header_frontpage.html" %}
 {%- endblock page_header %}
+
+
+{% block grid_section %}
+{{ oarepo_records_list() }}
+{% endblock grid_section %}
+
+{%- block bottom_section %}
+<section class="light-bg rel-pt-3 rel-pb-3">
+  <div class="ui container center aligned">
+    <pre>TODO: here goes any logos as required</pre>
+  </div>
+</section>
+{%- endblock bottom_section %}
+
+
+
 {# Available template blocks (showing closest override point):
 
 Header (from invenio_app_rdm/frontpage.html):

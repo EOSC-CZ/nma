@@ -1,0 +1,5 @@
+.ui.fitted.section-title.divider {
+    max-width: 100px;
+    margin: 0 auto;
+    border: 2px solid @primaryColor;
+}

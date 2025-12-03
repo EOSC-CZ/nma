@@ -54,17 +54,17 @@
 @navbar_background_image: @white;
 @navbar_background_color: @white;
 
-@coverPageBackgroundColor: @livelyGreen;
+@coverPageBackgroundColor: @white;
 
 @textColor: #262729;
 @errorTextColor: #9f3a38;
-@focusedFormBorderColor: #2185d0;
-@focusedFormMutedBorderColor: #2185d0;
+@focusedFormBorderColor: @primaryColor;
+@focusedFormMutedBorderColor: @primaryColor;
 
 @highlightHeaderColor: @lightGrey;
 @highlightBackgroundColor: @highlightHeaderColor;
 @highlightBackgroundColorHover:  darken(saturate(@highlightHeaderColor, 20), 15, relative);
-@highlightLandingPageBackgroundColor: @lightGrey;
+@highlightLandingPageBackgroundColor: @white;
 @selectedColor: #ededed;
 
 @navbarBackgroundImage: @navbar_background_image;
@@ -130,12 +130,14 @@
   negative spacing
 --------------------*/
 @coverPageDefaultMargin: 0;
-
+@groupCardMargin: 1rem;
 
 /* borders */
 
 @dashedBorder: 2px dashed @borderColor;
 @defaultBorder: 1px solid @solidBorderColor;
+@borderRadius: 0.5rem;
+@inputBorderRadius: 0.5rem;
 
 /*------------------
   checkboxes

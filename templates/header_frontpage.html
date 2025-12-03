@@ -1,10 +1,13 @@
 {%- extends "invenio_app_rdm/header_frontpage.html" %}
 
 {%- block frontpage_title %}
+        <div class="ui center aligned header">
+            <img class="ui center hero-icon aligned" src="{{ url_for('static', filename='images/frontpage-icon.png') }}" alt="frontpage repository icon" />
+        </div>
         <h1 class="ui center aligned header">
             {{ _(config.THEME_FRONTPAGE_TITLE) }}
         </h1>
-        <p class="subtitle">
+        <p class="subtitle rel-mb-2">
             {{ _(config.REPOSITORY_SUBTITLE) | upper }}
         </p>
     </div>
@@ -16,8 +19,8 @@
 <div class="row pt-0">
    <div class="sixteen wide column center aligned rel-mt-1">
      <p>{{ _("Or import an existing record by its persistent identifier") }}</p>
-     <a href="#" class="ui large primary import button rel-mt-1">
-        <i class="plus icon"></i>
+     <a href="#" class="ui large primary import button rel-mt-1 rel-mb-7">
+        <i class="plus circle icon"></i>
         {{ _("Import record") }}
     </a>
    </div>
