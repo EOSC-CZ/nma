@@ -2925,26 +2925,11 @@ wheels = [
 
 [[package]]
 name = "langcodes"
-version = "3.5.0"
+version = "3.5.1"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
-dependencies = [
-    { name = "language-data" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/3a/7a/5a97e327063409a5caa21541e6d08ae4a0f2da328447e9f2c7b39e179226/langcodes-3.5.0.tar.gz", hash = "sha256:1eef8168d07e51e131a2497ffecad4b663f6208e7c3ae3b8dc15c51734a6f801", size = 191030, upload-time = "2024-11-19T10:23:45.546Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a9/75/f9edc5d72945019312f359e69ded9f82392a81d49c5051ed3209b100c0d2/langcodes-3.5.1.tar.gz", hash = "sha256:40bff315e01b01d11c2ae3928dd4f5cbd74dd38f9bd912c12b9a3606c143f731", size = 191084, upload-time = "2025-12-02T16:22:01.627Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c3/6b/068c2ea7a712bf805c62445bd9e9c06d7340358ef2824150eceac027444b/langcodes-3.5.0-py3-none-any.whl", hash = "sha256:853c69d1a35e0e13da2f427bb68fb2fa4a8f4fb899e0c62ad8df8d073dcfed33", size = 182974, upload-time = "2024-11-19T10:23:42.824Z" },
-]
-
-[[package]]
-name = "language-data"
-version = "1.4.0"
-source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
-dependencies = [
-    { name = "marisa-trie" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/61/50/2518b4d0805f4d1f10166837829ad0bd71dcee3ec33fa84aa8c0db23c13c/language_data-1.4.0.tar.gz", hash = "sha256:800e6457e7beda781c156e02d7707e38db2ded026472e07e2c055dc8446ee574", size = 5309660, upload-time = "2025-11-28T13:45:25.217Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/ad/d1/68e2bcca94c9bbdc122a71e504e0b6a6c3e31541b1bad33fee0205996006/language_data-1.4.0-py3-none-any.whl", hash = "sha256:f741927c24ab14cbed2a57bc2bfe82b00cff266c427179597e8b14123364f084", size = 5572678, upload-time = "2025-11-28T13:45:23.381Z" },
+    { url = "https://files.pythonhosted.org/packages/dd/c1/d10b371bcba7abce05e2b33910e39c33cfa496a53f13640b7b8e10bb4d2b/langcodes-3.5.1-py3-none-any.whl", hash = "sha256:b6a9c25c603804e2d169165091d0cdb23934610524a21d226e4f463e8e958a72", size = 183050, upload-time = "2025-12-02T16:21:59.954Z" },
 ]
 
 [[package]]
@@ -3057,46 +3042,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz", hash = "sha256:99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28", size = 392474, upload-time = "2025-04-10T12:44:31.16Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/87/fb/99f81ac72ae23375f22b7afdb7642aba97c00a713c217124420147681a2f/mako-1.3.10-py3-none-any.whl", hash = "sha256:baef24a52fc4fc514a0887ac600f9f1cff3d82c61d4d700a1fa84d597b88db59", size = 78509, upload-time = "2025-04-10T12:50:53.297Z" },
-]
-
-[[package]]
-name = "marisa-trie"
-version = "1.3.2.dev0"
-source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a5/db/887e3d6f6c5d8b70e4e674865ce2eadbbe10952c4d6b289fb0df44a89530/marisa_trie-1.3.2.dev0.tar.gz", hash = "sha256:0c1f80ca0c0e70cf78f25fc92270134476b7949a51ca377b2e1590baf3a07f25", size = 212459, upload-time = "2025-08-26T09:25:04.449Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/99/50/93e2ab65bfde5f11b05e0f9a7dc8a3be01dba5c7514e302ad037a867aaef/marisa_trie-1.3.2.dev0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:6d5e2ecd7c5d7f58700acec18a662680569e073b54c27df94d590f191d530f7b", size = 172397, upload-time = "2025-08-26T09:24:11.446Z" },
-    { url = "https://files.pythonhosted.org/packages/f9/17/4a396cdcfd89a833a2919863f845bef981719935932c507c3d301e140735/marisa_trie-1.3.2.dev0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:d3a84744e951ae4a38d709b847b413ea01e18306f740a64611447c400147904d", size = 154797, upload-time = "2025-08-26T09:24:12.511Z" },
-    { url = "https://files.pythonhosted.org/packages/de/a9/eb9b98e6a7a58913046b138bd8401a435ef14da6aec9e35240b37308d7a3/marisa_trie-1.3.2.dev0-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:e3a38a864b24bfc0027e5d1d5f5427e55b9f0f74f35882fd57a930519ef15d14", size = 1238884, upload-time = "2025-08-26T09:24:13.559Z" },
-    { url = "https://files.pythonhosted.org/packages/95/41/f387421900055cb77cd0878b8632ba4dae0f6f488482da3f3b1f8dc5ba71/marisa_trie-1.3.2.dev0-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:159bc7b0ba8d0a11f6f21fe61ea6e8545a03e9b756f09ff6565bb3f661486a00", size = 1262783, upload-time = "2025-08-26T09:24:14.757Z" },
-    { url = "https://files.pythonhosted.org/packages/47/62/3df591cb285cda051054450648a063bc9ed7e7344dc719ebaf29fdeff760/marisa_trie-1.3.2.dev0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:0d2df8300d6a3d85c2f43cc831015f602828110de64722567556cd1222ff932d", size = 2172528, upload-time = "2025-08-26T09:24:16.365Z" },
-    { url = "https://files.pythonhosted.org/packages/57/02/b21f7c5190510174ada41f8d6be613ef3cbc3d09f8e13d975235e86bab4e/marisa_trie-1.3.2.dev0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:2c64b49eed22bc4fa8bbb51ed4a1524525479b3d213ec003412376aa9f33d35b", size = 2255267, upload-time = "2025-08-26T09:24:18.002Z" },
-    { url = "https://files.pythonhosted.org/packages/37/32/173ec132ad8ab2db2702638731cca990a59605161c0f9b6c7a077bdc8df4/marisa_trie-1.3.2.dev0-cp313-cp313-win32.whl", hash = "sha256:676c9b281fdd775d1722354dfcf6c8e80fc33842de9b533b3239d38870c40d92", size = 115496, upload-time = "2025-08-26T09:24:19.078Z" },
-    { url = "https://files.pythonhosted.org/packages/83/f3/ceffe5d7f5f84f5c9a46cafc7bdd07a1a21d38b42517e93eb01cda428186/marisa_trie-1.3.2.dev0-cp313-cp313-win_amd64.whl", hash = "sha256:40d9c13400f85e890f610f1165067bf8ef216887227f4229bfdced650af6b61f", size = 139233, upload-time = "2025-08-26T09:24:20.265Z" },
-    { url = "https://files.pythonhosted.org/packages/2b/bc/64032c7a0504ba33ad197d581a7be5150b49789ddc5355d2d8de8ccf1a99/marisa_trie-1.3.2.dev0-cp313-cp313t-macosx_10_13_x86_64.whl", hash = "sha256:0aa78e6a0d797d6116d297c0c06cf4c4635b04e5c05f4cd23e05c87763fec518", size = 175262, upload-time = "2025-08-26T09:24:21.266Z" },
-    { url = "https://files.pythonhosted.org/packages/62/0a/5d2a69043146fcc93a416c63b8b833ea0e896f359f538c23d57b8edae2b7/marisa_trie-1.3.2.dev0-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:a162a8fa3c388b563b73b7b97d5178703e590c45a1450650401f0fd43da44c1f", size = 163229, upload-time = "2025-08-26T09:24:22.683Z" },
-    { url = "https://files.pythonhosted.org/packages/25/d8/736d77c4c14b727bbbf730deda9044338d1aa90b117fb756d83507eed158/marisa_trie-1.3.2.dev0-cp313-cp313t-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:64b21395da1528e98180b1851bd984bdc5af8bdbb488988deaa7839f05609d4e", size = 1279944, upload-time = "2025-08-26T09:24:23.692Z" },
-    { url = "https://files.pythonhosted.org/packages/65/7c/0a7377c1ef9fb19c61bfa6d9e3768494bbfd3d80336e277739d553219d5e/marisa_trie-1.3.2.dev0-cp313-cp313t-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:4a94fe891941a7de3c8aa5168583e30a88f70fd67f4215140aba0c5f4631d0d5", size = 1285819, upload-time = "2025-08-26T09:24:25.384Z" },
-    { url = "https://files.pythonhosted.org/packages/df/71/4521f8151d0a9a6bee74a2a1840bab0e6b000eee942a003a727ce1dea17d/marisa_trie-1.3.2.dev0-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:d4c8b1a17144f8e10ae5e95e5a9149d8fa614152d2aae77d679080f929112852", size = 2198073, upload-time = "2025-08-26T09:24:26.625Z" },
-    { url = "https://files.pythonhosted.org/packages/d9/f4/bb59571e4cf238cfed77d090bd188a18cb773a848223a27b26f2ec8cb420/marisa_trie-1.3.2.dev0-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:7d38c2e015a5b76f5315cc5e79f54e3224b335be4e830260f63d17612a3856cb", size = 2280262, upload-time = "2025-08-26T09:24:28.373Z" },
-    { url = "https://files.pythonhosted.org/packages/7f/13/d9ecf537b81e72a1f6db4188b6c34afa279e8ad2ff8661d0c8f94ce1615e/marisa_trie-1.3.2.dev0-cp313-cp313t-win32.whl", hash = "sha256:6ed707a1ad4a38df11456050cfc024482e506baa204d28e1259bfbcc048d0c3a", size = 126549, upload-time = "2025-08-26T09:24:29.835Z" },
-    { url = "https://files.pythonhosted.org/packages/07/6c/fe5235f85f9a911b3a1aefe21b959b34dd938617dec74f0e1603df1de1e9/marisa_trie-1.3.2.dev0-cp313-cp313t-win_amd64.whl", hash = "sha256:fc2c75e8986d7c7f652514fa50b2090ed10da2b52596b34cc6b551beb1f8ce82", size = 153991, upload-time = "2025-08-26T09:24:30.753Z" },
-    { url = "https://files.pythonhosted.org/packages/be/ef/8dbb67b88133ff7328d04f90e12a890c60d070978fdb55786bcfce79213f/marisa_trie-1.3.2.dev0-cp314-cp314-macosx_10_13_x86_64.whl", hash = "sha256:5e53e2be4a7460d5bdef8c5fbf4d3da549b7c727b7911d45d8b1d2d1f1d61f16", size = 172930, upload-time = "2025-08-26T09:24:31.697Z" },
-    { url = "https://files.pythonhosted.org/packages/bf/58/6b5dfaab22054cbdc62bb5f5c4a7e1d0f49196c061197eff4e623f8cb931/marisa_trie-1.3.2.dev0-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:31a5a50dff57db8216c066177df367f7fcc505876517dcd1c51ac0cd27e6abb4", size = 155637, upload-time = "2025-08-26T09:24:32.595Z" },
-    { url = "https://files.pythonhosted.org/packages/a5/d8/a7f42ec5a9dab824714ecdbe3c772ef573ac4dfaff14ba71b7efbf5bdf5c/marisa_trie-1.3.2.dev0-cp314-cp314-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:c9127f15e31aa03a5d0f137e843dc0d719ee1f344ba87bd38826295439a4b48a", size = 1240109, upload-time = "2025-08-26T09:24:34.117Z" },
-    { url = "https://files.pythonhosted.org/packages/63/9f/604bdb0caf767de4389ba532fe94e925dbf9dffd9d7ddb5c0e35da99d0c8/marisa_trie-1.3.2.dev0-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:0e6827054991a3371d53a145dd168f5c14add0160ed6be1e7dfe52f607bc274a", size = 1255837, upload-time = "2025-08-26T09:24:35.634Z" },
-    { url = "https://files.pythonhosted.org/packages/0d/73/dc21a8a3437710c5aa0567c6aaf8d19e898a91363c1d8aff9c2544d7940e/marisa_trie-1.3.2.dev0-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:40f3b230bea3d246b8ba64c498e394c5c228911db508f4779427a766626046a0", size = 2175224, upload-time = "2025-08-26T09:24:37Z" },
-    { url = "https://files.pythonhosted.org/packages/4d/7e/bc41613623afa25ed19a08af0a08db557d1a94c5838058fb37eb49ac3228/marisa_trie-1.3.2.dev0-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:421a2118f7ef828a88dd2b8b4127877a0842b977fee8c9d52a2e1fd331034be6", size = 2250583, upload-time = "2025-08-26T09:24:38.716Z" },
-    { url = "https://files.pythonhosted.org/packages/1a/83/f451d3cbc807538455c4f5d4b91615aa04cf5c11a0aa1ed3f19e53734090/marisa_trie-1.3.2.dev0-cp314-cp314-win32.whl", hash = "sha256:46e83d8f5a92b89870a1a95d38450ab3a732a28eb03bfeccfeca94a835799395", size = 119207, upload-time = "2025-08-26T09:24:41.36Z" },
-    { url = "https://files.pythonhosted.org/packages/f4/07/a6477217064a2a123b7470915c726aa5c7874d59d2d12468e60cc8a8afb1/marisa_trie-1.3.2.dev0-cp314-cp314-win_amd64.whl", hash = "sha256:e42560dc78b2b389986af3ea8784baae5ad5798dc8ffc6d8189b18c47dc32e23", size = 142991, upload-time = "2025-08-26T09:24:42.333Z" },
-    { url = "https://files.pythonhosted.org/packages/56/6c/2dcb7d4f7f2ce9e009036a4db25e014b188760f4582b769c9f4150732186/marisa_trie-1.3.2.dev0-cp314-cp314t-macosx_10_13_x86_64.whl", hash = "sha256:e38012f893829661a4a5cf06725b4bc735bd6e5e4e9a5f4a4bd4b2506e8edce5", size = 175295, upload-time = "2025-08-26T09:24:43.32Z" },
-    { url = "https://files.pythonhosted.org/packages/b8/78/c01b4bb116707cd571fdf6ae88f87f35b0a41ecd2ed856913bafbeb78224/marisa_trie-1.3.2.dev0-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:65c5bf7fb0add9dc522486010477fc94f542899f49f15fbbb4bf1f3f5b3cabd5", size = 163252, upload-time = "2025-08-26T09:24:44.34Z" },
-    { url = "https://files.pythonhosted.org/packages/42/4e/2149768b71f710f4e93fee54d3b83a2833c2f437e411eabbd1a49ffb7602/marisa_trie-1.3.2.dev0-cp314-cp314t-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:1668f7886f3c28a7a87fb4258ef9a6e374b921f5e8c89c303777cea10f82766b", size = 1277913, upload-time = "2025-08-26T09:24:45.787Z" },
-    { url = "https://files.pythonhosted.org/packages/d6/9c/5419cdca2639c8f89e7d7a4215f2b6aad86de53d26a554e1b7ab6be19ba0/marisa_trie-1.3.2.dev0-cp314-cp314t-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:7db2b81ba3279f3dc17846a173cd3bfb5e0f5827407a8e3c4339097e8900f7c5", size = 1282437, upload-time = "2025-08-26T09:24:46.993Z" },
-    { url = "https://files.pythonhosted.org/packages/28/1f/2a1b8b410ad1a809fe4ff3740d39b97be3a669e024f68c8f363c6134c7df/marisa_trie-1.3.2.dev0-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:6d4f192caca766f6b83acd77508c935ec3040f387f1fb495ec0910c00f2a04e5", size = 2196721, upload-time = "2025-08-26T09:24:48.232Z" },
-    { url = "https://files.pythonhosted.org/packages/28/e7/75bc570eb52d0b62077dbff8dd4dc7dc483f6a7579b2e7c5efb0d7c9f297/marisa_trie-1.3.2.dev0-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:c05747ac79a8eddb3525d181b6747eede7ea84fe917fa8fae985d78c46306dfe", size = 2277862, upload-time = "2025-08-26T09:24:49.69Z" },
-    { url = "https://files.pythonhosted.org/packages/d8/cd/fe6bb7d6d393d6baa43093b826671ab973f8b6f9c2cf360ff69dd814bb71/marisa_trie-1.3.2.dev0-cp314-cp314t-win32.whl", hash = "sha256:a4d6e5778a667c50a1114f544e3816bc268bf27b8a3f2d9df131f4a73d2087d7", size = 131514, upload-time = "2025-08-26T09:24:51.027Z" },
-    { url = "https://files.pythonhosted.org/packages/51/bd/5576d6e893d06e9174e9bbb682825aedd1ba98cedfe4175d2475dd5c94b6/marisa_trie-1.3.2.dev0-cp314-cp314t-win_amd64.whl", hash = "sha256:ba09447e37f42c444ae353269cd65d344ed03b37956638fadb9128c677517b69", size = 162669, upload-time = "2025-08-26T09:24:52.303Z" },
 ]
 
 [[package]]
@@ -3535,7 +3480,7 @@ dependencies = [
 requires-dist = [
     { name = "json5" },
     { name = "marshmallow-i18n-messages" },
-    { name = "oarepo", extras = ["s3", "rdm"], specifier = ">=14.0.0,<15.0.0" },
+    { name = "oarepo", extras = ["rdm", "s3"], editable = "../../oarepo/oarepo" },
     { name = "oarepo-dashboard", specifier = ">=2.0.0.dev1,<3.0.0" },
     { name = "oarepo-glitchtip", specifier = "==1.*" },
     { name = "oarepo-model", specifier = ">=0.1.0.dev0,<1.0.0" },
@@ -3543,14 +3488,14 @@ requires-dist = [
     { name = "oarepo-rdm", specifier = ">=1.0.0.dev0,<2.0.0" },
     { name = "oarepo-runtime", specifier = ">=2.0.0.dev0,<3.0.0" },
     { name = "oarepo-theme", specifier = ">=1.0.0.dev3,<2.0.0" },
-    { name = "oarepo-ui", specifier = ">=6.0.0.dev0,<7.0.0" },
+    { name = "oarepo-ui", editable = "../../oarepo/oarepo-ui" },
     { name = "python-dotenv" },
 ]
 
 [[package]]
 name = "oarepo"
 version = "14.0.10"
-source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+source = { editable = "../../oarepo/oarepo" }
 dependencies = [
     { name = "aiobotocore" },
     { name = "aiohappyeyeballs" },
@@ -3886,10 +3831,6 @@ dependencies = [
     { name = "zlib-ng" },
     { name = "zxcvbn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/69/e3/705c17337480a8f7c0f7534a767337a9623d1e1a034993eeb5e9fa7cd908/oarepo-14.0.10.tar.gz", hash = "sha256:0f14ab53bf4f66d6ec7193b13c927fb286a30394ee8ab99b3b818492501aadba", size = 1742944, upload-time = "2025-11-30T20:03:19.083Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/1a/03/d7e6458b78f5075c656f778b09ebdc84328abc04c084437af0ac50896942/oarepo-14.0.10-py3-none-any.whl", hash = "sha256:610481cccef013f44fc136f801a757550f3248f579830e3e4ce4c0ea899f4538", size = 4319305, upload-time = "2025-11-30T20:03:16.756Z" },
-]
 
 [package.optional-dependencies]
 rdm = [
@@ -3899,6 +3840,350 @@ rdm = [
 tests = [
     { name = "pytest-invenio" },
 ]
+
+[package.metadata]
+requires-dist = [
+    { name = "aiobotocore", specifier = "==2.26.0" },
+    { name = "aiohappyeyeballs", specifier = "==2.6.1" },
+    { name = "aiohttp", specifier = "==3.13.2" },
+    { name = "aioitertools", specifier = "==0.13.0" },
+    { name = "aiosignal", specifier = "==1.4.0" },
+    { name = "alabaster", specifier = "==1.0.0" },
+    { name = "alembic", specifier = "==1.17.2" },
+    { name = "amqp", specifier = "==5.3.1" },
+    { name = "aniso8601", specifier = "==10.0.1" },
+    { name = "appdirs", specifier = "==1.4.4" },
+    { name = "arrow", specifier = "==1.4.0" },
+    { name = "asttokens", specifier = "==3.0.1" },
+    { name = "attrs", specifier = "==25.4.0" },
+    { name = "babel", specifier = "==2.17.0" },
+    { name = "babel-edtf", specifier = "==1.2.1" },
+    { name = "base32-lib", specifier = "==1.0.2" },
+    { name = "beautifulsoup4", specifier = "==4.14.3" },
+    { name = "bibtexparser", specifier = "==1.4.3" },
+    { name = "billiard", specifier = "==4.2.4" },
+    { name = "black", specifier = "==25.11.0" },
+    { name = "bleach", specifier = "==6.3.0" },
+    { name = "blinker", specifier = "==1.9.0" },
+    { name = "botocore", specifier = "==1.41.5" },
+    { name = "build", specifier = "==1.3.0" },
+    { name = "cachelib", specifier = "==0.13.0" },
+    { name = "cairocffi", specifier = "==1.7.1" },
+    { name = "cairosvg", specifier = "==2.8.2" },
+    { name = "celery", specifier = "==5.4.0" },
+    { name = "certifi", specifier = "==2025.11.12" },
+    { name = "cffi", specifier = "==2.0.0" },
+    { name = "charset-normalizer", specifier = "==3.4.4" },
+    { name = "check-manifest", specifier = "==0.51" },
+    { name = "citeproc-py", specifier = "==0.9.0" },
+    { name = "citeproc-py-styles", specifier = "==0.1.5.528422" },
+    { name = "click", specifier = "==8.3.1" },
+    { name = "click-default-group", specifier = "==1.2.4" },
+    { name = "click-didyoumean", specifier = "==0.3.1" },
+    { name = "click-plugins", specifier = "==1.1.1.2" },
+    { name = "click-repl", specifier = "==0.3.0" },
+    { name = "commonmark", specifier = "==0.9.1" },
+    { name = "commonmeta-py", specifier = "==0.180" },
+    { name = "counter-robots", specifier = "==2025.11" },
+    { name = "coverage", specifier = "==7.12.0" },
+    { name = "cryptography", specifier = "==46.0.3" },
+    { name = "cssselect2", specifier = "==0.8.0" },
+    { name = "datacite", specifier = "==1.3.1" },
+    { name = "dateparser", specifier = "==1.2.0" },
+    { name = "dcxml", specifier = "==0.1.2" },
+    { name = "decorator", specifier = "==5.2.1" },
+    { name = "defusedxml", specifier = "==0.7.1" },
+    { name = "deprecated", specifier = "==1.3.1" },
+    { name = "dictdiffer", specifier = "==0.9.0" },
+    { name = "dnspython", specifier = "==2.8.0" },
+    { name = "docker-services-cli", specifier = "==0.12.1" },
+    { name = "docutils", specifier = "==0.22.3" },
+    { name = "dojson", specifier = "==1.7.0" },
+    { name = "edtf", specifier = "==5.0.0" },
+    { name = "elementpath", specifier = "==5.0.4" },
+    { name = "email-validator", specifier = "==2.3.0" },
+    { name = "events", specifier = "==0.5" },
+    { name = "executing", specifier = "==2.2.1" },
+    { name = "faker", specifier = "==38.2.0" },
+    { name = "fancycompleter", specifier = "==0.11.1" },
+    { name = "fastjsonschema", specifier = "==2.21.2" },
+    { name = "flask", specifier = "==3.1.2" },
+    { name = "flask-alembic", specifier = "==3.1.1" },
+    { name = "flask-babel", specifier = "==4.0.0" },
+    { name = "flask-caching", specifier = "==2.3.1" },
+    { name = "flask-celeryext", specifier = "==0.5.0" },
+    { name = "flask-collect-invenio", specifier = "==1.4.0" },
+    { name = "flask-cors", specifier = "==6.0.1" },
+    { name = "flask-iiif", specifier = "==1.2.1" },
+    { name = "flask-kvsession-invenio", specifier = "==0.6.4" },
+    { name = "flask-limiter", specifier = "==2.9.2" },
+    { name = "flask-login", specifier = "==0.6.3" },
+    { name = "flask-mail", specifier = "==0.9.1" },
+    { name = "flask-menu", specifier = "==2.0.0" },
+    { name = "flask-oauthlib-invenio", specifier = "==1.1.2" },
+    { name = "flask-principal", specifier = "==0.4.0" },
+    { name = "flask-resources", specifier = "==1.2.0" },
+    { name = "flask-restful", specifier = "==0.3.10" },
+    { name = "flask-security-invenio", specifier = "==3.8.2" },
+    { name = "flask-shell-ipython", specifier = "==0.5.3" },
+    { name = "flask-sqlalchemy", specifier = "==3.1.1" },
+    { name = "flask-talisman", specifier = "==0.8.1" },
+    { name = "flask-webpackext", specifier = "==2.1.0" },
+    { name = "flask-wtf", specifier = "==1.2.2" },
+    { name = "frozenlist", specifier = "==1.8.0" },
+    { name = "fs", specifier = "==2.4.16" },
+    { name = "fsspec", specifier = "==2025.10.0" },
+    { name = "ftfy", specifier = "==6.3.1" },
+    { name = "furl", specifier = "==2.1.4" },
+    { name = "future", specifier = "==1.0.0" },
+    { name = "geojson", specifier = "==3.2.0" },
+    { name = "github3-py", specifier = "==4.0.1" },
+    { name = "greenlet", specifier = "==3.2.4" },
+    { name = "h11", specifier = "==0.16.0" },
+    { name = "humanize", specifier = "==4.14.0" },
+    { name = "idna", specifier = "==3.11" },
+    { name = "idutils", specifier = "==1.5.0" },
+    { name = "imagesize", specifier = "==1.4.1" },
+    { name = "importlib-metadata", specifier = "==8.7.0" },
+    { name = "importlib-resources", specifier = "==6.5.2" },
+    { name = "infinity", specifier = "==1.5" },
+    { name = "iniconfig", specifier = "==2.3.0" },
+    { name = "intervals", specifier = "==0.9.2" },
+    { name = "invenio-access", specifier = "==4.2.1" },
+    { name = "invenio-accounts", specifier = "==6.2.1" },
+    { name = "invenio-administration", specifier = "==4.3.1.766565" },
+    { name = "invenio-app", specifier = "==2.3.0" },
+    { name = "invenio-app-rdm", marker = "extra == 'rdm'", specifier = "==14.0.0.274510b1.dev9" },
+    { name = "invenio-assets", specifier = "==4.2.0" },
+    { name = "invenio-audit-logs", specifier = "==0.3.2" },
+    { name = "invenio-banners", specifier = "==5.2.0" },
+    { name = "invenio-base", specifier = "==2.3.2" },
+    { name = "invenio-cache", specifier = "==2.1.0" },
+    { name = "invenio-celery", specifier = "==2.2.0" },
+    { name = "invenio-checks", specifier = "==2.0.0" },
+    { name = "invenio-collections", specifier = "==2.0.0" },
+    { name = "invenio-communities", specifier = "==21.1.1.823997" },
+    { name = "invenio-config", specifier = "==1.1.0" },
+    { name = "invenio-db", specifier = "==2.1.2" },
+    { name = "invenio-drafts-resources", specifier = "==7.3.0.862457" },
+    { name = "invenio-files-rest", specifier = "==3.4.1" },
+    { name = "invenio-formatter", specifier = "==3.3.1" },
+    { name = "invenio-github", specifier = "==3.0.2" },
+    { name = "invenio-i18n", specifier = "==3.4.3" },
+    { name = "invenio-indexer", specifier = "==3.1.0" },
+    { name = "invenio-jobs", specifier = "==6.1.0" },
+    { name = "invenio-jsonschemas", specifier = "==2.1.0.108971" },
+    { name = "invenio-logging", specifier = "==4.1.1" },
+    { name = "invenio-mail", specifier = "==2.3.0" },
+    { name = "invenio-notifications", specifier = "==1.2.2.399797" },
+    { name = "invenio-oaiserver", specifier = "==3.7.3.74370" },
+    { name = "invenio-oauth2server", specifier = "==3.3.1" },
+    { name = "invenio-oauthclient", specifier = "==5.3.1.472161" },
+    { name = "invenio-pages", specifier = "==7.2.1" },
+    { name = "invenio-pidstore", specifier = "==2.2.2" },
+    { name = "invenio-previewer", specifier = "==3.5.1" },
+    { name = "invenio-queues", specifier = "==1.0.2" },
+    { name = "invenio-rdm-records", marker = "extra == 'rdm'", specifier = "==21.4.0.787896" },
+    { name = "invenio-records", specifier = "==3.1.1" },
+    { name = "invenio-records-files", specifier = "==1.2.1" },
+    { name = "invenio-records-permissions", specifier = "==1.2.1" },
+    { name = "invenio-records-resources", specifier = "==8.6.0.789998" },
+    { name = "invenio-records-rest", specifier = "==3.2.1" },
+    { name = "invenio-records-ui", specifier = "==2.1.1" },
+    { name = "invenio-requests", specifier = "==10.3.1.583100" },
+    { name = "invenio-rest", specifier = "==2.0.5" },
+    { name = "invenio-s3", specifier = "==3.0.2" },
+    { name = "invenio-search", specifier = "==3.1.2.707846" },
+    { name = "invenio-search-ui", specifier = "==4.1.3" },
+    { name = "invenio-sitemap", specifier = "==0.3.0" },
+    { name = "invenio-stats", specifier = "==5.1.1" },
+    { name = "invenio-theme", specifier = "==4.4.3" },
+    { name = "invenio-userprofiles", specifier = "==4.1.1" },
+    { name = "invenio-users-resources", specifier = "==9.0.2" },
+    { name = "invenio-vocabularies", specifier = "==9.1.1.358378" },
+    { name = "invenio-webhooks", specifier = "==1.1.0" },
+    { name = "ipython", specifier = "==9.7.0" },
+    { name = "ipython-pygments-lexers", specifier = "==1.1.1" },
+    { name = "isal", specifier = "==1.8.0" },
+    { name = "isbnlib", specifier = "==3.10.14" },
+    { name = "isort", specifier = "==7.0.0" },
+    { name = "itsdangerous", specifier = "==2.2.0" },
+    { name = "jedi", specifier = "==0.19.2" },
+    { name = "jinja2", specifier = "==3.1.6" },
+    { name = "jmespath", specifier = "==1.0.1" },
+    { name = "jsmin", specifier = "==3.0.1" },
+    { name = "jsonpatch", specifier = "==1.33" },
+    { name = "jsonpointer", specifier = "==3.0.0" },
+    { name = "jsonref", specifier = "==1.1.0" },
+    { name = "jsonresolver", specifier = "==0.4.1" },
+    { name = "jsonschema", specifier = "==4.25.1" },
+    { name = "jsonschema-specifications", specifier = "==2025.9.1" },
+    { name = "jupyter-client", specifier = "==8.6.3" },
+    { name = "jupyter-core", specifier = "==5.9.1" },
+    { name = "jupyterlab-pygments", specifier = "==0.3.0" },
+    { name = "kombu", specifier = "==5.6.1" },
+    { name = "limits", specifier = "==5.6.0" },
+    { name = "luqum", specifier = "==1.0.0" },
+    { name = "lxml", specifier = "==6.0.2" },
+    { name = "lxml-html-clean", specifier = "==0.4.3" },
+    { name = "mako", specifier = "==1.3.10" },
+    { name = "markupsafe", specifier = "==3.0.3" },
+    { name = "marshmallow", specifier = "==3.26.1" },
+    { name = "marshmallow-i18n-messages", specifier = ">=0.1.0,<1.0.0" },
+    { name = "marshmallow-oneofschema", specifier = "==3.2.0" },
+    { name = "marshmallow-utils", specifier = "==0.13.1" },
+    { name = "matplotlib-inline", specifier = "==0.2.1" },
+    { name = "maxminddb", specifier = "==3.0.0" },
+    { name = "maxminddb-geolite2", specifier = "==2018.703" },
+    { name = "mistune", specifier = "==3.1.4" },
+    { name = "msgpack", specifier = "==1.1.2" },
+    { name = "multidict", specifier = "==6.7.0" },
+    { name = "mypy-extensions", specifier = "==1.1.0" },
+    { name = "nameparser", specifier = "==1.1.3" },
+    { name = "nbclient", specifier = "==0.10.2" },
+    { name = "nbconvert", specifier = "==7.16.6" },
+    { name = "nbformat", specifier = "==5.10.4" },
+    { name = "nh3", specifier = "==0.2.22" },
+    { name = "oauthlib", specifier = "==3.3.1" },
+    { name = "opensearch-dsl", specifier = "==2.1.0" },
+    { name = "opensearch-py", specifier = "==2.8.0" },
+    { name = "ordered-set", specifier = "==4.1.0" },
+    { name = "orderedmultidict", specifier = "==1.0.2" },
+    { name = "orjson", specifier = "==3.11.4" },
+    { name = "orjsonl", specifier = "==1.0.0" },
+    { name = "outcome", specifier = "==1.3.0.post0" },
+    { name = "packaging", specifier = "==25.0" },
+    { name = "pandocfilters", specifier = "==1.5.1" },
+    { name = "parso", specifier = "==0.8.5" },
+    { name = "passlib", specifier = "==1.7.4" },
+    { name = "pathspec", specifier = "==0.12.1" },
+    { name = "pdbpp", specifier = "==0.11.7" },
+    { name = "pexpect", specifier = "==4.9.0" },
+    { name = "pikepdf", specifier = "==9.11.0" },
+    { name = "pillow", specifier = "==12.0.0" },
+    { name = "pip", specifier = "==25.3" },
+    { name = "platformdirs", specifier = "==4.5.0" },
+    { name = "pluggy", specifier = "==1.6.0" },
+    { name = "ply", specifier = "==3.11" },
+    { name = "polib", specifier = "==1.2.0" },
+    { name = "prompt-toolkit", specifier = "==3.0.52" },
+    { name = "propcache", specifier = "==0.4.1" },
+    { name = "psycopg2-binary", specifier = "==2.9.11" },
+    { name = "ptyprocess", specifier = "==0.7.0" },
+    { name = "pure-eval", specifier = "==0.2.3" },
+    { name = "pycodestyle", specifier = "==2.14.0" },
+    { name = "pycountry", specifier = "==24.6.1" },
+    { name = "pycparser", specifier = "==2.23" },
+    { name = "pydash", specifier = "==6.0.2" },
+    { name = "pydocstyle", specifier = "==6.3.0" },
+    { name = "pygments", specifier = "==2.19.2" },
+    { name = "pyjwt", specifier = "==2.10.1" },
+    { name = "pymysql", specifier = "==1.1.2" },
+    { name = "pynpm", specifier = "==0.3.0" },
+    { name = "pyparsing", specifier = "==3.2.5" },
+    { name = "pyproject-hooks", specifier = "==1.2.0" },
+    { name = "pysocks", specifier = "==1.7.1" },
+    { name = "pytest", specifier = "==8.4.2" },
+    { name = "pytest-black-ng", specifier = "==0.4.1" },
+    { name = "pytest-cov", specifier = "==7.0.0" },
+    { name = "pytest-flask", specifier = "==1.3.0" },
+    { name = "pytest-github-actions-annotate-failures", specifier = "==0.3.0" },
+    { name = "pytest-invenio", specifier = "==3.4.2" },
+    { name = "pytest-invenio", marker = "extra == 'dev'" },
+    { name = "pytest-invenio", marker = "extra == 'devs'" },
+    { name = "pytest-invenio", marker = "extra == 'test'" },
+    { name = "pytest-invenio", marker = "extra == 'tests'" },
+    { name = "pytest-isort", specifier = "==4.0.0" },
+    { name = "pytest-pycodestyle", specifier = "==2.5.0" },
+    { name = "pytest-pydocstyle", specifier = "==2.4.0" },
+    { name = "python-dateutil", specifier = "==2.9.0.post0" },
+    { name = "python-dotenv", specifier = ">=1.1.1,<2" },
+    { name = "python-geoip", specifier = "==1.2" },
+    { name = "python-slugify", specifier = "==8.0.4" },
+    { name = "pytokens", specifier = "==0.3.0" },
+    { name = "pytz", specifier = "==2024.1" },
+    { name = "pywebpack", specifier = "==2.2.0" },
+    { name = "pyyaml", specifier = "==6.0.3" },
+    { name = "pyzmq", specifier = "==27.1.0" },
+    { name = "rdflib", specifier = "==7.5.0" },
+    { name = "redis", specifier = "==7.1.0" },
+    { name = "referencing", specifier = "==0.37.0" },
+    { name = "regex", specifier = "==2025.11.3" },
+    { name = "requests", specifier = "==2.32.5" },
+    { name = "requests-oauthlib", specifier = "==2.0.0" },
+    { name = "requests-toolbelt", specifier = "==1.0.0" },
+    { name = "rich", specifier = "==12.6.0" },
+    { name = "roman-numerals", specifier = "==3.1.0" },
+    { name = "rpds-py", specifier = "==0.29.0" },
+    { name = "s3fs", specifier = "==2025.10.0" },
+    { name = "selenium", specifier = "==4.38.0" },
+    { name = "setuptools", specifier = "==80.9.0" },
+    { name = "simplejson", specifier = "==3.20.2" },
+    { name = "simplekv", specifier = "==0.14.1" },
+    { name = "six", specifier = "==1.17.0" },
+    { name = "sniffio", specifier = "==1.3.1" },
+    { name = "snowballstemmer", specifier = "==2.2.0" },
+    { name = "sortedcontainers", specifier = "==2.4.0" },
+    { name = "soupsieve", specifier = "==2.8" },
+    { name = "sparqlwrapper", specifier = "==2.0.0" },
+    { name = "speaklater", specifier = "==1.3" },
+    { name = "sphinx", specifier = "==9.0.0" },
+    { name = "sphinxcontrib-applehelp", specifier = "==2.0.0" },
+    { name = "sphinxcontrib-devhelp", specifier = "==2.0.0" },
+    { name = "sphinxcontrib-htmlhelp", specifier = "==2.1.0" },
+    { name = "sphinxcontrib-jsmath", specifier = "==1.0.1" },
+    { name = "sphinxcontrib-qthelp", specifier = "==2.0.0" },
+    { name = "sphinxcontrib-serializinghtml", specifier = "==2.0.0" },
+    { name = "sqlalchemy", specifier = "==2.0.44" },
+    { name = "sqlalchemy-continuum", specifier = "==1.5.2" },
+    { name = "sqlalchemy-utils", specifier = "==0.41.2" },
+    { name = "stack-data", specifier = "==0.6.3" },
+    { name = "text-unidecode", specifier = "==1.3" },
+    { name = "time-machine", specifier = "==2.19.0" },
+    { name = "tinycss2", specifier = "==1.4.0" },
+    { name = "toml", specifier = "==0.10.2" },
+    { name = "tornado", specifier = "==6.5.2" },
+    { name = "traitlets", specifier = "==5.14.3" },
+    { name = "trio", specifier = "==0.32.0" },
+    { name = "trio-websocket", specifier = "==0.12.2" },
+    { name = "types-beautifulsoup4", specifier = "==4.12.0.20250516" },
+    { name = "types-dateparser", specifier = "==1.2.2.20250809" },
+    { name = "types-html5lib", specifier = "==1.1.11.20251117" },
+    { name = "types-pyyaml", specifier = "==6.0.12.20250915" },
+    { name = "types-webencodings", specifier = "==0.5.0.20251108" },
+    { name = "types-xmltodict", specifier = "==0.15.0.20250907" },
+    { name = "typing-extensions", specifier = "==4.15.0" },
+    { name = "tzdata", specifier = "==2025.2" },
+    { name = "tzlocal", specifier = "==5.3.1" },
+    { name = "ua-parser", specifier = "==1.0.1" },
+    { name = "ua-parser-builtins", specifier = "==0.18.0.post1" },
+    { name = "uritemplate", specifier = "==4.2.0" },
+    { name = "uritools", specifier = "==5.0.0" },
+    { name = "urllib3", specifier = "==2.5.0" },
+    { name = "validators", specifier = "==0.35.0" },
+    { name = "vine", specifier = "==5.1.0" },
+    { name = "wand", specifier = "==0.6.13" },
+    { name = "watchdog", specifier = "==6.0.0" },
+    { name = "wcwidth", specifier = "==0.2.14" },
+    { name = "webargs", specifier = "==5.5.3" },
+    { name = "webencodings", specifier = "==0.5.1" },
+    { name = "websocket-client", specifier = "==1.9.0" },
+    { name = "werkzeug", specifier = "==3.1.4" },
+    { name = "wrapt", specifier = "==1.17.3" },
+    { name = "wsproto", specifier = "==1.3.2" },
+    { name = "wtforms", specifier = "==3.2.1" },
+    { name = "wtforms-alchemy", specifier = "==0.19.1" },
+    { name = "wtforms-components", specifier = "==0.11.0" },
+    { name = "xmlschema", specifier = "==4.2.0" },
+    { name = "xmltodict", specifier = "==0.12.0" },
+    { name = "xopen", specifier = "==2.0.2" },
+    { name = "yarl", specifier = "==1.22.0" },
+    { name = "zipp", specifier = "==3.23.0" },
+    { name = "zipstream-ng", specifier = "==1.9.0" },
+    { name = "zlib-ng", specifier = "==1.0.0" },
+    { name = "zxcvbn", specifier = "==4.5.0" },
+]
+provides-extras = ["rdm", "test", "tests", "dev", "devs", "s3"]
 
 [[package]]
 name = "oarepo-dashboard"
@@ -3973,7 +4258,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-rdm"
-version = "1.0.0.dev27"
+version = "1.0.0.dev28"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "graphlib" },
@@ -3982,9 +4267,9 @@ dependencies = [
     { name = "oarepo-runtime" },
     { name = "oarepo-ui" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/75/57/c884997b52f50a9f616784c10161bbf30a00cf53c539ea2559d87cd43d69/oarepo_rdm-1.0.0.dev27.tar.gz", hash = "sha256:05dc94343328d922bb4b5c32bcfe7ad6825c045e0b6164f0e1bf82279202f474", size = 37704, upload-time = "2025-11-24T07:24:46.791Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8f/a7/24f1e4aa3734c2425f254070982eedf17853e4435c8831195debcc7daa13/oarepo_rdm-1.0.0.dev28.tar.gz", hash = "sha256:5939046092a4a661ec064f588c08d96c839423bec886ef63da6001a24a6faf81", size = 37851, upload-time = "2025-12-01T12:29:33.166Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/23/bc/85dc0f1780e78c66ccca33d15049ffbef5d85df0648c6d12bb168947d8b3/oarepo_rdm-1.0.0.dev27-py3-none-any.whl", hash = "sha256:50b27287e3a36d70644c96913c764b2a3a4730c5e4b117a4e137212fc404dd58", size = 73448, upload-time = "2025-11-24T07:24:45.209Z" },
+    { url = "https://files.pythonhosted.org/packages/03/02/f5276fc4461b3c3ae5875744c4e10d27208174e416a6e8a658665ee55db7/oarepo_rdm-1.0.0.dev28-py3-none-any.whl", hash = "sha256:96135e8ebc57b437afb7af85e19704385a0370c1910ac5bda22890a9d07d185b", size = 73599, upload-time = "2025-12-01T12:29:32.229Z" },
 ]
 
 [[package]]
@@ -4016,8 +4301,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-ui"
-version = "6.0.0.dev22"
-source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+source = { editable = "../../oarepo/oarepo-ui" }
 dependencies = [
     { name = "deepmerge" },
     { name = "frozendict" },
@@ -4028,10 +4312,27 @@ dependencies = [
     { name = "oarepo-theme" },
     { name = "python-dotenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f9/b8/dc828913d7cfc5126a64de50d968d9eea56a98bd8a64f39b1c9c47422fdb/oarepo_ui-6.0.0.dev22.tar.gz", hash = "sha256:16d2f625718d709539c6912f8075fff0ec26dc7f960150f02f7adc27fe046a89", size = 188673, upload-time = "2025-11-22T13:26:53.817Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/6e/a9/a733a55befca2cdb0972e373b1229405475452634028c09565d26e969a25/oarepo_ui-6.0.0.dev22-py3-none-any.whl", hash = "sha256:d0501fc37adb21add7f80232dc31085c6b5c879b2b3b0bbf87a2f52cbdd39e19", size = 316070, upload-time = "2025-11-22T13:26:51.972Z" },
+
+[package.metadata]
+requires-dist = [
+    { name = "deepmerge", specifier = ">=2.0" },
+    { name = "frozendict" },
+    { name = "jinja2-simple-tags" },
+    { name = "jinjax", specifier = ">=0.60,<1.0.0" },
+    { name = "oarepo", marker = "extra == 'oarepo14'", specifier = ">=14.0.0,<15.0.0" },
+    { name = "oarepo", extras = ["rdm", "tests"], specifier = ">=14,<15" },
+    { name = "oarepo-invenio-typing-stubs", marker = "extra == 'dev'" },
+    { name = "oarepo-model", marker = "extra == 'tests'", specifier = ">=0.1.0.dev16" },
+    { name = "oarepo-rdm", marker = "extra == 'tests'", specifier = ">=1.0.0.dev11" },
+    { name = "oarepo-runtime", specifier = ">=2.0.0.dev0,<3.0.0" },
+    { name = "oarepo-theme", specifier = ">=1.0.0.dev1,<2.0.0" },
+    { name = "oarepo-workflows", marker = "extra == 'workflows'" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.1.2" },
+    { name = "pytest", marker = "extra == 'tests'", specifier = ">=7.1.2" },
+    { name = "pytest-oarepo", marker = "extra == 'tests'", specifier = ">=2.0.0,<3.0.0" },
+    { name = "python-dotenv", specifier = ">=1.1.1" },
 ]
+provides-extras = ["dev", "oarepo14", "tests", "workflows"]
 
 [[package]]
 name = "oauthlib"

@@ -1,5 +1,20 @@
 {% extends "invenio_app_rdm/header.html" %}
 
+{%- block brand %}
+<a href="/" class="navbar-brand d-flex align-items-center">
+    <img
+      src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+      class="navbar-brand-logo rel-pr-1"
+      alt="{{ _(config.THEME_SITENAME) }}"
+      loading="lazy"
+    />
+    {{ _(config.THEME_SITENAME) | upper }}
+  </a>
+{%- endblock brand %}
+
+{%- block navbar_nav %}
+{%- endblock navbar_nav %}
+
 {# Available template blocks (showing closest override point):
 
 User Status (from invenio_app_rdm/header.html):

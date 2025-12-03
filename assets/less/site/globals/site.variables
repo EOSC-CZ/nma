@@ -51,11 +51,12 @@
 @footerTextLightColor: #ffffff;
 @footerTextDarkColor: #ffffff;
 
-@navbar_background_image: linear-gradient(165deg, #008691, #008691, #00848e, #007e88, #00737d, #006971, #00636b, #006169, #006169);
-@navbar_background_color: @brandColor;
+@navbar_background_image: @white;
+@navbar_background_color: @white;
 
 @coverPageBackgroundColor: @livelyGreen;
 
+@textColor: #262729;
 @errorTextColor: #9f3a38;
 @focusedFormBorderColor: #2185d0;
 @focusedFormMutedBorderColor: #2185d0;
@@ -97,14 +98,25 @@
       Fonts
 --------------------*/
 
-@importGoogleFonts: false;
-@emSize: 14px;
-@fontSize: 14px;
-@fontSizeBase: 14px;
+@importGoogleFonts: true;
+@googleProtocol: 'https://';
+@googleFontRequest: "IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap";
+@emSize: 16px;
+@fontSize: 16px;
+@fontSizeBase: 16px;
 @font-size-small: 0.9rem;
 @font-size-tiny: 0.8rem;
 @font-size-massive: 2.5rem;
-@fontName: 'Roboto';
+@fontName: 'IBM Plex Sans', system-ui, sans-serif;;
+@fontFamily: 'IBM Plex Sans', system-ui, sans-serif;;
+@pageFont: 'IBM Plex Sans', system-ui, sans-serif;
+@headerFont: 'IBM Plex Sans', system-ui, sans-serif;
+
+@h1: 4rem;
+@h2: 3.5rem;
+@h3: 3rem;
+@h4: 2.5rem;
+@h5: 2rem;
 
 /*-------------------
      Em Sizes
