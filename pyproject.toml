@@ -52,6 +52,10 @@ module-name = [
     "datasets",
 ]
 
+[tool.uv.sources]
+oarepo-ui = { path = "../../oarepo/oarepo-ui", editable = true }
+oarepo = { path = "../../oarepo/oarepo", editable = true }
+
 [build-system]
 requires = [
     "uv_build>=0.8.7,<0.9.0",
