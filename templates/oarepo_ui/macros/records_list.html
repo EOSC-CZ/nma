@@ -13,17 +13,17 @@
 %}
   <section
     class="light-bg rel-pt-3 rel-pb-3"
-    id="records-list"
+    id="records-lists"
     data-fetch-url="{{ fetch_url }}"
     data-title="{{ title }}"
   >
     <h2 class="section-title">
         {{ title }}
-        <div class="ui fitted section-title divider"></div>
+        <div class="ui fitted section-title divider rel-mt-1"></div>
     </h2>
 
-    <div class="ui container">
-    {% for n in range(10) %}
+    <div class="ui container rel-pl-6 rel-pr-6">
+    {% for n in range(3) %}
       <div class="ui fluid placeholder rel-mt-3">
         <div class="header">
           <div class="line"></div>

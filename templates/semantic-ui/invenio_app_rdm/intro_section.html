@@ -19,15 +19,18 @@
 <section class="light-bg rel-pt-3 rel-pb-3">
   {{ records }}
   <h2 class="section-title">
-    {{ _("About NMA") }}
-    <div class="ui fitted section-title divider"></div>
+    {{ _("About NMD") }}
+    <div class="ui fitted section-title divider rel-mt-1"></div>
   </h2>
 
   <div class="ui centered container rel-mb-4">
-    <p class="ui description">{{ _("The National Metadata Directory (NMA) aggregates metadata from repositories across the Czech Republic") }}</p>
+    <p class="ui description rel-pr-10 rel-pl-10">{{ _("The National Metadata Directory is a central directory in which the basic metadata of research data is stored. NMD also contains the basic data necessary to ensure interoperability while accessing the data. It includes search services and metadata retrieval. Metadata from various data repositories and stores in the Czech Republic and abroad are indexed.") }}</p>
+
+    <p class="ui description">
+      {% trans link="https://www.eosc.cz/en/about-eosc-cz" %}NMD service is a part of the <a href="{{link}}">EOSC-CZ</a> project.{% endtrans %}
   </div>
   <div class="ui cards centered stackable fluid container">
-    {{ feature_card(_("Metadata Aggregation"), _("NMA Harvests metadata from repositories in the National Repository Platform and beyond."), "sitemap") }}
+    {{ feature_card(_("Metadata Aggregation"), _("NMD Harvests metadata from repositories in the National Repository Platform and beyond."), "sitemap") }}
     {{ feature_card(_('Discover & Locate'), _('Search across repositories and locate datasets with links to original data.'), 'search') }}
     {{ feature_card(_('Persistent Links'), _('Every record has a persistent URL and a reference to the original repository.'), 'linkify') }}
   </div>

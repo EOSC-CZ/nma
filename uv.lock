@@ -4216,11 +4216,11 @@ wheels = [
 
 [[package]]
 name = "oarepo-invenio-typing-stubs"
-version = "0.1.21"
+version = "0.1.22"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/60/ab/cf31536f961d37b258a1022a8930030a07d713dcd8942fd2a39e7b03dee7/oarepo_invenio_typing_stubs-0.1.21.tar.gz", hash = "sha256:2e311179477727b3f00062f6488dc79aff49feff702eca179e55d3b459121e1a", size = 314395, upload-time = "2025-11-20T22:13:42.365Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/26/05/1f1a90651b820d0f01f367ec99e9a4ecfdf2480581450b794d13b05baf0b/oarepo_invenio_typing_stubs-0.1.22.tar.gz", hash = "sha256:f7406840721df946dfe91a4044cf3d2ffd1d297b1a8a02070b5aaec10bd16667", size = 314398, upload-time = "2025-12-03T14:16:59.774Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/20/40/1566c973cc70e6e2c99ba69b26dd0f4a749f6b0c3895475cae06d37b732f/oarepo_invenio_typing_stubs-0.1.21-py3-none-any.whl", hash = "sha256:82ce0d4fbd8ec7753ef9344eece455a32c90799d798e4a7f6964b6d867bee324", size = 429644, upload-time = "2025-11-20T22:13:41.251Z" },
+    { url = "https://files.pythonhosted.org/packages/4b/47/34061f3f7e8d9c1e2ca93e199eb59d83c39e6eac4283de122bdafa42e22f/oarepo_invenio_typing_stubs-0.1.22-py3-none-any.whl", hash = "sha256:d58605ec9933a01769b0a22e565873fb52dd2d528ef01c10712575e075c9dd84", size = 429670, upload-time = "2025-12-03T14:16:58.011Z" },
 ]
 
 [[package]]
