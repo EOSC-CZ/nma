@@ -12,6 +12,8 @@
 <p>You can access and edit it using the link below (valid for {{ expiration_days }} days):</p>
 
 <p><a href="{{ secret_link }}">{{ secret_link }}</a></p>
+
+<p>If the link has expired, please contact support to receive a new one.</p>
 {%- endblock html_body -%}
 
 {%- block plain_body -%}
@@ -19,6 +21,8 @@ Your record "{{ record_title }}" has been successfully created.
 
 You can access and edit it using this link (valid for {{ expiration_days }} days):
 {{ secret_link }}
+
+If the link has expired, please contact support to receive a new one.
 {%- endblock plain_body -%}
 
 {%- block md_body -%}
@@ -27,4 +31,6 @@ Your record **{{ record_title }}** has been successfully created.
 You can access and edit it using this link (valid for **{{ expiration_days }} days**):
 
 {{ secret_link }}
+
+If the link has expired, please contact support to receive a new one.
 {%- endblock md_body -%}

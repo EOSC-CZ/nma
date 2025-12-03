@@ -13,6 +13,8 @@
 (platnost odkazu je {{ expiration_days }} dní):</p>
 
 <p><a href="{{ secret_link }}">{{ secret_link }}</a></p>
+
+<p>Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.</p>
 {%- endblock html_body -%}
 
 {%- block plain_body -%}
@@ -21,6 +23,8 @@ Váš záznam "{{ record_title }}" byl úspěšně vytvořen.
 Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
 (platný {{ expiration_days }} dní):
 {{ secret_link }}
+
+Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
 {%- endblock plain_body -%}
 
 {%- block md_body -%}
@@ -30,4 +34,6 @@ Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu
 (platný **{{ expiration_days }} dní**):
 
 {{ secret_link }}
+
+Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
 {%- endblock md_body -%}
