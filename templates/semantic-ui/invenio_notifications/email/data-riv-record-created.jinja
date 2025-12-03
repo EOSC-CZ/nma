@@ -1,0 +1,88 @@
+{% set record_title = notification.context.record_data.metadata.title %}
+{% set secret_link = notification.context.secret_link %}
+{% set expiration_days = notification.context.expiration_time %}
+
+{%- block subject -%}
+    {{ _("Váš záznam byl vytvořen / Your record has been created – %(title)s", title=record_title) }}
+{%- endblock subject -%}
+
+
+{# ------------------------------------------------------- #}
+{# ---------------------- HTML BODY ----------------------- #}
+{# ------------------------------------------------------- #}
+{%- block html_body -%}
+
+<p>Váš záznam <strong>{{ record_title }}</strong> byl úspěšně vytvořen.</p>
+
+<p>Ke záznamu se můžete dostat a upravovat jej pomocí odkazu níže 
+(platnost odkazu je {{ expiration_days }} dní):</p>
+
+<p><a href="{{ secret_link }}">{{ secret_link }}</a></p>
+
+<p>Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.</p>
+
+<hr>
+
+<p><em>English version below:</em></p>
+
+<p>Your record <strong>{{ record_title }}</strong> has been successfully created.</p>
+
+<p>You can access and edit it using the link below (valid for {{ expiration_days }} days):</p>
+
+<p><a href="{{ secret_link }}">{{ secret_link }}</a></p>
+
+<p>If the link has expired, please contact support to receive a new one.</p>
+
+{%- endblock html_body -%}
+
+
+{# ------------------------------------------------------- #}
+{# --------------------- PLAIN BODY ----------------------- #}
+{# ------------------------------------------------------- #}
+{%- block plain_body -%}
+Váš záznam "{{ record_title }}" byl úspěšně vytvořen.
+
+Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
+(platný {{ expiration_days }} dní):
+{{ secret_link }}
+
+Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
+
+----------------------------------------
+English version below:
+----------------------------------------
+
+Your record "{{ record_title }}" has been successfully created.
+
+You can access and edit it using this link (valid for {{ expiration_days }} days):
+{{ secret_link }}
+
+If the link has expired, please contact support to receive a new one.
+{%- endblock plain_body -%}
+
+
+{# ------------------------------------------------------- #}
+{# ---------------------- MD BODY ------------------------- #}
+{# ------------------------------------------------------- #}
+{%- block md_body -%}
+Váš záznam **{{ record_title }}** byl úspěšně vytvořen.
+
+Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
+(platný **{{ expiration_days }} dní**):
+
+{{ secret_link }}
+
+Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
+
+---
+
+_English version below:_
+
+Your record **{{ record_title }}** has been successfully created.
+
+You can access and edit it using this link (valid for **{{ expiration_days }} days**):
+
+{{ secret_link }}
+
+If the link has expired, please contact support to receive a new one.
+{%- endblock md_body -%}

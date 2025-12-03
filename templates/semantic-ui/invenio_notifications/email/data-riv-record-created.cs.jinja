@@ -1,0 +1,39 @@
+{% set record_title = notification.context.record_data.metadata.title %}
+{% set secret_link = notification.context.secret_link %}
+{% set expiration_days = notification.context.expiration_time %}
+
+{%- block subject -%}
+    {{ _("✅ Váš záznam „%(title)s“ byl vytvořen", title=record_title) }}
+{%- endblock subject -%}
+
+{%- block html_body -%}
+<p>Váš záznam <strong>{{ record_title }}</strong> byl úspěšně vytvořen.</p>
+
+<p>Ke záznamu se můžete dostat a upravovat jej pomocí odkazu níže 
+(platnost odkazu je {{ expiration_days }} dní):</p>
+
+<p><a href="{{ secret_link }}">{{ secret_link }}</a></p>
+
+<p>Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.</p>
+{%- endblock html_body -%}
+
+{%- block plain_body -%}
+Váš záznam "{{ record_title }}" byl úspěšně vytvořen.
+
+Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
+(platný {{ expiration_days }} dní):
+{{ secret_link }}
+
+Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
+{%- endblock plain_body -%}
+
+{%- block md_body -%}
+Váš záznam **{{ record_title }}** byl úspěšně vytvořen.
+
+Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
+(platný **{{ expiration_days }} dní**):
+
+{{ secret_link }}
+
+Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
+{%- endblock md_body -%}
