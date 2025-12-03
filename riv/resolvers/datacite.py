@@ -1,6 +1,6 @@
-from ..resolvers import MetadataResolver
-import requests
 import re
+
+from ..resolvers import MetadataResolver
 
 HOST_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org(?:\/.*)?$', re.IGNORECASE)
 DOI_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org\/(.+)$', re.IGNORECASE)
@@ -19,7 +19,7 @@ class DataciteResolver(MetadataResolver):
 
         doi = match.group(1)
         url = f"{DATACITE_URL}/{doi}"
-        response = requests.get(
+        response = self.session.get(
             url=url,
         )
         if response.status_code != 200:
