@@ -39,13 +39,13 @@ example_data = {
     }
 }
 
-
+# It will always be the same data that is beeing sent to grant service
 grant_data = {
     "grants": [
         {
             "subject": {"type": "role", "id": RIV_CURATORS_GROUP_ID},
             "permission": "manage",
-            "notify": True,  # Could be False?
+            "notify": True,  # TODO: Could be False?
         }
     ]
 }
@@ -56,19 +56,20 @@ def create_record(record_data):
         raise ValueError("Please login first.")
     user = User.query.filter(User.id == current_user.id).one()
 
-    # TODO: change to record data
-    example_data["files"] = {"enabled": False}
+    # disable files by default
+    record_data["files"] = {"enabled": False}
 
     # create and publish
     datasets_service = current_service_registry.get("datasets")
-    draft_record = datasets_service.create(identity=system_identity, data=example_data)
+    draft_record = datasets_service.create(identity=system_identity, data=record_data)
     _ = datasets_service.publish(identity=system_identity, id_=draft_record["id"])
 
     # call access service and secret link
     # TODO: is there a better way to get access service? Maybe from datasets_service directly?
+    # I didnt find any access service on datasets_service.
     access_service = RecordAccessService(datasets_service.config)
 
-    # create_secret_link
+    # prepare data for secret link creation
     data = {
         "permission": "edit",
         "description": f"Secret link for editing record for {user.email}",
@@ -91,7 +92,7 @@ def create_record(record_data):
     notification = Notification(
         type="data-riv-record-created",
         context={
-            "record_data": example_data,  # TODO: change to record data
+            "record_data": record_data,
             "secret_link": secret_link,
             "expiration_time": f"{SECRET_LINK_EXPIRATION_DAYS}",
         },
