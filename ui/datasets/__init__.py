@@ -1,13 +1,14 @@
 import traceback
 from functools import wraps
 
-from flask import abort, current_app, render_template
+from flask import abort, current_app, render_template, request
 from flask_menu import current_menu
 from invenio_i18n import lazy_gettext as _
 from oarepo_ui.overrides import UIComponent
 from oarepo_ui.overrides.components import UIComponentImportMode
 from oarepo_ui.proxies import current_oarepo_ui
 from oarepo_ui.resources import BabelComponent
+from oarepo_ui.resources.decorators import allow_method
 from oarepo_ui.resources.components import (
     # AllowedCommunitiesComponent,
     AllowedHtmlTagsComponent,
@@ -19,7 +20,6 @@ from oarepo_ui.resources.components import (
     RecordRestrictionComponent,
 )
 from oarepo_ui.resources.components.custom_fields import CustomFieldsComponent
-from oarepo_ui.resources.decorators import allow_method
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
@@ -107,8 +107,13 @@ class DatasetsUIResource(RecordsUIResource):
     @allow_method(["GET", "POST"])
     def create_record_riv(self):
         """Create and publish record. Generate secret link and send email to user. Grant access to support."""
-        metadata, message = resolve_metadata("https://doi.org/10.5281/zenodo.17801829")
-        return create_record({"metadata":metadata})
+        if request.method == "GET":
+            return render_template("datasets/riv_form.jinja")
+        elif request.method == "POST":
+            persistent_url = request.form.get("persistent_url")
+            metadata, message = resolve_metadata(persistent_url)
+            return create_record({"metadata":metadata})
+
 
 
 def ui_overrides(app):
