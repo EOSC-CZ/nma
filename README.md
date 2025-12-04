@@ -1,4 +1,4 @@
-# NMA
+# NMD
 
 URLcka pro integraci NMA s RIVem
 

@@ -1,0 +1,54 @@
+{#
+  Copyright (C) 2019-2022 CERN
+  Copyright (C) 2024 KTH Royal Institute of Technology.
+
+  Invenio App RDM is free software; you can redistribute it and/or modify it
+  under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% macro records_list(
+    title=_("Recently Added Metadata"),
+    fetch_url="/api/records?sort=newest&size=10"
+  )
+%}
+  <section
+    class="light-bg rel-pt-3 rel-pb-3"
+    id="records-lists"
+    data-fetch-url="{{ fetch_url }}"
+    data-title="{{ title }}"
+    data-testid="frontpage-records-list-container"
+  >
+    <h2 class="section-title">
+        {{ title }}
+        <div class="ui fitted section-title divider rel-mt-1"></div>
+    </h2>
+
+    <div class="ui container rel-pl-6 rel-pr-6">
+    {% for n in range(3) %}
+      <div class="ui fluid placeholder rel-mt-3">
+        <div class="header">
+          <div class="line"></div>
+        </div>
+
+        <div class="paragraph">
+          <div class="line"></div>
+        </div>
+
+        <div class="paragraph">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+
+        <div class="paragraph">
+          <div class="line"></div>
+        </div>
+      </div>
+
+      {% if n < 9 %}
+        <div class="ui divider rel-mt-2 rel-mb-2"></div>
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+
+{% endmacro %}

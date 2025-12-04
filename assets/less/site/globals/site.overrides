@@ -25,6 +25,7 @@ html, body {
   display: flex;
   flex-direction: column;
   font-size: @fontSize;
+  font-family: @fontFamily;
 }
 
 main {
@@ -120,11 +121,10 @@ button:focus-visible, a:focus-visible {
   text-align: center;
   display: block;
   color: @primaryColor;
-  font-weight: 500;
+  font-weight: 700;
 
   h2& {
-    font-size: 2em;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 
     @media screen and (max-width: @largestMobileScreen) {
       font-size: 1.7em;
@@ -379,5 +379,105 @@ dl.details-list {
 @media all and (max-width: @largestTabletScreen) {
   #invenio-menu {
     width: auto !important;
+  }
+}
+
+.d-flex { 
+  display: flex;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  
+  &:hover {
+    text-decoration: none;
+  }
+  .navbar-brand-logo {
+    max-height: 5rem;
+  }
+}
+
+header.theme.header {
+
+  .navbar-brand, ui.header {
+    color: @textColor !important;
+  }
+
+  .ui.hero.header {
+    font-size: 5rem;
+  }
+
+  .subtitle {
+    letter-spacing: -2%;
+    font-weight: 500;
+  }
+
+  .hero-icon {
+    width: 200px;
+    height: 200px;
+  }
+
+  .outer-navbar {
+    background: linear-gradient(127deg, @white 0%, lighten(@primaryColor, 70%) 50%, lighten(@primaryColor, 1%) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: @heroBackgroundColor;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+  }
+
+  #frontpage-search-bar .divider.hidden {
+    margin: 0;
+  }
+
+  .big.action.input {
+      box-shadow: @lightGrey 0px 0px 0px 0px, @lightGrey 0px 0px 0px 0px, @lightGrey 0px 20px 25px -5px, @darkGrey 0px 8px 10px -6px;
+  }
+}
+
+.intro-step-list-image {
+  font-weight: 700;
+  color: white;
+  background-color: @featuredListBackgroundColor;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu.item.language-selector {
+  flex-grow: 10 !important;
+  justify-content: flex-end !important;
+  color: @textColor !important;
+  
+  & > #language-code-form > div > label {
+    display: none;
+  }
+}
+
+#rdm-footer-element {
+
+  background-color: @footerLightColor;
+  font-weight: 500;
+  .app-rdm-footer {
+    background: @heroBackgroundColor;
+    .hero-icon {
+      border-radius: 20rem;
+      background-color: @white;
+      max-height: 3rem;
+      max-width: 3rem;
+      margin-top: -0.5rem !important;
+      margin-left: -3.5rem !important;
+    }
   }
 }

@@ -1,0 +1,6 @@
+Contact: https://csirt.cesnet.cz/en/contact
+Contact: mailto:certs@cesnet.cz
+Encryption: https://csirt.cesnet.cz/publickey.asc
+Encryption: http://keys.gnupg.net/pks/lookup?search=0xFC3F62D9F458694E&fingerprint=on&op=index
+Signature: https://csirt.cesnet.cz/.well-known/security.txt.20211207.sig
+Policy: https://csirt.cesnet.cz/en/vulnerability_report
