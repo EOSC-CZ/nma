@@ -1,7 +1,8 @@
 import traceback
 from functools import wraps
 
-from flask import abort, current_app, render_template
+from flask import abort, current_app, flash, redirect, render_template, request, url_for
+from flask_login import login_required
 from flask_menu import current_menu
 from invenio_i18n import lazy_gettext as _
 from oarepo_ui.overrides import UIComponent
@@ -9,7 +10,6 @@ from oarepo_ui.overrides.components import UIComponentImportMode
 from oarepo_ui.proxies import current_oarepo_ui
 from oarepo_ui.resources import BabelComponent
 from oarepo_ui.resources.components import (
-    # AllowedCommunitiesComponent,
     AllowedHtmlTagsComponent,
     EmptyRecordAccessComponent,
     FilesComponent,
@@ -24,8 +24,10 @@ from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
-from riv.records.create_record import create_record
-from riv.resolvers import resolve_metadata
+from riv.records import create_record
+from riv.resolvers.base import resolve_metadata
+from riv.views import RegisterForm
+
 
 class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     template_folder = "templates"
@@ -41,7 +43,6 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
 
     routes = {
         **RecordsUIResourceConfig.routes,
-        "create_record_riv": "riv",
     }
 
     components = [
@@ -96,19 +97,45 @@ def handle_riv_errors(func):
         except Exception as exc:
             current_app.logger.exception(f"Unexpected error in {func.__name__}: {exc}")
 
-            return render_template(
-                "datasets/errors/riv_error_page.jinja", error=str(exc), stack=traceback.format_exc()
-            ), 500
+            return (
+                render_template(
+                    "datasets/errors/riv_error_page.jinja",
+                    error=str(exc),
+                    stack=traceback.format_exc(),
+                ),
+                500,
+            )
 
     return wrapper
 
 class DatasetsUIResource(RecordsUIResource):
-    @handle_riv_errors
+    
+    @login_required
     @allow_method(["GET", "POST"])
-    def create_record_riv(self):
-        """Create and publish record. Generate secret link and send email to user. Grant access to support."""
-        metadata, message = resolve_metadata("https://doi.org/10.5281/zenodo.17801829")
-        return create_record({"metadata":metadata})
+    @handle_riv_errors
+    def deposit_create(self):
+        """Create and publish record by persistent identifier. Generate secret link and send email to user. Grant access to support."""
+        form = RegisterForm()
+
+        if form.validate_on_submit():
+            pid = form.pid.data
+
+            try:
+                metadata, _ = resolve_metadata(pid)
+                create_record({"metadata": metadata})
+
+                flash(f"Successfully registered dataset with PID: {pid}", "success")
+                return redirect(url_for("datasets_ui.deposit_edit", pid_value=metadata['id']))
+            except Exception as e:
+                flash(f"Error registering dataset: {str(e)}", "error")
+                return redirect(url_for("datasets_ui.deposit_create"))
+
+        return current_oarepo_ui.catalog.render(
+            self.get_jinjax_macro(
+                "deposit_create",
+            ),
+            **{"form": form}
+        )
 
 
 def ui_overrides(app):

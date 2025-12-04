@@ -321,6 +321,10 @@ dl.details-list {
   color: @mutedTextColor !important;
 }
 
+.text-tiny {
+  font-size: @tiny;
+}
+
 .clickable {
   cursor: pointer !important;
 }
@@ -389,12 +393,13 @@ dl.details-list {
 .navbar-brand {
   font-weight: 700;
   letter-spacing: 0.1rem;
-  
+  font-size: .75rem;
+
   &:hover {
     text-decoration: none;
   }
   .navbar-brand-logo {
-    max-height: 5rem;
+    max-height: 3rem;
   }
 }
 

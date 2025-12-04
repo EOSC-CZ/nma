@@ -9,12 +9,22 @@
 
 """Views."""
 
-from flask import request
+from invenio_i18n import lazy_gettext as _
+
+from flask_wtf import FlaskForm
+from wtforms import StringField
+from wtforms.validators import DataRequired, URL
 
 
-def register():
-    if request.method == "GET":
-        return "form"
-    else:
-        pid = request.form.get("pid")
-        return f"registered {pid}"
+class RegisterForm(FlaskForm):
+    """Form for registering a dataset by PID."""
+
+    pid = StringField(
+        "Persistent Identifier",
+        validators=[
+            DataRequired(message=_("Please enter a persistent identifier")),
+            URL(
+                message=_("Please enter a valid URL (e.g., https://doi.org/... or https://hdl.handle.net/...)")
+            ),
+        ],
+    )
