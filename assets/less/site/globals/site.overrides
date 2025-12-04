@@ -404,6 +404,10 @@ header.theme.header {
     color: @textColor !important;
   }
 
+  .ui.hero.header {
+    font-size: 5rem;
+  }
+
   .subtitle {
     letter-spacing: -2%;
     font-weight: 500;
@@ -472,7 +476,7 @@ header.theme.header {
       background-color: @white;
       max-height: 3rem;
       max-width: 3rem;
-      margin-right: -0.1rem !important;
+      margin-top: -0.5rem !important;
       margin-left: -3.5rem !important;
     }
   }

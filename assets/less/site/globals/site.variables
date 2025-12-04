@@ -116,11 +116,11 @@
 @pageFont: 'IBM Plex Sans', system-ui, sans-serif;
 @headerFont: 'IBM Plex Sans', system-ui, sans-serif;
 
-@h1: 4rem;
-@h2: 3.5rem;
-@h3: 3rem;
-@h4: 2.5rem;
-@h5: 2rem;
+@h1: 3rem;
+@h2: 2.5rem;
+@h3: 2rem;
+@h4: 1.5rem;
+@h5: 1rem;
 
 /*-------------------
      Em Sizes
