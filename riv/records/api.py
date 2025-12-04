@@ -23,8 +23,7 @@ class ExternalPIDProvider(DraftRecordIdProviderV2):
     @classmethod
     @override
     def generate_id(cls, options: dict[str, Any] = None) -> str:
-        # TODO: correct metadata field
-        url = options["record"].metadata["title"]
+        url = options["record"].metadata["persistent_url"]
         for prefix, val in current_app.config["PERSISTENT_IDENTIFIER_PATTERNS"].items():
             m = re.match(prefix, url)
             if m:
