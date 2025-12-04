@@ -111,8 +111,8 @@
 @font-size-small: 0.9rem;
 @font-size-tiny: 0.8rem;
 @font-size-massive: 2.5rem;
-@fontName: 'IBM Plex Sans', system-ui, sans-serif;;
-@fontFamily: 'IBM Plex Sans', system-ui, sans-serif;;
+@fontName: 'IBM Plex Sans', system-ui, sans-serif;
+@fontFamily: 'IBM Plex Sans', system-ui, sans-serif;
 @pageFont: 'IBM Plex Sans', system-ui, sans-serif;
 @headerFont: 'IBM Plex Sans', system-ui, sans-serif;
 
