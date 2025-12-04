@@ -116,10 +116,10 @@
 @pageFont: 'IBM Plex Sans', system-ui, sans-serif;
 @headerFont: 'IBM Plex Sans', system-ui, sans-serif;
 
-@h1: 3rem;
-@h2: 2.5rem;
-@h3: 2rem;
-@h4: 1.5rem;
+@h1: 2.5rem;
+@h2: 2rem;
+@h3: 1.5rem;
+@h4: 1.25rem;
 @h5: 1rem;
 
 /*-------------------

@@ -1,7 +1,8 @@
 import traceback
 from functools import wraps
 
-from flask import abort, current_app, render_template
+from flask import abort, current_app, flash, redirect, render_template, request, url_for
+from flask_login import login_required
 from flask_menu import current_menu
 from invenio_i18n import lazy_gettext as _
 from oarepo_ui.overrides import UIComponent
@@ -9,7 +10,6 @@ from oarepo_ui.overrides.components import UIComponentImportMode
 from oarepo_ui.proxies import current_oarepo_ui
 from oarepo_ui.resources import BabelComponent
 from oarepo_ui.resources.components import (
-    # AllowedCommunitiesComponent,
     AllowedHtmlTagsComponent,
     EmptyRecordAccessComponent,
     FilesComponent,
@@ -24,9 +24,9 @@ from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
-from riv.records.create_record import create_record
-from riv.resolvers import resolve_metadata
-from riv.views import register
+from riv.records import create_record
+from riv.resolvers.base import resolve_metadata
+from riv.views import RegisterForm
 
 
 class DatasetsUIResourceConfig(RecordsUIResourceConfig):
@@ -43,7 +43,6 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
 
     routes = {
         **RecordsUIResourceConfig.routes,
-        "create_record_riv": "riv",
     }
 
     components = [
@@ -110,12 +109,43 @@ def handle_riv_errors(func):
     return wrapper
 
 class DatasetsUIResource(RecordsUIResource):
+    
+    @login_required
     @handle_riv_errors
-    @allow_method(["GET", "POST"])
-    def create_record_riv(self):
-        """Create and publish record. Generate secret link and send email to user. Grant access to support."""
-        metadata, message = resolve_metadata("https://doi.org/10.5281/zenodo.17801829")
-        return create_record({"metadata":metadata})
+    def deposit_create(self):
+        """Create and publish record by persistent identifier. Generate secret link and send email to user. Grant access to support."""
+        form = RegisterForm()
+
+        # TODO we should have single view method for a single request method only
+        if request.method == "GET":
+            return current_oarepo_ui.catalog.render(
+                self.get_jinjax_macro(
+                    "deposit_create",
+                ),
+                **{"form": form}
+            )
+
+        if form.validate_on_submit():
+            pid = form.pid.data
+
+            try:
+                metadata, _ = resolve_metadata(pid)
+                create_record({"metadata": metadata})
+
+                flash(f"Successfully registered dataset with PID: {pid}", "success")
+                return redirect(url_for("datasets_ui.deposit_edit", pid_value=metadata['id']))
+            except Exception as e:
+                flash(f"Error registering dataset: {str(e)}", "error")
+                return redirect(url_for("datasets_ui.deposit_create"))
+
+        # Form validation failed
+        flash("Please correct the errors in the form", "error")
+        return current_oarepo_ui.catalog.render(
+            self.get_jinjax_macro(
+                "deposit_create",
+            ),
+            **{"form": form}
+        )
 
 
 def ui_overrides(app):
@@ -156,9 +186,6 @@ def finalize_app(app):
 def create_blueprint(app):
     """Register blueprint for this resource."""
     blueprint = DatasetsUIResource(DatasetsUIResourceConfig()).as_blueprint()
-    blueprint.add_url_rule(
-        "/datasets/uploads/register", view_func=register, methods=["GET", "POST"]
-    )
     return blueprint
 
 
