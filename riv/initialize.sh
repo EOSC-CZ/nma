@@ -1,1 +1,1 @@
-invenio roles create riv_curator
+invenio roles create riv_curators
