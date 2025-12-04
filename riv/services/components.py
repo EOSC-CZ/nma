@@ -14,3 +14,12 @@ class ExternalPIDComponent(ServiceComponent):
         # We create the PID after all the data has been initialized. so that
         # we can rely on having the 'id' and type set.
         self.service.draft_cls.pid.create(record)
+
+class UpdateMetadataComponent(ServiceComponent):
+    """Service component for metadata update action."""
+
+    field = "metadata"
+
+    def update(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
+        """Inject parsed metadata to the record."""
+        setattr(record, self.field, data.get(self.field, {}))
