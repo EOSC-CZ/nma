@@ -18,8 +18,8 @@
                 <form class="ui form" novalidate method="POST" action="{{ url_for('datasets_ui.deposit_create') }}" data-testid="deposit-create-register-doi-form">
                     {{ form.hidden_tag() }}
                     <div class="field{% if form.pid.errors %} error{% endif %} required">
-                        <div class="ui huge autofocus input" data-testid="deposit-create-register-doi-input">
-                            {{ form.pid(class="", placeholder=_("https://doi.org/… or https://hdl.handle.net/…")) }}
+                        <div class="ui huge autofocus  input" data-testid="deposit-create-register-doi-input">
+                            {{ form.pid(class="text-align-center", placeholder=_("https://doi.org/… or https://hdl.handle.net/…")) }}
                         </div>
                         
                     {% if form.pid.errors %}
@@ -64,7 +64,7 @@
                     {% trans %}NMD currently accepts datasets referenced by <a href="https://www.doi.org/the-identifier/what-is-a-doi/" target="_blank">DOI</a> or <a href="https://www.handle.net" target="_blank">Handle</a> identifiers.{% endtrans %}
                 </p>
                 <p>
-                    {{ _('If your dataset uses a different type of identifier, please reach out to us at') }} <a href="mailto:nrp-repo_l3@eosc.cz">nrp-repo_l3@eosc.cz</a> — {{ _("we will help you determine whether registration is possible.") }}
+                    {{ _('If your dataset uses a different type of identifier, please reach out to us at') }} <a href="mailto:{{ config.REPOSITORY_SUPPORT_CONTACT }}">{{ config.REPOSITORY_SUPPORT_CONTACT }}</a> — {{ _("we will help you determine whether registration is possible.") }}
                 </p>
             </div>
         </div>
