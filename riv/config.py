@@ -15,9 +15,9 @@ PERSISTENT_IDENTIFIER_RESOLVERS = [
     "riv.resolvers.HandleResolver",
 ]
 
-PERSISTENT_IDENTIFIER_PREFIXES = {
-    "https://doi.org/": "doi",
-    "https://hdl.handle.net/": "handle",
+PERSISTENT_IDENTIFIER_PATTERNS = {
+    r"https://doi.org/(.*)": "doi",
+    r"https://hdl.handle.net/(.*)": "handle",
 }
 
 
