@@ -14,6 +14,7 @@
       <a
         href="{{ url_for_security('login', next=request.path) }}"
         class="ui primary button auth-button" aria-busy="false" aria-live="polite" aria-label="{{ _('Sign in') }}"
+        data-testid="header-login-sign-in-button"
       >
         <i class="sign-in icon auth-icon" aria-hidden="true"></i>
         {{ _('Sign in') }}
@@ -30,6 +31,7 @@
           aria-expanded="false"
           aria-haspopup="menu"
           aria-label="{{ _('My account') }}"
+          data-testid="header-login-my-account-dropdown-button"
         >
           <span>
             <i class="user icon" aria-hidden="true"></i>
@@ -65,6 +67,7 @@
 
         <form action="{{ url_for_security('logout') }}" method="get" style="display:inline;">
           <button type="submit"
+                  data-testid="header-login-log-out-button"
                   class="ui button basic item auth-button"
                   aria-busy="false"
                   aria-live="polite"
@@ -103,6 +106,7 @@
 
           <form action="{{ url_for_security('logout') }}" method="get" style="display:inline;">
           <button type="submit"
+                  data-testid="header-login-log-out-button"
                   class="ui button basic item auth-button"
                   aria-busy="false"
                   aria-live="polite"
@@ -116,6 +120,7 @@
     {%- else %}
       <form action="{{ url_for_security('logout') }}" method="get" style="display:inline;">
         <button type="submit"
+                data-testid="header-login-log-out-button"
                 class="ui button primary auth-button"
                 aria-busy="false"
                 aria-live="polite"

@@ -1,7 +1,7 @@
 {% extends "invenio_app_rdm/header.html" %}
 
 {%- block brand %}
-<a href="/" class="navbar-brand d-flex align-items-center">
+<a href="/" class="navbar-brand d-flex align-items-center" data-testid="header-site-logo">
     <img
       src="{{ url_for('static', filename=config.THEME_LOGO) }}"
       class="navbar-brand-logo rel-pr-1"
@@ -17,7 +17,7 @@
 
 {%- block navbar_right %}
 {%- if config.I18N_LANGUAGES %}
-  <div class="right menu item language-selector rel-mr-1">
+  <div class="right menu item language-selector rel-mr-1" data-testid="header-language-selector">
     {% from "invenio_i18n/macros/language_selector.html" import language_selector_dropdown %}
     {{ language_selector_dropdown() }}
   </div>
