@@ -43,7 +43,11 @@ def resolve_metadata(persistent_url: str) -> (dict | None, str):
 
 
     for resolver in resolvers:
-        metadata, message = resolver.resolve(persistent_url)
+        try:
+            metadata, message = resolver.resolve(persistent_url)
+        except Exception as e:
+            message = f"Error: {e}"
+            metadata = None
 
         tagged_message = f"[{resolver.name}] {message}"
         collected_messages.append(tagged_message)

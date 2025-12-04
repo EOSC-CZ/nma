@@ -19,6 +19,7 @@ from oarepo_ui.resources.components import (
     RecordRestrictionComponent,
 )
 from oarepo_ui.resources.components.custom_fields import CustomFieldsComponent
+from oarepo_ui.resources.decorators import allow_method
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
@@ -101,12 +102,12 @@ def handle_riv_errors(func):
 
     return wrapper
 
-
 class DatasetsUIResource(RecordsUIResource):
     @handle_riv_errors
+    @allow_method(["GET", "POST"])
     def create_record_riv(self):
         """Create and publish record. Generate secret link and send email to user. Grant access to support."""
-        metadata = resolve_metadata("https://doi.org/10.5281/zenodo.17801829")
+        metadata, message = resolve_metadata("https://doi.org/10.5281/zenodo.17801829")
         return create_record({"metadata":metadata})
 
 
