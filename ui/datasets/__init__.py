@@ -111,6 +111,7 @@ def handle_riv_errors(func):
 class DatasetsUIResource(RecordsUIResource):
     
     @login_required
+    @allow_method(["GET", "POST"])
     @handle_riv_errors
     def deposit_create(self):
         """Create and publish record by persistent identifier. Generate secret link and send email to user. Grant access to support."""
