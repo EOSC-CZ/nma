@@ -3,7 +3,7 @@
 {% set expiration_days = notification.context.expiration_time %}
 
 {%- block subject -%}
-    {{ _("Váš záznam byl vytvořen / Your record has been created – %(title)s", title=record_title) }}
+    {{ _("Váš záznam byl vytvořen / Your record has been created – %(title)s", title=record_title|e) }}
 {%- endblock subject -%}
 
 
@@ -43,7 +43,7 @@
 For English see version below:
 ----------------------------------------
 
-Váš záznam "{{ record_title }}" byl úspěšně vytvořen.
+Váš záznam "{{ record_title | e }}" byl úspěšně vytvořen.
 
 Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
 (platný {{ expiration_days }} dní):
@@ -53,7 +53,7 @@ Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
 
 ----------------------------------------
 
-Your record "{{ record_title }}" has been successfully created.
+Your record "{{ record_title | e }}" has been successfully created.
 
 You can access and edit it using this link (valid for {{ expiration_days }} days):
 {{ secret_link }}
@@ -68,7 +68,7 @@ If the link has expired, please contact support to receive a new one.
 {%- block md_body -%}
 _For English see version below:_
 
-Váš záznam **{{ record_title }}** byl úspěšně vytvořen.
+Váš záznam **{{ record_title | e }}** byl úspěšně vytvořen.
 
 Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
 (platný **{{ expiration_days }} dní**):
@@ -79,7 +79,7 @@ Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
 
 ---
 
-Your record **{{ record_title }}** has been successfully created.
+Your record **{{ record_title | e }}** has been successfully created.
 
 You can access and edit it using this link (valid for **{{ expiration_days }} days**):
 
