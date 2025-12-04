@@ -117,15 +117,6 @@ class DatasetsUIResource(RecordsUIResource):
         """Create and publish record by persistent identifier. Generate secret link and send email to user. Grant access to support."""
         form = RegisterForm()
 
-        # TODO we should have single view method for a single request method only
-        if request.method == "GET":
-            return current_oarepo_ui.catalog.render(
-                self.get_jinjax_macro(
-                    "deposit_create",
-                ),
-                **{"form": form}
-            )
-
         if form.validate_on_submit():
             pid = form.pid.data
 
@@ -139,8 +130,6 @@ class DatasetsUIResource(RecordsUIResource):
                 flash(f"Error registering dataset: {str(e)}", "error")
                 return redirect(url_for("datasets_ui.deposit_create"))
 
-        # Form validation failed
-        flash("Please correct the errors in the form", "error")
         return current_oarepo_ui.catalog.render(
             self.get_jinjax_macro(
                 "deposit_create",

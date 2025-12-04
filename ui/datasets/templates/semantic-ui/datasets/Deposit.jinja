@@ -4,24 +4,24 @@
 {% extends "page.html" %}
 
 {%- block page_body %}
-<div class="ui inverted vertical center aligned container rel-mt-5">
-  <div class="ui middle aligned stackable grid centered container">
+<div class="ui inverted vertical center aligned container rel-mt-5 rel-mb-5">
+  <div class="ui stackable grid centered container">
     <h1 class="ui header row">
       <div class="content">
         {{ _('Register a Dataset') }}
         <p class="sub header rel-mt-1">{{ _("Provide your dataset's persistent identifier to register it with National Metadata Directory.") }}</>
       </div>
     </h1>
-
-    <div class="row centered">
-        <div class="eight wide column">
-            <div class="ui centered fluid pink bg-primary card rel-pl-3 rel-pr-3 rel-pt-2 rel-pb-2">
-                <form class="ui form" novalidate method="POST" action="{{ url_for('datasets_ui.deposit_create') }}">
+    <div class="row equal width centered">
+        <div class="ten wide column">
+            <div class="ui centered fluid pink bg-primary card rel-pl-3 rel-pr-3 rel-pt-2 rel-pb-2 rel-mb-2">
+                <form class="ui form" novalidate method="POST" action="{{ url_for('datasets_ui.deposit_create') }}" data-testid="deposit-create-register-doi-form">
                     {{ form.hidden_tag() }}
                     <div class="field{% if form.pid.errors %} error{% endif %} required">
-                        <div class="ui huge autofocus input">
+                        <div class="ui huge autofocus input" data-testid="deposit-create-register-doi-input">
                             {{ form.pid(class="", placeholder=_("https://doi.org/… or https://hdl.handle.net/…")) }}
                         </div>
+                        
                     {% if form.pid.errors %}
                         <div class="ui pointing red basic label">
                         {% for error in form.pid.errors %}
@@ -29,44 +29,45 @@
                         {% endfor %}
                         </div>
                     {% endif %}
-                        <small class="ui grey text block">
-                            <em>{% trans %}Supported identifier types — <strong>DOI:</strong> https://doi.org/… , <strong>Handle:</strong> https://hdl.handle.net/…{% endtrans %}</em>
-                        </small>
                     </div>
-                    <button class="ui huge primary button rel-mt-1" type="submit">
+                    <button class="ui huge primary button rel-mt-1" type="submit" data-testid="deposit-create-register-doi-submit">
                         <i class="check icon"></i>
                         {{ _('Register') }}
                     </button>
+                    <p class="text-tiny text-muted block rel-mt-2">
+                        {% trans %}By submitting this Persistent Identifier (PID) using the <strong>Register</strong> button, you declare that you have the legal right or authorization to register, curate, or otherwise manage the associated dataset within the National Metadata Directory (NMD). You confirm that the registration of this dataset does not infringe any intellectual property rights, contractual obligations, confidentiality agreements, or applicable institutional or funding rules.{% endtrans %}
+                    </p>
                 </form>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="ui message">
-            <div class="header">
-                <i class="barcode icon"></i>
-                {{ _('Other Identifier Types') }}
+        <div class="six wide column">
+            <div class="ui message info rel-ml-2 mt-0">
+                <div class="header rel-mb-1">
+                    <i class="question circle icon"></i>
+                    {{ _('What happens next?') }}
+                </div>
+                <ul class="list">
+                    <li>{{ _('We verify the identifier with its authority (DOI/Handle resolver).') }}</li>
+                    <li>{{ _('We try to automatically fetch dataset metadata: (e.g. title, authors, year, publisher)') }}</li>
+                    <li>{{ _('A metadata record will be created and published in NMD, based on the resolved metadata.') }}</li>
+                    <li>{{ _("You'll be able to review and edit the metadata if needed.") }}</li>
+                    <li>{{ _("After a certain period of time, the record gets locked and can be no longer edited.") }}</li>
+                    <li>{{ _("If the identifier has already been registered with NMD, you will be redirected to the existing record") }}</li>
+                </ul>
             </div>
-            <p>
-                {{ _('If your identifier type is not supported, please contact support') }} <a href="mailto:nrp-repo_l3@eosc.cz">nrp-repo_l3@eosc.cz</a>
-            </p>
-        </div>
-
-        <div class="ui message info">
-            <div class="header">
-                <i class="question circle icon"></i>
-                {{ _('What happens next?') }}
+            <div class="ui message rel-ml-2 mt-0">
+                <div class="header rel-mb-1">
+                    <i class="barcode icon"></i>
+                    {{ _('Using a Different Identifier?') }}
+                </div>
+                <p>
+                    {% trans %}NMD currently accepts datasets referenced by <a href="https://www.doi.org/the-identifier/what-is-a-doi/" target="_blank">DOI</a> or <a href="https://www.handle.net" target="_blank">Handle</a> identifiers.{% endtrans %}
+                </p>
+                <p>
+                    {{ _('If your dataset uses a different type of identifier, please reach out to us at') }} <a href="mailto:nrp-repo_l3@eosc.cz">nrp-repo_l3@eosc.cz</a> — {{ _("we will help you determine whether registration is possible.") }}
+                </p>
             </div>
-            <ul class="list">
-                <li>{{ _('We verify the identifier with its authority (DOI/Handle resolver).') }}</li>
-                <li>{{ _('We try to automatically fetch dataset metadata: (e.g. title, authors, year, publisher)') }}</li>
-                <li>{{ _('A metadata record will be created and published in NMD, based on the resolved metadata.') }}</li>
-                <li>{{ _("You'll be able to review and edit the metadata if needed.") }}</li>
-                <li>{{ _("After a certain period of time, the record gets locked and can be no longer edited.") }}</li>
-                <li>{{ _("If the identifier has already been registered with NMD, you will be redirected to the existing record") }}</li>
-            </ul>
         </div>
     </div>
-  </div>
 </div>
 {%- endblock page_body %}

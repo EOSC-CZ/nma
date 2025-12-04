@@ -321,6 +321,10 @@ dl.details-list {
   color: @mutedTextColor !important;
 }
 
+.text-tiny {
+  font-size: @tiny;
+}
+
 .clickable {
   cursor: pointer !important;
 }
