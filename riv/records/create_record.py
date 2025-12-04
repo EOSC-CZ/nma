@@ -12,6 +12,7 @@ from invenio_records_resources.resources.errors import PermissionDeniedError
 
 from .api import generate_id
 from ..config import RIV_CURATORS_GROUP_ID, SECRET_LINK_EXPIRATION_DAYS
+from ..errors import RIVRegistrationException
 
 example_data = {
     "metadata": {
@@ -69,9 +70,13 @@ def create_record(record_data):
 
     # create and publish
     datasets_service = current_service_registry.get("datasets")
-    draft_record = datasets_service.create(identity=system_identity, data=record_data)
-    _ = datasets_service.publish(identity=system_identity, id_=draft_record["id"])
-
+    try:
+        draft_record = datasets_service.create(
+            identity=system_identity, data=record_data
+        )
+        _ = datasets_service.publish(identity=system_identity, id_=draft_record["id"])
+    except Exception as e:
+        raise RIVRegistrationException(f"Error during record creation/publishing: {e}")
     # call access service and secret link
     access_service = (
         current_rdm_records_service.access

@@ -12,7 +12,9 @@
 {# ------------------------------------------------------- #}
 {%- block html_body -%}
 
-<p>Váš záznam <strong>{{ record_title }}</strong> byl úspěšně vytvořen.</p>
+<p><em>For English see version below:</em></p>
+
+<p>Váš záznam <strong>{{ record_title | e }}</strong> byl úspěšně vytvořen.</p>
 
 <p>Ke záznamu se můžete dostat a upravovat jej pomocí odkazu níže 
 (platnost odkazu je {{ expiration_days }} dní):</p>
@@ -23,9 +25,7 @@
 
 <hr>
 
-<p><em>English version below:</em></p>
-
-<p>Your record <strong>{{ record_title }}</strong> has been successfully created.</p>
+<p>Your record <strong>{{ record_title | e }}</strong> has been successfully created.</p>
 
 <p>You can access and edit it using the link below (valid for {{ expiration_days }} days):</p>
 
@@ -40,6 +40,9 @@
 {# --------------------- PLAIN BODY ----------------------- #}
 {# ------------------------------------------------------- #}
 {%- block plain_body -%}
+For English see version below:
+----------------------------------------
+
 Váš záznam "{{ record_title }}" byl úspěšně vytvořen.
 
 Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
@@ -48,8 +51,6 @@ Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu
 
 Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
 
-----------------------------------------
-English version below:
 ----------------------------------------
 
 Your record "{{ record_title }}" has been successfully created.
@@ -65,6 +66,8 @@ If the link has expired, please contact support to receive a new one.
 {# ---------------------- MD BODY ------------------------- #}
 {# ------------------------------------------------------- #}
 {%- block md_body -%}
+_For English see version below:_
+
 Váš záznam **{{ record_title }}** byl úspěšně vytvořen.
 
 Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
@@ -75,8 +78,6 @@ Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu
 Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
 
 ---
-
-_English version below:_
 
 Your record **{{ record_title }}** has been successfully created.
 
