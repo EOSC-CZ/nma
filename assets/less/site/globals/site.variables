@@ -51,7 +51,22 @@
 @footerTextLightColor: #ffffff;
 @footerTextDarkColor: #ffffff;
 
-@navbar_background_image: @white;
+@navbar_background_image: linear-gradient(
+  130deg,
+  hsl(185deg 100% 93%) 0%,
+  hsl(185deg 100% 94%) 4%,
+  hsl(185deg 100% 96%) 10%,
+  hsl(185deg 100% 97%) 17%,
+  hsl(185deg 100% 98%) 27%,
+  hsl(185deg 100% 99%) 39%,
+  hsl(0deg 0% 100%) 52%,
+  hsl(185deg 100% 98%) 64%,
+  hsl(185deg 100% 95%) 75%,
+  hsl(185deg 100% 92%) 84%,
+  hsl(185deg 100% 90%) 91%,
+  hsl(185deg 100% 87%) 96%,
+  hsl(185deg 100% 84%) 100%
+);
 @navbar_background_color: @white;
 
 @coverPageBackgroundColor: @white;
