@@ -455,7 +455,6 @@ header.theme.header {
   .outer-navbar {
     background: @navbar_background_image;
     position: relative;
-    overflow: hidden;
     border-bottom: 1px solid fade(@primaryColor, 20%);
 
     &::before {
