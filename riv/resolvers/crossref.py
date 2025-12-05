@@ -1,6 +1,21 @@
 import re
 
 from ..resolvers import MetadataResolver
+"""Crossref resolver to retrieve RDM-like metadata based on PID.
+
+Article with announcement of changes to REST API rate limits
+https://doi.org/10.64000/wadve-3tj60
+
+public pool rate limit: 5 requests per second
+
+example: https://api.crossref.org/works/doi/10.64000/wadve-3tj60
+
+polite pool rate limit: 10 requests per second
+available by adding query parameter mailto to API URL
+
+example: https://api.crossref.org/works/doi/10.64000/wadve-3tj60&mailto=info@eosc.cz
+"""
+
 
 HOST_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org(?:\/.*)?$', re.IGNORECASE)
 DOI_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org\/(.+)$', re.IGNORECASE)
@@ -68,8 +83,7 @@ class CrossrefResolver(MetadataResolver):
 
     def resolve_title(self, titles):
         for title in titles:
-            if 'title' in title:
-                return title['title']
+            return title
         return ''
 
     def resolve_authors(self, authors):
@@ -77,10 +91,11 @@ class CrossrefResolver(MetadataResolver):
         for crossref_author in authors:
             creator_obj = {
                 "name": crossref_author.get("family", ""),
-                "family": crossref_author.get("family", ""),
+                "family_name": crossref_author.get("family", ""),
+                "type": "personal"
             }
             if crossref_author.get("given"):
-                creator_obj["given"] = crossref_author.get("given", "")
+                creator_obj["given_name"] = crossref_author.get("given", "")
                 creator_obj["name"] += ", " + crossref_author.get("given", "")
             if crossref_author.get("ORCID"):
                 orcid_id = crossref_author.get("ORCID", "").removeprefix("https://orcid.org/")
