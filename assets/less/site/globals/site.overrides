@@ -414,7 +414,20 @@ header.theme.header {
     position: absolute;
     bottom: 0;
     z-index: 0;
-    right: 4rem;
+    right: -5rem;
+
+    @media all and (min-width: @largeMonitorBreakpoint) {
+      right: 4rem;
+    }
+
+    @media all and (max-width: @largestTabletScreen) {
+      & {
+        width: 23rem;
+        height: 12.5rem;
+        right: 0;
+        background-position-y: 0.5rem;
+      }
+    }
   }
 
   .navbar-brand, ui.header {
@@ -436,7 +449,7 @@ header.theme.header {
   }
 
   .outer-navbar {
-    background: linear-gradient(118deg, #ddfcfffc 0%, #fff 45%, #acf8fffc 100%);
+    background: @navbar_background_image;
     position: relative;
     overflow: hidden;
 
