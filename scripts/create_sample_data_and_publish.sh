@@ -34,9 +34,10 @@ metadata_json_1='{
       "id": "dataset"
     },
     "title": "Test Record that needs checking",
-    "persistent_url": "https://doi.org/10.5281/zenodo.17801799",
+    "persistent_url": "https://doi.org/10.5281/zenodo.17801700",
     "last_checked": "'"$expired1"'"
   },
+  "id": "doi:10.5281/zenodo.17801700",
   "files": {"enabled": false}
 }'
 
@@ -70,6 +71,7 @@ metadata_json_2='{
     "title": "Test Record never checked",
     "persistent_url": "https://doi.org/10.5281/zenodo.17801800"
   },
+  "id": "doi:10.5281/zenodo.17801800",
   "files": {"enabled": false}
 }'
 
@@ -86,6 +88,7 @@ metadata_json_3='{
     "persistent_url": "https://doi.org/10.5281/zenodo.17801801",
     "last_checked": "'"$fresh"'"
   },
+  "id": "doi:10.5281/zenodo.17801801",
   "files": {"enabled": false}
 }'
 
@@ -101,6 +104,7 @@ metadata_json_4='{
     "title": "Never Checked Record 1 – Forest Biodiversity",
     "persistent_url": "https://doi.org/10.5281/zenodo.17801802"
   },
+  "id": "doi:10.5281/zenodo.17801802",
   "files": {"enabled": false}
 }'
 

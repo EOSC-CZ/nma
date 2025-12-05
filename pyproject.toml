@@ -48,6 +48,9 @@ ui_datasets = "ui.datasets:finalize_app"
 [project.entry-points."flask.commands"]
 riv = "riv.cli:riv"
 
+[project.entry-points."invenio_celery.tasks"]
+riv = "riv.tasks"
+
 [tool.uv.build-backend]
 module-root = ""
 module-name = [

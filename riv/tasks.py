@@ -15,7 +15,7 @@ def check_availability_task():
     # Calculate expired threshold
     expiry_threshold = (
         datetime.now(timezone.utc) - timedelta(days=LAST_CHECKED_THRESHOLD_DAYS)
-    ).isoformat() + "Z"
+    ).isoformat().replace("+00:00", "Z")
 
     # Build Q filter for expired or missing last_checked
     extra_filter = Q(
@@ -60,7 +60,9 @@ def check_availability_task():
         current_status = metadata.get("check_status")
 
         # Always update last_checked since we performed a check
-        hit["metadata"]["last_checked"] = datetime.now(timezone.utc).isoformat() + "Z"
+        hit["metadata"]["last_checked"] = (
+            datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+        )
 
         # Determine color based on status
         if status == "success":
