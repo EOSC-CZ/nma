@@ -456,6 +456,7 @@ header.theme.header {
     background: @navbar_background_image;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid fade(@primaryColor, 20%);
 
     &::before {
       content: '';
@@ -479,14 +480,36 @@ header.theme.header {
   }
 }
 
-.intro-step-list-image {
-  font-weight: 700;
-  color: white;
-  background-color: @featuredListBackgroundColor;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.ui.feature.card {
+
+  border-radius: 6rem 6rem 0 0 !important;
+
+  .image {
+    background: @featuredListBackgroundColor !important;
+  }
+
+  .content {
+    border-top: none !important;
+  }
+
+  .intro-step-list-image {
+    font-weight: 700;
+    color: white;
+    background-color: inherit;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    
+    .circular.icon {
+      overflow-x: clip;
+      background: @primaryColor;
+      box-shadow: 0.4px 0.4px 0.6px lighten(@primaryColor, 86%),
+    0.7px 0.7px 1.1px -1.2px lighten(@primaryColor, 86%),
+    1.6px 1.5px 2.5px -2.5px lighten(@primaryColor,86%),
+    }
+  }
 }
 
 .menu.item.language-selector {
