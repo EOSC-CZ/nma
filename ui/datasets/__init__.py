@@ -24,7 +24,8 @@ from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
-from riv.records import create_record
+
+from riv.records.create_record import create_record
 from riv.resolvers.base import resolve_metadata
 from riv.views import RegisterForm
 
@@ -108,8 +109,8 @@ def handle_riv_errors(func):
 
     return wrapper
 
+
 class DatasetsUIResource(RecordsUIResource):
-    
     @login_required
     @allow_method(["GET", "POST"])
     @handle_riv_errors
@@ -125,7 +126,9 @@ class DatasetsUIResource(RecordsUIResource):
                 create_record({"metadata": metadata})
 
                 flash(f"Successfully registered dataset with PID: {pid}", "success")
-                return redirect(url_for("datasets_ui.deposit_edit", pid_value=metadata['id']))
+                return redirect(
+                    url_for("datasets_ui.deposit_edit", pid_value=metadata["id"])
+                )
             except Exception as e:
                 flash(f"Error registering dataset: {str(e)}", "error")
                 return redirect(url_for("datasets_ui.deposit_create"))
@@ -134,7 +137,7 @@ class DatasetsUIResource(RecordsUIResource):
             self.get_jinjax_macro(
                 "deposit_create",
             ),
-            **{"form": form}
+            **{"form": form},
         )
 
 
