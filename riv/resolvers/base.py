@@ -1,10 +1,7 @@
 from typing import Protocol
+
 from riv.proxies import current_riv_extension
-
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util import Retry
-
+from riv.utils import create_session_with_retries
 
 
 class MetadataResolver(Protocol):
@@ -12,15 +9,10 @@ class MetadataResolver(Protocol):
     name: str
 
     def __init__(self):
-        self.session = None
-
-        retry_strategy = Retry(
-            total=4,  # maximum number of retries
-            status_forcelist=[403, 429, 500, 502],  # the HTTP status codes to retry on
+        self.session = create_session_with_retries(
+            total_retries=4,
+            status_forcelist=[403, 429, 500, 502],
         )
-        adapter = HTTPAdapter(max_retries=retry_strategy)
-        self.session = requests.Session()
-        self.session.mount("https://", adapter)
 
     def resolve(self, identifier: str) -> (dict | None, str):
         """Resolve metadata by identifier.
