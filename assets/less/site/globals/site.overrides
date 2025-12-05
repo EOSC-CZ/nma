@@ -405,6 +405,18 @@ dl.details-list {
 
 header.theme.header {
 
+  .twinfinity-logo {
+    background-image: url(~@less/site/images/twinfinity.png);
+    width: 46rem;
+    height: 25rem;
+    background-repeat: no-repeat;
+    background-position-y: 3rem;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    right: 4rem;
+  }
+
   .navbar-brand, ui.header {
     color: @textColor !important;
   }
@@ -424,7 +436,7 @@ header.theme.header {
   }
 
   .outer-navbar {
-    background: linear-gradient(127deg, @white 0%, lighten(@primaryColor, 70%) 50%, lighten(@primaryColor, 1%) 100%);
+    background: linear-gradient(118deg, #ddfcfffc 0%, #fff 45%, #acf8fffc 100%);
     position: relative;
     overflow: hidden;
 
