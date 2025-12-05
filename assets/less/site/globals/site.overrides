@@ -416,6 +416,10 @@ header.theme.header {
     z-index: 0;
     right: -5rem;
 
+    @media all and (min-width: @widescreenMonitorBreakpoint) {
+      right: calc(4rem + 50vw);
+    }
+
     @media all and (min-width: @largeMonitorBreakpoint) {
       right: 4rem;
     }
