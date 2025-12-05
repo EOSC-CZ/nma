@@ -40,6 +40,27 @@ class UpdatableRecordServiceMixin:
         return super(DraftRecordService, self).update(*args, **kwargs)
 
 
+class OverriddenRouteResourceConfigMixin:
+    @property
+    def routes(self):
+        """Override routes to use path instead of default converter for pid_value.
+
+        This was causing a problem when PID contained slashes (doi:1234/zenodo.12345 for example).
+        It would parse only first part before the slash.
+        """
+        routes = super().routes
+
+        updated_routes = {}
+        for (
+            key,
+            route,
+        ) in routes.items():
+            updated_route = route.replace("<pid_value>", "<path:pid_value>")
+            updated_routes[key] = updated_route
+
+        return updated_routes
+
+
 datasets_model = model(
     "datasets",
     version="1.0.0",
@@ -72,8 +93,8 @@ datasets_model = model(
         ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
         PrependMixin("PIDFieldContext", ExternalPIDFieldContextMixin),
         PrependMixin("Draft", PIDStatusCheckFieldMixin),
-        PrependMixin("RecordService", UpdatableRecordServiceMixin)
-
+        PrependMixin("RecordService", UpdatableRecordServiceMixin),
+        PrependMixin("RecordResourceConfig", OverriddenRouteResourceConfigMixin),
     ],
     configuration={"ui_blueprint_name": "datasets_ui"},
 )
