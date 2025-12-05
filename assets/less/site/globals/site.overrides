@@ -480,9 +480,6 @@ header.theme.header {
 }
 
 .ui.feature.card {
-
-  border-radius: 6rem 6rem 0 0 !important;
-
   .image {
     background: @featuredListBackgroundColor !important;
   }
