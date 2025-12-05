@@ -11,23 +11,20 @@
 {%- block bottom_section %}
 <section class="brought-to-you-section section-content light-bg rel-pt-3 rel-pb-3">
   <div class="ui container center aligned">
-    <h2 class="section-title frontpage-title">{{ _("Brought to you by") }}</h2>
-    <div class="ui container">
-      <div class="ui equal width vertically padded centered middle aligned grid stackable">
-        <div class="four wide column">
-          <a href="https://msmt.gov.cz">
-            <img class="collaborators-logo" src="{{ url_for('static', filename='images/EU+MSMT.png') }}"
-                 title="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}"
-                 alt="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}">
-          </a>
-        </div>
-        <div class="four wide column">
-          <a href="https://www.eosc.cz/en">
-            <img class="collaborators-logo" src="{{ url_for('static', filename='images/eosc-logo-barevne_CZ_ENG 1.png') }}"
-                 title="{{ _('EOSC-CZ project') }}"
-                 alt="{{ _('EOSC-CZ project') }}">
-          </a>
-        </div>
+    <div class="ui equal width vertically centered middle aligned container centered grid stackable">
+      <div class="seven wide column">
+        <a href="https://msmt.gov.cz">
+          <img class="collaborators-logo" src="{{ url_for('static', filename='images/EU+MSMT.png') }}"
+                title="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}"
+                alt="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}">
+        </a>
+      </div>
+      <div class="seven wide column">
+        <a href="https://www.eosc.cz/en">
+          <img class="collaborators-logo" src="{{ url_for('static', filename='images/eosc-logo-barevne_CZ_ENG 1.png') }}"
+                title="{{ _('EOSC-CZ project') }}"
+                alt="{{ _('EOSC-CZ project') }}">
+        </a>
       </div>
     </div>
   </div>
