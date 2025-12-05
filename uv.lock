@@ -3497,7 +3497,7 @@ requires-dist = [
 
 [[package]]
 name = "oarepo"
-version = "14.0.11"
+version = "14.0.12"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "aiobotocore" },
@@ -3834,9 +3834,9 @@ dependencies = [
     { name = "zlib-ng" },
     { name = "zxcvbn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ca/d9/4db52e638ea4892ad1aa82d6bf35b90183a562b752da9997fd7ef119cdbf/oarepo-14.0.11.tar.gz", hash = "sha256:44722ee70f4e699d897c0631b45b3b5d3438a62753586d1d80958eb5469df6d8", size = 1744060, upload-time = "2025-12-04T15:04:56.707Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/16/7b/11d35f348e5f73a628c80b51e4a8b041560c4eb5aa9a6255ca5e5ef2f0c8/oarepo-14.0.12.tar.gz", hash = "sha256:fa7d81f897c043274fc29489dbcb1eabede963d375ce1ad3afe859b43c94da27", size = 1743556, upload-time = "2025-12-04T17:05:51.205Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a4/a7/157bcb4ff5427d913cd7c0a7c1f701a840b47c3c91c7eaf7f08d746ecc5f/oarepo-14.0.11-py3-none-any.whl", hash = "sha256:086139ff99987f3c9d1b75b7b52eed20997f85f497a54abe4682dd18ac5563d2", size = 4319380, upload-time = "2025-12-04T15:04:53.928Z" },
+    { url = "https://files.pythonhosted.org/packages/bf/fc/c6f6e22f0ae7cfdcd8d6014b710904c4958654821791c8cbfbb32e1990f1/oarepo-14.0.12-py3-none-any.whl", hash = "sha256:fb7b6fea61cbe29827e131f48826acffc492ea05621f4de14a7a7d9443fef595", size = 4319406, upload-time = "2025-12-04T17:05:48.01Z" },
 ]
 
 [package.optional-dependencies]
