@@ -13,5 +13,7 @@ Metadata:
         - success
         - not_found
         - error
+        - not_accessible
+        - warning
     check_message:
       type: fulltext

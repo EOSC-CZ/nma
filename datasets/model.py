@@ -8,7 +8,7 @@ from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
 from invenio_i18n import lazy_gettext as _
 from invenio_pidstore.models import PIDStatus
 from invenio_rdm_records.services.generators import SecretLinks
-from invenio_records_permissions.generators import AuthenticatedUser
+from invenio_records_permissions.generators import AuthenticatedUser, SystemProcess
 from invenio_records_resources.records.systemfields import PIDField
 from oarepo_model.api import model
 from oarepo_model.customizations import AddMetadataExport, PrependMixin, ReplaceBaseClass, AddServiceComponent
@@ -27,7 +27,11 @@ class DatasetsPermissionPolicyMixin(ModelMixin):
     """Custom permission policy for datasets."""
 
     can_view_deposit_page = [AuthenticatedUser()]
-    can_update = [SecretLinks("edit")]
+    can_update = [
+        SecretLinks("edit"),
+        SystemProcess(),
+    ]  # system process can update records (in tasks etc)
+
 
 class PIDStatusCheckFieldMixin:
     """Custom PID status check field returning False when PID is not set."""
