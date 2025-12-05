@@ -1,5 +1,11 @@
 {% extends "invenio_app_rdm/header.html" %}
 
+{%- block navbar %}
+{# This is a very first element in .theme.header DOM - we need to position it before everything else #}
+<div class="twinfinity-logo"></div>
+{{ super() }}
+{%- endblock navbar %}
+
 {%- block brand %}
 <a href="/" class="navbar-brand d-flex align-items-center" data-testid="header-site-logo">
     <img
