@@ -13,6 +13,7 @@ class ExternalPIDComponent(ServiceComponent):
         """Create PID when record is created.."""
         # We create the PID after all the data has been initialized. so that
         # we can rely on having the 'id' and type set.
+        record["id"] = data["id"]
         self.service.draft_cls.pid.create(record)
 
 class UpdateMetadataComponent(ServiceComponent):

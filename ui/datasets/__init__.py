@@ -123,11 +123,12 @@ class DatasetsUIResource(RecordsUIResource):
 
             try:
                 metadata, _ = resolve_metadata(pid)
-                create_record({"metadata": metadata})
+                record_data = {"metadata": metadata}
+                create_record(record_data)
 
                 flash(f"Successfully registered dataset with PID: {pid}", "success")
                 return redirect(
-                    url_for("datasets_ui.deposit_edit", pid_value=metadata["id"])
+                    url_for("datasets_ui.deposit_edit", pid_value=record_data['id'])
                 )
             except Exception as e:
                 flash(f"Error registering dataset: {str(e)}", "error")

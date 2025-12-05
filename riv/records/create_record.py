@@ -10,6 +10,7 @@ from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.resources.errors import PermissionDeniedError
 
+from .api import generate_id
 from ..config import RIV_CURATORS_GROUP_ID, SECRET_LINK_EXPIRATION_DAYS
 
 example_data = {
@@ -53,6 +54,7 @@ grant_data = {
 
 
 def create_record(record_data):
+    record_data["id"] = generate_id(record_data)
     if current_user.is_anonymous:
         raise PermissionDeniedError("Please login first.")
 
