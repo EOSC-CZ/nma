@@ -40,6 +40,7 @@ def create_session_with_retries(
         total=total_retries,
         status_forcelist=status_forcelist,
         backoff_factor=backoff_factor,
+        redirect=3,
         **kwargs,
     )
     adapter = HTTPAdapter(max_retries=retry_strategy)
