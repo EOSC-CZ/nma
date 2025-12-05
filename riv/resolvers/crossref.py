@@ -1,3 +1,11 @@
+#
+# Copyright (c) 2025 CESNET z.s.p.o.
+#
+# This file is a part of nma (see https://github.com/EOSC-CZ/nma).
+#
+# nma is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+#
 import re
 
 from ..resolvers import MetadataResolver
@@ -12,6 +20,7 @@ example: https://api.crossref.org/works/doi/10.64000/wadve-3tj60
 
 polite pool rate limit: 10 requests per second
 available by adding query parameter mailto to API URL
+But currently returns "Resource not found."
 
 example: https://api.crossref.org/works/doi/10.64000/wadve-3tj60&mailto=info@eosc.cz
 """
@@ -60,8 +69,6 @@ class CrossrefResolver(MetadataResolver):
         response = self.session.get(
             url=url,
         )
-        # polite pool
-        # resp_with_mailto = self.session.get(f"https://api.crossref.org/works/{identifier}&mailto={POLITE_POOL_MAILTO}}")
 
         # not found
         if response.status_code == 404:
@@ -78,6 +85,8 @@ class CrossrefResolver(MetadataResolver):
         crossref_metadata = data.get("message", {})
         metadata["title"] = self.resolve_title(crossref_metadata.get("title", []))
         metadata["creators"] = self.resolve_authors(crossref_metadata.get("author", []))
+        metadata["publication_date"] = crossref_metadata.get("deposited", {}).get("date-time")
+        metadata["resource_type"] = { "id": "other"}
 
         return metadata, "OK"
 
