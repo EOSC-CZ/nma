@@ -21,16 +21,6 @@
 {%- block navbar_nav %}
 {%- endblock navbar_nav %}
 
-{%- block navbar_right %}
-{%- if config.I18N_LANGUAGES %}
-  <div class="right menu item language-selector rel-mr-1" data-testid="header-language-selector">
-    {% from "invenio_i18n/macros/language_selector.html" import language_selector_dropdown %}
-    {{ language_selector_dropdown() }}
-  </div>
-{%- endif %}
-{{ super() }}
-{%- endblock navbar_right %}
-
 {# Available template blocks (showing closest override point):
 
 User Status (from invenio_app_rdm/header.html):
