@@ -10,8 +10,9 @@ from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.resources.errors import PermissionDeniedError
 
-from .api import generate_id
 from ..config import RIV_CURATORS_GROUP_ID, SECRET_LINK_EXPIRATION_DAYS
+from ..errors import RIVRegistrationException
+from .api import generate_id
 
 example_data = {
     "metadata": {
@@ -38,7 +39,9 @@ example_data = {
             "id": "dataset",
         },
         "title": "example title for riv",
-    }
+        "blah": "blah",
+    },
+    "id": "doi:10.5281/zenodo.17801700",
 }
 
 # It will always be the same data that is beeing sent to grant service
@@ -69,9 +72,21 @@ def create_record(record_data):
 
     # create and publish
     datasets_service = current_service_registry.get("datasets")
-    draft_record = datasets_service.create(identity=system_identity, data=record_data)
-    _ = datasets_service.publish(identity=system_identity, id_=draft_record["id"])
+    try:
+        draft_record = datasets_service.create(
+            identity=system_identity, data=record_data
+        )
 
+        if draft_record.errors:
+            raise RIVRegistrationException(
+                f"Error during record creation: {draft_record.errors}"
+            )
+
+        datasets_service.publish(identity=system_identity, id_=draft_record["id"])
+    except RIVRegistrationException:
+        raise
+    except Exception as e:
+        raise RIVRegistrationException(f"Error during record creation/publishing: {e}")
     # call access service and secret link
     access_service = (
         current_rdm_records_service.access
