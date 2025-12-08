@@ -1,5 +1,7 @@
 from typing import Protocol
 
+from flask import current_app
+
 from riv.proxies import current_riv_extension
 from riv.utils import create_session_with_retries
 
@@ -38,6 +40,7 @@ def resolve_metadata(persistent_url: str) -> (dict | None, str):
         try:
             metadata, message = resolver.resolve(persistent_url)
         except Exception as e:
+            current_app.logger.exception("Exception calling resolver %s", resolver)
             message = f"Error: {e}"
             metadata = None
 
