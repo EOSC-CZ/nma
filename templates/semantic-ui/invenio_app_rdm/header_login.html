@@ -62,7 +62,7 @@
 
         <div role="menu" aria-labelledby="quick-create-dropdown-btn" id="quick-create-menu" class="menu">
           {%- for item in plus_menu_items if item.visible %}
-            <a role="menuitem" class="item" href="{{ item.url }}">{{ item.text|safe }}</a>
+            <a role="menuitem" class="item" href="{{ item.url }}">{{ item.text }}</a>
           {%- endfor %}
         </div>
       </div>
@@ -74,7 +74,7 @@
           {%- for item in plus_menu_items if item.visible %}
             <a role="menuitem" class="item" href="{{ item.url }}">
               <i class="plus icon"></i>
-              {{ item.text|safe }}
+              {{ item.text }}
             </a>
           {%- endfor %}
         </div>
@@ -107,7 +107,7 @@
         >
           {%- for item in current_menu.submenu('settings').children if item.visible %}
             <a role="menuitem" class="item" href="{{ item.url }}" tabindex="-1">
-              {{ item.text|safe }}
+              {{ item.text }}
             </a>
           {%- endfor %}
 
@@ -117,7 +117,7 @@
           {%- for item in current_menu.submenu('profile-admin').children if item.visible %}
             {% set ns.admin_menu = True %}
             <a role="menuitem" class="item" href="{{ item.url }}" tabindex="-1">
-              {{ item.text|safe }}
+              {{ item.text }}
             </a>
           {%- endfor %}
           {% if ns.admin_menu %}
@@ -135,7 +135,7 @@
         <div role="menu">
           {%- for item in current_menu.submenu('settings').children if item.visible %}
             <a role="menuitem" class="item" href="{{ item.url }}">
-              {{ item.text|safe }}
+              {{ item.text }}
             </a>
           {%- endfor %}
 
@@ -145,7 +145,7 @@
           {%- for item in current_menu.submenu('profile-admin').children if item.visible %}
             {% set ns.admin_menu = True %}
             <a role="menuitem" class="item" href="{{ item.url }}">
-              {{ item.text|safe }}
+              {{ item.text }}
             </a>
           {%- endfor %}
 
