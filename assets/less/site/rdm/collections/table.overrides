@@ -1,0 +1,23 @@
+.ui.table {
+  &.files {
+    width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  &.detail-definition-table {
+    width: 100%;
+    overflow-wrap: anywhere;
+
+    th.field-label {
+      padding: @cellVerticalPadding @cellHorizontalPadding;
+      color: @darkGrey;
+      font-weight: 500;
+      min-width: 10em;
+    }
+
+    th.field-label,
+    td.field-data {
+      vertical-align: top;
+    }
+  }
+}

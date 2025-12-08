@@ -479,6 +479,76 @@ header.theme.header {
   }
 }
 
+.facet-wrapper.content:not(.parent) {
+  align-items: center;
+}
+
+.facets-container {
+  padding: 1rem;
+  background-color: @white;
+  border-radius: 5px;
+  border-top: 1px solid @borderColor;
+
+  .facet-list .item {
+    padding-right: 1rem !important;
+    &:hover {
+      background-color: @highlightBackgroundColor;
+    }
+  }
+}
+
+#scroll-to-top-button {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 148px;
+  right: 44px;
+  z-index: 1000;
+  gap: 2px;
+  border: none;
+  box-shadow: none !important;
+
+  .scroll-to-top-text {
+    font-size: 0.7rem;
+  }
+
+  @media screen and (max-width: 1679px) {
+    bottom: 90px;
+  }
+
+  @media screen and (max-width: 768px) {
+    right: 25px;
+    bottom: 148px;
+  }
+}
+
+#user-profile-menu.ui.menu {
+  width: inherit;
+  background-color: rgb(255, 255, 255);
+  z-index: 100;
+}
+
+.search-bar-tip {
+  margin-top: 0.5rem;
+}
+
+.borderless {
+  border: none !important;
+}
+
+.shadowless,
+.ui.borderless.facet.card {
+  box-shadow: none !important;
+}
+
+.inline-id-icon {
+  height: 1rem;
+  min-height: 16px;
+  width: auto;
+  vertical-align: text-bottom;
+  display: inline-block;
+}
+
 .ui.feature.card {
   .image {
     background: @featuredListBackgroundColor !important;

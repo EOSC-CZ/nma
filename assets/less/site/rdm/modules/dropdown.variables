@@ -1,0 +1,4 @@
+@selectionBorderRadius: 0.5rem;
+@selectionIconPadding: 10px;
+@selectionVisibleBorderColor: @primaryColor;
+@selectionActiveHoverBorderColor: @primaryColor;
