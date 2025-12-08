@@ -3917,9 +3917,45 @@ dependencies = [
     { name = "oarepo", extra = ["rdm", "tests"] },
     { name = "oarepo-runtime" },
 ]
+<<<<<<< HEAD
 sdist = { url = "https://files.pythonhosted.org/packages/ec/11/2c151ac8084f0b64658ef1f50a570088d41f14d8f4b58a7adc5fe89d9e45/oarepo_model-0.1.0.dev41.tar.gz", hash = "sha256:525921b706259c26edad6129ac254ef13f27c5e530d81942a83bae9f7a9fbf92", size = 362962, upload-time = "2025-12-12T06:38:15.33Z" }
+||||||| parent of 21bc021 (Working on catchall reader & transformer)
+sdist = { url = "https://files.pythonhosted.org/packages/90/61/02acb53423a175689a72e12a81bf43118ba11c95a800a22340f0b0a23d85/oarepo_model-0.1.0.dev40.tar.gz", hash = "sha256:364bc449e53d4eba6f28b76f026141528a94ba28a78f2d68d1bbf9e398a0c155", size = 362573 }
+=======
+<<<<<<< HEAD
+sdist = { url = "https://files.pythonhosted.org/packages/90/61/02acb53423a175689a72e12a81bf43118ba11c95a800a22340f0b0a23d85/oarepo_model-0.1.0.dev40.tar.gz", hash = "sha256:364bc449e53d4eba6f28b76f026141528a94ba28a78f2d68d1bbf9e398a0c155", size = 362573 }
+||||||| parent of 6fb4653 (Working on catchall reader & transformer)
+sdist = { url = "https://files.pythonhosted.org/packages/90/61/02acb53423a175689a72e12a81bf43118ba11c95a800a22340f0b0a23d85/oarepo_model-0.1.0.dev40.tar.gz", hash = "sha256:364bc449e53d4eba6f28b76f026141528a94ba28a78f2d68d1bbf9e398a0c155", size = 362573, upload-time = "2025-12-08T12:35:04.933Z" }
+=======
+<<<<<<< HEAD
+sdist = { url = "https://files.pythonhosted.org/packages/90/61/02acb53423a175689a72e12a81bf43118ba11c95a800a22340f0b0a23d85/oarepo_model-0.1.0.dev40.tar.gz", hash = "sha256:364bc449e53d4eba6f28b76f026141528a94ba28a78f2d68d1bbf9e398a0c155", size = 362573, upload-time = "2025-12-08T12:35:04.933Z" }
+||||||| parent of 9483a81 (Working on catchall reader & transformer)
+sdist = { url = "https://files.pythonhosted.org/packages/87/c8/d94316205108c0051f01ee3514d4363a7b5f75b02fa62b6df5cbe0a7246d/oarepo_model-0.1.0.dev38.tar.gz", hash = "sha256:c197b220074e65d785060e403d02a2803b04dab99d0efefe7d513c57cdc546b6", size = 362283, upload-time = "2025-12-04T13:10:51.172Z" }
+=======
+sdist = { url = "https://files.pythonhosted.org/packages/e8/3d/5b2931cb2ec7c07cab8e2a24a6717096b7a3845df3accfe9a125df356784/oarepo_model-0.1.0.dev39.tar.gz", hash = "sha256:61632eecb3d939e30899380521c0848b2bec89b754839f817a201ea182887520", size = 362443, upload-time = "2025-12-05T09:59:26.348Z" }
+>>>>>>> 9483a81 (Working on catchall reader & transformer)
+>>>>>>> 6fb4653 (Working on catchall reader & transformer)
+>>>>>>> 21bc021 (Working on catchall reader & transformer)
 wheels = [
+<<<<<<< HEAD
     { url = "https://files.pythonhosted.org/packages/cf/72/5ec1806a579945bbd7b125dc04eedb041a9643234cb562e7a67eb189df6d/oarepo_model-0.1.0.dev41-py3-none-any.whl", hash = "sha256:b6268f8c7cd18c090a91fb7afa55d8986aaab3ca55f2475f2cdbc49bbebe8fd1", size = 242747, upload-time = "2025-12-12T06:38:14.038Z" },
+||||||| parent of 21bc021 (Working on catchall reader & transformer)
+    { url = "https://files.pythonhosted.org/packages/f9/a3/3a2225fb9ebb7105298cc96416aaab13ed5105831380bd88c69c73b6b829/oarepo_model-0.1.0.dev40-py3-none-any.whl", hash = "sha256:c1fa373a713bc10bf40a4f27c229447443834a55b90811914922dcd59f9f92c5", size = 241927 },
+=======
+<<<<<<< HEAD
+    { url = "https://files.pythonhosted.org/packages/f9/a3/3a2225fb9ebb7105298cc96416aaab13ed5105831380bd88c69c73b6b829/oarepo_model-0.1.0.dev40-py3-none-any.whl", hash = "sha256:c1fa373a713bc10bf40a4f27c229447443834a55b90811914922dcd59f9f92c5", size = 241927 },
+||||||| parent of 6fb4653 (Working on catchall reader & transformer)
+    { url = "https://files.pythonhosted.org/packages/f9/a3/3a2225fb9ebb7105298cc96416aaab13ed5105831380bd88c69c73b6b829/oarepo_model-0.1.0.dev40-py3-none-any.whl", hash = "sha256:c1fa373a713bc10bf40a4f27c229447443834a55b90811914922dcd59f9f92c5", size = 241927, upload-time = "2025-12-08T12:35:01.654Z" },
+=======
+<<<<<<< HEAD
+    { url = "https://files.pythonhosted.org/packages/f9/a3/3a2225fb9ebb7105298cc96416aaab13ed5105831380bd88c69c73b6b829/oarepo_model-0.1.0.dev40-py3-none-any.whl", hash = "sha256:c1fa373a713bc10bf40a4f27c229447443834a55b90811914922dcd59f9f92c5", size = 241927, upload-time = "2025-12-08T12:35:01.654Z" },
+||||||| parent of 9483a81 (Working on catchall reader & transformer)
+    { url = "https://files.pythonhosted.org/packages/8c/cd/4770b686d64b34ab4f91271d613aa85231aa92ed1ef11860a98a5b152b1e/oarepo_model-0.1.0.dev38-py3-none-any.whl", hash = "sha256:f9880c487ab6e87cefe16f9945ba5b66ee96b4b84b024ecbed1e418f4b07b706", size = 241853, upload-time = "2025-12-04T13:10:49.803Z" },
+=======
+    { url = "https://files.pythonhosted.org/packages/6e/fe/f7d43fb51ee7533b3c86e66468d417046e7b2eda90fe7ffb2943741fb864/oarepo_model-0.1.0.dev39-py3-none-any.whl", hash = "sha256:496622c742d073c999b3180c1cbddc76119bde4935e70e48e620952148246411", size = 241898, upload-time = "2025-12-05T09:59:25.006Z" },
+>>>>>>> 9483a81 (Working on catchall reader & transformer)
+>>>>>>> 6fb4653 (Working on catchall reader & transformer)
+>>>>>>> 21bc021 (Working on catchall reader & transformer)
 ]
 
 [[package]]
