@@ -1,19 +1,26 @@
 {% extends "oarepo_ui/base_page.html" %}
 
+{% set site_name = _(config.THEME_SITENAME) or _("Invenio") %}
+{% set page_title = title ~ " - " ~ site_name if title else site_name %}
+
 {%- block head_meta %}
 {{ super() }}
 <!-- OpenGraph -->
-<meta property="og:title" content="{{title or _(config.THEME_SITENAME) or _('Invenio')}} - {{subtitle}}">
+<meta property="og:title" content="{{page_title}}">
 <meta property="og:description" content="{{description}}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nma.eosc.cz/">
-<meta property="og:site_name" content="{{title or _(config.THEME_SITENAME) or _('Invenio')}}">
+<meta property="og:site_name" content="{{site_name}}">
 <meta property="og:locale" content="en_US">
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="{{title or _(config.THEME_SITENAME) or _('Invenio')}} - {{subtitle}}">
+<meta name="twitter:title" content="{{page_title}}">
 <meta name="twitter:description" content="{{description}}">
 {%- endblock head_meta %}
+
+{%- block head_title %}
+<title>{{page_title}}</title>
+{%- endblock head_title %}
 
 {%- block header %}
 {{ super() }}
@@ -27,7 +34,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "{{title or _(config.THEME_SITENAME) or _('Invenio')}}",
+  "name": "{{site_name}}",
   "url": "https://nma.eosc.cz/",
   "potentialAction": {
     "@type": "SearchAction",
