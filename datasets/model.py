@@ -62,6 +62,7 @@ class DatasetsPermissionPolicyMixin(ModelMixin):
     can_manage = [SystemProcess(), Administration(), AccessGrant("manage")]
 
     can_draft_create_files = [Disable()]  # disable files by default
+    can_update_draft = [SystemProcess(), Administration()]
 
 
 class PIDStatusCheckFieldMixin:
