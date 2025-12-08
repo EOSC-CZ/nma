@@ -4,22 +4,39 @@ Structured collections of research data, identified with a persistent identifier
 
 from __future__ import annotations
 
+from invenio_administration.generators import Administration
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
+from invenio_drafts_resources.services.records import (
+    RecordService as DraftRecordService,
+)
 from invenio_i18n import lazy_gettext as _
 from invenio_pidstore.models import PIDStatus
-from invenio_rdm_records.services.generators import SecretLinks
-from invenio_records_permissions.generators import AuthenticatedUser, SystemProcess
+from invenio_rdm_records.services.generators import AccessGrant, SecretLinks
+from invenio_records_permissions.generators import (
+    AuthenticatedUser,
+    Disable,
+    SystemProcess,
+)
 from invenio_records_resources.records.systemfields import PIDField
 from oarepo_model.api import model
-from oarepo_model.customizations import AddMetadataExport, PrependMixin, ReplaceBaseClass, AddServiceComponent
+from oarepo_model.customizations import (
+    AddMetadataExport,
+    AddServiceComponent,
+    PrependMixin,
+    ReplaceBaseClass,
+)
 from oarepo_model.datatypes.registry import from_yaml
-from oarepo_model.model import ModelMixin, Dependency
+from oarepo_model.model import ModelMixin
 from oarepo_rdm.model.presets import rdm_complete_preset
-from invenio_drafts_resources.services.records import RecordService as DraftRecordService
 
 from riv.records.api import ExternalPIDProvider
-from riv.records.system_fields import PIDStatusCheckField, ExternalPIDFieldContextMixin, ExternalPIDField
+from riv.records.system_fields import (
+    ExternalPIDField,
+    ExternalPIDFieldContextMixin,
+    PIDStatusCheckField,
+)
 from riv.services.components import ExternalPIDComponent, UpdateMetadataComponent
+
 from .serializers import DataCiteJSONSerializer
 
 
@@ -30,13 +47,29 @@ class DatasetsPermissionPolicyMixin(ModelMixin):
     can_update = [
         SecretLinks("edit"),
         SystemProcess(),
+        Administration(),
     ]  # system process can update records (in tasks etc)
+
+    can_create = [
+        SystemProcess(),
+        Administration(),
+    ]  # only system process and admin can create records
+    can_publish = [
+        SystemProcess(),
+        Administration(),
+    ]  # only system process and admin can publish records
+
+    can_manage = [SystemProcess(), Administration(), AccessGrant("manage")]
+
+    can_draft_create_files = [Disable()]  # disable files by default
+    can_update_draft = [SystemProcess(), Administration()]
 
 
 class PIDStatusCheckFieldMixin:
     """Custom PID status check field returning False when PID is not set."""
 
     is_published = PIDStatusCheckField(status=PIDStatus.REGISTERED, dump=True)
+
 
 class UpdatableRecordServiceMixin:
     def update(self, *args, **kwargs):
