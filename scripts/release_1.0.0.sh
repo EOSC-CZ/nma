@@ -61,3 +61,8 @@ invenio rdm-records fixtures
 
 
 invenio roles create riv_curators
+
+# harvesters
+invenio oai harvesters create --id catchall --name "Catch-all repository harvester" \
+    --base-url "https://data.narodni-repozitar.cz" --metadata-prefix "catchall" --model datasets \
+    --loader catch-all --transformer "catch-all"
