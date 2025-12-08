@@ -1,71 +1,198 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
-import _get from "lodash/get";
-import _join from "lodash/join";
-import { Grid, Item, Label } from "semantic-ui-react";
+import { Item, Label, Grid, Button, Icon } from "semantic-ui-react";
+import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
+import sanitizeHtml from "sanitize-html";
 import { i18next } from "@translations/i18next";
+import { getValueFromMultilingualArray } from "@js/oarepo_ui/util";
+import _truncate from "lodash/truncate";
+import { Creatibutors } from "./Creatibutors";
+import { ResultsItemAccessStatus } from "./ResultsItemAccessStatus";
 
-export const ResultsListItem = ({ result, ...rest }) => {
-  const accessRights = _get(result, "ui.access_status", null);
-  const createdDate = _get(
-    result,
-    "ui.created_date_l10n_short",
-    "No creation date found."
-  );
-  const languages = _get(result, "metadata.languages", []);
-  const version = _get(result, "metadata.version", null);
-  const title = _get(result, "metadata.title", i18next.t("No title"));
+const getDescription = (metadata) => {
+  if (metadata?.description) {
+    return metadata.description;
+  }
+
+  const descriptions = metadata?.additional_descriptions || metadata?.descriptions;
+  if (Array.isArray(descriptions)) {
+    const byDescription = descriptions.find((desc) => desc?.description);
+    if (byDescription?.description) {
+      return byDescription.description;
+    }
+
+    const byValue = descriptions.find((desc) => desc?.value);
+    if (byValue?.value) {
+      return byValue.value;
+    }
+  }
+
+  return "";
+};
+
+const resolveSubjectLabel = (subject) => {
+  if (!subject) {
+    return "";
+  }
+
+  if (typeof subject === "string") {
+    return subject;
+  }
+
+  const titleObj = subject.title;
+  if (titleObj && typeof titleObj === "object" && !Array.isArray(titleObj)) {
+    return (
+      titleObj[i18next.language] ||
+      titleObj.en ||
+      titleObj.cs ||
+      Object.values(titleObj)[0]
+    );
+  }
+
+  if (Array.isArray(titleObj)) {
+    return titleObj[0] || subject.subject || subject.id;
+  }
+
+  return subject.subject || subject.id || "";
+};
+
+const resolveLanguageLabel = (language) => {
+  if (!language) {
+    return "";
+  }
+
+  if (typeof language === "string") {
+    return language;
+  }
+
+  if (language.title && typeof language.title === "object") {
+    return (
+      language.title[i18next.language] ||
+      language.title.en ||
+      language.title.cs ||
+      Object.values(language.title)[0]
+    );
+  }
+
+  return language.title || language.id || "";
+};
+
+const resolvePublicationDate = (metadata, fallbackDate) => {
+  if (metadata?.publication_date) {
+    return metadata.publication_date;
+  }
+
+  if (Array.isArray(metadata?.dates)) {
+    const issued = metadata.dates.find(({ type }) =>
+      type?.id?.toLowerCase() === "issued" || type?.id?.toLowerCase() === "publication"
+    );
+    if (issued?.date) {
+      return issued.date;
+    }
+  }
+
+  return fallbackDate;
+};
+
+export const ResultsListItem = ({ result }) => {
+  const [showEntireAbstract, setShowEntireAbstract] = useState(false);
+  const searchAppConfig = useContext(SearchConfigurationContext);
+  const { allowedHtmlTags } = searchAppConfig;
+
+  const metadata = result.metadata || {};
+  const title = metadata.title || i18next.t("Missing title");
+  const description = getDescription(metadata);
+
+  const abstract = sanitizeHtml(description, {
+    allowedTags: allowedHtmlTags,
+    allowedAttributes: {},
+    disallowedTagsMode: "discard",
+  });
+
+  const subjects = metadata.subjects || [];
+  const creators = metadata.creators || [];
+  const contributors = metadata.contributors || [];
+  const creatibutors = [...creators, ...contributors];
+  const publicationDate = resolvePublicationDate(metadata, result.created);
+
+  const languages = metadata.languages || (metadata.language ? [metadata.language] : []);
+  const language = languages[0];
+  const versionString = metadata.version || result.versions?.index;
+  const accessStatus =
+    result.ui?.access_status ||
+    result.access?.status ||
+    result.access?.record ||
+    result.access?.files;
+
+  const toggleAbstract = () => {
+    setShowEntireAbstract(!showEntireAbstract);
+  };
+
+  const truncatedAbstract = abstract
+    ? showEntireAbstract
+      ? abstract
+      : _truncate(abstract, { length: 500 })
+    : "";
+
   return (
-    <Item key={result.id} data-testid="result-item">
+    <Item className="results-list-item-main">
       <Item.Content>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column className="results-list item-main">
-              <div className="justify-space-between flex">
-                <Item.Header as="h2">
-                  <a href={result.links.self_html}>{title}</a>
-                </Item.Header>
-                <div className="item-access-rights">
-                  {result.state && (
-                    <Label title={result.state_timestamp}>{result.state}</Label>
-                  )}
-                  {accessRights && accessRights.id !== "open" && (
-                    <Label title={`${accessRights.description_l10n}`}>
-                      {accessRights.title_l10n}
-                    </Label>
-                  )}
-                </div>
-              </div>
+        <Grid className="m-0">
+          <Grid.Row columns={2}>
+            <Grid.Column width={16}>
+              <Item.Header as="h2">
+                <a href={result?.links?.self_html}>{title}</a>
+              </Item.Header>
+              {accessStatus && <ResultsItemAccessStatus status={accessStatus} />}
               <Item.Meta>
-                <Grid columns={1}>
-                  <Grid.Column>
-                    <Grid.Row className="ui separated">
-                      <span
-                        aria-label={i18next.t("Languages")}
-                        title={i18next.t("Languages")}
-                      >
-                        {_join(
-                          languages.map((l) => l.title),
-                          ", "
-                        )}
-                      </span>
-                    </Grid.Row>
-                  </Grid.Column>
-                </Grid>
+                <Creatibutors creatibutors={creatibutors} />
+                <Label.Group className="rel-mt-1">
+                  {subjects.map((subject, index) => (
+                    <Label className="subjects" key={`${index}.${subject?.id || resolveSubjectLabel(subject)}`}>
+                      {resolveSubjectLabel(subject)}
+                    </Label>
+                  ))}
+                </Label.Group>
               </Item.Meta>
-              <Item.Extra>
-                <div>
-                  <small>
-                    <p>
-                      {createdDate && (
-                        <>
-                          {i18next.t("Uploaded on")} <span>{createdDate}</span>{" "}
-                          {version && `(${i18next.t("version")}: ${version})`}
-                        </>
+              {abstract && (
+                <Item.Description className="rel-mt-1">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: truncatedAbstract,
+                    }}
+                    className="inline"
+                  />
+                  {abstract.length > 500 && (
+                    <Button
+                      compact
+                      size="tiny"
+                      onClick={toggleAbstract}
+                      className="transparent mr-3"
+                    >
+                      {showEntireAbstract ? (
+                        <Icon name="left chevron" color="green" />
+                      ) : (
+                        <Icon name="right chevron" color="green" />
                       )}
-                    </p>
-                  </small>
-                </div>
+                    </Button>
+                  )}
+                </Item.Description>
+              )}
+              <Item.Extra className="rel-mt-1">
+                <p>
+                  {publicationDate && (
+                    <span className="rel-mr-1">
+                      {i18next.t("Published")}: {publicationDate}
+                      {versionString && ` (${versionString})`}
+                    </span>
+                  )}
+
+                  {language && language?.id !== "UND" && (
+                    <span className="rel-mr-1">
+                      {i18next.t("Language")}: {resolveLanguageLabel(language)}
+                    </span>
+                  )}
+                </p>
               </Item.Extra>
             </Grid.Column>
           </Grid.Row>
