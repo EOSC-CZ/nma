@@ -2,7 +2,9 @@
 
 {%- block navbar %}
 {# This is a very first element in .theme.header DOM - we need to position it before everything else #}
-<div class="twinfinity-logo"></div>
+{%- block twinfinity_logo %}
+<div class="twinfinity-logo mini"></div>
+{%- endblock -%}
 {{ super() }}
 {%- endblock navbar %}
 
@@ -14,7 +16,6 @@
       alt="{{ _(config.THEME_SITENAME) }}"
       loading="lazy"
     />
-    {{ _(config.THEME_SITENAME) | upper }}
   </a>
 {%- endblock brand %}
 
