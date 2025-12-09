@@ -18,7 +18,7 @@ class ResolverProblemLevel(enum.Enum):
 
 @dataclasses.dataclass
 class ResolverProblem:
-    resolver: LazyString
+    resolver: str
     """Name of the resolver that produced this problem."""
 
     message: LazyString
