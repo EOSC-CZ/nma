@@ -46,9 +46,10 @@
       <div
         id="quick-create-dropdown"
         class="rdm-plus-menu rdm-plus-menu-responsive ui dropdown floating computer only"
-      >
-        <a
+        >
+        <button
           id="quick-create-dropdown-btn"
+          data-testid="header-login-quick-create-dropdown-menu"
           class="ui right floated  primary button"
           role="button"
           aria-controls="quick-create-menu"
@@ -58,8 +59,7 @@
         >
           <i class="fitted plus icon inverted" aria-hidden="true"></i>
           <i class="fitted dropdown icon inverted" aria-hidden="true"></i>
-        </a>
-
+        </button>
         <div role="menu" aria-labelledby="quick-create-dropdown-btn" id="quick-create-menu" class="menu">
           {%- for item in plus_menu_items if item.visible %}
             <a role="menuitem" class="item" href="{{ item.url }}">{{ item.text }}</a>
@@ -70,7 +70,7 @@
       {# Mobile/Tablet Quick create ("plus") menu #}
       <div class="sub-menu mobile tablet only">
         <h2 class="ui small header">{{ _("Actions") }}</h2>
-        <div role="menu">
+        <div role="menu" data-testid="header-login-quick-create-dropdown-menu">
           {%- for item in plus_menu_items if item.visible %}
             <a role="menuitem" class="item" href="{{ item.url }}">
               <i class="plus icon"></i>
