@@ -1,7 +1,8 @@
+import logging
 import traceback
 from functools import wraps
 
-from flask import abort, current_app, flash, redirect, render_template, request, url_for
+from flask import abort, current_app, flash, redirect, render_template, url_for
 from flask_login import login_required
 from flask_menu import current_menu
 from invenio_i18n import lazy_gettext as _
@@ -28,6 +29,8 @@ from werkzeug.exceptions import HTTPException
 from riv.records.create_record import create_record
 from riv.resolvers.base import resolve_metadata
 from riv.views import RegisterForm
+
+logger = logging.getLogger("DatasetsUI")
 
 
 class DatasetsUIResourceConfig(RecordsUIResourceConfig):
@@ -86,18 +89,16 @@ def handle_riv_errors(func):
             return func(*args, **kwargs)
 
         except HTTPException as http_exc:
-            current_app.logger.error(f"HTTP error: {http_exc}")
+            logger.exception("HTTP error")
             return abort(http_exc.code)
 
-        except PermissionError as exc:
-            current_app.logger.error(
-                f"PermissionError while calling {func.__name__}: {exc}"
-            )
+        except PermissionError:
+            logger.exception("PermissionError while calling %s", func.__name__)
             return abort(403)
 
         except Exception as exc:
-            current_app.logger.exception(f"Unexpected error in {func.__name__}: {exc}")
-
+            logger.exception("Unexpected error in %s", func.__name__)
+            raise
             return (
                 render_template(
                     "datasets/errors/riv_error_page.jinja",
@@ -128,9 +129,10 @@ class DatasetsUIResource(RecordsUIResource):
 
                 flash(f"Successfully registered dataset with PID: {pid}", "success")
                 return redirect(
-                    url_for("datasets_ui.deposit_edit", pid_value=record_data['id'])
+                    url_for("datasets_ui.deposit_edit", pid_value=record_data["id"])
                 )
             except Exception as e:
+                logger.exception("Error registering dataset with PID %s", pid)
                 flash(f"Error registering dataset: {str(e)}", "error")
                 return redirect(url_for("datasets_ui.deposit_create"))
 
