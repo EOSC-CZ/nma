@@ -114,7 +114,7 @@ class DataciteResolver(MetadataResolver):
             return _type
         except Exception:
             current_app.logger.exception(
-                "Record of type '%s' was not found in the '%s' vocabulary.",
+                "Record '%s' was not found in the '%s' vocabulary.",
                 _type,
                 vocabulary_id
             )
