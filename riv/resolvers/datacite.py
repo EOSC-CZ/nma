@@ -3,6 +3,7 @@ import re
 from ..resolvers import MetadataResolver
 from invenio_vocabularies.proxies import current_service as vocabulary_service
 from invenio_access.permissions import system_identity
+from flask import current_app
 
 HOST_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org(?:\/.*)?$', re.IGNORECASE)
 DOI_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org\/(.+)$', re.IGNORECASE)
@@ -33,11 +34,12 @@ class DataciteResolver(MetadataResolver):
         data = response.json()
         datacite_metadata=data["data"]["attributes"]
 
-        #titles
+        #(main) title
         #datacite required, rdm required
         datacite_titles = datacite_metadata["titles"]
-        title = self.resolve_titles(datacite_titles)
-        metadata["title"] = title
+        main_title = self.resolve_main_title(datacite_titles)
+        metadata["title"] = main_title
+
 
         #creators
         #datacite required, rdm required
@@ -59,11 +61,11 @@ class DataciteResolver(MetadataResolver):
         return metadata, "OK"
 
 
-    def resolve_titles(self, titles):
+    def resolve_main_title(self, titles):
         for title in titles:
             if 'title' in title:
                 return title['title']
-        return ''
+        return '' #validate
 
     def resolve_creators(self, creators):
         def split_personal_name(name):
@@ -103,11 +105,17 @@ class DataciteResolver(MetadataResolver):
         return creator_list
 
     def resolve_resource_type(self, resource_type):
-        type = resource_type.get("resourceTypeGeneral", "dataset").lower() #dataset as default option
+        vocabulary_id = 'resourcetypes'
+        _type = resource_type.get("resourceTypeGeneral", "dataset").lower() #dataset as default option
         try:
             vocabulary_service.read(
-                system_identity, ("resourcetypes", type)
+                system_identity, (vocabulary_id, _type)
             )
-            return type
-        except:
-            return "dataset" #there was a type but it could not be resolved
+            return _type
+        except Exception:
+            current_app.logger.exception(
+                "Record of type '%s' was not found in the '%s' vocabulary.",
+                _type,
+                vocabulary_id
+            )
+            return "dataset"
