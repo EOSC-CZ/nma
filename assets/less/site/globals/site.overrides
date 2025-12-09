@@ -408,6 +408,8 @@ header.theme.header {
   .twinfinity-logo {
     background-image: url(~@less/site/images/twinfinity.png);
     background-position-y: 3rem;
+    background-size: contain;
+    pointer-events: none;
     width: 46rem;
     height: 25rem;
     background-repeat: no-repeat;
@@ -416,6 +418,10 @@ header.theme.header {
     z-index: 0;
     right: 4rem;
 
+    &.mini {
+      height: 10rem;
+      right: -4rem;
+    }
 
     @media all and (max-width: @largestTabletScreen) {
       & {
@@ -530,10 +536,13 @@ header.theme.header {
 
 #rdm-footer-element {
 
+  & * {
+    color: @footerTextLightColor !important;
+  }
+
   background-color: @footerLightColor;
   font-weight: 500;
   .app-rdm-footer {
-    background: @heroBackgroundColor;
     .hero-icon {
       border-radius: 20rem;
       background-color: @white;
@@ -541,6 +550,14 @@ header.theme.header {
       max-width: 3rem;
       margin-top: -0.5rem !important;
       margin-left: -3.5rem !important;
+    }
+  }
+}
+
+.text {
+  &.small {
+    * {
+      font-size: 0.8rem;
     }
   }
 }

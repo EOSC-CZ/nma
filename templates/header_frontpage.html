@@ -1,5 +1,11 @@
 {%- extends "invenio_app_rdm/header_frontpage.html" %}
 
+{%- block twinfinity_logo %}
+{# This is a very first element in .theme.header DOM - we need to position it before everything else #}
+<div class="twinfinity-logo"></div>
+{%- endblock twinfinity_logo %}
+
+
 {%- block frontpage_title %}
         <div class="ui center aligned header">
             <img class="ui center hero-icon aligned" src="{{ url_for('static', filename='images/frontpage-icon.png') }}" alt="frontpage repository icon" />
