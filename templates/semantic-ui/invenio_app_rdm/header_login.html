@@ -20,12 +20,19 @@
 </form>
 {% endmacro %}
 
+{%- if config.I18N_LANGUAGES %}
+  <div class="language-selector" data-testid="header-language-selector">
+    {% from "invenio_i18n/macros/language_selector.html" import language_selector_dropdown %}
+    {{ language_selector_dropdown() }}
+  </div>
+{%- endif %}
+
 {%- if config.ACCOUNTS %}
   {%- if not current_user.is_authenticated %}
     <form>
       <a
         href="{{ url_for_security('login', next=request.path) }}"
-        class="ui primary button auth-button" aria-busy="false" aria-live="polite" aria-label="{{ _('Sign in') }}"
+        class="ui primary button auth-button rel-ml-1" aria-busy="false" aria-live="polite" aria-label="{{ _('Sign in') }}"
         data-testid="header-login-sign-in-button"
       >
         <i class="sign-in icon auth-icon" aria-hidden="true"></i>
