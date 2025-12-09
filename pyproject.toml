@@ -19,6 +19,8 @@ dependencies = [
     "oarepo-oidc-einfra>=2.0.0dev0,<3.0.0",
     "beautifulsoup4",
     "rapidfuzz",
+    "oarepo-vocabularies>=3.0.0dev6,<4.0.0"
+
 ]
 requires-python = ">=3.13,<3.15"
 
