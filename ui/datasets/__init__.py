@@ -1,5 +1,6 @@
 import logging
 import traceback
+from collections.abc import Mapping
 from functools import wraps
 
 from flask import abort, current_app, flash, redirect, render_template, url_for
@@ -45,8 +46,13 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         UIComponentImportMode.DEFAULT,
     )
 
-    routes = {
-        **RecordsUIResourceConfig.routes,
+    routes: Mapping[str, str] = {
+        "search": "",
+        "deposit_create": "/uploads/new",
+        "deposit_edit": "/uploads/<path:pid_value>",
+        "record_detail": "/records/<path:pid_value>",
+        "record_latest": "/records/<path:pid_value>/latest",
+        "record_export": "/records/<path:pid_value>/export/<export_format>",
     }
 
     components = [
