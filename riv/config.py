@@ -26,3 +26,5 @@ RIV_CURATORS_GROUP_ID = "riv_curators"
 
 # Revalidate the persistent URL if it was last checked more than this number of days ago
 LAST_CHECKED_THRESHOLD_DAYS = 2
+
+DATACITE_URL="https://api.datacite.org/dois"

@@ -36,6 +36,7 @@ class RIVResolverExtension:
         """Initialize the configuration for the extension."""
         app.config.setdefault("PERSISTENT_IDENTIFIER_RESOLVERS", config.PERSISTENT_IDENTIFIER_RESOLVERS)
         app.config.setdefault("PERSISTENT_IDENTIFIER_PATTERNS", config.PERSISTENT_IDENTIFIER_PATTERNS)
+        app.config.setdefault("DATACITE_URL", config.DATACITE_URL)
 
     @cached_property
     def persistent_identifiers_resolvers(self)-> List[MetadataResolver]:
