@@ -83,15 +83,15 @@ class DataciteResolver(MetadataResolver):
                 if len(title["title"]) < 3:
                     problems.append(ResolverProblem(resolver=self.name, message=_(
                         "The title is too short. A minimum of 3 characters is required to meet repository requirements."),
-                                                    level=ResolverProblemLevel.WARNING, ))
+                                                    level=ResolverProblemLevel.WARNING))
                     return f'Incompatible title: {title} (please provide a corrected title)'
                 return title['title']
         # todo in the documentation it seems that it is possible to have only additional title, test this
         problems.append(
             ResolverProblem(resolver=self.name, message=_("Missing title."),
-                            level=ResolverProblemLevel.WARNING, ))
+                            level=ResolverProblemLevel.WARNING))
 
-        return f'Missing title'  # should never happen
+        return 'Missing title'  # should never happen
 
     @handle_errors(error_placeholder=CREATORS_PLACEHOLDER, alert_user=True)
     def resolve_datacite_creators(self, *, creators, problems):
@@ -123,7 +123,7 @@ class DataciteResolver(MetadataResolver):
                 name = 'Unknown Creator'  # should never happen
                 problems.append(
                     ResolverProblem(resolver=self.name, message=_(f"Missing creators name: {creator}."),
-                                    level=ResolverProblemLevel.WARNING, ))
+                                    level=ResolverProblemLevel.WARNING))
 
             creator_obj['name'] = name
 
@@ -164,11 +164,11 @@ class DataciteResolver(MetadataResolver):
                 system_identity, (vocabulary_id, _type)
             )
             return _type
-        except Exception:
+        except Exception as e:
             problems.append(
                 ResolverProblem(resolver=self.name, message=_(
                     f"The provided resource type {_type} could not be parsed. The default value 'dataset' has been applied."),
-                                level=ResolverProblemLevel.WARNING))
+                                level=ResolverProblemLevel.WARNING, original_exception=e))
             current_app.logger.exception(
                 "Record '%s' was not found in the '%s' vocabulary.",
                 _type,
