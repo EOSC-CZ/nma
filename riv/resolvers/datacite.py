@@ -40,11 +40,11 @@ class DataciteResolver(MetadataResolver):
             if response.status_code == 404:
                 return None, [ResolverProblem(resolver=self.name, message=_(
                     "The identifier looks like a DOI, but it was not found in the DataCite registry."),
-                                              level=ResolverProblemLevel.ERROR, )]
+                                              level=ResolverProblemLevel.ERROR)]
             else:
                 return None, [ResolverProblem(resolver=self.name, message=_(
                     f"Unexpected error while resolving the DOI. DataCite returned: {response.content}. "),
-                                              level=ResolverProblemLevel.ERROR, )]
+                                              level=ResolverProblemLevel.ERROR)]
 
         metadata = {}
         problems = []
@@ -105,7 +105,7 @@ class DataciteResolver(MetadataResolver):
         if len(creators) == 0:
             problems.append(
                 ResolverProblem(resolver=self.name, message=_("Missing creators."),
-                                level=ResolverProblemLevel.WARNING, ))
+                                level=ResolverProblemLevel.WARNING))
             return CREATORS_PLACEHOLDER
 
         creator_list = []
@@ -168,7 +168,7 @@ class DataciteResolver(MetadataResolver):
             problems.append(
                 ResolverProblem(resolver=self.name, message=_(
                     f"The provided resource type {_type} could not be parsed. The default value 'dataset' has been applied."),
-                                level=ResolverProblemLevel.WARNING, ))
+                                level=ResolverProblemLevel.WARNING))
             current_app.logger.exception(
                 "Record '%s' was not found in the '%s' vocabulary.",
                 _type,
