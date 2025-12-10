@@ -79,14 +79,16 @@ def create_record(record_data):
 
         if draft_record.errors:
             raise RIVRegistrationException(
-                f"Error during record creation: {draft_record.errors}"
+                f"Error during record creation of {record_data["id"]}: {draft_record.errors}"
             )
 
         datasets_service.publish(identity=system_identity, id_=draft_record["id"])
     except RIVRegistrationException:
         raise
     except Exception as e:
-        raise RIVRegistrationException(f"Error during record creation/publishing: {e}")
+        raise RIVRegistrationException(
+            f"Error during record creation/publishing of {record_data["id"]}: {e}"
+        )
     # call access service and secret link
     access_service = (
         current_rdm_records_service.access

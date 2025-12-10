@@ -1,10 +1,14 @@
 import re
 
 from ..resolvers import MetadataResolver
+from invenio_vocabularies.proxies import current_service as vocabulary_service
+from invenio_access.permissions import system_identity
+from flask import current_app
 
 HOST_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org(?:\/.*)?$', re.IGNORECASE)
 DOI_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org\/(.+)$', re.IGNORECASE)
 DATACITE_URL="https://api.datacite.org/dois"
+
 
 class DataciteResolver(MetadataResolver):
     name = "Datacite"
@@ -29,23 +33,39 @@ class DataciteResolver(MetadataResolver):
 
         data = response.json()
         datacite_metadata=data["data"]["attributes"]
+
+        #(main) title
+        #datacite required, rdm required
         datacite_titles = datacite_metadata["titles"]
-        title = self.resolve_titles(datacite_titles)
-        metadata["title"] = title
+        main_title = self.resolve_main_title(datacite_titles)
+        metadata["title"] = main_title
 
 
+        #creators
+        #datacite required, rdm required
         datacite_creators = datacite_metadata["creators"]
         creators = self.resolve_creators(datacite_creators)
         metadata["creators"] = creators
 
+        #publication date
+        #datacite required, rdm required
+        publication_date = datacite_metadata.get("publicationYear")
+        if publication_date:
+            metadata["publication_date"] = str(publication_date)
+
+        #resource type
+        #datacite required, rdm required
+        if "types" in datacite_metadata:
+             metadata["resource_type"] = {"id": self.resolve_resource_type(datacite_metadata["types"])}
+
         return metadata, "OK"
 
 
-    def resolve_titles(self, titles):
+    def resolve_main_title(self, titles):
         for title in titles:
             if 'title' in title:
                 return title['title']
-        return ''
+        return '' #validate
 
     def resolve_creators(self, creators):
         def split_personal_name(name):
@@ -83,3 +103,19 @@ class DataciteResolver(MetadataResolver):
             creator_list.append({"person_or_org": creator_obj})
 
         return creator_list
+
+    def resolve_resource_type(self, resource_type):
+        vocabulary_id = 'resourcetypes'
+        _type = resource_type.get("resourceTypeGeneral", "dataset").lower() #dataset as default option
+        try:
+            vocabulary_service.read(
+                system_identity, (vocabulary_id, _type)
+            )
+            return _type
+        except Exception:
+            current_app.logger.exception(
+                "Record '%s' was not found in the '%s' vocabulary.",
+                _type,
+                vocabulary_id
+            )
+            return "dataset"

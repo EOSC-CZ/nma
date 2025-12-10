@@ -407,21 +407,20 @@ header.theme.header {
 
   .twinfinity-logo {
     background-image: url(~@less/site/images/twinfinity.png);
+    background-position-y: 3rem;
+    background-size: contain;
+    pointer-events: none;
     width: 46rem;
     height: 25rem;
     background-repeat: no-repeat;
-    background-position-y: 3rem;
     position: absolute;
     bottom: 0;
     z-index: 0;
-    right: -5rem;
+    right: 4rem;
 
-    @media all and (min-width: @widescreenMonitorBreakpoint) {
-      right: calc(4rem + 50vw);
-    }
-
-    @media all and (min-width: @largeMonitorBreakpoint) {
-      right: 4rem;
+    &.mini {
+      height: 10rem;
+      right: -4rem;
     }
 
     @media all and (max-width: @largestTabletScreen) {
@@ -430,8 +429,20 @@ header.theme.header {
         height: 12.5rem;
         right: 0;
         background-position-y: 0.5rem;
+        transform: translateX(0px);
       }
     }
+
+    transform: translateX(
+      clamp(
+        0px,
+        calc(@widescreenMonitorBreakpoint - 100vw),
+        @widescreenMonitorBreakpoint
+      )
+    );
+
+    /* smooth movement when resizing */
+    transition: transform 220ms linear;
   }
 
   .navbar-brand, ui.header {
@@ -439,12 +450,17 @@ header.theme.header {
   }
 
   .ui.hero.header {
-    font-size: 5rem;
+    font-size: clamp(
+      2rem,
+      14vw - 1.5rem,
+      5rem
+    );
   }
 
   .subtitle {
     letter-spacing: -2%;
     font-weight: 500;
+    color: darken(@darkGrey, 15%);
   }
 
   .hero-icon {
@@ -590,10 +606,13 @@ header.theme.header {
 
 #rdm-footer-element {
 
+  & * {
+    color: @footerTextLightColor !important;
+  }
+
   background-color: @footerLightColor;
   font-weight: 500;
   .app-rdm-footer {
-    background: @heroBackgroundColor;
     .hero-icon {
       border-radius: 20rem;
       background-color: @white;
@@ -601,6 +620,14 @@ header.theme.header {
       max-width: 3rem;
       margin-top: -0.5rem !important;
       margin-left: -3.5rem !important;
+    }
+  }
+}
+
+.text {
+  &.small {
+    * {
+      font-size: 0.8rem;
     }
   }
 }

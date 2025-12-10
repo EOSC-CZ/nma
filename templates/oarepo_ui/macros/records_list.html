@@ -23,7 +23,33 @@
         <div class="ui fitted section-title divider rel-mt-1"></div>
     </h2>
 
-    <div class="ui container rel-pl-6 rel-pr-6">
+    <div class="ui container rel-pl-6 rel-pr-6 computer only">
+    {% for n in range(3) %}
+      <div class="ui fluid placeholder rel-mt-3">
+        <div class="header">
+          <div class="line"></div>
+        </div>
+
+        <div class="paragraph">
+          <div class="line"></div>
+        </div>
+
+        <div class="paragraph">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+
+        <div class="paragraph">
+          <div class="line"></div>
+        </div>
+      </div>
+
+      {% if n < 9 %}
+        <div class="ui divider rel-mt-2 rel-mb-2"></div>
+      {% endif %}
+    {% endfor %}
+    </div>
+    <div class="ui container mobile tablet only">
     {% for n in range(3) %}
       <div class="ui fluid placeholder rel-mt-3">
         <div class="header">

@@ -2,7 +2,9 @@
 
 {%- block navbar %}
 {# This is a very first element in .theme.header DOM - we need to position it before everything else #}
-<div class="twinfinity-logo"></div>
+{%- block twinfinity_logo %}
+<div class="twinfinity-logo mini"></div>
+{%- endblock -%}
 {{ super() }}
 {%- endblock navbar %}
 
@@ -14,22 +16,11 @@
       alt="{{ _(config.THEME_SITENAME) }}"
       loading="lazy"
     />
-    {{ _(config.THEME_SITENAME) | upper }}
   </a>
 {%- endblock brand %}
 
 {%- block navbar_nav %}
 {%- endblock navbar_nav %}
-
-{%- block navbar_right %}
-{%- if config.I18N_LANGUAGES %}
-  <div class="right menu item language-selector rel-mr-1" data-testid="header-language-selector">
-    {% from "invenio_i18n/macros/language_selector.html" import language_selector_dropdown %}
-    {{ language_selector_dropdown() }}
-  </div>
-{%- endif %}
-{{ super() }}
-{%- endblock navbar_right %}
 
 {# Available template blocks (showing closest override point):
 

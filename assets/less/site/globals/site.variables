@@ -51,11 +51,11 @@
 @embargoed-components-background-color: #fbf8ee;
 @embargoed-components-border-color: #c9ba9b;
 
-@footerLightColor: @primaryColor;
-@footerDarkColor: darken(@primaryColor, 5%);
+@footerLightColor: #EEE5E7;
+@footerDarkColor: darken(@footerLightColor, 5%);
 @subFooterColor: @footerDarkColor;
-@footerTextLightColor: #ffffff;
-@footerTextDarkColor: #ffffff;
+@footerTextLightColor: @textColor;
+@footerTextDarkColor: darken(@textColor, 5%);
 
 @navbar_background_image: linear-gradient(
   130deg,

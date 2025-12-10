@@ -1594,6 +1594,19 @@ wheels = [
 ]
 
 [[package]]
+name = "html5lib"
+version = "1.1"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+dependencies = [
+    { name = "six" },
+    { name = "webencodings" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ac/b6/b55c3f49042f1df3dcd422b7f224f939892ee94f22abcf503a9b7339eaf2/html5lib-1.1.tar.gz", hash = "sha256:b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f", size = 272215, upload-time = "2020-06-22T23:32:38.834Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6c/dd/a834df6482147d48e225a49515aabc28974ad5a4ca3215c18a882565b028/html5lib-1.1-py2.py3-none-any.whl", hash = "sha256:0d78f8fde1c230e99fe37986a60526d7049ed4bf8a9fadbad5f00e22e58e041d", size = 112173, upload-time = "2020-06-22T23:32:36.781Z" },
+]
+
+[[package]]
 name = "httplink"
 version = "0.2.0"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
@@ -3477,6 +3490,7 @@ dependencies = [
     { name = "oarepo-runtime" },
     { name = "oarepo-theme" },
     { name = "oarepo-ui" },
+    { name = "oarepo-vocabularies" },
     { name = "python-dotenv" },
     { name = "rapidfuzz" },
 ]
@@ -3495,6 +3509,7 @@ requires-dist = [
     { name = "oarepo-runtime", specifier = ">=2.0.0.dev0,<3.0.0" },
     { name = "oarepo-theme", specifier = ">=1.0.0.dev3,<2.0.0" },
     { name = "oarepo-ui", specifier = ">=6.0.0.dev0,<7.0.0" },
+    { name = "oarepo-vocabularies", specifier = ">=3.0.0.dev6,<4.0.0" },
     { name = "python-dotenv" },
     { name = "rapidfuzz" },
 ]
@@ -3986,6 +4001,24 @@ wheels = [
 ]
 
 [[package]]
+name = "oarepo-vocabularies"
+version = "3.0.0.dev6"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+dependencies = [
+    { name = "cachetools" },
+    { name = "oarepo", extra = ["rdm", "tests"] },
+    { name = "oarepo-runtime" },
+    { name = "oarepo-ui" },
+    { name = "openpyxl" },
+    { name = "orcid" },
+    { name = "tqdm" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/02/67/4dbc465900c8ccf04111858bbb80a66cebf73287e1d64e93575d6d7f12f0/oarepo_vocabularies-3.0.0.dev6.tar.gz", hash = "sha256:2e35ed750d7ca26d51be947db9ae301e44daf9bd5d05eaebe19b5d4c39301fa2", size = 82386, upload-time = "2025-11-22T15:16:42.118Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5e/10/77cccc9dc91505eef33449522af1710d02a2d75958d73cf6c7295d6edb1a/oarepo_vocabularies-3.0.0.dev6-py3-none-any.whl", hash = "sha256:f561c2a9067e68ef8ab57c544756218c4682e095ea290625eb5c415a00ec2ae9", size = 179240, upload-time = "2025-11-22T15:16:41.023Z" },
+]
+
+[[package]]
 name = "oauthlib"
 version = "3.3.1"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
@@ -4075,6 +4108,19 @@ sdist = { url = "https://files.pythonhosted.org/packages/71/0e/176a7844fe4e3cb5d
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d0/56/af0306666f91bae47db14d620775604688361f0f76a872e0005277311131/opentelemetry_semantic_conventions-0.60b0-py3-none-any.whl", hash = "sha256:069530852691136018087b52688857d97bba61cd641d0f8628d2d92788c4f78a", size = 219981, upload-time = "2025-12-03T13:19:53.585Z" },
 ]
+
+[[package]]
+name = "orcid"
+version = "1.0.3"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+dependencies = [
+    { name = "beautifulsoup4" },
+    { name = "html5lib" },
+    { name = "lxml" },
+    { name = "requests" },
+    { name = "simplejson" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/fe/d7/a065d914f1312abc02c3dcaecd75bcbb8d03062db33991cfcc9f37b93da6/orcid-1.0.3.tar.gz", hash = "sha256:5fe28b6d92aed5abe7145c959e4fa2afb90260be215ff3f36ad31c94ee41d0db", size = 10768, upload-time = "2018-07-17T08:02:25.143Z" }
 
 [[package]]
 name = "ordered-set"
