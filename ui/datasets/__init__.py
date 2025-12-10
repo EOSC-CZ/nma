@@ -3,7 +3,7 @@ import traceback
 from collections.abc import Mapping
 from functools import wraps
 
-from flask import abort, current_app, flash, redirect, render_template, url_for
+from flask import abort, flash, redirect, render_template, url_for
 from flask_login import login_required
 from flask_menu import current_menu
 from invenio_i18n import lazy_gettext as _
@@ -173,7 +173,7 @@ def init_menu(app):
     with app.app_context():
         current_menu.submenu("plus.create_datasets").register(
             f"{ui_resource_config.blueprint_name}.deposit_create",
-            _("New Datasets"),
+            _("Register a Dataset"),
             order=1,
             visible_when=can_view_deposit_page,
         )
