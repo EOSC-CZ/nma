@@ -7,6 +7,8 @@
     {{ webpack['datasets_search.js'] }}
 {%- endblock %}
 
+<!-- {%- block navbar_search %}{%- endblock navbar_search %} TODO: Hiding like this does not work -->
+
 {%- block page_body %}
 <div class="ui main container">
   <div data-invenio-search-config='{{ search_app_config | tojson }}'></div>

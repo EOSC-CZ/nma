@@ -18,7 +18,7 @@ const CreatibutorsList = ({ creatibutors, showAll, numDisplayed }) => {
         <>
           {!showAll && <ListItem> et al.</ListItem>}
           <ListItem key="icon-expand-accordion">
-            <Icon size="small" name="right chevron" color="green" />
+            <Icon size="small" name="right chevron" color="primary" fitted />
           </ListItem>
         </>
       )}
@@ -44,24 +44,28 @@ export const Creatibutors = ({ creatibutors }) => {
 
   return (
     <>
-      <Accordion>
-        <AccordionTitle active={showAllPersons} index={0} onClick={togglePersons}>
-          <CreatibutorsList
-            creatibutors={personalCreatibutors}
-            showAll={showAllPersons}
-            numDisplayed={numDisplayed}
-          />
-        </AccordionTitle>
-      </Accordion>
-      <Accordion style={{ marginTop: "-1rem" }}>
-        <AccordionTitle active={showAllOrgs} index={0} onClick={toggleOrgs}>
-          <CreatibutorsList
-            creatibutors={orgCreatibutors}
-            showAll={showAllOrgs}
-            numDisplayed={numDisplayed}
-          />
-        </AccordionTitle>
-      </Accordion>
+      {personalCreatibutors.length > 0 && (
+        <Accordion>
+          <AccordionTitle active={showAllPersons} index={0} onClick={togglePersons}>
+            <CreatibutorsList
+              creatibutors={personalCreatibutors}
+              showAll={showAllPersons}
+              numDisplayed={numDisplayed}
+            />
+          </AccordionTitle>
+        </Accordion>
+      )}
+      {orgCreatibutors.length > 0 && (
+        <Accordion style={personalCreatibutors.length > 0 ? { marginTop: "-1rem" } : {}}>
+          <AccordionTitle active={showAllOrgs} index={0} onClick={toggleOrgs}>
+            <CreatibutorsList
+              creatibutors={orgCreatibutors}
+              showAll={showAllOrgs}
+              numDisplayed={numDisplayed}
+            />
+          </AccordionTitle>
+        </Accordion>
+      )}
     </>
   );
 };

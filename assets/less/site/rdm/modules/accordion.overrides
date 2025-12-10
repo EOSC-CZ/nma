@@ -1,7 +1,7 @@
 .ui.accordion {
   .active.title .icon:not(.button),
   .accordion .active.title .icon:not(.button) {
-    color: @secondaryColor;
+    color: @primaryColor;
   }
 
   a.accordion-title {
