@@ -8,21 +8,23 @@ import { ClearFiltersButton } from "@js/oarepo_ui";
 import { useActiveSearchFilters } from "@js/oarepo_ui/search/hooks";
 import { i18next } from "@translations/i18next";
 
-const getLabel = (filter, aggregations) => {
+const getLabel = (filter, activeFilters, aggregations) => {
   const aggName = filter[0];
   let value = filter[1];
   const label =
+    activeFilters?.additionalFilterLabels?.[aggName]?.label ||
     aggregations[aggName]?.buckets?.find((b) => b.key === value)?.label ||
     value;
   let currentFilter = [aggName, value];
   const hasChild = filter.length === 3;
   if (hasChild) {
-    const { label, activeFilter } = getLabel(filter[2]);
+    const { label, value, activeFilter } = getLabel(filter[2], activeFilters, aggregations);
     value = `${value}.${label}`;
     currentFilter.push(activeFilter);
   }
   return {
     label: label,
+    value: value,
     activeFilter: currentFilter,
   };
 };
@@ -34,12 +36,14 @@ const ActiveFiltersElementComponent = ({
   },
 }) => {
   const activeFilters = useActiveSearchFilters(filters);
-  const groupedData = _groupBy(activeFilters, 0);
+  const groupedData = _groupBy(activeFilters?.activeSearchFilters, 0);
+  console.log("Active filters:", activeFilters, groupedData);
+  console.log("Aggregations:", aggregations);
   return (
     <>
       {_map(groupedData, (filters, key) =>
         filters.map((filter, index) => {
-          const { label, activeFilter } = getLabel(filter, aggregations);
+          const { label, value, activeFilter } = getLabel(filter, activeFilters, aggregations);
           return (
             <Label
               className="active-filter-label mb-5"
@@ -54,7 +58,7 @@ const ActiveFiltersElementComponent = ({
                 }
               }}
             >
-              {label || i18next.t("Unfilled")}
+              {label ? <span><strong>{label}:</strong> {value}</span> : value || i18next.t("Unfilled")}
               <Icon name="delete" aria-hidden="true" />
             </Label>
           );

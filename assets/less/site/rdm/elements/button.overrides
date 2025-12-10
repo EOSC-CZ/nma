@@ -1,9 +1,11 @@
 .ui.button {
   font-weight: 400;
+
   &.clear-filters-button {
     border-radius: 8px;
-    border: 1px solid @lightSecondaryColor;
-    background-color: transparent;
+    border: 1px solid @primaryColor;
+    background-color: @lightPrimaryColor;
+    color: @black;
     height: 2rem;
     padding-top: 0;
     padding-bottom: 0;
