@@ -62,10 +62,14 @@ Note: Context variables available:
 <section id="record-info"
         aria-label="{{ _('Publication date') }}">
   <div class="ui grid middle aligned">
-    <div class="two column row">
+    <div class="two column row pb-0">
       <div class="left floated left aligned column">
         <span class="ui" title="{{ _('Publication date') }}">
-          <span class="text-muted">{{ _('Published') }}</span> {{ record_ui["ui"]["created_date_l10n_long"] }}
+          <span class="text-muted">{{ _('Published on') }}</span> {{ record_ui["ui"]["created_date_l10n_long"] }}
+        </span>
+        <span class="ui" title="{{ _('Record owner') }}">
+          <span class="text-muted">{{ _("by") }}</span>
+          {{ record_ui.parent.access.owned_by.user | capitalize}}
         </span>
       </div>
       <div class="right floated right aligned column">
@@ -99,6 +103,26 @@ Note: Context variables available:
 </section>
 <div class="ui divider hidden"></div>
 {%- endblock record_header_info %}
+
+{%- block record_title -%}
+  <div class="ui secondary basic padded rel-pl-2 rel-pt-4 rel-pb-1 rel-pr-2 record-title segment">
+    <div class="ui top attached green large label">
+      <i class="ui icon linkify"></i>
+      <a class="permanent-link" href="{{record_ui.links.self_html}}" target="_blank" data-testid="record-detail-title-permanent-link">
+        <span class="middle-ellipsis">{{ record_ui.links.self_html }}</span>
+      </a>
+      <ClipboardCopyButton className="large" copyText={{record_ui.links.self_html}} />
+      <p class="detail ml-0 rel-mt-1">
+        <small >{{ _("Use this permanent link when reporting results to RIV and other evaluation systems.") }}</small>
+      </p>
+    </div>
+    {{ super() }}
+
+  <!-- <div class="ui top right attached label">
+    <span class="middle-ellipsis">{{ record_ui.links.self_html }}</span>
+  </div> -->
+</div>      
+{%- endblock record_title -%}
 
 {%- block record_footer %}
 {{ record_ui }}

@@ -154,6 +154,19 @@ a.no-text-decoration:hover {
   text-decoration: none;
 }
 
+.record-title {
+  .copy-button {
+    color: @white !important;
+    margin-left: 0.5rem !important;
+    font-size: 1.25rem;
+    display: inline-block;
+  }
+
+  a.permanent-link {
+    color: @white;
+  }
+}
+
 a.remove-default-style:hover {
   color: @mutedTextColor;
 }
