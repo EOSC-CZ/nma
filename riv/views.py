@@ -15,11 +15,16 @@ from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, URL
 
+class StrippedStringField(StringField):
+    def process_formdata(self, valuelist):
+        if valuelist:
+            self.data = valuelist[0].strip()
+
 
 class RegisterForm(FlaskForm):
     """Form for registering a dataset by PID."""
 
-    pid = StringField(
+    pid = StrippedStringField(
         "Persistent Identifier",
         validators=[
             DataRequired(message=_("Please enter a persistent identifier")),

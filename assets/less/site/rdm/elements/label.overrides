@@ -48,4 +48,8 @@
       color: @primaryColor;
     }
   }
+  &.truncated {
+    width: 100%;
+    overflow-x: scroll;
+  }
 }

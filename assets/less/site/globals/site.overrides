@@ -403,6 +403,10 @@ dl.details-list {
   }
 }
 
+.invenio-page-body {
+  margin: 2rem 0 2rem 0;
+}
+
 header.theme.header {
 
   .twinfinity-logo {

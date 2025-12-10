@@ -21,7 +21,7 @@ class ResolverProblem:
     resolver: str
     """Name of the resolver that produced this problem."""
 
-    message: LazyString
+    message: str
     """Human-readable message describing the problem."""
 
     level: ResolverProblemLevel
@@ -88,7 +88,7 @@ class MetadataResolver(Protocol):
         """
 
 
-def resolve_metadata(persistent_url: str) -> (dict | None, str):
+def resolve_metadata(persistent_url: str) -> (dict | None, list[ResolverProblem]):
     """Resolve metadata by persistent url.
 
     If the metadata can not be resolved, returns (None, "error_message").

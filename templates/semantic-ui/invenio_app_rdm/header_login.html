@@ -40,6 +40,45 @@
       </a>
     </form>
   {%- else %}
+    {# Desktop Quick-create ("plus") menu #}
+    {%- set plus_menu_items = current_menu.submenu('plus').children %}
+    {%- if plus_menu_items %}
+      <div
+        id="quick-create-dropdown"
+        class="ui floating dropdown computer only rel-mr-1 rel-ml-1"
+        >
+        <button
+          id="quick-create-dropdown-btn"
+          data-testid="header-login-quick-create-dropdown-menu"
+          class="ui right floated  primary button"
+          aria-controls="quick-create-menu"
+          aria-label="{{ _('Quick create') }}"
+          aria-expanded="false"
+          aria-haspopup="menu"
+        >
+          <i class="fitted plus icon inverted" aria-hidden="true"></i>
+          <i class="fitted dropdown icon inverted" aria-hidden="true"></i>
+        </button>
+        <div role="menu" aria-labelledby="quick-create-dropdown-btn" id="quick-create-menu" class="menu">
+          {%- for item in plus_menu_items if item.visible %}
+            <a role="menuitem" class="item" href="{{ item.url }}">{{ item.text }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+
+      {# Mobile/Tablet Quick create ("plus") menu #}
+      <div class="sub-menu mobile tablet only">
+        <h2 class="ui small header">{{ _("Actions") }}</h2>
+        <div role="menu" data-testid="header-login-quick-create-dropdown-menu">
+          {%- for item in plus_menu_items if item.visible %}
+            <a role="menuitem" class="item" href="{{ item.url }}">
+              <i class="plus icon"></i>
+              {{ item.text }}
+            </a>
+          {%- endfor %}
+        </div>
+      </div>
+    {% endif %}
     {# Desktop Account dropdown menu #}
     {%- if config.USERPROFILES %}
       <div id="user-profile-dropdown" class="ui floating dropdown computer only">
@@ -67,7 +106,7 @@
         >
           {%- for item in current_menu.submenu('settings').children if item.visible %}
             <a role="menuitem" class="item" href="{{ item.url }}" tabindex="-1">
-              {{ item.text|safe }}
+              {{ item.text }}
             </a>
           {%- endfor %}
 
@@ -77,7 +116,7 @@
           {%- for item in current_menu.submenu('profile-admin').children if item.visible %}
             {% set ns.admin_menu = True %}
             <a role="menuitem" class="item" href="{{ item.url }}" tabindex="-1">
-              {{ item.text|safe }}
+              {{ item.text }}
             </a>
           {%- endfor %}
           {% if ns.admin_menu %}
@@ -95,7 +134,7 @@
         <div role="menu">
           {%- for item in current_menu.submenu('settings').children if item.visible %}
             <a role="menuitem" class="item" href="{{ item.url }}">
-              {{ item.text|safe }}
+              {{ item.text }}
             </a>
           {%- endfor %}
 
@@ -105,7 +144,7 @@
           {%- for item in current_menu.submenu('profile-admin').children if item.visible %}
             {% set ns.admin_menu = True %}
             <a role="menuitem" class="item" href="{{ item.url }}">
-              {{ item.text|safe }}
+              {{ item.text }}
             </a>
           {%- endfor %}
 
