@@ -25,11 +25,8 @@ class DataciteResolver(MetadataResolver):
     name = "Datacite"
 
     def can_resolve(self, persistent_url: str) -> bool:
-        match = is_doi(persistent_url)
-        if not match:
-            return False
 
-        return True
+        return is_doi(persistent_url)
 
     def resolve(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
 
