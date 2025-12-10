@@ -221,12 +221,7 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
         resultSortLayout={resultSortLayout}
       />
       <TransitionablePortal open={scrollToTopVisible} transition={{ animation: "fade up", duration: 300 }}>
-        <Button onClick={scrollToTop} id="scroll-to-top-button" primary circular basic>
-          <div>
-            <Icon size="large" name="chevron up" />
-          </div>
-          <div className="scroll-to-top-text">{i18next.t("to top").toUpperCase()}</div>
-        </Button>
+        <Button onClick={scrollToTop} id="scroll-to-top-button" circular icon="chevron up" aria-label={i18next.t("Scroll to top")} />
       </TransitionablePortal>
     </Container>
   );

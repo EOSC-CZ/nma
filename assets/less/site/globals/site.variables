@@ -9,7 +9,7 @@
 @livelyGreen: #008691;
 @pink: #9F0D54;
 @primaryColor: @pink;
-@secondaryColor: @pink;
+@secondaryColor: @livelyGreen;
 @darkGrey: #707075;
 @lightGrey: #e4e4e3;
 @black: #040305;

@@ -117,12 +117,11 @@ export const ResultsListItem = ({ result }) => {
 
   const languages = metadata.languages || (metadata.language ? [metadata.language] : []);
   const language = languages[0];
-  const versionString = metadata.version || result.versions?.index;
-  const accessStatus =
-    result.ui?.access_status ||
-    result.access?.status ||
-    result.access?.record ||
-    result.access?.files;
+  // const accessStatus =
+  //   result.ui?.access_status ||
+  //   result.access?.status ||
+  //   result.access?.record ||
+  //   result.access?.files;
 
   const toggleAbstract = () => {
     setShowEntireAbstract(!showEntireAbstract);
@@ -143,7 +142,6 @@ export const ResultsListItem = ({ result }) => {
               <Item.Header as="h2">
                 <a href={result?.links?.self_html}>{title}</a>
               </Item.Header>
-              {accessStatus && <ResultsItemAccessStatus status={accessStatus} />}
               <Item.Meta>
                 <Creatibutors creatibutors={creatibutors} />
                 <Label.Group className="rel-mt-1">
@@ -183,7 +181,6 @@ export const ResultsListItem = ({ result }) => {
                   {publicationDate && (
                     <span className="rel-mr-1">
                       {i18next.t("Published")}: {publicationDate}
-                      {versionString && ` (${versionString})`}
                     </span>
                   )}
 
