@@ -14,6 +14,7 @@
         </span>
       </div>
       <div class="right floated right aligned column">
+        {# TODO: remove when #BE-964 gets fixed #}
         {% if record_ui["ui"]["resource_type"] or "Dataset" %}
           <span role="note"
                 class="ui label horizontal small mb-5"
@@ -29,7 +30,7 @@
               data-testid="record-detail-header-info-access-status"
               aria-label="{{ _('Access') }}"
               >
-              <i class="icon {% if record_access == "public" %}un{% endif %}lock }}" aria-hidden="true"></i>
+              <i class="icon {% if record_access == "public" %}un{% endif %}lock" aria-hidden="true"></i>
           <span
               data-tooltip="{{ _("This record is publicly accessible. Anyone can view and download the content.") if record_access == 'public' else _("This record is not publicly accessible. Viewing or downloading the content requires meeting specific access conditions.") }}"
               aria-label="{{ record_ui["access"]["record"] }}">
