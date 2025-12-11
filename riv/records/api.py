@@ -9,16 +9,18 @@
 
 """Persistent identifier provider for nma."""
 import re
-from typing import override, Any
-from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
+from typing import Any, override
+
 from flask import current_app
+from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
+
 
 def generate_id(record: dict[str, Any] = None) -> str:
     url = record["metadata"]["persistent_url"]
     for prefix, val in current_app.config["PERSISTENT_IDENTIFIER_PATTERNS"].items():
         m = re.match(prefix, url)
         if m:
-            return f"{val}:{m.group(1)}"
+            return f"{val}/{m.group(1)}"
     raise ValueError(f"Could not generate pid from url: {url}")
 
 
@@ -27,6 +29,7 @@ class ExternalPIDProvider(DraftRecordIdProviderV2):
 
     This PID provider uses record url to generate a PID.
     """
+
     # NEW status due to eg invenio_pidstore.resolver.Resolver.resolve crashing on resolving links
 
     @classmethod
@@ -36,10 +39,15 @@ class ExternalPIDProvider(DraftRecordIdProviderV2):
 
     @classmethod
     @override
-    def create(cls, object_type: str | None = None, object_uuid: str | None = None,
-               options: dict[str, Any] | None = None, **kwargs: Any):
+    def create(
+        cls,
+        object_type: str | None = None,
+        object_uuid: str | None = None,
+        options: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ):
         options = {**(options or {})}
         options["record"] = kwargs.pop("record")
-        return super().create(object_type=object_type, object_uuid=object_uuid, options=options, **kwargs)
-
-
+        return super().create(
+            object_type=object_type, object_uuid=object_uuid, options=options, **kwargs
+        )
