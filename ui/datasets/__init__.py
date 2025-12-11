@@ -2,8 +2,8 @@ import logging
 import traceback
 from collections.abc import Mapping
 from functools import wraps
-
-from flask import abort, flash, redirect, render_template, url_for, Blueprint
+from flask import abort, flash, redirect, render_template, url_for, g, Blueprint
+from markupsafe import Markup, escape
 from flask_login import login_required
 from flask_menu import current_menu
 from invenio_i18n import lazy_gettext as _
@@ -26,11 +26,23 @@ from oarepo_ui.resources.decorators import allow_method
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
+from oarepo_runtime.typing import record_from_result
+
 from werkzeug.exceptions import HTTPException
 
 from riv.records.create_record import create_record
 from riv.resolvers.base import resolve_metadata
 from riv.views import RegisterForm
+
+from oarepo_ui.resources.decorators import (
+    pass_route_args,
+    secret_link_or_login_required,
+    pass_record_latest,
+)
+from invenio_app_rdm.records_ui.views.decorators import no_cache_response
+from invenio_records_resources.services.errors import (
+    PermissionDeniedError,
+)
 
 logger = logging.getLogger("DatasetsUI")
 
@@ -83,7 +95,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     templates = {
         "record_detail": "datasets.RecordDetail",
         "search": "datasets.Search",
-        "deposit_edit": "datasets.Deposit",
+        "deposit_edit": "datasets.DepositEdit",
         "deposit_create": "datasets.Deposit",
     }
 
@@ -133,11 +145,29 @@ class DatasetsUIResource(RecordsUIResource):
                 metadata, problems = resolve_metadata(pid)
                 record_data = {"metadata": metadata}
                 create_record(record_data)
-
-                flash(f"Successfully registered dataset with PID: {pid}", "success")
-                return redirect(
-                    url_for("datasets_ui.deposit_edit", pid_value=record_data["id"])
-                )
+                if not problems:
+                    flash(f"Successfully registered dataset with PID: {pid}", "success")
+                    return redirect(
+                        url_for(
+                            "datasets_ui.record_detail", pid_value=record_data["id"]
+                        )
+                    )
+                else:
+                    # Sanitize problem messages to prevent XSS
+                    issues_list = "".join(
+                        [f"<li>{escape(problem.message)}</li>" for problem in problems]
+                    )
+                    warning_message = Markup(
+                        f'<div class="header">'
+                        f'<i class="exclamation triangle icon"></i>'
+                        f'{_("Dataset was registered with issues. Please check/correct the metadata below:")}'
+                        f"</div>"
+                        f'<ul class="list">{issues_list}</ul>'
+                    )
+                    flash(warning_message, "warning")
+                    return redirect(
+                        url_for("datasets_ui.deposit_edit", pid_value=record_data["id"])
+                    )
             except PIDAlreadyExists:
                 flash(_("This dataset is already registered."), "info")
                 return redirect(
@@ -154,6 +184,21 @@ class DatasetsUIResource(RecordsUIResource):
             ),
             **{"form": form},
         )
+
+    @pass_route_args("view")
+    @secret_link_or_login_required()
+    @pass_record_latest
+    @no_cache_response
+    def deposit_edit(self, record, draft_files=None, files_locked=True, **kwargs):
+        """Edit draft record."""
+        if not self.api_service.check_permission(
+            g.identity, "edit", record=record_from_result(record)
+        ):
+            raise PermissionDeniedError(
+                _("User does not have permission to edit record.")
+            )
+
+        return self._edit(record, draft_files, files_locked, **kwargs)
 
 
 def ui_overrides(app):

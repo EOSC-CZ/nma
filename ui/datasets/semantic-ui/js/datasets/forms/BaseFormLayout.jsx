@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import SaveButton from "@js/oarepo_ui/forms/components/SaveButton/SaveButton";
+import SaveButton from "./SaveButton";
 import { Grid, Ref, Card, Header } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { getLocalizedValue } from "@js/oarepo_ui/util";
