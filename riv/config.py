@@ -6,7 +6,7 @@
 # oarepo-runtime is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 #
-
+from idutils.utils import handle_regexp
 """RIV resolver config."""
 
 PERSISTENT_IDENTIFIER_RESOLVERS = [
@@ -17,7 +17,7 @@ PERSISTENT_IDENTIFIER_RESOLVERS = [
 
 PERSISTENT_IDENTIFIER_PATTERNS = {
     r"https://doi.org/(.*)": "doi",
-    r"https://hdl.handle.net/(.*)": "handle",
+    r"https?://hdl.handle.net/(.+)": "handle",
 }
 
 
@@ -28,3 +28,4 @@ RIV_CURATORS_GROUP_ID = "riv_curators"
 LAST_CHECKED_THRESHOLD_DAYS = 2
 
 DATACITE_URL="https://api.datacite.org/dois"
+HANDLE_URL="https://hdl.handle.net"
