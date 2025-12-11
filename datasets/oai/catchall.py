@@ -150,6 +150,18 @@ vocabulary_exceptions = [
     "ancestor",
 ]
 
+# Mapping from catch-all contributor role slugs to RDM role IDs
+CATCHALL_TO_RDM_ROLES = {
+    "advisor": "supervisor",  # Map advisor to supervisor (closest match)
+    "collaborator": "projectmember",  # Map collaborator to project member
+    "data-collector": "datacollector",  # Direct match
+    "data-manager": "datamanager",  # Direct match
+    "project-leader": "projectleader",  # Direct match
+    "project-manager": "projectmanager",  # Direct match
+    "researcher": "researcher",  # Direct match
+    "supervisor": "supervisor",  # Direct match
+}
+
 
 def sanitize_html(text):
     """Sanitize HTML content using bleach.
@@ -371,6 +383,7 @@ class CatchAllTransformer(BaseTransformer):
 
         # TODO: Handle files - not now
         rdm_record["files"] = {"enabled": False}
+        rdm_record["media_files"] = {"enabled": False}
         rec.pop(
             "files", None
         )  # not in RDM schema at record level (files handled separately)
@@ -524,6 +537,43 @@ class CatchAllTransformer(BaseTransformer):
             creators.append(rdm_creator)
         return creators
 
+    @check_converted(exceptions=vocabulary_exceptions)
+    def extract_role_slug(self, role_data):
+        """Extract slug from role vocabulary structure.
+
+        Args:
+            role_data: Role data from catch-all (can be list or dict)
+
+        Returns:
+            Role slug string or None
+        """
+        if not role_data:
+            return None
+
+        # Role might be a list, take first non-ancestor item
+        if isinstance(role_data, list):
+            for role_item in role_data:
+                # Skip ancestor items
+                is_ancestor = role_item.get("is_ancestor", False)
+                if is_ancestor:
+                    role_item.pop("is_ancestor")
+                    continue
+
+                slug = role_item.pop("slug", None)
+                for _r in role_data:
+                    _r.clear()
+                return slug
+
+        # If it's a dict, extract slug
+        elif isinstance(role_data, dict):
+            is_ancestor = role_data.pop("is_ancestor", False)
+            if not is_ancestor:
+                slug = role_data.pop("slug", None)
+                role_data.clear()
+                return slug
+
+        return None
+
     @check_converted(exceptions=[])
     def convert_contributors(self, contributors_list):
         """Convert contributors from catch-all to RDM format."""
@@ -538,7 +588,11 @@ class CatchAllTransformer(BaseTransformer):
             # Add role if present
             role = contributor.pop("role", None)
             if role:
-                rdm_contributor["role"] = {"id": role}
+                role_slug = self.extract_role_slug(role)
+                if role_slug:
+                    # Map catch-all role to RDM role
+                    rdm_role = CATCHALL_TO_RDM_ROLES.get(role_slug, "other")
+                    rdm_contributor["role"] = {"id": rdm_role}
 
             contributors.append(rdm_contributor)
         return contributors
@@ -568,11 +622,17 @@ class CatchAllTransformer(BaseTransformer):
             "type": "personal" if name_type == "Personal" else "organizational",
         }
 
-        # For personal names, try to split into given and family names
-        if person_or_org["type"] == "personal" and ", " in full_name:
-            parts = full_name.split(", ", 1)
-            person_or_org["family_name"] = parts[0]
-            person_or_org["given_name"] = parts[1]
+        # For personal names, split into given and family names
+        # RDM requires family_name to be non-empty for personal names
+        if person_or_org["type"] == "personal" and full_name:
+            if ", " in full_name:
+                # Format: "family_name, given_name"
+                parts = full_name.split(", ", 1)
+                person_or_org["family_name"] = parts[0]
+                person_or_org["given_name"] = parts[1]
+            else:
+                # No comma: treat entire name as family_name
+                person_or_org["family_name"] = full_name
 
         # Add identifiers (ORCID, etc.)
         authority_identifiers = person.pop("authorityIdentifiers", [])
