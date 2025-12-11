@@ -10,7 +10,7 @@
         </span>
         <span class="ui" title="{{ _('Record owner') }}">
           <span class="text-muted font-small">{{ _("by") }}</span>
-          {{ record_ui.parent.access.owned_by.user | capitalize}}
+          {{ record_ui.parent.access.owned_by.user | e | capitalize}}
         </span>
       </div>
       <div class="right floated right aligned column">
