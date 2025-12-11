@@ -1,0 +1,65 @@
+{% set record_access = "restricted" or record_ui["access"]["record"] %}
+
+<section id="record-info"
+        aria-label="{{ _('Publication date') }}">
+  <div class="ui grid middle aligned">
+    <div class="two column row pb-0">
+      <div class="left floated left aligned column">
+        <span class="ui" title="{{ _('Publication date') }}">
+          <span class="text-muted font-small">{{ _('Published on') }}</span> {{ record_ui["ui"]["created_date_l10n_long"] }}
+        </span>
+        <span class="ui" title="{{ _('Record owner') }}">
+          <span class="text-muted font-small">{{ _("by") }}</span>
+          {{ record_ui.parent.access.owned_by.user | capitalize}}
+        </span>
+      </div>
+      <div class="right floated right aligned column">
+        {% if record_ui["ui"]["resource_type"] or "Dataset" %}
+          <span role="note"
+                class="ui label horizontal small mb-5"
+                data-testid="record-detail-header-info-resource-type"
+                aria-label="{{ _('Resource type') }}"
+          >
+            {{ record_ui["ui"]["resource_type"]["title_l10n"] or "Dataset" }}
+          </span>
+        {% endif %}
+        <span role="note"
+              class="ui label {% if record_access == "public" %}positive{% else %}negative{% endif %} horizontal small access-status-{{ record_access }} mb-5"
+              data-inverted=""
+              data-testid="record-detail-header-info-access-status"
+              aria-label="{{ _('Access') }}"
+              >
+              <i class="icon {% if record_access == "public" %}un{% endif %}lock }}" aria-hidden="true"></i>
+          <span
+              data-tooltip="{{ _("This record is publicly accessible. Anyone can view and download the content.") if record_access == 'public' else _("This record is not publicly accessible. Viewing or downloading the content requires meeting specific access conditions.") }}"
+              aria-label="{{ record_ui["access"]["record"] }}">
+            {{ _("Open") if record_access == "public" else _("Restricted") }}
+          </span>
+          <span class="detail">
+            {% if record_ui["ui"]["access_status"]["icon"] %}
+              <i class="icon {{ record_ui["ui"]["access_status"]["icon"] }}"
+                  aria-hidden="true"></i>
+            {% endif %}
+            <span
+              aria-label="{{ record_ui["ui"]["access_status"]["description_l10n"] }}">
+              {{ record_ui["ui"]["access_status"]["title_l10n"] }}
+            </span>
+          </span>
+        </span>
+        {# TODO: currently just a mockup of original source check #}
+        <span role="note"
+            data-testid="record-detail-header-info-original-source-check"
+            class="ui basic label horizontal mr-0"
+            aria-label="{{ _('Original source check status') }}"
+            data-tooltip="{{ _('Original source confirmed during the latest check.') }}"
+          >
+            <i class="ui medium icons">
+                <i class="ui big positive certificate icon"></i>
+                <i class="ui check pr-5 white inverted icon"></i>
+            </i>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ui divider hidden"></div>

@@ -59,61 +59,19 @@ Note: Context variables available:
 #}
 
 {%- block record_header_info %}
-<section id="record-info"
-        aria-label="{{ _('Publication date') }}">
-  <div class="ui grid middle aligned">
-    <div class="two column row pb-0">
-      <div class="left floated left aligned column">
-        <span class="ui" title="{{ _('Publication date') }}">
-          <span class="text-muted">{{ _('Published on') }}</span> {{ record_ui["ui"]["created_date_l10n_long"] }}
-        </span>
-        <span class="ui" title="{{ _('Record owner') }}">
-          <span class="text-muted">{{ _("by") }}</span>
-          {{ record_ui.parent.access.owned_by.user | capitalize}}
-        </span>
-      </div>
-      <div class="right floated right aligned column">
-        {% if record_ui["ui"]["resource_type"] %}
-          <span role="note"
-                class="ui label horizontal small neutral mb-5"
-                aria-label="{{ _('Resource type') }}"
-          >
-            {{ record_ui["ui"]["resource_type"]["title_l10n"] }}
-          </span>
-        {% endif %}
-
-        <span role="note"
-              class="ui label horizontal small access-status {{ record_ui["ui"]["access_status"]["id"] }} mb-5"
-              data-tooltip="{{ record_ui["ui"]["access_status"]["description_l10n"] }}"
-              data-inverted=""
-              aria-label="{{ _('Access status') }}"
-        >
-          {% if record_ui["ui"]["access_status"]["icon"] %}
-            <i class="icon {{ record_ui["ui"]["access_status"]["icon"] }}"
-                aria-hidden="true"></i>
-          {% endif %}
-          <span
-            aria-label="{{ record_ui["ui"]["access_status"]["description_l10n"] }}">
-            {{ record_ui["ui"]["access_status"]["title_l10n"] }}
-          </span>
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="ui divider hidden"></div>
+  {% include "datasets/record_detail/header_info.html" %}
 {%- endblock record_header_info %}
 
 {%- block record_title -%}
   <div class="ui secondary basic padded rel-pl-2 rel-pt-4 rel-pb-1 rel-pr-2 record-title segment">
     <div class="ui top attached green large label">
       <i class="ui icon linkify"></i>
-      <a class="permanent-link" href="{{record_ui.links.self_html}}" target="_blank" data-testid="record-detail-title-permanent-link">
-        <span class="middle-ellipsis">{{ record_ui.links.self_html }}</span>
+      <a class="permanent-link" href="{{record_ui.links.self_persistent_html or record_ui.links.self_html}}" target="_blank" data-testid="record-detail-title-permanent-link">
+        <span class="middle-ellipsis">{{ record_ui.links.self_persistent_html or record_ui.links.self_html }}</span>
       </a>
       <ClipboardCopyButton className="large" copyText={{record_ui.links.self_html}} />
       <p class="detail ml-0 rel-mt-1">
-        <small >{{ _("Use this permanent link when reporting results to RIV and other evaluation systems.") }}</small>
+        <small >{{ _("Use this persistent link when reporting results to RIV and other evaluation systems.") }}</small>
       </p>
     </div>
     {{ super() }}
@@ -125,5 +83,4 @@ Note: Context variables available:
 {%- endblock record_title -%}
 
 {%- block record_footer %}
-{{ record_ui }}
 {%- endblock record_footer %}

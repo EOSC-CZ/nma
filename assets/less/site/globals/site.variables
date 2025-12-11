@@ -31,7 +31,7 @@
 --------------------*/
 
 @green: @livelyGreen;
-@red: darken(@pink, 20);
+@red: lighten(@pink, 5);
 @signupColor: @green;
 
 @accessRightOpen: @green;
