@@ -1,14 +1,33 @@
 import copy
+import dataclasses
 import json
 from functools import wraps
+from pathlib import Path
 from typing import Any, Callable
+from urllib import parse as urlparse
 from urllib.error import HTTPError
 
+import bleach
 from invenio_vocabularies.datastreams.datastreams import StreamEntry
 from invenio_vocabularies.datastreams.readers import BaseReader
 from invenio_vocabularies.datastreams.transformers import BaseTransformer
+from langcodes import Language
 
 from riv.utils import create_session_with_retries
+
+
+@dataclasses.dataclass
+class APIOAIHeader:
+    identifier: str
+    datestamp: str
+    deleted: bool
+
+
+@dataclasses.dataclass
+class APIOAIRecord:
+    raw: str  # serialized json of the record
+    json: dict  # dict of the record
+    header: APIOAIHeader
 
 
 class CatchAllReader(BaseReader):
@@ -23,6 +42,7 @@ class CatchAllReader(BaseReader):
 
     def _iter(self, fp, *args, **kwargs):
         session = create_session_with_retries()
+        oai_prefix = f"oai:{urlparse.urlparse(self._origin).hostname}:"
         for seq, record in enumerate(self.fetch_records(session)):
             if record is None:
                 yield None
@@ -31,8 +51,16 @@ class CatchAllReader(BaseReader):
                 files = session.get(files_link, headers={"Accept": "application/json"})
                 files.raise_for_status()
                 record["files"] = files.json()
-                yield StreamEntry(
-                    entry=record,
+                yield APIOAIRecord(
+                    raw=json.dumps(record),
+                    json=record,
+                    header=APIOAIHeader(
+                        identifier=oai_prefix + record["id"],
+                        datestamp=record["metadata"][
+                            "dateAvailable"
+                        ],  # Note: catch-all currently does not provide "modified" date!
+                        deleted=False,
+                    ),
                 )
 
     def read(self, item=None, *args, **kwargs):
@@ -113,16 +141,115 @@ vocabulary_exceptions = [
     "label",
     "level",
     "selectable",
+    "noTick",
+    "icon",
+    "tickable",
+    "relatedURI",
+    "altLabels",
+    "ancestors",
+    "ancestor",
 ]
 
 
+def sanitize_html(text):
+    """Sanitize HTML content using bleach.
+
+    Allows common safe tags and attributes while removing potentially dangerous content.
+    """
+    if not text:
+        return text
+
+    # Allow common formatting tags
+    allowed_tags = [
+        "a",
+        "abbr",
+        "acronym",
+        "b",
+        "blockquote",
+        "br",
+        "code",
+        "div",
+        "em",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "i",
+        "li",
+        "ol",
+        "p",
+        "pre",
+        "span",
+        "strong",
+        "sub",
+        "sup",
+        "table",
+        "tbody",
+        "td",
+        "th",
+        "thead",
+        "tr",
+        "ul",
+    ]
+
+    allowed_attributes = {
+        "a": ["href", "title"],
+        "abbr": ["title"],
+        "acronym": ["title"],
+    }
+
+    return bleach.clean(
+        text, tags=allowed_tags, attributes=allowed_attributes, strip=True
+    )
+
+
 class CatchAllTransformer(BaseTransformer):
+
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def convert_lang2_to_lang3(self, lang_code):
+        """Convert 2-letter language code to 3-letter code.
+
+        Args:
+            lang_code: 2-letter or 3-letter language code
+
+        Returns:
+            3-letter language code, or original code if conversion fails
+        """
+        try:
+            return Language.get(lang_code).to_alpha3()
+        except Exception:
+            return lang_code
+
+    def parse_edtf_date(self, date_value):
+        """Parse EDTF date, handling intervals by taking the first part.
+
+        Args:
+            date_value: Date string, possibly in EDTF format (YYYY-MM-DD/YYYY-MM-DD)
+
+        Returns:
+            Normalized date string (first part if interval), or None if empty
+        """
+        if not date_value:
+            return None
+
+        # Handle EDTF intervals (e.g., "2024-01-09/2024-01-10")
+        if "/" in date_value:
+            return date_value.split("/")[0]
+
+        return date_value
 
     def apply(self, stream_entry: StreamEntry, *args, **kwargs) -> StreamEntry:
         """
         Transforms the entry.
         """
-        stream_entry.entry = self.convert_catch_all_to_rdm(stream_entry.entry)
+        stream_entry.entry = {
+            "oai_record": stream_entry.entry,
+            "record": self.convert_catch_all_to_rdm(stream_entry.entry.json),
+        }
         return stream_entry
 
     def convert_catch_all_to_rdm(self, rec):
@@ -138,12 +265,26 @@ class CatchAllTransformer(BaseTransformer):
         else:
             preferred_language = "en"
 
+        # Convert title and get additional titles if any
+        main_title, additional_titles = self.convert_title(
+            metadata.pop("titles", []), preferred_language
+        )
+
+        # Extract DOI from persistentIdentifiers for record ID and persistent_url
+        record_id = rec.get("id")
+        doi_value = None
+        persistent_ids = metadata.pop("persistentIdentifiers", [])
+        for pid in persistent_ids:
+            if pid.get("scheme") == "doi" and pid.get("status") == "registered":
+                doi_value = pid.get("identifier")
+                if doi_value:
+                    record_id = f"doi/{doi_value}"
+                    break
+
         rdm_record = {
-            "id": rec.get("id"),
+            "id": record_id,
             "metadata": {
-                "title": self.convert_title(
-                    metadata.pop("titles", []), preferred_language
-                ),
+                "title": main_title,
                 "publication_date": self.convert_publication_date(
                     self.parse_date_available(metadata.pop("dateAvailable", None)),
                     parsed_date_created,
@@ -156,6 +297,25 @@ class CatchAllTransformer(BaseTransformer):
             },
         }
 
+        # TODO: where to add the DOI ? Can it go here?
+        # if doi_value:
+        #     rdm_record["pids"] = {
+        #         "doi": {
+        #             "identifier": doi_value,
+        #             "provider": "external",
+        #         }
+        #     }
+
+        # Add persistent_url if DOI is available
+        if doi_value:
+            rdm_record["metadata"][
+                "persistent_url"
+            ] = f"https://nma.eosc.cz/go/doi/{doi_value}"
+
+        # Add additional_titles if present
+        if additional_titles:
+            rdm_record["metadata"]["additional_titles"] = additional_titles
+
         # Optional fields
         contributors = self.convert_contributors(metadata.pop("contributors", []))
         if contributors:
@@ -167,6 +327,11 @@ class CatchAllTransformer(BaseTransformer):
         )
         if subjects:
             rdm_record["metadata"]["subjects"] = subjects
+
+        # Publisher is in RDM schema
+        publisher = self.convert_publisher(metadata.pop("publisher", []))
+        if publisher:
+            rdm_record["metadata"]["publisher"] = publisher
 
         if languages:
             rdm_record["metadata"]["languages"] = languages
@@ -193,14 +358,42 @@ class CatchAllTransformer(BaseTransformer):
             rdm_record["metadata"]["related_identifiers"] = related_identifiers
 
         additional_descriptions = self.convert_additional_descriptions(
-            metadata.pop("methods", {})
+            metadata.pop("methods", {}),
+            metadata.pop("technicalInfo", {}),
         )
         if additional_descriptions:
             rdm_record["metadata"]["additional_descriptions"] = additional_descriptions
 
+        # Convert access rights to access.record and access.files
+        access = self.convert_access_rights(metadata.pop("accessRights", []))
+        if access:
+            rdm_record["access"] = access
+
         # TODO: Handle files - not now
         rdm_record["files"] = {"enabled": False}
-        rec.pop("files", None)
+        rec.pop(
+            "files", None
+        )  # not in RDM schema at record level (files handled separately)
+
+        # Handle notes field (convert to internal_notes if present)
+        notes = metadata.pop("notes", None)
+        # Note: notes field exists in catch-all but we're not converting it to RDM
+        # as internal_notes is for admin use only
+
+        # Pop fields not in RDM schema
+        metadata.pop("$schema", None)  # not in RDM schema
+        metadata.pop("InvenioID", None)  # not in RDM schema
+        metadata.pop("_bucket", None)  # not in RDM schema (internal field)
+        metadata.pop("_files", None)  # not in RDM schema (internal field)
+        metadata.pop("oarepo:ownedBy", None)  # not in RDM schema (oarepo-specific)
+        metadata.pop(
+            "oarepo:primaryCommunity", None
+        )  # not in RDM schema (oarepo-specific)
+        metadata.pop("oarepo:recordStatus", None)  # not in RDM schema (oarepo-specific)
+        metadata.pop("oarepo:doirequest", None)  # not in RDM schema (oarepo-specific)
+        metadata.pop(
+            "persistentIdentifiers", None
+        )  # not in RDM schema (use pids instead)
 
         # check that the metadata is fully converted
         if metadata:
@@ -208,45 +401,81 @@ class CatchAllTransformer(BaseTransformer):
                 f"Unconverted metadata fields remain: {json.dumps(metadata)}"
             )
 
+        print("Converted record ID:", rdm_record["id"])
+        print(
+            "Converted record title:",
+            json.dumps(
+                rdm_record["metadata"], indent=2, sort_keys=True, ensure_ascii=False
+            ),
+        )
         return rdm_record
 
-    # TODO: store other titles as translated etc.
+    @check_converted(exceptions=[])
+    def parse_single_title(self, title_obj):
+        """Parse a single title object."""
+        title_type = title_obj.pop("titleType", None)
+        title_dict = title_obj.pop("title", {})
+        return title_type, title_dict
+
     @check_converted(exceptions=[])
     def convert_title(self, titles, preferred_language):
-        """Convert title from catch-all to RDM format."""
-        title_texts = []
+        """Convert title from catch-all to RDM format.
+
+        Returns tuple: (main_title_string, additional_titles_list or None)
+        """
+        main_title_dicts = []
+        additional_titles = []
+
         if titles:
             for title_obj in titles:
-                title_type = title_obj.pop("titleType", None)
-                title_dict = title_obj.pop("title", {})
+                title_type, title_dict = self.parse_single_title(title_obj)
                 if title_type == "mainTitle":
-                    title_texts.append(title_dict)
-        if len(title_texts) > 1:
+                    main_title_dicts.append(title_dict)
+                elif title_type in [
+                    "subtitle",
+                    "alternativeTitle",
+                    "translatedTitle",
+                    "other",
+                ]:
+                    # Add to additional_titles with type
+                    for lang, text in title_dict.items():
+                        if text:
+                            additional_titles.append(
+                                {
+                                    "title": text,
+                                    "type": {"id": title_type.lower()},
+                                    "lang": {"id": self.convert_lang2_to_lang3(lang)},
+                                }
+                            )
+                else:
+                    # Unknown title type
+                    raise NotImplementedError(
+                        f"Title type '{title_type}' not implemented in convert_title."
+                    )
+
+        main_title = "Untitled"
+        if len(main_title_dicts) > 1:
             raise ValueError("Multiple main titles found.")
-        elif title_texts:
-            print(title_texts)
-            print(preferred_language)
-            if preferred_language in title_texts[0]:
-                return title_texts[0][preferred_language]
-            elif "en" in title_texts[0]:
-                return title_texts[0]["en"]
+        elif main_title_dicts:
+            title_dict = main_title_dicts[0]
+            if preferred_language in title_dict:
+                main_title = title_dict[preferred_language]
+            elif "en" in title_dict:
+                main_title = title_dict["en"]
             else:
-                return next(iter(title_texts[0].values()))
-        return "Untitled"
+                main_title = next(iter(title_dict.values()))
+
+        return main_title, (additional_titles if additional_titles else None)
 
     @check_converted(exceptions=[])
     def parse_date_available(self, date_available):
         """Parse dateAvailable field."""
-        return date_available
+        return self.parse_edtf_date(date_available)
 
     @check_converted(exceptions=[])
     def parse_date_created(self, date_created):
         """Parse dateCreated field."""
-        if date_created:
-            # Handle date ranges like "2024-01-09/2024-01-10"
-            if "/" in date_created:
-                return date_created.split("/")[0]
-        return date_created
+        return self.parse_edtf_date(date_created)
 
     def convert_publication_date(self, parsed_date_available, parsed_date_created):
         """Convert publication date from catch-all to RDM format."""
@@ -258,9 +487,7 @@ class CatchAllTransformer(BaseTransformer):
             return parsed_date_created
         return None
 
-    @check_converted(
-        exceptions=["altLabels", "title", "links", "is_ancestor", "level", "relatedURI"]
-    )
+    @check_converted(exceptions=vocabulary_exceptions)
     def convert_resource_type(self, resource_types):
         """Convert resource type from catch-all to RDM format."""
         if resource_types:
@@ -270,7 +497,20 @@ class CatchAllTransformer(BaseTransformer):
                 return {"id": coar_type}
         return {"id": "dataset"}
 
-    @check_converted(exceptions=[])
+    @check_converted(
+        exceptions=vocabulary_exceptions
+        + [
+            "institutionCategory",
+            "ico",
+            "nameTranslated",
+            "relatedRID",
+            "aliases",
+            "formerTitles",
+            "nameType",
+            "fullName",
+            "relatedURI",
+        ]
+    )
     def convert_creators(self, creators_list):
         """Convert creators from catch-all to RDM format."""
         creators = []
@@ -303,10 +543,25 @@ class CatchAllTransformer(BaseTransformer):
             contributors.append(rdm_contributor)
         return contributors
 
+    @check_converted(
+        exceptions=["affiliation", "role"]
+        + vocabulary_exceptions
+        + [
+            "institutionCategory",
+            "ico",
+            "nameTranslated",
+            "relatedRID",
+            "aliases",
+            "formerTitles",
+        ]
+    )
     def convert_person_or_org(self, person):
         """Convert person or organization from catch-all to RDM format."""
-        full_name = person.get("fullName", "")
-        name_type = person.get("nameType", "Personal")
+        full_name = person.pop("fullName", "")
+        name_type = person.pop("nameType", "Personal")
+
+        # Pop organization-specific fields that might be present
+        person.pop("relatedURI", None)
 
         person_or_org = {
             "name": full_name,
@@ -320,60 +575,156 @@ class CatchAllTransformer(BaseTransformer):
             person_or_org["given_name"] = parts[1]
 
         # Add identifiers (ORCID, etc.)
-        authority_identifiers = person.get("authorityIdentifiers", [])
+        authority_identifiers = person.pop("authorityIdentifiers", [])
         if authority_identifiers:
-            identifiers = []
-            for auth_id in authority_identifiers:
-                identifier = auth_id.get("identifier", "").strip()
-                scheme = auth_id.get("scheme", "").lower()
-                if identifier and scheme:
-                    identifiers.append({"scheme": scheme, "identifier": identifier})
+            identifiers = self.parse_authority_identifiers(authority_identifiers)
             if identifiers:
                 person_or_org["identifiers"] = identifiers
 
         return person_or_org
 
+    @check_converted(exceptions=[])
+    def parse_authority_identifiers(self, authority_identifiers):
+        """Parse authority identifiers."""
+        identifiers = []
+        for auth_id in authority_identifiers:
+            identifier = auth_id.pop("identifier", "").strip()
+            scheme = auth_id.pop("scheme", "").lower()
+            if identifier and scheme:
+                identifiers.append({"scheme": scheme, "identifier": identifier})
+        return identifiers
+
+    @check_converted(exceptions=["ROR", "URL", "COAR", "DOI"])
+    def extract_ror_id(self, related_uri):
+        """Extract ROR ID from relatedURI dict."""
+        ror = related_uri.pop("ROR", None)
+        related_uri.pop(
+            "URL", None
+        )  # not used here, used by parse_related_uri_for_url if needed
+        related_uri.pop("COAR", None)  # not in RDM schema
+        related_uri.pop("DOI", None)  # not in RDM schema for affiliations
+        if ror and "ror.org/" in ror:
+            return ror.split("ror.org/")[-1]
+        return None
+
+    @check_converted(exceptions=[])
+    def extract_first_language_value(self, lang_dict):
+        """Extract first value from a language dict and consume all keys."""
+        result = ""
+        for lang in list(lang_dict.keys()):
+            value = lang_dict.pop(lang)
+            if value and not result:
+                result = value
+        return result
+
+    @check_converted(exceptions=[])
+    def parse_related_uri_for_url(self, related_uri):
+        """Extract URL from relatedURI dict."""
+        url = related_uri.pop("URL", None)
+        related_uri.pop("ROR", None)  # not used here, used by extract_ror_id if needed
+        related_uri.pop("COAR", None)  # not in RDM schema
+        related_uri.pop("DOI", None)  # not in RDM schema for rights/licenses
+        return url
+
+    @check_converted(
+        exceptions=vocabulary_exceptions
+        + [
+            "institutionCategory",
+            "nameType",
+            "ico",
+            "nameTranslated",
+            "relatedRID",
+            "aliases",
+            "formerTitles",
+        ]
+    )
     def convert_affiliations(self, affiliations):
         """Convert affiliations from catch-all to RDM format."""
         rdm_affiliations = []
         for affiliation in affiliations:
-            aff_obj = {"name": affiliation.get("fullName", "")}
+            # Pop all vocabulary metadata fields
+            full_name = affiliation.pop("fullName", "")
+
+            aff_obj = {"name": full_name}
 
             # Add ROR if available
-            related_uri = affiliation.get("relatedURI", {})
-            ror = related_uri.get("ROR")
-            if ror:
-                # Extract ROR ID from URL
-                if "ror.org/" in ror:
-                    ror_id = ror.split("ror.org/")[-1]
+            related_uri = affiliation.pop("relatedURI", {})
+            if related_uri:
+                ror_id = self.extract_ror_id(related_uri)
+                if ror_id:
                     aff_obj["id"] = ror_id
 
             rdm_affiliations.append(aff_obj)
         return rdm_affiliations
 
+    @check_converted(
+        exceptions=vocabulary_exceptions
+        + [
+            "institutionCategory",
+            "ico",
+            "nameType",
+            "nameTranslated",
+            "relatedRID",
+            "aliases",
+            "formerTitles",
+        ]
+    )
+    def convert_publisher(self, publishers):
+        """Convert publisher from catch-all to RDM format."""
+        if publishers:
+            publisher_obj = publishers[0]  # Take first publisher
+            full_name = publisher_obj.pop("fullName", "")
+            publisher_obj.pop("relatedURI", {})  # Pop relatedURI from first publisher
+
+            # Pop fullName and relatedURI from remaining publishers to satisfy check_converted
+            for i in range(1, len(publishers)):
+                publishers[i].pop("fullName", "")
+                publishers[i].pop("relatedURI", {})
+
+            if full_name:
+                return full_name
+        return None
+
     @check_converted(exceptions=[])
     def convert_description(self, abstract):
         """Convert abstract to description for RDM format."""
+        result = ""
         if abstract:
-            # Return first available language
-            for lang, desc_text in abstract.items():
-                return desc_text
-        return ""
+            # Return first available language and consume all keys
+            for lang in list(abstract.keys()):
+                desc_text = abstract.pop(lang)
+                if desc_text and not result:
+                    result = sanitize_html(desc_text)
+        return result
 
     @check_converted(exceptions=[])
-    def convert_additional_descriptions(self, methods):
-        """Convert methods and other descriptions to additional_descriptions."""
+    def convert_additional_descriptions(self, methods, technical_info=None):
+        """Convert methods and technicalInfo to additional_descriptions."""
         additional_descs = []
 
         if methods:
-            for lang, method_text in methods.items():
-                additional_descs.append(
-                    {
-                        "description": method_text,
-                        "type": {"id": "methods"},
-                        "lang": {"id": lang},
-                    }
-                )
+            for lang in list(methods.keys()):
+                method_text = methods.pop(lang)
+                if method_text:
+                    additional_descs.append(
+                        {
+                            "description": sanitize_html(method_text),
+                            "type": {"id": "methods"},
+                            "lang": {"id": self.convert_lang2_to_lang3(lang)},
+                        }
+                    )
+
+        if technical_info:
+            for lang in list(technical_info.keys()):
+                tech_text = technical_info.pop(lang)
+                if tech_text:
+                    additional_descs.append(
+                        {
+                            "description": sanitize_html(tech_text),
+                            "type": {"id": "technical-info"},
+                            "lang": {"id": self.convert_lang2_to_lang3(lang)},
+                        }
+                    )
 
         return additional_descs if additional_descs else None
 
@@ -383,27 +734,34 @@ class CatchAllTransformer(BaseTransformer):
         parsed_keywords = []
         for keyword in keywords:
             if isinstance(keyword, dict):
-                # Get the title in available language
-                title = keyword.pop("title", {})
-                for lang, keyword_text in title.items():
-                    parsed_keywords.append(keyword_text)
-                    break
+                # Keywords are structured as {lang: text}, e.g., {"en": "keyword"}
+                # Get the first available language and consume all keys
+                keyword_added = False
+                for lang in list(keyword.keys()):
+                    keyword_text = keyword.pop(lang)
+                    if keyword_text and not keyword_added:
+                        parsed_keywords.append(keyword_text)
+                        keyword_added = True
             elif isinstance(keyword, str):
                 parsed_keywords.append(keyword)
         return parsed_keywords
 
-    @check_converted(exceptions=[])
+    @check_converted(exceptions=vocabulary_exceptions)
     def parse_subject_categories(self, subject_categories):
         """Parse subjectCategories field."""
         parsed_categories = []
         for subject_cat in subject_categories:
-            # Skip ancestor categories
+            # Skip ancestor categories (is_ancestor=True means it's a parent category, not a leaf)
             if subject_cat.pop("is_ancestor", False):
                 continue
             title = subject_cat.pop("title", {})
-            for lang, subject_text in title.items():
-                parsed_categories.append(subject_text)
-                break
+            # Consume all language keys from title
+            subject_added = False
+            for lang in list(title.keys()):
+                subject_text = title.pop(lang)
+                if subject_text and not subject_added:
+                    parsed_categories.append(subject_text)
+                    subject_added = True
         return parsed_categories
 
     def convert_subjects(self, parsed_keywords, parsed_subject_categories):
@@ -420,7 +778,7 @@ class CatchAllTransformer(BaseTransformer):
 
         return subjects if subjects else None
 
-    @check_converted(exceptions=vocabulary_exceptions)
+    @check_converted(exceptions=vocabulary_exceptions + ["aliases"])
     def convert_languages(self, language_list):
         """Convert languages from catch-all to RDM format."""
         languages = []
@@ -428,43 +786,53 @@ class CatchAllTransformer(BaseTransformer):
             if isinstance(lang, dict):
                 lang_id = lang.pop("id", None)
                 if lang_id:
-                    languages.append({"id": lang_id})
+                    languages.append({"id": self.convert_lang2_to_lang3(lang_id)})
             elif isinstance(lang, str):
-                languages.append({"id": lang})
+                languages.append({"id": self.convert_lang2_to_lang3(lang)})
         return languages if languages else None
 
-    @check_converted(exceptions=[])
+    @check_converted(exceptions=vocabulary_exceptions)
     def convert_rights(self, rights):
-        """Convert rights/licenses from catch-all to RDM format."""
+        """Convert rights/licenses from catch-all to RDM format.
+
+        Creates separate rights entries for each locale since RDM only accepts
+        one locale per title.
+        """
         rights_list = []
 
         for right in rights:
-            # Skip ancestor entries
+            # Skip ancestor entries (is_ancestor=True means it's a parent license, not a leaf)
             if right.pop("is_ancestor", False):
                 continue
 
-            right_obj = {}
-
-            # Get title
+            # Pop all vocabulary metadata fields
             title = right.pop("title", {})
-            if title:
-                right_obj["title"] = title
+            related_uri = right.pop("relatedURI", {})
 
             # Get link from relatedURI
-            related_uri = right.pop("relatedURI", {})
-            url = related_uri.get("URL")
-            if url:
-                right_obj["link"] = url
+            link = None
+            if related_uri:
+                link = self.parse_related_uri_for_url(related_uri)
 
-            if right_obj:
-                rights_list.append(right_obj)
+            # Create separate rights entry for each locale in title
+            # since RDM only accepts one locale per title
+            if title:
+                for locale, title_text in title.items():
+                    if title_text:
+                        right_obj = {"title": {locale: title_text}}
+                        if link:
+                            right_obj["link"] = link
+                        rights_list.append(right_obj)
+            elif link:
+                # If no title but there's a link, create entry with just the link
+                rights_list.append({"link": link})
 
         return rights_list if rights_list else None
 
     @check_converted(exceptions=[])
     def parse_date_collected(self, date_collected):
         """Parse dateCollected field."""
-        return date_collected
+        return self.parse_edtf_date(date_collected)
 
     def convert_dates(self, parsed_date_created, parsed_date_collected):
         """Convert various dates from catch-all to RDM format."""
@@ -490,7 +858,25 @@ class CatchAllTransformer(BaseTransformer):
 
         return dates if dates else None
 
-    @check_converted(exceptions=[])
+    @check_converted(exceptions=vocabulary_exceptions + ["CEA", "aliases", "fullName"])
+    def parse_funder_info(self, funder_info):
+        """Parse funder information from funder dict."""
+        funder_name = funder_info.pop("fullName", None)
+        if not funder_name:
+            title_dict = funder_info.pop("title", {})
+            if title_dict:
+                funder_name = self.extract_first_language_value(title_dict)
+
+        ror_id = None
+        related_uri = funder_info.pop("relatedURI", {})
+        if related_uri:
+            ror_id = self.extract_ror_id(related_uri)
+
+        return funder_name, ror_id
+
+    @check_converted(
+        exceptions=["funder", "projectID", "projectName", "fundingProgram"]
+    )
     def convert_funding(self, funding_refs):
         """Convert funding references from catch-all to RDM format."""
         funding_list = []
@@ -503,22 +889,17 @@ class CatchAllTransformer(BaseTransformer):
                 funding_obj = {}
 
                 # Extract funder information
-                funder_name = funder_info.get("fullName") or funder_info.get(
-                    "title", {}
-                ).get("en", "")
+                funder_name, ror_id = self.parse_funder_info(funder_info)
                 if funder_name:
                     funding_obj["funder"] = {"name": funder_name}
-
-                    # Add funder ID if available from relatedURI
-                    related_uri = funder_info.get("relatedURI", {})
-                    ror = related_uri.get("ROR")
-                    if ror and "ror.org/" in ror:
-                        ror_id = ror.split("ror.org/")[-1]
+                    if ror_id:
                         funding_obj["funder"]["id"] = ror_id
 
                 # Extract award information
                 project_id = funding_ref.pop("projectID", None)
                 project_name = funding_ref.pop("projectName", None)
+                funding_ref.pop("fundingProgram", None)  # not in RDM schema
+
                 if project_id or project_name:
                     award = {}
                     if project_id:
@@ -532,7 +913,17 @@ class CatchAllTransformer(BaseTransformer):
 
         return funding_list if funding_list else None
 
-    @check_converted(exceptions=[])
+    @check_converted(
+        exceptions=[
+            "itemURL",
+            "itemTitle",
+            "itemYear",
+            "itemResourceType",
+            "itemPIDs",
+            "itemRelationType",
+            "itemCreators",
+        ]
+    )
     def convert_related_identifiers(self, related_items):
         """Convert related items to related identifiers."""
         related_ids = []
@@ -556,27 +947,100 @@ class CatchAllTransformer(BaseTransformer):
 
         return related_ids if related_ids else None
 
+    @check_converted(exceptions=vocabulary_exceptions)
+    def convert_access_rights(self, access_rights_list):
+        """Convert accessRights from catch-all to RDM access format.
+
+        Maps catch-all accessRights vocabulary to RDM's access.record and access.files.
+        """
+        if not access_rights_list:
+            return None
+
+        # Take the first access rights entry
+        access_right = access_rights_list[0]
+
+        # Get the title to determine access level
+        title = access_right.pop("title", {})
+        access_level = None
+
+        # Check for access level in any language
+        for lang, value in title.items():
+            if value:
+                value_lower = value.lower()
+                if "open" in value_lower:
+                    access_level = "public"
+                    break
+                elif "restrict" in value_lower:
+                    access_level = "restricted"
+                    break
+                elif "embargo" in value_lower:
+                    # Embargoed access - treat as restricted for now
+                    # TODO: Add embargo.until and embargo.reason if available
+                    access_level = "restricted"
+                    break
+
+        # Raise exception if we can't determine access level
+        if not access_level:
+            raise ValueError(
+                f"Could not determine access level from accessRights title: {title}"
+            )
+
+        # Pop relatedURI to consume all fields
+        access_right.pop("relatedURI", {})
+
+        return {"record": access_level, "files": access_level}
+
     def convert_files(self, files_data):
         """Convert files from catch-all to RDM format."""
         return {"enabled": False}
 
 
 if __name__ == "__main__":
+    import json
 
     def run():
         loader = CatchAllReader(
             origin="https://datarepo.eosc.cz/datasets/all/",
         )
         transformer = CatchAllTransformer()
-        import json
 
         for idx, record in enumerate(loader.read()):
             with open(f"data/{idx:03d}_loaded.json", "w") as f:
                 f.write(json.dumps(record.entry, indent=2, ensure_ascii=False))
-            record = transformer.apply(record)
-            with open(f"data/{idx:03d}_transformed.json", "w") as f:
-                f.write(json.dumps(record.entry, indent=2, ensure_ascii=False))
+            try:
+                record = transformer.apply(record)
+                with open(f"data/{idx:03d}_transformed.json", "w") as f:
+                    f.write(json.dumps(record.entry, indent=2, ensure_ascii=False))
 
-            print(json.dumps(record.entry, indent=2, ensure_ascii=False))
+                print(json.dumps(record.entry, indent=2, ensure_ascii=False))
+            except Exception as e:
+                print(f"Error transforming record {idx}: {e}")
 
-    run()
+    def run_locally():
+        transformer = CatchAllTransformer()
+
+        for pth in Path("data").glob("*_loaded.json"):
+            converted_file_name = pth.name.replace("_loaded", "_transformed")
+            # if (pth.parent / converted_file_name).exists():
+            #     continue
+            with open(pth, "r") as f:
+                record = json.load(f)
+            if (pth.parent / converted_file_name).exists():
+                (pth.parent / converted_file_name).unlink()
+            try:
+                from types import SimpleNamespace
+
+                record = transformer.apply(
+                    StreamEntry(entry=SimpleNamespace(json=record))
+                )
+                with open(pth.parent / converted_file_name, "w") as f:
+                    f.write(
+                        json.dumps(record.entry["record"], indent=2, ensure_ascii=False)
+                    )
+
+                print(json.dumps(record.entry["record"], indent=2, ensure_ascii=False))
+            except Exception as e:
+                print(f"Error transforming record {pth}: {e}")
+                raise
+
+    run_locally()
