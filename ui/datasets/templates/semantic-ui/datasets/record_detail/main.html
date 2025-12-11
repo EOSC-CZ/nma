@@ -63,15 +63,17 @@ Note: Context variables available:
 {%- endblock record_header_info %}
 
 {%- block record_title -%}
+  {% set record_permalink = record_ui.links.self_persistent_html or record_ui.links.self_html %}
+
   <div class="ui secondary basic padded rel-pl-2 rel-pt-4 rel-pb-1 rel-pr-2 record-title segment">
     <div class="ui top attached green large label">
       <i class="ui icon linkify"></i>
-      <a class="permanent-link" href="{{record_ui.links.self_persistent_html or record_ui.links.self_html}}" target="_blank"
+      <a class="permanent-link" href="{{record_permalink}}" target="_blank"
       rel="noopener noreferrer"
       data-testid="record-detail-title-permanent-link">
-        <span class="middle-ellipsis">{{ record_ui.links.self_persistent_html or record_ui.links.self_html }}</span>
+        <span class="middle-ellipsis">{{ record_permalink }}</span>
       </a>
-      <ClipboardCopyButton className="large" copyText={{record_ui.links.self_html}} />
+      <ClipboardCopyButton className="large" copyText={{record_permalink}} />
       <p class="detail ml-0 rel-mt-1">
         <small >{{ _("Use this persistent link when reporting results to RIV and other evaluation systems.") }}</small>
       </p>
