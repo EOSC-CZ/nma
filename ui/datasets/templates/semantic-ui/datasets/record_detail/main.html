@@ -75,15 +75,11 @@ Note: Context variables available:
       </a>
       <ClipboardCopyButton className="large" copyText={{record_permalink}} />
       <p class="detail ml-0 rel-mt-1">
-        <small >{{ _("Use this persistent link when reporting results to RIV and other evaluation systems.") }}</small>
+        <small>{{ _("Use this persistent link when reporting results to RIV and other evaluation systems.") }}</small>
       </p>
     </div>
     {{ super() }}
-
-  <!-- <div class="ui top right attached label">
-    <span class="middle-ellipsis">{{ record_ui.links.self_html }}</span>
-  </div> -->
-</div>      
+</div>
 {%- endblock record_title -%}
 
 {%- block record_footer %}
@@ -102,7 +98,7 @@ Note: Context variables available:
       </i>
   </span>
     
-    {{ _("Original source confirmed during the latest check. The dataset is still available at its authoritative repository.") }}
+    {{ _("Original source confirmed. The dataset is still available at its authoritative repository.") }}
     <div class="detail text-muted">{{ _("Last checked: ") }}</span>{{ original_source_status.timestamp }}</div>
 </div>
 {%- endblock record_footer %}
