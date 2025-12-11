@@ -62,10 +62,6 @@ class HandleResolver(MetadataResolver):
                     f"Unexpected error while resolving the Handle. Response returned: {response.content}. "),
                                               level=ResolverProblemLevel.ERROR)]
 
-        # TODO: for debug
-        # soup = BeautifulSoup(response.content, "lxml")
-        # metas = soup.find_all("meta")
-
         problem_list = []
         metadata = {}
 
