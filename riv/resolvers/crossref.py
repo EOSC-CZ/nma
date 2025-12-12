@@ -7,10 +7,13 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 import re
+
 from flask import current_app
 from idutils.normalizers import normalize_doi
 from idutils.validators import is_doi
+from invenio_access.permissions import system_identity
 from invenio_i18n import lazy_gettext as _
+from invenio_vocabularies.proxies import current_service as vocabulary_service
 from marshmallow import ValidationError
 from marshmallow_utils.fields import EDTFDateString
 
@@ -158,4 +161,21 @@ class CrossrefResolver(MetadataResolver):
 
     @handle_errors('other')
     def resolve_crossref_resource_type(self, *, resource_type, problems):
-        return {"id": "other"}
+        vocabulary_id = 'resourceTypeGeneral'
+        _type = resource_type.get("type", "other").lower()
+        try:
+            vocabulary_service.read(
+                system_identity, (vocabulary_id, _type)
+            )
+            return {"id": _type}
+        except Exception as e:
+            problems.append(
+                ResolverProblem(resolver=self.name, message=_(
+                    f"The provided resource type {_type} could not be parsed. The default value 'dataset' has been applied."),
+                                level=ResolverProblemLevel.WARNING, original_exception=e))
+            current_app.logger.exception(
+                "Record '%s' was not found in the '%s' vocabulary.",
+                _type,
+                vocabulary_id
+            )
+            return {"id": "other"}
