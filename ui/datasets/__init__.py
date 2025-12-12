@@ -7,6 +7,7 @@ from flask import abort, flash, redirect, render_template, url_for, Blueprint
 from flask_login import login_required
 from flask_menu import current_menu
 from invenio_i18n import lazy_gettext as _
+from invenio_pidstore.errors import PIDAlreadyExists
 from oarepo_ui.overrides import UIComponent
 from oarepo_ui.overrides.components import UIComponentImportMode
 from oarepo_ui.proxies import current_oarepo_ui
@@ -129,13 +130,18 @@ class DatasetsUIResource(RecordsUIResource):
             pid = form.pid.data
 
             try:
-                metadata, _ = resolve_metadata(pid)
+                metadata, problems = resolve_metadata(pid)
                 record_data = {"metadata": metadata}
                 create_record(record_data)
 
                 flash(f"Successfully registered dataset with PID: {pid}", "success")
                 return redirect(
                     url_for("datasets_ui.deposit_edit", pid_value=record_data["id"])
+                )
+            except PIDAlreadyExists:
+                flash(_("This dataset is already registered."), "info")
+                return redirect(
+                    url_for("datasets_ui.record_detail", pid_value=record_data["id"])
                 )
             except Exception as e:
                 logger.exception("Error registering dataset with PID %s", pid)
@@ -190,11 +196,13 @@ def create_blueprint(app):
     blueprint = DatasetsUIResource(DatasetsUIResourceConfig()).as_blueprint()
     return blueprint
 
+
 def create_record_detail_redirect_blueprint(app):
     """Blueprint containing route redirecting to ui record detail."""
     from flask import redirect as flask_redirect
 
     bp = Blueprint("pidresolver", __name__)
+
     @bp.route("/s/<path:pid_value>")
     def redirect(pid_value):
         return flask_redirect(url_for("datasets_ui.record_detail", pid_value=pid_value))
