@@ -32,4 +32,5 @@ class RegisterForm(FlaskForm):
                 message=_("Please enter a valid URL (e.g., https://doi.org/... or https://hdl.handle.net/...)")
             ),
         ],
+        render_kw={"autofocus": True},
     )

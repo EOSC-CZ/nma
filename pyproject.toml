@@ -43,6 +43,7 @@ repository = "common:alembic"
 
 [project.entry-points."invenio_base.blueprints"]
 ui_datasets = "ui.datasets:create_blueprint"
+record_detail_redirect = "ui.datasets:create_record_detail_redirect_blueprint"
 
 [project.entry-points."invenio_base.finalize_app"]
 ui_datasets = "ui.datasets:finalize_app"

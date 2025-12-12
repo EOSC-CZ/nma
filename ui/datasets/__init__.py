@@ -3,7 +3,7 @@ import traceback
 from collections.abc import Mapping
 from functools import wraps
 
-from flask import abort, flash, redirect, render_template, url_for
+from flask import abort, flash, redirect, render_template, url_for, Blueprint
 from flask_login import login_required
 from flask_menu import current_menu
 from invenio_i18n import lazy_gettext as _
@@ -189,6 +189,17 @@ def create_blueprint(app):
     """Register blueprint for this resource."""
     blueprint = DatasetsUIResource(DatasetsUIResourceConfig()).as_blueprint()
     return blueprint
+
+def create_record_detail_redirect_blueprint(app):
+    """Blueprint containing route redirecting to ui record detail."""
+    from flask import redirect as flask_redirect
+
+    bp = Blueprint("pidresolver", __name__)
+    @bp.route("/s/<path:pid_value>")
+    def redirect(pid_value):
+        return flask_redirect(url_for("datasets_ui.record_detail", pid_value=pid_value))
+
+    return bp
 
 
 # TODO: register init_menu to finalize_app similarly blueprints & webpack is registered

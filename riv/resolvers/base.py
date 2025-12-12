@@ -16,6 +16,17 @@ class ResolverProblemLevel(enum.Enum):
     ERROR = "error"
 
 
+CREATORS_PLACEHOLDER = [{
+    "person_or_org": {
+        "name": "Unknown Creator",
+        "type": "personal",
+        "family_name": "Unknown"
+    }
+}]
+PUBLICATION_DATE_PLACEHOLDER = '1900-01-01'
+get_validation_failed_on_date_format_message = lambda date: _(f"Publication date format did not pass validation; format: {date}.")
+get_invalid_publication_date_message = lambda date: _(f"Invalid publication date format: {date}.")
+
 @dataclasses.dataclass
 class ResolverProblem:
     resolver: str
