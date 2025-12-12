@@ -29,3 +29,4 @@ LAST_CHECKED_THRESHOLD_DAYS = 2
 
 DATACITE_URL="https://api.datacite.org/dois"
 HANDLE_URL="https://hdl.handle.net"
+CROSSREF_URL = "https://api.crossref.org/works/doi"
