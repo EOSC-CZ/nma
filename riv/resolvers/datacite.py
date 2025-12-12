@@ -23,7 +23,7 @@ CREATORS_PLACEHOLDER = [{
     }
 }]
 
-PUBLICATION_DATE_PLACEHOLDER = '0000'
+PUBLICATION_DATE_PLACEHOLDER = '1900'
 
 
 class DataciteResolver(MetadataResolver):
