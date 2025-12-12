@@ -116,6 +116,8 @@ SearchAppResultsGrid.propTypes = {
   hasButtonSidebar: PropTypes.bool,
   resultSortLayout: PropTypes.object.isRequired,
 };
+
+
 export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
   const { appName, buildUID } = useContext(SearchConfigurationContext);
   const facetsAvailable = !_isEmpty(config.aggs);
@@ -125,8 +127,9 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
 
   useEffect(() => {
+    const SCROLL_TO_TOP_THRESHOLD = 300;
     const handleScrollButtonVisibility = () => {
-      window.scrollY > 300 ? setScrollToTopVisible(true) : setScrollToTopVisible(false);
+      window.scrollY > SCROLL_TO_TOP_THRESHOLD ? setScrollToTopVisible(true) : setScrollToTopVisible(false);
     };
 
     window.addEventListener("scroll", handleScrollButtonVisibility);

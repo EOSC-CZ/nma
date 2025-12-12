@@ -44,24 +44,26 @@ const ActiveFiltersElementComponent = ({
       {_map(groupedData, (filters, key) =>
         filters.map((filter, index) => {
           const { label, value, activeFilter } = getLabel(filter, activeFilters, aggregations);
-          return (
+            return (
             <Label
               className="active-filter-label mb-5"
               key={activeFilter}
               onClick={() => removeActiveFilter(activeFilter)}
               type="button"
-              tabIndex="0"
+              role="button"
+              tabIndex={0}
               aria-label={`Remove filter ${label}`}
-              onKeyPress={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  removeActiveFilter(activeFilter);
-                }
+              onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                removeActiveFilter(activeFilter);
+              }
               }}
             >
               {label ? <span><strong>{label}:</strong> {value}</span> : value || i18next.t("Unfilled")}
               <Icon name="delete" aria-hidden="true" />
             </Label>
-          );
+            );
         })
       )}
       <ClearFiltersButton

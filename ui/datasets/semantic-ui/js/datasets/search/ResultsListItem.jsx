@@ -4,10 +4,8 @@ import { Item, Label, Grid, Button, Icon } from "semantic-ui-react";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import sanitizeHtml from "sanitize-html";
 import { i18next } from "@translations/i18next";
-import { getValueFromMultilingualArray } from "@js/oarepo_ui/util";
 import _truncate from "lodash/truncate";
 import { Creatibutors } from "./Creatibutors";
-import { ResultsItemAccessStatus } from "./ResultsItemAccessStatus";
 
 const getDescription = (metadata) => {
   if (metadata?.description) {
@@ -30,6 +28,18 @@ const getDescription = (metadata) => {
   return "";
 };
 
+const resolveLocalizedTitle = (titleObj, fallback = "") => {
+  if (!titleObj) return fallback;
+  if (typeof titleObj !== "object" || Array.isArray(titleObj)) return fallback;
+  return (
+    titleObj[i18next.language] ||
+    titleObj.en ||
+    titleObj.cs ||
+    Object.values(titleObj)[0] ||
+    fallback
+  );
+};
+
 const resolveSubjectLabel = (subject) => {
   if (!subject) {
     return "";
@@ -41,12 +51,7 @@ const resolveSubjectLabel = (subject) => {
 
   const titleObj = subject.title;
   if (titleObj && typeof titleObj === "object" && !Array.isArray(titleObj)) {
-    return (
-      titleObj[i18next.language] ||
-      titleObj.en ||
-      titleObj.cs ||
-      Object.values(titleObj)[0]
-    );
+    return resolveLocalizedTitle(titleObj, subject.subject || subject.id || "");
   }
 
   if (Array.isArray(titleObj)) {
@@ -65,16 +70,7 @@ const resolveLanguageLabel = (language) => {
     return language;
   }
 
-  if (language.title && typeof language.title === "object") {
-    return (
-      language.title[i18next.language] ||
-      language.title.en ||
-      language.title.cs ||
-      Object.values(language.title)[0]
-    );
-  }
-
-  return language.title || language.id || "";
+  return resolveLocalizedTitle(language.title, language.id || "");
 };
 
 const resolvePublicationDate = (metadata, fallbackDate) => {
@@ -83,9 +79,10 @@ const resolvePublicationDate = (metadata, fallbackDate) => {
   }
 
   if (Array.isArray(metadata?.dates)) {
-    const issued = metadata.dates.find(({ type }) =>
-      type?.id?.toLowerCase() === "issued" || type?.id?.toLowerCase() === "publication"
-    );
+    const issued = metadata.dates.find(({ type }) => {
+      const typeIdLower = type?.id?.toLowerCase();
+      return typeIdLower === "issued" || typeIdLower === "publication";
+    });
     if (issued?.date) {
       return issued.date;
     }
@@ -95,7 +92,7 @@ const resolvePublicationDate = (metadata, fallbackDate) => {
 };
 
 export const ResultsListItem = ({ result }) => {
-  const [showEntireAbstract, setShowEntireAbstract] = useState(false);
+  const [showEntireDescription, setShowEntireDescription] = useState(false);
   const searchAppConfig = useContext(SearchConfigurationContext);
   const { allowedHtmlTags } = searchAppConfig;
 
@@ -103,7 +100,7 @@ export const ResultsListItem = ({ result }) => {
   const title = metadata.title || i18next.t("Missing title");
   const description = getDescription(metadata);
 
-  const abstract = sanitizeHtml(description, {
+  const sanitizedDescription = sanitizeHtml(description, {
     allowedTags: allowedHtmlTags,
     allowedAttributes: {},
     disallowedTagsMode: "discard",
@@ -117,20 +114,15 @@ export const ResultsListItem = ({ result }) => {
 
   const languages = metadata.languages || (metadata.language ? [metadata.language] : []);
   const language = languages[0];
-  // const accessStatus =
-  //   result.ui?.access_status ||
-  //   result.access?.status ||
-  //   result.access?.record ||
-  //   result.access?.files;
 
   const toggleAbstract = () => {
-    setShowEntireAbstract(!showEntireAbstract);
+    setShowEntireDescription(!showEntireDescription);
   };
 
-  const truncatedAbstract = abstract
-    ? showEntireAbstract
-      ? abstract
-      : _truncate(abstract, { length: 500 })
+  const truncatedDescription = sanitizedDescription
+    ? showEntireDescription
+      ? sanitizedDescription
+      : _truncate(sanitizedDescription, { length: 500 })
     : "";
 
   return (
@@ -152,25 +144,26 @@ export const ResultsListItem = ({ result }) => {
                   ))}
                 </Label.Group>
               </Item.Meta>
-              {abstract && (
+              {sanitizedDescription && (
                 <Item.Description className="rel-mt-1">
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: truncatedAbstract,
+                      __html: truncatedDescription,
                     }}
                     className="inline"
                   />
-                  {abstract.length > 500 && (
+                  {sanitizedDescription.length > 500 && (
                     <Button
                       compact
                       size="tiny"
                       onClick={toggleAbstract}
                       className="transparent mr-3"
+                      aria-label={showEntireDescription ? i18next.t("Show less") : i18next.t("Show more")} 
                     >
-                      {showEntireAbstract ? (
-                        <Icon name="left chevron" color="green" />
+                      {showEntireDescription ? (
+                        <Icon name="up chevron" color="green" />
                       ) : (
-                        <Icon name="right chevron" color="green" />
+                        <Icon name="down chevron" color="green" />
                       )}
                     </Button>
                   )}
@@ -184,7 +177,7 @@ export const ResultsListItem = ({ result }) => {
                     </span>
                   )}
 
-                  {language && language?.id !== "UND" && (
+                  {language && (
                     <span className="rel-mr-1">
                       {i18next.t("Language")}: {resolveLanguageLabel(language)}
                     </span>

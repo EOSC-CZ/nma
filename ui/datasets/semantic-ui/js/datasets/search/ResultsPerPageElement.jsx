@@ -1,5 +1,6 @@
 import React from "react";
 import { Dropdown } from "semantic-ui-react";
+import PropTypes from "prop-types";
 
 export const ResultsPerPageElement = ({ currentSize, options, onValueChange, ariaLabel, selectOnNavigation }) => {
   const _options = options.map((element, index) => {
@@ -17,4 +18,12 @@ export const ResultsPerPageElement = ({ currentSize, options, onValueChange, ari
       selectOnNavigation={selectOnNavigation}
     />
   );
+};
+
+ResultsPerPageElement.propTypes = {
+  currentSize: PropTypes.number.isRequired,
+  options: PropTypes.array.isRequired,
+  onValueChange: PropTypes.func.isRequired,
+  ariaLabel: PropTypes.string,
+  selectOnNavigation: PropTypes.bool,
 };

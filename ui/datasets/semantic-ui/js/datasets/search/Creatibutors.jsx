@@ -18,12 +18,18 @@ const CreatibutorsList = ({ creatibutors, showAll, numDisplayed }) => {
         <>
           {!showAll && <ListItem> et al.</ListItem>}
           <ListItem key="icon-expand-accordion">
-            <Icon size="small" name="right chevron" color="primary" fitted />
+            <Icon size="small" role="button" name="right chevron" color="primary" fitted aria-label={showAll ? i18next.t("Show less") : i18next.t("Show more")} />
           </ListItem>
         </>
       )}
     </List>
   );
+};
+
+CreatibutorsList.propTypes = {
+  creatibutors: PropTypes.array.isRequired,
+  showAll: PropTypes.bool.isRequired,
+  numDisplayed: PropTypes.number.isRequired,
 };
 
 export const Creatibutors = ({ creatibutors }) => {

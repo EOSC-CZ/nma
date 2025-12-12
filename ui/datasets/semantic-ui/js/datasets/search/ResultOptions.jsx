@@ -55,5 +55,9 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
 };
 
 ResultOptions.propTypes = {
-  currentResultsState: PropTypes.object,
+  currentResultsState: PropTypes.shape({
+    data: PropTypes.shape({
+      total: PropTypes.number,
+    }),
+  }),
 };

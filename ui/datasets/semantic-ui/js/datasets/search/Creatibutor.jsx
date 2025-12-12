@@ -42,19 +42,20 @@ export const Creatibutor = ({ creatibutor }) => {
   const selectedIdentifier =
     Array.isArray(identifiers) && identifiers.length > 0
       ?
-        identifiers.find((identifier) =>
-          identifier?.scheme?.toLowerCase() === "orcid" ||
-          identifier?.scheme?.toLowerCase() === "ror"
-        ) || identifiers[0]
+        identifiers.find((identifier) => {
+          const schemeLower = identifier?.scheme?.toLowerCase();
+          return schemeLower === "orcid" || schemeLower === "ror";
+        }) || identifiers[0]
       : null;
 
   const name = isPerson ? formatName(personOrOrg || {}) : personOrOrg?.name;
   const role =
-    creatibutor?.role?.title?.["en"] ||
-    creatibutor?.role?.title?.["cs"] ||
-    creatibutor?.role?.title ||
-    creatibutor?.role?.title_l10n ||
-    creatibutor?.role?.id;
+    typeof creatibutor?.role?.title === "string"
+      ? creatibutor.role.title
+      : (creatibutor?.role?.title?.["en"] ||
+         creatibutor?.role?.title?.["cs"] ||
+         creatibutor?.role?.title_l10n ||
+         creatibutor?.role?.id);
 
   return (
     <span className="mb-5 mr-0 inline-block">

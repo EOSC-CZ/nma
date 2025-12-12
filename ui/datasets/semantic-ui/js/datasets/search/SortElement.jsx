@@ -1,5 +1,6 @@
 import React from "react";
 import { Dropdown } from "semantic-ui-react";
+import PropTypes from "prop-types";
 
 export const SortElement = ({ options, currentSortBy, currentSortOrder, onValueChange, ariaLabel, selectOnNavigation }) => {
   const _options = options.map((element, index) => {
@@ -25,4 +26,13 @@ export const SortElement = ({ options, currentSortBy, currentSortOrder, onValueC
       selectOnNavigation={selectOnNavigation}
     />
   );
+};
+
+SortElement.propTypes = {
+  options: PropTypes.array.isRequired,
+  currentSortBy: PropTypes.string,
+  currentSortOrder: PropTypes.string,
+  onValueChange: PropTypes.func.isRequired,
+  ariaLabel: PropTypes.string,
+  selectOnNavigation: PropTypes.bool,
 };

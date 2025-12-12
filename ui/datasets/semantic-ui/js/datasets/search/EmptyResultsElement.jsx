@@ -34,8 +34,8 @@ export const EmptyResultsElement = ({
         {extraContent && (
           <Grid.Row>
             {extraContent}
-          </Grid.Row>)
-        }
+          </Grid.Row>
+        )}
       </Grid>
     </Segment>
   );
