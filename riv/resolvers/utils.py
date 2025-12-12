@@ -1,7 +1,14 @@
 from functools import wraps
 from flask import current_app
 from invenio_i18n import lazy_gettext as _
+import re
 
+DATE_REGEX = re.compile(
+    r"^(?:"r"\d{4}"r"|"r"\d{4}-\d{2}"r"|"r"\d{4}-\d{2}-\d{2}"r")$"
+)
+
+def validate_date(value: str) -> bool:
+    return bool(DATE_REGEX.fullmatch(value))
 
 def handle_errors(error_placeholder=None, alert_user=False):
     """

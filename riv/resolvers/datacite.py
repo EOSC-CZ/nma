@@ -4,14 +4,17 @@ from .base import ResolverProblem, ResolverProblemLevel
 from invenio_vocabularies.proxies import current_service as vocabulary_service
 from invenio_access.permissions import system_identity
 from flask import current_app
-from .utils import handle_errors
+from .utils import handle_errors, validate_date
 from marshmallow_utils.fields import EDTFDateString, EDTFDateTimeString
+
 from marshmallow import ValidationError
 from invenio_i18n import lazy_gettext as _
 from idutils.validators import is_doi
 from idutils.normalizers import normalize_doi
-from invenio_rdm_records.services.schemas.metadata import record_personorg_schemes, record_identifiers_schemes, record_related_identifiers_schemes
+from invenio_rdm_records.services.schemas.metadata import record_personorg_schemes, record_identifiers_schemes, \
+    record_related_identifiers_schemes
 import langcodes
+
 CREATORS_PLACEHOLDER = [{
     "person_or_org": {
         "name": "Unknown Creator",
@@ -35,7 +38,6 @@ class DataciteResolver(MetadataResolver):
         datacite_url = current_app.config.get('DATACITE_URL')
         doi = normalize_doi(persistent_url)
         url = f"{datacite_url}/{doi}"
-        # url = "https://api.test.datacite.org/dois/10.82433/B09Z-4K37"  # for test
         response = self.session.get(
             url=url,
         )
@@ -68,7 +70,6 @@ class DataciteResolver(MetadataResolver):
 
         # creators
         # datacite required, rdm required
-        # todo affiliations
         datacite_creators = datacite_metadata.get("creators", [])
         creators = self.resolve_datacite_creators(creators=datacite_creators, problems=problems)
         metadata["creators"] = creators
@@ -82,7 +83,8 @@ class DataciteResolver(MetadataResolver):
         # resource type
         # datacite required, rdm required
         datacite_resource_type = datacite_metadata.get("types", {})
-        metadata["resource_type"] = {"id": self.resolve_datacite_resource_type(resource_type=datacite_resource_type, problems=problems)}
+        metadata["resource_type"] = {
+            "id": self.resolve_datacite_resource_type(resource_type=datacite_resource_type, problems=problems)}
 
         # publisher
         # not required
@@ -91,13 +93,8 @@ class DataciteResolver(MetadataResolver):
         if publisher:
             metadata["publisher"] = publisher
 
-        # subjects
-        # not required
-        #todo where is the vocabulary?
-
         # contributors
         # not required
-        # todo affilitations
         datacite_contributors = datacite_metadata.get("contributors", [])
         contributors = self.resolve_datacite_contributors(contributors=datacite_contributors)
         if len(contributors) > 0:
@@ -105,11 +102,10 @@ class DataciteResolver(MetadataResolver):
 
         # dates
         # not required
-        # todo currently not working
-        # datacite_dates = datacite_metadata.get("dates", [])
-        # dates = self.resolve_datacite_dates(dates=datacite_dates)
-        # if len(dates) > 0:
-        #     metadata["dates"] = dates
+        datacite_dates = datacite_metadata.get("dates", [])
+        dates = self.resolve_datacite_dates(dates=datacite_dates)
+        if len(dates) > 0:
+            metadata["dates"] = dates
 
         # language
         # not required
@@ -119,11 +115,25 @@ class DataciteResolver(MetadataResolver):
         if language:
             metadata["languages"] = [{"id": language}]
 
-        #related identifiers
-        #todo: currently not working
+        # related identifiers
+        # not required
+        related_identifiers = self.resolve_related_identifiers(
+            datacite_metadata.get("relatedIdentifiers", [])
+        )
+        if len(related_identifiers) > 0:
+            metadata["related_identifiers"] = related_identifiers
 
-        #descriptions
-        # todo: currently not working
+        # descriptions
+        datacite_descriptions = datacite_metadata.get("descriptions", [])
+        description = self.resolve_datacite_descriptions(descriptions=datacite_descriptions)
+        if description:
+            metadata["description"] = description
+
+        # additional descriptions
+        # not required
+        additional_desc = self.resolve_datacite_additional_descriptions(descriptions=datacite_descriptions)
+        if len(additional_desc) > 0:
+            metadata["additional_descriptions"] = additional_desc
 
         # sizes
         # not required
@@ -147,15 +157,100 @@ class DataciteResolver(MetadataResolver):
         if datacite_version and type(datacite_version) == str:
             metadata["version"] = datacite_version
 
-
-        #rights
-        # currently not working
-        # datacite_rights = datacite_metadata.get("rightsList", [])
-        # rights = self.resolve_datacite_rights(rights=datacite_rights)
-        # if len(rights) > 0:
-        #     metadata["rights"] = rights
+        # rights
+        # not required
+        datacite_rights = datacite_metadata.get("rightsList", [])
+        rights = self.resolve_datacite_rights(rights=datacite_rights)
+        if len(rights) > 0:
+            metadata["rights"] = rights
 
         return metadata, problems
+
+    @handle_errors()
+    def resolve_datacite_additional_descriptions(self, descriptions):
+        des_list = []
+        for d in descriptions:
+            _type = d.get("descriptionType")
+            description = d.get("description")
+            if description and _type != "Abstract":
+                description_obj = {}
+                if type(description) == str and len(description) >= 3:
+                    description_obj["description"] = description
+                else:
+                    continue
+                if type(_type) == str:
+                    d_type = re.sub(r'(?<!^)([A-Z])', r'-\1', _type).lower()
+                    try:
+                        vocabulary_service.read(system_identity, ("descriptiontypes", d_type))
+                        description_obj["type"] = {"id": d_type}
+                    except:
+                        continue
+                d_lang = d.get("lang")
+                lang = self.resolve_datacite_language(language=d_lang)
+                if lang:
+                    description_obj["lang"] = {"id": lang}
+                des_list.append(description_obj)
+
+        return des_list
+
+    @handle_errors()
+    def resolve_datacite_descriptions(self, descriptions):
+        for d in descriptions:
+            _type = d.get("descriptionType")
+            description = d.get("description")
+            if _type == "Abstract":
+                continue
+            if description and _type:
+                if type(description) == str and len(description) >= 3:
+                    return description
+
+        return None
+
+    @handle_errors()
+    def resolve_related_identifiers(self, related_identifiers):
+        result = []
+        for rel in related_identifiers or []:
+            identifier = rel.get("relatedIdentifier")
+            scheme = rel.get("relatedIdentifierType")
+            rel_type = rel.get("relationType")
+
+            if scheme:
+                scheme = scheme.lower()
+            if rel_type:
+                rel_type = rel_type.lower()
+            if not identifier or not scheme or not rel_type:
+                continue
+            if not scheme in record_related_identifiers_schemes:
+                continue
+            obj = {
+                "identifier": identifier,
+            }
+            obj["scheme"] = scheme
+            obj["relation_type"] = {"id": rel_type}
+            try:
+                voc = vocabulary_service.read(
+                    system_identity, ("relationtypes", rel_type)
+                )
+                print(voc)
+            except:
+                continue
+
+            res_type = rel.get("resourceTypeGeneral")
+            if res_type:
+                res_type = res_type.lower()
+                vocabulary_id = 'resourcetypes'
+                try:
+                    vocabulary_service.read(
+                        system_identity, (vocabulary_id, res_type)
+                    )
+                    obj["resource_type"] = {"id": res_type}
+                except:
+                    pass
+
+            result.append(obj)
+
+        return result
+
     @handle_errors()
     def resolve_datacite_dates(self, dates):
         dates_list = []
@@ -165,10 +260,12 @@ class DataciteResolver(MetadataResolver):
             if not date:
                 continue
 
-            edtf_string = EDTFDateTimeString()
+            edtf_string = EDTFDateString()
             try:
                 edtf_string.deserialize(date)
             except:
+                continue
+            if not validate_date(date):
                 continue
             type = d.get("dateType")
             try:
@@ -178,10 +275,9 @@ class DataciteResolver(MetadataResolver):
             except:
                 continue
             date_object["date"] = date
-            date_object["type"] = type.lower()
+            date_object["type"] = {"id": type.lower()}
             dates_list.append(date_object)
         return dates_list
-
 
     @handle_errors()
     def resolve_datacite_rights(self, rights):
@@ -247,7 +343,7 @@ class DataciteResolver(MetadataResolver):
         for title in titles:
             title_obj = {}
             t_type = title.get("titleType")
-            if t_type is None: #it is main title
+            if t_type is None:  # it is main title
                 continue
             t_type = re.sub(r'(?<!^)([A-Z])', r'-\1', t_type).lower()
             try:
@@ -282,7 +378,6 @@ class DataciteResolver(MetadataResolver):
 
     @handle_errors(error_placeholder=CREATORS_PLACEHOLDER, alert_user=True)
     def resolve_datacite_creators(self, *, creators, problems):
-
 
         if len(creators) == 0:
             problems.append(
@@ -381,13 +476,13 @@ class DataciteResolver(MetadataResolver):
         return contributor_list
 
     @handle_errors()
-    def resolve_datacite_name_identifiers(self,* , name_identifiers):
+    def resolve_datacite_name_identifiers(self, *, name_identifiers):
 
         identifiers = []
         seen = []
         for ni in name_identifiers or []:
             identifier = ni.get("nameIdentifier")
-            if identifier in seen: #needs to be unique
+            if identifier in seen:  # needs to be unique
                 continue
             seen.append(identifier)
             scheme = ni.get("nameIdentifierScheme")
@@ -413,6 +508,8 @@ class DataciteResolver(MetadataResolver):
                 ResolverProblem(resolver=self.name, message=_(f"Invalid publication date format: {publication_date}."),
                                 level=ResolverProblemLevel.WARNING, original_exception=e))
             return PUBLICATION_DATE_PLACEHOLDER
+        if not validate_date(publication_date):
+            publication_date = PUBLICATION_DATE_PLACEHOLDER
         return publication_date
 
     @handle_errors('dataset')
