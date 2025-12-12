@@ -7,7 +7,9 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 import re
-
+from flask import current_app
+from idutils.normalizers import normalize_doi
+from idutils.validators import is_doi
 from invenio_i18n import lazy_gettext as _
 from marshmallow import ValidationError
 from marshmallow_utils.fields import EDTFDateString
@@ -34,7 +36,6 @@ example: https://api.crossref.org/works/doi/10.64000/wadve-3tj60&mailto=info@eos
 
 HOST_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org(?:\/.*)?$', re.IGNORECASE)
 DOI_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org\/(.+)$', re.IGNORECASE)
-CROSSREF_URL = "https://api.crossref.org/works/doi"
 
 
 class CrossrefResolver(MetadataResolver):
@@ -43,13 +44,7 @@ class CrossrefResolver(MetadataResolver):
     name = "Crossref"
 
     def can_resolve(self, persistent_url: str) -> bool:
-        if not HOST_REGEX.match(persistent_url.strip()):
-            return False
-
-        match = DOI_REGEX.match(persistent_url.strip())
-        if not match:
-            return False
-        return True
+        return is_doi(persistent_url)
 
     def resolve(self, persistent_url: str) -> (dict | None, str):
         """
@@ -72,10 +67,10 @@ class CrossrefResolver(MetadataResolver):
         Raises:
             None
         """
-        match = DOI_REGEX.match(persistent_url.strip())
+        crossref_url = current_app.config.get('CROSSREF_URL')
+        doi = normalize_doi(persistent_url)
 
-        doi = match.group(1)
-        url = f"{CROSSREF_URL}/{doi}"
+        url = f"{crossref_url}/{doi}"
         response = self.session.get(
             url=url,
         )
@@ -88,7 +83,6 @@ class CrossrefResolver(MetadataResolver):
                 return None, [ResolverProblem(resolver=self.name, message=_(
                     f"Unexpected error while resolving the DOI. CrossRef returned: {response.content}. "),
                                               level=ResolverProblemLevel.ERROR)]
-
 
         metadata = {}
         problems = []
