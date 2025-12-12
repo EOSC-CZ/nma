@@ -57,27 +57,21 @@ Note: Context variables available:
 - files/media_files: File entries
 - is_preview/is_draft: Record state
 #}
-
 {%- block record_header_info %}
-  {% include "datasets/record_detail/header_info.html" %}
 {%- endblock record_header_info %}
 
 {%- block record_title -%}
-  {% set record_permalink = record_ui.links.self_persistent_html or record_ui.links.self_html %}
-
-  <div class="ui secondary basic padded rel-pl-2 rel-pt-4 rel-pb-1 rel-pr-2 record-title segment">
-    <div class="ui top attached green large label">
-      <i class="ui icon linkify"></i>
-      <a class="permanent-link" href="{{record_permalink}}" target="_blank"
-      rel="noopener noreferrer"
-      data-testid="record-detail-title-permanent-link">
-        <span class="middle-ellipsis">{{ record_permalink }}</span>
-      </a>
-      <ClipboardCopyButton className="large" copyText={{record_permalink}} />
-      <p class="detail ml-0 rel-mt-1">
-        <small>{{ _("Use this persistent link when reporting results to RIV and other evaluation systems.") }}</small>
-      </p>
+  <div class="ui two column rel-mt-1 rel-pl-1 rel-pr-1 grid">
+    <div class="ui green column">
+      {% include "datasets/record_detail/permalink.html" %}
     </div>
+    <div class="ui green right aligned column">
+      {% include "datasets/record_detail/resource_type.html" %}
+      {% include "datasets/record_detail/access_status.html" %}
+    </div>
+  </div>
+
+  <div class="ui secondary basic padded rel-pl-2 rel-pt-2 rel-pb-1 rel-pr-2 record-title segment">
     {{ super() }}
 </div>
 {%- endblock record_title -%}
