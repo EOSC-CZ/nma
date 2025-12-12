@@ -9,6 +9,8 @@ from invenio_notifications.models import Notification, Recipient
 from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.resources.errors import PermissionDeniedError
+from invenio_pidstore.errors import PIDAlreadyExists
+
 
 from ..config import RIV_CURATORS_GROUP_ID, SECRET_LINK_EXPIRATION_DAYS
 from ..errors import RIVRegistrationException
@@ -83,7 +85,10 @@ def create_record(record_data):
             )
 
         datasets_service.publish(identity=system_identity, id_=draft_record["id"])
+
     except RIVRegistrationException:
+        raise
+    except PIDAlreadyExists:
         raise
     except Exception as e:
         raise RIVRegistrationException(
