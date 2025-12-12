@@ -382,3 +382,8 @@ package-lock.json
 pnpm-lock.yaml
 
 .invenio.private
+
+# Symlinks
+node_modules
+
+todo.md

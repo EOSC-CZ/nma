@@ -9,15 +9,19 @@
 @livelyGreen: #008691;
 @pink: #9F0D54;
 @primaryColor: @pink;
-@secondaryColor: @pink;
+@secondaryColor: @livelyGreen;
 @darkGrey: #707075;
 @lightGrey: #e4e4e3;
 @black: #040305;
 @white: #ffffff;
+@borderColor: @primaryColor;
+@backgroundColor: #f9f9f9;
 
 @lightPrimaryColor: lighten(@primaryColor, 50);
-@lightSecondaryColor: lighten(@primaryColor, 50);
+@lightSecondaryColor: lighten(@secondaryColor, 50);
 @primaryDarkenColor: @darkGrey;
+@defaultBrandColor: #434C5E;
+@textColor: #262729;
 
 @selectionBackground: @lightGrey;
 @celledBorderColor: @primaryColor;
@@ -80,6 +84,7 @@
 @highlightBackgroundColorHover:  darken(saturate(@highlightHeaderColor, 20), 15, relative);
 @highlightLandingPageBackgroundColor: @white;
 @selectedColor: #ededed;
+@featuredListBackgroundColor: transparent;
 
 @navbarBackgroundImage: @navbar_background_image;
 @navbarBackgroundColor: @navbar_background_color;

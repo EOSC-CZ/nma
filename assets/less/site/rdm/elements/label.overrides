@@ -1,0 +1,28 @@
+.ui.label {
+  &.active-filter-label {
+    background-color: @white;
+    border: 1px solid @borderColor;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+    font-size: inherit;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: @grey;
+
+    strong {
+      color: @darkGrey;
+    }
+  }
+  &.subjects {
+    background-color: inherit;
+    border: 1px solid @borderColor;
+    font-weight: 400;
+    font-size: inherit;
+  }
+  &.active-filters-count-label {
+    background-color: @lightPrimaryColor;
+  }
+  &.truncated {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}

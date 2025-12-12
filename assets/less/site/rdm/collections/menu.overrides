@@ -1,0 +1,22 @@
+.ui.menu.pagination {
+  // &.main-search-pagination {
+  a.item::before {
+    content: none !important;
+  }
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  .active.item {
+    background-color: transparent;
+    color: @primaryColor;
+    font-weight: 500;
+  }
+
+  // Target the first and last items
+  a.item:first-child,
+  a.item:last-child {
+    color: @primaryColor;
+    font-weight: 900;
+  }
+  // }
+}

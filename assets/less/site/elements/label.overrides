@@ -1,6 +1,0 @@
-.ui.label {
-    &.truncated {
-        width: 100%;
-        overflow-x: scroll;
-    }
-}

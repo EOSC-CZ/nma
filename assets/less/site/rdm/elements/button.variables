@@ -1,0 +1,2 @@
+@searchButtonColor: @pink;
+@searchButtonColorHover: lighten(@searchButtonColor, 10%);
