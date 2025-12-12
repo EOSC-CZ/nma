@@ -18,6 +18,7 @@ from invenio_records_permissions.generators import (
     SystemProcess,
 )
 from invenio_records_resources.records.systemfields import PIDField
+from invenio_records_resources.services import RecordEndpointLink
 from oarepo_model.api import model
 from oarepo_model.customizations import (
     AddMetadataExport,
@@ -25,6 +26,7 @@ from oarepo_model.customizations import (
     PrependMixin,
     ReplaceBaseClass,
 )
+from oarepo_model.customizations.high_level.add_link import AddLink
 from oarepo_model.datatypes.registry import from_yaml
 from oarepo_model.model import ModelMixin
 from oarepo_rdm.model.presets import rdm_complete_preset
@@ -128,6 +130,7 @@ datasets_model = model(
             ExternalPIDProvider,
         ),
         ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
+        AddLink("self_persistent_html", RecordEndpointLink("pidresolver.redirect")),
         PrependMixin("PIDFieldContext", ExternalPIDFieldContextMixin),
         PrependMixin("Draft", PIDStatusCheckFieldMixin),
         PrependMixin("RecordService", UpdatableRecordServiceMixin),
