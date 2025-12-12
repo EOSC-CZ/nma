@@ -37,10 +37,6 @@ But currently returns "Resource not found."
 example: https://api.crossref.org/works/doi/10.64000/wadve-3tj60&mailto=info@eosc.cz
 """
 
-HOST_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org(?:\/.*)?$', re.IGNORECASE)
-DOI_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org\/(.+)$', re.IGNORECASE)
-
-
 class CrossrefResolver(MetadataResolver):
     """Crossref resolver."""
 
@@ -70,7 +66,7 @@ class CrossrefResolver(MetadataResolver):
         Raises:
             None
         """
-        crossref_url = current_app.config.get('CROSSREF_URL')
+        crossref_url = current_app.config["CROSSREF_URL"]
         doi = normalize_doi(persistent_url)
 
         url = f"{crossref_url}/{doi}"
