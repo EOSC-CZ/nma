@@ -36,9 +36,6 @@ i18n = "i18n.webpack:theme"
 components = "ui.components.webpack:theme"
 ui_datasets = "ui.datasets.webpack:theme"
 
-[project.entry-points."invenio_i18n.translations"]
-translations = "i18n"
-
 [project.entry-points."invenio_db.alembic"]
 repository = "common:alembic"
 
@@ -75,3 +72,4 @@ requires = [
     "uv_build>=0.8.7,<0.9.0",
 ]
 build-backend = "uv_build"
+

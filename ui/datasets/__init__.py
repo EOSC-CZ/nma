@@ -156,7 +156,6 @@ class DatasetsUIResource(RecordsUIResource):
     def deposit_create(self):
         """Create and publish record by persistent identifier. Generate secret link and send email to user. Grant access to support."""
         form = RegisterForm()
-
         if form.validate_on_submit():
             pid = form.pid.data
 
@@ -237,7 +236,6 @@ def ui_overrides(app):
 def init_menu(app):
     """Initialize menu before first request."""
     ui_resource_config = DatasetsUIResourceConfig()
-
     with app.app_context():
         current_menu.submenu("plus.create_datasets").register(
             f"{ui_resource_config.blueprint_name}.deposit_create",
@@ -260,6 +258,7 @@ def finalize_app(app):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
+
     blueprint = DatasetsUIResource(DatasetsUIResourceConfig()).as_blueprint()
     return blueprint
 
