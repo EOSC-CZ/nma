@@ -42,8 +42,40 @@ class CrossrefResolver(MetadataResolver):
 
     name = "Crossref"
 
-    def can_resolve(self, persistent_url: str) -> bool:
-        return is_doi(persistent_url)
+    identifier_resolve_fn = staticmethod(is_doi)
+    identifier_normalize_fn = staticmethod(normalize_doi)
+    url = "https://api.crossref.org/works/doi"
+
+    def _get_data_from_response(self, response, problems):
+        data = response.json()
+        return data.get("message", {})
+
+    def _get_titles(self, data, problems):
+        return data.get("title", [])
+
+    def _get_creators(self, data, problems):
+        authors = data.get("author", [])
+        creator_list = []
+        for crossref_author in authors:
+            creator_obj = {
+                "name": crossref_author.get("family", ""),
+                "family_name": crossref_author.get("family", ""),
+                "type": "personal"
+            }
+            if crossref_author.get("given"):
+                creator_obj["given_name"] = crossref_author.get("given", "")
+                creator_obj["name"] += ", " + crossref_author.get("given", "")
+            if crossref_author.get("ORCID"):
+                orcid_id = crossref_author.get("ORCID", "").removeprefix("https://orcid.org/")
+                creator_obj["identifiers"] = {
+                    "identifier": orcid_id,
+                    "scheme": "orcid"
+                }
+            creator_list.append({"person_or_org": creator_obj})
+        return creator_list
+
+    def _get_publication_dates(self, data, problems):
+        return data.get("deposited", {}).get("date-time")
 
     def resolve(self, persistent_url: str) -> (dict | None, str):
         """
@@ -66,35 +98,14 @@ class CrossrefResolver(MetadataResolver):
         Raises:
             None
         """
-        crossref_url = current_app.config["CROSSREF_URL"]
-        doi = normalize_doi(persistent_url)
-
-        url = f"{crossref_url}/{doi}"
-        response = self.session.get(
-            url=url,
-        )
-        if response.status_code != 200:
-            if response.status_code == 404:
-                return None, [ResolverProblem(resolver=self.name, message=_(
-                    "The identifier looks like a DOI, but it was not found in the CrossRef registry."),
-                                              level=ResolverProblemLevel.ERROR)]
-            else:
-                return None, [ResolverProblem(resolver=self.name, message=_(
-                    f"Unexpected error while resolving the DOI. CrossRef returned: {response.content}. "),
-                                              level=ResolverProblemLevel.ERROR)]
-
-        metadata = {}
-        problems = []
-        data = response.json()
-        crossref_metadata = data.get("message", {})
 
         crossref_titles = crossref_metadata.get("title", [])
         metadata["title"] = self.resolve_title(titles=crossref_titles, problems=problems)
 
-        crossref_authors = crossref_metadata.get("author", [])
+        crossref_authors = crossref_meta
         metadata["creators"] = self.resolve_crossref_authors(authors=crossref_authors, problems=problems)
 
-        publication_date = crossref_metadata.get("deposited", {}).get("date-time")
+        publication_date = crossref_meta
         metadata["publication_date"] = self.resolve_crossref_publication_date(publication_date=publication_date,
                                                                               problems=problems)
         metadata["resource_type"] = self.resolve_crossref_resource_type(resource_type=crossref_metadata,
@@ -102,45 +113,7 @@ class CrossrefResolver(MetadataResolver):
 
         return metadata, problems
 
-    @handle_errors(error_placeholder="Unknown title", alert_user=True)
-    def resolve_title(self, titles, problems):
-        for title in titles:
-            if len(title) < 3:
-                problems.append(ResolverProblem(resolver=self.name, message=_(
-                    "The title is too short. A minimum of 3 characters is required to meet repository requirements."),
-                                                level=ResolverProblemLevel.WARNING))
-                return f'Incompatible title: {title} (please provide a corrected title)'
-            return title
-        problems.append(
-            ResolverProblem(resolver=self.name, message=_("Missing title."),
-                            level=ResolverProblemLevel.WARNING))
-        return 'Missing title'  # should never happen
 
-    @handle_errors(error_placeholder=CREATORS_PLACEHOLDER, alert_user=True)
-    def resolve_crossref_authors(self, authors, problems):
-        if len(authors) == 0:
-            problems.append(
-                ResolverProblem(resolver=self.name, message=_("Missing creators."),
-                                level=ResolverProblemLevel.WARNING))
-            return CREATORS_PLACEHOLDER
-        creator_list = []
-        for crossref_author in authors:
-            creator_obj = {
-                "name": crossref_author.get("family", ""),
-                "family_name": crossref_author.get("family", ""),
-                "type": "personal"
-            }
-            if crossref_author.get("given"):
-                creator_obj["given_name"] = crossref_author.get("given", "")
-                creator_obj["name"] += ", " + crossref_author.get("given", "")
-            if crossref_author.get("ORCID"):
-                orcid_id = crossref_author.get("ORCID", "").removeprefix("https://orcid.org/")
-                creator_obj["identifiers"] = {
-                    "identifier": orcid_id,
-                    "scheme": "orcid"
-                }
-            creator_list.append({"person_or_org": creator_obj})
-        return creator_list
 
     @handle_errors(PUBLICATION_DATE_PLACEHOLDER)
     def resolve_crossref_publication_date(self, *, publication_date, problems):

@@ -59,7 +59,6 @@ grant_data = {
 
 
 def create_record(record_data, problems):
-    record_data["id"] = generate_id(record_data)
     if current_user.is_anonymous:
         raise PermissionDeniedError("Please login first.")
 

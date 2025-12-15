@@ -11,14 +11,9 @@ from idutils.utils import handle_regexp
 
 PERSISTENT_IDENTIFIER_RESOLVERS = [
     "riv.resolvers.DataciteResolver",
-    "riv.resolvers.CrossrefResolver",
+    # "riv.resolvers.CrossrefResolver",
     "riv.resolvers.HandleResolver",
 ]
-
-PERSISTENT_IDENTIFIER_PATTERNS = {
-    r"https://doi.org/(.*)": "doi",
-    r"https?://hdl.handle.net/(.+)": "handle",
-}
 
 
 SECRET_LINK_EXPIRATION_DAYS = 7
@@ -26,7 +21,4 @@ RIV_CURATORS_GROUP_ID = "riv_curators"
 
 # Revalidate the persistent URL if it was last checked more than this number of days ago
 LAST_CHECKED_THRESHOLD_DAYS = 2
-
-DATACITE_URL="https://api.datacite.org/dois"
-HANDLE_URL="https://hdl.handle.net"
 CROSSREF_URL = "https://api.crossref.org/works/doi"

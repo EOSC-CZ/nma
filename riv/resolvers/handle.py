@@ -1,102 +1,29 @@
-import datetime
-import functools
-
-from bs4 import BeautifulSoup
-from flask import current_app
 from idutils.normalizers import normalize_handle
 from idutils.validators import is_handle
 from lxml import html
-import dateutil
-from dateutil.parser import ParserError
-from invenio_i18n import lazy_gettext as _
-from marshmallow_utils.fields import EDTFDateString
-
-from .base import ResolverProblem, ResolverProblemLevel, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER, \
-    get_invalid_publication_date_message, get_validation_failed_on_date_format_message
-from .utils import handle_errors
 from ..resolvers import MetadataResolver
-import re
-from marshmallow import ValidationError
 
-def parse_date(date):
-    error_messages = []
-
-    # 0000 is a special case happening a lot in LINDAT data that passes EDTF schema validation
-    if re.match(r'^\d{4}$', date) and not (int(date) > 1900 and int(date) <= datetime.datetime.now().year):
-        return PUBLICATION_DATE_PLACEHOLDER, [get_invalid_publication_date_message(date)]
-    try:
-        parsed_date = EDTFDateString().deserialize(date)
-    except ValidationError as exc:
-        try:
-            parsed_date = dateutil.parser.parse(date, fuzzy=True)
-            parsed_date = datetime.datetime.strftime(parsed_date, "%Y-%m-%d")
-            error_messages.append(get_validation_failed_on_date_format_message(date))
-        except ParserError as exc:
-            error_messages.append(get_invalid_publication_date_message(date))
-            parsed_date = PUBLICATION_DATE_PLACEHOLDER
-    return parsed_date, error_messages
 
 class HandleResolver(MetadataResolver):
     name = "Handle"
 
-    def can_resolve(self, persistent_url: str) -> bool:
-        return is_handle(persistent_url)
+    identifier_code = "handle"
+    identifier_resolve_fn = staticmethod(is_handle)
+    identifier_normalize_fn = staticmethod(normalize_handle)
+    url = "https://hdl.handle.net"
 
-
-    def resolve(self, persistent_url: str) ->  (dict | None, list[ResolverProblem]):
-
-        handle = normalize_handle(persistent_url)
-        handle_url = current_app.config.get('HANDLE_URL')
-
-        response = self.session.get( # redirect is hardcoded at 3
-            url=f"{handle_url}/{handle}"
-        )
-
-        if response.status_code != 200:
-            if response.status_code == 404:
-                return None, [ResolverProblem(resolver=self.name, message=_(
-                    "The identifier looks like a Handle, but it was not found in the Handle registry."),
-                                              level=ResolverProblemLevel.ERROR)]
-            else:
-                return None, [ResolverProblem(resolver=self.name, message=_(
-                    f"Unexpected error while resolving the Handle. Response returned: {response.content}. "),
-                                              level=ResolverProblemLevel.ERROR)]
-
-        problem_list = []
-        metadata = {}
-
+    def _get_data_from_response(self, response, problems):
         tree = html.fromstring(response.content)
-        tree = tree.xpath("/html/head")[0]
+        return tree.xpath("/html/head")[0]
 
-        metadata["title"] = self.resolve_main_title(tree=tree, problems=problem_list)
-        metadata["creators"] = self.resolve_creators(tree=tree, problems=problem_list)
-        metadata["publication_date"] = self.resolve_publication_date(tree=tree, problems=problem_list)
-        # there are dataset related tags, dataset_creator, dataset_license, dataset_keyword ..
-        # but they are used also on things that aren't datasets
-        metadata["resource_type"] = {"id": "other"}
+    def _get_titles(self, data, problems):
+        return data.xpath('//meta[@name="citation_title"]/@content') or \
+               data.xpath('//meta[@name="title"]/@content')
 
-        return metadata, problem_list
-
-    @handle_errors(error_placeholder="Unknown title", alert_user=True)
-    def resolve_main_title(self, *, tree, problems):
-        titles = tree.xpath('//meta[@name="citation_title"]/@content') or \
-                 tree.xpath('//meta[@name="title"]/@content')
-        if titles:
-            return titles[0]
-        else:
-            problems.append(
-                ResolverProblem(resolver=self.name, message=_("Missing title."),
-                                level=ResolverProblemLevel.WARNING, ))
-            return "Missing title."
-
-    @handle_errors(error_placeholder=CREATORS_PLACEHOLDER, alert_user=True)
-    def resolve_creators(self, *, tree, problems):
-        creators = tree.xpath('//meta[@name="citation_author"]/@content')
+    def _get_creators(self, data, problems):
+        creators = data.xpath('//meta[@name="citation_author"]/@content')
         if not creators:
-            problems.append(
-                ResolverProblem(resolver=self.name, message=_("Missing creators."),
-                            level=ResolverProblemLevel.WARNING, ))
-            return CREATORS_PLACEHOLDER
+            return creators
         creator_list = []
 
         for creator in creators:
@@ -115,18 +42,12 @@ class HandleResolver(MetadataResolver):
 
         return creator_list
 
-    @handle_errors(PUBLICATION_DATE_PLACEHOLDER, alert_user=True)
-    def resolve_publication_date(self, *, tree, problems):
-        dates = tree.xpath('//meta[@name="citation_publication_date"]/@content') or \
-                tree.xpath('//meta[@name="publication_date"]/@content')
+    def _get_resource_type(self, data, problems):
+        return {"id": "other"}
 
-        if not dates:
-            problems.append(ResolverProblem(resolver=self.name, level=ResolverProblemLevel.WARNING, message=_("Publication date missing.")))
-            return PUBLICATION_DATE_PLACEHOLDER
+    def _get_publication_dates(self, data, problems):
+        return data.xpath('//meta[@name="citation_publication_date"]/@content') or \
+               data.xpath('//meta[@name="publication_date"]/@content')
 
-        date = dates[0]
-        parsed_date, error_messages = parse_date(date)
-        for em in error_messages:
-            problems.append(ResolverProblem(resolver=self.name, level=ResolverProblemLevel.WARNING, message=em))
-        return parsed_date
+
 

@@ -49,7 +49,7 @@ from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
 
 from riv.records.create_record import create_record
-from riv.resolvers.base import resolve_metadata
+from riv.resolvers.base import resolve_record_data
 from riv.views import RegisterForm
 
 logger = logging.getLogger("DatasetsUI")
@@ -150,8 +150,8 @@ class DatasetsUIResource(RecordsUIResource):
             pid = form.pid.data
 
             try:
-                metadata, problems = resolve_metadata(pid)
-                record_data = {"metadata": metadata}
+                record_data, problems = resolve_record_data(pid)
+                create_record(record_data)
                 secret_link = create_record(record_data, problems)
                 if not problems:
                     flash(f"Successfully registered dataset with PID: {pid}", "success")
@@ -174,6 +174,13 @@ class DatasetsUIResource(RecordsUIResource):
                     )
                     flash(warning_message, "warning")
                     return redirect(secret_link)
+                record_data, problems = resolve_record_data(pid)
+                create_record(record_data)
+
+                flash(f"Successfully registered dataset with PID: {pid}", "success")
+                return redirect(
+                    url_for("datasets_ui.deposit_edit", pid_value=record_data["id"])
+                )
             except PIDAlreadyExists:
                 flash(_("This dataset is already registered."), "info")
                 return redirect(

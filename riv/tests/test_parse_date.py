@@ -1,6 +1,5 @@
 from riv.resolvers.base import PUBLICATION_DATE_PLACEHOLDER, get_validation_failed_on_date_format_message, \
-    get_invalid_publication_date_message
-from riv.resolvers.handle import parse_date
+    get_invalid_publication_date_message, parse_date
 
 
 def test_date_parse():

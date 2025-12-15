@@ -16,13 +16,7 @@ from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
 
 
 def generate_id(record: dict[str, Any] = None) -> str:
-    url = record["metadata"]["persistent_url"]
-    for prefix, val in current_app.config["PERSISTENT_IDENTIFIER_PATTERNS"].items():
-        m = re.match(prefix, url)
-        if m:
-            return f"{val}/{m.group(1)}"
-    raise ValueError(f"Could not generate pid from url: {url}")
-
+    return record["id"]
 
 class ExternalPIDProvider(DraftRecordIdProviderV2):
     """RIV identifier provider.
