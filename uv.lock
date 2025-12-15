@@ -386,11 +386,11 @@ wheels = [
 
 [[package]]
 name = "cachetools"
-version = "6.2.3"
+version = "6.2.4"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/b5/44/5dc354b9f2df614673c2a542a630ef95d578b4a8673a1046d1137a7e2453/cachetools-6.2.3.tar.gz", hash = "sha256:64e0a4ddf275041dd01f5b873efa87c91ea49022b844b8c5d1ad3407c0f42f1f", size = 31641, upload-time = "2025-12-12T21:18:06.011Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bc/1d/ede8680603f6016887c062a2cf4fc8fdba905866a3ab8831aa8aa651320c/cachetools-6.2.4.tar.gz", hash = "sha256:82c5c05585e70b6ba2d3ae09ea60b79548872185d2f24ae1f2709d37299fd607", size = 31731, upload-time = "2025-12-15T18:24:53.744Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ab/de/aa4cfc69feb5b3d604310214369979bb222ed0df0e2575a1b6e7af1a5579/cachetools-6.2.3-py3-none-any.whl", hash = "sha256:3fde34f7033979efb1e79b07ae529c2c40808bdd23b0b731405a48439254fba5", size = 11554, upload-time = "2025-12-12T21:18:04.556Z" },
+    { url = "https://files.pythonhosted.org/packages/2c/fc/1d7b80d0eb7b714984ce40efc78859c022cd930e402f599d8ca9e39c78a4/cachetools-6.2.4-py3-none-any.whl", hash = "sha256:69a7a52634fed8b8bf6e24a050fb60bff1c9bd8f6d24572b99c32d4e71e62a51", size = 11551, upload-time = "2025-12-15T18:24:52.332Z" },
 ]
 
 [[package]]
@@ -3547,6 +3547,7 @@ dependencies = [
     { name = "oarepo-vocabularies" },
     { name = "python-dotenv" },
     { name = "rapidfuzz" },
+    { name = "traceback-with-variables" },
 ]
 
 [package.metadata]
@@ -3567,6 +3568,7 @@ requires-dist = [
     { name = "oarepo-vocabularies", specifier = ">=3.0.0.dev6,<4.0.0" },
     { name = "python-dotenv" },
     { name = "rapidfuzz" },
+    { name = "traceback-with-variables" },
 ]
 
 [[package]]
@@ -3979,7 +3981,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-oai-pmh-harvester"
-version = "6.0.0.dev2"
+version = "6.0.0.dev3"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "httpx" },
@@ -3988,9 +3990,9 @@ dependencies = [
     { name = "json5" },
     { name = "rich" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3c/8d/e7a060256db9a57e3b263cc29275915099a48683d1230a34650f216bc7bd/oarepo_oai_pmh_harvester-6.0.0.dev2.tar.gz", hash = "sha256:cccc8ccd86d20ff5caffb8559bba0dad49cc5e51455ee2690067e9c7caad2778", size = 36816, upload-time = "2025-12-11T11:34:16.118Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c2/f5/b20a7d757416012e028570d97ff6c0a7dca9e36b4c915c7658db1f6f503b/oarepo_oai_pmh_harvester-6.0.0.dev3.tar.gz", hash = "sha256:0426996d52fcff752c071b7ebeb77fcfa93aebfe68e8cf4ab97a1db028d40d70", size = 36830, upload-time = "2025-12-15T19:24:41.397Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/23/94/fec60552bf7a2a8bfd9d7255c3715af19772f988cf0b501114f42102c2ec/oarepo_oai_pmh_harvester-6.0.0.dev2-py3-none-any.whl", hash = "sha256:6517565c787e3d4f15566e3d858dd3ee53e63fdfde24254ca960b116b63bef68", size = 60619, upload-time = "2025-12-11T11:34:14.922Z" },
+    { url = "https://files.pythonhosted.org/packages/90/88/f0fbc68e04fd62dbef8e832396a4cf8f672fb34a63c613bfa7fadfed4d58/oarepo_oai_pmh_harvester-6.0.0.dev3-py3-none-any.whl", hash = "sha256:e1249a778350de30f9b2ec7ae5f4a3f3c225d417e011deee9691748aece6bce0", size = 60621, upload-time = "2025-12-15T19:24:40.399Z" },
 ]
 
 [[package]]
@@ -5726,6 +5728,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz", hash = "sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2", size = 169737, upload-time = "2024-11-24T20:12:22.481Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d0/30/dc54f88dd4a2b5dc8a0279bdd7270e735851848b762aeb1c1184ed1f6b14/tqdm-4.67.1-py3-none-any.whl", hash = "sha256:26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2", size = 78540, upload-time = "2024-11-24T20:12:19.698Z" },
+]
+
+[[package]]
+name = "traceback-with-variables"
+version = "2.2.1"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/34/b1/25ee53be3125145cef9385f159a44547b4a01e1b2d2828055ca69b7e18aa/traceback_with_variables-2.2.1.tar.gz", hash = "sha256:ea7c695f9b401762f68f75df0439d661112b8dbd58bcd6910e402cff925ad7e0", size = 26145, upload-time = "2025-10-24T13:39:35.141Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4a/06/fda9970d55fbbb7cd5cc856da2a9c693107e20f84386596da1f25b90a8cf/traceback_with_variables-2.2.1-py3-none-any.whl", hash = "sha256:ab6d75c72d26d61217962d11db44c98c62dccd2fedb2d4fb0ae4f9faf9db23c2", size = 22388, upload-time = "2025-10-24T13:29:32.712Z" },
 ]
 
 [[package]]

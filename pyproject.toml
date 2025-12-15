@@ -21,6 +21,7 @@ dependencies = [
     "rapidfuzz",
     "oarepo-vocabularies>=3.0.0dev6,<4.0.0",
     "oarepo-oai-pmh-harvester>=6.0.0.dev2,<7.0.0",
+    "traceback-with-variables", # for better error logging
 ]
 requires-python = ">=3.13,<3.15"
 
@@ -53,6 +54,12 @@ riv = "riv.cli:riv"
 
 [project.entry-points."invenio_celery.tasks"]
 riv = "riv.tasks"
+
+[project.entry-points."invenio_jobs.jobs"]
+invenio_command = "riv.tasks:InvenioTaskJob"
+create_missing_indices = "riv.tasks:CreateMissingIndicesJob"
+rebuild_all_indices = "riv.tasks:RebuildAllIndicesJob"
+
 
 [tool.uv.build-backend]
 module-root = ""
