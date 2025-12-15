@@ -166,6 +166,18 @@ wheels = [
 ]
 
 [[package]]
+name = "anyio"
+version = "4.12.0"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+dependencies = [
+    { name = "idna" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/16/ce/8a777047513153587e5434fd752e89334ac33e379aa3497db860eeb60377/anyio-4.12.0.tar.gz", hash = "sha256:73c693b567b0c55130c104d0b43a9baf3aa6a31fc6110116509f27bf75e21ec0", size = 228266, upload-time = "2025-11-28T23:37:38.911Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7f/9c/36c5c37947ebfb8c7f22e0eb6e4d188ee2d53aa3880f3f2744fb894f0cb1/anyio-4.12.0-py3-none-any.whl", hash = "sha256:dad2376a628f98eeca4881fc56cd06affd18f659b17a747d3ff0307ced94b1bb", size = 113362, upload-time = "2025-11-28T23:36:57.897Z" },
+]
+
+[[package]]
 name = "appdirs"
 version = "1.4.4"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
@@ -1607,11 +1619,39 @@ wheels = [
 ]
 
 [[package]]
+name = "httpcore"
+version = "1.0.9"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+dependencies = [
+    { name = "certifi" },
+    { name = "h11" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/06/94/82699a10bca87a5556c9c59b5963f2d039dbd239f25bc2a63907a05a14cb/httpcore-1.0.9.tar.gz", hash = "sha256:6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8", size = 85484, upload-time = "2025-04-24T22:06:22.219Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7e/f5/f66802a942d491edb555dd61e3a9961140fd64c90bce1eafd741609d334d/httpcore-1.0.9-py3-none-any.whl", hash = "sha256:2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55", size = 78784, upload-time = "2025-04-24T22:06:20.566Z" },
+]
+
+[[package]]
 name = "httplink"
 version = "0.2.0"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/34/3f/d43dbecbec06fe5654b85b2f5f562c877586dfcde587dd4954d9eeb07f76/httplink-0.2.0-py3-none-any.whl", hash = "sha256:f4688080f92306dbb3faa71ea8232e1e8cb4a4a7f543bc9663b05dca8a2820c1", size = 5290, upload-time = "2020-12-13T08:08:06.732Z" },
+]
+
+[[package]]
+name = "httpx"
+version = "0.28.1"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "certifi" },
+    { name = "httpcore" },
+    { name = "idna" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b1/df/48c586a5fe32a0f01324ee087459e112ebb7224f646c0b5023f5e79e9956/httpx-0.28.1.tar.gz", hash = "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc", size = 141406, upload-time = "2024-12-06T15:37:23.222Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad", size = 73517, upload-time = "2024-12-06T15:37:21.509Z" },
 ]
 
 [[package]]
@@ -2180,6 +2220,19 @@ dependencies = [
 sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/5422a4b10944b454d962ea3d1d395880a4c9345c6e65dd178bbfb038d6033259/invenio_notifications-1.2.2.399797.tar.gz", hash = "sha256:5422a4b10944b454d962ea3d1d395880a4c9345c6e65dd178bbfb038d6033259" }
 wheels = [
     { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/d07bec05a0bc33a9c3fd7dda34de828f8e7df26589cc7a3245974f3c1156651b/invenio_notifications-1.2.2.399797-py2.py3-none-any.whl", hash = "sha256:d07bec05a0bc33a9c3fd7dda34de828f8e7df26589cc7a3245974f3c1156651b" },
+]
+
+[[package]]
+name = "invenio-oaipmh-scythe"
+version = "0.13.0"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+dependencies = [
+    { name = "httpx" },
+    { name = "lxml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/35/e3/1b433c9fcdd699ffda4ce01d469b1322b9effdb882864e619ce2d486325b/invenio_oaipmh_scythe-0.13.0.tar.gz", hash = "sha256:5944eb6f7d23e4011ae9fa80f0050b39e9b9596e96e9d47b07c0e8205a6804a9", size = 29092, upload-time = "2024-07-15T14:58:15.581Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bc/72/d1e66dad1e94a8d97de5393ede094f00c14201e078b083744889f65a7c0b/invenio_oaipmh_scythe-0.13.0-py3-none-any.whl", hash = "sha256:271e8221be63aee083e89d0bdc22abffa7212cf372881b016a58b457ee21f4e3", size = 21792, upload-time = "2024-07-15T14:58:13.3Z" },
 ]
 
 [[package]]
@@ -3485,6 +3538,7 @@ dependencies = [
     { name = "oarepo-dashboard" },
     { name = "oarepo-glitchtip" },
     { name = "oarepo-model" },
+    { name = "oarepo-oai-pmh-harvester" },
     { name = "oarepo-oidc-einfra" },
     { name = "oarepo-rdm" },
     { name = "oarepo-runtime" },
@@ -3504,6 +3558,7 @@ requires-dist = [
     { name = "oarepo-dashboard", specifier = ">=2.0.0.dev1,<3.0.0" },
     { name = "oarepo-glitchtip", specifier = "==1.*" },
     { name = "oarepo-model", specifier = ">=0.1.0.dev0,<1.0.0" },
+    { name = "oarepo-oai-pmh-harvester", specifier = ">=6.0.0.dev2,<7.0.0" },
     { name = "oarepo-oidc-einfra", specifier = ">=2.0.0.dev0,<3.0.0" },
     { name = "oarepo-rdm", specifier = ">=1.0.0.dev0,<2.0.0" },
     { name = "oarepo-runtime", specifier = ">=2.0.0.dev0,<3.0.0" },
@@ -3920,6 +3975,22 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ec/11/2c151ac8084f0b64658ef1f50a570088d41f14d8f4b58a7adc5fe89d9e45/oarepo_model-0.1.0.dev41.tar.gz", hash = "sha256:525921b706259c26edad6129ac254ef13f27c5e530d81942a83bae9f7a9fbf92", size = 362962, upload-time = "2025-12-12T06:38:15.33Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/cf/72/5ec1806a579945bbd7b125dc04eedb041a9643234cb562e7a67eb189df6d/oarepo_model-0.1.0.dev41-py3-none-any.whl", hash = "sha256:b6268f8c7cd18c090a91fb7afa55d8986aaab3ca55f2475f2cdbc49bbebe8fd1", size = 242747, upload-time = "2025-12-12T06:38:14.038Z" },
+]
+
+[[package]]
+name = "oarepo-oai-pmh-harvester"
+version = "6.0.0.dev2"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+dependencies = [
+    { name = "httpx" },
+    { name = "invenio-jobs" },
+    { name = "invenio-oaipmh-scythe" },
+    { name = "json5" },
+    { name = "rich" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3c/8d/e7a060256db9a57e3b263cc29275915099a48683d1230a34650f216bc7bd/oarepo_oai_pmh_harvester-6.0.0.dev2.tar.gz", hash = "sha256:cccc8ccd86d20ff5caffb8559bba0dad49cc5e51455ee2690067e9c7caad2778", size = 36816, upload-time = "2025-12-11T11:34:16.118Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/23/94/fec60552bf7a2a8bfd9d7255c3715af19772f988cf0b501114f42102c2ec/oarepo_oai_pmh_harvester-6.0.0.dev2-py3-none-any.whl", hash = "sha256:6517565c787e3d4f15566e3d858dd3ee53e63fdfde24254ca960b116b63bef68", size = 60619, upload-time = "2025-12-11T11:34:14.922Z" },
 ]
 
 [[package]]
