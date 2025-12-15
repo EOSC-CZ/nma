@@ -2,12 +2,18 @@ import logging
 import traceback
 from collections.abc import Mapping
 from functools import wraps
-from flask import abort, flash, redirect, render_template, url_for, g, Blueprint
-from markupsafe import Markup, escape
+
+from flask import Blueprint, abort, flash, g, redirect, render_template, url_for
 from flask_login import login_required
 from flask_menu import current_menu
+from invenio_app_rdm.records_ui.views.decorators import no_cache_response
 from invenio_i18n import lazy_gettext as _
 from invenio_pidstore.errors import PIDAlreadyExists
+from invenio_records_resources.services.errors import (
+    PermissionDeniedError,
+)
+from markupsafe import Markup, escape
+from oarepo_runtime.typing import record_from_result
 from oarepo_ui.overrides import UIComponent
 from oarepo_ui.overrides.components import UIComponentImportMode
 from oarepo_ui.proxies import current_oarepo_ui
@@ -22,27 +28,20 @@ from oarepo_ui.resources.components import (
     RecordRestrictionComponent,
 )
 from oarepo_ui.resources.components.custom_fields import CustomFieldsComponent
-from oarepo_ui.resources.decorators import allow_method
+from oarepo_ui.resources.decorators import (
+    allow_method,
+    pass_record_latest,
+    pass_route_args,
+    secret_link_or_login_required,
+)
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
-from oarepo_runtime.typing import record_from_result
-
 from werkzeug.exceptions import HTTPException
 
 from riv.records.create_record import create_record
 from riv.resolvers.base import resolve_metadata
 from riv.views import RegisterForm
-
-from oarepo_ui.resources.decorators import (
-    pass_route_args,
-    secret_link_or_login_required,
-    pass_record_latest,
-)
-from invenio_app_rdm.records_ui.views.decorators import no_cache_response
-from invenio_records_resources.services.errors import (
-    PermissionDeniedError,
-)
 
 logger = logging.getLogger("DatasetsUI")
 
@@ -144,7 +143,7 @@ class DatasetsUIResource(RecordsUIResource):
             try:
                 metadata, problems = resolve_metadata(pid)
                 record_data = {"metadata": metadata}
-                create_record(record_data)
+                secret_link = create_record(record_data, problems)
                 if not problems:
                     flash(f"Successfully registered dataset with PID: {pid}", "success")
                     return redirect(
@@ -165,9 +164,7 @@ class DatasetsUIResource(RecordsUIResource):
                         f'<ul class="list">{issues_list}</ul>'
                     )
                     flash(warning_message, "warning")
-                    return redirect(
-                        url_for("datasets_ui.deposit_edit", pid_value=record_data["id"])
-                    )
+                    return redirect(secret_link)
             except PIDAlreadyExists:
                 flash(_("This dataset is already registered."), "info")
                 return redirect(
