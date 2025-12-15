@@ -1,0 +1,25 @@
+{% set record_access = record_ui["access"]["record"] %}
+<span role="note"
+        class="ui label {% if record_access == "public" %}positive{% else %}negative{% endif %} horizontal small access-status-{{ record_access }} mb-5"
+        data-inverted=""
+        data-testid="record-detail-header-info-access-status"
+        aria-label="{{ _('Access') }}"
+        >
+        <i class="icon {% if record_access == "public" %}un{% endif %}lock" aria-hidden="true"></i>
+    <span
+        data-tooltip="{{ _("This record is publicly accessible. Anyone can view and download the content.") if record_access == 'public' else _("This record is not publicly accessible. Viewing or downloading the content requires meeting specific access conditions.") }}"
+        aria-label="{{ record_ui["access"]["record"] }}">
+    {{ _("Open") if record_access == "public" else _("Restricted") }}
+    </span>
+    <span class="detail">
+    {% if record_ui["ui"]["access_status"]["icon"] %}
+        <i class="icon {{ record_ui["ui"]["access_status"]["icon"] }}"
+            aria-hidden="true"></i>
+    {% endif %}
+    <span
+        data-tooltip="{{ record_ui["ui"]["access_status"]["description_l10n"] }}"
+        aria-label="{{ record_ui["ui"]["access_status"]["description_l10n"] }}">
+        {{ record_ui["ui"]["access_status"]["title_l10n"] }}
+    </span>
+    </span>
+</span>

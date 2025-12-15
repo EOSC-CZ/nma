@@ -9,7 +9,7 @@
 @livelyGreen: #008691;
 @pink: #9F0D54;
 @primaryColor: @pink;
-@secondaryColor: @pink;
+@secondaryColor: @livelyGreen;
 @darkGrey: #707075;
 @lightGrey: #e4e4e3;
 @black: #040305;
@@ -30,8 +30,8 @@
       Site Colors
 --------------------*/
 
-@green: #00b691;
-@red: darken(@pink, 20);
+@green: @livelyGreen;
+@red: lighten(@pink, 5);
 @signupColor: @green;
 
 @accessRightOpen: @green;

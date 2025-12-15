@@ -57,49 +57,42 @@ Note: Context variables available:
 - files/media_files: File entries
 - is_preview/is_draft: Record state
 #}
-
 {%- block record_header_info %}
-<section id="record-info"
-        aria-label="{{ _('Publication date') }}">
-  <div class="ui grid middle aligned">
-    <div class="two column row">
-      <div class="left floated left aligned column">
-        <span class="ui" title="{{ _('Publication date') }}">
-          <span class="text-muted">{{ _('Published') }}</span> {{ record_ui["ui"]["created_date_l10n_long"] }}
-        </span>
-      </div>
-      <div class="right floated right aligned column">
-        {% if record_ui["ui"]["resource_type"] %}
-          <span role="note"
-                class="ui label horizontal small neutral mb-5"
-                aria-label="{{ _('Resource type') }}"
-          >
-            {{ record_ui["ui"]["resource_type"]["title_l10n"] }}
-          </span>
-        {% endif %}
-
-        <span role="note"
-              class="ui label horizontal small access-status {{ record_ui["ui"]["access_status"]["id"] }} mb-5"
-              data-tooltip="{{ record_ui["ui"]["access_status"]["description_l10n"] }}"
-              data-inverted=""
-              aria-label="{{ _('Access status') }}"
-        >
-          {% if record_ui["ui"]["access_status"]["icon"] %}
-            <i class="icon {{ record_ui["ui"]["access_status"]["icon"] }}"
-                aria-hidden="true"></i>
-          {% endif %}
-          <span
-            aria-label="{{ record_ui["ui"]["access_status"]["description_l10n"] }}">
-            {{ record_ui["ui"]["access_status"]["title_l10n"] }}
-          </span>
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="ui divider hidden"></div>
 {%- endblock record_header_info %}
 
+{%- block record_title -%}
+  <div class="ui two column rel-mt-1 rel-pl-1 rel-pr-1 grid">
+    <div class="ui green column">
+      {% include "datasets/record_detail/permalink.html" %}
+    </div>
+    <div class="ui green right aligned column">
+      {% include "datasets/record_detail/resource_type.html" %}
+      {% include "datasets/record_detail/access_status.html" %}
+    </div>
+  </div>
+
+  <div class="ui secondary basic padded rel-pl-2 rel-pt-2 rel-pb-1 rel-pr-2 record-title segment">
+    {{ super() }}
+</div>
+{%- endblock record_title -%}
+
 {%- block record_footer %}
-{{ record_ui }}
+
+{# TODO: currently just a mockup of original source check #}
+{% set original_source_status = {"status": "verified", "timestamp": "2025-12-11 14:30 UTC" } %}
+<div class="ui basic label">
+  <span
+      data-testid="record-detail-header-info-original-source-check"
+      class="ui image mr-0"
+      aria-label="{{ _('Original source check status') }}"
+    >
+      <i class="ui medium icons">
+          <i class="ui big positive certificate icon"></i>
+          <i class="ui check pr-5 white inverted icon"></i>
+      </i>
+  </span>
+    
+    {{ _("Original source confirmed. The dataset is still available at its authoritative repository.") }}
+    <div class="detail text-muted">{{ _("Last checked: ") }}</span>{{ original_source_status.timestamp }}</div>
+</div>
 {%- endblock record_footer %}

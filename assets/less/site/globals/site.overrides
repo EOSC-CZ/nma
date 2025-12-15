@@ -154,6 +154,23 @@ a.no-text-decoration:hover {
   text-decoration: none;
 }
 
+.permanent-link-header {
+  .copy-button {
+    color: @white !important;
+    margin-left: 0.5rem !important;
+    font-size: 1.25rem;
+    display: inline-block;
+  }
+
+  .ui.label.positive.horizontal {
+    background-color: darken(@green, 5%) !important;
+  }
+
+  a.permanent-link {
+    color: @white;
+  }
+}
+
 a.remove-default-style:hover {
   color: @mutedTextColor;
 }
