@@ -14,8 +14,10 @@ from .utils import check_url_availability
 def check_availability_task():
     # Calculate expired threshold
     expiry_threshold = (
-        datetime.now(timezone.utc) - timedelta(days=LAST_CHECKED_THRESHOLD_DAYS)
-    ).isoformat().replace("+00:00", "Z")
+        (datetime.now(timezone.utc) - timedelta(days=LAST_CHECKED_THRESHOLD_DAYS))
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
 
     # Build Q filter for expired or missing last_checked
     extra_filter = Q(
@@ -38,6 +40,12 @@ def check_availability_task():
 
     # Iterate over results
     for hit in results.to_dict()["hits"]["hits"]:
+        # re-read from the database - the search result may have reduced fields
+        hit = datasets_service.read(
+            identity=system_identity,
+            id_=hit["id"],
+        ).to_dict()
+
         record_id = hit["id"]
         metadata = hit["metadata"]
 

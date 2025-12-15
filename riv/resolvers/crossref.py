@@ -8,7 +8,19 @@
 #
 import re
 
+from flask import current_app
+from idutils.normalizers import normalize_doi
+from idutils.validators import is_doi
+from invenio_access.permissions import system_identity
+from invenio_i18n import lazy_gettext as _
+from invenio_vocabularies.proxies import current_service as vocabulary_service
+from marshmallow import ValidationError
+from marshmallow_utils.fields import EDTFDateString
+
+from .base import ResolverProblem, ResolverProblemLevel, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER
+from .utils import handle_errors
 from ..resolvers import MetadataResolver
+
 """Crossref resolver to retrieve RDM-like metadata based on PID.
 
 Article with announcement of changes to REST API rate limits
@@ -25,15 +37,13 @@ But currently returns "Resource not found."
 example: https://api.crossref.org/works/doi/10.64000/wadve-3tj60&mailto=info@eosc.cz
 """
 
-
-HOST_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org(?:\/.*)?$', re.IGNORECASE)
-DOI_REGEX = re.compile(r'^(?:https?:\/\/)?doi\.org\/(.+)$', re.IGNORECASE)
-CROSSREF_URL="https://api.crossref.org/works/doi"
-
 class CrossrefResolver(MetadataResolver):
     """Crossref resolver."""
 
     name = "Crossref"
+
+    def can_resolve(self, persistent_url: str) -> bool:
+        return is_doi(persistent_url)
 
     def resolve(self, persistent_url: str) -> (dict | None, str):
         """
@@ -56,46 +66,63 @@ class CrossrefResolver(MetadataResolver):
         Raises:
             None
         """
-        # public pool
-        if not HOST_REGEX.match(persistent_url.strip()):
-            return None, "Incorrect URL for crossref identifier."
+        crossref_url = current_app.config["CROSSREF_URL"]
+        doi = normalize_doi(persistent_url)
 
-        match = DOI_REGEX.match(persistent_url.strip())
-        if not match:
-            return None, "The URL is missing information about the DOI."
-
-        doi = match.group(1)
-        url = f"{CROSSREF_URL}/{doi}"
+        url = f"{crossref_url}/{doi}"
         response = self.session.get(
             url=url,
         )
-
-        # not found
-        if response.status_code == 404:
-            return None, "Could not retrieve data, code 404."
-
-        # other errors
         if response.status_code != 200:
-            return None, f"Crossref API returned {response.status_code}"
+            if response.status_code == 404:
+                return None, [ResolverProblem(resolver=self.name, message=_(
+                    "The identifier looks like a DOI, but it was not found in the CrossRef registry."),
+                                              level=ResolverProblemLevel.ERROR)]
+            else:
+                return None, [ResolverProblem(resolver=self.name, message=_(
+                    f"Unexpected error while resolving the DOI. CrossRef returned: {response.content}. "),
+                                              level=ResolverProblemLevel.ERROR)]
 
         metadata = {}
-
-        # successful request
+        problems = []
         data = response.json()
         crossref_metadata = data.get("message", {})
-        metadata["title"] = self.resolve_title(crossref_metadata.get("title", []))
-        metadata["creators"] = self.resolve_authors(crossref_metadata.get("author", []))
-        metadata["publication_date"] = crossref_metadata.get("deposited", {}).get("date-time")
-        metadata["resource_type"] = { "id": "other"}
 
-        return metadata, "OK"
+        crossref_titles = crossref_metadata.get("title", [])
+        metadata["title"] = self.resolve_title(titles=crossref_titles, problems=problems)
 
-    def resolve_title(self, titles):
+        crossref_authors = crossref_metadata.get("author", [])
+        metadata["creators"] = self.resolve_crossref_authors(authors=crossref_authors, problems=problems)
+
+        publication_date = crossref_metadata.get("deposited", {}).get("date-time")
+        metadata["publication_date"] = self.resolve_crossref_publication_date(publication_date=publication_date,
+                                                                              problems=problems)
+        metadata["resource_type"] = self.resolve_crossref_resource_type(resource_type=crossref_metadata,
+                                                                        problems=problems)
+
+        return metadata, problems
+
+    @handle_errors(error_placeholder="Unknown title", alert_user=True)
+    def resolve_title(self, titles, problems):
         for title in titles:
+            if len(title) < 3:
+                problems.append(ResolverProblem(resolver=self.name, message=_(
+                    "The title is too short. A minimum of 3 characters is required to meet repository requirements."),
+                                                level=ResolverProblemLevel.WARNING))
+                return f'Incompatible title: {title} (please provide a corrected title)'
             return title
-        return ''
+        problems.append(
+            ResolverProblem(resolver=self.name, message=_("Missing title."),
+                            level=ResolverProblemLevel.WARNING))
+        return 'Missing title'  # should never happen
 
-    def resolve_authors(self, authors):
+    @handle_errors(error_placeholder=CREATORS_PLACEHOLDER, alert_user=True)
+    def resolve_crossref_authors(self, authors, problems):
+        if len(authors) == 0:
+            problems.append(
+                ResolverProblem(resolver=self.name, message=_("Missing creators."),
+                                level=ResolverProblemLevel.WARNING))
+            return CREATORS_PLACEHOLDER
         creator_list = []
         for crossref_author in authors:
             creator_obj = {
@@ -114,3 +141,37 @@ class CrossrefResolver(MetadataResolver):
                 }
             creator_list.append({"person_or_org": creator_obj})
         return creator_list
+
+    @handle_errors(PUBLICATION_DATE_PLACEHOLDER)
+    def resolve_crossref_publication_date(self, *, publication_date, problems):
+        publication_date = str(publication_date)
+        edtf_string = EDTFDateString()
+        try:
+            edtf_string.deserialize(publication_date)
+        except ValidationError as e:
+            problems.append(
+                ResolverProblem(resolver=self.name, message=_(f"Invalid publication date format: {publication_date}."),
+                                level=ResolverProblemLevel.WARNING, original_exception=e))
+            return PUBLICATION_DATE_PLACEHOLDER
+        return publication_date
+
+    @handle_errors('other')
+    def resolve_crossref_resource_type(self, *, resource_type, problems):
+        vocabulary_id = 'resourceTypeGeneral'
+        _type = resource_type.get("type", "other").lower()
+        try:
+            vocabulary_service.read(
+                system_identity, (vocabulary_id, _type)
+            )
+            return {"id": _type}
+        except Exception as e:
+            problems.append(
+                ResolverProblem(resolver=self.name, message=_(
+                    f"The provided resource type {_type} could not be parsed. The default value 'dataset' has been applied."),
+                                level=ResolverProblemLevel.WARNING, original_exception=e))
+            current_app.logger.exception(
+                "Record '%s' was not found in the '%s' vocabulary.",
+                _type,
+                vocabulary_id
+            )
+            return {"id": "other"}

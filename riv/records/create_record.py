@@ -6,12 +6,14 @@ from invenio_access.permissions import system_identity
 from invenio_accounts.models import User
 from invenio_base import invenio_url_for
 from invenio_notifications.models import Notification, Recipient
+from invenio_pidstore.errors import PIDAlreadyExists
 from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.resources.errors import PermissionDeniedError
 
 from ..config import RIV_CURATORS_GROUP_ID, SECRET_LINK_EXPIRATION_DAYS
 from ..errors import RIVRegistrationException
+from ..resolvers.base import ResolverProblem, ResolverProblemLevel
 from .api import generate_id
 
 example_data = {
@@ -56,7 +58,7 @@ grant_data = {
 }
 
 
-def create_record(record_data):
+def create_record(record_data, problems):
     record_data["id"] = generate_id(record_data)
     if current_user.is_anonymous:
         raise PermissionDeniedError("Please login first.")
@@ -83,7 +85,10 @@ def create_record(record_data):
             )
 
         datasets_service.publish(identity=system_identity, id_=draft_record["id"])
+
     except RIVRegistrationException:
+        raise
+    except PIDAlreadyExists:
         raise
     except Exception as e:
         raise RIVRegistrationException(
@@ -113,24 +118,44 @@ def create_record(record_data):
     values = {"pid_value": draft_record["id"], "token": token}
     secret_link = invenio_url_for("datasets_ui.deposit_edit", **values)
 
-    # send email to the user with a secret link
-    notification = Notification(
-        type="data-riv-record-created",
-        context={
-            "record_data": record_data,
-            "secret_link": secret_link,
-            "expiration_time": str(SECRET_LINK_EXPIRATION_DAYS),
-        },
-    )
-    recipient = Recipient(data={"preferences": user.preferences, "email": user.email})
+    try:
+        # send email to the user with a secret link
+        notification = Notification(
+            type="data-riv-record-created",
+            context={
+                "record_data": record_data,
+                "secret_link": secret_link,
+                "expiration_time": str(SECRET_LINK_EXPIRATION_DAYS),
+            },
+        )
+        recipient = Recipient(
+            data={"preferences": user.preferences, "email": user.email}
+        )
 
-    email_backend_cls = notification_backends.get("email")
-    email_backend = email_backend_cls()
-    email_backend.send(notification, recipient)
+        email_backend_cls = notification_backends.get("email")
+        email_backend = email_backend_cls()
+        email_backend.send(notification, recipient)
+    except Exception as ex:
+        current_app.logger.exception(
+            f"Error sending notification email for record {draft_record['id']}"
+        )
+        problems.append(
+            ResolverProblem(
+                "notification",
+                f"Error sending notification email to {user.email}.",
+                level=ResolverProblemLevel.WARNING,
+                original_exception=ex,
+            )
+        )
 
-    # Grant the curators group manage permission (as a support). For example to be able to create a new secret link if needed.
-    _ = access_service.bulk_create_grants(
-        identity=system_identity, id_=draft_record["id"], data=grant_data
-    )
+    try:
+        # Grant the curators group manage permission (as a support). For example to be able to create a new secret link if needed.
+        _ = access_service.bulk_create_grants(
+            identity=system_identity, id_=draft_record["id"], data=grant_data
+        )
+    except Exception:
+        current_app.logger.exception(
+            f"Error granting manage permission to curators group for record {draft_record['id']}"
+        )
 
     return secret_link

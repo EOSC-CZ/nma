@@ -1,0 +1,26 @@
+{#def
+    theme,
+    forms_config,
+    searchbar_config,
+    record,
+    extra_context,
+    ui_links,
+    permissions,
+    community
+#}
+
+{% extends "oarepo_ui/deposit.html" %}
+
+
+{%- block page_title %}
+    {{ _('Metadata Record') }}
+{%- endblock %}
+
+{%- block page_subtitle %}
+    {{ _('Modify record metadata.') }}
+{%- endblock %}
+
+{%- block javascript %}
+    {% include "oarepo_ui/javascript.html" %}
+    {{ webpack['datasets_deposit_form.js'] }}
+{%- endblock %}

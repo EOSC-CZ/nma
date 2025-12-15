@@ -1,0 +1,887 @@
+- acronym: AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 053avzc18
+  location_name: Prague
+  name: Akademie věd České republiky
+  status: active
+  title:
+    cs: Akademie věd České republiky
+    en: Czech Academy of Sciences
+  types:
+  - funder
+  - government
+- acronym: ASÚ AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 03tp8z347
+  location_name: Ondřejov
+  name: Astronomický ústav AV ČR
+  status: active
+  title:
+    cs: Astronomický ústav AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Astronomical Institute
+  types:
+  - facility
+- acronym: BFÚ AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 00angvn73
+  location_name: Brno
+  name: Biofyzikální ústav AV ČR
+  status: active
+  title:
+    cs: Biofyzikální ústav AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Institute of Biophysics
+  types:
+  - facility
+  - funder
+- acronym: BC AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 05pq4yn02
+  location_name: České Budějovice
+  name: Biologické centrum AV ČR
+  status: active
+  title:
+    cs: Biologické centrum AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Biology Centre
+  types:
+  - facility
+  - funder
+- country: US
+  country_name: United States
+  id: 04r739x86
+  location_name: Billerica
+  name: Bruker Corporation
+  status: active
+  types:
+  - company
+  - funder
+- acronym: 'CEITEC '
+  country: CZ
+  country_name: Czechia
+  id: 01p7k1986
+  location_name: Brno
+  name: CEITEC
+  status: active
+  title:
+    en: Central European Institute of Technology
+  types:
+  - education
+  - funder
+- acronym: CEITEC MU
+  country: CZ
+  country_name: Czechia
+  id: 009nz6031
+  location_name: Brno
+  name: CEITEC MU
+  status: active
+  title:
+    cs: Středoevropský technologický institut – Masarykova univerzita
+    en: Central European Institute of Technology – Masaryk University
+  types:
+  - education
+- country: CZ
+  country_name: Czechia
+  id: 00hzjtg80
+  location_name: Dobřany
+  name: COMTES FHT
+  status: active
+  title:
+    en: COMTES FHT a.s.
+  types:
+  - company
+- acronym: DFG
+  country: DE
+  country_name: Germany
+  id: 018mejw64
+  location_name: Bonn
+  name: Deutsche Forschungsgemeinschaft
+  status: active
+  title:
+    de: Deutsche Forschungsgemeinschaft
+    en: German Research Foundation
+  types:
+  - funder
+  - nonprofit
+- acronym: DTU
+  country: DK
+  country_name: Denmark
+  id: 04qtj9h94
+  location_name: Kongens Lyngby
+  name: Dänemarks Technische Universität
+  status: active
+  title:
+    da: Danmarks Tekniske Universitet
+    de: Dänemarks Technische Universität
+    en: Technical University of Denmark
+  types:
+  - education
+  - funder
+- acronym: EEA
+  country: DK
+  country_name: Denmark
+  id: 02k4b9v70
+  location_name: Copenhagen
+  name: Evropská agentura pro životní prostředí
+  status: active
+  title:
+    da: Det Europæiske Miljøagentur
+    de: Europäische Umweltagentur
+    en: European Environment Agency
+  types:
+  - funder
+  - government
+- acronym: EC
+  country: BE
+  country_name: Belgium
+  id: 00k4n6c32
+  location_name: Brussels
+  name: Evropská komise
+  status: active
+  title:
+    de: Europäische Kommission
+    en: European Commission
+    fr: Commission européenne
+    nl: Europese Commissie
+  types:
+  - funder
+  - government
+- acronym: ELTE
+  country: HU
+  country_name: Hungary
+  id: 01jsq2704
+  location_name: Budapest
+  name: Eötvös Loránd Tudományegyetem
+  status: active
+  title:
+    en: Eötvös Loránd University
+    hu: Eötvös Loránd Tudományegyetem
+  types:
+  - education
+  - funder
+- country: CZ
+  country_name: Czechia
+  id: 00qq1fp34
+  location_name: Brno
+  name: Fakultní nemocnice Brno
+  status: active
+  title:
+    cs: Fakultní Nemocnice Brno
+    en: University Hospital Brno
+  types:
+  - healthcare
+- acronym: FFWF
+  country: AT
+  country_name: Austria
+  id: 013tf3c58
+  location_name: Vienna
+  name: Fonds zur Förderung der wissenschaftlichen Forschung
+  status: active
+  title:
+    de: Fonds zur Förderung der wissenschaftlichen Forschung
+    en: FWF Austrian Science Fund
+  types:
+  - funder
+  - nonprofit
+- country: DE
+  country_name: Germany
+  id: 046ak2485
+  location_name: Berlin
+  name: Freir Universität Berlin
+  status: active
+  title:
+    de: Freie Universität Berlin
+  types:
+  - education
+  - funder
+- acronym: FZU AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 02yhj4v17
+  location_name: Prague
+  name: Fyzikální ústav AV ČR
+  status: active
+  title:
+    cs: Fyzikální ústav AV ČR, veřejná výzkumná instituce
+    en: Institute of Physics of the Academy of Sciences of the Czech Republic
+  types:
+  - facility
+- acronym: GAČR
+  country: CZ
+  country_name: Czechia
+  id: 01pv73b02
+  location_name: Prague
+  name: Grantová agentura České republiky
+  status: active
+  title:
+    en: Czech Science Foundation
+  types:
+  - funder
+  - government
+- acronym: HZDR
+  country: DE
+  country_name: Germany
+  id: 01zy2cs03
+  location_name: Dresden
+  name: Helmholtz-Zentrum Dresden-Rossendorf
+  status: active
+  title:
+    de: Helmholtz-Zentrum Dresden-Rossendorf
+  types:
+  - facility
+  - funder
+- acronym: IGCAR
+  country: IN
+  country_name: India
+  id: 05tkzma19
+  location_name: Kālpākkam
+  name: Indira Gandhi Centre for Atomic Research
+  status: active
+  title:
+    en: Indira Gandhi Centre for Atomic Research
+    hi: इंदिरा गांधी परमाणु अनुसंधान केन्द्र
+    mr: इंदिरा गांधी अणुसंशोधन केंद्र
+    ta: இந்திரா காந்தி அணு ஆராய்ச்சி மையம்
+  types:
+  - facility
+  - funder
+- acronym: ICES FORTH
+  country: GR
+  country_name: Greece
+  id: 03e5bsk66
+  location_name: Pátrai
+  name: Institute of Chemical Engineering Sciences
+  status: active
+  title:
+    el: Ινστιτούτο Επιστημών Χημικών Μηχανικών
+    en: FORTH Institute of Chemical Engineering Sciences
+  types:
+  - facility
+- acronym: JČU
+  country: CZ
+  country_name: Czechia
+  id: 033n3pw66
+  location_name: České Budějovice
+  name: Jihočeská univerzita v Českých Budějovicích
+  status: active
+  title:
+    cs: Jihočeská univerzita v Českých Budějovicích
+    en: University of South Bohemia in České Budějovice
+  types:
+  - education
+  - funder
+- acronym: CENAKVA
+  country: CZ
+  country_name: Czechia
+  id: 050jqn596
+  location_name: Vodňany
+  name: Jihočeské výzkumné centrum akvakultury a biodiverzity hydrocenóz
+  status: active
+  title:
+    en: South Bohemia research center of aquaculture and biodiversity of hydrocenoses
+  types:
+  - facility
+- acronym: LIKAT
+  country: DE
+  country_name: Germany
+  id: 029hg0311
+  location_name: Rostock
+  name: Leibniz-Institut für Katalyse e.V.
+  status: active
+  title:
+    de: Leibniz-Institut für Katalyse e.V.
+    en: Leibniz Institute for Catalysis
+  types:
+  - facility
+- acronym: MU
+  country: CZ
+  country_name: Czechia
+  id: 02j46qs45
+  location_name: Brno
+  name: Masarykova univerzita
+  status: active
+  title:
+    en: Masaryk University
+    sk: Masarykova univerzita
+  types:
+  - education
+  - funder
+- acronym: MIA AS CR
+  country: CZ
+  country_name: Czechia
+  id: 03nvfe914
+  location_name: Prague
+  name: Masarykův ústav a Archiv AV ČR
+  status: active
+  title:
+    cs: Masarykův ústav a Archiv AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Masaryk Institute and Archives
+  types:
+  - archive
+  - facility
+- country: CZ
+  country_name: Czechia
+  id: 058aeep47
+  location_name: Brno
+  name: Mendelova univerzita v Brně
+  status: active
+  title:
+    cs: Mendelova univerzita v Brně
+    en: Mendel University in Brno
+  types:
+  - education
+  - funder
+- acronym: METU
+  country: TR
+  country_name: Türkiye
+  id: 014weej12
+  location_name: Ankara
+  name: Middle East Technical University
+  status: active
+  title:
+    en: Middle East Technical University
+    tr: Orta Doğu Teknik Üniversitesi
+  types:
+  - education
+  - funder
+- country: CZ
+  country_name: Czechia
+  id: 05w1nn565
+  location_name: Prague
+  name: Ministerstvo vnitra
+  status: active
+  title:
+    cs: Ministerstvo vnitra
+    en: Ministry of the Interior
+  types:
+  - funder
+  - government
+- country: CZ
+  country_name: Czechia
+  id: 00y6khe77
+  location_name: Prague
+  name: Ministerstvo zdravotnictví
+  status: active
+  title:
+    cs: Ministerstvo zdravotnictví České republiky
+    en: Ministry of Health
+  types:
+  - funder
+  - government
+- acronym: eAGRI
+  country: CZ
+  country_name: Czechia
+  id: 049wftm75
+  location_name: Prague
+  name: Ministerstvo zemědělství
+  status: active
+  title:
+    cs: Ministerstvo Zemědělství České Republiky
+    en: Ministry of Agriculture
+  types:
+  - funder
+  - government
+- acronym: MSMT
+  country: CZ
+  country_name: Czechia
+  id: 037n8p820
+  location_name: Prague
+  name: Ministerstvo školství, mládeže a tělovýchovy
+  status: active
+  title:
+    cs: Ministerstvo školství, mládeže a tělovýchovy České republiky
+    en: Ministry of Education Youth and Sports
+  types:
+  - funder
+  - government
+- acronym: NCN
+  country: PL
+  country_name: Poland
+  id: 03ha2q922
+  location_name: Krakow
+  name: National Science Centre (Poland)
+  status: active
+  title:
+    en: National Science Centre
+    pl: Narodowe Centrum Nauki
+  types:
+  - funder
+  - government
+- acronym: NTK
+  country: CZ
+  country_name: Czechia
+  id: 028txef36
+  location_name: Prague
+  name: Národní technická knihovna
+  status: active
+  title:
+    cs: Národní Technická Knihovna
+    en: National Library of Technology
+  types:
+  - archive
+- acronym: NIMH
+  country: CZ
+  country_name: Czechia
+  id: 05xj56w78
+  location_name: Klecany
+  name: Národní ústav duševního zdraví
+  status: active
+  title:
+    en: National Institute of Mental Health
+  types:
+  - facility
+- acronym: PNNL
+  country: US
+  country_name: United States
+  id: 05h992307
+  location_name: Richland
+  name: Pacific Northwest National Laboratory
+  status: active
+  title:
+    en: Pacific Northwest National Laboratory
+  types:
+  - facility
+  - funder
+- acronym: QUB
+  country: GB
+  country_name: United Kingdom
+  id: 00hswnk62
+  location_name: Belfast
+  name: Queen's University Belfast
+  status: active
+  title:
+    en: Queen's University Belfast
+  types:
+  - education
+  - funder
+- acronym: EPSRC
+  country: GB
+  country_name: United Kingdom
+  id: 0439y7842
+  location_name: Swindon
+  name: Rada pro výzkum v oblasti strojírenství a fyzikálních věd
+  status: active
+  title:
+    en: Engineering and Physical Sciences Research Council
+  types:
+  - funder
+  - government
+- acronym: APVV
+  country: SK
+  country_name: Slovakia
+  id: 037nx0e70
+  location_name: Bratislava
+  name: Slovak Research and Development Agency
+  status: active
+  title:
+    en: Slovak Research and Development Agency
+  types:
+  - funder
+  - government
+- acronym: STU
+  country: SK
+  country_name: Slovakia
+  id: 0561ghm58
+  location_name: Bratislava
+  name: Slovenská technická univerzita v Bratislave
+  status: active
+  title:
+    en: Slovak University of Technology in Bratislava
+    sk: Slovenská technická univerzita v Bratislave
+  types:
+  - education
+  - funder
+- country: CZ
+  country_name: Czechia
+  id: 0556an218
+  location_name: Brno
+  name: TESCAN Group
+  status: active
+  types:
+  - company
+- acronym: TUM
+  country: DE
+  country_name: Germany
+  id: 02kkvpp62
+  location_name: Munich
+  name: Technical University of Munich
+  status: active
+  title:
+    de: Technische Universität München
+    en: Technical University of Munich
+  types:
+  - education
+  - funder
+- country: CZ
+  country_name: Czechia
+  id: 02jtk7k02
+  location_name: Liberec
+  name: Technická univerzita v Liberci
+  status: active
+  title:
+    cs: Technická univerzita v Liberci
+    en: Technical University of Liberec
+  types:
+  - education
+  - funder
+- acronym: TUD
+  country: DE
+  country_name: Germany
+  id: 042aqky30
+  location_name: Dresden
+  name: Technische Universität Dresden
+  status: active
+  title:
+    de: Technische Universität Dresden
+    en: TUD Dresden University of Technology
+  types:
+  - education
+  - funder
+- acronym: TA CR
+  country: CZ
+  country_name: Czechia
+  id: 04v0fk911
+  location_name: Prague
+  name: Technologická agentura České republiky
+  status: active
+  title:
+    cs: Technologická agentura České republiky
+    en: Technology Agency of the Czech Republic
+  types:
+  - funder
+  - other
+- country: DE
+  country_name: Germany
+  id: 0234wmv40
+  location_name: Bayreuth
+  name: University of Bayreuth
+  status: active
+  title:
+    de: Universität Bayreuth
+    en: University of Bayreuth
+  types:
+  - education
+- acronym: UiB
+  country: 'NO'
+  country_name: Norway
+  id: 03zga2b32
+  location_name: Bergen
+  name: University of Bergen
+  status: active
+  title:
+    en: University of Bergen
+    fi: Bergenin Yliopisto
+    la: Universitas Bergensis
+    'no': Universitetet i Bergen
+  types:
+  - education
+  - funder
+- country: GB
+  country_name: United Kingdom
+  id: 027m9bs27
+  location_name: Manchester
+  name: University of Manchester
+  status: active
+  title:
+    cy: Prifysgol Manceinion
+    en: University of Manchester
+  types:
+  - education
+  - funder
+- acronym: UNCC
+  country: US
+  country_name: United States
+  id: 04dawnj30
+  location_name: Charlotte
+  name: University of North Carolina at Charlotte
+  status: active
+  title:
+    en: University of North Carolina at Charlotte
+    es: Universidad de Carolina del Norte en Charlotte
+    fr: Université de caroline du nord à charlotte
+  types:
+  - education
+  - funder
+- country: CA
+  country_name: Canada
+  id: 03dbr7087
+  location_name: Toronto
+  name: University of Toronto
+  status: active
+  title:
+    en: University of Toronto
+    fr: Université de Toronto
+  types:
+  - education
+  - funder
+- country: AT
+  country_name: Austria
+  id: 01faaaf77
+  location_name: Graz
+  name: Universität Graz
+  status: active
+  title:
+    de: Karl-Franzens-Universität Graz
+    en: University of Graz
+    hr: Sveučilište u Grazu
+    sl: Univerza v Gradcu
+  types:
+  - education
+  - funder
+- country: CZ
+  country_name: Czechia
+  id: 04vjwcp92
+  location_name: Ústí nad Labem
+  name: Univerzita Jana Evangelisty Purkyně v Ústí nad Labem
+  status: active
+  title:
+    cs: Univerzita Jana Evangelisty Purkyně v Ústí nad Labem
+    en: Jan Evangelista Purkyně University in Ústí nad Labem
+  types:
+  - education
+  - funder
+- country: CZ
+  country_name: Czechia
+  id: 024d6js02
+  location_name: Prague
+  name: Univerzita Karlova
+  status: active
+  title:
+    en: Charles University
+    sk: Univerzita Karlova
+  types:
+  - education
+  - funder
+- country: SK
+  country_name: Slovakia
+  id: 0587ef340
+  location_name: Bratislava
+  name: Univerzita Komenského v Bratislave
+  status: active
+  title:
+    de: Comenius-Universität Bratislava
+    en: Comenius University Bratislava
+    es: Universidad Comenius de Bratislava
+    fr: Université Commenius de Bratislava
+    hu: Comenius Egyetem
+    la: Universitas Comeniana Bratislavensis
+    sk: Univerzita Komenského v Bratislave
+  types:
+  - education
+  - funder
+- country: CZ
+  country_name: Czechia
+  id: 04qxnmv42
+  location_name: Olomouc
+  name: Univerzita Palackého v Olomouci
+  status: active
+  title:
+    cs: Univerzita Palackého v Olomouci
+    en: Palacký University Olomouc
+    sk: Univerzita Palackého
+  types:
+  - education
+  - funder
+- acronym: UPA
+  country: CZ
+  country_name: Czechia
+  id: 01chzd453
+  location_name: Pardubice
+  name: Univerzita Pardubice
+  status: active
+  title:
+    en: University of Pardubice
+  types:
+  - education
+  - funder
+- acronym: VU
+  country: NL
+  country_name: The Netherlands
+  id: 008xxew50
+  location_name: Amsterdam
+  name: Vrije Universiteit Amsterdam
+  status: active
+  title:
+    nl: Vrije Universiteit Amsterdam
+  types:
+  - education
+  - funder
+- acronym: VŠCHT
+  country: CZ
+  country_name: Czechia
+  id: 05ggn0a85
+  location_name: Prague
+  name: Vysoká škola chemicko-technologická v Praze
+  status: active
+  title:
+    cs: Vysoká škola chemicko-technologická v Praze
+    en: University of Chemistry and Technology, Prague
+  types:
+  - education
+  - funder
+- acronym: BUT
+  country: CZ
+  country_name: Czechia
+  id: 03613d656
+  location_name: Brno
+  name: Vysoké učení technické v Brně
+  status: active
+  title:
+    cs: Vysoké učení technické v Brně
+    en: Brno University of Technology
+  types:
+  - education
+  - funder
+- acronym: MTA Wigner RC
+  country: HU
+  country_name: Hungary
+  id: 035dsb084
+  location_name: Budapest
+  name: Wigner Research Centre for Physics
+  status: active
+  title:
+    en: HUN-REN Wigner Research Centre for Physics
+    hu: HUN-REN Wigner Fizikai Kutatóközpont
+  types:
+  - facility
+  - funder
+- acronym: ZČU
+  country: CZ
+  country_name: Czechia
+  id: 040t43x18
+  location_name: Pilsen
+  name: Západočeská univerzita v Plzni
+  status: active
+  title:
+    cs: Západočeská univerzita v Plzni
+    en: University of West Bohemia
+  types:
+  - education
+  - funder
+- acronym: ÚIACH AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 05g7knd32
+  location_name: Brno
+  name: Ústav analytické chemie AV ČR
+  status: active
+  title:
+    cs: Ústav analytické chemie AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Institute of Analytical Chemistry
+  types:
+  - facility
+  - funder
+- acronym: ÚACH AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 01hsjcv06
+  location_name: Řež
+  name: Ústav anorganické chemie AV ČR
+  status: active
+  title:
+    cs: Ústav anorganické chemie AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Institute of Inorganic Chemistry
+  types:
+  - facility
+- acronym: ÚFE AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 05wrbcx33
+  location_name: Prague
+  name: Ústav fotoniky a elektroniky AV ČR
+  status: active
+  title:
+    cs: Ústav fotoniky a elektroniky AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Institute of Photonics and Electronics
+  types:
+  - facility
+- acronym: ÚFCH JH AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 02sat5y74
+  location_name: Prague
+  name: Ústav fyzikální chemie J. Heyrovského AV ČR
+  status: active
+  title:
+    cs: Ústav fyzikální chemie J. Heyrovského AV ČR
+    en: J. Heyrovský Institute of Physical Chemistry CAS
+  types:
+  - facility
+- acronym: ÚI AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 0496n6574
+  location_name: Prague
+  name: Ústav informatiky AV ČR
+  status: active
+  title:
+    cs: Ústav informatiky AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Institute of Computer Science
+  types:
+  - facility
+- acronym: ÚOCHB AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 04nfjn472
+  location_name: Prague
+  name: Ústav organické chemie a biochemie AV ČR
+  status: active
+  title:
+    cs: Ústav organické chemie a biochemie AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Institute of Organic Chemistry and Biochemistry
+  types:
+  - facility
+  - funder
+- acronym: ÚT AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 03fvq2a72
+  location_name: Prague
+  name: Ústav termomechaniky AV ČR
+  status: active
+  title:
+    cs: Ústav termomechaniky AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Institute of Thermomechanics
+  types:
+  - facility
+  - funder
+- acronym: ÚVGZ AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 01v5hek98
+  location_name: Brno
+  name: Ústav výzkumu globální změny AV ČR
+  status: active
+  title:
+    cs: Ústav výzkumu globální změny AV ČR, veřejná výzkumná instituce
+    en: Global Change Research Institute CAS
+  types:
+  - facility
+- acronym: ÚŽFG AV ČR
+  country: CZ
+  country_name: Czechia
+  id: 0157za327
+  location_name: Prague
+  name: Ústav živočišné fyziologie a genetiky AV ČR
+  status: active
+  title:
+    cs: Ústav živočišné fyziologie a genetiky AV ČR, veřejná výzkumná instituce
+    en: Czech Academy of Sciences, Institute of Animal Physiology and Genetics
+  types:
+  - facility
+  - funder
+- acronym: ČVUT
+  country: CZ
+  country_name: Czechia
+  id: 03kqpb082
+  location_name: Prague
+  name: České vysoké učení technické v Praze
+  status: active
+  title:
+    cs: České vysoké učení technické v Praze
+    en: Czech Technical University in Prague
+  types:
+  - education
+  - funder

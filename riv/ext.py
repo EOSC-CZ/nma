@@ -38,6 +38,7 @@ class RIVResolverExtension:
         app.config.setdefault("PERSISTENT_IDENTIFIER_PATTERNS", config.PERSISTENT_IDENTIFIER_PATTERNS)
         app.config.setdefault("DATACITE_URL", config.DATACITE_URL)
         app.config.setdefault("HANDLE_URL", config.HANDLE_URL)
+        app.config.setdefault("CROSSREF_URL", config.CROSSREF_URL)
 
     @cached_property
     def persistent_identifiers_resolvers(self)-> List[MetadataResolver]:
