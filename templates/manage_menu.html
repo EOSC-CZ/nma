@@ -1,0 +1,42 @@
+{#
+Copyright (C) 2022-2025 CERN.
+
+Invenio RDM Records is free software; you can redistribute it and/or modify
+it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% if show_record_management_menu %}
+  <section id="record-manage-menu"
+           aria-label="{{ _('Record management') }}"
+           class="ui grid segment computer only sidebar-container rdm-sidebar"
+  >
+    <div class="column"
+         id="recordManagementMenu"
+         data-record='{{ record_ui | tojson }}'
+         data-permissions='{{ permissions | tojson }}'
+         data-is-draft="{{ is_draft | tojson }}"
+         data-is-preview-submission-request="{{ is_preview_submission_request | tojson }}"
+         data-current-user-id="{{ current_user.id }}"
+         data-groups-enabled='{{ config.USERS_RESOURCES_GROUPS_ENABLED | tojson }}'
+         {% if record_deletion %}
+            data-record-deletion='{{ record_deletion | tojson }}'
+            data-record-deletion-options='{{ record_deletion_options | tojson }}'
+         {% else %}
+            data-record-deletion='{{ {} | tojson }}'
+            data-record-deletion-options='{{ [] | tojson }}'
+         {% endif %}
+         {% if config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
+          {% include config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
+         {% endif %}
+         >
+      <div class="ui placeholder">
+        <div class="header">
+          <div class="full line"></div>
+          <div class="full line"></div>
+          <div class="full line"></div>
+          <div class="full line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
