@@ -117,11 +117,12 @@ class DataciteResolver(MetadataResolver):
 
         # related identifiers
         # not required
-        related_identifiers = self.resolve_related_identifiers(
-            datacite_metadata.get("relatedIdentifiers", [])
-        )
-        if len(related_identifiers) > 0:
-            metadata["related_identifiers"] = related_identifiers
+        #todo UI detail is currently not working with this
+        # related_identifiers = self.resolve_related_identifiers(
+        #     datacite_metadata.get("relatedIdentifiers", [])
+        # )
+        # if len(related_identifiers) > 0:
+        #     metadata["related_identifiers"] = related_identifiers
 
         # descriptions
         datacite_descriptions = datacite_metadata.get("descriptions", [])
