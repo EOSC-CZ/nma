@@ -72,7 +72,7 @@ class DataciteResolver(MetadataResolver):
         # resource type
         # datacite required, rdm required
         datacite_resource_type = datacite_metadata.get("types", {})
-        metadata["resource_type"] = {"id": self.resolve_datacite_resource_type(datacite_resource_type)}
+        metadata["resource_type"] = {"id": self.resolve_datacite_resource_type(resource_type=datacite_resource_type, problems=problems)}
 
         return metadata, problems
 

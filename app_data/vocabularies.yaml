@@ -1,0 +1,21 @@
+affiliations:
+  pid-type: aff
+  data-file: vocabularies/affiliations_catchall.yaml
+funders:
+  pid-type: fun
+  # note: using the same catchall file for funders for now
+  data-file: vocabularies/affiliations_catchall.yaml
+languages:
+  pid-type: v-lng
+  data-file: vocabularies/languages.yaml
+names:
+  pid-type: names
+  data-file: vocabularies/names.yaml
+code:developmentStatus: 
+  pid-type: v-devs
+  data-file: vocabularies/development_status.yaml
+code:programmingLanguages: 
+  pid-type: v-prg
+  data-file: vocabularies/programming_languages.yaml
+
+

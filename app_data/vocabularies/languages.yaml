@@ -1,0 +1,17 @@
+# located at app_data/vocabularies/languages.yaml
+- id: eng
+  props:
+    alpha_2: en
+  tags:
+  - individual
+  - living
+  title:
+    en: English
+- id: ces
+  props:
+    alpha_2: cs
+  tags:
+  - individual
+  - living
+  title:
+    en: Czech
