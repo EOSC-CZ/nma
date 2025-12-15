@@ -17,16 +17,7 @@ function renderRecordManagement(element) {
     <RecordManagement
       record={record}
       permissions={JSON.parse(recordManagementAppDiv.dataset.permissions)}
-      isPreviewSubmissionRequest={JSON.parse(
-        recordManagementAppDiv.dataset.isPreviewSubmissionRequest
-      )}
-      currentUserId={recordManagementAppDiv.dataset.currentUserId}
-      recordOwnerID={record.parent.access.owned_by.user}
       groupsEnabled={JSON.parse(recordManagementAppDiv.dataset.groupsEnabled)}
-      recordDeletion={JSON.parse(recordManagementAppDiv.dataset.recordDeletion)}
-      recordDeletionOptions={JSON.parse(
-        recordManagementAppDiv.dataset.recordDeletionOptions
-      )}
     />,
     element
   );

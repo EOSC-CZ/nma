@@ -4,6 +4,7 @@ Copyright (C) 2022-2025 CERN.
 Invenio RDM Records is free software; you can redistribute it and/or modify
 it under the terms of the MIT License; see LICENSE file for more details.
 #}
+{%- set show_record_management_menu = permissions.can_update %}
 
 {% if show_record_management_menu %}
   <section id="record-manage-menu"
@@ -18,13 +19,6 @@ it under the terms of the MIT License; see LICENSE file for more details.
          data-is-preview-submission-request="{{ is_preview_submission_request | tojson }}"
          data-current-user-id="{{ current_user.id }}"
          data-groups-enabled='{{ config.USERS_RESOURCES_GROUPS_ENABLED | tojson }}'
-         {% if record_deletion %}
-            data-record-deletion='{{ record_deletion | tojson }}'
-            data-record-deletion-options='{{ record_deletion_options | tojson }}'
-         {% else %}
-            data-record-deletion='{{ {} | tojson }}'
-            data-record-deletion-options='{{ [] | tojson }}'
-         {% endif %}
          {% if config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
           {% include config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
          {% endif %}

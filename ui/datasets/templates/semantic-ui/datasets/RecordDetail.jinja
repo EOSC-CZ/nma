@@ -21,36 +21,6 @@
     {{ webpack['record_management.js'] }}
 {%- endblock %}
 
-{%- block page_body %} 
-   {%- block record_header %}
-        {% if show_record_management_menu %}
-        <div class="ui container">
-                <section id="mobile-record-management"
-                         class="ui grid tablet only mobile only">
-                  <div class="sixteen wide column right aligned">
-                    <button id="manage-record-btn"
-                            class="ui small basic icon button m-0"
-                            aria-haspopup="dialog"
-                            aria-expanded="false"
-                    >
-                      <i class="cog icon"></i> {{ _('Manage record') }}
-                    </button>
-                  </div>
-                  <div id="recordManagementMobileMenu"
-                       role="dialog"
-                       class="ui flowing popup transition hidden"
-                       {% if config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
-                        {% include config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
-                       {% endif %}
-                  >
-                  </div>
-                </section>
-        </div>
-              {% endif %}
-    {%- endblock record_header %}   
-    {{ super() }}
- 
-{%- endblock page_body %}
 
 
 {# Available template blocks (showing closest override point):

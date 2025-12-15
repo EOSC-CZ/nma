@@ -60,6 +60,35 @@ Note: Context variables available:
 {%- block record_header_info %}
 {%- endblock record_header_info %}
 
+{%- set show_record_management_menu = permissions.can_update %}
+{%- block record_header %}
+  {% if show_record_management_menu %}
+  <div class="ui container">
+    <section id="mobile-record-management"
+              class="ui grid tablet only mobile only">
+      <div class="sixteen wide column right aligned">
+        <button id="manage-record-btn"
+                class="ui small basic icon button m-0"
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-label="{{ _('Open record management menu') }}"
+        >
+          <i class="cog icon"></i> {{ _('Manage record') }}
+        </button>
+      </div>
+      <div id="recordManagementMobileMenu"
+            role="dialog"
+            class="ui flowing popup transition hidden"
+            {% if config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
+            {% include config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
+            {% endif %}
+      >
+      </div>
+    </section>
+  </div>
+  {% endif %}
+{%- endblock record_header %} 
+
 {%- block record_title -%}
   <div class="ui two column rel-mt-1 rel-pl-1 rel-pr-1 grid">
     <div class="ui green column">

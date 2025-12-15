@@ -89,6 +89,22 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         FilesQuotaAndTransferComponent,
     ]
 
+    record_detail_permissions = [
+        "update",
+        "manage",
+        "read_files",
+        "view",
+    ]
+
+    deposit_edit_permissions = [
+        "manage",
+        "update",
+    ]
+
+    deposit_create_permissions = [
+        "manage",
+        "create",
+    ]
     try:
         from oarepo_vocabularies.ui.resources.components import (
             DepositVocabularyOptionsComponent,
@@ -198,7 +214,7 @@ class DatasetsUIResource(RecordsUIResource):
     def deposit_edit(self, record, draft_files=None, files_locked=True, **kwargs):
         """Edit draft record."""
         if not self.api_service.check_permission(
-            g.identity, "edit", record=record_from_result(record)
+            g.identity, "update", record=record_from_result(record)
         ):
             raise PermissionDeniedError(
                 _("User does not have permission to edit record.")

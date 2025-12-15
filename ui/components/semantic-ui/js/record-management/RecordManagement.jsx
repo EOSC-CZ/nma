@@ -13,24 +13,11 @@ import { ShareButton } from "@js/invenio_app_rdm/landing_page/ShareOptions/Share
 import PropTypes from "prop-types";
 
 export class RecordManagement extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: "",
-    };
-  }
-
   render() {
-    const { record, permissions, isPreviewSubmissionRequest, groupsEnabled } =
-      this.props;
-    const { error } = this.state;
-    const handleError = (errorMessage) => {
-      console.error(errorMessage);
-      this.setState({ error: errorMessage });
-    };
+    const { record, permissions, groupsEnabled } = this.props;
     return (
       <Grid columns={1} className="record-management">
-        {permissions.can_edit && (
+        {permissions.can_update && (
           <Grid.Column className="pb-10">
             <Button
               fluid
@@ -44,16 +31,13 @@ export class RecordManagement extends Component {
             </Button>
           </Grid.Column>
         )}
-        {!isPreviewSubmissionRequest && (
-          <Grid.Column className={permissions.can_edit ? "pt-0" : "pt-20"}>
-            {permissions.can_manage && (
-              <ShareButton
-                disabled={!permissions.can_update_draft}
-                record={record}
-                permissions={permissions}
-                groupsEnabled={groupsEnabled}
-              />
-            )}
+        {permissions.can_manage && (
+          <Grid.Column className={permissions.can_update ? "pt-0" : "pt-20"}>
+            <ShareButton
+              record={record}
+              permissions={permissions}
+              groupsEnabled={groupsEnabled}
+            />
           </Grid.Column>
         )}
         {error && (
@@ -72,11 +56,4 @@ RecordManagement.propTypes = {
   record: PropTypes.object.isRequired,
   permissions: PropTypes.object.isRequired,
   groupsEnabled: PropTypes.bool.isRequired,
-  isPreviewSubmissionRequest: PropTypes.bool.isRequired,
-  currentUserId: PropTypes.string.isRequired,
-  recordOwnerID: PropTypes.string.isRequired,
-};
-
-RecordManagement.defaultProps = {
-  recordDeletion: {},
 };
