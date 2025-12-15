@@ -50,7 +50,7 @@ print_success "Continuing with setup"
 print_step "Resetting InvenioRDM configuration..."
 if [ -f .invenio.private ] ; then
     # replace services_setup = True with services_setup = False
-    cat .invenio.private | sed 's/services_setup = True/services_setup = False/' > .invenio.private.tmp
+    sed 's/services_setup = True/services_setup = False/' .invenio.private > .invenio.private.tmp
     mv .invenio.private.tmp .invenio.private
     print_success "Configuration reset complete"
 else
@@ -63,6 +63,7 @@ if [ -f docker/.env ] ; then
     (
         cd docker
         docker compose down
+        docker compose rm
     )
     print_success "Docker containers removed"
 else
@@ -86,7 +87,8 @@ source .venv/bin/activate
 
 # Step 5: Create roles
 print_step "Creating users and roles..."
-invenio users create -a -c user@demo.org --password 123456
+# 123456 to keep invenio-cli compatibility if not entered
+invenio users create -a -c user@demo.org --password ${DEMO_USER_PASSWORD:-123456}
 invenio roles create riv_curators
 invenio access allow administration-access user user@demo.org
 invenio roles add user@demo.org riv_curators

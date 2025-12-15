@@ -2,12 +2,11 @@ import copy
 import dataclasses
 import json
 from functools import wraps
-from pathlib import Path
 from typing import Any, Callable
 from urllib import parse as urlparse
-from urllib.error import HTTPError
 
 import bleach
+from idutils import is_doi, normalize_doi
 from invenio_vocabularies.datastreams.datastreams import StreamEntry
 from invenio_vocabularies.datastreams.readers import BaseReader
 from invenio_vocabularies.datastreams.transformers import BaseTransformer
@@ -68,34 +67,23 @@ class CatchAllReader(BaseReader):
 
     def fetch_records(self, session):
         url = self._origin
-        retry_count = 5
-        count = 0
 
         while True:
-            try:
-                response = session.get(url, headers={"Accept": "application/json"})
-                response.raise_for_status()
-                payload = response.json()
-                for hit in payload["hits"]["hits"]:
-                    # need to re-get as we do not have all fields in the hit
-                    yield session.get(
-                        hit["links"]["self"], headers={"Accept": "application/json"}
-                    ).json()
-                if "next" in payload["links"]:
-                    url = payload["links"]["next"]
-                    count = 0
-                else:
-                    break
-            except HTTPError as http_err:
-                print(f"HTTP error occurred: {http_err}")
-                if count >= retry_count:
-                    raise
-                count += 1
-            except Exception as err:
-                print(f"Other error occurred: {err}")
-                if count >= retry_count:
-                    raise
-                count += 1
+            # load a page of results
+            response = session.get(url, headers={"Accept": "application/json"})
+            response.raise_for_status()
+            payload = response.json()
+            for hit in payload["hits"]["hits"]:
+                # need to re-get as we do not have all fields in the hit
+                yield session.get(
+                    hit["links"]["self"], headers={"Accept": "application/json"}
+                ).json()
+            # if there is a next page, continue there
+            if "next" in payload["links"]:
+                url = payload["links"]["next"]
+            else:
+                # otherwise we are done
+                break
 
 
 def check_converted(exceptions: list[str]) -> Callable:
@@ -213,7 +201,11 @@ def sanitize_html(text):
     }
 
     return bleach.clean(
-        text, tags=allowed_tags, attributes=allowed_attributes, strip=True
+        text,
+        tags=allowed_tags,
+        attributes=allowed_attributes,
+        strip=True,
+        protocols=["http", "https", "mailto"],
     )
 
 
@@ -309,7 +301,9 @@ class CatchAllTransformer(BaseTransformer):
             },
         }
 
-        # TODO: where to add the DOI ? Can it go here?
+        # TODO: where to add the original DOI? It does not seem to be able to go here
+        # or we might need to register our own provider for it.
+        #
         # if doi_value:
         #     rdm_record["pids"] = {
         #         "doi": {
@@ -318,11 +312,10 @@ class CatchAllTransformer(BaseTransformer):
         #         }
         #     }
 
-        # Add persistent_url if DOI is available
+        # Add persistent_url if DOI is available. Persistent URL is always doi or handle
+        # going to the primary storage.
         if doi_value:
-            rdm_record["metadata"][
-                "persistent_url"
-            ] = f"https://nma.eosc.cz/go/doi/{doi_value}"
+            rdm_record["metadata"]["persistent_url"] = f"https://doi.org/{doi_value}"
 
         # Add additional_titles if present
         if additional_titles:
@@ -389,9 +382,12 @@ class CatchAllTransformer(BaseTransformer):
         )  # not in RDM schema at record level (files handled separately)
 
         # Handle notes field (convert to internal_notes if present)
-        notes = metadata.pop("notes", None)
-        # Note: notes field exists in catch-all but we're not converting it to RDM
-        # as internal_notes is for admin use only
+        notes = metadata.pop("notes", [])
+        notes = [note for note in notes if note.strip()]
+        if notes:
+            rdm_record["metadata"]["additional_descriptions"] += [
+                self.convert_note(note) for note in notes
+            ]
 
         # Pop fields not in RDM schema
         metadata.pop("$schema", None)  # not in RDM schema
@@ -414,13 +410,6 @@ class CatchAllTransformer(BaseTransformer):
                 f"Unconverted metadata fields remain: {json.dumps(metadata)}"
             )
 
-        print("Converted record ID:", rdm_record["id"])
-        print(
-            "Converted record title:",
-            json.dumps(
-                rdm_record["metadata"], indent=2, sort_keys=True, ensure_ascii=False
-            ),
-        )
         return rdm_record
 
     @check_converted(exceptions=[])
@@ -560,6 +549,10 @@ class CatchAllTransformer(BaseTransformer):
                     continue
 
                 slug = role_item.pop("slug", None)
+                # need to clear the rest of the role_data list, because some
+                # of the items might be ancestors and not will not be processed
+                # when this returns. That would mean that unconverted fields
+                # remain and the check_converted decorator would raise an error.
                 for _r in role_data:
                     _r.clear()
                 return slug
@@ -619,17 +612,17 @@ class CatchAllTransformer(BaseTransformer):
 
         person_or_org = {
             "name": full_name,
-            "type": "personal" if name_type == "Personal" else "organizational",
+            "type": name_type.lower(),
         }
 
         # For personal names, split into given and family names
         # RDM requires family_name to be non-empty for personal names
         if person_or_org["type"] == "personal" and full_name:
-            if ", " in full_name:
+            if "," in full_name:
                 # Format: "family_name, given_name"
-                parts = full_name.split(", ", 1)
-                person_or_org["family_name"] = parts[0]
-                person_or_org["given_name"] = parts[1]
+                parts = full_name.split(",", 1)
+                person_or_org["family_name"] = parts[0].strip()
+                person_or_org["given_name"] = parts[1].strip()
             else:
                 # No comma: treat entire name as family_name
                 person_or_org["family_name"] = full_name
@@ -751,6 +744,7 @@ class CatchAllTransformer(BaseTransformer):
         result = ""
         if abstract:
             # Return first available language and consume all keys
+            # we need the list here because we are popping keys while iterating
             for lang in list(abstract.keys()):
                 desc_text = abstract.pop(lang)
                 if desc_text and not result:
@@ -758,11 +752,12 @@ class CatchAllTransformer(BaseTransformer):
         return result
 
     @check_converted(exceptions=[])
-    def convert_additional_descriptions(self, methods, technical_info=None):
+    def convert_additional_descriptions(self, methods, technical_info):
         """Convert methods and technicalInfo to additional_descriptions."""
         additional_descs = []
 
         if methods:
+            # we need the list here because we are popping keys while iterating
             for lang in list(methods.keys()):
                 method_text = methods.pop(lang)
                 if method_text:
@@ -787,6 +782,17 @@ class CatchAllTransformer(BaseTransformer):
                     )
 
         return additional_descs if additional_descs else None
+
+    def convert_note(self, note):
+        """Convert a note string to internal_notes format.
+
+        Note: we do not know the language of the note, so we default to 'en'.
+        """
+        return {
+            "description": sanitize_html(note),
+            "type": {"id": "internal-note"},
+            "lang": {"id": "en"},
+        }
 
     @check_converted(exceptions=[])
     def parse_keywords(self, keywords):
@@ -940,7 +946,7 @@ class CatchAllTransformer(BaseTransformer):
     def convert_funding(self, funding_refs):
         """Convert funding references from catch-all to RDM format."""
         funding_list = []
-
+        # TODO: we lose findingProgram as it's not in RDM schema, is that ok?
         for funding_ref in funding_refs:
             funders = funding_ref.pop("funder", [])
             if funders:
@@ -998,8 +1004,8 @@ class CatchAllTransformer(BaseTransformer):
                 }
 
                 # Try to identify DOI
-                if "doi.org" in item_url:
-                    doi = item_url.split("doi.org/")[-1]
+                if is_doi(item_url):
+                    doi = normalize_doi(item_url)
                     related_id["identifier"] = doi
                     related_id["scheme"] = "doi"
 
@@ -1053,54 +1059,3 @@ class CatchAllTransformer(BaseTransformer):
     def convert_files(self, files_data):
         """Convert files from catch-all to RDM format."""
         return {"enabled": False}
-
-
-if __name__ == "__main__":
-    import json
-
-    def run():
-        loader = CatchAllReader(
-            origin="https://datarepo.eosc.cz/datasets/all/",
-        )
-        transformer = CatchAllTransformer()
-
-        for idx, record in enumerate(loader.read()):
-            with open(f"data/{idx:03d}_loaded.json", "w") as f:
-                f.write(json.dumps(record.entry, indent=2, ensure_ascii=False))
-            try:
-                record = transformer.apply(record)
-                with open(f"data/{idx:03d}_transformed.json", "w") as f:
-                    f.write(json.dumps(record.entry, indent=2, ensure_ascii=False))
-
-                print(json.dumps(record.entry, indent=2, ensure_ascii=False))
-            except Exception as e:
-                print(f"Error transforming record {idx}: {e}")
-
-    def run_locally():
-        transformer = CatchAllTransformer()
-
-        for pth in Path("data").glob("*_loaded.json"):
-            converted_file_name = pth.name.replace("_loaded", "_transformed")
-            # if (pth.parent / converted_file_name).exists():
-            #     continue
-            with open(pth, "r") as f:
-                record = json.load(f)
-            if (pth.parent / converted_file_name).exists():
-                (pth.parent / converted_file_name).unlink()
-            try:
-                from types import SimpleNamespace
-
-                record = transformer.apply(
-                    StreamEntry(entry=SimpleNamespace(json=record))
-                )
-                with open(pth.parent / converted_file_name, "w") as f:
-                    f.write(
-                        json.dumps(record.entry["record"], indent=2, ensure_ascii=False)
-                    )
-
-                print(json.dumps(record.entry["record"], indent=2, ensure_ascii=False))
-            except Exception as e:
-                print(f"Error transforming record {pth}: {e}")
-                raise
-
-    run_locally()
