@@ -3,7 +3,16 @@ import traceback
 from collections.abc import Mapping
 from functools import wraps
 
-from flask import Blueprint, abort, flash, g, redirect, render_template, url_for
+from flask import (
+    Blueprint,
+    abort,
+    flash,
+    g,
+    redirect,
+    render_template,
+    request,
+    url_for,
+)
 from flask_login import login_required
 from flask_menu import current_menu
 from invenio_app_rdm.records_ui.views.decorators import no_cache_response
@@ -225,6 +234,11 @@ def init_menu(app):
             order=1,
             visible_when=can_view_deposit_page,
         )
+
+
+def search_redirect():
+    """Redirect from /search to /datasets while persisting query args."""
+    return redirect(url_for("datasets_ui.search", **request.args))
 
 
 def finalize_app(app):
