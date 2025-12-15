@@ -1,9 +1,16 @@
+import subprocess
+import sys
+import traceback
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 import click
 from celery import shared_task
+from flask import current_app
 from invenio_access.permissions import system_identity
+from invenio_jobs.jobs import JobType, PredefinedArgsSchema
 from invenio_records_resources.proxies import current_service_registry
+from marshmallow import fields
 from opensearch_dsl import Q
 
 from .config import LAST_CHECKED_THRESHOLD_DAYS
@@ -108,3 +115,134 @@ def check_availability_task():
                 f"Failed to update record {record_id}: {e}",
                 fg="red",
             )
+
+
+@shared_task(ignore_result=True)
+def invenio_command(cmdline: str):
+    """Run an invenio CLI command in a Celery task."""
+
+    # split the cmdline into parts separated by &&
+    commands = [cmd.strip() for cmd in cmdline.split("&&")]
+
+    failed_subcommands = []
+    for command in commands:
+        current_app.logger.info("Running command: invenio %s", command)
+        resultcode, stdout, stderr = _run_invenio_command(command)
+        for line in stdout:
+            current_app.logger.info("%s", line)
+        for line in stderr:
+            current_app.logger.error("%s", line)
+        if resultcode:
+            failed_subcommands.append(command)
+            current_app.logger.error(
+                f"Command 'invenio {command}' failed with return code {resultcode}"
+            )
+        else:
+            current_app.logger.info(
+                f"Command 'invenio {command}' completed successfully"
+            )
+    if failed_subcommands:
+        raise Exception(
+            f"Invenio command failed for subcommands: {', '.join(failed_subcommands)}"
+        )
+
+
+def _run_invenio_command(cmdline: str) -> tuple[int, list[str], list[str]]:
+    # get the current python executable
+    current_python = sys.executable
+    invenio_cmd = Path(current_python).parent / "invenio"
+    if not invenio_cmd.exists():
+        raise FileNotFoundError(f"Invenio command not found at {invenio_cmd}")
+
+    try:
+        result = subprocess.run(
+            [str(invenio_cmd)] + cmdline.split(),
+            capture_output=True,
+            text=True,
+            stdin=subprocess.DEVNULL,
+            timeout=600,  # 10 minutes
+        )
+        return result.returncode, result.stdout.splitlines(), result.stderr.splitlines()
+    except subprocess.CalledProcessError as e:
+        current_app.logger.error(
+            f"Command failed with return code {e.returncode}:\n{e.stderr}"
+        )
+
+        return -1, [], traceback.format_exc().splitlines()
+
+
+class InvenioTaskJobSchema(PredefinedArgsSchema):
+    job_arg_schema = fields.String(
+        metadata={"type": "hidden"},
+        dump_default="InvenioTaskJobSchema",
+        load_default="InvenioTaskJobSchema",
+    )
+
+    cmdline = fields.String(
+        required=True,
+        metadata={"description": "The Invenio CLI command to run."},
+    )
+
+
+class InvenioTaskJob(JobType):
+    """A job type to run invenio CLI commands as Celery tasks."""
+
+    id = "invenio_command"
+    title = "Invenio Command"
+    description = "Run an arbitrary Invenio CLI command or a sequence of commands separated by &&."
+
+    task = invenio_command
+
+    arguments_schema = InvenioTaskJobSchema
+
+    @classmethod
+    def build_task_arguments(cls, job_obj, since=None, cmdline=None, **kwargs):
+        """Override to define extra arguments to be injected on task execution.
+
+        :param job_obj (Job): the Job object.
+        :param since (datetime): last time the job was executed, or None if never
+            executed.
+        :return: a dict of arguments to be injected on task execution.
+        """
+        return {"cmdline": cmdline}
+
+
+@shared_task(ignore_result=True)
+def create_missing_indices():
+    from invenio_search.proxies import current_search
+
+    current_app.logger.info("Creating missing indices...")
+    current_search.create(ignore_existing=True)
+
+
+class CreateMissingIndicesJob(JobType):
+    """A job type to run invenio CLI commands as Celery tasks."""
+
+    id = "create_missing_indices"
+    title = "Create missing indices"
+    description = "Create any missing search indices in the search engine."
+    task = create_missing_indices
+
+
+@shared_task(ignore_result=True)
+def rebuild_all_indices():
+    invenio_command(
+        "index destroy --yes-i-know"
+        + "&&"
+        + "index init"
+        + "&&"
+        + "rdm-records custom-fields init"
+        + "&&"
+        + "communities custom-fields init"
+        + "&&"
+        + "rdm rebuild-all-indices"
+    )
+
+
+class RebuildAllIndicesJob(JobType):
+    """A job type to run invenio CLI commands as Celery tasks."""
+
+    id = "rebuild_all_indices"
+    title = "Rebuild all indices (drop them and recreate and reindex everything)"
+    description = "Rebuild all search indices from scratch."
+    task = rebuild_all_indices
