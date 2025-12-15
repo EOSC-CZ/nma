@@ -10,6 +10,9 @@ DATE_REGEX = re.compile(
 def validate_date(value: str) -> bool:
     return bool(DATE_REGEX.fullmatch(value))
 
+def escape_lucene(s):
+    return re.sub(r'([+\-!(){}\[\]^"~*?:\\/])', r'\\\1', s)
+
 def handle_errors(error_placeholder=None, alert_user=False):
     """
     Decorator for metadata resolver functions that:

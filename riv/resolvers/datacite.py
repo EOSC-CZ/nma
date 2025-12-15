@@ -14,7 +14,7 @@ from idutils.normalizers import normalize_doi
 from invenio_rdm_records.services.schemas.metadata import record_personorg_schemes, record_identifiers_schemes, \
     record_related_identifiers_schemes
 import langcodes
-
+from .utils import escape_lucene
 CREATORS_PLACEHOLDER = [{
     "person_or_org": {
         "name": "Unknown Creator",
@@ -186,6 +186,8 @@ class DataciteResolver(MetadataResolver):
                     except:
                         continue
                 d_lang = d.get("lang")
+                if type(d_lang) != str:
+                    continue
                 lang = self.resolve_datacite_language(language=d_lang)
                 if lang:
                     description_obj["lang"] = {"id": lang}
@@ -216,8 +218,6 @@ class DataciteResolver(MetadataResolver):
 
             if scheme:
                 scheme = scheme.lower()
-            if rel_type:
-                rel_type = rel_type.lower()
             if not identifier or not scheme or not rel_type:
                 continue
             if not scheme in record_related_identifiers_schemes:
@@ -226,24 +226,47 @@ class DataciteResolver(MetadataResolver):
                 "identifier": identifier,
             }
             obj["scheme"] = scheme
-            obj["relation_type"] = {"id": rel_type}
             try:
-                voc = vocabulary_service.read(
-                    system_identity, ("relationtypes", rel_type)
+                escaped = escape_lucene(rel_type)
+                voc = vocabulary_service.search(
+                    system_identity,
+                    type="relationtypes",
+                    params={"q": f'props.datacite:"{escaped}"'},
                 )
-                print(voc)
+                resolved_types = voc.to_dict()["hits"]["hits"]
+                if len(resolved_types) != 1:
+                    current_app.logger.exception(
+                        "No unambiguous value could be resolved for vocabulary value %s.",
+                        rel_type,
+                    )
+                    continue
+                else:
+                    resolved_rel_type = resolved_types[0]["id"]
             except:
                 continue
+            obj["relation_type"] = {"id": resolved_rel_type}
 
             res_type = rel.get("resourceTypeGeneral")
             if res_type:
-                res_type = res_type.lower()
                 vocabulary_id = 'resourcetypes'
                 try:
-                    vocabulary_service.read(
-                        system_identity, (vocabulary_id, res_type)
+                    escaped = escape_lucene(res_type)
+                    voc = vocabulary_service.search(
+                        system_identity,
+                        type=vocabulary_id,
+                        params={"q": f'props.datacite_general:"{escaped}"'},
                     )
-                    obj["resource_type"] = {"id": res_type}
+                    resolved_types = voc.to_dict()["hits"]["hits"]
+                    if len(resolved_types) != 1:
+                        current_app.logger.exception(
+                            "No unambiguous value could be resolved for vocabulary value %s.",
+                            res_type,
+                        )
+                        continue
+                    else:
+                        resolved_type = resolved_types[0]["id"]
+
+                    obj["resource_type"] = {"id": resolved_type}
                 except:
                     pass
 
@@ -269,13 +292,28 @@ class DataciteResolver(MetadataResolver):
                 continue
             type = d.get("dateType")
             try:
+                escaped = escape_lucene(type)
+                voc = vocabulary_service.search(
+                    system_identity,
+                    type="datetypes",
+                    params={"q": f'props.datacite:"{escaped}"'},
+                )
+                resolved_datetypes = voc.to_dict()["hits"]["hits"]
+                if len(resolved_datetypes) != 1:
+                    current_app.logger.exception(
+                        "No unambiguous value could be resolved for vocabulary value %s.",
+                        type,
+                    )
+                    continue
+                else:
+                    resolved_datatype = resolved_datetypes[0]["id"]
                 vocabulary_service.read(
                     system_identity, ("datetypes", type.lower())
                 )
             except:
                 continue
             date_object["date"] = date
-            date_object["type"] = {"id": type.lower()}
+            date_object["type"] = {"id": resolved_datatype}
             dates_list.append(date_object)
         return dates_list
 
@@ -290,7 +328,7 @@ class DataciteResolver(MetadataResolver):
                         system_identity, ("licenses", code)
                     )
                 except:
-                    pass
+                    continue
             rights_list.append({"id": code})
         return rights_list
 
@@ -345,11 +383,23 @@ class DataciteResolver(MetadataResolver):
             t_type = title.get("titleType")
             if t_type is None:  # it is main title
                 continue
-            t_type = re.sub(r'(?<!^)([A-Z])', r'-\1', t_type).lower()
             try:
-                vocabulary_service.read(
-                    system_identity, ("titletypes", t_type)
+                escaped = escape_lucene(t_type)
+                voc = vocabulary_service.search(
+                    system_identity,
+                    type="titletypes",
+                    params={"q": f'props.datacite:"{escaped}"'},
                 )
+                resolved_types = voc.to_dict()["hits"]["hits"]
+                if len(resolved_types) != 1:
+                    current_app.logger.exception(
+                        "No unambiguous value could be resolved for vocabulary value %s.",
+                        t_type,
+                    )
+                    continue
+                else:
+                    resolved_type = resolved_types[0]["id"]
+
             except:
                 continue
             t_title = title.get("title")
@@ -358,7 +408,7 @@ class DataciteResolver(MetadataResolver):
             t_lang = None
 
             title_obj["title"] = t_title
-            title_obj["type"] = {"id": t_type}
+            title_obj["type"] = {"id": resolved_type}
 
             if "lang" in title:
                 t_lang = self.resolve_datacite_language(language=title["lang"])
@@ -453,23 +503,34 @@ class DataciteResolver(MetadataResolver):
                 person["family_name"] = family
 
             name_identifiers = self.resolve_datacite_name_identifiers(
-                contributor.get("nameIdentifiers", [])
+                name_identifiers=contributor.get("nameIdentifiers", [])
             )
             if name_identifiers:
                 person["identifiers"] = name_identifiers
 
             entry = {"person_or_org": person}
-            contributor_type_id = None
+            resolved_role = None
             try:
-                role = contributor.get("contributorType").lower()
-                vocabulary_service.read(
-                    system_identity, ("contributorsroles", role)
+                role = contributor.get("contributorType")
+                escaped = escape_lucene(role)
+                voc = vocabulary_service.search(
+                    system_identity,
+                    type="contributorsroles",
+                    params={"q": f'props.datacite:"{escaped}"'},
                 )
-                contributor_type_id = role
+                resolved_roles = voc.to_dict()["hits"]["hits"]
+                if len(resolved_roles) != 1:
+                    current_app.logger.exception(
+                        "No unambiguous value could be resolved for vocabulary value %s.",
+                        role,
+                    )
+                    continue
+                else:
+                    resolved_role = resolved_roles[0]["id"]
             except:
                 pass
-            if contributor_type_id:
-                entry["role"] = {"id": contributor_type_id}
+            if resolved_role:
+                entry["role"] = {"id": resolved_role}
 
             contributor_list.append(entry)
 
@@ -515,12 +576,26 @@ class DataciteResolver(MetadataResolver):
     @handle_errors('dataset')
     def resolve_datacite_resource_type(self, *, resource_type, problems):
         vocabulary_id = 'resourcetypes'
-        _type = resource_type.get("resourceTypeGeneral", "dataset").lower()  # dataset as default option
+        _type = resource_type.get("resourceTypeGeneral", "Dataset")  # dataset as default option
         try:
-            vocabulary_service.read(
-                system_identity, (vocabulary_id, _type)
+            escaped = escape_lucene(_type)
+            voc = vocabulary_service.search(
+                system_identity,
+                type=vocabulary_id,
+                params={"q": f'props.datacite_general:"{escaped}"'},
             )
-            return _type
+            resolved_types = voc.to_dict()["hits"]["hits"]
+            if len(resolved_types) > 1:
+                ResolverProblem(resolver=self.name, message=_(
+                    f"Multiple values were resolved for the vocabulary value {_type}. The first value was used."),
+                                level=ResolverProblemLevel.WARNING)
+                current_app.logger.exception(
+                   "Multiple values were resolved for the vocabulary value %s. The first value was used.",
+                    _type,
+                )
+                return "dataset"
+            resolved_type = resolved_types[0]["id"]
+            return resolved_type
         except Exception as e:
             problems.append(
                 ResolverProblem(resolver=self.name, message=_(
