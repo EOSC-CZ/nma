@@ -2,21 +2,43 @@ import {
   parseSearchAppConfigs,
   createSearchAppsInit,
 } from "@js/oarepo_ui/search";
+
+import {
+  RDMCountComponent,
+  RDMEmptyResults,
+  RDMErrorComponent,
+  RDMRecordResultsGridItem,
+  RDMRecordSearchBarContainer,
+  RDMRecordMultipleSearchBarElement,
+  RDMToggleComponent,
+} from "@js/invenio_app_rdm/search/components";
+import {
+  ContribSearchAppFacets,
+  ContribBucketAggregationElement,
+  ContribBucketAggregationValuesElement,
+} from "@js/invenio_search_ui/components";
+import { parametrize } from "react-overridable";
+
 import ResultsListItem from "./ResultsListItem";
 
-/** NOTE: This reads configs for any search app present on a page
- *   In HTML/Jinja, a single search app instance is typically represented
-@@ -14,13 +15,13 @@ import {
-/** NOTE: To customize components in a specific search app instance,
- *   you need to obtain its `overridableIdPrefix` from the corresponding config first
- */
 const [{ overridableIdPrefix }] = parseSearchAppConfigs();
 
+export const RDMRecordSearchBarContainerWithConfig = parametrize(RDMRecordSearchBarContainer, {
+  appName: overridableIdPrefix,
+});
+
 export const componentOverrides = {
-  /** NOTE: Then you can then replace any existing search ui
-   * component with your own implementation, e.g.:
-   */
+  [`${overridableIdPrefix}.BucketAggregation.element`]: ContribBucketAggregationElement,
+  [`${overridableIdPrefix}.BucketAggregationValues.element`]: ContribBucketAggregationValuesElement,
+  [`${overridableIdPrefix}.ResultsGrid.item`]: RDMRecordResultsGridItem,
+  [`${overridableIdPrefix}.EmptyResults.element`]: RDMEmptyResults,
   [`${overridableIdPrefix}.ResultsList.item`]: ResultsListItem,
+  [`${overridableIdPrefix}.SearchApp.facets`]: ContribSearchAppFacets,
+  [`${overridableIdPrefix}.SearchApp.searchbarContainer`]: RDMRecordSearchBarContainerWithConfig,
+  [`${overridableIdPrefix}.SearchBar.element`]: RDMRecordMultipleSearchBarElement,
+  [`${overridableIdPrefix}.Count.element`]: RDMCountComponent,
+  [`${overridableIdPrefix}.Error.element`]: RDMErrorComponent,
+  [`${overridableIdPrefix}.SearchFilters.Toggle.element`]: RDMToggleComponent,
 };
 
 createSearchAppsInit({ componentOverrides });
