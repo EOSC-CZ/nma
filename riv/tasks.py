@@ -1,3 +1,4 @@
+import shlex
 import subprocess
 import sys
 import traceback
@@ -156,7 +157,7 @@ def _run_invenio_command(cmdline: str) -> tuple[int, list[str], list[str]]:
 
     try:
         result = subprocess.run(
-            [str(invenio_cmd)] + cmdline.split(),
+            [str(invenio_cmd)] + shlex.split(cmdline),
             capture_output=True,
             text=True,
             stdin=subprocess.DEVNULL,
