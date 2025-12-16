@@ -37,7 +37,7 @@ from riv.records.system_fields import (
     ExternalPIDFieldContextMixin,
     PIDStatusCheckField,
 )
-from riv.services.components import ExternalPIDComponent, UpdateMetadataComponent
+from .services.components import ExternalPIDComponent, UpdateMetadataComponent, UpdateEditorsComponent
 
 from .serializers import DataCiteJSONSerializer
 
@@ -104,8 +104,9 @@ datasets_model = model(
     "datasets",
     version="1.0.0",
     presets=[rdm_complete_preset],
-    types=[from_yaml("metadata.yaml", __file__)],
+    types=[from_yaml("metadata.yaml", __file__), from_yaml("record.yaml", __file__)],
     metadata_type="Metadata",
+    record_type="Record",
     customizations=[
         # Add your customizations here, such as custom exports and class mixins.
         # The list of available extensions is at https://github.com/oarepo/oarepo-model.
@@ -124,6 +125,7 @@ datasets_model = model(
         ),
         AddServiceComponent(ExternalPIDComponent),
         AddServiceComponent(UpdateMetadataComponent),
+        AddServiceComponent(UpdateEditorsComponent),
         ReplaceBaseClass(
             "PIDProvider",
             DraftRecordIdProviderV2,
