@@ -74,22 +74,35 @@ def create_record(record_data, problems):
 
     # create and publish
     datasets_service = current_service_registry.get("datasets")
+
+    try:
+        datasets_service.read(identity=system_identity, id_=record_data["id"])
+        # record already exists
+        return invenio_url_for("datasets_ui.record_detail", pid_value=record_data["id"])
+    except Exception:
+        # record does not exist, continue
+        pass
+
     try:
         draft_record = datasets_service.create(
             identity=system_identity, data=record_data
         )
 
         if draft_record.errors:
-            raise RIVRegistrationException(
-                f"Error during record creation of {record_data["id"]}: {draft_record.errors}"
+            # TODO: better serialization of draft_record.errors
+            problems.append(
+                ResolverProblem(
+                    "record_creation",
+                    f"Errors during saving the record, please review them and save again: {draft_record.errors}",
+                    level=ResolverProblemLevel.ERROR,
+                )
             )
 
         datasets_service.publish(identity=system_identity, id_=draft_record["id"])
 
-    except RIVRegistrationException:
-        raise
     except PIDAlreadyExists:
-        raise
+        # redirect to the existing record
+        return invenio_url_for("datasets_ui.record_detail", pid_value=record_data["id"])
     except Exception as e:
         raise RIVRegistrationException(
             f"Error during record creation/publishing of {record_data["id"]}: {e}"

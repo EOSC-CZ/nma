@@ -6,7 +6,7 @@ from invenio_access.permissions import system_identity
 from flask import current_app
 from .utils import handle_errors, validate_date
 from marshmallow_utils.fields import EDTFDateString, EDTFDateTimeString
-
+from marshmallow import validate
 from marshmallow import ValidationError
 from invenio_i18n import lazy_gettext as _
 from idutils.validators import is_doi
@@ -117,12 +117,11 @@ class DataciteResolver(MetadataResolver):
 
         # related identifiers
         # not required
-        #todo UI detail is currently not working with this
-        # related_identifiers = self.resolve_related_identifiers(
-        #     datacite_metadata.get("relatedIdentifiers", [])
-        # )
-        # if len(related_identifiers) > 0:
-        #     metadata["related_identifiers"] = related_identifiers
+        related_identifiers = self.resolve_related_identifiers(
+            datacite_metadata.get("relatedIdentifiers", [])
+        )
+        if len(related_identifiers) > 0:
+            metadata["related_identifiers"] = related_identifiers
 
         # descriptions
         datacite_descriptions = datacite_metadata.get("descriptions", [])
@@ -185,6 +184,11 @@ class DataciteResolver(MetadataResolver):
                         vocabulary_service.read(system_identity, ("descriptiontypes", d_type))
                         description_obj["type"] = {"id": d_type}
                     except:
+                        current_app.logger.exception(
+                            "Record '%s' was not found in the '%s' vocabulary.",
+                            description,
+                            'descriptionType'
+                        )
                         continue
                 d_lang = d.get("lang")
                 if type(d_lang) != str:
@@ -243,7 +247,12 @@ class DataciteResolver(MetadataResolver):
                     continue
                 else:
                     resolved_rel_type = resolved_types[0]["id"]
-            except:
+            except: #required
+                current_app.logger.exception(
+                    "Record '%s' was not found in the '%s' vocabulary.",
+                    rel_type,
+                    'relationtypes'
+                )
                 continue
             obj["relation_type"] = {"id": resolved_rel_type}
 
@@ -268,8 +277,12 @@ class DataciteResolver(MetadataResolver):
                         resolved_type = resolved_types[0]["id"]
 
                     obj["resource_type"] = {"id": resolved_type}
-                except:
-                    pass
+                except: #not required
+                    current_app.logger.exception(
+                        "Record '%s' was not found in the '%s' vocabulary.",
+                        res_type,
+                        'resourcetypes'
+                    )
 
             result.append(obj)
 
@@ -288,6 +301,10 @@ class DataciteResolver(MetadataResolver):
             try:
                 edtf_string.deserialize(date)
             except:
+                current_app.logger.exception(
+                    "Not a valid date '%s'.",
+                    date,
+                )
                 continue
             if not validate_date(date):
                 continue
@@ -308,10 +325,13 @@ class DataciteResolver(MetadataResolver):
                     continue
                 else:
                     resolved_datatype = resolved_datetypes[0]["id"]
-                vocabulary_service.read(
-                    system_identity, ("datetypes", type.lower())
-                )
+
             except:
+                current_app.logger.exception(
+                    "Record '%s' was not found in the '%s' vocabulary.",
+                    type ,
+                    "datetypes"
+                )
                 continue
             date_object["date"] = date
             date_object["type"] = {"id": resolved_datatype}
@@ -329,7 +349,11 @@ class DataciteResolver(MetadataResolver):
                         system_identity, ("licenses", code)
                     )
                 except:
-                    continue
+                    current_app.logger.exception(
+                        "Record '%s' was not found in the '%s' vocabulary.",
+                        code,
+                        "licenses"
+                    )
             rights_list.append({"id": code})
         return rights_list
 
@@ -351,6 +375,11 @@ class DataciteResolver(MetadataResolver):
             )
             return longer_code
         except:
+            current_app.logger.exception(
+                "Record '%s' was not found in the '%s' vocabulary.",
+                longer_code,
+                "languages"
+            )
             return None
 
     @handle_errors()
@@ -402,6 +431,11 @@ class DataciteResolver(MetadataResolver):
                     resolved_type = resolved_types[0]["id"]
 
             except:
+                current_app.logger.exception(
+                    "Record '%s' was not found in the '%s' vocabulary.",
+                    t_type,
+                    "titletypes"
+                )
                 continue
             t_title = title.get("title")
             if not t_title or len(t_title) < 3:
@@ -511,8 +545,9 @@ class DataciteResolver(MetadataResolver):
 
             entry = {"person_or_org": person}
             resolved_role = None
+            role = contributor.get("contributorType")
+
             try:
-                role = contributor.get("contributorType")
                 escaped = escape_lucene(role)
                 voc = vocabulary_service.search(
                     system_identity,
@@ -529,7 +564,11 @@ class DataciteResolver(MetadataResolver):
                 else:
                     resolved_role = resolved_roles[0]["id"]
             except:
-                pass
+                current_app.logger.exception(
+                    "Record '%s' was not found in the '%s' vocabulary.",
+                    role,
+                    "contributorsroles"
+                )
             if resolved_role:
                 entry["role"] = {"id": resolved_role}
 

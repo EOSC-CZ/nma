@@ -1,0 +1,16 @@
+# Definition of record for datasets. Please do not add ccmm model here,
+# add the ccmm_preset instead.
+Record:
+  type: object
+  properties:
+    editors:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: keyword
+          full_name:
+            type: keyword
+          institution:
+            type: keyword

@@ -3,7 +3,16 @@ import traceback
 from collections.abc import Mapping
 from functools import wraps
 
-from flask import Blueprint, abort, flash, g, redirect, render_template, url_for
+from flask import (
+    Blueprint,
+    abort,
+    flash,
+    g,
+    redirect,
+    render_template,
+    request,
+    url_for,
+)
 from flask_login import login_required
 from flask_menu import current_menu
 from invenio_app_rdm.records_ui.views.decorators import no_cache_response
@@ -43,6 +52,8 @@ from riv.records.create_record import create_record
 from riv.resolvers.base import resolve_metadata
 from riv.views import RegisterForm
 
+from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
+
 logger = logging.getLogger("DatasetsUI")
 
 
@@ -78,16 +89,25 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         EmptyRecordAccessComponent,
         FilesLockedComponent,
         FilesQuotaAndTransferComponent,
+        RDMVocabularyOptionsComponent,
     ]
 
-    try:
-        from oarepo_vocabularies.ui.resources.components import (
-            DepositVocabularyOptionsComponent,
-        )
+    record_detail_permissions = [
+        "update",
+        "manage",
+        "read_files",
+        "view",
+    ]
 
-        components.append(DepositVocabularyOptionsComponent)
-    except ImportError:
-        pass
+    deposit_edit_permissions = [
+        "manage",
+        "update",
+    ]
+
+    deposit_create_permissions = [
+        "manage",
+        "create",
+    ]
 
     application_id = "datasets"
 
@@ -189,7 +209,7 @@ class DatasetsUIResource(RecordsUIResource):
     def deposit_edit(self, record, draft_files=None, files_locked=True, **kwargs):
         """Edit draft record."""
         if not self.api_service.check_permission(
-            g.identity, "edit", record=record_from_result(record)
+            g.identity, "update", record=record_from_result(record)
         ):
             raise PermissionDeniedError(
                 _("User does not have permission to edit record.")
@@ -225,6 +245,11 @@ def init_menu(app):
             order=1,
             visible_when=can_view_deposit_page,
         )
+
+
+def search_redirect():
+    """Redirect from /search to /datasets while persisting query args."""
+    return redirect(url_for("datasets_ui.search", **request.args))
 
 
 def finalize_app(app):

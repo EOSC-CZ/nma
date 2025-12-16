@@ -8,6 +8,7 @@ theme = WebpackThemeBundle(
         "semantic-ui": {
             "entry": {
                 "components": "./js/custom-components.js",
+                "record_management": "./js/record-management/index.js",
             },
             "dependencies": {},
             "devDependencies": {},
