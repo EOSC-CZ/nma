@@ -6,10 +6,7 @@ import re
 DATE_REGEX = re.compile(
     r"^(?:"r"\d{4}"r"|"r"\d{4}-\d{2}"r"|"r"\d{4}-\d{2}-\d{2}"r")$"
 )
-<<<<<<< HEAD
 
-=======
->>>>>>> rdm-14
 def validate_date(value: str) -> bool:
     return bool(DATE_REGEX.fullmatch(value))
 

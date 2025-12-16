@@ -15,15 +15,7 @@ from invenio_rdm_records.services.schemas.metadata import record_personorg_schem
     record_related_identifiers_schemes
 import langcodes
 from .utils import escape_lucene
-CREATORS_PLACEHOLDER = [{
-    "person_or_org": {
-        "name": "Unknown Creator",
-        "type": "personal",
-        "family_name": "Unknown"
-    }
-}]
-
-PUBLICATION_DATE_PLACEHOLDER = '1900'
+from .base import CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER
 
 
 class DataciteResolver(MetadataResolver):
