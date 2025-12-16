@@ -6,6 +6,7 @@ from typing import Any, Callable
 from urllib import parse as urlparse
 
 import bleach
+from flask import current_app
 from idutils import is_doi, normalize_doi
 from invenio_vocabularies.datastreams.datastreams import StreamEntry
 from invenio_vocabularies.datastreams.readers import BaseReader
@@ -43,24 +44,21 @@ class CatchAllReader(BaseReader):
         session = create_session_with_retries()
         oai_prefix = f"oai:{urlparse.urlparse(self._origin).hostname}:"
         for seq, record in enumerate(self.fetch_records(session)):
-            if record is None:
-                yield None
-            else:
-                files_link = record["links"]["self"] + "/files/"
-                files = session.get(files_link, headers={"Accept": "application/json"})
-                files.raise_for_status()
-                record["files"] = files.json()
-                yield APIOAIRecord(
-                    raw=json.dumps(record),
-                    json=record,
-                    header=APIOAIHeader(
-                        identifier=oai_prefix + record["id"],
-                        datestamp=record["metadata"][
-                            "dateAvailable"
-                        ],  # Note: catch-all currently does not provide "modified" date!
-                        deleted=False,
-                    ),
-                )
+            files_link = record["links"]["self"] + "/files/"
+            files = session.get(files_link, headers={"Accept": "application/json"})
+            files.raise_for_status()
+            record["files"] = files.json()
+            yield APIOAIRecord(
+                raw=json.dumps(record),
+                json=record,
+                header=APIOAIHeader(
+                    identifier=oai_prefix + record["id"],
+                    datestamp=record["metadata"][
+                        "dateAvailable"
+                    ],  # Note: catch-all currently does not provide "modified" date!
+                    deleted=False,
+                ),
+            )
 
     def read(self, item=None, *args, **kwargs):
         yield from self._iter(fp=None, *args, **kwargs)
@@ -70,11 +68,16 @@ class CatchAllReader(BaseReader):
 
         while True:
             # load a page of results
+            current_app.logger.info("Fetching list of records from %s", url)
             response = session.get(url, headers={"Accept": "application/json"})
             response.raise_for_status()
             payload = response.json()
+            current_app.logger.info(
+                "Fetched listing of %d records", len(payload["hits"]["hits"])
+            )
             for hit in payload["hits"]["hits"]:
                 # need to re-get as we do not have all fields in the hit
+                current_app.logger.info("Fetching record %s", hit["id"])
                 yield session.get(
                     hit["links"]["self"], headers={"Accept": "application/json"}
                 ).json()
