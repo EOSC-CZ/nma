@@ -52,6 +52,8 @@ from riv.records.create_record import create_record
 from riv.resolvers.base import resolve_metadata
 from riv.views import RegisterForm
 
+from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
+
 logger = logging.getLogger("DatasetsUI")
 
 
@@ -87,6 +89,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         EmptyRecordAccessComponent,
         FilesLockedComponent,
         FilesQuotaAndTransferComponent,
+        RDMVocabularyOptionsComponent,
     ]
 
     record_detail_permissions = [
@@ -105,14 +108,6 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         "manage",
         "create",
     ]
-    try:
-        from oarepo_vocabularies.ui.resources.components import (
-            DepositVocabularyOptionsComponent,
-        )
-
-        components.append(DepositVocabularyOptionsComponent)
-    except ImportError:
-        pass
 
     application_id = "datasets"
 

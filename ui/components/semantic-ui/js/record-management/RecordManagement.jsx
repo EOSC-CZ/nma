@@ -40,13 +40,6 @@ export class RecordManagement extends Component {
             />
           </Grid.Column>
         )}
-        {error && (
-          <Grid.Row className="record-management">
-            <Grid.Column>
-              <Message negative>{error}</Message>
-            </Grid.Column>
-          </Grid.Row>
-        )}
       </Grid>
     );
   }
