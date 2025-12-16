@@ -16,6 +16,13 @@
 #}
 {% extends "oarepo_ui/record_detail.html" %}
 
+{%- block javascript %}
+    {{super()}}
+    {{ webpack['record_management.js'] }}
+{%- endblock %}
+
+
+
 {# Available template blocks (showing closest override point):
 
 Page Structure (from oarepo_ui/record_detail.html):
