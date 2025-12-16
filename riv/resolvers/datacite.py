@@ -1,15 +1,9 @@
 from ..resolvers import MetadataResolver
-from .base import ResolverProblem, ResolverProblemLevel, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER
-from invenio_vocabularies.proxies import current_service as vocabulary_service
-from invenio_access.permissions import system_identity
-from flask import current_app
-from .utils import handle_errors
-from marshmallow_utils.fields import EDTFDateString
-from marshmallow import ValidationError
+from .base import ResolverProblem, ResolverProblemLevel
 from invenio_i18n import lazy_gettext as _
 from idutils.validators import is_doi
 from idutils.normalizers import normalize_doi
-
+from requests.models import Response
 
 
 class DataciteResolver(MetadataResolver):
@@ -20,7 +14,7 @@ class DataciteResolver(MetadataResolver):
     identifier_normalize_fn = staticmethod(normalize_doi)
     url = "https://api.datacite.org/dois"
 
-    def _get_data_from_response(self, response, problems):
+    def _get_data_from_response(self, response: Response, problems):
         data = response.json()
         return data["data"]["attributes"]
 

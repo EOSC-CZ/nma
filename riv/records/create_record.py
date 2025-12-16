@@ -74,6 +74,7 @@ def create_record(record_data, problems):
     # create and publish
     datasets_service = current_service_registry.get("datasets")
     try:
+
         draft_record = datasets_service.create(
             identity=system_identity, data=record_data
         )
@@ -83,7 +84,7 @@ def create_record(record_data, problems):
                 f"Error during record creation of {record_data["id"]}: {draft_record.errors}"
             )
 
-        datasets_service.publish(identity=system_identity, id_=draft_record["id"])
+        datasets_service.publish(identity=system_identity, id_=record_data["id"])
 
     except RIVRegistrationException:
         raise

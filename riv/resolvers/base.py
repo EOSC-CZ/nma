@@ -3,10 +3,12 @@ import datetime
 import enum
 import re
 from collections.abc import Callable
-from typing import Protocol
+from typing import Protocol, Any
 
 import dateutil
+from bs4 import BeautifulSoup
 from dateutil.parser import ParserError
+from deepmerge import conservative_merger
 
 from flask import current_app
 from flask_babel.speaklater import LazyString
@@ -14,7 +16,7 @@ from invenio_access.permissions import system_identity
 from invenio_i18n import lazy_gettext as _
 from marshmallow import ValidationError
 from marshmallow_utils.fields import EDTFDateString
-
+from requests.models import Response
 from riv.proxies import current_riv_extension
 from riv.resolvers.utils import handle_errors
 from riv.utils import create_session_with_retries
@@ -103,7 +105,7 @@ class MetadataResolver(Protocol):
 
         return self.identifier_resolve_fn(persistent_url)
 
-    def _get_response(self, url, problems):
+    def _get_response(self, url: str, problems: list[ResolverProblem])->Response | None:
 
         response = self.session.get(
             url=url,
@@ -122,23 +124,26 @@ class MetadataResolver(Protocol):
                 return None
         return response
 
-    def _get_data_from_response(self, response, problems):
+    def _get_data_from_response(self, response: Response, problems: list[ResolverProblem])->Any:
         raise NotImplementedError
 
-    def _get_titles(self, data, problems):
+    def _get_titles(self, data: Any, problems: list[ResolverProblem])->list[str]:
         raise NotImplementedError
 
-    def _get_creators(self, data, problems):
+    def _get_creators(self, data: Any, problems: list[ResolverProblem])->list[dict[str, Any]]:
         raise NotImplementedError
 
-    def _get_publication_dates(self, data, problems):
+    def _get_publication_dates(self, data: Any, problems: list[ResolverProblem])->list[str]:
         raise NotImplementedError
 
-    def _get_resource_type(self, data, problems):
+    def _get_resource_type(self, data: Any, problems: list[ResolverProblem])->str:
         raise NotImplementedError
+
+    def _process_others(self, data: Any, problems: list[ResolverProblem])->dict[str, Any]:
+        return {}
 
     @handle_errors(error_placeholder="Unknown title", alert_user=True)
-    def validate_main_title(self, titles, problems):
+    def validate_main_title(self, titles: list[str], problems: list[ResolverProblem])->str:
         if not titles:
             problems.append(
                 ResolverProblem(resolver=self.name, message=_("Missing title."),
@@ -155,7 +160,7 @@ class MetadataResolver(Protocol):
         return title
 
     @handle_errors(error_placeholder=CREATORS_PLACEHOLDER, alert_user=True)
-    def validate_creators(self, creators, problems):
+    def validate_creators(self, creators: list[dict[str, Any]], problems: list[ResolverProblem])->list[dict[str, Any]]:
 
         if not creators:
             problems.append(
@@ -167,7 +172,7 @@ class MetadataResolver(Protocol):
         return creators
 
     @handle_errors(PUBLICATION_DATE_PLACEHOLDER, alert_user=True)
-    def validate_publication_date(self, dates, problems):
+    def validate_publication_date(self, dates: list[str | int], problems: list[ResolverProblem])->str:
 
         if not dates:
             problems.append(ResolverProblem(resolver=self.name, level=ResolverProblemLevel.WARNING, message=_("Publication date missing.")))
@@ -182,7 +187,7 @@ class MetadataResolver(Protocol):
 
 
     @handle_errors('dataset')
-    def validate_resource_type(self, resource_type, problems):
+    def validate_resource_type(self, resource_type: str, problems: list[ResolverProblem])->dict[str, str]:
         vocabulary_id = 'resourcetypes'
         try:
             vocabulary_service.read(
@@ -221,6 +226,8 @@ class MetadataResolver(Protocol):
         metadata["creators"] = self.validate_creators(self._get_creators(data, problems), problems)
         metadata["publication_date"] = self.validate_publication_date(self._get_publication_dates(data, problems), problems)
         metadata["resource_type"] = self.validate_resource_type(self._get_resource_type(data, problems), problems)
+
+        conservative_merger.merge(metadata, self._process_others(data, problems))
 
         return metadata, problems
 
@@ -281,7 +288,7 @@ def resolve_record_data(persistent_url: str) -> (dict | None, list[ResolverProbl
     raise UnresolvablePIDError(persistent_url, collected_messages)
 
 
-def parse_date(date):
+def parse_date(date: str | int)-> (str, list[str|LazyString]):
     error_messages = []
 
     date = str(date) # may be int which will cause issues

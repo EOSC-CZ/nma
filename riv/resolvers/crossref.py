@@ -42,8 +42,9 @@ class CrossrefResolver(MetadataResolver):
 
     name = "Crossref"
 
-    identifier_resolve_fn = staticmethod(is_doi)
-    identifier_normalize_fn = staticmethod(normalize_doi)
+    identifier_code = "doi"
+    identifier_resolve_fn = staticmethod(lambda x: re.match(r"https?://api.crossref.org/works/doi/.+$", x)) # TODO: correct version
+    identifier_normalize_fn = staticmethod(lambda x: re.match(r"https?://api.crossref.org/works/doi/(.+)$", x).group(1) )
     url = "https://api.crossref.org/works/doi"
 
     def _get_data_from_response(self, response, problems):
@@ -77,74 +78,13 @@ class CrossrefResolver(MetadataResolver):
     def _get_publication_dates(self, data, problems):
         return data.get("deposited", {}).get("date-time")
 
-    def resolve(self, persistent_url: str) -> (dict | None, str):
-        """
-        Resolves metadata associated with a given identifier using the Crossref API.
-
-        This method retrieves data related to a specified identifier by making a request to
-        the Crossref API. Depending on the response status code, it processes the result
-        accordingly. Data regarding the title of the work and author details such as names
-        and ORCID identifiers (if available) are extracted and returned in a structured format.
-        The function also handles scenarios like rate-limiting, blocked requests, and errors.
-
-        Parameters:
-            identifier (str): The identifier of the resource to retrieve metadata for.
-
-        Returns:
-            tuple[dict | None, str]: A tuple where the first element is a dictionary containing
-            retrieved metadata (if successful) or None (on failure), and the second element
-            is a string message reflecting the status or any error message.
-
-        Raises:
-            None
-        """
-
-        crossref_titles = crossref_metadata.get("title", [])
-        metadata["title"] = self.resolve_title(titles=crossref_titles, problems=problems)
-
-        crossref_authors = crossref_meta
-        metadata["creators"] = self.resolve_crossref_authors(authors=crossref_authors, problems=problems)
-
-        publication_date = crossref_meta
-        metadata["publication_date"] = self.resolve_crossref_publication_date(publication_date=publication_date,
-                                                                              problems=problems)
-        metadata["resource_type"] = self.resolve_crossref_resource_type(resource_type=crossref_metadata,
-                                                                        problems=problems)
-
-        return metadata, problems
+    def _get_resource_type(self, data, problems):
+        types = data.get("types", {})
+        return types.get("resourceTypeGeneral", "dataset").lower()
 
 
 
-    @handle_errors(PUBLICATION_DATE_PLACEHOLDER)
-    def resolve_crossref_publication_date(self, *, publication_date, problems):
-        publication_date = str(publication_date)
-        edtf_string = EDTFDateString()
-        try:
-            edtf_string.deserialize(publication_date)
-        except ValidationError as e:
-            problems.append(
-                ResolverProblem(resolver=self.name, message=_(f"Invalid publication date format: {publication_date}."),
-                                level=ResolverProblemLevel.WARNING, original_exception=e))
-            return PUBLICATION_DATE_PLACEHOLDER
-        return publication_date
 
-    @handle_errors('other')
-    def resolve_crossref_resource_type(self, *, resource_type, problems):
-        vocabulary_id = 'resourceTypeGeneral'
-        _type = resource_type.get("type", "other").lower()
-        try:
-            vocabulary_service.read(
-                system_identity, (vocabulary_id, _type)
-            )
-            return {"id": _type}
-        except Exception as e:
-            problems.append(
-                ResolverProblem(resolver=self.name, message=_(
-                    f"The provided resource type {_type} could not be parsed. The default value 'dataset' has been applied."),
-                                level=ResolverProblemLevel.WARNING, original_exception=e))
-            current_app.logger.exception(
-                "Record '%s' was not found in the '%s' vocabulary.",
-                _type,
-                vocabulary_id
-            )
-            return {"id": "other"}
+
+
+

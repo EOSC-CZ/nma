@@ -151,7 +151,6 @@ class DatasetsUIResource(RecordsUIResource):
 
             try:
                 record_data, problems = resolve_record_data(pid)
-                create_record(record_data)
                 secret_link = create_record(record_data, problems)
                 if not problems:
                     flash(f"Successfully registered dataset with PID: {pid}", "success")
@@ -174,13 +173,6 @@ class DatasetsUIResource(RecordsUIResource):
                     )
                     flash(warning_message, "warning")
                     return redirect(secret_link)
-                record_data, problems = resolve_record_data(pid)
-                create_record(record_data)
-
-                flash(f"Successfully registered dataset with PID: {pid}", "success")
-                return redirect(
-                    url_for("datasets_ui.deposit_edit", pid_value=record_data["id"])
-                )
             except PIDAlreadyExists:
                 flash(_("This dataset is already registered."), "info")
                 return redirect(
