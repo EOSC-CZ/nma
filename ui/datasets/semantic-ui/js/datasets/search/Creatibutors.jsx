@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Icon, List, ListItem, Accordion, AccordionTitle } from "semantic-ui-react";
+import { i18next } from "@translations/i18next";
 import { Creatibutor } from "./Creatibutor";
 
 const CreatibutorsList = ({ creatibutors, showAll, numDisplayed }) => {

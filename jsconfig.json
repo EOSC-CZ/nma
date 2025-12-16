@@ -53,7 +53,7 @@
             "@translations/oarepo_oaipmh_harvester": [
                 "./.venv/lib/python3.13/site-packages/oarepo_oaipmh_harvester/ui/theme/assets/semantic-ui/translations/oarepo_oaipmh_harvester"
             ],
-            "@translations/nma": [
+            "@translations/i18next": [
                 "./i18n/semantic-ui/translations/i18next.js"
             ],
             "@js/invenio_communities": [

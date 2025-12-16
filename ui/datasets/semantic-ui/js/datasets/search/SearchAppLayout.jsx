@@ -24,10 +24,6 @@ export const SearchAppResultsGrid = ({
 }) => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
-  const searchInputProps = {
-    clearable: true,
-  };
-
   return (
     <Grid columns={columnsAmount} relaxed className="search-app rel-mt-2" padded>
       {facetsAvailable && (
@@ -44,10 +40,10 @@ export const SearchAppResultsGrid = ({
         </GridResponsiveSidebarColumn>
       )}
       <Grid.Column {...resultsPaneLayout}>
-        <Grid className="subgrid">
-          <Grid.Row width={16}>
+        <Grid>
+          <Grid.Row width={16} only="mobile tablet">
             {facetsAvailable && (
-              <Grid.Column floated="left" only="mobile tablet" mobile={2} tablet={2} textAlign="center">
+              <Grid.Column floated="left" width={2} textAlign="center">
                 <Button
                   basic
                   onClick={() => setSidebarVisible(true)}
@@ -62,16 +58,8 @@ export const SearchAppResultsGrid = ({
                 </Button>
               </Grid.Column>
             )}
-            <Grid.Column width={14} floated="right" only="mobile tablet">
-              <SearchBar buildUID={buildUID} appName={appName} uiProps={searchInputProps} />
-              <p className="right-floated search-bar-tip">
-                {i18next.t(
-                  "TIP: Most of the content is in English. You can get more results by using English terms."
-                )}
-              </p>
-            </Grid.Column>
-            <Grid.Column width={16} floated="right" only="computer">
-              <SearchBar buildUID={buildUID} appName={appName} uiProps={searchInputProps} />
+            <Grid.Column width={facetsAvailable ? 14 : 16} floated="right">
+              <SearchBar buildUID={buildUID} appName={appName} uiProps={{ clearable: true }} />
               <p className="right-floated search-bar-tip">
                 <em>
                   {i18next.t(
@@ -138,10 +126,6 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
       window.removeEventListener("scroll", handleScrollButtonVisibility);
     };
   }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   if (facetsAvailable) {
     if (hasButtonSidebar) {
@@ -223,8 +207,17 @@ export const SearchAppLayout = ({ config, hasButtonSidebar }) => {
         hasButtonSidebar={hasButtonSidebar}
         resultSortLayout={resultSortLayout}
       />
-      <TransitionablePortal open={scrollToTopVisible} transition={{ animation: "fade up", duration: 300 }}>
-        <Button onClick={scrollToTop} id="scroll-to-top-button" circular icon="chevron up" aria-label={i18next.t("Scroll to top")} />
+      <TransitionablePortal
+        open={scrollToTopVisible}
+        transition={{ animation: "fade up", duration: 300 }}
+      >
+        <Button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          id="scroll-to-top-button"
+          circular
+          icon="chevron up"
+          aria-label={i18next.t("Scroll to top")}
+        />
       </TransitionablePortal>
     </Container>
   );

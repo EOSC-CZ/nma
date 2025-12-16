@@ -1,0 +1,63 @@
+
+    {% if community %}
+        {% if collection %}
+          {% set root_collection=collection[collection.root] %}
+          {% set options = [
+            {
+              "key": "collections",
+              "text": _("In this collection"),
+              "value": url_for("invenio_app_rdm_communities.community_collection", pid_value=community.slug, collection_slug=root_collection.slug, tree_slug=tree.slug)
+            },
+            {
+                "key": "communities",
+                "text": _("In this community"),
+                "value": url_for("invenio_app_rdm_communities.communities_detail", pid_value=community.slug),
+            },
+            {
+                "key": "records",
+                "text": _('All metadata records'),
+                "value": url_for("datasets_ui.search"),
+            }]
+          %}
+        {% else %}
+          {% set options = [
+            {
+                "key": "communities",
+                "text": _("In this community"),
+                "value": url_for("invenio_app_rdm_communities.communities_detail", pid_value=community.slug),
+            },
+            {
+                "key": "records",
+                "text": _('All metadata records'),
+                "value": url_for("datasets_ui.search"),
+            }]
+          %}
+        {% endif %}
+    {% else %}
+    {% set options = [
+              {
+                "key": "records",
+                "text": _('All metadata records'),
+                "value": url_for("datasets_ui.search")
+              }]
+      %}
+    {% endif %}
+      <div class="item p-0 search-bar">
+        <div id="header-search-bar" data-options='{{ options | tojson }}'>
+          <div class="ui fluid search">
+            <div class="ui icon input">
+              <input
+                autocomplete="off"
+                aria-label="{{ _('Search metadata records') }}"
+                placeholder="{{ _('Search metadata records') }}..."
+                type="text"
+                tabindex="0"
+                class="prompt"
+                value=""
+              >
+              <i aria-hidden="true" class="search icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
