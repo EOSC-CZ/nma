@@ -4,7 +4,7 @@ Copyright (C) 2022-2025 CERN.
 Invenio RDM Records is free software; you can redistribute it and/or modify
 it under the terms of the MIT License; see LICENSE file for more details.
 #}
-{%- set show_record_management_menu = permissions.can_update %}
+{%- set show_record_management_menu = permissions.can_update or permissions.can_manage %}
 
 {% if show_record_management_menu %}
   <section id="record-manage-menu"

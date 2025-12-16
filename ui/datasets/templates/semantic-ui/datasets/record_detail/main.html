@@ -60,7 +60,7 @@ Note: Context variables available:
 {%- block record_header_info %}
 {%- endblock record_header_info %}
 
-{%- set show_record_management_menu = permissions.can_update %}
+{%- set show_record_management_menu = permissions.can_update or permissions.can_manage %}
 {%- block record_header %}
   {% if show_record_management_menu %}
   <div class="ui container">
