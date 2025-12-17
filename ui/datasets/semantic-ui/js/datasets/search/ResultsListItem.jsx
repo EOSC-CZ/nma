@@ -1,23 +1,14 @@
-// This file is part of InvenioRDM
-// Copyright (C) 2022-2024 CERN.
-// Copyright (C) 2024 KTH Royal Institute of Technology.
-//
-// Invenio RDM is free software; you can redistribute it and/or modify it
-// under the terms of the MIT License; see LICENSE file for more details.
-
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 import _get from "lodash/get";
 import React, { Component } from "react";
 import { SearchItemCreators } from "@js/invenio_app_rdm/utils";
 import PropTypes from "prop-types";
 import { Item, Label, Icon } from "semantic-ui-react";
-import { CompactStats } from "@js/invenio_app_rdm/components/CompactStats";
-import { DisplayPartOfCommunities } from "@js/invenio_app_rdm/components/DisplayPartOfCommunities";
 import { withState } from "react-searchkit";
 
 class RecordsResultsListItem extends Component {
   render() {
-    const { result, key } = this.props;
+    const { result } = this.props;
 
     const viewLink = _get(result, "links.self_html");
     const accessStatusId = _get(result, "ui.access_status.id", "open");
@@ -29,12 +20,11 @@ class RecordsResultsListItem extends Component {
       i18next.t("No creation date found.")
     );
 
-    const creators = result.ui.creators.creators;
+    const creators = _get(result, "ui.creators.creators", []);
 
     const descriptionStripped = _get(
       result,
-      "ui.description_stripped",
-      i18next.t("No description")
+      "ui.description_stripped"
     );
 
     const publicationDate = _get(
@@ -49,13 +39,11 @@ class RecordsResultsListItem extends Component {
     );
     const subjects = _get(result, "ui.subjects", []);
     const title = _get(result, "metadata.title", i18next.t("No title"));
-    const uniqueViews = _get(result, "stats.all_versions.unique_views", 0);
-    const uniqueDownloads = _get(result, "stats.all_versions.unique_downloads", 0);
 
     const publishingInformation = _get(result, "ui.publishing_information.journal", "");
 
     return (
-      <Item key={key ?? result.id}>
+      <Item key={result.id} data-testid="result-item">
           <Item.Content>
             <Item.Extra className="labels-actions">
               <Label horizontal size="small" className="primary theme-primary">
@@ -79,47 +67,39 @@ class RecordsResultsListItem extends Component {
             <Item className="creatibutors">
               <SearchItemCreators creators={creators} othersLink={viewLink} />
             </Item>
-            <Item.Description className="truncate-lines-2">
-              {descriptionStripped}
-            </Item.Description>
+            {descriptionStripped && 
+              <Item.Description className="truncate-lines-2">
+                {descriptionStripped}
+              </Item.Description>
+            }
 
             <Item.Extra>
-              {subjects.map((subject) => (
-                <Label key={subject.title_l10n} size="tiny">
+              {subjects.map((subject, idx) => (  
+                <Label key={`${subject.title_l10n}-${idx}`} size="tiny">
                   {subject.title_l10n}
                 </Label>
               ))}
 
-              <div className="flex justify-space-between align-items-end">
+              <p>
                 <small>
-                  <DisplayPartOfCommunities communities={result.parent?.communities} />
-                  <p>
-                    {createdDate && (
-                      <>
-                        {i18next.t("Uploaded on {{uploadDate}}", {
-                          uploadDate: createdDate,
-                        })}
-                      </>
-                    )}
-                    {createdDate && publishingInformation && " | "}
-
-                    {publishingInformation && (
-                      <>
-                        {i18next.t("Published in: {{- publishInfo }}", {
-                          publishInfo: publishingInformation,
-                        })}
-                      </>
-                    )}
-                  </p>
+                  {createdDate && (
+                    <>
+                      {i18next.t("Uploaded on {{uploadDate}}", {
+                        uploadDate: createdDate,
+                      })}
+                    </>
+                  )}
+                  {createdDate && publishingInformation && " | "}
+                  
+                  {publishingInformation && (
+                    <>
+                      {i18next.t("Published in: {{- publishInfo }}", {
+                        publishInfo: publishingInformation,
+                      })}
+                    </>
+                  )}
                 </small>
-
-                <small>
-                  <CompactStats
-                    uniqueViews={uniqueViews}
-                    uniqueDownloads={uniqueDownloads}
-                  />
-                </small>
-              </div>
+              </p>
             </Item.Extra>
           </Item.Content>
         </Item>
@@ -130,11 +110,9 @@ class RecordsResultsListItem extends Component {
 RecordsResultsListItem.propTypes = {
   currentQueryState: PropTypes.object,
   result: PropTypes.object.isRequired,
-  key: PropTypes.string,
 };
 
 RecordsResultsListItem.defaultProps = {
-  key: null,
   currentQueryState: null,
 };
 
