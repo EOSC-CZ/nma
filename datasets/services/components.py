@@ -31,13 +31,14 @@ class UpdateMetadataComponent(ServiceComponent):
 def _get_editor_dict_for_user(user: User = None):
     if user is None:
         user = current_user
-    user_name = user.user_profile.get("full_name", "")
-    if len(user_name) == 0:
-        user_email = user.email
-        user_email = user_email.split("@")[0][:-3]
-        if len(user_email) > 3:
-            user_name = user_email + "***"
-    return {"id": str(user.id), "full_name": user_name, "affiliations": user.user_profile.get("affiliations", "")}
+    if user is None:
+        return {"id": "Anonymous", "full_name": "Anonymous", "affiliations": ""}
+    user_profile =  getattr(user, "user_profile", {})
+    user_name = user_profile.get("full_name", "")
+    if not user_name:
+        user_email = getattr(user, "email", "")
+        user_name = user_email.split("@")[0][:-3] + "***"
+    return {"id": str(user.id), "full_name": user_name, "affiliations": user_profile.get("affiliations", "")}
 
 
 def _update_editors_field_for_user(record: Record, editor: dict = None):
