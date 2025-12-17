@@ -28,7 +28,7 @@ class UpdateMetadataComponent(ServiceComponent):
         setattr(record, self.field, data.get(self.field, {}))
 
 
-def _get_editor_dict_for_user(user: User = None):
+def _get_editor_dict_for_user(user: User | None = None):
     if user is None:
         user = current_user
     if user is None:
@@ -41,26 +41,21 @@ def _get_editor_dict_for_user(user: User = None):
     return {"id": str(user.id), "full_name": user_name, "affiliations": user_profile.get("affiliations", "")}
 
 
-def _update_editors_field_for_user(record: Record, editor: dict = None):
-    if editor is None:
-        user = current_user
-        editor = _get_editor_dict_for_user(user)
-    editors = record.get("editors", [])
-    if not any(str(user.id) == ed["id"] for ed in editors):
-        editors = [editor]
-        return editors
-    for i, obj in enumerate(editors):
+def _update_editors_field_for_user(record: Record, editor: dict) -> dict:
+    editors = record.setdefault("editors", [])
+    for obj in editors:
         if obj["id"] == editor["id"]:
-            editors[i]["full_name"] = editor["full_name"]
-            editors[i]["affiliations"] = editor["affiliations"]
-            break
-    return editors
-
-
-def get_record_editor(record: Record, user: User):
-    editor = _get_editor_dict_for_user(user)
-    editors = _update_editors_field_for_user(record, editor)
+            obj["full_name"] = editor["full_name"]
+            obj["affiliations"] = editor["affiliations"]
+            return obj
+    else:
+        editors.append(editor)
     return editor
+
+
+def register_editor(record: Record, user: User | None = None) -> dict:
+    editor = _get_editor_dict_for_user(user)
+    return _update_editors_field_for_user(record, editor)
 
 
 class UpdateEditorsComponent(ServiceComponent):
@@ -68,21 +63,19 @@ class UpdateEditorsComponent(ServiceComponent):
     field = "editors"
 
     def create(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
-        editor = _get_editor_dict_for_user()
-        record["editors"] = [editor]
+        register_editor(record)
 
     def update(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
-        record["editors"] = _update_editors_field_for_user(record)
+        register_editor(record)
 
     def publish(self, identity, draft=None, record=None, **kwargs):
         """Update draft metadata."""
-        editor = _get_editor_dict_for_user()
-        record["editors"] = [editor]
+        register_editor(record)
 
     def edit(self, identity, draft=None, record=None, **kwargs):
         """Update draft metadata."""
-        record["editors"] = _update_editors_field_for_user(record)
+        register_editor(record)
 
     def new_version(self, identity, draft=None, record=None, **kwargs):
         """Update draft metadata."""
-        record["editors"] = _update_editors_field_for_user(record)
+        register_editor(record)
