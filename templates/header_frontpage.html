@@ -24,9 +24,9 @@
  <div class="row">
     <div class="sixteen wide mobile four wide computer column"></div>
     <div class="sixteen wide mobile eight wide computer column center aligned">
-        <form action="{{ url_for('invenio_search_ui.search') }}" class="ui form" role="search" data-testid="frontpage-search-form">
+        <form action="{{ url_for('datasets_ui.search') }}" class="ui form" role="search" data-testid="frontpage-search-form" id="frontpage-search-form">
             <div class="ui fluid big action input">
-            <input type="text" name="q" class="form-control" aria-label="{{ _('Search metadata records') }}" placeholder="{{ _('Search metadata records') }}…" data-testid="frontpage-search-input">
+            <input type="text" name="q" class="form-control" aria-label="{{ _('Search metadata records') }}" placeholder="{{ _('Search metadata records') }}…" data-testid="frontpage-search-input" id="frontpage-search-input">
             <button type="submit" class="ui icon search button" aria-label="{{ _('Search metadata records') }}" data-testid="frontpage-search-button">
                 <i class="search icon"></i>
             </button>
@@ -37,10 +37,10 @@
 <div class="row pt-0 rel-mb-10">
    <div class="sixteen wide column center aligned rel-mt-1">
      <p>{{ _("Can't find a dataset? Check or register it using its persistent identifier.") }}</p>
-     <a href="{{ url_for('datasets_ui.deposit_create') }}" class="ui big primary import button rel-mt-1 rel-mb-7" data-testid="frontpage-import-record-button">
+     <button type="button" class="ui big primary import button rel-mt-1 rel-mb-7" data-testid="frontpage-import-record-button" id="frontpage-register-button" data-register-url="{{ url_for('datasets_ui.deposit_create') }}">
         <i class="plus circle icon"></i>
         {{ _("Find or Register Dataset") }}
-    </a>
+    </button>
    </div>
 </div>
 {%- endblock frontpage_form %}

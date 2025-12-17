@@ -8,6 +8,11 @@
 {{ oarepo_records_list() }}
 {% endblock grid_section %}
 
+{%- block javascript %}
+{{ super() }}
+{{ webpack['home_page_search.js'] }}
+{%- endblock javascript %}
+
 {%- block bottom_section %}
 <section class="brought-to-you-section section-content light-bg rel-pt-3 rel-pb-3">
   <div class="ui container center aligned">
