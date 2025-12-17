@@ -12,5 +12,11 @@ Record:
             type: keyword
           full_name:
             type: keyword
-          institution:
+          affiliations:
             type: keyword
+          expiration:
+            type: datetime
+          access_granted:
+            type: array
+            items:
+              type: datetime
