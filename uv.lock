@@ -4075,7 +4075,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-vocabularies"
-version = "3.0.0.dev6"
+version = "3.0.0.dev7"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "cachetools" },
@@ -4086,9 +4086,9 @@ dependencies = [
     { name = "orcid" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/02/67/4dbc465900c8ccf04111858bbb80a66cebf73287e1d64e93575d6d7f12f0/oarepo_vocabularies-3.0.0.dev6.tar.gz", hash = "sha256:2e35ed750d7ca26d51be947db9ae301e44daf9bd5d05eaebe19b5d4c39301fa2", size = 82386, upload-time = "2025-11-22T15:16:42.118Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d7/28/a52e2210b8b5abb7e4926be1ff20ee453c850e4e3162206b03b8ef420529/oarepo_vocabularies-3.0.0.dev7.tar.gz", hash = "sha256:63b6f195ff16c21bd7d103220e11b12f5ecacaea17dde41714e592ce86e36ee4", size = 86344, upload-time = "2025-12-17T14:43:22.124Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5e/10/77cccc9dc91505eef33449522af1710d02a2d75958d73cf6c7295d6edb1a/oarepo_vocabularies-3.0.0.dev6-py3-none-any.whl", hash = "sha256:f561c2a9067e68ef8ab57c544756218c4682e095ea290625eb5c415a00ec2ae9", size = 179240, upload-time = "2025-11-22T15:16:41.023Z" },
+    { url = "https://files.pythonhosted.org/packages/fe/1a/33e99cfba051c037f3c4f9def8e313664b492a910899aae3efe35f978cf3/oarepo_vocabularies-3.0.0.dev7-py3-none-any.whl", hash = "sha256:ea92d2370fbb70a510aadb6feae55b46b15cb6a5ed32287ba2332817790390e1", size = 184819, upload-time = "2025-12-17T14:43:21.039Z" },
 ]
 
 [[package]]
