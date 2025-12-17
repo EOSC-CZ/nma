@@ -2,6 +2,7 @@ from typing import Any
 
 from flask_login import current_user
 from flask_principal import Identity
+from invenio_accounts.models import User
 from invenio_drafts_resources.records import Record
 from invenio_records_resources.services.records.components import ServiceComponent
 
@@ -27,37 +28,60 @@ class UpdateMetadataComponent(ServiceComponent):
         setattr(record, self.field, data.get(self.field, {}))
 
 
+def _get_editor_dict_for_user(user: User = None):
+    if user is None:
+        user = current_user
+    user_name = user.user_profile.get("full_name", "")
+    if len(user_name) == 0:
+        user_email = user.email
+        user_email = user_email.split("@")[0][:-3]
+        if len(user_email) > 3:
+            user_name = user_email + "***"
+    return {"id": str(user.id), "full_name": user_name, "affiliations": user.user_profile.get("affiliations", "")}
+
+
+def _update_editors_field_for_user(record: Record, editor: dict = None):
+    if editor is None:
+        user = current_user
+        editor = _get_editor_dict_for_user(user)
+    editors = record.get("editors", [])
+    if not any(str(user.id) == ed["id"] for ed in editors):
+        editors = [editor]
+        return editors
+    for i, obj in enumerate(editors):
+        if obj["id"] == editor["id"]:
+            editors[i]["full_name"] = editor["full_name"]
+            editors[i]["affiliations"] = editor["affiliations"]
+            break
+    return editors
+
+
+def get_record_editor(record: Record, user: User):
+    editor = _get_editor_dict_for_user(user)
+    editors = _update_editors_field_for_user(record, editor)
+    return editor
+
+
 class UpdateEditorsComponent(ServiceComponent):
     """Modified by component."""
     field = "editors"
 
-    def _get_editor(self):
-        return {"id": str(current_user.id), "full_name": current_user.user_profile.get("full_name", "")}
-
-    def _update_editors(self, editors: list):
-        editor = self._get_editor()
-        for i, obj in enumerate(editors):
-            if obj["id"] == editor["id"]:
-                editors[i] = editor
-                break
-        return editors
-
     def create(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
-        editor = self._get_editor()
+        editor = _get_editor_dict_for_user()
         record["editors"] = [editor]
 
     def update(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
-        record["editors"] = self._update_editors(record.get("editors", []))
+        record["editors"] = _update_editors_field_for_user(record)
 
     def publish(self, identity, draft=None, record=None, **kwargs):
         """Update draft metadata."""
-        editor = self._get_editor()
+        editor = _get_editor_dict_for_user()
         record["editors"] = [editor]
 
     def edit(self, identity, draft=None, record=None, **kwargs):
         """Update draft metadata."""
-        record["editors"] = self._update_editors(record.get("editors", []))
+        record["editors"] = _update_editors_field_for_user(record)
 
     def new_version(self, identity, draft=None, record=None, **kwargs):
         """Update draft metadata."""
-        record["editors"] = self._update_editors(record.get("editors", []))
+        record["editors"] = _update_editors_field_for_user(record)
