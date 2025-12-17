@@ -31,13 +31,33 @@ class UpdateEditorsComponent(ServiceComponent):
     """Modified by component."""
     field = "editors"
 
+    def _get_editor(self):
+        return {"id": str(current_user.id), "full_name": current_user.user_profile.get("full_name", "")}
+
+    def _update_editors(self, editors: list):
+        editor = self._get_editor()
+        for i, obj in enumerate(editors):
+            if obj["id"] == editor["id"]:
+                editors[i] = editor
+                break
+        return editors
+
     def create(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
-        user = current_user
-        editor = {"id": str(current_user.id), "full_name": user.user_profile.get("full_name", "")}
+        editor = self._get_editor()
         record["editors"] = [editor]
 
     def update(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
-        user = current_user
-        editor = {"id": str(current_user.id), "full_name": user.user_profile.get("full_name", "")}
-        if not any(str(current_user.id) == ed.id for ed in record["editors"]):
-            record["editors"].append(editor)
+        record["editors"] = self._update_editors(record.get("editors", []))
+
+    def publish(self, identity, draft=None, record=None, **kwargs):
+        """Update draft metadata."""
+        editor = self._get_editor()
+        record["editors"] = [editor]
+
+    def edit(self, identity, draft=None, record=None, **kwargs):
+        """Update draft metadata."""
+        record["editors"] = self._update_editors(record.get("editors", []))
+
+    def new_version(self, identity, draft=None, record=None, **kwargs):
+        """Update draft metadata."""
+        record["editors"] = self._update_editors(record.get("editors", []))
