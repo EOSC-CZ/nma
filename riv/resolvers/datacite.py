@@ -346,6 +346,7 @@ class DataciteResolver(MetadataResolver):
                         code,
                         "licenses"
                     )
+                    continue
             rights_list.append({"id": code})
         return rights_list
 
