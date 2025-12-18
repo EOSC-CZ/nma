@@ -18,6 +18,9 @@ class ExternalPIDComponent(ServiceComponent):
         self.service.draft_cls.pid.create(record)
 
 
+ANONYMOUS_IDENTIFIER = "Anonymous"
+
+
 class UpdateMetadataComponent(ServiceComponent):
     """Service component for metadata update action."""
 
@@ -31,9 +34,9 @@ class UpdateMetadataComponent(ServiceComponent):
 def _get_editor_dict_for_user(user: User | None = None):
     if user is None:
         user = current_user
-    if user is None:
-        return {"id": "Anonymous", "full_name": "Anonymous", "affiliations": ""}
-    user_profile =  getattr(user, "user_profile", {})
+    if not user:
+        return {"id": ANONYMOUS_IDENTIFIER, "full_name": ANONYMOUS_IDENTIFIER, "affiliations": ""}
+    user_profile = getattr(user, "user_profile", {})
     user_name = user_profile.get("full_name", "")
     if not user_name:
         user_email = getattr(user, "email", "")
@@ -55,6 +58,8 @@ def _update_editors_field_for_user(record: Record, editor: dict) -> dict:
 
 def register_editor(record: Record, user: User | None = None) -> dict:
     editor = _get_editor_dict_for_user(user)
+    if editor["id"] == ANONYMOUS_IDENTIFIER:
+        return editor
     return _update_editors_field_for_user(record, editor)
 
 
