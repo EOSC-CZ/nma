@@ -107,21 +107,64 @@ Note: Context variables available:
 
 {%- block record_footer %}
 
-{# TODO: currently just a mockup of original source check #}
-{% set original_source_status = {"status": "verified", "timestamp": "2025-12-11 14:30 UTC" } %}
-<div class="ui basic label">
-  <span
-      data-testid="record-detail-header-info-original-source-check"
-      class="ui image mr-0"
-      aria-label="{{ _('Original source check status') }}"
-    >
-      <i class="ui medium icons">
-          <i class="ui big positive certificate icon"></i>
-          <i class="ui check pr-5 white inverted icon"></i>
-      </i>
-  </span>
-    
-    {{ _("Original source confirmed. The dataset is still available at its authoritative repository.") }}
-    <div class="detail text-muted">{{ _("Last checked: ") }}</span>{{ original_source_status.timestamp }}</div>
+{%- set check_status = record.metadata.check_status %}
+{%- set check_message = record.metadata.check_message %}
+{%- set last_checked = record.metadata.last_checked %}
+
+{%- if check_status %}
+<div class="ui fluid accordion">
+  <div class="title">
+    <div class="ui basic label">
+      <span
+          data-testid="record-detail-header-info-original-source-check"
+          class="ui image mr-0"
+          aria-label="{{ _('Original source check status') }}"
+        >
+        {%- if check_status == 'success' %}
+          <i class="ui medium icons">
+            <i class="ui big positive certificate icon"></i>
+            <i class="ui check pr-5 white inverted icon"></i>
+          </i>
+        {%- elif check_status == 'not_found' %}
+          <i class="ui big red exclamation circle icon"></i>
+        {%- elif check_status == 'error' %}
+          <i class="ui big red times circle icon"></i>
+        {%- elif check_status == 'not_accessible' %}
+          <i class="ui big orange lock icon"></i>
+        {%- elif check_status == 'warning' %}
+          <i class="ui big yellow exclamation triangle icon"></i>
+        {%- endif %}
+      </span>
+
+      {%- if check_status == 'success' %}
+        {{ _("Original source confirmed. The dataset is still available at its authoritative repository.") }}
+      {%- elif check_status == 'not_found' %}
+        {{ _("Original source not found. The dataset is no longer available at the specified location.") }}
+      {%- elif check_status == 'error' %}
+        {{ _("Error checking original source. Unable to verify dataset availability.") }}
+      {%- elif check_status == 'not_accessible' %}
+        {{ _("Original source not accessible. The dataset location cannot be reached.") }}
+      {%- elif check_status == 'warning' %}
+        {{ _("Warning: Issue detected with original source.") }}
+      {%- endif %}
+
+      {%- if last_checked %}
+        <div class="detail text-muted">{{ _("Last checked: ") }}{{ last_checked }}</div>
+      {%- endif %}
+
+      {%- if check_message %}
+        <i class="dropdown icon"></i>
+      {%- endif %}
+    </div>
+  </div>
+  {%- if check_message %}
+  <div class="content">
+    <div class="ui message">
+      {{ check_message }}
+    </div>
+  </div>
+  {%- endif %}
 </div>
+{%- endif %}
+
 {%- endblock record_footer %}
