@@ -12,12 +12,13 @@ from flask import (
     render_template,
     request,
     url_for,
+    current_app,
 )
 from flask_login import login_required
 from flask_menu import current_menu
 from invenio_app_rdm.records_ui.views.decorators import no_cache_response
 from invenio_i18n import lazy_gettext as _
-from invenio_pidstore.errors import PIDAlreadyExists
+from invenio_pidstore.errors import PIDAlreadyExists, PIDDoesNotExistError
 from invenio_records_resources.services.errors import (
     PermissionDeniedError,
 )
@@ -42,6 +43,7 @@ from oarepo_ui.resources.decorators import (
     pass_record_latest,
     pass_route_args,
     secret_link_or_login_required,
+    pass_query_args,
 )
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
@@ -51,8 +53,11 @@ from werkzeug.exceptions import HTTPException
 from riv.records.create_record import create_record
 from riv.resolvers.base import resolve_metadata
 from riv.views import RegisterForm
+from riv.records.api import generate_id
+from riv.proxies import current_riv_extension
 
 from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
+
 
 logger = logging.getLogger("DatasetsUI")
 
@@ -136,7 +141,8 @@ def handle_riv_errors(func):
 
         except Exception as exc:
             logger.exception("Unexpected error in %s", func.__name__)
-            raise
+            if current_app.debug:
+                raise
             return (
                 render_template(
                     "datasets/errors/riv_error_page.jinja",
@@ -150,12 +156,75 @@ def handle_riv_errors(func):
 
 
 class DatasetsUIResource(RecordsUIResource):
+
+    @pass_query_args("search")
+    def search(
+        self,
+        page: int = 1,
+        size: int = 10,
+        **kwargs,
+    ):
+        """Return search page.
+
+        If the query string contains a URL (starts with https://),
+        this method will:
+        1. Check if the URL is resolvable (supported by our resolvers)
+        2. Convert it to our internal ID format
+        3. Check if a record with that ID exists
+        4. Redirect to the record detail page if it exists
+        5. Redirect to the registration page if it doesn't exist
+        """
+        query = request.args.get("q", "").strip()
+        if query.startswith("https://"):
+            query_resolvable = any(
+                r.can_resolve(query)
+                for r in current_riv_extension.persistent_identifiers_resolvers
+            )
+            if query_resolvable:
+                try:
+                    repository_id = generate_id(query)
+                    datasets_service = self.api_service
+
+                    try:
+                        datasets_service.read(identity=g.identity, id_=repository_id)
+
+                        return redirect(
+                            url_for(
+                                "datasets_ui.record_detail", pid_value=repository_id
+                            )
+                        )
+                    except PIDDoesNotExistError:
+                        flash(
+                            _(
+                                "This dataset is not yet registered in the repository. "
+                                "You can register it using the form below."
+                            ),
+                            "info",
+                        )
+                        return redirect(
+                            url_for("datasets_ui.deposit_create", identifier=query)
+                        )
+
+                except Exception:
+                    logger.exception(
+                        "Error while resolving identifier from search query: %s", query
+                    )
+
+        return self._search(page, size, **kwargs)
+
     @login_required
     @allow_method(["GET", "POST"])
     @handle_riv_errors
     def deposit_create(self):
         """Create and publish record by persistent identifier. Generate secret link and send email to user. Grant access to support."""
-        form = RegisterForm()
+
+        identifier = request.args.get("identifier", "")
+
+        if request.method == "GET" and identifier:
+            form = RegisterForm(data={"pid": identifier})
+        else:
+            form = RegisterForm()
+
         if form.validate_on_submit():
             pid = form.pid.data
 

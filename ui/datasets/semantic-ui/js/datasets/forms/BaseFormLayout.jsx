@@ -65,7 +65,7 @@ const BaseFormLayoutComponent = ({ record, errors = {} }) => {
             <Card.Content>
               <Grid relaxed>
                 <Grid.Column computer={16} mobile={16}>
-                  <SaveButton fluid />
+                  <SaveButton fluid positive />
                 </Grid.Column>
               </Grid>
             </Card.Content>

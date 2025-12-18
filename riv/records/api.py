@@ -15,8 +15,7 @@ from flask import current_app
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
 
 
-def generate_id(record: dict[str, Any] = None) -> str:
-    url = record["metadata"]["persistent_url"]
+def generate_id(url: str) -> str:
     for prefix, val in current_app.config["PERSISTENT_IDENTIFIER_PATTERNS"].items():
         m = re.match(prefix, url)
         if m:
