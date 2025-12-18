@@ -31,7 +31,7 @@ class UpdateMetadataComponent(ServiceComponent):
 def _get_editor_dict_for_user(user: User | None = None):
     if user is None:
         user = current_user
-    if user is None:
+    if not user:
         return {"id": "Anonymous", "full_name": "Anonymous", "affiliations": ""}
     user_profile =  getattr(user, "user_profile", {})
     user_name = user_profile.get("full_name", "")
@@ -55,6 +55,8 @@ def _update_editors_field_for_user(record: Record, editor: dict) -> dict:
 
 def register_editor(record: Record, user: User | None = None) -> dict:
     editor = _get_editor_dict_for_user(user)
+    if editor["id"] == "Anonymous":
+        return editor
     return _update_editors_field_for_user(record, editor)
 
 
