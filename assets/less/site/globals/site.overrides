@@ -582,3 +582,9 @@ header.theme.header {
     }
   }
 }
+
+// Move active facets .clear-filters-button to a separate line
+// since there is a lot of free space
+div.flex:has(button.clear-filters-button) {
+  display: unset !important;
+}

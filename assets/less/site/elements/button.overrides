@@ -1,0 +1,14 @@
+.ui.button {
+  &.facets-sidebar-open-button {
+    padding: 0.5em 1.125em 0.5em;
+
+    i.icon {
+      width: auto;
+      margin: 0em !important;
+    }
+
+    .active-filters-count-label {
+      left: 90%;
+    }
+  }
+}

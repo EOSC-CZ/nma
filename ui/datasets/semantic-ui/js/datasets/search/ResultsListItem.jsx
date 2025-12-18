@@ -1,82 +1,128 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { i18next } from "@translations/invenio_app_rdm/i18next";
 import _get from "lodash/get";
-import _join from "lodash/join";
-import { Grid, Item, Label } from "semantic-ui-react";
-import { i18next } from "@translations/i18next";
+import React, { Component } from "react";
+import { SearchItemCreators } from "@js/invenio_app_rdm/utils";
+import PropTypes from "prop-types";
+import { Item, Label, Icon } from "semantic-ui-react";
+import { withState } from "react-searchkit";
 
-export const ResultsListItem = ({ result, ...rest }) => {
-  const accessRights = _get(result, "ui.access_status", null);
-  const createdDate = _get(
-    result,
-    "ui.created_date_l10n_short",
-    "No creation date found."
-  );
-  const languages = _get(result, "metadata.languages", []);
-  const version = _get(result, "metadata.version", null);
-  const title = _get(result, "metadata.title", i18next.t("No title"));
-  return (
-    <Item key={result.id} data-testid="result-item">
-      <Item.Content>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column className="results-list item-main">
-              <div className="justify-space-between flex">
-                <Item.Header as="h2">
-                  <a href={result.links.self_html}>{title}</a>
-                </Item.Header>
-                <div className="item-access-rights">
-                  {result.state && (
-                    <Label title={result.state_timestamp}>{result.state}</Label>
-                  )}
-                  {accessRights && accessRights.id !== "open" && (
-                    <Label title={`${accessRights.description_l10n}`}>
-                      {accessRights.title_l10n}
-                    </Label>
-                  )}
-                </div>
-              </div>
-              <Item.Meta>
-                <Grid columns={1}>
-                  <Grid.Column>
-                    <Grid.Row className="ui separated">
-                      <span
-                        aria-label={i18next.t("Languages")}
-                        title={i18next.t("Languages")}
-                      >
-                        {_join(
-                          languages.map((l) => l.title),
-                          ", "
-                        )}
-                      </span>
-                    </Grid.Row>
-                  </Grid.Column>
-                </Grid>
-              </Item.Meta>
-              <Item.Extra>
-                <div>
-                  <small>
-                    <p>
-                      {createdDate && (
-                        <>
-                          {i18next.t("Uploaded on")} <span>{createdDate}</span>{" "}
-                          {version && `(${i18next.t("version")}: ${version})`}
-                        </>
-                      )}
-                    </p>
-                  </small>
-                </div>
-              </Item.Extra>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Item.Content>
-    </Item>
-  );
-};
+class RecordsResultsListItem extends Component {
+  render() {
+    const { result } = this.props;
 
-ResultsListItem.propTypes = {
+    const viewLink = _get(result, "links.self_html");
+    const accessStatusId = _get(result, "ui.access_status.id", "open");
+    const accessStatus = _get(result, "ui.access_status.title_l10n", "Open");
+    const accessStatusIcon = _get(result, "ui.access_status.icon", "unlock");
+    const createdDate = _get(
+      result,
+      "ui.created_date_l10n_long",
+      i18next.t("No creation date found.")
+    );
+
+    const creators = _get(result, "ui.creators.creators", []);
+
+    const descriptionStripped = _get(
+      result,
+      "ui.description_stripped"
+    );
+
+    const publicationDate = _get(
+      result,
+      "ui.publication_date_l10n_long",
+      i18next.t("No publication date found.")
+    );
+    const resourceType = _get(
+      result,
+      "ui.resource_type.title_l10n",
+      i18next.t("No resource type")
+    );
+    const subjects = _get(result, "ui.subjects", []);
+    const title = _get(result, "metadata.title", i18next.t("No title"));
+
+    const publishingInformation = _get(result, "ui.publishing_information.journal", "");
+
+    return (
+      <Item key={result.id} data-testid="result-item">
+          <Item.Content>
+            <Item.Extra className="labels-actions">
+              <Label horizontal size="small" className="primary theme-primary">
+                {publicationDate}
+              </Label>
+              <Label horizontal size="small" className="neutral">
+                {resourceType}
+              </Label>
+              <Label
+                horizontal
+                size="small"
+                className={`access-status ${accessStatusId}`}
+              >
+                {accessStatusIcon && <Icon name={accessStatusIcon} />}
+                {accessStatus}
+              </Label>
+            </Item.Extra>
+            <Item.Header as="h2" className="theme-primary-text">
+              <a href={viewLink}>{title}</a>
+            </Item.Header>
+            <Item className="creatibutors">
+              <SearchItemCreators creators={creators} othersLink={viewLink} />
+            </Item>
+            {descriptionStripped && 
+              <Item.Description className="truncate-lines-2">
+                {descriptionStripped}
+              </Item.Description>
+            }
+
+            <Item.Extra>
+              {subjects.map((subject, idx) => (  
+                <Label key={`${subject.title_l10n}-${idx}`} size="tiny">
+                  {subject.title_l10n}
+                </Label>
+              ))}
+
+              <p>
+                <small>
+                  {createdDate && (
+                    <>
+                      {i18next.t("Uploaded on {{uploadDate}}", {
+                        uploadDate: createdDate,
+                      })}
+                    </>
+                  )}
+                  {createdDate && publishingInformation && " | "}
+                  
+                  {publishingInformation && (
+                    <>
+                      {i18next.t("Published in: {{- publishInfo }}", {
+                        publishInfo: publishingInformation,
+                      })}
+                    </>
+                  )}
+                </small>
+              </p>
+            </Item.Extra>
+          </Item.Content>
+        </Item>
+    );
+  }
+}
+
+RecordsResultsListItem.propTypes = {
+  currentQueryState: PropTypes.object,
   result: PropTypes.object.isRequired,
 };
+
+RecordsResultsListItem.defaultProps = {
+  currentQueryState: null,
+};
+
+const ResultsListItem = withState(
+  ({ currentQueryState, result }) => (
+    <RecordsResultsListItem
+      currentQueryState={currentQueryState}
+      result={result}
+    />
+  )
+);
 
 export default ResultsListItem;
