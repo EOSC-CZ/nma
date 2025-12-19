@@ -84,17 +84,17 @@ class LindatTransformer(BaseTransformer):
         return date_string.split("T")[0]
 
     @override
-    def apply(self, stream_entry: dict, *args, **kwargs) -> StreamEntry:
+    def apply(self, stream_entry: StreamEntry, *args, **kwargs) -> StreamEntry:
         # Reset warnings for each record
         self.warnings = []
 
-        xml_root = etree.fromstring(stream_entry["record"].raw)
+        xml_root = etree.fromstring(stream_entry.entry["record"].raw)
 
         rdm_record = self._convert_lindat_to_rdm(xml_root)
 
         stream_entry = StreamEntry(
             entry={
-                "oai_record": stream_entry["record"],
+                "oai_record": stream_entry.entry["record"],
                 "record": rdm_record,
             }
         )
