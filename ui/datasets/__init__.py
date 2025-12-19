@@ -263,7 +263,7 @@ class DatasetsUIResource(RecordsUIResource):
                     )
                     return redirect(secret_link)
                 if not problems:
-                    flash(f"Successfully registered dataset with PID: {pid}", "success")
+                    flash(_("Successfully registered dataset with PID: %(pid)s", pid=pid), "success")
                     return redirect(
                         url_for(
                             "datasets_ui.record_detail", pid_value=record_data["id"]
@@ -290,7 +290,7 @@ class DatasetsUIResource(RecordsUIResource):
                 )
             except Exception as e:
                 logger.exception("Error registering dataset with PID %s", pid)
-                flash(f"Error registering dataset: {str(e)}", "error")
+                flash(_("Error registering dataset: %(error)s", error=str(e)), "error")
                 return redirect(url_for("datasets_ui.deposit_create"))
 
         return current_oarepo_ui.catalog.render(
