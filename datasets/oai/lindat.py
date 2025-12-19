@@ -473,9 +473,9 @@ class LindatTransformer(BaseTransformer):
         for child in olac_component:
             local_name = etree.QName(child).localname
             if local_name not in known_elements:
-                raise ValueError(
-                    f"Unknown OLAC-DcmiTerms element: {local_name}. "
-                    f"Known elements: {', '.join(sorted(known_elements))}"
+                current_app.logger.error(
+                    "Unknown OLAC-DcmiTerms element: %s. Known elements: %s", 
+                    local_name, ', '.join(sorted(known_elements))
                 )
 
     def _validate_weblicht_elements(self, weblicht_component: etree._Element) -> None:
