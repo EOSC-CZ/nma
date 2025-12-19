@@ -76,9 +76,12 @@ def create_record(record_data, problems):
     datasets_service = current_service_registry.get("datasets")
 
     try:
-        datasets_service.read(identity=system_identity, id_=record_data["id"])
-        # record already exists
-        return invenio_url_for("datasets_ui.record_detail", pid_value=record_data["id"])
+        record = datasets_service.read(identity=system_identity, id_=record_data["id"])
+        raise PIDAlreadyExists(
+            pid_value=record_data["id"], pid_type=record._record.pid.pid_type
+        )
+    except PIDAlreadyExists:
+        raise
     except Exception:
         # record does not exist, continue
         pass
@@ -101,8 +104,8 @@ def create_record(record_data, problems):
         datasets_service.publish(identity=system_identity, id_=draft_record["id"])
 
     except PIDAlreadyExists:
-        # redirect to the existing record
-        return invenio_url_for("datasets_ui.record_detail", pid_value=record_data["id"])
+        raise
+
     except Exception as e:
         raise RIVRegistrationException(
             f"Error during record creation/publishing of {record_data["id"]}: {e}"
