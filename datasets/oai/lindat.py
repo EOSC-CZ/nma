@@ -12,6 +12,8 @@ from invenio_vocabularies.proxies import current_service as vocabulary_service
 from langcodes import Language
 from lxml import etree
 
+RDM_MINIMAL_DESCRIPTION_LENGTH = 3  # Minimum length for description field
+
 
 class LindatTransformer(BaseTransformer):
     """LINDAT/CLARIN OAI-PMH Transformer."""
@@ -21,7 +23,6 @@ class LindatTransformer(BaseTransformer):
     NS_CMD = "http://www.clarin.eu/cmd/"
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.warnings: list[str] = []
 
     def _validate_vocabulary_item(
@@ -340,7 +341,7 @@ class LindatTransformer(BaseTransformer):
                     break
 
         # Ensure minimum description length
-        if len(description) < 3:
+        if len(description.strip()) < RDM_MINIMAL_DESCRIPTION_LENGTH:
             description = "No description available."
 
         # Extract publication date
@@ -526,7 +527,7 @@ class LindatTransformer(BaseTransformer):
             self.get_element_text(olac_component, self.NS_CMD, "description") or ""
         )
         # Ensure minimum length of 3 characters for validation
-        if len(description.strip()) < 3:
+        if len(description.strip()) < RDM_MINIMAL_DESCRIPTION_LENGTH:
             return f"Bad description, was too short: '{description}'"
         return description
 
@@ -920,7 +921,17 @@ class LindatTransformer(BaseTransformer):
 
                 creators.append({"person_or_org": person_or_org})
 
-        return creators if creators else []
+        if not creators:
+            creators = [
+                {
+                    "person_or_org": {
+                        "type": "organizational",
+                        "name": "Unknown",
+                    }
+                }
+            ]
+
+        return creators
 
     def _extract_publication_date(self, bibliographic_info: etree._Element) -> str:
         """Extract publication date from bibliographicInfo."""
@@ -1151,20 +1162,6 @@ class LindatTransformer(BaseTransformer):
         project_url = self.get_element_text(
             bibliographic_info, self.NS_CMD, "projectUrl"
         )
-        if project_url:
-            # Validate the relation type exists in vocabulary
-            relation_type = "issupplementedby"
-            if self._validate_vocabulary_item(
-                "relationtypes", relation_type, "relation_type"
-            ):
-                related_ids.append(
-                    {
-                        "identifier": project_url,
-                        "scheme": "url",
-                        "relation_type": {"id": relation_type},
-                    }
-                )
-        return related_ids if related_ids else []
         if project_url:
             # Validate the relation type exists in vocabulary
             relation_type = "issupplementedby"
