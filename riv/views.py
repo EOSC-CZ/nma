@@ -12,7 +12,7 @@
 from invenio_i18n import lazy_gettext as _
 
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, BooleanField
 from wtforms.validators import DataRequired, URL
 
 class StrippedStringField(StringField):
@@ -33,4 +33,9 @@ class RegisterForm(FlaskForm):
             ),
         ],
         render_kw={"autofocus": True},
+    )
+
+    skip_metadata = BooleanField(
+        _("Skip metadata retrieval. Use only in cases when the normal registration process repeatedly fails."),
+        default=False
     )

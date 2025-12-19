@@ -112,9 +112,10 @@ Note: Context variables available:
 {%- set last_checked = record.metadata.last_checked %}
 
 {%- if check_status %}
-<div class="ui fluid accordion">
+
+<div class="ui fluid accordion rel-mb-1">
   <div class="title">
-    <div class="ui basic label">
+    <div class="ui basic label source-check">
       <span
           data-testid="record-detail-header-info-original-source-check"
           class="ui image mr-0"
@@ -153,7 +154,7 @@ Note: Context variables available:
       {%- endif %}
 
       {%- if check_message %}
-        <i class="dropdown icon"></i>
+        <i class="dropdown icon source-check"></i>
       {%- endif %}
     </div>
   </div>

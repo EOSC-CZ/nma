@@ -1,6 +1,9 @@
 .ui.label {
-    &.truncated {
-        width: 100%;
-        overflow-x: scroll;
-    }
+  &.truncated {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  &.source-check {
+    width: 100%;
+  }
 }

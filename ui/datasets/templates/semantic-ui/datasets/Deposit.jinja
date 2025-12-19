@@ -40,6 +40,12 @@
                     <p class="text-tiny text-muted block rel-mt-2">
                         {% trans %}By submitting this Persistent Identifier (PID) using the <strong>Register</strong> button, you declare that you have the legal right or authorization to register, curate, or otherwise manage the associated dataset within the National Metadata Directory (NMD). You confirm that the registration of this dataset does not infringe any intellectual property rights, contractual obligations, confidentiality agreements, or applicable institutional or funding rules.{% endtrans %}
                     </p>
+                    <div class="field rel-mt-2">
+                        <div class="ui checkbox">
+                            {{ form.skip_metadata }}
+                            <label for="{{ form.skip_metadata.id }}">{{ form.skip_metadata.label.text }}</label>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
