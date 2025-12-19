@@ -227,11 +227,41 @@ class DatasetsUIResource(RecordsUIResource):
 
         if form.validate_on_submit():
             pid = form.pid.data
+            skip_metadata = form.skip_metadata.data
 
             try:
-                metadata, problems = resolve_metadata(pid)
-                record_data = {"metadata": metadata}
+                if skip_metadata:
+                    metadata = {
+                        "title": "Untitled Dataset",
+                        "publication_date": "2025-01-01",
+                        "creators": [
+                            {
+                                "person_or_org": {
+                                    "name": "Unknown",
+                                    "type": "personal",
+                                    "family_name": "Unknown",
+                                }
+                            }
+                        ],
+                        "resource_type": {"id": "dataset"},
+                        "persistent_url": pid,
+                    }
+                    problems = []
+                    record_data = {"metadata": metadata}
+                else:
+                    # Normal flow: resolve metadata from the identifier
+                    metadata, problems = resolve_metadata(pid)
+                    record_data = {"metadata": metadata}
+
                 secret_link = create_record(record_data, problems)
+                if not problems and skip_metadata:
+                    flash(
+                        _(
+                            "Dataset registered successfully without metadata retrieval. Please fill the minimum metadata below:"
+                        ),
+                        "success",
+                    )
+                    return redirect(secret_link)
                 if not problems:
                     flash(f"Successfully registered dataset with PID: {pid}", "success")
                     return redirect(
