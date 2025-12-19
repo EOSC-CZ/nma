@@ -1,0 +1,63 @@
+
+{% macro feature_card(title, description, icon) -%}
+    <div class="ui feature card rel-mt-8">
+      <div class="image">
+        <div class="intro-step-list-image rel-pb-1"><i class="{{icon}} circular icon"></i></div>
+      </div>
+      <div class="content rel-pr-1 rel-pl-1 rel-pb-2">
+        <div class="header rel-mb-1">
+          {{ title }}
+        </div>
+        <div class="description">
+          {{ description }}
+        </div>
+      </div>
+    </div>
+{%- endmacro %}
+
+{% set intro_text = _("The National Metadata Directory is a central directory in which the basic metadata of research data is stored. NMD also contains the basic data necessary to ensure interoperability while accessing the data. It includes search services and metadata retrieval. Metadata from various data repositories and stores in the Czech Republic and abroad are indexed.") %}
+
+<section class="light-bg rel-pt-3 rel-pb-3">
+  {{ records }}
+  <h2 class="section-title">
+    {{ _("About NMD") }}
+    <div class="ui fitted section-title divider rel-mt-1"></div>
+  </h2>
+
+  <div class="ui centered container rel-mb-4">
+    <p class="ui description rel-pr-10 rel-pl-10 computer only">{{ intro_text }}</p>
+    <p class="ui description mobile tablet only">{{ intro_text }}</p>
+
+    <p class="ui description computer tablet only">
+      {% trans link="https://www.eosc.cz/en/about-eosc-cz" %}NMD service is a part of the <a href="{{link}}">EOSC-CZ</a> project.{% endtrans %}
+    </p>
+    <p class="ui description mobile only rel-mb-8">
+      {% trans link="https://www.eosc.cz/en/about-eosc-cz" %}NMD service is a part of the <a href="{{link}}">EOSC-CZ</a> project.{% endtrans %}
+    </p>
+  </div>
+  <div class="ui cards centered stackable fluid container">
+    {{ feature_card(_("Metadata Aggregation"), _("NMD Harvests metadata from repositories in the National Repository Platform and beyond."), "sitemap") }}
+    {{ feature_card(_('Discover & Locate'), _('Search across repositories and locate datasets with links to original data.'), 'search') }}
+    {{ feature_card(_('Persistent Links'), _('Every record has a persistent URL and a reference to the original repository.'), 'linkify') }}
+  </div>
+
+  <div class="ui centered container rel-mt-2">
+    <a
+      class="ui primary big labeled icon button"
+      href="https://docs.nrp.eosc.cz/en/docs/end_users/national-metadata-directory/national-metadata-directory-introduction"
+      target="_blank"
+    >
+      <i class="file alternate outline icon" aria-hidden="true"></i>
+      {{ _("Docs") }}
+    </a>
+
+    <a
+      class="ui primary big labeled icon button"
+      href="https://github.com/EOSC-CZ/nma"
+      target="_blank"
+    >
+      <i class="github icon" aria-hidden="true"></i>
+      {{ _("Code") }}
+    </a>
+  </div>
+</section>
