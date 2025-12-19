@@ -1,15 +1,36 @@
 import datetime
+from functools import wraps
 
 from celery import shared_task
 from invenio_access.permissions import system_identity
 from invenio_accounts.models import User
-from invenio_db.uow import unit_of_work
+from invenio_db.uow import UnitOfWork
 from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.services.uow import RecordCommitOp
 from oarepo_runtime import current_runtime
 
 from riv.config import EDIT_GRANT_EXPIRATION_DAYS
 from invenio_search.engine import dsl
+from invenio_db import db
+
+
+
+def unit_of_work(f):
+    @wraps(f)
+    def inner(*args, **kwargs):
+        if "uow" not in kwargs or kwargs["uow"] is None:
+            # Migration path - start a UoW and commit
+            with UnitOfWork(db.session) as uow:
+                kwargs["uow"] = uow
+                res = f(*args, **kwargs)
+                uow.commit()
+                return res
+        else:
+            return f(*args, **kwargs)
+
+    return inner
+
+
 
 def _get_model():
     return current_runtime.rdm_models[0]
@@ -26,12 +47,17 @@ def _commit_editors(editors, id, uow):
     service = _get_model().service
     record = service.read(system_identity, id)._record
     record["editors"] = editors
-    uow.register(RecordCommitOp(record))
+    if not uow:
+        with UnitOfWork(db.session) as uow:
+            uow.register(RecordCommitOp(record))
+            uow.commit()
+    else:
+        uow.register(RecordCommitOp(record))
 
 
 # unit_of_work decorator crashes without a positional arg
-@unit_of_work()
-def add_grant_expiration(self, uow=None):
+@unit_of_work
+def add_grant_expiration(uow=None):
     model = _get_model().record_cls.model_cls
     records = model.query.all()
     for record_data in records:
@@ -54,6 +80,7 @@ def add_grant_expiration(self, uow=None):
                     editor = {
                         "id": str(user.id),
                         "full_name": user.user_profile.get("full_name", ""),
+                        "affiliations": user.user_profile.get("affiliations", ""),
                         "expiration": expiration,
                         "access_granted": [access_granted],
                     }
@@ -66,8 +93,8 @@ def add_grant_expiration(self, uow=None):
             _commit_editors(editors, record_data.data["id"], uow)
 
 
-@unit_of_work()
-def expire_grants(self, uow=None):
+@unit_of_work
+def expire_grants(uow=None):
     now = datetime.datetime.now()
     service = _get_model().service
     access_service = current_rdm_records_service.access
@@ -101,9 +128,9 @@ def expire_grants(self, uow=None):
 
 @shared_task
 def expire_grants_task():
-    expire_grants(None)
+    expire_grants()
 
 
 @shared_task
 def add_grant_expiration_task():
-    add_grant_expiration(None)
+    add_grant_expiration()
