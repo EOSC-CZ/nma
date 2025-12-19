@@ -4,9 +4,8 @@ import React, { Component } from "react";
 import { SearchItemCreators } from "@js/invenio_app_rdm/utils";
 import PropTypes from "prop-types";
 import { Item, Label, Icon } from "semantic-ui-react";
-import { withState } from "react-searchkit";
 
-class RecordsResultsListItem extends Component {
+class ResultsListItem extends Component {
   render() {
     const { result } = this.props;
 
@@ -22,10 +21,7 @@ class RecordsResultsListItem extends Component {
 
     const creators = _get(result, "ui.creators.creators", []);
 
-    const descriptionStripped = _get(
-      result,
-      "ui.description_stripped"
-    );
+    const descriptionStripped = _get(result, "ui.description_stripped");
 
     const publicationDate = _get(
       result,
@@ -40,89 +36,79 @@ class RecordsResultsListItem extends Component {
     const subjects = _get(result, "ui.subjects", []);
     const title = _get(result, "metadata.title", i18next.t("No title"));
 
-    const publishingInformation = _get(result, "ui.publishing_information.journal", "");
+    const publishingInformation = _get(
+      result,
+      "ui.publishing_information.journal",
+      ""
+    );
 
     return (
       <Item key={result.id} data-testid="result-item">
-          <Item.Content>
-            <Item.Extra className="labels-actions">
-              <Label horizontal size="small" className="primary theme-primary">
-                {publicationDate}
-              </Label>
-              <Label horizontal size="small" className="neutral">
-                {resourceType}
-              </Label>
-              <Label
-                horizontal
-                size="small"
-                className={`access-status ${accessStatusId}`}
-              >
-                {accessStatusIcon && <Icon name={accessStatusIcon} />}
-                {accessStatus}
-              </Label>
-            </Item.Extra>
-            <Item.Header as="h2" className="theme-primary-text">
-              <a href={viewLink}>{title}</a>
-            </Item.Header>
-            <Item className="creatibutors">
-              <SearchItemCreators creators={creators} othersLink={viewLink} />
-            </Item>
-            {descriptionStripped && 
-              <Item.Description className="truncate-lines-2">
-                {descriptionStripped}
-              </Item.Description>
-            }
+        <Item.Content>
+          <Item.Extra className="labels-actions">
+            <Label horizontal size="small" className="primary theme-primary">
+              {publicationDate}
+            </Label>
+            <Label horizontal size="small" className="neutral">
+              {resourceType}
+            </Label>
+            <Label
+              horizontal
+              size="small"
+              className={`access-status ${accessStatusId}`}
+            >
+              {accessStatusIcon && <Icon name={accessStatusIcon} />}
+              {accessStatus}
+            </Label>
+          </Item.Extra>
+          <Item.Header as="h2" className="theme-primary-text">
+            <a href={viewLink}>{title}</a>
+          </Item.Header>
+          <Item className="creatibutors">
+            <SearchItemCreators creators={creators} othersLink={viewLink} />
+          </Item>
+          {descriptionStripped && (
+            <Item.Description className="truncate-lines-2">
+              {descriptionStripped}
+            </Item.Description>
+          )}
 
-            <Item.Extra>
-              {subjects.map((subject, idx) => (  
-                <Label key={`${subject.title_l10n}-${idx}`} size="tiny">
-                  {subject.title_l10n}
-                </Label>
-              ))}
+          <Item.Extra>
+            {subjects.map((subject, idx) => (
+              <Label key={`${subject.title_l10n}-${idx}`} size="tiny">
+                {subject.title_l10n}
+              </Label>
+            ))}
 
-              <p>
-                <small>
-                  {createdDate && (
-                    <>
-                      {i18next.t("Uploaded on {{uploadDate}}", {
-                        uploadDate: createdDate,
-                      })}
-                    </>
-                  )}
-                  {createdDate && publishingInformation && " | "}
-                  
-                  {publishingInformation && (
-                    <>
-                      {i18next.t("Published in: {{- publishInfo }}", {
-                        publishInfo: publishingInformation,
-                      })}
-                    </>
-                  )}
-                </small>
-              </p>
-            </Item.Extra>
-          </Item.Content>
-        </Item>
+            <p>
+              <small>
+                {createdDate && (
+                  <>
+                    {i18next.t("Uploaded on {{uploadDate}}", {
+                      uploadDate: createdDate,
+                    })}
+                  </>
+                )}
+                {createdDate && publishingInformation && " | "}
+
+                {publishingInformation && (
+                  <>
+                    {i18next.t("Published in: {{- publishInfo }}", {
+                      publishInfo: publishingInformation,
+                    })}
+                  </>
+                )}
+              </small>
+            </p>
+          </Item.Extra>
+        </Item.Content>
+      </Item>
     );
   }
 }
 
-RecordsResultsListItem.propTypes = {
-  currentQueryState: PropTypes.object,
+ResultsListItem.propTypes = {
   result: PropTypes.object.isRequired,
 };
-
-RecordsResultsListItem.defaultProps = {
-  currentQueryState: null,
-};
-
-const ResultsListItem = withState(
-  ({ currentQueryState, result }) => (
-    <RecordsResultsListItem
-      currentQueryState={currentQueryState}
-      result={result}
-    />
-  )
-);
 
 export default ResultsListItem;
