@@ -24,30 +24,9 @@ class DataciteResolver(MetadataResolver):
     def can_resolve(self, persistent_url: str) -> bool:
 
         return is_doi(persistent_url)
-
-    def resolve(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
-
-        datacite_url = current_app.config.get('DATACITE_URL')
-        doi = normalize_doi(persistent_url)
-        url = f"{datacite_url}/{doi}"
-        response = self.session.get(
-            url=url,
-        )
-        if response.status_code != 200:
-            if response.status_code == 404:
-                return None, [ResolverProblem(resolver=self.name, message=_(
-                    "The identifier looks like a DOI, but it was not found in the DataCite registry."),
-                                              level=ResolverProblemLevel.ERROR)]
-            else:
-                return None, [ResolverProblem(resolver=self.name, message=_(
-                    f"Unexpected error while resolving the DOI. DataCite returned: {response.content}. "),
-                                              level=ResolverProblemLevel.ERROR)]
-
+    def resolve_metadata(self,datacite_metadata):
         metadata = {}
         problems = []
-        data = response.json()
-        datacite_metadata = data["data"]["attributes"]
-
         # (main) title
         # datacite required, rdm required
         datacite_titles = datacite_metadata.get("titles", [])
@@ -157,6 +136,29 @@ class DataciteResolver(MetadataResolver):
             metadata["rights"] = rights
 
         return metadata, problems
+    def resolve(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
+
+        datacite_url = current_app.config.get('DATACITE_URL')
+        doi = normalize_doi(persistent_url)
+        url = f"{datacite_url}/{doi}"
+        response = self.session.get(
+            url=url,
+        )
+        if response.status_code != 200:
+            if response.status_code == 404:
+                return None, [ResolverProblem(resolver=self.name, message=_(
+                    "The identifier looks like a DOI, but it was not found in the DataCite registry."),
+                                              level=ResolverProblemLevel.ERROR)]
+            else:
+                return None, [ResolverProblem(resolver=self.name, message=_(
+                    f"Unexpected error while resolving the DOI. DataCite returned: {response.content}. "),
+                                              level=ResolverProblemLevel.ERROR)]
+
+
+        data = response.json()
+        datacite_metadata = data["data"]["attributes"]
+
+        return self.resolve_metadata(datacite_metadata=datacite_metadata)
 
     @handle_errors()
     def resolve_datacite_additional_descriptions(self, descriptions):
@@ -361,19 +363,20 @@ class DataciteResolver(MetadataResolver):
 
     @handle_errors()
     def resolve_datacite_language(self, language):
-        try:
-            longer_code = langcodes.Language.get(language.lower()).to_alpha3()
-            vocabulary_service.read(
-                system_identity, ("languages", longer_code)
-            )
-            return longer_code
-        except:
-            current_app.logger.exception(
-                "Record '%s' was not found in the '%s' vocabulary.",
-                longer_code,
-                "languages"
-            )
-            return None
+        if language:
+            try:
+                longer_code = langcodes.Language.get(language.lower()).to_alpha3()
+                vocabulary_service.read(
+                    system_identity, ("languages", longer_code)
+                )
+                return longer_code
+            except:
+                current_app.logger.exception(
+                    "Record '%s' was not found in the '%s' vocabulary.",
+                    longer_code,
+                    "languages"
+                )
+        return None
 
     @handle_errors()
     def resolve_datacite_publisher(self, publisher):
