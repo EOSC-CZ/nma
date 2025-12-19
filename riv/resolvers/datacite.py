@@ -363,19 +363,20 @@ class DataciteResolver(MetadataResolver):
 
     @handle_errors()
     def resolve_datacite_language(self, language):
-        try:
-            longer_code = langcodes.Language.get(language.lower()).to_alpha3()
-            vocabulary_service.read(
-                system_identity, ("languages", longer_code)
-            )
-            return longer_code
-        except:
-            current_app.logger.exception(
-                "Record '%s' was not found in the '%s' vocabulary.",
-                longer_code,
-                "languages"
-            )
-            return None
+        if language:
+            try:
+                longer_code = langcodes.Language.get(language.lower()).to_alpha3()
+                vocabulary_service.read(
+                    system_identity, ("languages", longer_code)
+                )
+                return longer_code
+            except:
+                current_app.logger.exception(
+                    "Record '%s' was not found in the '%s' vocabulary.",
+                    longer_code,
+                    "languages"
+                )
+        return None
 
     @handle_errors()
     def resolve_datacite_publisher(self, publisher):
