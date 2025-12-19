@@ -10,7 +10,13 @@ from invenio_records_resources.services.records.components import ServiceCompone
 class ExternalPIDComponent(ServiceComponent):
     """PID registration component."""
 
-    def create(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
+    def create(
+        self,
+        identity: Identity,
+        data: dict[str, Any] = None,
+        record: Record = None,
+        **kwargs: Any,
+    ) -> None:
         """Create PID when record is created.."""
         # We create the PID after all the data has been initialized. so that
         # we can rely on having the 'id' and type set.
@@ -26,7 +32,13 @@ class UpdateMetadataComponent(ServiceComponent):
 
     field = "metadata"
 
-    def update(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
+    def update(
+        self,
+        identity: Identity,
+        data: dict[str, Any] = None,
+        record: Record = None,
+        **kwargs: Any,
+    ) -> None:
         """Inject parsed metadata to the record."""
         setattr(record, self.field, data.get(self.field, {}))
 
@@ -35,13 +47,21 @@ def _get_editor_dict_for_user(user: User | None = None):
     if user is None:
         user = current_user
     if not user:
-        return {"id": ANONYMOUS_IDENTIFIER, "full_name": ANONYMOUS_IDENTIFIER, "affiliations": ""}
+        return {
+            "id": ANONYMOUS_IDENTIFIER,
+            "full_name": ANONYMOUS_IDENTIFIER,
+            "affiliations": "",
+        }
     user_profile = getattr(user, "user_profile", {})
     user_name = user_profile.get("full_name", "")
     if not user_name:
         user_email = getattr(user, "email", "")
         user_name = user_email.split("@")[0][:-3] + "***"
-    return {"id": str(user.id), "full_name": user_name, "affiliations": user_profile.get("affiliations", "")}
+    return {
+        "id": str(user.id),
+        "full_name": user_name,
+        "affiliations": user_profile.get("affiliations", ""),
+    }
 
 
 def _update_editors_field_for_user(record: Record, editor: dict) -> dict:
@@ -65,12 +85,25 @@ def register_editor(record: Record, user: User | None = None) -> dict:
 
 class UpdateEditorsComponent(ServiceComponent):
     """Modified by component."""
+
     field = "editors"
 
-    def create(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
+    def create(
+        self,
+        identity: Identity,
+        data: dict[str, Any] = None,
+        record: Record = None,
+        **kwargs: Any,
+    ) -> None:
         register_editor(record)
 
-    def update(self, identity: Identity, data: dict[str, Any] = None, record: Record = None, **kwargs: Any) -> None:
+    def update(
+        self,
+        identity: Identity,
+        data: dict[str, Any] = None,
+        record: Record = None,
+        **kwargs: Any,
+    ) -> None:
         register_editor(record)
 
     def publish(self, identity, draft=None, record=None, **kwargs):

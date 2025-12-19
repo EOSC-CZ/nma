@@ -86,3 +86,9 @@ invenio oai harvesters create --id zenodo-utb --name "Zenodo UTB harvester" \
 invenio oai harvesters create --id zenodo-vscht --name "Zenodo VSCHT harvester" \
     --base-url "https://zenodo.org" --metadata-prefix "vscht" --model datasets \
     --loader zenodo --transformer "zenodo"             --setspec 'creators.affiliation:("vscht" OR "Vysoká škola chemicko-technologická v Praze" OR "UCT Prague" OR "University of Chemistry and Technology, Prague") AND resource_type.type:dataset'
+
+
+invenio oai harvesters create --id lindat --name "LINDAT/CLARIN repository harvester" \
+    --base-url "https://lindat.mff.cuni.cz/repository/server/oai/request" \
+    --metadata-prefix "cmdi" --model datasets \
+    --loader oai-pmh --transformer "lindat"

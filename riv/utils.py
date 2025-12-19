@@ -23,6 +23,7 @@ def create_session_with_retries(
     total_retries: int = 4,
     status_forcelist: list[int] | None = None,
     backoff_factor: float = 0.3,
+    respect_retry_after_header: bool = True,
     **kwargs: Any,
 ):
     """Create a requests session with retry strategy.
@@ -41,6 +42,7 @@ def create_session_with_retries(
         status_forcelist=status_forcelist,
         backoff_factor=backoff_factor,
         redirect=3,
+        respect_retry_after_header=respect_retry_after_header,
         **kwargs,
     )
     adapter = HTTPAdapter(max_retries=retry_strategy)
