@@ -39,13 +39,14 @@ def check_availability(eager=False):
         click.secho("Availability check task sent to Celery queue...", fg="yellow")
 
 
-@riv.command("temporary-harvest-catch-all")
+@riv.command("harvest")
+@click.argument("harvester")
 @with_appcontext
-def temporary_harvest_catch_all():
+def temporary_harvest_catch_all(harvester):
+
     """Temporary command to harvest catch-all OAI-PMH repository before jobs have cli."""
     from oarepo_oaipmh_harvester.tasks import harvest_oaipmh_records
 
-    # harvest all records from the catch-all repository
     # not using .delay here as we want to run it synchronously
     # for testing purposes
-    harvest_oaipmh_records(harvester_id="catchall", batch_size=1)
+    harvest_oaipmh_records(harvester_id=harvester, batch_size=1)
