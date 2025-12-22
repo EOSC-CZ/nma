@@ -263,7 +263,10 @@ class DatasetsUIResource(RecordsUIResource):
                     )
                     return redirect(secret_link)
                 if not problems:
-                    flash(_("Successfully registered dataset with PID: %(pid)s", pid=pid), "success")
+                    flash(
+                        _("Successfully registered dataset with PID: %(pid)s", pid=pid),
+                        "success",
+                    )
                     return redirect(
                         url_for(
                             "datasets_ui.record_detail", pid_value=record_data["id"]
@@ -338,7 +341,7 @@ def init_menu(app):
     with app.app_context():
         current_menu.submenu("plus.create_datasets").register(
             f"{ui_resource_config.blueprint_name}.deposit_create",
-            _("Register a Dataset"),
+            _("Verify dataset for RIV"),
             order=1,
             visible_when=can_view_deposit_page,
         )

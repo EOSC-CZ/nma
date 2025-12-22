@@ -522,6 +522,9 @@ header.theme.header {
       opacity: 0.8;
       pointer-events: none;
     }
+    a:not(.item) {
+      color: @linkColor !important;
+    }
   }
 
   #frontpage-search-bar .divider.hidden {
