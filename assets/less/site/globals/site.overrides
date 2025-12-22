@@ -609,3 +609,7 @@ div.flex:has(button.clear-filters-button) {
 #skip-to-main {
   display: none;
 }
+
+.creatibutor-wrap {
+  line-height: 1;
+}
