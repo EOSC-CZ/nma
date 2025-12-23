@@ -108,7 +108,6 @@ class ResultsListItem extends Component {
 }
 
 ResultsListItem.propTypes = {
-  currentQueryState: PropTypes.object,
   result: PropTypes.object.isRequired,
 };
 
