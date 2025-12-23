@@ -192,7 +192,7 @@ msgstr "odesláno"
 
 #: /Users/dusanstojanovic/Projects/nma/common/workflows/default.py:363
 msgid "state:retracting"
-msgstr "zatahování"
+msgstr "staženo"
 
 #: /Users/dusanstojanovic/Projects/nma/common/workflows/default.py:364
 msgid "state:deleted"
@@ -219,7 +219,7 @@ msgid ""
 "Skip metadata retrieval. Use only in cases when the normal registration "
 "process repeatedly fails."
 msgstr ""
-"Přeskočit načítání metadat. Použijte pouze v případech, kdy normální "
+"Přeskočit načítání metadat. Použijte pouze v případech, kdy běžný "
 "proces registrace opakovaně selhává."
 
 #: /Users/dusanstojanovic/Projects/nma/riv/resolvers/base.py:129
@@ -239,7 +239,7 @@ msgid ""
 "The title is too short. A minimum of 3 characters is required to meet "
 "repository requirements."
 msgstr ""
-"Název je příliš krátký. Pro splnění požadavků repozitáře je vyžadováno "
+"Název je příliš krátký. Pro splnění požadavků repozitáře jsou vyžadovány "
 "minimálně 3 znaky."
 
 #: /Users/dusanstojanovic/Projects/nma/riv/resolvers/crossref.py:115
@@ -272,7 +272,7 @@ msgstr "Chybí datum publikace."
 
 #: /Users/dusanstojanovic/Projects/nma/riv/resolvers/utils.py:35
 msgid "Unexpected error while parsing the metadata."
-msgstr "Neočekávaná chyba při parsování metadat."
+msgstr "Neočekávaná chyba při načítání metadat."
 
 #: /Users/dusanstojanovic/Projects/nma/templates/footer.html:27
 msgid "NMD"
@@ -436,7 +436,7 @@ msgid ""
 "Platform and beyond."
 msgstr ""
 "NMA sklízí metadata z repozitářů v Národní repozitářové platformě a "
-"dalších."
+"dalších zdrojů."
 
 #: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
 msgid "Discover & Locate"
@@ -728,8 +728,7 @@ msgid ""
 "Original source not found. The dataset is no longer available at the "
 "specified location."
 msgstr ""
-"Původní zdroj nenalezen. Datová sada již není dostupná na uvedeném "
-"umístění."
+"Původní zdroj nebyl nalezen. Datová sada již není na uvedeném místě dostupná."
 
 #: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:145
 msgid "Error checking original source. Unable to verify dataset availability."
@@ -737,7 +736,7 @@ msgstr "Chyba při kontrole původního zdroje. Nelze ověřit dostupnost datov�
 
 #: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:147
 msgid "Original source not accessible. The dataset location cannot be reached."
-msgstr "Původní zdroj není přístupný. Umístění datové sady není dosažitelné."
+msgstr "Původní zdroj není přístupný. K umístění datové sady se nelze připojit."
 
 #: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:149
 msgid "Warning: Issue detected with original source."
