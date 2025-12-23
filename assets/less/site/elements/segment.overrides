@@ -1,0 +1,11 @@
+// they have hardcoded layout of the component and as we use font-size of 16,
+// it just does not fit. This is a bit hacky, but otherwise, we would have to override
+// entire react component
+.ui.segment {
+  &.exports.rdm-sidebar {
+    font-size: 14px !important;
+    .ui.button {
+      font-size: 14px !important;
+    }
+  }
+}
