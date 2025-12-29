@@ -48,7 +48,7 @@ class DatasetsPermissionPolicyMixin(ModelMixin):
 
     can_view_deposit_page = [AuthenticatedUser()]
     can_update = [
-        SecretLinks("edit"),
+        AccessGrant("edit"),
         SystemProcess(),
         Administration(),
     ]  # system process can update records (in tasks etc)

@@ -21,7 +21,7 @@ PERSISTENT_IDENTIFIER_PATTERNS = {
 }
 
 
-SECRET_LINK_EXPIRATION_DAYS = 7
+EDIT_GRANT_EXPIRATION_DAYS = 7
 RIV_CURATORS_GROUP_ID = "riv_curators"
 
 # Revalidate the persistent URL if it was last checked more than this number of days ago

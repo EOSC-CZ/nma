@@ -253,7 +253,7 @@ class DatasetsUIResource(RecordsUIResource):
                     metadata, problems = resolve_metadata(pid)
                     record_data = {"metadata": metadata}
 
-                secret_link = create_record(record_data, problems)
+                create_record(record_data, problems)
                 if not problems and skip_metadata:
                     flash(
                         _(
@@ -282,7 +282,11 @@ class DatasetsUIResource(RecordsUIResource):
                         f'<ul class="list">{issues_list}</ul>'
                     )
                     flash(warning_message, "warning")
-                    return redirect(secret_link)
+                    return redirect(
+                        url_for(
+                            "datasets_ui.deposit_edit", pid_value=record_data["id"]
+                        )
+                    )
             except PIDAlreadyExists:
                 flash(_("This dataset is already registered."), "info")
                 return redirect(
