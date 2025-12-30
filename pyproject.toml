@@ -51,6 +51,7 @@ riv = "riv.cli:riv"
 
 [project.entry-points."invenio_celery.tasks"]
 riv = "riv.tasks"
+datasets = "datasets.tasks"
 
 [project.entry-points."invenio_jobs.jobs"]
 invenio_command = "riv.tasks:InvenioTaskJob"
