@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import contextlib
+import json
 from typing import Any, Callable, Generator, cast
 from urllib.parse import quote
 
@@ -101,7 +102,15 @@ def resolve_identifiers(data: dict):
                     )
 
 
-def resolve_identifier(identifier: dict, parent: Any, path: str, vocabulary: str):
+def resolve_identifier(
+    identifier: dict,
+    parent: Any,
+    path: str,
+    vocabulary: str,
+    vocabulary_key: str = "id",
+):
+    """Resolve a single identifier dictionary."""
+
     id_key = "identifier" if "identifier" in identifier else "id"
     if id_key not in identifier:
         return
@@ -117,7 +126,7 @@ def resolve_identifier(identifier: dict, parent: Any, path: str, vocabulary: str
         check_existing=True,
         path=path,
     )
-    identifier[id_key] = resolved[id_key]
+    identifier[id_key] = resolved[vocabulary_key]
 
 
 def orcid_to_names(orcid_response: dict, parent: Any = None) -> dict:
@@ -175,6 +184,7 @@ def orcid_to_names(orcid_response: dict, parent: Any = None) -> dict:
     employments = get_object(activities, "employments")
     affiliation_groups = get_with_default(employments, "affiliation-group", [])
 
+    seen_affiliations = set()
     for group in affiliation_groups:
         summaries = get_with_default(group, "summaries", [])
         for summary_wrapper in summaries:
@@ -211,13 +221,12 @@ def orcid_to_names(orcid_response: dict, parent: Any = None) -> dict:
                             check_existing=True,
                         )
 
-                # Only append if this affiliation ID hasn't been seen before
-                aff_id = affiliation.get("id")
-                if aff_id:
-                    if not any(aff.get("id") == aff_id for aff in affiliations):
-                        affiliations.append(affiliation)
-                else:
-                    # Always append affiliations without IDs
+                # Only append if this affiliation hasn't been seen before
+                affiliation_fingerprint = affiliation.get("id") or json.dumps(
+                    affiliation, sort_keys=True
+                )
+                if affiliation_fingerprint not in seen_affiliations:
+                    seen_affiliations.add(affiliation_fingerprint)
                     affiliations.append(affiliation)
 
     if affiliations:

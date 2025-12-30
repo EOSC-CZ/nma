@@ -3998,7 +3998,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-oai-pmh-harvester"
-version = "6.0.0.dev8"
+version = "6.0.0.dev9"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "httpx" },
@@ -4007,9 +4007,9 @@ dependencies = [
     { name = "json5" },
     { name = "rich" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b1/64/cc898a82c495f6a23010d6d5bd1085e613a571d4de8ee9ad7918aca8d7f8/oarepo_oai_pmh_harvester-6.0.0.dev8.tar.gz", hash = "sha256:fc46e2499398608da4259cebba6cc7fbf53a56286cad4f7e54f0864e70ff61d8", size = 38708, upload-time = "2025-12-30T11:56:23.822Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d4/a9/2d84de89fe46dd1deefcbf40dfa854dee748c6902322e100fa4ddfdede43/oarepo_oai_pmh_harvester-6.0.0.dev9.tar.gz", hash = "sha256:9f054c2d27c18c5dd33c9a24f2c3dc969947ed66cc022ef208853754826fa458", size = 38809, upload-time = "2025-12-30T17:17:52.904Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8d/cb/e72d9f3b09faa7d579852c0752e8f51d07f284c3f1a5ae65b3e8f78a34d0/oarepo_oai_pmh_harvester-6.0.0.dev8-py3-none-any.whl", hash = "sha256:427d705161b5a40fd838aee97fa368375399bce62097fe50b6597730e077ec69", size = 62549, upload-time = "2025-12-30T11:56:22.516Z" },
+    { url = "https://files.pythonhosted.org/packages/73/55/d8e1904dd35abbdfcf7ba119198b6033282addfc92a8014d3b7b819225c2/oarepo_oai_pmh_harvester-6.0.0.dev9-py3-none-any.whl", hash = "sha256:05bc376d969a453583068e4577bcb7d4669888b204ad3b4c3856739b11b43131", size = 62674, upload-time = "2025-12-30T17:17:51.931Z" },
 ]
 
 [[package]]
