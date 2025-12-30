@@ -11,8 +11,8 @@ from invenio_drafts_resources.services.records import (
 )
 from invenio_i18n import lazy_gettext as _
 from invenio_pidstore.models import PIDStatus
-from invenio_rdm_records.services.generators import AccessGrant, SecretLinks
 from invenio_rdm_records.resources.serializers.ui.schema import UIRecordSchema
+from invenio_rdm_records.services.generators import AccessGrant, SecretLinks
 from invenio_records_permissions.generators import (
     AuthenticatedUser,
     Disable,
@@ -23,6 +23,7 @@ from invenio_records_resources.services import RecordEndpointLink
 from oarepo_model.api import model
 from oarepo_model.customizations import (
     AddMetadataExport,
+    AddMetadataImport,
     AddServiceComponent,
     PrependMixin,
     ReplaceBaseClass,
@@ -38,9 +39,15 @@ from riv.records.system_fields import (
     ExternalPIDFieldContextMixin,
     PIDStatusCheckField,
 )
-from .services.components import ExternalPIDComponent, UpdateMetadataComponent, UpdateEditorsComponent
 
+from .deserializers import DataCiteJSONDeserializer, DataCiteXMLDeserializer
 from .serializers import DataCiteJSONSerializer
+from .services.components import (
+    ExternalPIDComponent,
+    UpdateEditorsComponent,
+    UpdateMetadataComponent,
+)
+from .services.schema import IdentifiersDownloaderMixin
 
 
 class DatasetsPermissionPolicyMixin(ModelMixin):
@@ -117,7 +124,11 @@ datasets_model = model(
         # mail body of the request.
         # TODO: remove this customization if you use oarepo-communities for RDM 14
         PrependMixin("PermissionPolicy", DatasetsPermissionPolicyMixin),
+        # TODO: move this to oarepo-rdm
         PrependMixin("RecordUISchema", UIRecordSchema),
+        # will dowload orcid & ROR metadata during deserialization if the identifier
+        # is not in the vocabulary yet
+        PrependMixin("RecordSchema", IdentifiersDownloaderMixin),
         # export for datacite
         AddMetadataExport(
             code="datacite",
@@ -125,15 +136,34 @@ datasets_model = model(
             mimetype="application/vnd.datacite.datacite+json",
             serializer=DataCiteJSONSerializer(),
         ),
+        # datacite xml import
+        AddMetadataImport(
+            code="datacite",
+            name=_("Datacite xml import"),
+            description=_("Import metadata from DataCite XML format"),
+            mimetype="application/vnd.datacite.datacite+xml",
+            deserializer=DataCiteXMLDeserializer(),
+            oai_name=("http://datacite.org/schema/kernel-4e", "resource"),
+        ),
+        # datacite json import
+        AddMetadataImport(
+            code="datacite",
+            name=_("Datacite json import"),
+            description=_("Import metadata from DataCite json format"),
+            mimetype="application/vnd.datacite.datacite+json",
+            deserializer=DataCiteJSONDeserializer(),
+        ),
+        # support for non-generated persistent identifiers (always taken from the id field)
         AddServiceComponent(ExternalPIDComponent),
-        AddServiceComponent(UpdateMetadataComponent),
-        AddServiceComponent(UpdateEditorsComponent),
         ReplaceBaseClass(
             "PIDProvider",
             DraftRecordIdProviderV2,
             ExternalPIDProvider,
         ),
         ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
+        #
+        AddServiceComponent(UpdateMetadataComponent),
+        AddServiceComponent(UpdateEditorsComponent),
         AddLink("self_persistent_html", RecordEndpointLink("pidresolver.redirect")),
         PrependMixin("PIDFieldContext", ExternalPIDFieldContextMixin),
         PrependMixin("Draft", PIDStatusCheckFieldMixin),
