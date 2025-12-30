@@ -40,4 +40,4 @@ invenio oai harvesters create --id lindat --name "LINDAT/CLARIN repository harve
 invenio oai harvesters create --id av --name "Academy of sciences repository harvester " \
     --base-url "https://asep.lib.cas.cz/arl-cav/cs/oai/" \
     --metadata-prefix "dataciteoai" --setspec "OAIDATACITE" --model datasets \
-    --loader oai-pmh --transformer 'oai-import{"model":"datasets"}'
+    --loader oai-pmh --transformer 'oai-import{"model":"datasets"}' --transformer 'id-from-doi'

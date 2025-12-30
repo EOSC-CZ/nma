@@ -7,6 +7,7 @@ from idutils.validators import is_doi
 from invenio_access.permissions import system_identity
 from invenio_i18n import lazy_gettext as _
 from invenio_rdm_records.services.schemas.metadata import (
+    record_identifiers_schemes,
     record_personorg_schemes,
     record_related_identifiers_schemes,
 )
@@ -161,6 +162,17 @@ class DataciteResolver(MetadataResolver):
         rights = self.resolve_datacite_rights(rights=datacite_rights)
         if len(rights) > 0:
             metadata["rights"] = rights
+
+        # identifiers
+        identifiers = [
+            {
+                "identifier": id_with_scheme["identifier"],
+                "scheme": id_with_scheme["identifierType"].lower(),
+            }
+            for id_with_scheme in datacite_metadata.get("identifiers", [])
+            if id_with_scheme["identifierType"].lower() in record_identifiers_schemes
+        ]
+        metadata["identifiers"] = identifiers
 
         return metadata, problems
 
