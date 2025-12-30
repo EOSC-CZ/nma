@@ -1,14 +1,15 @@
-import json
 import dataclasses
+import json
 from urllib import parse as urlparse
 
 from flask import current_app
-from invenio_vocabularies.datastreams.readers import BaseReader
-
-from riv.utils import create_session_with_retries
-from invenio_vocabularies.datastreams.transformers import BaseTransformer
 from invenio_vocabularies.datastreams.datastreams import StreamEntry
+from invenio_vocabularies.datastreams.readers import BaseReader
+from invenio_vocabularies.datastreams.transformers import BaseTransformer
+
 from riv.resolvers import DataciteResolver
+from riv.utils import create_session_with_retries
+
 
 @dataclasses.dataclass
 class APIOAIHeader:
@@ -38,7 +39,8 @@ class ZenodoReader(BaseReader):
         )
 
     def _iter(self, fp, *args, **kwargs):
-        session = create_session_with_retries()
+        # sleep 2 seconds between requests to be kind to Zenodo servers
+        session = create_session_with_retries(throttle_sleep=2.0)
         oai_prefix = f"oai:{urlparse.urlparse(self._origin).hostname}:"
 
         for record in self.fetch_records(session):
@@ -65,8 +67,8 @@ class ZenodoReader(BaseReader):
                 url,
                 headers={"Accept": "application/json"},
                 params={
-                        "q": self.set,
-                        },
+                    "q": self.set,
+                },
             )
             response.raise_for_status()
             payload = response.json()
@@ -76,18 +78,20 @@ class ZenodoReader(BaseReader):
 
             for hit in hits:
                 record = session.get(
-                    hit["links"]["self"], headers={"Accept": "application/vnd.datacite.datacite+json"}
+                    hit["links"]["self"],
+                    headers={"Accept": "application/vnd.datacite.datacite+json"},
                 ).json()
                 record["id"] = hit["conceptrecid"]
                 record["updated"] = hit["modified"]
                 yield record
-
 
             if "next" in payload["links"]:
                 url = payload["links"]["next"]
             else:
                 # otherwise we are done
                 break
+
+
 class ZenodoTransformer(BaseTransformer):
 
     def __init__(self, *args, **kwargs):
@@ -105,9 +109,19 @@ class ZenodoTransformer(BaseTransformer):
 
     def convert_zenodo_to_rdm(self, rec):
         resolver = DataciteResolver()
-        metadata, _ = resolver.resolve_metadata(rec) #todo handle problems?
+        metadata, _ = resolver.resolve_metadata(rec)  # todo handle problems?
+
+        # take DOI if present
+        for identifier in rec.get("identifiers", []):
+            if identifier.get("identifierType") == "DOI":
+                record_id = "doi/" + identifier.get("identifier")
+                break
+        else:
+            # otherwise just suppose that it will be this one
+            record_id = f"doi/10.5281/zenodo.{rec['id']}"
+
         rdm_record = {
-            "id": rec["id"],
+            "id": record_id,
             "metadata": metadata,
         }
         rdm_record["files"] = {"enabled": False}

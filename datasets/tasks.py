@@ -148,5 +148,9 @@ def create_vocabulary_item_task(vocabulary_service_id: str, data: dict) -> dict:
     vocab_service = cast(
         "RecordService", current_service_registry.get(vocabulary_service_id)
     )
+    try:
+        return vocab_service.read(system_identity, data["id"]).to_dict()
+    except Exception:
+        pass  # item does not exist yet
     ret = vocab_service.create(system_identity, data)
     return ret.to_dict()
