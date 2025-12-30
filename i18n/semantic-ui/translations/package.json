@@ -14,7 +14,6 @@
   },
   "scripts": {
     "extract_messages": "i18next-scanner --config i18next-scanner.config.js",
-    "postextract_messages": "node scripts/postExtractMessages.js",
     "init_catalog": "node ./scripts/initCatalog"
   }
 }

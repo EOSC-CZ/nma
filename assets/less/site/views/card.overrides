@@ -1,0 +1,7 @@
+.ui.cards {
+  &.home-page-cards {
+    @media only screen and (max-width: @tabletBreakpoint) {
+      margin-top: 6rem;
+    }
+  }
+}
