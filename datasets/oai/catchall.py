@@ -32,13 +32,14 @@ class APIOAIRecord:
 
 class CatchAllReader(BaseReader):
 
-    def __init__(self, origin=None, mode="r", *args, **kwargs):
+    def __init__(self, origin=None, mode="r", identifiers=None, *args, **kwargs):
         super().__init__(
             origin=origin or "https://datarepo.eosc.cz/datasets/all/",
             mode=mode,
             *args,
             **kwargs,
         )
+        self._identifiers = identifiers
 
     def _iter(self, fp, *args, **kwargs):
         session = create_session_with_retries()
@@ -66,27 +67,59 @@ class CatchAllReader(BaseReader):
     def fetch_records(self, session):
         url = self._origin
 
-        while True:
-            # load a page of results
-            current_app.logger.info("Fetching list of records from %s", url)
-            response = session.get(url, headers={"Accept": "application/json"})
-            response.raise_for_status()
-            payload = response.json()
-            current_app.logger.info(
-                "Fetched listing of %d records", len(payload["hits"]["hits"])
-            )
-            for hit in payload["hits"]["hits"]:
-                # need to re-get as we do not have all fields in the hit
-                current_app.logger.info("Fetching record %s", hit["id"])
-                yield session.get(
-                    hit["links"]["self"], headers={"Accept": "application/json"}
-                ).json()
-            # if there is a next page, continue there
-            if "next" in payload["links"]:
-                url = payload["links"]["next"]
-            else:
-                # otherwise we are done
-                break
+        if self._identifiers:
+            if not url.endswith("/"):
+                url += "/"
+            oai_prefix = f"oai:{urlparse.urlparse(self._origin).hostname}:"
+            for identifier in self._identifiers:
+                if not identifier.startswith(oai_prefix):
+                    raise ValueError(
+                        f"Identifier {identifier} does not match oai prefix {oai_prefix}."
+                    )
+                record_id = identifier[len(oai_prefix) :]
+                # can not construct catch-all url as it contains also the community
+                # which is not known at this point. Will use search API to find the record.
+                current_app.logger.info("Fetching record url for %s", record_id)
+                response = session.get(
+                    url,
+                    params={"q": record_id},
+                    headers={"Accept": "application/json"},
+                )
+                response.raise_for_status()
+                payload = response.json()
+                if len(payload["hits"]["hits"]) == 0:
+                    raise ValueError(f"Record with identifier {identifier} not found.")
+                elif len(payload["hits"]["hits"]) > 1:
+                    raise ValueError(
+                        f"Multiple records found for identifier {identifier}."
+                    )
+                record_url = payload["hits"]["hits"][0]["links"]["self"]
+                current_app.logger.info("Fetching record %s", record_url)
+                resp = session.get(record_url, headers={"Accept": "application/json"})
+                resp.raise_for_status()
+                yield resp.json()
+        else:
+            while True:
+                # load a page of results
+                current_app.logger.info("Fetching list of records from %s", url)
+                response = session.get(url, headers={"Accept": "application/json"})
+                response.raise_for_status()
+                payload = response.json()
+                current_app.logger.info(
+                    "Fetched listing of %d records", len(payload["hits"]["hits"])
+                )
+                for hit in payload["hits"]["hits"]:
+                    # need to re-get as we do not have all fields in the hit
+                    current_app.logger.info("Fetching record %s", hit["id"])
+                    yield session.get(
+                        hit["links"]["self"], headers={"Accept": "application/json"}
+                    ).json()
+                # if there is a next page, continue there
+                if "next" in payload["links"]:
+                    url = payload["links"]["next"]
+                else:
+                    # otherwise we are done
+                    break
 
 
 def check_converted(exceptions: list[str]) -> Callable:
@@ -212,6 +245,15 @@ def sanitize_html(text):
     )
 
 
+def fix_malformed_identifier(identifier: str) -> str:
+    """Fix known malformed identifiers."""
+    if identifier and "0000-0002-5095-051X" in identifier:
+        return "0000-0002-5095-051X"
+    if identifier and "0000-0002-9746-5802" in identifier:
+        return "0000-0002-9746-5802"
+    return identifier
+
+
 class CatchAllTransformer(BaseTransformer):
 
     def __init__(self, *args, **kwargs):
@@ -287,6 +329,9 @@ class CatchAllTransformer(BaseTransformer):
                 if doi_value:
                     record_id = f"doi/{doi_value}"
                     break
+        else:
+            # we save the record without doi, using our own pid prefix
+            record_id = f"catchall/{record_id}"
 
         rdm_record = {
             "id": record_id,
@@ -645,9 +690,15 @@ class CatchAllTransformer(BaseTransformer):
         identifiers = []
         for auth_id in authority_identifiers:
             identifier = auth_id.pop("identifier", "").strip()
+            # fix known malformed ORCID
+            identifier = fix_malformed_identifier(identifier)
             scheme = auth_id.pop("scheme", "").lower()
             if identifier and scheme:
-                identifiers.append({"scheme": scheme, "identifier": identifier})
+                if not any(
+                    id_["scheme"] == scheme and id_["identifier"] == identifier
+                    for id_ in identifiers
+                ):
+                    identifiers.append({"scheme": scheme, "identifier": identifier})
         return identifiers
 
     @check_converted(exceptions=["ROR", "URL", "COAR", "DOI"])
@@ -710,7 +761,15 @@ class CatchAllTransformer(BaseTransformer):
                 if ror_id:
                     aff_obj["id"] = ror_id
 
-            rdm_affiliations.append(aff_obj)
+            # Only append if this affiliation ID hasn't been seen before
+            aff_id = aff_obj.get("id")
+            if aff_id:
+                if not any(aff.get("id") == aff_id for aff in rdm_affiliations):
+                    rdm_affiliations.append(aff_obj)
+            else:
+                # Always append affiliations without IDs
+                rdm_affiliations.append(aff_obj)
+
         return rdm_affiliations
 
     @check_converted(
@@ -793,8 +852,8 @@ class CatchAllTransformer(BaseTransformer):
         """
         return {
             "description": sanitize_html(note),
-            "type": {"id": "internal-note"},
-            "lang": {"id": "en"},
+            "type": {"id": "other"},
+            "lang": {"id": "eng"},
         }
 
     @check_converted(exceptions=[])
@@ -978,7 +1037,17 @@ class CatchAllTransformer(BaseTransformer):
                     funding_obj["award"] = award
 
                 if funding_obj:
-                    funding_list.append(funding_obj)
+                    # Only add if this funder hasn't been seen before (when it has an ID)
+                    funder_id = funding_obj.get("funder", {}).get("id")
+                    if funder_id:
+                        if not any(
+                            f.get("funder", {}).get("id") == funder_id
+                            for f in funding_list
+                        ):
+                            funding_list.append(funding_obj)
+                    else:
+                        # Always append funding without funder IDs
+                        funding_list.append(funding_obj)
 
         return funding_list if funding_list else None
 
