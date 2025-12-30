@@ -1,18 +1,25 @@
+from __future__ import annotations
+
 import datetime
 from functools import wraps
+from typing import TYPE_CHECKING, cast
 
 from celery import shared_task
 from invenio_access.permissions import system_identity
 from invenio_accounts.models import User
+from invenio_db import db
 from invenio_db.uow import UnitOfWork
 from invenio_rdm_records.proxies import current_rdm_records_service
+from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.services.uow import RecordCommitOp
+from invenio_search.engine import dsl
 from oarepo_runtime import current_runtime
 
 from riv.config import EDIT_GRANT_EXPIRATION_DAYS
-from invenio_search.engine import dsl
-from invenio_db import db
 
+if TYPE_CHECKING:
+
+    from invenio_records_resources.services.records import RecordService
 
 
 def unit_of_work(f):
@@ -29,7 +36,6 @@ def unit_of_work(f):
             return f(*args, **kwargs)
 
     return inner
-
 
 
 def _get_model():
@@ -134,3 +140,13 @@ def expire_grants_task():
 @shared_task
 def add_grant_expiration_task():
     add_grant_expiration()
+
+
+@shared_task
+def create_vocabulary_item_task(vocabulary_service_id: str, data: dict) -> dict:
+    """Create a vocabulary item."""
+    vocab_service = cast(
+        "RecordService", current_service_registry.get(vocabulary_service_id)
+    )
+    ret = vocab_service.create(system_identity, data)
+    return ret.to_dict()
