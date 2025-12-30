@@ -92,7 +92,13 @@ def resolve_identifiers(data: dict):
         with contextlib.suppress(KeyError):
             loc = list(dict_lookup_with_arrays(data, location))
             for identifier, parent, path in loc:
-                resolve_identifier(identifier, parent, path, vocabulary)
+                try:
+                    resolve_identifier(identifier, parent, path, vocabulary)
+                except Exception as e:
+                    current_app.logger.exception(
+                        f"Error resolving identifier {identifier} at {path}",
+                        exc_info=e,
+                    )
 
 
 def resolve_identifier(identifier: dict, parent: Any, path: str, vocabulary: str):
@@ -349,6 +355,9 @@ class IdentifiersDownloaderMixin:
         """Post-load processing for service identifiers."""
         try:
             resolve_identifiers(data)
-        except:
-            pass
+        except Exception as e:
+            current_app.logger.exception(
+                "Error resolving identifiers in record",
+                exc_info=e,
+            )
         return data

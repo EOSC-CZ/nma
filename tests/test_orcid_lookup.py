@@ -26,8 +26,8 @@ def test_orcid_service_call(app):
 
 def test_orcid_service_call_with_local_cache(app):
     # create and put to the local cache. We use both True so that the test works
-    # even if the orcird is already in the local cache.
-    resolved = resolve_orcid(
+    # even if the orcid is already in the local cache.
+    resolve_orcid(
         "0000-0003-0852-6632",
         vocabulary="names",
         create_vocabulary_record=True,

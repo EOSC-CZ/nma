@@ -12,7 +12,7 @@ from invenio_drafts_resources.services.records import (
 from invenio_i18n import lazy_gettext as _
 from invenio_pidstore.models import PIDStatus
 from invenio_rdm_records.resources.serializers.ui.schema import UIRecordSchema
-from invenio_rdm_records.services.generators import AccessGrant, SecretLinks
+from invenio_rdm_records.services.generators import AccessGrant
 from invenio_records_permissions.generators import (
     AuthenticatedUser,
     Disable,
