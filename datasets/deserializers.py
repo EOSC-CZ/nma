@@ -4,6 +4,7 @@ from typing import Any, override
 
 from flask_resources.deserializers.json import JSONDeserializer
 from lxml import etree
+from lxml.etree import QName
 from marshmallow import ValidationError
 
 
@@ -27,7 +28,11 @@ class DataCiteJSONDeserializer(JSONDeserializer):
         metadata, problems = resolver.resolve_metadata(data)
         if problems:
             raise ValidationError(f"Errors during DataCite resolution: {problems}")
-        return metadata
+        return {
+            "metadata": metadata,
+            "files": {"enabled": False},
+            "media_files": {"enabled": False},
+        }
 
 
 class DataCiteXMLDeserializer(DataCiteJSONDeserializer):
@@ -66,6 +71,16 @@ class DataCiteXMLDeserializer(DataCiteJSONDeserializer):
             Dictionary with DataCite JSON representation
         """
         result: dict[str, Any] = {}
+
+        # AV seems to have a wrong kernel - they use http://datacite.org/schema/kernel-4e
+        # get the namespace uri of the resource
+        ns_uri = QName(resource).namespace
+        if ns_uri and ns_uri != self.NAMESPACE["dc"]:
+            # set for just this instance
+            self.NAMESPACE = {
+                **self.NAMESPACE,
+                "dc": ns_uri,
+            }
 
         # Required fields
         result["doi"] = self._get_identifier(resource)
@@ -501,12 +516,14 @@ class DataCiteXMLDeserializer(DataCiteJSONDeserializer):
             if rights_uri := rights_elem.get("rightsURI"):
                 rights["rightsUri"] = rights_uri
 
-            if rights_id := rights_elem.get("rightsIdentifier"):
-                rights["rightsIdentifier"] = rights_id
-                # Zenodo always includes rightsIdentifierScheme when rightsIdentifier exists
-                # Set to null if not present to match Zenodo format
-                rights_id_scheme = rights_elem.get("rightsIdentifierScheme")
-                rights["rightsIdentifierScheme"] = rights_id_scheme
+            # TODO: commented out because we do not have the correct vocabulary
+            # items yet
+            # if rights_id := rights_elem.get("rightsIdentifier"):
+            #     rights["rightsIdentifier"] = rights_id
+            #     # Zenodo always includes rightsIdentifierScheme when rightsIdentifier exists
+            #     # Set to null if not present to match Zenodo format
+            #     rights_id_scheme = rights_elem.get("rightsIdentifierScheme")
+            #     rights["rightsIdentifierScheme"] = rights_id_scheme
 
             if scheme_uri := rights_elem.get("schemeUri"):
                 rights["schemeUri"] = scheme_uri
