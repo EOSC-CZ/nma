@@ -1,9 +1,12 @@
+from __future__ import annotations
+
 import shlex
 import subprocess
 import sys
 import traceback
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import click
 from celery import shared_task
@@ -16,6 +19,9 @@ from opensearch_dsl import Q
 
 from .config import LAST_CHECKED_THRESHOLD_DAYS
 from .utils import check_url_availability
+
+if TYPE_CHECKING:
+    from datetime import datetime
 
 
 @shared_task(ignore_result=True)
