@@ -3981,7 +3981,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-model"
-version = "0.1.0.dev42"
+version = "0.1.0.dev43"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "deepmerge" },
@@ -3991,9 +3991,9 @@ dependencies = [
     { name = "oarepo", extra = ["rdm", "tests"] },
     { name = "oarepo-runtime" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/59/a5/683dcf802a46179cb039d3b95912334f6e0e626dfd93e9ed2bcb3b81d075/oarepo_model-0.1.0.dev42.tar.gz", hash = "sha256:640065137c78e3b9f0c64d3cc53911a04ff57bf187fe5b23e20b7fbc88496614", size = 363010, upload-time = "2025-12-16T12:32:48.359Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/61/ce/ba439a735a465e6a93a3b4ba61b32c21e4d6bf50ccce3b5ee017a7361cc1/oarepo_model-0.1.0.dev43.tar.gz", hash = "sha256:b260eef5da9fdd027958e56fb8d3121bcb3bb01177046f24e6c71117f1e1cc90", size = 364578, upload-time = "2025-12-31T14:13:03.028Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2b/17/029692c31eceef1d4640225322389d560beb80db845f18352b64f0a8546d/oarepo_model-0.1.0.dev42-py3-none-any.whl", hash = "sha256:d333bac93a1c4edfb96d609e98034e44447437f2b87b66ef188bd3574e1eb0e2", size = 242870, upload-time = "2025-12-16T12:32:46.899Z" },
+    { url = "https://files.pythonhosted.org/packages/3c/af/77ef9e33db28e8e60b0ce065e3a79124a56f7fbff3789f52ffcbc6b92cf3/oarepo_model-0.1.0.dev43-py3-none-any.whl", hash = "sha256:43c88753099b24c6358d303cadeec506e5135f0328cf7ed7c5ea14e6b41e9a6d", size = 243531, upload-time = "2025-12-31T14:13:01.432Z" },
 ]
 
 [[package]]
@@ -4046,7 +4046,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-runtime"
-version = "2.0.0.dev50"
+version = "2.0.0.dev51"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "langcodes" },
@@ -4054,9 +4054,9 @@ dependencies = [
     { name = "oarepo-invenio-typing-stubs" },
     { name = "signposting" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/47/e9/838036d641ad49d44d5b82dfa7e2d178240efa97637fea50c96546ad1e87/oarepo_runtime-2.0.0.dev50.tar.gz", hash = "sha256:1240b3ddd9e4474e8c0c1f6544a2760e22868671947d00cd191ec7db88649f04", size = 45788, upload-time = "2025-12-18T09:58:18.162Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/12/36/c4954e73612eb8e719c064e9c8f2370e7d6a2940bfe355dcfe9d2581fc9e/oarepo_runtime-2.0.0.dev51.tar.gz", hash = "sha256:0d020efda331118d72509c253ed3ec75bf267a920df6cbcd87ede1fd33d624f0", size = 45826, upload-time = "2025-12-31T10:29:50.047Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/52/e2/6a4388559c40927849296943466236575cc12c0c5e651580331355a17444/oarepo_runtime-2.0.0.dev50-py3-none-any.whl", hash = "sha256:0a90e1d6f2ee6bcab4fed394ac09d9dd7bebde36a7244566d5227ebf59dbc341", size = 68834, upload-time = "2025-12-18T09:58:17.077Z" },
+    { url = "https://files.pythonhosted.org/packages/1b/8a/71c3e992f1f8f219531713b5d03108ab71fd39d480e30e30ca5bf23e3d4f/oarepo_runtime-2.0.0.dev51-py3-none-any.whl", hash = "sha256:7fac2fc65c0ee3bd2f40b6349f98ef2cc2e6dafdfd375a50c986258ce58bc02a", size = 68912, upload-time = "2025-12-31T10:29:48.866Z" },
 ]
 
 [[package]]
