@@ -22,6 +22,7 @@ from invenio_records_resources.records.systemfields import PIDField
 from invenio_records_resources.services import RecordEndpointLink
 from oarepo_model.api import model
 from oarepo_model.customizations import (
+    AddFacetGroup,
     AddMetadataExport,
     AddMetadataImport,
     AddServiceComponent,
@@ -169,6 +170,12 @@ datasets_model = model(
         PrependMixin("Draft", PIDStatusCheckFieldMixin),
         PrependMixin("RecordService", UpdatableRecordServiceMixin),
         PrependMixin("RecordResourceConfig", OverriddenRouteResourceConfigMixin),
+        AddFacetGroup(
+            "default",
+            [
+                "metadata.publisher",
+            ],
+        ),
     ],
     configuration={"ui_blueprint_name": "datasets_ui"},
 )
