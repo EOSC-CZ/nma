@@ -125,7 +125,7 @@ def check_availability_task():
 
 
 @shared_task(ignore_result=True)
-def invenio_command(cmdline: str):
+def invenio_command(cmdline: str, timeout=600):
     """Run an invenio CLI command in a Celery task."""
 
     # split the cmdline into parts separated by &&
@@ -134,7 +134,7 @@ def invenio_command(cmdline: str):
     failed_subcommands = []
     for command in commands:
         current_app.logger.info("Running command: invenio %s", command)
-        resultcode, stdout, stderr = _run_invenio_command(command)
+        resultcode, stdout, stderr = _run_invenio_command(command, timeout=timeout)
         for line in stdout:
             current_app.logger.info("%s", line)
         for line in stderr:
@@ -154,7 +154,7 @@ def invenio_command(cmdline: str):
         )
 
 
-def _run_invenio_command(cmdline: str) -> tuple[int, list[str], list[str]]:
+def _run_invenio_command(cmdline: str, timeout=600) -> tuple[int, list[str], list[str]]:
     # get the current python executable
     current_python = sys.executable
     invenio_cmd = Path(current_python).parent / "invenio"
@@ -167,7 +167,7 @@ def _run_invenio_command(cmdline: str) -> tuple[int, list[str], list[str]]:
             capture_output=True,
             text=True,
             stdin=subprocess.DEVNULL,
-            timeout=600,  # 10 minutes
+            timeout=timeout,  # 10 minutes by default
         )
         return result.returncode, result.stdout.splitlines(), result.stderr.splitlines()
     except subprocess.CalledProcessError as e:
@@ -188,6 +188,12 @@ class InvenioTaskJobSchema(PredefinedArgsSchema):
     cmdline = fields.String(
         required=True,
         metadata={"description": "The Invenio CLI command to run."},
+    )
+    timeout = fields.Integer(
+        required=False,
+        dump_default=600,
+        load_default=600,
+        metadata={"description": "Timeout for each command in seconds."},
     )
 
 
@@ -211,7 +217,7 @@ class InvenioTaskJob(JobType):
             executed.
         :return: a dict of arguments to be injected on task execution.
         """
-        return {"cmdline": cmdline}
+        return {"cmdline": cmdline, "timeout": kwargs.get("timeout", 600)}
 
 
 @shared_task(ignore_result=True)
