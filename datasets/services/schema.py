@@ -297,7 +297,7 @@ def resolve_orcid(
         with allow_join_result():
             return create_vocabulary_item_task.delay(
                 vocabulary_service_id=vocabulary, data=names_record
-            ).get(propagate=True)
+            ).get(propagate=True, timeout=30)
     return names_record
 
 
@@ -348,7 +348,7 @@ def resolve_ror(
         with allow_join_result():
             return create_vocabulary_item_task.delay(
                 vocabulary_service_id=vocabulary, data=data.entry
-            ).get(propagate=True)
+            ).get(propagate=True, timeout=30)
     return data.entry
 
 
