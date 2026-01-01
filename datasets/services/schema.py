@@ -5,6 +5,7 @@ import json
 from typing import Any, Callable, Generator, cast
 from urllib.parse import quote
 
+from celery.result import allow_join_result
 from flask import current_app
 from invenio_access.permissions import system_identity
 from invenio_pidstore.errors import PersistentIdentifierError
@@ -293,9 +294,10 @@ def resolve_orcid(
         # need to create the record in a worker, because we have an ongoing transaction
         # with its own uow, and creating the vocabulary record would commit it and
         # destroy the nested state.
-        return create_vocabulary_item_task.delay(
-            vocabulary_service_id=vocabulary, data=names_record
-        ).get(propagate=True)
+        with allow_join_result():
+            return create_vocabulary_item_task.delay(
+                vocabulary_service_id=vocabulary, data=names_record
+            ).get(propagate=True)
     return names_record
 
 
@@ -343,9 +345,10 @@ def resolve_ror(
         # need to create the record in a worker, because we have an ongoing transaction
         # with its own uow, and creating the vocabulary record would commit it and
         # destroy the nested state.
-        return create_vocabulary_item_task.delay(
-            vocabulary_service_id=vocabulary, data=data.entry
-        ).get(propagate=True)
+        with allow_join_result():
+            return create_vocabulary_item_task.delay(
+                vocabulary_service_id=vocabulary, data=data.entry
+            ).get(propagate=True)
     return data.entry
 
 
