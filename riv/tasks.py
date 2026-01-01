@@ -14,6 +14,7 @@ from flask import current_app
 from invenio_access.permissions import system_identity
 from invenio_jobs.jobs import JobType, PredefinedArgsSchema
 from invenio_records_resources.proxies import current_service_registry
+from invenio_search import current_search
 from marshmallow import fields
 from opensearch_dsl import Q
 
@@ -239,17 +240,29 @@ class CreateMissingIndicesJob(JobType):
 
 @shared_task(ignore_result=True)
 def rebuild_all_indices():
-    invenio_command(
-        "index destroy --verbose --force --yes-i-know"
-        + "&&"
-        + "index init --force"
-        + "&&"
-        + "rdm-records custom-fields init"
-        + "&&"
-        + "communities custom-fields init"
-        + "&&"
-        + "rdm rebuild-all-indices"
-    )
+    from invenio_app_rdm.cli import rebuild_all_indices
+    from invenio_communities.cli import create_communities_custom_field
+    from invenio_rdm_records.cli import create_records_custom_field
+
+    for name, response in current_search.delete(ignore=[400, 404]):
+        current_app.logger.debug("Deleted index: %s, response: %s", name, response)
+        for initialized_name, response in current_search.create(
+            ignore_existing=True, index_list=[name]
+        ):
+            current_app.logger.debug(
+                "Re-created index: %s, response: %s", initialized_name, response
+            )
+    current_search.create(ignore_existing=True)
+
+    try:
+        create_records_custom_field.callback(field_name=[])
+    except:
+        pass
+    try:
+        create_communities_custom_field.callback(field_name=[])
+    except:
+        pass
+    rebuild_all_indices.callback(order="")
 
 
 class RebuildAllIndicesJob(JobType):
