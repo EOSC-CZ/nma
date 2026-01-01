@@ -163,12 +163,22 @@ def _run_invenio_command(cmdline: str, timeout=600) -> tuple[int, list[str], lis
         raise FileNotFoundError(f"Invenio command not found at {invenio_cmd}")
 
     try:
+        current_app.logger.info(
+            "Executing command: %s %s with timeout %s",
+            str(invenio_cmd),
+            cmdline,
+            timeout,
+        )
         result = subprocess.run(
             [str(invenio_cmd)] + shlex.split(cmdline),
             capture_output=True,
             text=True,
             stdin=subprocess.DEVNULL,
             timeout=timeout,  # 10 minutes by default
+        )
+        current_app.logger.info(
+            "Command executed with return code %s",
+            result.returncode,
         )
         return result.returncode, result.stdout.splitlines(), result.stderr.splitlines()
     except subprocess.CalledProcessError as e:
@@ -240,29 +250,24 @@ class CreateMissingIndicesJob(JobType):
 
 @shared_task(ignore_result=True)
 def rebuild_all_indices():
-    from invenio_app_rdm.cli import rebuild_all_indices
-    from invenio_communities.cli import create_communities_custom_field
-    from invenio_rdm_records.cli import create_records_custom_field
 
     for name, response in current_search.delete(ignore=[400, 404]):
-        current_app.logger.debug("Deleted index: %s, response: %s", name, response)
-        for initialized_name, response in current_search.create(
-            ignore_existing=True, index_list=[name]
-        ):
-            current_app.logger.debug(
-                "Re-created index: %s, response: %s", initialized_name, response
-            )
-    current_search.create(ignore_existing=True)
+        current_app.logger.info("Deleted index: %s, response: %s", name, response)
+    current_app.logger.info("Recreating all indices...")
+    for name, response in current_search.create(ignore_existing=True):
+        current_app.logger.info("Created index: %s, response: %s", name, response)
+    # oarepo patches
+    from importlib.metadata import entry_points
 
-    try:
-        create_records_custom_field.callback(field_name=[])
-    except:
-        pass
-    try:
-        create_communities_custom_field.callback(field_name=[])
-    except:
-        pass
-    rebuild_all_indices.callback(order="")
+    current_app.logger.info("Running Oarepo CLI search init entry points...")
+    for ep in entry_points(group="oarepo.cli.search.init"):
+        current_app.logger.info("Running entry point: %s", ep.name)
+        ep.load()()
+    current_app.logger.info("Oarepo CLI search init entry points completed.")
+
+    invenio_command("rdm-records custom-fields init")
+    invenio_command("communities custom-fields init")
+    invenio_command("rdm rebuild-all-indices")
 
 
 class RebuildAllIndicesJob(JobType):
