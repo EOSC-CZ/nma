@@ -240,9 +240,9 @@ class CreateMissingIndicesJob(JobType):
 @shared_task(ignore_result=True)
 def rebuild_all_indices():
     invenio_command(
-        "index destroy --yes-i-know"
+        "index destroy --verbose --force --yes-i-know"
         + "&&"
-        + "index init"
+        + "index init --force"
         + "&&"
         + "rdm-records custom-fields init"
         + "&&"
