@@ -4,7 +4,7 @@ from invenio_access.permissions import system_identity
 from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.services.records import RecordService
 
-from datasets.services.schema import resolve_ror
+from datasets.services.idutils import resolve_ror
 
 
 def test_ror_service_call(app):

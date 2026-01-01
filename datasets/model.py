@@ -45,10 +45,10 @@ from .deserializers import DataCiteJSONDeserializer, DataCiteXMLDeserializer
 from .serializers import DataCiteJSONSerializer
 from .services.components import (
     ExternalPIDComponent,
+    FetchIdentifiersComponent,
     UpdateEditorsComponent,
     UpdateMetadataComponent,
 )
-from .services.schema import IdentifiersDownloaderMixin
 
 
 class DatasetsPermissionPolicyMixin(ModelMixin):
@@ -127,9 +127,6 @@ datasets_model = model(
         PrependMixin("PermissionPolicy", DatasetsPermissionPolicyMixin),
         # TODO: move this to oarepo-rdm
         PrependMixin("RecordUISchema", UIRecordSchema),
-        # will dowload orcid & ROR metadata during deserialization if the identifier
-        # is not in the vocabulary yet
-        PrependMixin("RecordSchema", IdentifiersDownloaderMixin),
         # export for datacite
         AddMetadataExport(
             code="datacite",
@@ -165,6 +162,7 @@ datasets_model = model(
         #
         AddServiceComponent(UpdateMetadataComponent),
         AddServiceComponent(UpdateEditorsComponent),
+        AddServiceComponent(FetchIdentifiersComponent),
         AddLink("self_persistent_html", RecordEndpointLink("pidresolver.redirect")),
         PrependMixin("PIDFieldContext", ExternalPIDFieldContextMixin),
         PrependMixin("Draft", PIDStatusCheckFieldMixin),

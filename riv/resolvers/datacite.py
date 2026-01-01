@@ -645,7 +645,7 @@ class DataciteResolver(MetadataResolver):
 
     @handle_errors()
     def resolve_datacite_name_identifiers(self, *, name_identifiers):
-        from datasets.services.schema import resolve_orcid
+        from datasets.services import resolve_orcid
 
         identifiers = []
         seen = []

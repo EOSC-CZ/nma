@@ -5,19 +5,30 @@ import json
 from typing import Any, Callable, Generator, cast
 from urllib.parse import quote
 
-from celery.result import allow_join_result
 from flask import current_app
 from invenio_access.permissions import system_identity
+from invenio_db.uow import UnitOfWork
 from invenio_pidstore.errors import PersistentIdentifierError
 from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.services.records import RecordService
 from invenio_vocabularies.contrib.common.ror.datastreams import RORTransformer
 from invenio_vocabularies.datastreams.datastreams import StreamEntry
-from marshmallow import ValidationError, pre_load
+from marshmallow import ValidationError
 from opensearchpy.exceptions import OpenSearchException
 from sqlalchemy.exc import NoResultFound
 
-from datasets.tasks import create_vocabulary_item_task
+
+def create_vocabulary_item(
+    vocabulary_service_id: str, data: dict[str, Any], uow: UnitOfWork | None = None
+) -> dict:
+    vocab_service = cast(
+        "RecordService", current_service_registry.get(vocabulary_service_id)
+    )
+    try:
+        return vocab_service.read(system_identity, data["id"]).to_dict()
+    except Exception:
+        pass  # item does not exist yet
+    return vocab_service.create(system_identity, data, uow=uow).to_dict()
 
 
 def get_with_default(data: dict | None, key: str, default: Any) -> Any:
@@ -81,7 +92,7 @@ def dict_lookup_with_arrays(
     yield from __lookup(data, path.split("."), [], None)
 
 
-def resolve_identifiers(data: dict):
+def resolve_identifiers(data: dict, uow: UnitOfWork | None = None) -> None:
     identifier_locations = {
         "metadata.creators.person_or_org.identifiers": "names",
         "metadata.creators.affiliations": "affiliations",
@@ -95,7 +106,7 @@ def resolve_identifiers(data: dict):
             loc = list(dict_lookup_with_arrays(data, location))
             for identifier, parent, path in loc:
                 try:
-                    resolve_identifier(identifier, parent, path, vocabulary)
+                    resolve_identifier(identifier, parent, path, vocabulary, uow=uow)
                 except Exception as e:
                     current_app.logger.exception(
                         f"Error resolving identifier {identifier} at {path}",
@@ -109,6 +120,7 @@ def resolve_identifier(
     path: str,
     vocabulary: str,
     vocabulary_key: str = "id",
+    uow: UnitOfWork | None = None,
 ):
     """Resolve a single identifier dictionary."""
 
@@ -126,6 +138,7 @@ def resolve_identifier(
         create_vocabulary_record=True,
         check_existing=True,
         path=path,
+        uow=uow,
     )
     identifier[id_key] = resolved[vocabulary_key]
 
@@ -243,6 +256,7 @@ def resolve_orcid(
     create_vocabulary_record: bool = True,
     check_existing: bool = True,
     path: str = "",
+    uow: UnitOfWork | None = None,
 ) -> dict:
     """Resolve ORCID identifier to URL.
 
@@ -291,13 +305,9 @@ def resolve_orcid(
     names_record = orcid_to_names(orcid_data, parent=parent)
 
     if create_vocabulary_record:
-        # need to create the record in a worker, because we have an ongoing transaction
-        # with its own uow, and creating the vocabulary record would commit it and
-        # destroy the nested state.
-        with allow_join_result():
-            return create_vocabulary_item_task.delay(
-                vocabulary_service_id=vocabulary, data=names_record
-            ).get(propagate=True, timeout=30)
+        return create_vocabulary_item(
+            vocabulary_service_id=vocabulary, data=names_record, uow=uow
+        )
     return names_record
 
 
@@ -308,6 +318,7 @@ def resolve_ror(
     create_vocabulary_record: bool = True,
     check_existing: bool = True,
     path: str = "",
+    uow: UnitOfWork | None = None,
 ) -> dict:
     """Resolve ROR identifier to URL.
 
@@ -342,13 +353,9 @@ def resolve_ror(
     )
     data = transformer.apply(data)
     if create_vocabulary_record:
-        # need to create the record in a worker, because we have an ongoing transaction
-        # with its own uow, and creating the vocabulary record would commit it and
-        # destroy the nested state.
-        with allow_join_result():
-            return create_vocabulary_item_task.delay(
-                vocabulary_service_id=vocabulary, data=data.entry
-            ).get(propagate=True, timeout=30)
+        return create_vocabulary_item(
+            vocabulary_service_id=vocabulary, data=data.entry, uow=uow
+        )
     return data.entry
 
 
@@ -359,17 +366,3 @@ identifier_resolvers: dict[tuple[str, str | None], Callable] = {
     ("funders", "ror"): resolve_ror,
     ("funders", None): resolve_ror,
 }
-
-
-class IdentifiersDownloaderMixin:
-    @pre_load
-    def load_service_identifiers(self, data, **kwargs):
-        """Post-load processing for service identifiers."""
-        try:
-            resolve_identifiers(data)
-        except Exception as e:
-            current_app.logger.exception(
-                "Error resolving identifiers in record",
-                exc_info=e,
-            )
-        return data

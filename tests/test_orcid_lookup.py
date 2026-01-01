@@ -4,7 +4,7 @@ from invenio_access.permissions import system_identity
 from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.services.records import RecordService
 
-from datasets.services.schema import resolve_orcid
+from datasets.services.idutils import resolve_orcid
 
 
 def test_orcid_service_call(app):
