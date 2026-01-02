@@ -57,7 +57,7 @@ from riv.records.api import generate_id
 from riv.proxies import current_riv_extension
 
 from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
-from ui.resources.components.oai_record import OaiRecordComponent
+from ui.resources.components.oai_record import OAIRecordComponent
 
 logger = logging.getLogger("DatasetsUI")
 
@@ -95,7 +95,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         FilesLockedComponent,
         FilesQuotaAndTransferComponent,
         RDMVocabularyOptionsComponent,
-        OaiRecordComponent
+        OAIRecordComponent
     ]
 
     record_detail_permissions = [

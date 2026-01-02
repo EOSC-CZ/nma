@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from invenio_records_resources.services.records.results import RecordItem
 
 
-class OaiRecordComponent(UIResourceComponent):
+class OAIRecordComponent(UIResourceComponent):
     """Pass RDM vocabulary fixtures to form config."""
 
     def before_ui_detail(
