@@ -390,3 +390,6 @@ todo.md
 jsconfig.json
 
 .claude
+
+# translations
+*.mo
