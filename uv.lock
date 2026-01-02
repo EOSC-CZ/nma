@@ -577,15 +577,15 @@ wheels = [
 
 [[package]]
 name = "citeproc-py-styles"
-version = "0.1.5.528422"
+version = "0.1.5.45528422"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "lxml" },
     { name = "six" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/f2b8b5539557bc58460b049cc2b6803798aedcb4e2199b0ea14b1c2b4192365e/citeproc_py_styles-0.1.5.528422.tar.gz", hash = "sha256:f2b8b5539557bc58460b049cc2b6803798aedcb4e2199b0ea14b1c2b4192365e" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/126d387535c4bb4ab3d49f14faa02870130272fc713c3226d7752e09754da612/citeproc_py_styles-0.1.5.45528422.tar.gz", hash = "sha256:126d387535c4bb4ab3d49f14faa02870130272fc713c3226d7752e09754da612" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/d29df720aac62fcc32826b2a6e0800475c4566f7744bc839db67d59f24ad82f2/citeproc_py_styles-0.1.5.528422-py2.py3-none-any.whl", hash = "sha256:d29df720aac62fcc32826b2a6e0800475c4566f7744bc839db67d59f24ad82f2" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/b9e3f4e684caa5830ec85b553b54227ffd52232a4a8dac2912aa6b7f18fdaa5f/citeproc_py_styles-0.1.5.45528422-py2.py3-none-any.whl", hash = "sha256:b9e3f4e684caa5830ec85b553b54227ffd52232a4a8dac2912aa6b7f18fdaa5f" },
 ]
 
 [[package]]
@@ -1794,7 +1794,7 @@ wheels = [
 
 [[package]]
 name = "invenio-administration"
-version = "4.3.1.847151"
+version = "4.3.1.89847151"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "flask-menu" },
@@ -1807,9 +1807,9 @@ dependencies = [
     { name = "invenio-search-ui" },
     { name = "invenio-theme" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/f53482c304d3ed872ded0c4785facc3945198f1342f7a7d8f2872083b413cf0c/invenio_administration-4.3.1.847151.tar.gz", hash = "sha256:f53482c304d3ed872ded0c4785facc3945198f1342f7a7d8f2872083b413cf0c" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/b1dc6b0304432ed8496599625781956a24ee097266e84f117b4c42a1c138a2ef/invenio_administration-4.3.1.89847151.tar.gz", hash = "sha256:b1dc6b0304432ed8496599625781956a24ee097266e84f117b4c42a1c138a2ef" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/d239cb9ddd5354d87b5a3acd843db17e9df6f4a134218e0134e073d773751529/invenio_administration-4.3.1.847151-py2.py3-none-any.whl", hash = "sha256:d239cb9ddd5354d87b5a3acd843db17e9df6f4a134218e0134e073d773751529" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/ae5fa765e759e6d1a56c24fea9bc13592130fefea8a129286fbed0ac00440858/invenio_administration-4.3.1.89847151-py2.py3-none-any.whl", hash = "sha256:ae5fa765e759e6d1a56c24fea9bc13592130fefea8a129286fbed0ac00440858" },
 ]
 
 [[package]]
@@ -1834,7 +1834,7 @@ wheels = [
 
 [[package]]
 name = "invenio-app-rdm"
-version = "14.0.0.675680b1.dev10"
+version = "14.0.0.95675680b1.dev10"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "cairosvg" },
@@ -1875,23 +1875,23 @@ dependencies = [
     { name = "invenio-theme" },
     { name = "invenio-userprofiles" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/456e986e4cf04efaf3da161f02a46e73b25e6c765a76aca8896c9fe7f2f7d54a/invenio_app_rdm-14.0.0.675680b1.dev10.tar.gz", hash = "sha256:456e986e4cf04efaf3da161f02a46e73b25e6c765a76aca8896c9fe7f2f7d54a" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/de850b05f325721eac484e97b6c32bcc74541e572df678c530c1c443ff4fa9aa/invenio_app_rdm-14.0.0.95675680b1.dev10.tar.gz", hash = "sha256:de850b05f325721eac484e97b6c32bcc74541e572df678c530c1c443ff4fa9aa" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/1b0ccb6c8cd96065430104571ebf730528525c6a6c04cd12ed1d45e22d58fcdc/invenio_app_rdm-14.0.0.675680b1.dev10-py2.py3-none-any.whl", hash = "sha256:1b0ccb6c8cd96065430104571ebf730528525c6a6c04cd12ed1d45e22d58fcdc" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/0b50659390c912ef3d091068fb4772e0aa71d34468c93794f396199df0605db1/invenio_app_rdm-14.0.0.95675680b1.dev10-py2.py3-none-any.whl", hash = "sha256:0b50659390c912ef3d091068fb4772e0aa71d34468c93794f396199df0605db1" },
 ]
 
 [[package]]
 name = "invenio-assets"
-version = "4.2.0.377295"
+version = "4.2.0.24377295"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "flask-collect-invenio" },
     { name = "flask-webpackext" },
     { name = "invenio-base" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/20577cdc55f10a7a8d04e95488e997d45dccafb32ee9597b47981b93f70a2f55/invenio_assets-4.2.0.377295.tar.gz", hash = "sha256:20577cdc55f10a7a8d04e95488e997d45dccafb32ee9597b47981b93f70a2f55" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/bcbcc6b8df8958eaaf13a162e8a12dc56a36bd02cad67841223de3f5115e3d16/invenio_assets-4.2.0.24377295.tar.gz", hash = "sha256:bcbcc6b8df8958eaaf13a162e8a12dc56a36bd02cad67841223de3f5115e3d16" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/cd7f9680d6bb00d1fae643613d03bb32a826503962cbba2d8f4d311a1c3d20c9/invenio_assets-4.2.0.377295-py2.py3-none-any.whl", hash = "sha256:cd7f9680d6bb00d1fae643613d03bb32a826503962cbba2d8f4d311a1c3d20c9" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/896c4a1a4f32e6910d7764ab6ed38955cafb012dbbea625917363105a454564b/invenio_assets-4.2.0.24377295-py2.py3-none-any.whl", hash = "sha256:896c4a1a4f32e6910d7764ab6ed38955cafb012dbbea625917363105a454564b" },
 ]
 
 [[package]]
@@ -2005,7 +2005,7 @@ wheels = [
 
 [[package]]
 name = "invenio-communities"
-version = "21.1.1.967039"
+version = "21.1.1.28967039"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "invenio-administration" },
@@ -2015,9 +2015,9 @@ dependencies = [
     { name = "invenio-search-ui" },
     { name = "invenio-vocabularies" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/24fa2fb1782e64f538bd3b245fa077e75b8e56a9d18d0644ef4a3105e513f53a/invenio_communities-21.1.1.967039.tar.gz", hash = "sha256:24fa2fb1782e64f538bd3b245fa077e75b8e56a9d18d0644ef4a3105e513f53a" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/52cfa7a400703f588f16fcc7f5b6d8deea6ac1f39daeff41f239f29f8135d97f/invenio_communities-21.1.1.28967039.tar.gz", hash = "sha256:52cfa7a400703f588f16fcc7f5b6d8deea6ac1f39daeff41f239f29f8135d97f" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/d0c8c355ac416cc949a7c020bada18663e15d1f4ea993ff95b4706bc367ace95/invenio_communities-21.1.1.967039-py2.py3-none-any.whl", hash = "sha256:d0c8c355ac416cc949a7c020bada18663e15d1f4ea993ff95b4706bc367ace95" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/e3db04ef8ff6951e0f770230c11fc133e3dee5b0473b6a8723e0f5399b1adaf0/invenio_communities-21.1.1.28967039-py2.py3-none-any.whl", hash = "sha256:e3db04ef8ff6951e0f770230c11fc133e3dee5b0473b6a8723e0f5399b1adaf0" },
 ]
 
 [[package]]
@@ -2061,16 +2061,16 @@ postgresql = [
 
 [[package]]
 name = "invenio-drafts-resources"
-version = "7.3.0.723146"
+version = "7.3.0.7723146"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "invenio-audit-logs" },
     { name = "invenio-i18n" },
     { name = "invenio-records-resources" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/9a2af6d96190c98e4b8dc4450ace2ee00e16b6c06a970e423ae9f7bf74aed27c/invenio_drafts_resources-7.3.0.723146.tar.gz", hash = "sha256:9a2af6d96190c98e4b8dc4450ace2ee00e16b6c06a970e423ae9f7bf74aed27c" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/6c038e394c3522d003c559088fbe056f35d623dc29eeb35e18713ce786403c3d/invenio_drafts_resources-7.3.0.7723146.tar.gz", hash = "sha256:6c038e394c3522d003c559088fbe056f35d623dc29eeb35e18713ce786403c3d" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/52914acbc2f8a711d0c2066a9da979e8da057e02a99f07b0015010f3f014d872/invenio_drafts_resources-7.3.0.723146-py2.py3-none-any.whl", hash = "sha256:52914acbc2f8a711d0c2066a9da979e8da057e02a99f07b0015010f3f014d872" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/674ccc6e79e8a4d5e725cd9f5b143489d685997d5f17124e0fa3738dfd3f8f82/invenio_drafts_resources-7.3.0.7723146-py2.py3-none-any.whl", hash = "sha256:674ccc6e79e8a4d5e725cd9f5b143489d685997d5f17124e0fa3738dfd3f8f82" },
 ]
 
 [[package]]
@@ -2169,7 +2169,7 @@ wheels = [
 
 [[package]]
 name = "invenio-jobs"
-version = "6.1.0.571599"
+version = "6.1.0.27571599"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "invenio-administration" },
@@ -2179,22 +2179,22 @@ dependencies = [
     { name = "invenio-records-resources" },
     { name = "invenio-users-resources" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/5f2210a3d65303a0fbfc6c3624380b81c87c5b28503b64d5f601868ddc980f4d/invenio_jobs-6.1.0.571599.tar.gz", hash = "sha256:5f2210a3d65303a0fbfc6c3624380b81c87c5b28503b64d5f601868ddc980f4d" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/363b1a8931e64e06624827e742946087f58a6405b0bba4277ac6a8b8f5012dbb/invenio_jobs-6.1.0.27571599.tar.gz", hash = "sha256:363b1a8931e64e06624827e742946087f58a6405b0bba4277ac6a8b8f5012dbb" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/7ce6c610aad50b438aa81fea799e41fd4b721c78005403ea53b490d790396b80/invenio_jobs-6.1.0.571599-py2.py3-none-any.whl", hash = "sha256:7ce6c610aad50b438aa81fea799e41fd4b721c78005403ea53b490d790396b80" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/cd1b3b518322b5dfa2fc2be23ac53ad6719da9d9e7a6d89a84f220cc05ee5f3f/invenio_jobs-6.1.0.27571599-py2.py3-none-any.whl", hash = "sha256:cd1b3b518322b5dfa2fc2be23ac53ad6719da9d9e7a6d89a84f220cc05ee5f3f" },
 ]
 
 [[package]]
 name = "invenio-jsonschemas"
-version = "2.1.0.108971"
+version = "2.1.0.14108971"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "invenio-base" },
     { name = "jsonref" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/5a3a0309eec7aa12558cf696d281df84cec1776f3b9249b6513283b9049c67cb/invenio_jsonschemas-2.1.0.108971.tar.gz", hash = "sha256:5a3a0309eec7aa12558cf696d281df84cec1776f3b9249b6513283b9049c67cb" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/81801e3c10c9b4140af35679882554324760493e9e5559cd1a8bd62b902d5166/invenio_jsonschemas-2.1.0.14108971.tar.gz", hash = "sha256:81801e3c10c9b4140af35679882554324760493e9e5559cd1a8bd62b902d5166" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/555005a8aff058c65341d3ffd1dd32a99e4d13589713877a907eeb6123c006cc/invenio_jsonschemas-2.1.0.108971-py2.py3-none-any.whl", hash = "sha256:555005a8aff058c65341d3ffd1dd32a99e4d13589713877a907eeb6123c006cc" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/66bb74877665c12823abf62bac77945be978de6da7095b24262991ecd14e6e77/invenio_jsonschemas-2.1.0.14108971-py2.py3-none-any.whl", hash = "sha256:66bb74877665c12823abf62bac77945be978de6da7095b24262991ecd14e6e77" },
 ]
 
 [[package]]
@@ -2225,15 +2225,15 @@ wheels = [
 
 [[package]]
 name = "invenio-notifications"
-version = "1.2.2.990012"
+version = "1.2.2.4990012"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "invenio-base" },
     { name = "invenio-i18n" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/ebdff0316a67e26f864ae29b9a828f0c2f8fcab516e8b8103b3b028a73a89aa0/invenio_notifications-1.2.2.990012.tar.gz", hash = "sha256:ebdff0316a67e26f864ae29b9a828f0c2f8fcab516e8b8103b3b028a73a89aa0" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/4a9e062d16089a5edd1343fb2f73df729c812a3fd7e83593e507c9726b4385c4/invenio_notifications-1.2.2.4990012.tar.gz", hash = "sha256:4a9e062d16089a5edd1343fb2f73df729c812a3fd7e83593e507c9726b4385c4" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/177544a9efb377f42b0bc522c8157e49b569f5e5ff3dc516a16f16fad9e017a0/invenio_notifications-1.2.2.990012-py2.py3-none-any.whl", hash = "sha256:177544a9efb377f42b0bc522c8157e49b569f5e5ff3dc516a16f16fad9e017a0" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/b1a65370a0c50b7c1384bbd6ae3cc4524f20189a6b6d42adf23c4ad826086ba1/invenio_notifications-1.2.2.4990012-py2.py3-none-any.whl", hash = "sha256:b1a65370a0c50b7c1384bbd6ae3cc4524f20189a6b6d42adf23c4ad826086ba1" },
 ]
 
 [[package]]
@@ -2251,7 +2251,7 @@ wheels = [
 
 [[package]]
 name = "invenio-oaiserver"
-version = "3.7.3.74370"
+version = "3.7.3.45074370"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "arrow" },
@@ -2263,9 +2263,9 @@ dependencies = [
     { name = "invenio-rest" },
     { name = "lxml" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/23ff752b47a1b418bf281be81891792ba96fd4616cd430e358da320ed9f2eea7/invenio_oaiserver-3.7.3.74370.tar.gz", hash = "sha256:23ff752b47a1b418bf281be81891792ba96fd4616cd430e358da320ed9f2eea7" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/93f8ce5a479c038da59c0c83e3e6311de0019bc497b330d4caf231f07ba7c9ef/invenio_oaiserver-3.7.3.45074370.tar.gz", hash = "sha256:93f8ce5a479c038da59c0c83e3e6311de0019bc497b330d4caf231f07ba7c9ef" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/87ebfa97c4c22e809faf8a23f4359abbd73c150e09d9ccd5f155a0dbc78a668b/invenio_oaiserver-3.7.3.74370-py2.py3-none-any.whl", hash = "sha256:87ebfa97c4c22e809faf8a23f4359abbd73c150e09d9ccd5f155a0dbc78a668b" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/ad1d9fc61eec8316932cd9a71be57348f0ea2588ded6e2ba040fe27888a3771c/invenio_oaiserver-3.7.3.45074370-py2.py3-none-any.whl", hash = "sha256:ad1d9fc61eec8316932cd9a71be57348f0ea2588ded6e2ba040fe27888a3771c" },
 ]
 
 [[package]]
@@ -2294,7 +2294,7 @@ wheels = [
 
 [[package]]
 name = "invenio-oauthclient"
-version = "5.3.1.54796"
+version = "5.3.1.43054796"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "blinker" },
@@ -2311,9 +2311,9 @@ dependencies = [
     { name = "uritemplate" },
     { name = "uritools" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/43eea009abd1de4ae8ef44a781049b59ebdd5574f18ab8e173dc20bd29fa2f22/invenio_oauthclient-5.3.1.54796.tar.gz", hash = "sha256:43eea009abd1de4ae8ef44a781049b59ebdd5574f18ab8e173dc20bd29fa2f22" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/ef1a3aa15f03330fcabc47b6924b0c0e1b3f44c77fcdf3d0a57e1b1d4d2dd297/invenio_oauthclient-5.3.1.43054796.tar.gz", hash = "sha256:ef1a3aa15f03330fcabc47b6924b0c0e1b3f44c77fcdf3d0a57e1b1d4d2dd297" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/f784536dbdaea7acb52fb717259cf392069779f53f4791cd296124c3543dc0fb/invenio_oauthclient-5.3.1.54796-py2.py3-none-any.whl", hash = "sha256:f784536dbdaea7acb52fb717259cf392069779f53f4791cd296124c3543dc0fb" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/6b7b716dc783dd80972e7536723a51979ff9a548941578faaed2a848eb290191/invenio_oauthclient-5.3.1.43054796-py2.py3-none-any.whl", hash = "sha256:6b7b716dc783dd80972e7536723a51979ff9a548941578faaed2a848eb290191" },
 ]
 
 [[package]]
@@ -2385,7 +2385,7 @@ wheels = [
 
 [[package]]
 name = "invenio-rdm-records"
-version = "21.4.1.129665"
+version = "21.4.1.79129665"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "arrow" },
@@ -2417,9 +2417,9 @@ dependencies = [
     { name = "pytz" },
     { name = "pyyaml" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/dff26e086931a797c2e5ee05d41b30ff1513f84bb5f29d14ea1dbdf0630de0e3/invenio_rdm_records-21.4.1.129665.tar.gz", hash = "sha256:dff26e086931a797c2e5ee05d41b30ff1513f84bb5f29d14ea1dbdf0630de0e3" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/2347472dee3ff1afdb7726243bf33c10efa5ebebd1dbcad3629500ea0f59bce9/invenio_rdm_records-21.4.1.79129665.tar.gz", hash = "sha256:2347472dee3ff1afdb7726243bf33c10efa5ebebd1dbcad3629500ea0f59bce9" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/c88a631d0b86b87f3b2f65e82e0448fa18212bc62f4502f8c91a6c2aa82782cb/invenio_rdm_records-21.4.1.129665-py2.py3-none-any.whl", hash = "sha256:c88a631d0b86b87f3b2f65e82e0448fa18212bc62f4502f8c91a6c2aa82782cb" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/e6ae018e5c4b8fb9e25aae010f5afcd3587e72de226b4695d21acf8643d3e4ad/invenio_rdm_records-21.4.1.79129665-py2.py3-none-any.whl", hash = "sha256:e6ae018e5c4b8fb9e25aae010f5afcd3587e72de226b4695d21acf8643d3e4ad" },
 ]
 
 [[package]]
@@ -2469,7 +2469,7 @@ wheels = [
 
 [[package]]
 name = "invenio-records-resources"
-version = "8.6.0.709969"
+version = "8.6.0.32709969"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "babel-edtf" },
@@ -2492,9 +2492,9 @@ dependencies = [
     { name = "xmltodict" },
     { name = "zipstream-ng" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/9ae44b0ef8f30ffc9cc38ab6be55d0662f99b16367dff87757b745df8c78b060/invenio_records_resources-8.6.0.709969.tar.gz", hash = "sha256:9ae44b0ef8f30ffc9cc38ab6be55d0662f99b16367dff87757b745df8c78b060" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/3fe5d18e0c0dbae8cd580e912c051fe1a004b8aaef6107eddf53c5e6dea9153e/invenio_records_resources-8.6.0.32709969.tar.gz", hash = "sha256:3fe5d18e0c0dbae8cd580e912c051fe1a004b8aaef6107eddf53c5e6dea9153e" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/938425d8e264ceb901330f23108d7748c67a5050ea4d628660edc04dc1e6caf3/invenio_records_resources-8.6.0.709969-py2.py3-none-any.whl", hash = "sha256:938425d8e264ceb901330f23108d7748c67a5050ea4d628660edc04dc1e6caf3" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/4ba352a400271bc21531e036cd7713f097d785c6249f89ca33e887f4902808a1/invenio_records_resources-8.6.0.32709969-py2.py3-none-any.whl", hash = "sha256:4ba352a400271bc21531e036cd7713f097d785c6249f89ca33e887f4902808a1" },
 ]
 
 [[package]]
@@ -2533,16 +2533,16 @@ wheels = [
 
 [[package]]
 name = "invenio-requests"
-version = "10.3.1.846259"
+version = "10.3.1.48846259"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "invenio-records-resources" },
     { name = "invenio-theme" },
     { name = "invenio-users-resources" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/fa2954c99c599bcc96a16b2401fd54e713a81c1ff122f123f1e51053f37196ae/invenio_requests-10.3.1.846259.tar.gz", hash = "sha256:fa2954c99c599bcc96a16b2401fd54e713a81c1ff122f123f1e51053f37196ae" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/b299c449d57122e90e3e6ee9a4e9b0e60ca0e3964c77ac128a75411947b51ea5/invenio_requests-10.3.1.48846259.tar.gz", hash = "sha256:b299c449d57122e90e3e6ee9a4e9b0e60ca0e3964c77ac128a75411947b51ea5" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/a12a785ab6a2bb04a09c5a44f8553e570b56fe94ddc1b0c1b803a8e6bc80b08a/invenio_requests-10.3.1.846259-py2.py3-none-any.whl", hash = "sha256:a12a785ab6a2bb04a09c5a44f8553e570b56fe94ddc1b0c1b803a8e6bc80b08a" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/bc5c42677b41cd9b3d675f0c4ec4f5ee0644fd98477fff6814f6049b67019e28/invenio_requests-10.3.1.48846259-py2.py3-none-any.whl", hash = "sha256:bc5c42677b41cd9b3d675f0c4ec4f5ee0644fd98477fff6814f6049b67019e28" },
 ]
 
 [[package]]
@@ -2578,15 +2578,15 @@ wheels = [
 
 [[package]]
 name = "invenio-search"
-version = "3.1.2.707846"
+version = "3.1.2.86707846"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "dictdiffer" },
     { name = "invenio-base" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/3a2343fee6b19b7521938a1913b3f12107039cc8d3dc1ddccf3cd4ced0e9172d/invenio_search-3.1.2.707846.tar.gz", hash = "sha256:3a2343fee6b19b7521938a1913b3f12107039cc8d3dc1ddccf3cd4ced0e9172d" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/b2cd65f6778ccd8cb12974a342dd919dd11d3264fbf927b33eb75df1bb4776f8/invenio_search-3.1.2.86707846.tar.gz", hash = "sha256:b2cd65f6778ccd8cb12974a342dd919dd11d3264fbf927b33eb75df1bb4776f8" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/e1b94b573d466192081e2133d5e160d5c82587f8106b6ab0f9eb1828d5746e44/invenio_search-3.1.2.707846-py2.py3-none-any.whl", hash = "sha256:e1b94b573d466192081e2133d5e160d5c82587f8106b6ab0f9eb1828d5746e44" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/c48b3b8afb7307fe93147baccf5c174939c1eb9ce1820cbc15fc063deb444247/invenio_search-3.1.2.86707846-py2.py3-none-any.whl", hash = "sha256:c48b3b8afb7307fe93147baccf5c174939c1eb9ce1820cbc15fc063deb444247" },
 ]
 
 [[package]]
@@ -2688,7 +2688,7 @@ wheels = [
 
 [[package]]
 name = "invenio-vocabularies"
-version = "9.1.1.531493"
+version = "9.1.1.70531493"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "invenio-administration" },
@@ -2701,9 +2701,9 @@ dependencies = [
     { name = "regex" },
     { name = "sparqlwrapper" },
 ]
-sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/f2bad5744f7b722dfa72878a486c078988bcfbc5ecf038d3926e6dba8244c3d7/invenio_vocabularies-9.1.1.531493.tar.gz", hash = "sha256:f2bad5744f7b722dfa72878a486c078988bcfbc5ecf038d3926e6dba8244c3d7" }
+sdist = { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/432759572181a485de438552c06a09e0d3fd74112cfbad7d2b8179b488c26873/invenio_vocabularies-9.1.1.70531493.tar.gz", hash = "sha256:432759572181a485de438552c06a09e0d3fd74112cfbad7d2b8179b488c26873" }
 wheels = [
-    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/159991c16850af1be4d5f403e365f22fe60d559e1f4ea6b9efc22f55bdd0c75b/invenio_vocabularies-9.1.1.531493-py2.py3-none-any.whl", hash = "sha256:159991c16850af1be4d5f403e365f22fe60d559e1f4ea6b9efc22f55bdd0c75b" },
+    { url = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/files/7445c45435d2ac329a1e712ff3515d5aea226a0e761774f1d7147575dfc1a2d6/invenio_vocabularies-9.1.1.70531493-py2.py3-none-any.whl", hash = "sha256:7445c45435d2ac329a1e712ff3515d5aea226a0e761774f1d7147575dfc1a2d6" },
 ]
 
 [[package]]
@@ -3587,7 +3587,7 @@ requires-dist = [
 
 [[package]]
 name = "oarepo"
-version = "14.0.21"
+version = "14.0.22"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "aiobotocore" },
@@ -3924,9 +3924,9 @@ dependencies = [
     { name = "zlib-ng" },
     { name = "zxcvbn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c0/98/0ee7b6309a5a6f7059eeb497b33c8334aa9ca81b0e6791b8d7ad06d911b6/oarepo-14.0.21.tar.gz", hash = "sha256:88fe51da8113e8b9d3142797c98eeb4fb194bd8f5ebacdbbe07471b4134465b5", size = 1745239, upload-time = "2026-01-02T13:22:44.849Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b3/aa/45ef9c71c214dbe351de4c0622b1ff52b38b1b235eaacebc27bf85c19d84/oarepo-14.0.22.tar.gz", hash = "sha256:64c35be62a0f642fd8eeb1f8ba538b6a69a5e7aa733fd236b0470bd7ff0af192", size = 1743902, upload-time = "2026-01-02T15:02:11.034Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/98/95/132d48a5946d763fe1985242e30c0c4ed5559dd28603517c6c487aa6f77b/oarepo-14.0.21-py3-none-any.whl", hash = "sha256:4b0dce8b7331a3bcebd1660b7ce5ffb3814c3d6aef28de0bb7d344b69b993a32", size = 4319419, upload-time = "2026-01-02T13:22:42.123Z" },
+    { url = "https://files.pythonhosted.org/packages/29/99/4d77bca38456783eea7f24c94d9e7734251686b28150b1d41b7517e7b582/oarepo-14.0.22-py3-none-any.whl", hash = "sha256:0d54967363b0a6e838a06b22b816346757ece33acf824832ce96be4fd706e1c6", size = 4319443, upload-time = "2026-01-02T15:02:07.928Z" },
 ]
 
 [package.optional-dependencies]
