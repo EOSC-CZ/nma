@@ -54,117 +54,117 @@ msgstr ""
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:154
 msgid "DataCite"
-msgstr ""
+msgstr "DataCite"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:209
 msgid "ORCID"
-msgstr ""
+msgstr "ORCID"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:210
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:251
 msgid "ISNI"
-msgstr ""
+msgstr "ISNI"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:211
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:212
 msgid "ROR"
-msgstr ""
+msgstr "ROR"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:214
 msgid "ResearcherID"
-msgstr ""
+msgstr "ResearcherID"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:219
 msgid "Scopus Author ID"
-msgstr ""
+msgstr "Scopus Author ID"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:224
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:240
 msgid "DOI"
-msgstr ""
+msgstr "DOI"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:228
 msgid "ARK"
-msgstr ""
+msgstr "ARK"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:229
 msgid "arXiv"
-msgstr ""
+msgstr "arXiv"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:231
 msgid "Bibcode"
-msgstr ""
+msgstr "Bibcode"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:236
 msgid "Crossref Funder ID"
-msgstr ""
+msgstr "Crossref Funder ID"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:241
 msgid "EAN13"
-msgstr ""
+msgstr "EAN13"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:242
 msgid "EISSN"
-msgstr ""
+msgstr "EISSN"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:243
 msgid "GRID"
-msgstr ""
+msgstr "GRID"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:245
 msgid "Handle"
-msgstr ""
+msgstr "Handle"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:249
 msgid "IGSN"
-msgstr ""
+msgstr "IGSN"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:250
 msgid "ISBN"
-msgstr ""
+msgstr "ISBN"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:252
 msgid "ISSN"
-msgstr ""
+msgstr "ISSN"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:253
 msgid "ISTC"
-msgstr ""
+msgstr "ISTC"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:254
 msgid "LISSN"
-msgstr ""
+msgstr "LISSN"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:255
 msgid "LSID"
-msgstr ""
+msgstr "LSID"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:256
 msgid "PMID"
-msgstr ""
+msgstr "PMID"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:257
 msgid "PURL"
-msgstr ""
+msgstr "PURL"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:258
 msgid "UPC"
-msgstr ""
+msgstr "UPC"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:259
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:260
 msgid "URN"
-msgstr ""
+msgstr "URN"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:261
 msgid "W3ID"
-msgstr ""
+msgstr "W3ID"
 
 #: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:262
 msgid "Other"
@@ -207,22 +207,20 @@ msgid "Datacite export"
 msgstr "Export DataCite"
 
 #: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:143
-#, fuzzy
 msgid "Datacite xml import"
-msgstr "Export DataCite"
+msgstr "DataCite XML import"
 
 #: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:144
 msgid "Import metadata from DataCite XML format"
-msgstr ""
+msgstr "Importovat metadata z formátu DataCite XML"
 
 #: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:152
-#, fuzzy
 msgid "Datacite json import"
-msgstr "Export DataCite"
+msgstr "DataCite JSON import"
 
 #: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:153
 msgid "Import metadata from DataCite json format"
-msgstr ""
+msgstr "Importovat metadata z formátu DataCite JSON"
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/views.py:30
 msgid "Please enter a persistent identifier"
@@ -233,7 +231,7 @@ msgid ""
 "Please enter a valid URL (e.g., https://doi.org/... or "
 "https://hdl.handle.net/...)"
 msgstr ""
-"Zadejte prosím platnou URL (např. https://doi.org/... nebo "
+"Zadejte prosím platnou adresu URL (např. https://doi.org/... nebo "
 "https://hdl.handle.net/...)"
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/views.py:39
@@ -340,12 +338,12 @@ msgstr "Podpora"
 #: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:23
 #: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:24
 msgid "EU and MINISTRY OF EDUCATION YOUTH AND SPORTS"
-msgstr "EU A MINISTERSTVO ŠKOLSTVÍ, MLÁDEŽE A TĚLOVÝCHOVY"
+msgstr "EU a Ministerstvo školství, mládeže a tělovýchovy"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:29
 #: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:30
 msgid "Search metadata records"
-msgstr "Vyhledávat metadatové záznamy"
+msgstr "Vyhledávání metadatových záznamů"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:39
 #, python-format
@@ -401,11 +399,11 @@ msgstr ""
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:17
 msgid "Details"
-msgstr ""
+msgstr "Detaily"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:22
 msgid "Original repository URL"
-msgstr ""
+msgstr "URL původního repozitáře"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:28
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/resource_type.html:6
@@ -413,66 +411,60 @@ msgid "Resource type"
 msgstr "Typ zdroje"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:29
-#, fuzzy
 msgid "Publication date"
-msgstr "Chybí datum publikace."
+msgstr "Datum publikace"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:30
-#, fuzzy
 msgid "Publisher"
-msgstr "publikováno"
+msgstr "Vydavatel"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:31
-#, fuzzy
 msgid "Published in"
-msgstr "publikováno"
+msgstr "Publikováno v"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:32
 msgid "Imprint"
-msgstr ""
+msgstr "Tiráž"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:33
 msgid "Thesis"
-msgstr ""
+msgstr "Závěrečná práce"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
 msgid "Conference"
-msgstr ""
+msgstr "Konference"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:35
 msgid "Languages"
-msgstr ""
+msgstr "Jazyky"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
 msgid "Formats"
-msgstr ""
+msgstr "Formáty"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
 msgid "Sizes"
-msgstr ""
+msgstr "Velikosti"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:5
 msgid "Upload information"
-msgstr ""
+msgstr "Informace o nahrání"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:8
-#, fuzzy
 msgid "Technical metadata"
-msgstr "Nedávno přidaná metadata"
+msgstr "Technická metadata"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:10
-#, fuzzy
 msgid "Created"
-msgstr "Rychlé vytvoření"
+msgstr "Vytvořeno"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:15
 msgid "Modified"
-msgstr ""
+msgstr "Upraveno"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:24
-#, fuzzy
 msgid "Edited by"
-msgstr "Běží na"
+msgstr "Upravil"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo_ui/macros/records_list.html:10
 msgid "Recently Added Metadata"
@@ -537,14 +529,14 @@ msgstr ""
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
 msgid "Discover & Locate"
-msgstr "Objevovat & lokalizovat"
+msgstr "Objevovat a dohledávat"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
 msgid ""
 "Search across repositories and locate datasets with links to original "
 "data."
 msgstr ""
-"Vyhledávejte napříč repozitáři a lokalizujte datové sady s odkazy na "
+"Vyhledávejte napříč repozitáři a dohledávejte datové sady s odkazy na "
 "původní data."
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
@@ -639,14 +631,14 @@ msgid ""
 "On this page, you can verify whether the NMD has the dataset registered "
 "or register it into the NMD if needed."
 msgstr ""
-"Pro vykázání datové sady (výsledek typu T) do RIVu je třeba uvést odkaz "
-"do Národního metadatového adresáře (NMA), který má evidovat její základní"
+"Pro vykázání datové sady (výsledek typu T) do RIV je třeba uvést odkaz "
+"do Národního metadatového adresáře (NMA), který eviduje její základní"
 " metadata. Na této stránce si můžete ověřit, zda NMA datovou sadu "
 "eviduje, případně ji do NMA zaregistrovat."
 
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:21
 msgid "https://doi.org/… or https://hdl.handle.net/…"
-msgstr ""
+msgstr "https://doi.org/… nebo https://hdl.handle.net/…"
 
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:33
 msgid ""
@@ -662,7 +654,6 @@ msgid "Obtain the link for RIV submission"
 msgstr "Získat odkaz pro RIV"
 
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:40
-#, fuzzy
 msgid ""
 "By submitting this Persistent Identifier (PID) using the <strong>Obtain "
 "the link for RIV submission</strong> button, you declare that you have "
@@ -708,16 +699,16 @@ msgid ""
 "you. You’ll also receive an email with a link to amend the record if "
 "corrections are needed. ⚠️ This link expires after 7 days."
 msgstr ""
-"Pokud bude nějaká důležitá položka chybět, požádáme vás o doplnění. V "
-"takovém případě dostanete mailem odkaz na případné opravy zadaného "
-"záznamu, které pak lze dělat ještě sedm dnů, ⚠️ kdy odkaz platí."
+"Pokud bude některá důležitá položka chybět, požádáme vás o doplnění. V "
+"takovém případě také obdržíte e-mailem odkaz na úpravu záznamu, pokud "
+"budou potřeba opravy. ⚠️ Tento odkaz vyprší po 7 dnech."
 
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:62
 msgid ""
 "Need assistance? Contact: <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
-"Pokud budete potřebovat pomoci, napište na <a "
+"Pokud budete potřebovat pomoc, napište na <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:63

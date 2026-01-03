@@ -971,7 +971,6 @@ class CatchAllTransformer(BaseTransformer):
                 {
                     "date": parsed_date_created,
                     "type": {"id": "created"},
-                    "description": "Date when the data was created",
                 }
             )
 
@@ -980,7 +979,6 @@ class CatchAllTransformer(BaseTransformer):
                 {
                     "date": parsed_date_collected,
                     "type": {"id": "collected"},
-                    "description": "Date when the data was collected",
                 }
             )
 
