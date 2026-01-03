@@ -4030,7 +4030,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-rdm"
-version = "1.0.0.dev33"
+version = "1.0.0.dev35"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "graphlib" },
@@ -4039,9 +4039,9 @@ dependencies = [
     { name = "oarepo-runtime" },
     { name = "oarepo-ui" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/41/35/e097c500186c9a6c4669b83321f1cec9732a049d12c077f9a947bc4f9fa4/oarepo_rdm-1.0.0.dev33.tar.gz", hash = "sha256:7b3ebab9fac86042873466e00a6b11bb9d09281417139eb3108f0ae83a66b6cb", size = 38991, upload-time = "2026-01-02T17:29:35.947Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/16/d8/078ec6f200229b19bff443e820cca87ecedc04bc30f9c0f06987711164a2/oarepo_rdm-1.0.0.dev35.tar.gz", hash = "sha256:7e49378a8e3b0008be9e1316534526481ba31687ab3efb09f2d629741ac88c62", size = 39846, upload-time = "2026-01-03T20:41:45.559Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5f/d9/0b6a35a9d9ca3dc8911972397f9dc9ac97ad570b8ea2bc22d8062ff9d83b/oarepo_rdm-1.0.0.dev33-py3-none-any.whl", hash = "sha256:c507bea8d15c04f6f06117b97925ad82425aa1b4e99e5a2d98ba2452f3825217", size = 75566, upload-time = "2026-01-02T17:29:35.043Z" },
+    { url = "https://files.pythonhosted.org/packages/a7/bf/0eb6bc7d33ebbd5a276c6b78b49fe484581e81f6b9f4d7658ec2de219d1c/oarepo_rdm-1.0.0.dev35-py3-none-any.whl", hash = "sha256:1ce9b146609a3628484578cc6723b3e3a9a90e7a5a7e7252c58b97b1c71eca4c", size = 77090, upload-time = "2026-01-03T20:41:43.952Z" },
 ]
 
 [[package]]

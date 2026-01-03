@@ -130,14 +130,14 @@ datasets_model = model(
         # export for datacite
         AddMetadataExport(
             code="datacite",
-            name=_("Datacite export"),
+            name=_("DataCite JSON"),
             mimetype="application/vnd.datacite.datacite+json",
             serializer=DataCiteJSONSerializer(),
         ),
         # datacite xml import
         AddMetadataImport(
             code="datacite",
-            name=_("Datacite xml import"),
+            name=_("DataCite XML"),
             description=_("Import metadata from DataCite XML format"),
             mimetype="application/vnd.datacite.datacite+xml",
             deserializer=DataCiteXMLDeserializer(),
@@ -146,8 +146,8 @@ datasets_model = model(
         # datacite json import
         AddMetadataImport(
             code="datacite",
-            name=_("Datacite json import"),
-            description=_("Import metadata from DataCite json format"),
+            name=_("DataCite JSON"),
+            description=_("Import metadata from DataCite JSON format"),
             mimetype="application/vnd.datacite.datacite+json",
             deserializer=DataCiteJSONDeserializer(),
         ),
