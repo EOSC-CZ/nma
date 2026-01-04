@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-30 21:52+0100\n"
+"POT-Creation-Date: 2026-01-04 17:37+0100\n"
 "PO-Revision-Date: 2025-12-16 14:58+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cs\n"
@@ -178,6 +178,34 @@ msgstr "Wikidata"
 msgid "GeoNames"
 msgstr "GeoNames"
 
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:333
+msgid "ČSN ISO 690"
+msgstr "ČSN ISO 690"
+
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:334
+msgid "APA"
+msgstr "APA"
+
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:335
+msgid "Harvard"
+msgstr "Harvard"
+
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:336
+msgid "MLA"
+msgstr "MLA"
+
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:337
+msgid "Vancouver"
+msgstr "Vancouver"
+
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:338
+msgid "Chicago"
+msgstr "Chicago"
+
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:339
+msgid "IEEE"
+msgstr "IEEE"
+
 #: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:360
 msgid "state:draft"
 msgstr "koncept"
@@ -203,23 +231,20 @@ msgid "metadata/publisher.label"
 msgstr "Vydavatel"
 
 #: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:136
-msgid "Datacite export"
-msgstr "Export DataCite"
+#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:152
+msgid "DataCite JSON"
+msgstr "DataCite JSON"
 
 #: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:143
-msgid "Datacite xml import"
-msgstr "DataCite XML import"
+msgid "DataCite XML"
+msgstr "DataCite XML"
 
 #: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:144
 msgid "Import metadata from DataCite XML format"
 msgstr "Importovat metadata z formátu DataCite XML"
 
-#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:152
-msgid "Datacite json import"
-msgstr "DataCite JSON import"
-
 #: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:153
-msgid "Import metadata from DataCite json format"
+msgid "Import metadata from DataCite JSON format"
 msgstr "Importovat metadata z formátu DataCite JSON"
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/views.py:30
@@ -242,10 +267,9 @@ msgstr ""
 "Přeskočit načítání metadat. Použijte pouze v případech, kdy běžný proces "
 "registrace opakovaně selhává."
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:129
-#, python-format
-msgid "An unexpected error occurred in the resolver '%(resolver)s'."
-msgstr "V resolveru '%(resolver)s' došlo k neočekávané chybě."
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:135
+msgid "An unexpected error occurred in the resolver '%(resolver)s': %(error)s."
+msgstr "V resolveru '%(resolver)s' došlo k neočekávané chybě: %(error)s."
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:79
 msgid ""
@@ -264,13 +288,13 @@ msgstr ""
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:115
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:458
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:88
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:114
 msgid "Missing title."
 msgstr "Chybí název."
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:123
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:528
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:97
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:127
 msgid "Missing creators."
 msgstr "Chybí autoři."
 
@@ -280,13 +304,13 @@ msgid ""
 "registry."
 msgstr "Identifikátor vypadá jako DOI, ale nebyl nalezen v registru DataCite."
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:58
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:70
 msgid ""
 "The identifier looks like a Handle, but it was not found in the Handle "
 "registry."
 msgstr "Identifikátor vypadá jako Handle, ale nebyl nalezen v registru Handle."
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:124
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:163
 msgid "Publication date missing."
 msgstr "Chybí datum publikace."
 
@@ -358,7 +382,7 @@ msgstr ""
 "href=\"%(browse_url)s\">procházet všechny záznamy</a>."
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:42
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:348
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:357
 msgid "Verify dataset for RIV"
 msgstr "Ověřit datovou sadu pro RIV"
 
@@ -578,7 +602,7 @@ msgstr "InvenioRDM"
 msgid "Váš záznam byl vytvořen / Your record has been created – %(title)s"
 msgstr "Váš záznam byl vytvořen / Your record has been created – %(title)s"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:199
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:202
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
 " using the form below."
@@ -586,7 +610,15 @@ msgstr ""
 "Tato datová sada ještě není v repozitáři zaregistrována. Můžete ji "
 "zaregistrovat pomocí formuláře níže."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:260
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:247
+msgid ""
+"The provided identifier could not be resolved to metadata automatically. "
+"Please enter the metadata manually."
+msgstr ""
+"Nepodařilo se automaticky dohledat metadata pro zadaný identifikátor. "
+"Zadejte prosím metadata ručně."
+
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:263
 msgid ""
 "Dataset registered successfully without metadata retrieval. Please fill "
 "the minimum metadata below:"
@@ -594,12 +626,12 @@ msgstr ""
 "Datová sada byla úspěšně zaregistrována bez načtení metadat. Vyplňte "
 "prosím minimální metadata níže:"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:267
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:270
 #, python-format
 msgid "Successfully registered dataset with PID: %(pid)s"
 msgstr "Úspěšně zaregistrována datová sada s PID: %(pid)s"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:283
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:286
 msgid ""
 "Dataset was registered with issues. Please check/correct the metadata "
 "below:"
@@ -607,16 +639,28 @@ msgstr ""
 "Datová sada byla zaregistrována s problémy. Zkontrolujte/opravte prosím "
 "metadata níže:"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:294
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:293
 msgid "This dataset is already registered."
 msgstr "Tato datová sada je již zaregistrována."
 
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:300
+msgid ""
+"The provided identifier is a URL that can not be registered at the "
+"moment. If your dataset does not have a DOI or a handle in URL format, "
+"please contact support at <a "
+"href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
+msgstr ""
+"Zadaný identifikátor je adresa URL, kterou v tuto chvíli nelze "
+"zaregistrovat. Pokud vaše datová sada nemá DOI nebo Handle ve formátu "
+"URL, kontaktujte prosím podporu na <a "
+"href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
+
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:309
 #, python-format
 msgid "Error registering dataset: %(error)s"
 msgstr "Chyba při registraci datové sady: %(error)s"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:320
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:329
 msgid "User does not have permission to edit record."
 msgstr "Uživatel nemá oprávnění upravovat záznam."
 
@@ -631,10 +675,10 @@ msgid ""
 "On this page, you can verify whether the NMD has the dataset registered "
 "or register it into the NMD if needed."
 msgstr ""
-"Pro vykázání datové sady (výsledek typu T) do RIV je třeba uvést odkaz "
-"do Národního metadatového adresáře (NMA), který eviduje její základní"
-" metadata. Na této stránce si můžete ověřit, zda NMA datovou sadu "
-"eviduje, případně ji do NMA zaregistrovat."
+"Pro vykázání datové sady (výsledek typu T) do RIV je třeba uvést odkaz do"
+" Národního metadatového adresáře (NMA), který eviduje její základní "
+"metadata. Na této stránce si můžete ověřit, zda NMA datovou sadu eviduje,"
+" případně ji do NMA zaregistrovat."
 
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:21
 msgid "https://doi.org/… or https://hdl.handle.net/…"
@@ -938,4 +982,10 @@ msgstr ""
 
 #~ msgid "Need assistance? Contact: info@eosc.cz."
 #~ msgstr ""
+
+#~ msgid "Datacite export"
+#~ msgstr "Export DataCite"
+
+#~ msgid "Datacite xml import"
+#~ msgstr "DataCite XML import"
 
