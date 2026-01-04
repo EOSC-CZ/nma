@@ -58,6 +58,8 @@ invenio_command = "riv.tasks:InvenioTaskJob"
 create_missing_indices = "riv.tasks:CreateMissingIndicesJob"
 rebuild_all_indices = "riv.tasks:RebuildAllIndicesJob"
 
+[project.entry-points."invenio_access.actions"]
+manage_record_action = "datasets.permissions:manage_record_action"
 
 [tool.uv.build-backend]
 module-root = ""

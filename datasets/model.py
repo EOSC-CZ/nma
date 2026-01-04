@@ -4,7 +4,6 @@ Structured collections of research data, identified with a persistent identifier
 
 from __future__ import annotations
 
-from invenio_administration.generators import Administration
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
 from invenio_drafts_resources.services.records import (
     RecordService as DraftRecordService,
@@ -12,12 +11,6 @@ from invenio_drafts_resources.services.records import (
 from invenio_i18n import lazy_gettext as _
 from invenio_pidstore.models import PIDStatus
 from invenio_rdm_records.resources.serializers.ui.schema import UIRecordSchema
-from invenio_rdm_records.services.generators import AccessGrant
-from invenio_records_permissions.generators import (
-    AuthenticatedUser,
-    Disable,
-    SystemProcess,
-)
 from invenio_records_resources.records.systemfields import PIDField
 from invenio_records_resources.services import RecordEndpointLink
 from oarepo_model.api import model
@@ -31,8 +24,10 @@ from oarepo_model.customizations import (
 )
 from oarepo_model.customizations.high_level.add_link import AddLink
 from oarepo_model.datatypes.registry import from_yaml
-from oarepo_model.model import ModelMixin
 from oarepo_rdm.model.presets import rdm_complete_preset
+from oarepo_runtime.services.config import (
+    has_permission,
+)
 
 from riv.records.api import ExternalPIDProvider
 from riv.records.system_fields import (
@@ -42,6 +37,7 @@ from riv.records.system_fields import (
 )
 
 from .deserializers import DataCiteJSONDeserializer, DataCiteXMLDeserializer
+from .permissions import DatasetsPermissionPolicyMixin
 from .serializers import DataCiteJSONSerializer
 from .services.components import (
     ExternalPIDComponent,
@@ -51,31 +47,6 @@ from .services.components import (
 )
 
 
-class DatasetsPermissionPolicyMixin(ModelMixin):
-    """Custom permission policy for datasets."""
-
-    can_view_deposit_page = [AuthenticatedUser()]
-    can_update = [
-        AccessGrant("edit"),
-        SystemProcess(),
-        Administration(),
-    ]  # system process can update records (in tasks etc)
-
-    can_create = [
-        SystemProcess(),
-        Administration(),
-    ]  # only system process and admin can create records
-    can_publish = [
-        SystemProcess(),
-        Administration(),
-    ]  # only system process and admin can publish records
-
-    can_manage = [SystemProcess(), Administration(), AccessGrant("manage")]
-
-    can_draft_create_files = [Disable()]  # disable files by default
-    can_update_draft = [SystemProcess(), Administration()]
-
-
 class PIDStatusCheckFieldMixin:
     """Custom PID status check field returning False when PID is not set."""
 
@@ -83,9 +54,41 @@ class PIDStatusCheckFieldMixin:
 
 
 class UpdatableRecordServiceMixin:
-    def update(self, *args, **kwargs):
-        """Do not use."""
-        return super(DraftRecordService, self).update(*args, **kwargs)
+    EDITABLE_FIELDS = [
+        "title",
+        "creators",
+        "resource_type",
+        "publication_date",
+    ]
+    """Invenio forms based editor modifies even fields that are not in the editor,
+    such as removing title from rights. To workaround this, we override update
+    method to only propagate changes from editor fields. If you add a new field to
+    the UI editor, please add it also to the EDITABLE_FIELDS list here.
+    """
+
+    def update(self, identity, id_, data, *args, revision_id=None, **kwargs):
+        """Override update to allow updating published records.
+
+        Note: invenio RDM's editor has an issue that it modifies fields that are
+        not in the editor - for example removes title from rights. To workaround this,
+        we fetch the record here, just propagate the changes from editor fields and
+        leave other fields intact.
+        """
+        current_data = self.read(identity, id_).to_dict()
+        if "metadata" not in current_data:
+            current_data["metadata"] = {}
+        metadata = data.get("metadata", {})
+
+        for fld in self.EDITABLE_FIELDS:
+            if fld in metadata:
+                current_data["metadata"][fld] = metadata[fld]
+
+        # we need to call super directly on the base record service, because draft
+        # service disables the update on published records completely, regardless
+        # of permission policy
+        return super(DraftRecordService, self).update(
+            identity, id_, current_data, *args, revision_id=revision_id, **kwargs
+        )
 
 
 class OverriddenRouteResourceConfigMixin:
@@ -164,6 +167,13 @@ datasets_model = model(
         AddServiceComponent(UpdateEditorsComponent),
         AddServiceComponent(FetchIdentifiersComponent),
         AddLink("self_persistent_html", RecordEndpointLink("pidresolver.redirect")),
+        AddLink(
+            "edit_html",
+            RecordEndpointLink(
+                "datasets_ui.deposit_edit",
+                when=has_permission("update"),
+            ),
+        ),
         PrependMixin("PIDFieldContext", ExternalPIDFieldContextMixin),
         PrependMixin("Draft", PIDStatusCheckFieldMixin),
         PrependMixin("RecordService", UpdatableRecordServiceMixin),
