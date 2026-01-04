@@ -3,8 +3,9 @@ import enum
 from typing import Protocol
 
 from flask import current_app
-from flask_babel.speaklater import LazyString
 from invenio_i18n import lazy_gettext as _
+from requests.exceptions import RetryError
+from urllib3.exceptions import MaxRetryError
 
 from riv.proxies import current_riv_extension
 from riv.utils import create_session_with_retries
@@ -16,16 +17,23 @@ class ResolverProblemLevel(enum.Enum):
     ERROR = "error"
 
 
-CREATORS_PLACEHOLDER = [{
-    "person_or_org": {
-        "name": "Unknown Creator",
-        "type": "personal",
-        "family_name": "Unknown"
+CREATORS_PLACEHOLDER = [
+    {
+        "person_or_org": {
+            "name": "Unknown Creator",
+            "type": "personal",
+            "family_name": "Unknown",
+        }
     }
-}]
-PUBLICATION_DATE_PLACEHOLDER = '1900-01-01'
-get_validation_failed_on_date_format_message = lambda date: _(f"Publication date format did not pass validation; format: {date}.")
-get_invalid_publication_date_message = lambda date: _(f"Invalid publication date format: {date}.")
+]
+PUBLICATION_DATE_PLACEHOLDER = "1900-01-01"
+get_validation_failed_on_date_format_message = lambda date: _(
+    f"Publication date format did not pass validation; format: {date}."
+)
+get_invalid_publication_date_message = lambda date: _(
+    f"Invalid publication date format: {date}."
+)
+
 
 @dataclasses.dataclass
 class ResolverProblem:
@@ -122,12 +130,17 @@ def resolve_metadata(persistent_url: str) -> (dict | None, list[ResolverProblem]
             metadata, problems = resolver.resolve(persistent_url)
         except Exception as e:
             current_app.logger.exception("Exception calling resolver %s", resolver)
+            if isinstance(e, RetryError) and e.args:
+                e = e.args[0]
+            if isinstance(e, MaxRetryError):
+                e = getattr(e, "reason", e)
             problems = [
                 ResolverProblem(
                     resolver=resolver.name,
                     message=_(
-                        "An unexpected error occurred in the resolver '%(resolver)s'.",
+                        "An unexpected error occurred in the resolver '%(resolver)s': %(error)s.",
                         resolver=resolver.name,
+                        error=str(e),
                     ),
                     level=ResolverProblemLevel.ERROR,
                     original_exception=e,
@@ -150,4 +163,4 @@ def resolve_metadata(persistent_url: str) -> (dict | None, list[ResolverProblem]
     if not can_be_resolved:
         raise UnsupportedPIDError(persistent_url)
 
-    raise UnresolvablePIDError(persistent_url, collected_messages)
+    return None, collected_messages
