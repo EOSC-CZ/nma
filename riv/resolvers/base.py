@@ -27,12 +27,16 @@ CREATORS_PLACEHOLDER = [
     }
 ]
 PUBLICATION_DATE_PLACEHOLDER = "1900-01-01"
-get_validation_failed_on_date_format_message = lambda date: _(
-    f"Publication date format did not pass validation; format: {date}."
-)
-get_invalid_publication_date_message = lambda date: _(
-    f"Invalid publication date format: {date}."
-)
+
+
+def get_validation_failed_on_date_format_message(date):
+    return _(
+        "Publication date format did not pass validation; format: %(date)s.", date=date
+    )
+
+
+def get_invalid_publication_date_message(date):
+    return _("Invalid publication date format: %(date)s.", date=date)
 
 
 @dataclasses.dataclass
@@ -52,20 +56,6 @@ class ResolverProblem:
 
 # TODO: if level is error -> generate glitchtip issue
 # by logger.error(... resolver problem ...)
-
-
-class UnresolvablePIDError(Exception):
-    """Raised when a persistent identifier cannot be resolved to metadata.
-
-    This exception means that all resolvers have failed to resolve the identifier
-    - either network problems or the identifier is not supported. User should
-    contact support in this case.
-    """
-
-    def __init__(self, identifier: str, problems: list[ResolverProblem]):
-        self.identifier = identifier
-        self.problems = problems
-        super().__init__(f"Could not resolve identifier '{identifier}': {problems}.")
 
 
 class UnsupportedPIDError(Exception):

@@ -77,7 +77,8 @@ class HandleResolver(MetadataResolver):
                     ResolverProblem(
                         resolver=self.name,
                         message=_(
-                            f"Unexpected error while resolving the Handle. Response returned: {response.content}. "
+                            "Unexpected error while resolving the Handle. Response returned: %(response)s. ",
+                            response=response.content,
                         ),
                         level=ResolverProblemLevel.ERROR,
                     )

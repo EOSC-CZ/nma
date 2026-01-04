@@ -53,7 +53,6 @@ from riv.proxies import current_riv_extension
 from riv.records.api import generate_id
 from riv.records.create_record import create_record
 from riv.resolvers.base import (
-    UnresolvablePIDError,
     UnsupportedPIDError,
     resolve_metadata,
 )
@@ -238,17 +237,8 @@ class DatasetsUIResource(RecordsUIResource):
                     record_data = {"metadata": {}}
                 else:
                     # Normal flow: resolve metadata from the identifier
-                    try:
-                        metadata, problems = resolve_metadata(pid)
-                        record_data = {"metadata": metadata}
-                    except UnresolvablePIDError:
-                        flash(
-                            _(
-                                "The provided identifier could not be resolved to metadata automatically. Please enter the metadata manually."
-                            ),
-                            "error",
-                        )
-                        return redirect(url_for("datasets_ui.deposit_create"))
+                    metadata, problems = resolve_metadata(pid)
+                    record_data = {"metadata": metadata}
 
                 published_record = create_record(record_data, pid, problems)
                 edit_link = url_for(
@@ -289,9 +279,9 @@ class DatasetsUIResource(RecordsUIResource):
                     )
                     flash(warning_message, "warning")
                     return redirect(edit_link)
-            except PIDAlreadyExists:
+            except PIDAlreadyExists as e:
                 return redirect(
-                    url_for("datasets_ui.record_detail", pid_value=record_data["id"])
+                    url_for("datasets_ui.record_detail", pid_value=e.pid_value)
                 )
             except UnsupportedPIDError:
                 flash(
