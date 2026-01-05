@@ -93,17 +93,15 @@ class UpdatableRecordServiceMixin:
             if "id" in right:
                 for k in list(right.keys()):
                     if k != "id":
-                        right.pop(k, None)
+                        right.pop(k)
 
         # metadata/creators/person_or_org/affiliations - can not have identifiers
         for creator in current_data["metadata"].get("creators", []):
             for aff in creator.get("affiliations", []):
-                if "identifiers" in aff:
-                    aff.pop("identifiers", None)
+                aff.pop("identifiers", None)
         for contributor in current_data["metadata"].get("contributors", []):
             for aff in contributor.get("affiliations", []):
-                if "identifiers" in aff:
-                    aff.pop("identifiers", None)
+                aff.pop("identifiers", None)
 
         # we need to call super directly on the base record service, because draft
         # service disables the update on published records completely, regardless

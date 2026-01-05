@@ -277,7 +277,7 @@ class RebuildAllIndicesJob(JobType):
 
 
 class CheckAvailabilityJob(JobType):
-    """A job type to run invenio CLI commands as Celery tasks."""
+    """A job type to check if record is still available in the source repository."""
 
     id = "check_record_availability"
     title = "Check record persistent URLs availability"
