@@ -8,7 +8,6 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-import click
 from celery import shared_task
 from flask import current_app
 from invenio_access.permissions import system_identity
@@ -50,7 +49,7 @@ def check_availability_task():
 
     # Search datasets
     results = datasets_service.search(
-        system_identity, params={}, extra_filter=extra_filter
+        system_identity, params={"size": 50}, extra_filter=extra_filter
     )
 
     # Iterate over results
@@ -64,14 +63,17 @@ def check_availability_task():
         record_id = hit["id"]
         metadata = hit["metadata"]
 
-        click.secho(
-            f"Processing record: {metadata.get('title', 'N/A')} (ID: {record_id})",
-            fg="cyan",
+        current_app.logger.info(
+            "Processing record: %s (ID: %s)",
+            metadata.get("title", "N/A"),
+            record_id,
         )
 
         persistent_url = metadata.get("persistent_url")
         if not persistent_url:
-            click.secho(f"Skipping record {record_id}: no persistent_url", fg="yellow")
+            current_app.logger.warning(
+                "Skipping record %s: no persistent_url", record_id
+            )
             continue
 
         # Check URL availability with retry logic
@@ -83,33 +85,29 @@ def check_availability_task():
         current_status = metadata.get("check_status")
 
         # Always update last_checked since we performed a check
-        hit["metadata"]["last_checked"] = (
+        update_metadata = hit["metadata"]
+        update_metadata["last_checked"] = (
             datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         )
 
-        # Determine color based on status
-        if status == "success":
-            status_color = "green"
-        elif status == "warning":
-            status_color = "magenta"  # Warning: needs manual check
-        elif status in ["not_accessible", "not_found"]:
-            status_color = "yellow"
-        else:  # error statuses
-            status_color = "red"
-
         # Only update status and message if status has changed
         if current_status != status:
-            hit["metadata"]["check_status"] = status
-            hit["metadata"]["check_message"] = message
+            update_metadata["check_status"] = status
+            update_metadata["check_message"] = message
 
-            click.secho(
-                f"Record {record_id}: {persistent_url} -> {status} (changed from {current_status})",
-                fg=status_color,
+            current_app.logger.info(
+                "Record %s: %s -> %s (changed from %s)",
+                record_id,
+                persistent_url,
+                status,
+                current_status,
             )
         else:
-            click.secho(
-                f"Record {record_id}: {persistent_url} -> {status} (unchanged, updated last_checked)",
-                fg="blue",
+            current_app.logger.info(
+                "Record %s: %s -> %s (unchanged, updated last_checked)",
+                record_id,
+                persistent_url,
+                status,
             )
 
         try:
@@ -118,10 +116,9 @@ def check_availability_task():
                 id_=record_id,
                 data=hit,
             )
-        except Exception as e:
-            click.secho(
-                f"Failed to update record {record_id}: {e}",
-                fg="red",
+        except Exception:
+            current_app.logger.exception(
+                "Failed to update record %s: %s", record_id, traceback.format_exc()
             )
 
 
@@ -277,3 +274,12 @@ class RebuildAllIndicesJob(JobType):
     title = "Rebuild all indices (drop them and recreate and reindex everything)"
     description = "Rebuild all search indices from scratch."
     task = rebuild_all_indices
+
+
+class CheckAvailabilityJob(JobType):
+    """A job type to check if record is still available in the source repository."""
+
+    id = "check_record_availability"
+    title = "Check record persistent URLs availability"
+    description = "Check availability of dataset persistent URLs."
+    task = check_availability_task

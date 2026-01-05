@@ -50,7 +50,10 @@ class HandleResolver(MetadataResolver):
     name = "Handle"
 
     def can_resolve(self, persistent_url: str) -> bool:
-        return is_handle(persistent_url) and "https://hdl.handle.net" in persistent_url
+        return is_handle(persistent_url) and (
+            "https://hdl.handle.net" in persistent_url
+            or "http://hdl.handle.net" in persistent_url
+        )
 
     def resolve(self, persistent_url: str) -> tuple[dict | None, list[ResolverProblem]]:
 
