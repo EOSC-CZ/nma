@@ -32,7 +32,7 @@ class DataciteResolver(MetadataResolver):
 
         return is_doi(persistent_url)
 
-    def resolve_metadata(self, datacite_metadata):
+    def resolve_metadata(self, datacite_metadata) -> (dict, list[ResolverProblem]):
         metadata = {}
         problems = []
         # (main) title
@@ -173,6 +173,10 @@ class DataciteResolver(MetadataResolver):
             if id_with_scheme["identifierType"].lower() in record_identifiers_schemes
         ]
         metadata["identifiers"] = identifiers
+        for identifier in identifiers:
+            if identifier["scheme"] == "doi":
+                metadata["persistent_url"] = f'https://doi.org/{identifier["identifier"]}'
+                break
 
         return metadata, problems
 
