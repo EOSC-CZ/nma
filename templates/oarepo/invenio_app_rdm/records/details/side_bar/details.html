@@ -20,9 +20,9 @@
     <dl class="details-list">
       {% if persistent_url %}
         <dt class="ui tiny header inline">{{ _('Deposited at') }}</dt>
-        <dd>
-          <a href="{{ persistent_url }}" target="_blank" rel="noopener noreferrer">{{ persistent_url }}</a>
-          <span id="copy-button-record-doi-badge" class="copy-doi-button inline right-floated" data-value="{{ persistent_url }}" data-size="medium"></span>
+        <dd class="flex justify-space-between align-items-center">
+          <a class="inline-block" href="{{ persistent_url }}" target="_blank" rel="noopener noreferrer">{{ persistent_url }}</a>
+          <span id="copy-button-record-doi-badge" class="copy-doi-button inline-block ml-5" data-value="{{ persistent_url }}" data-size="medium"></span>
         </dd>
       {% endif %}
       {% if oai_record %}

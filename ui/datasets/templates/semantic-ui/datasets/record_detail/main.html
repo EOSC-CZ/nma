@@ -126,21 +126,21 @@ Note: Context variables available:
           aria-label="{{ _('Original source check status') }}"
         >
         {%- if check_status == 'success' %}
-          <i class="ui medium icons">
-            <i class="ui big positive certificate icon"></i>
-            <i class="ui check pr-5 white inverted icon"></i>
+          <i class="icons">
+            <i class="big positive certificate icon"></i>
+            <i class="check pr-5 white inverted icon"></i>
           </i>
         {%- elif check_status == 'not_found' %}
-          <i class="ui big red exclamation circle icon"></i>
+          <i class="big red exclamation circle icon"></i>
         {%- elif check_status == 'error' %}
-          <i class="ui big red times circle icon"></i>
+          <i class="big red times circle icon"></i>
         {%- elif check_status == 'not_accessible' %}
-          <i class="ui big orange lock icon"></i>
+          <i class="big orange lock icon"></i>
         {%- elif check_status == 'warning' %}
-          <i class="ui big yellow exclamation triangle icon"></i>
+          <i class="big yellow exclamation triangle icon"></i>
         {%- endif %}
       </span>
-
+      <span>
       {%- if check_status == 'success' %}
         {{ _("Original source confirmed. The dataset is still available at its authoritative repository.") }}
       {%- elif check_status == 'not_found' %}
@@ -152,7 +152,7 @@ Note: Context variables available:
       {%- elif check_status == 'warning' %}
         {{ _("Warning: Issue detected with original source.") }}
       {%- endif %}
-
+      </span>
       {%- if last_checked %}
         <div class="detail text-muted">{{ _("Last checked: ") }}{{ last_checked }}</div>
       {%- endif %}
