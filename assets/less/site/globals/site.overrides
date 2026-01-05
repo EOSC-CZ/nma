@@ -524,7 +524,7 @@ header.theme.header {
       right: 0;
       bottom: 0;
       background: @heroBackgroundColor;
-      opacity: 0.8;
+      opacity: 0.4;
       pointer-events: none;
     }
     a:not(.item) {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-05 13:08+0100\n"
+"POT-Creation-Date: 2026-01-05 14:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -222,21 +222,25 @@ msgstr ""
 msgid "metadata/publisher.label"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:136
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:152
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:156
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:172
 msgid "DataCite JSON"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:143
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:163
 msgid "DataCite XML"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:144
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:164
 msgid "Import metadata from DataCite XML format"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:153
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:173
 msgid "Import metadata from DataCite JSON format"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/views.py:28
+msgid "Persistent Identifier"
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/views.py:30
@@ -270,51 +274,51 @@ msgstr ""
 msgid "An unexpected error occurred in the resolver '%(resolver)s': %(error)s."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:79
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:78
 msgid ""
 "The identifier looks like a DOI, but it was not found in the CrossRef "
 "registry."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:110
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:453
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:109
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:454
 msgid ""
 "The title is too short. A minimum of 3 characters is required to meet "
 "repository requirements."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:115
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:464
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:115
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:114
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:465
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:119
 msgid "Missing title."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:123
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:534
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:128
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:122
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:535
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:132
 msgid "Missing creators."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:199
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:200
 msgid ""
 "The identifier looks like a DOI, but it was not found in the DataCite "
 "registry."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:70
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:74
 msgid ""
 "The identifier looks like a Handle, but it was not found in the Handle "
 "registry."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:80
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:84
 #, python-format
 msgid ""
 "Unexpected error while resolving the Handle. Response returned: "
 "%(response)s. "
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:164
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:168
 msgid "Publication date missing."
 msgstr ""
 
@@ -378,7 +382,7 @@ msgid ""
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:42
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:346
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:348
 msgid "Verify dataset for RIV"
 msgstr ""
 
@@ -398,11 +402,7 @@ msgstr ""
 msgid "Sign in using your institutional credentials via E-INFRA AAI."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:26
-msgid "Log in"
-msgstr ""
-
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:36
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:24
 msgid ""
 "When you choose Sign in with E-INFRA AAI, you will be asked to select "
 "your institution from the list.\n"
@@ -410,7 +410,7 @@ msgid ""
 "provider to authenticate using your institutional credentials."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:38
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:26
 #, python-format
 msgid ""
 "\n"
@@ -596,30 +596,30 @@ msgstr ""
 msgid "Váš záznam byl vytvořen / Your record has been created – %(title)s"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:201
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:203
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
 " using the form below."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:253
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:255
 msgid ""
 "Dataset registered successfully without metadata retrieval. Please fill "
 "the minimum metadata below:"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:260
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:262
 #, python-format
 msgid "Successfully registered dataset with PID: %(pid)s"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:276
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:278
 msgid ""
 "Dataset was registered with issues. Please check/correct the metadata "
 "below:"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:289
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:291
 msgid ""
 "The provided identifier is a URL that can not be registered at the "
 "moment. If your dataset does not have a DOI or a handle in URL format, "
@@ -627,12 +627,12 @@ msgid ""
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:298
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:300
 #, python-format
 msgid "Error registering dataset: %(error)s"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:318
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:320
 msgid "User does not have permission to edit record."
 msgstr ""
 
@@ -648,22 +648,22 @@ msgid ""
 "or register it into the NMD if needed."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:21
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:22
 msgid "https://doi.org/… or https://hdl.handle.net/…"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:33
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:34
 msgid ""
 "The dataset must have a persistent identifier. If the dataset has "
 "multiple identifiers (e.g., both a DOI and a Handle), we recommend "
 "providing the DOI."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:37
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
 msgid "Obtain the link for RIV submission"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:40
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:41
 msgid ""
 "By submitting this Persistent Identifier (PID) using the <strong>Obtain "
 "the link for RIV submission</strong> button, you declare that you have "
@@ -674,52 +674,52 @@ msgid ""
 "agreements, or applicable institutional or funding rules."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:56
 msgid "What happens next?"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:58
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:59
 msgid ""
 "If the dataset is already in the NMD, we issue the RIV link immediately. "
 "No further action is needed."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:59
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:60
 msgid ""
 "If the dataset is not in the NMD, we attempt to automatically retrieve "
 "and download its metadata."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:60
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:61
 msgid ""
 "If this results in a complete, valid record in the NMD, you will receive "
 "the RIV link."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:61
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:62
 msgid ""
 "If key fields are missing, we will request additional information from "
 "you. You’ll also receive an email with a link to amend the record if "
 "corrections are needed. ⚠️ This link expires after 7 days."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:62
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:63
 msgid ""
 "Need assistance? Contact: <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:63
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:64
 msgid ""
 "If you had to create or correct the record manually, ask your repository "
 "administrator to have it harvested into the NMD."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:69
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:70
 msgid "Using a Different Identifier?"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:72
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:73
 msgid ""
 "NMD currently accepts datasets referenced by <a "
 "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\" "
@@ -727,13 +727,13 @@ msgid ""
 "target=\"_blank\">Handle</a> identifiers."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:75
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:76
 msgid ""
 "If your dataset uses a different type of identifier, please reach out to "
 "us at"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:75
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:76
 msgid "we will help you determine whether registration is possible."
 msgstr ""
 
@@ -789,35 +789,35 @@ msgstr ""
 msgid "Manage record"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:122
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:126
 msgid "Original source check status"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:141
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:145
 msgid ""
 "Original source confirmed. The dataset is still available at its "
 "authoritative repository."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:143
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:147
 msgid ""
 "Original source not found. The dataset is no longer available at the "
 "specified location."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:145
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:149
 msgid "Error checking original source. Unable to verify dataset availability."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:147
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:151
 msgid "Original source not accessible. The dataset location cannot be reached."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:149
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:153
 msgid "Warning: Issue detected with original source."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:153
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:157
 msgid "Last checked: "
 msgstr ""
 

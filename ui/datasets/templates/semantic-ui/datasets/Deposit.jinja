@@ -5,14 +5,14 @@
 {%- block page_body %}
 <div class="ui inverted vertical center aligned container rel-mt-5 rel-mb-5">
   <div class="ui stackable responsive grid centered container">
-    <h1 class="ui header row">
+    <h1 class="ui header row rel-mb-1">
       <div class="content">
         {{ _('Verify a dataset for RIV') }}
         <p class="sub header rel-mt-1">{{ _("To report a dataset (type T result) in RIV, you must provide a link to the National Metadata Directory (NMD), which records its core metadata. On this page, you can verify whether the NMD has the dataset registered or register it into the NMD if needed.") }}</p>
       </div>
     </h1>
-    <div class="row equal width centered">
-        <div class="ten wide column">
+    <div class="row">
+        <div class="sixteen wide mobile ten wide computer column">
             <div class="ui centered fluid pink bg-primary card rel-pl-3 rel-pr-3 rel-pt-2 rel-pb-2 rel-mb-2">
                 <form class="ui form" novalidate method="POST" action="{{ url_for('datasets_ui.deposit_create') }}" data-testid="deposit-create-register-doi-form">
                     {{ form.hidden_tag() }}
@@ -34,7 +34,7 @@
                         {{ _("The dataset must have a persistent identifier. If the dataset has multiple identifiers (e.g., both a DOI and a Handle), we recommend providing the DOI.") }}
                     </p>
                     <button class="ui huge primary button rel-mt-1" type="submit" data-testid="deposit-create-register-doi-submit">
-                        <i class="check icon"></i>
+                        <i class="linkify icon"></i>
                         {{ _('Obtain the link for RIV submission') }}
                     </button>
                     <p class="text-tiny text-muted block rel-mt-2">
@@ -49,9 +49,9 @@
                 </form>
             </div>
         </div>
-        <div class="six wide column">
-            <div class="ui message info rel-ml-2 mt-0">
-                <div class="header rel-mb-1">
+        <div class="sixteen wide mobile six wide computer column">
+            <div class="ui message info mt-0">
+                <div class="header">
                     <i class="question circle icon"></i>
                     {{ _('What happens next?') }}
                 </div>
@@ -64,7 +64,7 @@
                     <li>{{ _('If you had to create or correct the record manually, ask your repository administrator to have it harvested into the NMD.') }}</li>
                 </ul>
             </div>
-            <div class="ui message rel-ml-2 mt-0">
+            <div class="ui message mt-0">
                 <div class="header rel-mb-1">
                     <i class="barcode icon"></i>
                     {{ _('Using a Different Identifier?') }}
