@@ -49,7 +49,6 @@ ui_datasets = "ui.datasets:finalize_app"
 [project.entry-points."flask.commands"]
 riv = "riv.cli:riv"
 
-# is there a reason for separating
 [project.entry-points."invenio_celery.tasks"]
 riv = "riv.tasks"
 datasets = "datasets.tasks"
