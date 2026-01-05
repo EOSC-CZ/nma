@@ -16,8 +16,6 @@ from invenio_search.engine import dsl
 from oarepo_runtime import current_runtime
 
 from riv.config import EDIT_GRANT_EXPIRATION_DAYS
-from invenio_search.engine import dsl
-from invenio_db import db
 
 if TYPE_CHECKING:
 
@@ -40,7 +38,6 @@ def unit_of_work(f):
     return inner
 
 
-
 def _get_model():
     return current_runtime.rdm_models[0]
 
@@ -56,12 +53,7 @@ def _commit_editors(editors, id, uow):
     service = _get_model().service
     record = service.read(system_identity, id)._record
     record["editors"] = editors
-    if not uow:
-        with UnitOfWork(db.session) as uow:
-            uow.register(RecordCommitOp(record))
-            uow.commit()
-    else:
-        uow.register(RecordCommitOp(record))
+    uow.register(RecordCommitOp(record))
 
 
 # unit_of_work decorator crashes without a positional arg
@@ -115,7 +107,7 @@ def expire_grants(uow=None):
         record_id = expired_record_data["id"]
         editors = expired_record_data["editors"]
         expired_editors = [
-            e for e in editors if datetime.datetime.fromisoformat(e["expiration"]) < now
+            e for e in editors if "expiration" in e and datetime.datetime.fromisoformat(e["expiration"]) < now
         ]
         for expired_editor in expired_editors:
             r = access_service.delete_grant_by_subject(
