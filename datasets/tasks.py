@@ -5,6 +5,7 @@ from functools import wraps
 from typing import TYPE_CHECKING, cast, Any
 
 from celery import shared_task
+from flask import current_app
 from invenio_access.permissions import system_identity
 from invenio_accounts.models import User
 from invenio_db import db
@@ -38,7 +39,7 @@ def unit_of_work(f):
 
 
 def _get_model():
-    return current_runtime.rdm_models[0]
+    return next(x for x in current_runtime.rdm_models if x.code == "datasets")
 
 def _find_editor(editors: list[dict[str, Any]], id_: str)-> dict[str, Any] | None:
     for editor in editors:
@@ -59,7 +60,7 @@ def _commit_editors(editors: list[dict[str, Any]], id: str, uow: UnitOfWork)->No
     service = _get_model().service
     record = service.read(system_identity, id)._record
     record["editors"] = editors
-    uow.register(RecordCommitOp(record))
+    uow.register(RecordCommitOp(record, indexer=service.indexer, index_refresh=True))
 
 
 @unit_of_work
@@ -75,7 +76,7 @@ def add_grant_expiration(uow: UnitOfWork=None)->None:
         edited = False
 
         for grant in record_data.parent.data["access"]["grants"]:
-            if grant["subject"]["type"] != "user":
+            if grant["subject"]["type"] != "user" or grant["permission"] != "edit":
                 continue
 
             user_id = grant["subject"]["id"]
@@ -120,13 +121,16 @@ def expire_grants(uow: UnitOfWork=None)->None:
         ]
 
         for editor in expired_editors:
-            access_service.delete_grant_by_subject(
-                system_identity,
-                record_id,
-                editor["id"],
-                subject_type="user",
-                uow=uow,
-            )
+            try:
+                access_service.delete_grant_by_subject(
+                    system_identity,
+                    record_id,
+                    editor["id"],
+                    subject_type="user",
+                    uow=uow,
+                )
+            except Exception:
+                current_app.logger.exception("Failed to delete grant for editor %s", editor)
             del editor["expiration"]
 
         _commit_editors(editors, record_id, uow)
