@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import datetime
 from functools import wraps
-from typing import TYPE_CHECKING, cast
+from typing import TYPE_CHECKING, cast, Any
 
 from celery import shared_task
 from invenio_access.permissions import system_identity
@@ -18,10 +18,9 @@ from oarepo_runtime import current_runtime
 from riv.config import EDIT_GRANT_EXPIRATION_DAYS
 
 if TYPE_CHECKING:
-
     from invenio_records_resources.services.records import RecordService
 
-
+# invenio unit_of_work decorator crashes without a positional arg
 def unit_of_work(f):
     @wraps(f)
     def inner(*args, **kwargs):
@@ -41,89 +40,95 @@ def unit_of_work(f):
 def _get_model():
     return current_runtime.rdm_models[0]
 
-
-def _find_editor(editors, id_):
+def _find_editor(editors: list[dict[str, Any]], id_: str)-> dict[str, Any] | None:
     for editor in editors:
         if editor["id"] == id_:
             return editor
     return None
 
+def _create_editor(user: User, expiration: str, access_granted: str) -> dict:
+    return {
+        "id": str(user.id),
+        "full_name": user.user_profile.get("full_name", ""),
+        "affiliations": user.user_profile.get("affiliations", ""),
+        "expiration": expiration,
+        "access_granted": [access_granted],
+    }
 
-def _commit_editors(editors, id, uow):
+def _commit_editors(editors: list[dict[str, Any]], id: str, uow: UnitOfWork)->None:
     service = _get_model().service
     record = service.read(system_identity, id)._record
     record["editors"] = editors
     uow.register(RecordCommitOp(record))
 
 
-# unit_of_work decorator crashes without a positional arg
 @unit_of_work
-def add_grant_expiration(uow=None):
+def add_grant_expiration(uow: UnitOfWork=None)->None:
+    now = datetime.datetime.now()
+    expiration = (now + datetime.timedelta(days=EDIT_GRANT_EXPIRATION_DAYS)).isoformat()
+    access_granted = now.isoformat()
     model = _get_model().record_cls.model_cls
     records = model.query.all()
+
     for record_data in records:
         editors = record_data.data.get("editors", [])
         edited = False
-        for grant in record_data.parent.data["access"]["grants"]:
-            if grant["subject"]["type"] == "user":
-                editor = _find_editor(editors, grant["subject"]["id"])
-                # expiration either added or waiting to be collected; don't prolong
-                if editor and "expiration" in editor:
-                    continue
 
-                time_now = datetime.datetime.now()
-                expiration = (
-                    time_now + datetime.timedelta(days=EDIT_GRANT_EXPIRATION_DAYS)
-                ).isoformat()
-                access_granted = time_now.isoformat()
-                if not editor:
-                    user = User.query.filter_by(id=grant["subject"]["id"]).one()
-                    editor = {
-                        "id": str(user.id),
-                        "full_name": user.user_profile.get("full_name", ""),
-                        "affiliations": user.user_profile.get("affiliations", ""),
-                        "expiration": expiration,
-                        "access_granted": [access_granted],
-                    }
-                    editors.append(editor)
-                else:
-                    editor["expiration"] = expiration
-                    editor.setdefault("access_granted", []).append(access_granted)
-                edited = True
+        for grant in record_data.parent.data["access"]["grants"]:
+            if grant["subject"]["type"] != "user":
+                continue
+
+            user_id = grant["subject"]["id"]
+            editor = _find_editor(editors, user_id)
+
+            # doesn't need updating
+            if editor and "expiration" in editor:
+                continue
+
+            if editor:
+                editor["expiration"] = expiration
+                editor.setdefault("access_granted", []).append(access_granted)
+            else:
+                user = User.query.filter_by(id=user_id).one()
+                editors.append(_create_editor(user, expiration, access_granted))
+
+            edited = True
+
         if edited:
             _commit_editors(editors, record_data.data["id"], uow)
 
 
 @unit_of_work
-def expire_grants(uow=None):
+def expire_grants(uow: UnitOfWork=None)->None:
     now = datetime.datetime.now()
     service = _get_model().service
     access_service = current_rdm_records_service.access
-    with_expired_grants = service.scan(
+    records_with_expired_grants = service.scan(
         identity=system_identity,
         extra_filter=dsl.Q("range", **{"editors.expiration": {"lt": now.isoformat()}}),
     )
-    for expired_record_data in with_expired_grants:
-        record_id = expired_record_data["id"]
-        editors = expired_record_data["editors"]
+
+    for record_data in records_with_expired_grants:
+        record_id = record_data["id"]
+        editors = record_data["editors"]
+
         expired_editors = [
-            e for e in editors if "expiration" in e and datetime.datetime.fromisoformat(e["expiration"]) < now
+            e
+            for e in editors
+            if "expiration" in e
+            and datetime.datetime.fromisoformat(e["expiration"]) < now
         ]
-        for expired_editor in expired_editors:
-            r = access_service.delete_grant_by_subject(
+
+        for editor in expired_editors:
+            access_service.delete_grant_by_subject(
                 system_identity,
                 record_id,
-                expired_editor["id"],
+                editor["id"],
                 subject_type="user",
                 uow=uow,
             )
+            del editor["expiration"]
 
-        expired_editor_ids = {
-            expired_editor["id"] for expired_editor in expired_editors
-        }
-        for editor in editors:
-            if editor["id"] in expired_editor_ids:
-                del editor["expiration"]
         _commit_editors(editors, record_id, uow)
 
 
