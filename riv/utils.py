@@ -162,7 +162,7 @@ def is_title_in_content(
 
 
 def check_url_availability(
-    url: str, timeout: int = 15, title: str = ""
+    url: str, timeout: int = 15, title: str = "", session=None
 ) -> tuple[int | None, str, str]:
     """Check if a URL is available and return its status.
 
@@ -175,7 +175,7 @@ def check_url_availability(
             - status_string is one of: 'success', 'warning', 'not_accessible', 'not_found' or 'error'
             - message is a human-readable description of the result
     """
-    session = create_session_with_retries()
+    session = session or create_session_with_retries()
     status = "error"
     status_code = None
     message = ""

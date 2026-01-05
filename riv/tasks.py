@@ -18,7 +18,7 @@ from marshmallow import fields
 from opensearch_dsl import Q
 
 from .config import LAST_CHECKED_THRESHOLD_DAYS
-from .utils import check_url_availability
+from .utils import check_url_availability, create_session_with_retries
 
 if TYPE_CHECKING:
     from datetime import datetime
@@ -49,8 +49,11 @@ def check_availability_task():
 
     # Search datasets
     results = datasets_service.search(
-        system_identity, params={"size": 50}, extra_filter=extra_filter
+        system_identity, params={"size": 100}, extra_filter=extra_filter
     )
+
+    # be very polite here
+    session = create_session_with_retries(throttle_sleep=5.0)
 
     # Iterate over results
     for hit in results.to_dict()["hits"]["hits"]:
@@ -78,7 +81,9 @@ def check_availability_task():
 
         # Check URL availability with retry logic
         _, status, message = check_url_availability(
-            persistent_url, title=metadata.get("title", "")
+            persistent_url,
+            title=metadata.get("title", ""),
+            session=session,
         )
 
         # Get current status to compare
