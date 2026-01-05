@@ -15,6 +15,7 @@ from ..resolvers import MetadataResolver
 from .base import (
     CREATORS_PLACEHOLDER,
     PUBLICATION_DATE_PLACEHOLDER,
+    TITLE_PLACEHOLDER,
     ResolverProblem,
     ResolverProblemLevel,
     get_invalid_publication_date_message,
@@ -101,7 +102,7 @@ class HandleResolver(MetadataResolver):
 
         return metadata, problem_list
 
-    @handle_errors(error_placeholder="Unknown title", alert_user=True)
+    @handle_errors(error_placeholder=TITLE_PLACEHOLDER, alert_user=True)
     def resolve_main_title(self, *, tree, problems):
         titles = tree.xpath('//meta[@name="citation_title"]/@content') or tree.xpath(
             '//meta[@name="title"]/@content'

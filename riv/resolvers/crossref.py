@@ -6,7 +6,6 @@
 # nma is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 #
-import re
 
 from flask import current_app
 from idutils.normalizers import normalize_doi
@@ -17,7 +16,7 @@ from invenio_vocabularies.proxies import current_service as vocabulary_service
 from marshmallow import ValidationError
 from marshmallow_utils.fields import EDTFDateString
 
-from .base import ResolverProblem, ResolverProblemLevel, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER
+from .base import ResolverProblem, ResolverProblemLevel, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER, TITLE_PLACEHOLDER
 from .utils import handle_errors
 from ..resolvers import MetadataResolver
 
@@ -102,7 +101,7 @@ class CrossrefResolver(MetadataResolver):
 
         return metadata, problems
 
-    @handle_errors(error_placeholder="Unknown title", alert_user=True)
+    @handle_errors(error_placeholder=TITLE_PLACEHOLDER, alert_user=True)
     def resolve_title(self, titles, problems):
         for title in titles:
             if len(title) < 3:
