@@ -19,6 +19,7 @@ from ..resolvers import MetadataResolver
 from .base import (
     CREATORS_PLACEHOLDER,
     PUBLICATION_DATE_PLACEHOLDER,
+    TITLE_PLACEHOLDER,
     ResolverProblem,
     ResolverProblemLevel,
 )
@@ -439,7 +440,7 @@ class DataciteResolver(MetadataResolver):
             return str(publisher)
         return None
 
-    @handle_errors(error_placeholder="Unknown title", alert_user=True)
+    @handle_errors(error_placeholder=TITLE_PLACEHOLDER, alert_user=True)
     def resolve_datacite_main_title(self, *, titles, problems):
         for title in titles:
             if (
@@ -549,7 +550,7 @@ class DataciteResolver(MetadataResolver):
             family = creator.get("familyName")
             name = creator.get("name")
             if name is None:
-                name = "Unknown Creator"  # should never happen
+                name = "Unknown"  # should never happen
                 problems.append(
                     ResolverProblem(
                         resolver=self.name,

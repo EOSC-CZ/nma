@@ -59,6 +59,7 @@ from riv.resolvers.base import (
 from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
+from ui.resources.components.placeholder_remover import PlaceholderRemoverComponent
 
 logger = logging.getLogger("DatasetsUI")
 
@@ -97,6 +98,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         FilesQuotaAndTransferComponent,
         RDMVocabularyOptionsComponent,
         OAIRecordComponent,
+        PlaceholderRemoverComponent
     ]
 
     record_detail_permissions = [

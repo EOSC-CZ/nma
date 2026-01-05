@@ -20,14 +20,14 @@ class ResolverProblemLevel(enum.Enum):
 CREATORS_PLACEHOLDER = [
     {
         "person_or_org": {
-            "name": "Unknown Creator",
+            "name": "Unknown",
             "type": "personal",
             "family_name": "Unknown",
         }
     }
 ]
 PUBLICATION_DATE_PLACEHOLDER = "1900-01-01"
-
+TITLE_PLACEHOLDER = "Unknown title"
 
 def get_validation_failed_on_date_format_message(date):
     return _(

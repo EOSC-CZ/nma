@@ -14,7 +14,7 @@ from ..config import EDIT_GRANT_EXPIRATION_DAYS, RIV_CURATORS_GROUP_ID
 from ..errors import RIVRegistrationException
 from ..resolvers.base import ResolverProblem, ResolverProblemLevel
 from .api import generate_id
-
+from riv.resolvers.base import TITLE_PLACEHOLDER, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER
 example_data = {
     "metadata": {
         "creators": [
@@ -59,17 +59,9 @@ grant_data = {
 
 def create_record(record_data, persistent_url, problems):
     empty_metadata = {
-        "title": "Untitled Dataset",
-        "publication_date": "2025-01-01",
-        "creators": [
-            {
-                "person_or_org": {
-                    "name": "Unknown",
-                    "type": "personal",
-                    "family_name": "Unknown",
-                }
-            }
-        ],
+        "title": TITLE_PLACEHOLDER,
+        "publication_date": PUBLICATION_DATE_PLACEHOLDER,
+        "creators": CREATORS_PLACEHOLDER,
         "resource_type": {"id": "dataset"},
         "persistent_url": persistent_url,
     }
