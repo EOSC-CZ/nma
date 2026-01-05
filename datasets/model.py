@@ -59,6 +59,10 @@ class UpdatableRecordServiceMixin:
         "creators",
         "resource_type",
         "publication_date",
+        # for checks
+        "check_status",
+        "last_checked",
+        "check_message",
     ]
     """Invenio forms based editor modifies even fields that are not in the editor,
     such as removing title from rights. To workaround this, we override update
@@ -82,6 +86,24 @@ class UpdatableRecordServiceMixin:
         for fld in self.EDITABLE_FIELDS:
             if fld in metadata:
                 current_data["metadata"][fld] = metadata[fld]
+
+        # metadata.rights: invenio rdm can not upload record that has rights that contain both id and title
+        # so we remove all other props if there is an id
+        for right in current_data["metadata"].get("rights", []):
+            if "id" in right:
+                for k in list(right.keys()):
+                    if k != "id":
+                        right.pop(k, None)
+
+        # metadata/creators/person_or_org/affiliations - can not have identifiers
+        for creator in current_data["metadata"].get("creators", []):
+            for aff in creator.get("affiliations", []):
+                if "identifiers" in aff:
+                    aff.pop("identifiers", None)
+        for contributor in current_data["metadata"].get("contributors", []):
+            for aff in contributor.get("affiliations", []):
+                if "identifiers" in aff:
+                    aff.pop("identifiers", None)
 
         # we need to call super directly on the base record service, because draft
         # service disables the update on published records completely, regardless
