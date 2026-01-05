@@ -1,12 +1,21 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import SaveButton from "./SaveButton";
-import { Grid, Ref, Card, Header } from "semantic-ui-react";
+import { Grid, Ref, Card, Header, Message } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { getLocalizedValue } from "@js/oarepo_ui/util";
 import { getIn, useFormikContext } from "formik";
-import { useSanitizeInput } from "@js/oarepo_ui/forms";
+import { useSanitizeInput, useFormConfig } from "@js/oarepo_ui/forms";
 import FormFieldsContainer from "./FormFieldsContainer";
+import { DRAFT_SAVE_FAILED } from "@js/invenio_rdm_records/src/deposit/state/types";
+import { i18next } from "@translations/i18next";
+
+const EDITABLE_FIELD_PATHS = [
+  "title",
+  "creators",
+  "resource_type",
+  "publication_date",
+];
 
 export const FormTitle = () => {
   const { values } = useFormikContext();
@@ -31,9 +40,12 @@ export const FormTitle = () => {
   );
 };
 
-const BaseFormLayoutComponent = ({ record, errors = {} }) => {
+const BaseFormLayoutComponent = ({ record, errors = {}, actionState }) => {
   const sidebarRef = React.useRef(null);
   const formFeedbackRef = React.useRef(null);
+  const {
+    config: { supportContact },
+  } = useFormConfig();
   // on chrome there is an annoying issue where after deletion you are redirected, and then
   // if you click back on browser <-, it serves you the deleted page, which does not exist from the cache.
   // on firefox it does not happen.
@@ -51,10 +63,26 @@ const BaseFormLayoutComponent = ({ record, errors = {} }) => {
     };
   }, []);
 
+  const metadataErrorKeys = Object.keys(errors.metadata || {});
+
+  const hasFixableErrors =
+    metadataErrorKeys.length > 0 &&
+    metadataErrorKeys.every((key) => EDITABLE_FIELD_PATHS.includes(key));
+
   return (
-    <Grid>
+    <Grid className="rel-mt-2">
       <Ref innerRef={formFeedbackRef}>
         <Grid.Column id="main-content" mobile={16} tablet={16} computer={11}>
+          {actionState === DRAFT_SAVE_FAILED && !hasFixableErrors && (
+            <Message color="orange">
+              <Message.Header>
+                {i18next.t(
+                  "There was an error saving your changes. If the problem persists please contact"
+                )}{" "}
+                <a href={`mailto:${supportContact}`}>{i18next.t("support.")}</a>
+              </Message.Header>
+            </Message>
+          )}
           <FormTitle />
           <FormFieldsContainer />
         </Grid.Column>
@@ -80,6 +108,7 @@ const mapStateToProps = (state) => {
   return {
     record: state.deposit.record,
     errors: state.deposit.errors,
+    actionState: state.deposit.actionState,
   };
 };
 

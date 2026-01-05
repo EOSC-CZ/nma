@@ -4,7 +4,6 @@
   "We couldn't find any matches for {{- search}}": "We couldn't find any matches for {{- search}}",
   "your search": "your search",
   "Start over": "Start over",
-  "Register a Dataset": "Register a Dataset",
   "ProTip": "ProTip",
   "will give you all the publications from 2025 until today.": "will give you all the publications from 2025 until today.",
   "For more tips, check out our ": "For more tips, check out our ",
@@ -15,5 +14,9 @@
   "No publication date found.": "No publication date found.",
   "No resource type": "No resource type",
   "Uploaded on {{uploadDate}}": "Uploaded on {{uploadDate}}",
-  "Published in: {{- publishInfo }}": "Published in: {{- publishInfo }}"
+  "Published in: {{- publishInfo }}": "Published in: {{- publishInfo }}",
+  "There was an error saving your changes. If the problem persists please contact": "There was an error saving your changes. If the problem persists please contact",
+  "support.": "support.",
+  "Verify a dataset for RIV": "Verify a dataset for RIV",
+  "If you are looking to report a dataset (type T result) in RIV.": "If you are looking to report a dataset (type T result) in RIV."
 }

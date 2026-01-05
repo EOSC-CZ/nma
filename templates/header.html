@@ -9,6 +9,7 @@
 {%- endblock navbar %}
 
 {%- block brand %}
+{{current_menu.submenu("settings.oauthclient").hide()}}
 <a href="/" class="navbar-brand d-flex align-items-center" data-testid="header-site-logo">
     <img
       src="{{ url_for('static', filename=config.THEME_LOGO) }}"
