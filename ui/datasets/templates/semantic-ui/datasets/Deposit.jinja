@@ -4,7 +4,7 @@
 
 {%- block page_body %}
 <div class="ui inverted vertical center aligned container rel-mt-5 rel-mb-5">
-  <div class="ui stackable grid centered container">
+  <div class="ui stackable responsive grid centered container">
     <h1 class="ui header row">
       <div class="content">
         {{ _('Verify a dataset for RIV') }}
@@ -17,8 +17,9 @@
                 <form class="ui form" novalidate method="POST" action="{{ url_for('datasets_ui.deposit_create') }}" data-testid="deposit-create-register-doi-form">
                     {{ form.hidden_tag() }}
                     <div class="field{% if form.pid.errors %} error{% endif %} required">
-                        <div class="ui huge input" data-testid="deposit-create-register-doi-input">
-                            {{ form.pid(class="text-align-center", placeholder=_("https://doi.org/… or https://hdl.handle.net/…")) }}
+                            {{ form.pid.label(class="tiny") }}
+                        <div class="ui huge input">
+                            {{ form.pid(placeholder=_("https://doi.org/… or https://hdl.handle.net/…")) }}
                         </div>
                         
                     {% if form.pid.errors %}

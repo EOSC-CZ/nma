@@ -25,14 +25,14 @@ class RegisterForm(FlaskForm):
     """Form for registering a dataset by PID."""
 
     pid = StrippedStringField(
-        "Persistent Identifier",
+        label=_("Persistent Identifier"),
         validators=[
             DataRequired(message=_("Please enter a persistent identifier")),
             URL(
                 message=_("Please enter a valid URL (e.g., https://doi.org/... or https://hdl.handle.net/...)")
             ),
         ],
-        render_kw={"autofocus": True},
+        render_kw={"autofocus": "true", "data-testid": "deposit-create-register-doi-input"},
     )
 
     skip_metadata = BooleanField(
