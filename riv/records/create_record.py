@@ -1,17 +1,16 @@
 from datetime import datetime, timedelta
 
-from flask import current_app
+from flask import current_app, url_for
 from flask_login import current_user
 from invenio_access.permissions import system_identity
 from invenio_accounts.models import User
-from invenio_base import invenio_url_for
 from invenio_notifications.models import Notification, Recipient
 from invenio_pidstore.errors import PIDAlreadyExists
 from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.resources.errors import PermissionDeniedError
 
-from ..config import RIV_CURATORS_GROUP_ID, EDIT_GRANT_EXPIRATION_DAYS
+from ..config import EDIT_GRANT_EXPIRATION_DAYS, RIV_CURATORS_GROUP_ID
 from ..errors import RIVRegistrationException
 from ..resolvers.base import ResolverProblem, ResolverProblemLevel
 from .api import generate_id
@@ -58,8 +57,31 @@ grant_data = {
 }
 
 
-def create_record(record_data, problems):
-    record_data["id"] = generate_id(record_data["metadata"]["persistent_url"])
+def create_record(record_data, persistent_url, problems):
+    empty_metadata = {
+        "title": "Untitled Dataset",
+        "publication_date": "2025-01-01",
+        "creators": [
+            {
+                "person_or_org": {
+                    "name": "Unknown",
+                    "type": "personal",
+                    "family_name": "Unknown",
+                }
+            }
+        ],
+        "resource_type": {"id": "dataset"},
+        "persistent_url": persistent_url,
+    }
+    if not record_data:
+        record_data = {"metadata": {}}
+    if not record_data.get("metadata"):
+        record_data["metadata"] = {}
+    metadata = record_data["metadata"]
+    for key, value in empty_metadata.items():
+        metadata.setdefault(key, value)
+
+    record_data["id"] = generate_id(persistent_url)
     if current_user.is_anonymous:
         raise PermissionDeniedError("Please login first.")
 
@@ -102,7 +124,9 @@ def create_record(record_data, problems):
                 )
             )
 
-        datasets_service.publish(identity=system_identity, id_=record_data["id"])
+        published_record = datasets_service.publish(
+            identity=system_identity, id_=record_data["id"]
+        )
 
     except PIDAlreadyExists:
         raise
@@ -114,29 +138,36 @@ def create_record(record_data, problems):
     # call access service and grant
 
     user_grant_data = {
-                      "grants":[
-                                    {
-                                        "subject": {"type": "user", "id": str(user.id)},
-                                        "permission": "edit",
-                                        "notify": False,  # TODO: Could be False?
-                                        "message": "expires in:" + (datetime.today() + timedelta(days=EDIT_GRANT_EXPIRATION_DAYS)
-                                    ).strftime("%Y-%m-%d"),
-                                    }
-                             ]
-                     }
+        "grants": [
+            {
+                "subject": {"type": "user", "id": str(user.id)},
+                "permission": "edit",
+                "notify": False,  # TODO: Could be False?
+                "message": "expires in:"
+                + (
+                    datetime.today() + timedelta(days=EDIT_GRANT_EXPIRATION_DAYS)
+                ).strftime("%Y-%m-%d"),
+            }
+        ]
+    }
     access_service = current_rdm_records_service.access
 
     service_result = access_service.bulk_create_grants(
         system_identity, draft_record["id"], user_grant_data
     )
 
+    edit_link = url_for(
+        "datasets_ui.deposit_edit", pid_value=published_record["id"], _external=True
+    )
+
     try:
-        # send email to the user with a secret link
+        # send email to the user with an editation link
         notification = Notification(
             type="data-riv-record-created",
             context={
                 "record_data": record_data,
                 "expiration_time": str(EDIT_GRANT_EXPIRATION_DAYS),
+                "edit_link": edit_link,
             },
         )
         recipient = Recipient(
@@ -168,3 +199,5 @@ def create_record(record_data, problems):
         current_app.logger.exception(
             f"Error granting manage permission to curators group for record {draft_record['id']}"
         )
+
+    return published_record

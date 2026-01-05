@@ -1,24 +1,64 @@
-import argparse
-import json
-import os
-import random
-import sys
-import time
-from datetime import datetime, timedelta
-from typing import Any, Optional
+from __future__ import annotations
 
+from typing import Any, override
+
+from flask_resources.deserializers.json import JSONDeserializer
 from lxml import etree
+from lxml.etree import QName
+from marshmallow import ValidationError
 
-from riv.utils import create_session_with_retries
 
-
-class DataciteXmlToJsonConverter:
+class DataCiteJSONDeserializer(JSONDeserializer):
     """
-    Converts DataCite XML (kernel-4) to JSON representation.
+    Converts json data in DataCite format to RDM representation.
+    """
+
+    @override
+    def deserialize(self, data: str | bytes | bytearray | memoryview | None) -> dict:
+        """Deserializes the data into an object."""
+        as_json_object = super().deserialize(data)
+        if not isinstance(as_json_object, dict):
+            raise ValidationError("Expected a JSON object")
+        return self._deserialize_json(as_json_object)
+
+    def _deserialize_json(self, data: dict) -> dict:
+        from riv.resolvers import DataciteResolver
+
+        resolver = DataciteResolver()
+        metadata, problems = resolver.resolve_metadata(data)
+        if problems:
+            raise ValidationError(f"Errors during DataCite resolution: {problems}")
+        return {
+            "metadata": metadata,
+            "files": {"enabled": False},
+            "media_files": {"enabled": False},
+        }
+
+
+class DataCiteXMLDeserializer(DataCiteJSONDeserializer):
+    """
+    Converts DataCite XML (kernel-4) to RDM representation.
     Based on schema: https://schema.datacite.org/meta/kernel-4/metadata.xsd
+
+    The implementation at first converts XML to DataCite JSON format,
+    and then reuses the DataCiteJSONImporter to convert to RDM format.
     """
 
     NAMESPACE = {"dc": "http://datacite.org/schema/kernel-4"}
+
+    @override
+    def deserialize(
+        self, data: str | bytes | bytearray | memoryview | None | etree._Element
+    ) -> dict:
+        """Deserializes the data into an object."""
+        if isinstance(data, str):
+            data = etree.fromstring(data.encode("utf-8"))
+        elif isinstance(data, (bytes, bytearray, memoryview)):
+            data = etree.fromstring(bytes(data))
+        elif data is None:
+            raise ValidationError("No data provided for deserialization")
+        datacite_json = self.convert_datacite_xml_to_json(data)
+        return self._deserialize_json(datacite_json)
 
     def convert_datacite_xml_to_json(self, resource: etree._Element) -> dict:
         """
@@ -31,6 +71,16 @@ class DataciteXmlToJsonConverter:
             Dictionary with DataCite JSON representation
         """
         result: dict[str, Any] = {}
+
+        # AV seems to have a wrong kernel - they use http://datacite.org/schema/kernel-4e
+        # get the namespace uri of the resource
+        ns_uri = QName(resource).namespace
+        if ns_uri and ns_uri != self.NAMESPACE["dc"]:
+            # set for just this instance
+            self.NAMESPACE = {
+                **self.NAMESPACE,
+                "dc": ns_uri,
+            }
 
         # Required fields
         result["doi"] = self._get_identifier(resource)
@@ -91,7 +141,7 @@ class DataciteXmlToJsonConverter:
 
         return result
 
-    def _get_text(self, element: Optional[etree._Element], xpath: str) -> Optional[str]:
+    def _get_text(self, element: etree._Element | None, xpath: str) -> str | None:
         """Helper to get text from an XPath query."""
         if element is None:
             return None
@@ -228,7 +278,7 @@ class DataciteXmlToJsonConverter:
 
         return titles
 
-    def _convert_publisher(self, resource: etree._Element) -> Optional[str]:
+    def _convert_publisher(self, resource: etree._Element) -> str | None:
         """Convert publisher element to JSON format."""
         publisher_elem = resource.xpath("dc:publisher", namespaces=self.NAMESPACE)
 
@@ -239,7 +289,7 @@ class DataciteXmlToJsonConverter:
         # DataCite JSON format expects just the publisher name as a string
         return pub_elem.text if pub_elem.text else None
 
-    def _get_publication_year(self, resource: etree._Element) -> Optional[str]:
+    def _get_publication_year(self, resource: etree._Element) -> str | None:
         """Extract publication year."""
         year = resource.xpath("dc:publicationYear/text()", namespaces=self.NAMESPACE)
         # DataCite JSON format expects publication year as a string
@@ -336,7 +386,7 @@ class DataciteXmlToJsonConverter:
 
         return dates
 
-    def _get_language(self, resource: etree._Element) -> Optional[str]:
+    def _get_language(self, resource: etree._Element) -> str | None:
         """Extract language."""
         language = resource.xpath("dc:language/text()", namespaces=self.NAMESPACE)
         return language[0] if language else None
@@ -444,7 +494,7 @@ class DataciteXmlToJsonConverter:
 
         return formats
 
-    def _get_version(self, resource: etree._Element) -> Optional[str]:
+    def _get_version(self, resource: etree._Element) -> str | None:
         """Extract version."""
         version = resource.xpath("dc:version/text()", namespaces=self.NAMESPACE)
         return version[0] if version else None
@@ -466,12 +516,14 @@ class DataciteXmlToJsonConverter:
             if rights_uri := rights_elem.get("rightsURI"):
                 rights["rightsUri"] = rights_uri
 
-            if rights_id := rights_elem.get("rightsIdentifier"):
-                rights["rightsIdentifier"] = rights_id
-                # Zenodo always includes rightsIdentifierScheme when rightsIdentifier exists
-                # Set to null if not present to match Zenodo format
-                rights_id_scheme = rights_elem.get("rightsIdentifierScheme")
-                rights["rightsIdentifierScheme"] = rights_id_scheme
+            # TODO: commented out because we do not have the correct vocabulary
+            # items yet
+            # if rights_id := rights_elem.get("rightsIdentifier"):
+            #     rights["rightsIdentifier"] = rights_id
+            #     # Zenodo always includes rightsIdentifierScheme when rightsIdentifier exists
+            #     # Set to null if not present to match Zenodo format
+            #     rights_id_scheme = rights_elem.get("rightsIdentifierScheme")
+            #     rights["rightsIdentifierScheme"] = rights_id_scheme
 
             if scheme_uri := rights_elem.get("schemeUri"):
                 rights["schemeUri"] = scheme_uri
@@ -554,9 +606,7 @@ class DataciteXmlToJsonConverter:
 
         return geo_locations
 
-    def _convert_geo_location_point(
-        self, geo_loc_elem: etree._Element
-    ) -> Optional[dict]:
+    def _convert_geo_location_point(self, geo_loc_elem: etree._Element) -> dict | None:
         """Convert geoLocationPoint to JSON format."""
         point_elem = geo_loc_elem.xpath(
             "dc:geoLocationPoint", namespaces=self.NAMESPACE
@@ -576,7 +626,7 @@ class DataciteXmlToJsonConverter:
 
         return point if point else None
 
-    def _convert_geo_location_box(self, geo_loc_elem: etree._Element) -> Optional[dict]:
+    def _convert_geo_location_box(self, geo_loc_elem: etree._Element) -> dict | None:
         """Convert geoLocationBox to JSON format."""
         box_elem = geo_loc_elem.xpath("dc:geoLocationBox", namespaces=self.NAMESPACE)
 
@@ -911,7 +961,7 @@ class DataciteXmlToJsonConverter:
 
         return titles
 
-    def _convert_container(self, resource: etree._Element) -> Optional[dict]:
+    def _convert_container(self, resource: etree._Element) -> dict | None:
         """
         Convert container information if present.
         Note: This is not a standard DataCite field but may appear in some implementations.
@@ -919,277 +969,3 @@ class DataciteXmlToJsonConverter:
         # Container is typically derived from relatedItems with relationType="IsPublishedIn"
         # or from series information in descriptions
         return None
-
-
-def get_sample_random_record() -> tuple[str, str]:
-    """
-    Get a random record from Zenodo and save its DataCite XML and JSON.
-
-    Returns:
-        Tuple of (xml_content, json_content_str) for the fetched record
-    """
-    # 1. Select a random day in the past 2 years
-    today = datetime.now()
-    random_days_ago = random.randint(0, 2 * 365)
-    random_date = today - timedelta(days=random_days_ago)
-
-    # Format dates for Zenodo query
-    date_start = random_date.strftime("%Y-%m-%d")
-    date_end = (random_date + timedelta(days=1)).strftime("%Y-%m-%d")
-
-    print(f"Selected random date: {date_start}")
-    print(f"Searching for records published on {date_start}...")
-
-    # 2. List records from that day using Zenodo search API
-    time.sleep(10)
-    search_url = "https://zenodo.org/api/records"
-    params = {
-        "q": f"metadata.publication_date:[{date_start} TO {date_end}]",
-        "size": 1,
-        "sort": "mostrecent",
-    }
-
-    print(f"\nQuerying Zenodo API: {search_url}")
-    print(f"Query: {params['q']}")
-
-    # Create session with retry logic
-    session = create_session_with_retries(total_retries=10, backoff_factor=1.0)
-
-    # Add bearer token if available
-    headers = {}
-    zenodo_token = os.environ.get("ZENODO_TOKEN")
-    if zenodo_token:
-        headers["Authorization"] = f"Bearer {zenodo_token}"
-        print("   Using authentication token")
-
-    response = session.get(search_url, params=params, headers=headers)
-    response.raise_for_status()
-    search_results = response.json()
-
-    hits = search_results.get("hits", {}).get("hits", [])
-    print(f"\nFound {len(hits)} records")
-
-    if not hits:
-        raise ValueError("No records found for this date. Try running again.")
-
-    # Get the first record
-    hit = hits[0]
-    record_id = hit.get("id")
-    doi = hit.get("doi")
-    title = hit.get("metadata", {}).get("title", "Untitled")
-
-    print(f"\nSelected record: {doi or record_id}")
-    print(f"Title: {title[:100]}...")
-
-    # Extract record ID from DOI if needed
-    zenodo_record_id = record_id
-
-    # Prepare headers with bearer token if available
-    export_headers = {}
-    if zenodo_token:
-        export_headers["Authorization"] = f"Bearer {zenodo_token}"
-
-    # Fetch DataCite XML
-    print("\nFetching DataCite XML...")
-    time.sleep(10)
-    xml_url = f"https://zenodo.org/records/{zenodo_record_id}/export/datacite-xml"
-    xml_response = session.get(xml_url, headers=export_headers)
-    xml_response.raise_for_status()
-    xml_content = xml_response.text
-    print(f"   Received XML ({len(xml_content)} bytes)")
-
-    # Fetch DataCite JSON
-    print("Fetching DataCite JSON...")
-    time.sleep(10)
-    json_url = f"https://zenodo.org/records/{zenodo_record_id}/export/datacite-json"
-    json_response = session.get(json_url, headers=export_headers)
-    json_response.raise_for_status()
-    json_content = json_response.text
-    print("   Received JSON")
-
-    # Save the files
-    with open("zenodo_datacite.xml", "w") as f:
-        f.write(xml_content)
-
-    with open("zenodo_original.json", "w") as f:
-        f.write(json_content)
-
-    print("\nSaved:")
-    print("   - zenodo_datacite.xml")
-    print("   - zenodo_original.json")
-
-    return xml_content, json_content
-
-
-def check_sample_data(xml_content, zenodo_json) -> bool:
-    """
-    Check the converter against Zenodo's DataCite XML and JSON serializations.
-
-    Args:
-        zenodo_id: Zenodo record ID (e.g., '1234567')
-    """
-    # Create session with retry logic
-    zenodo_json = json.loads(zenodo_json)
-
-    # 3. Convert XML to JSON using our converter
-    print("\n3. Converting XML to JSON using converter...")
-    root = etree.fromstring(xml_content.encode("utf-8"))
-    converter = DataciteXmlToJsonConverter()
-    converted_json = converter.convert_datacite_xml_to_json(root)
-    print("   Conversion complete")
-
-    # 4. Compare the two JSON structures
-    print("\n4. Comparing results...")
-
-    # Extract the data attributes from Zenodo JSON (if it's in the data/attributes format)
-    if "data" in zenodo_json and "attributes" in zenodo_json["data"]:
-        zenodo_attributes = zenodo_json["data"]["attributes"]
-    else:
-        zenodo_attributes = zenodo_json
-
-    # Compare key fields
-    comparison_fields = [
-        "creators",
-        "titles",
-        "publisher",
-        "publicationYear",
-        "types",
-        "subjects",
-        "contributors",
-        "dates",
-        "language",
-        "relatedIdentifiers",
-        "sizes",
-        "formats",
-        "version",
-        "rightsList",
-        "descriptions",
-        "geoLocations",
-        "fundingReferences",
-        "relatedItems",
-    ]
-
-    # Fields to exclude from comparison (Zenodo enrichments not in XML)
-    excluded_fields = {"doi"}  # Zenodo returns null, we extract from XML
-
-    # Helper function to normalize funding references for comparison
-    def normalize_funding_refs(funding_refs):
-        """Remove awardURI from funding references as it's a Zenodo enrichment."""
-        if not funding_refs:
-            return funding_refs
-        normalized = []
-        for ref in funding_refs:
-            ref_copy = ref.copy()
-            # Remove awardURI as it's added by Zenodo, not in XML
-            ref_copy.pop("awardURI", None)
-            normalized.append(ref_copy)
-        return normalized
-
-    differences = []
-    for field in comparison_fields:
-        if field in excluded_fields:
-            continue
-
-        zenodo_value = zenodo_attributes.get(field)
-        converted_value = converted_json.get(field)
-
-        # Special handling for fundingReferences to exclude awardURI
-        if field == "fundingReferences":
-            zenodo_value = normalize_funding_refs(zenodo_value)
-            converted_value = normalize_funding_refs(converted_value)
-
-        if zenodo_value is not None or converted_value is not None:
-            if zenodo_value != converted_value:
-                differences.append(
-                    {
-                        "field": field,
-                        "zenodo": zenodo_value,
-                        "converted": converted_value,
-                    }
-                )
-
-    if differences:
-        print(f"\n   Found {len(differences)} differences:")
-        for diff in differences[:5]:  # Show first 5 differences
-            print(f"\n   Field: {diff['field']}")
-            print(f"   Zenodo:    {json.dumps(diff['zenodo'], indent=2)[:200]}")
-            print(f"   Converted: {json.dumps(diff['converted'], indent=2)[:200]}")
-        if len(differences) > 5:
-            print(f"\n   ... and {len(differences) - 5} more differences")
-    else:
-        print("   ✓ No differences found! Structures are compatible.")
-
-    # Save outputs for manual inspection
-    with open("zenodo_original.json", "w") as f:
-        json.dump(zenodo_attributes, f, indent=2)
-
-    with open("zenodo_converted.json", "w") as f:
-        json.dump(converted_json, f, indent=2)
-
-    with open("zenodo_datacite.xml", "w") as f:
-        f.write(xml_content)
-
-    print("\n5. Files saved:")
-    print("   - zenodo_original.json (from Zenodo API)")
-    print("   - zenodo_converted.json (from XML conversion)")
-    print("   - zenodo_datacite.xml (original XML)")
-
-    return not differences
-
-
-if __name__ == "__main__":
-    import logging
-
-    logging.basicConfig(level=logging.DEBUG)
-
-    parser = argparse.ArgumentParser(
-        description="Test DataCite XML to JSON converter against Zenodo data"
-    )
-    parser.add_argument(
-        "--use-saved",
-        action="store_true",
-        help="Use saved zenodo_original.json and zenodo_datacite.xml files instead of fetching new data",
-    )
-    args = parser.parse_args()
-
-    if args.use_saved:
-        print("Using saved files...")
-        # Load saved files
-        try:
-            with open("zenodo_datacite.xml") as f:
-                xml_content = f.read()
-            with open("zenodo_original.json") as f:
-                json_content = f.read()
-            print("   ✓ Loaded zenodo_datacite.xml")
-            print("   ✓ Loaded zenodo_original.json")
-        except FileNotFoundError as e:
-            print(f"\n✗ Error: {e}")
-            print("\nRun without --use-saved to fetch and save new data first.")
-            exit(1)
-
-        # Process the saved files once
-        if check_sample_data(xml_content=xml_content, zenodo_json=json_content):
-            sys.exit(0)
-        else:
-            sys.exit(1)
-
-    # Main processing loop
-    record_count = 0
-    while True:
-        record_count += 1
-
-        # Fetch new record if in continuous mode
-        if record_count > 1:
-            print(f"\n{'='*80}")
-            print("Sleeping for 60 seconds before fetching next record...")
-            print(f"{'='*80}")
-            time.sleep(60)
-
-        print(f"\n{'='*80}")
-        print(f"Fetching record #{record_count}...")
-        print(f"{'='*80}")
-        xml_content, json_content = get_sample_random_record()
-
-        # Process the saved files once
-        if not check_sample_data(xml_content=xml_content, zenodo_json=json_content):
-            sys.exit(1)

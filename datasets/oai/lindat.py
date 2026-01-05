@@ -87,18 +87,30 @@ class LindatTransformer(BaseTransformer):
     def apply(self, stream_entry: StreamEntry, *args, **kwargs) -> StreamEntry:
         # Reset warnings for each record
         self.warnings = []
+        try:
+            if stream_entry.entry["record"].deleted:
+                # move oai_record to separate field and clear the deleted record
+                stream_entry.entry["oai_record"] = stream_entry.entry["record"]
+                stream_entry.entry["record"] = {}
+                return stream_entry
 
-        xml_root = etree.fromstring(stream_entry.entry["record"].raw)
+            xml_root = etree.fromstring(stream_entry.entry["record"].raw)
 
-        rdm_record = self._convert_lindat_to_rdm(xml_root)
+            rdm_record = self._convert_lindat_to_rdm(xml_root)
 
-        stream_entry = StreamEntry(
-            entry={
-                "oai_record": stream_entry.entry["record"],
-                "record": rdm_record,
-            }
-        )
-        stream_entry.errors.extend(self.warnings)
+            stream_entry = StreamEntry(
+                entry={
+                    "oai_record": stream_entry.entry["record"],
+                    "record": rdm_record,
+                }
+            )
+            stream_entry.errors.extend(self.warnings)
+        except Exception as e:
+            stream_entry.errors.append(f"Transformation error: {str(e)}")
+            current_app.logger.exception(
+                "Error transforming LINDAT/CLARIN record",
+            )
+
         return stream_entry
 
     def _convert_lindat_to_rdm(self, xml_root: etree._Element) -> dict:
@@ -474,8 +486,9 @@ class LindatTransformer(BaseTransformer):
             local_name = etree.QName(child).localname
             if local_name not in known_elements:
                 current_app.logger.error(
-                    "Unknown OLAC-DcmiTerms element: %s. Known elements: %s", 
-                    local_name, ', '.join(sorted(known_elements))
+                    "Unknown OLAC-DcmiTerms element: %s. Known elements: %s",
+                    local_name,
+                    ", ".join(sorted(known_elements)),
                 )
 
     def _validate_weblicht_elements(self, weblicht_component: etree._Element) -> None:
@@ -628,7 +641,9 @@ class LindatTransformer(BaseTransformer):
                     else:
                         # Single name - use as is but also set family_name as it is required
                         person_or_org["name"] = name
-                        person_or_org["family_name"] = name
+                        person_or_org["family_name"] = name.split(" ")[
+                            -1
+                        ]  # Use last part as family name
 
                     creators.append({"person_or_org": person_or_org})
 
@@ -671,7 +686,9 @@ class LindatTransformer(BaseTransformer):
                     else:
                         # Single name - use as is but also set family_name as it is required for personal type
                         person_or_org["name"] = name
-                        person_or_org["family_name"] = name
+                        person_or_org["family_name"] = name.split(" ")[
+                            -1
+                        ]  # Use last part as family name
 
                     contributors.append(
                         {
@@ -914,8 +931,17 @@ class LindatTransformer(BaseTransformer):
                     person_or_org["name"] = f"{last_name}, {first_name}"
                 elif last_name:
                     person_or_org["name"] = last_name
+                    if " " in last_name:
+                        # If last name has spaces, use the last part as family_name
+                        person_or_org["family_name"] = last_name.rsplit(" ", 1)[-1]
+                        person_or_org["given_name"] = last_name.rsplit(" ", 1)[0]
+                    else:
+                        person_or_org["family_name"] = last_name
                 elif first_name:
                     person_or_org["name"] = first_name
+                    # we need to have a family_name for personal type, so use
+                    # the first name to fill it and do not fill the first_name field
+                    person_or_org["family_name"] = first_name.split(" ")[-1]
                 else:
                     continue  # Skip if no name
 

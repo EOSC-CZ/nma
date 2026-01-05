@@ -6,13 +6,13 @@ from functools import wraps
 from flask import (
     Blueprint,
     abort,
+    current_app,
     flash,
     g,
     redirect,
     render_template,
     request,
     url_for,
-    current_app,
 )
 from flask_login import login_required
 from flask_menu import current_menu
@@ -40,24 +40,25 @@ from oarepo_ui.resources.components import (
 from oarepo_ui.resources.components.custom_fields import CustomFieldsComponent
 from oarepo_ui.resources.decorators import (
     allow_method,
+    pass_query_args,
     pass_record_latest,
     pass_route_args,
-    secret_link_or_login_required,
-    pass_query_args,
 )
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
 
-from riv.records.create_record import create_record
-from riv.resolvers.base import resolve_metadata
-from riv.views import RegisterForm
-from riv.records.api import generate_id
 from riv.proxies import current_riv_extension
-
+from riv.records.api import generate_id
+from riv.records.create_record import create_record
+from riv.resolvers.base import (
+    UnsupportedPIDError,
+    resolve_metadata,
+)
+from riv.views import RegisterForm
+from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
-
 
 logger = logging.getLogger("DatasetsUI")
 
@@ -95,6 +96,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         FilesLockedComponent,
         FilesQuotaAndTransferComponent,
         RDMVocabularyOptionsComponent,
+        OAIRecordComponent,
     ]
 
     record_detail_permissions = [
@@ -231,29 +233,20 @@ class DatasetsUIResource(RecordsUIResource):
 
             try:
                 if skip_metadata:
-                    metadata = {
-                        "title": "Untitled Dataset",
-                        "publication_date": "2025-01-01",
-                        "creators": [
-                            {
-                                "person_or_org": {
-                                    "name": "Unknown",
-                                    "type": "personal",
-                                    "family_name": "Unknown",
-                                }
-                            }
-                        ],
-                        "resource_type": {"id": "dataset"},
-                        "persistent_url": pid,
-                    }
                     problems = []
-                    record_data = {"metadata": metadata}
+                    record_data = {"metadata": {}}
                 else:
                     # Normal flow: resolve metadata from the identifier
                     metadata, problems = resolve_metadata(pid)
                     record_data = {"metadata": metadata}
 
-                create_record(record_data, problems)
+                published_record = create_record(record_data, pid, problems)
+                edit_link = url_for(
+                    "datasets_ui.deposit_edit",
+                    pid_value=published_record["id"],
+                    _external=True,
+                )
+
                 if not problems and skip_metadata:
                     flash(
                         _(
@@ -261,9 +254,12 @@ class DatasetsUIResource(RecordsUIResource):
                         ),
                         "success",
                     )
-                    return redirect(secret_link)
+                    return redirect(edit_link)
                 if not problems:
-                    flash(_("Successfully registered dataset with PID: %(pid)s", pid=pid), "success")
+                    flash(
+                        _("Successfully registered dataset with PID: %(pid)s", pid=pid),
+                        "success",
+                    )
                     return redirect(
                         url_for(
                             "datasets_ui.record_detail", pid_value=record_data["id"]
@@ -282,16 +278,21 @@ class DatasetsUIResource(RecordsUIResource):
                         f'<ul class="list">{issues_list}</ul>'
                     )
                     flash(warning_message, "warning")
-                    return redirect(
-                        url_for(
-                            "datasets_ui.deposit_edit", pid_value=record_data["id"]
-                        )
-                    )
-            except PIDAlreadyExists:
-                flash(_("This dataset is already registered."), "info")
+                    return redirect(edit_link)
+            except PIDAlreadyExists as e:
                 return redirect(
-                    url_for("datasets_ui.record_detail", pid_value=record_data["id"])
+                    url_for("datasets_ui.record_detail", pid_value=e.pid_value)
                 )
+            except UnsupportedPIDError:
+                flash(
+                    _(
+                        "The provided identifier is a URL that can not be registered at the moment. "
+                        "If your dataset does not have a DOI or a handle in URL format, "
+                        'please contact support at <a href="mailto:info@eosc.cz">info@eosc.cz</a>.'
+                    ),
+                    "error",
+                )
+                return redirect(url_for("datasets_ui.deposit_create"))
             except Exception as e:
                 logger.exception("Error registering dataset with PID %s", pid)
                 flash(_("Error registering dataset: %(error)s", error=str(e)), "error")
@@ -305,7 +306,7 @@ class DatasetsUIResource(RecordsUIResource):
         )
 
     @pass_route_args("view")
-    @secret_link_or_login_required()
+    @login_required
     @pass_record_latest
     @no_cache_response
     def deposit_edit(self, record, draft_files=None, files_locked=True, **kwargs):
@@ -342,7 +343,7 @@ def init_menu(app):
     with app.app_context():
         current_menu.submenu("plus.create_datasets").register(
             f"{ui_resource_config.blueprint_name}.deposit_create",
-            _("Register a Dataset"),
+            _("Verify dataset for RIV"),
             order=1,
             visible_when=can_view_deposit_page,
         )

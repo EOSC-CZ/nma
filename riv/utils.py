@@ -9,6 +9,7 @@
 
 """Utility functions for RIV module."""
 
+import time
 from typing import Any
 
 import click
@@ -19,11 +20,35 @@ from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
 
 
+class ThrottledSession(requests.Session):
+    """Requests session with throttling to limit request rate."""
+
+    def __init__(self, min_interval: float = 0.0):
+        """
+        min_interval: minimum seconds between requests
+        """
+        super().__init__()
+        self.min_interval = min_interval
+        self._last_request_ts = 0.0
+
+    def request(self, *args, **kwargs):
+        now = time.monotonic()
+        elapsed = now - self._last_request_ts
+
+        if elapsed < self.min_interval:
+            time.sleep(self.min_interval - elapsed)
+
+        self._last_request_ts = time.monotonic()
+
+        return super().request(*args, **kwargs)
+
+
 def create_session_with_retries(
     total_retries: int = 4,
     status_forcelist: list[int] | None = None,
     backoff_factor: float = 0.3,
     respect_retry_after_header: bool = True,
+    throttle_sleep: float = 0.0,
     **kwargs: Any,
 ):
     """Create a requests session with retry strategy.
@@ -46,8 +71,16 @@ def create_session_with_retries(
         **kwargs,
     )
     adapter = HTTPAdapter(max_retries=retry_strategy)
-    session = requests.Session()
+    session = ThrottledSession(min_interval=throttle_sleep)
     session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    # be polite and set User-Agent and From headers so that we can be contacted if needed
+    session.headers.update(
+        {
+            "User-Agent": "CESNET - NMA Harvesting module/1.0 nrp-repo_L3@eosc.cz",
+            "From": "nrp-repo_L3@eosc.cz",
+        }
+    )
     return session
 
 

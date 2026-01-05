@@ -96,7 +96,4 @@ print_success "Role 'riv_curators' created and user@demo.org assigned"
 
 # Step 6: Create harvesters
 print_step "Creating OAI harvesters..."
-invenio oai harvesters create --id catchall --name "Catch-all repository harvester" \
-    --base-url "https://data.narodni-repozitar.cz" --metadata-prefix "catchall" --model datasets \
-    --loader catch-all --transformer "catch-all"
-print_success "Harvester 'catchall' created"
+$(dirname "$0")/create_oai_harvesters.sh

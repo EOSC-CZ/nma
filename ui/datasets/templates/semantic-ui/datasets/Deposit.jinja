@@ -1,4 +1,3 @@
-
 {#def form #}
 
 {% extends "page.html" %}
@@ -8,8 +7,8 @@
   <div class="ui stackable grid centered container">
     <h1 class="ui header row">
       <div class="content">
-        {{ _('Register a Dataset') }}
-        <p class="sub header rel-mt-1">{{ _("Provide your dataset's persistent identifier to register it with National Metadata Directory.") }}</>
+        {{ _('Verify a dataset for RIV') }}
+        <p class="sub header rel-mt-1">{{ _("To report a dataset (type T result) in RIV, you must provide a link to the National Metadata Directory (NMD), which records its core metadata. On this page, you can verify whether the NMD has the dataset registered or register it into the NMD if needed.") }}</p>
       </div>
     </h1>
     <div class="row equal width centered">
@@ -31,14 +30,14 @@
                     {% endif %}
                     </div>
                     <p class="text-tiny">
-                        {{ _("If the dataset has more than one identifier assigned (such as both DOI and Handle), we recommend entering the DOI. DOI provides the most reliable and complete metadata for automatic processing.") }}
+                        {{ _("The dataset must have a persistent identifier. If the dataset has multiple identifiers (e.g., both a DOI and a Handle), we recommend providing the DOI.") }}
                     </p>
                     <button class="ui huge primary button rel-mt-1" type="submit" data-testid="deposit-create-register-doi-submit">
                         <i class="check icon"></i>
-                        {{ _('Register') }}
+                        {{ _('Obtain the link for RIV submission') }}
                     </button>
                     <p class="text-tiny text-muted block rel-mt-2">
-                        {% trans %}By submitting this Persistent Identifier (PID) using the <strong>Register</strong> button, you declare that you have the legal right or authorization to register, curate, or otherwise manage the associated dataset within the National Metadata Directory (NMD). You confirm that the registration of this dataset does not infringe any intellectual property rights, contractual obligations, confidentiality agreements, or applicable institutional or funding rules.{% endtrans %}
+                        {% trans %}By submitting this Persistent Identifier (PID) using the <strong>Obtain the link for RIV submission</strong> button, you declare that you have the legal right or authorization to register, curate, or otherwise manage the associated dataset within the National Metadata Directory (NMD). You confirm that the registration of this dataset does not infringe any intellectual property rights, contractual obligations, confidentiality agreements, or applicable institutional or funding rules.{% endtrans %}
                     </p>
                     <div class="field rel-mt-2">
                         <div class="ui checkbox">
@@ -56,12 +55,12 @@
                     {{ _('What happens next?') }}
                 </div>
                 <ul class="list">
-                    <li>{{ _('We verify the identifier with its authority (DOI/Handle resolver).') }}</li>
-                    <li>{{ _('We try to automatically fetch dataset metadata: (e.g. title, authors, year, publisher)') }}</li>
-                    <li>{{ _('A metadata record will be created and published in NMD, based on the resolved metadata.') }}</li>
-                    <li>{{ _("You'll be able to review and edit the metadata if needed.") }}</li>
-                    <li>{{ _("After a certain period of time, the record gets locked and can be no longer edited.") }}</li>
-                    <li>{{ _("If the identifier has already been registered with NMD, you will be redirected to the existing record") }}</li>
+                    <li>{{ _('If the dataset is already in the NMD, we issue the RIV link immediately. No further action is needed.') }}</li>
+                    <li>{{ _('If the dataset is not in the NMD, we attempt to automatically retrieve and download its metadata.') }}</li>
+                    <li>{{ _('If this results in a complete, valid record in the NMD, you will receive the RIV link.') }}</li>
+                    <li class="rel-mb-1">{{ _('If key fields are missing, we will request additional information from you. You’ll also receive an email with a link to amend the record if corrections are needed. ⚠️ This link expires after 7 days.') }}</li>
+                    <li>{% trans %}Need assistance? Contact: <a href="mailto:info@eosc.cz">info@eosc.cz</a>.{% endtrans %}</li>
+                    <li>{{ _('If you had to create or correct the record manually, ask your repository administrator to have it harvested into the NMD.') }}</li>
                 </ul>
             </div>
             <div class="ui message rel-ml-2 mt-0">

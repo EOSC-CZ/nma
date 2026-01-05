@@ -1,21 +1,28 @@
 import re
-from ..resolvers import MetadataResolver
-from .base import ResolverProblem, ResolverProblemLevel
-from invenio_vocabularies.proxies import current_service as vocabulary_service
-from invenio_access.permissions import system_identity
-from flask import current_app
-from .utils import handle_errors, validate_date
-from marshmallow_utils.fields import EDTFDateString, EDTFDateTimeString
-from marshmallow import validate
-from marshmallow import ValidationError
-from invenio_i18n import lazy_gettext as _
-from idutils.validators import is_doi
-from idutils.normalizers import normalize_doi
-from invenio_rdm_records.services.schemas.metadata import record_personorg_schemes, record_identifiers_schemes, \
-    record_related_identifiers_schemes
+
 import langcodes
-from .utils import escape_lucene
-from .base import CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER
+from flask import current_app
+from idutils.normalizers import normalize_doi
+from idutils.validators import is_doi
+from invenio_access.permissions import system_identity
+from invenio_i18n import lazy_gettext as _
+from invenio_rdm_records.services.schemas.metadata import (
+    record_identifiers_schemes,
+    record_personorg_schemes,
+    record_related_identifiers_schemes,
+)
+from invenio_vocabularies.proxies import current_service as vocabulary_service
+from marshmallow import ValidationError
+from marshmallow_utils.fields import EDTFDateString
+
+from ..resolvers import MetadataResolver
+from .base import (
+    CREATORS_PLACEHOLDER,
+    PUBLICATION_DATE_PLACEHOLDER,
+    ResolverProblem,
+    ResolverProblemLevel,
+)
+from .utils import escape_lucene, handle_errors, validate_date
 
 
 class DataciteResolver(MetadataResolver):
@@ -24,38 +31,53 @@ class DataciteResolver(MetadataResolver):
     def can_resolve(self, persistent_url: str) -> bool:
 
         return is_doi(persistent_url)
-    def resolve_metadata(self,datacite_metadata):
+
+    def resolve_metadata(self, datacite_metadata) -> tuple[dict, list[ResolverProblem]]:
         metadata = {}
         problems = []
         # (main) title
         # datacite required, rdm required
         datacite_titles = datacite_metadata.get("titles", [])
-        main_title = self.resolve_datacite_main_title(titles=datacite_titles, problems=problems)
+        main_title = self.resolve_datacite_main_title(
+            titles=datacite_titles, problems=problems
+        )
         metadata["title"] = main_title
 
         # additional titles
         # not required
-        additional_titles = self.resolve_datacite_additional_titles(titles=datacite_titles)
-        if additional_titles and type(additional_titles) == list and len(additional_titles) > 0:
+        additional_titles = self.resolve_datacite_additional_titles(
+            titles=datacite_titles
+        )
+        if (
+            additional_titles
+            and type(additional_titles) == list
+            and len(additional_titles) > 0
+        ):
             metadata["additional_titles"] = additional_titles
 
         # creators
         # datacite required, rdm required
         datacite_creators = datacite_metadata.get("creators", [])
-        creators = self.resolve_datacite_creators(creators=datacite_creators, problems=problems)
+        creators = self.resolve_datacite_creators(
+            creators=datacite_creators, problems=problems
+        )
         metadata["creators"] = creators
 
         # publication date
         # datacite required, rdm required
         publication_date = datacite_metadata.get("publicationYear")
-        metadata["publication_date"] = self.resolve_datacite_publication_date(publication_date=publication_date,
-                                                                              problems=problems)
+        metadata["publication_date"] = self.resolve_datacite_publication_date(
+            publication_date=publication_date, problems=problems
+        )
 
         # resource type
         # datacite required, rdm required
         datacite_resource_type = datacite_metadata.get("types", {})
         metadata["resource_type"] = {
-            "id": self.resolve_datacite_resource_type(resource_type=datacite_resource_type, problems=problems)}
+            "id": self.resolve_datacite_resource_type(
+                resource_type=datacite_resource_type, problems=problems
+            )
+        }
 
         # publisher
         # not required
@@ -67,7 +89,9 @@ class DataciteResolver(MetadataResolver):
         # contributors
         # not required
         datacite_contributors = datacite_metadata.get("contributors", [])
-        contributors = self.resolve_datacite_contributors(contributors=datacite_contributors)
+        contributors = self.resolve_datacite_contributors(
+            contributors=datacite_contributors
+        )
         if len(contributors) > 0:
             metadata["contributors"] = contributors
 
@@ -96,13 +120,17 @@ class DataciteResolver(MetadataResolver):
 
         # descriptions
         datacite_descriptions = datacite_metadata.get("descriptions", [])
-        description = self.resolve_datacite_descriptions(descriptions=datacite_descriptions)
+        description = self.resolve_datacite_descriptions(
+            descriptions=datacite_descriptions
+        )
         if description:
             metadata["description"] = description
 
         # additional descriptions
         # not required
-        additional_desc = self.resolve_datacite_additional_descriptions(descriptions=datacite_descriptions)
+        additional_desc = self.resolve_datacite_additional_descriptions(
+            descriptions=datacite_descriptions
+        )
         if len(additional_desc) > 0:
             metadata["additional_descriptions"] = additional_desc
 
@@ -135,10 +163,28 @@ class DataciteResolver(MetadataResolver):
         if len(rights) > 0:
             metadata["rights"] = rights
 
+        # identifiers
+        identifiers = [
+            {
+                "identifier": id_with_scheme["identifier"],
+                "scheme": id_with_scheme["identifierType"].lower(),
+            }
+            for id_with_scheme in datacite_metadata.get("identifiers", [])
+            if id_with_scheme["identifierType"].lower() in record_identifiers_schemes
+        ]
+        metadata["identifiers"] = identifiers
+        for identifier in identifiers:
+            if identifier["scheme"] == "doi":
+                metadata["persistent_url"] = (
+                    f'https://doi.org/{identifier["identifier"]}'
+                )
+                break
+
         return metadata, problems
+
     def resolve(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
 
-        datacite_url = current_app.config.get('DATACITE_URL')
+        datacite_url = current_app.config.get("DATACITE_URL")
         doi = normalize_doi(persistent_url)
         url = f"{datacite_url}/{doi}"
         response = self.session.get(
@@ -146,14 +192,25 @@ class DataciteResolver(MetadataResolver):
         )
         if response.status_code != 200:
             if response.status_code == 404:
-                return None, [ResolverProblem(resolver=self.name, message=_(
-                    "The identifier looks like a DOI, but it was not found in the DataCite registry."),
-                                              level=ResolverProblemLevel.ERROR)]
+                return None, [
+                    ResolverProblem(
+                        resolver=self.name,
+                        message=_(
+                            "The identifier looks like a DOI, but it was not found in the DataCite registry."
+                        ),
+                        level=ResolverProblemLevel.ERROR,
+                    )
+                ]
             else:
-                return None, [ResolverProblem(resolver=self.name, message=_(
-                    f"Unexpected error while resolving the DOI. DataCite returned: {response.content}. "),
-                                              level=ResolverProblemLevel.ERROR)]
-
+                return None, [
+                    ResolverProblem(
+                        resolver=self.name,
+                        message=_(
+                            f"Unexpected error while resolving the DOI. DataCite returned: {response.content}. "
+                        ),
+                        level=ResolverProblemLevel.ERROR,
+                    )
+                ]
 
         data = response.json()
         datacite_metadata = data["data"]["attributes"]
@@ -173,15 +230,17 @@ class DataciteResolver(MetadataResolver):
                 else:
                     continue
                 if type(_type) == str:
-                    d_type = re.sub(r'(?<!^)([A-Z])', r'-\1', _type).lower()
+                    d_type = re.sub(r"(?<!^)([A-Z])", r"-\1", _type).lower()
                     try:
-                        vocabulary_service.read(system_identity, ("descriptiontypes", d_type))
+                        vocabulary_service.read(
+                            system_identity, ("descriptiontypes", d_type)
+                        )
                         description_obj["type"] = {"id": d_type}
                     except:
                         current_app.logger.exception(
                             "Record '%s' was not found in the '%s' vocabulary.",
                             description,
-                            'descriptionType'
+                            "descriptionType",
                         )
                         continue
                 d_lang = d.get("lang")
@@ -219,7 +278,7 @@ class DataciteResolver(MetadataResolver):
                 scheme = scheme.lower()
             if not identifier or not scheme or not rel_type:
                 continue
-            if not scheme in record_related_identifiers_schemes:
+            if scheme not in record_related_identifiers_schemes:
                 continue
             obj = {
                 "identifier": identifier,
@@ -241,18 +300,18 @@ class DataciteResolver(MetadataResolver):
                     continue
                 else:
                     resolved_rel_type = resolved_types[0]["id"]
-            except: #required
+            except:  # required
                 current_app.logger.exception(
                     "Record '%s' was not found in the '%s' vocabulary.",
                     rel_type,
-                    'relationtypes'
+                    "relationtypes",
                 )
                 continue
             obj["relation_type"] = {"id": resolved_rel_type}
 
             res_type = rel.get("resourceTypeGeneral")
             if res_type:
-                vocabulary_id = 'resourcetypes'
+                vocabulary_id = "resourcetypes"
                 try:
                     escaped = escape_lucene(res_type)
                     voc = vocabulary_service.search(
@@ -271,11 +330,11 @@ class DataciteResolver(MetadataResolver):
                         resolved_type = resolved_types[0]["id"]
 
                     obj["resource_type"] = {"id": resolved_type}
-                except: #not required
+                except:  # not required
                     current_app.logger.exception(
                         "Record '%s' was not found in the '%s' vocabulary.",
                         res_type,
-                        'resourcetypes'
+                        "resourcetypes",
                     )
 
             result.append(obj)
@@ -323,8 +382,8 @@ class DataciteResolver(MetadataResolver):
             except:
                 current_app.logger.exception(
                     "Record '%s' was not found in the '%s' vocabulary.",
-                    type ,
-                    "datetypes"
+                    type,
+                    "datetypes",
                 )
                 continue
             date_object["date"] = date
@@ -339,14 +398,12 @@ class DataciteResolver(MetadataResolver):
             code = r.get("rightsIdentifier")
             if code:
                 try:
-                    vocabulary_service.read(
-                        system_identity, ("licenses", code)
-                    )
+                    vocabulary_service.read(system_identity, ("licenses", code))
                 except:
                     current_app.logger.exception(
                         "Record '%s' was not found in the '%s' vocabulary.",
                         code,
-                        "licenses"
+                        "licenses",
                     )
                     continue
                 rights_list.append({"id": code})
@@ -366,15 +423,13 @@ class DataciteResolver(MetadataResolver):
         if language:
             try:
                 longer_code = langcodes.Language.get(language.lower()).to_alpha3()
-                vocabulary_service.read(
-                    system_identity, ("languages", longer_code)
-                )
+                vocabulary_service.read(system_identity, ("languages", longer_code))
                 return longer_code
             except:
                 current_app.logger.exception(
                     "Record '%s' was not found in the '%s' vocabulary.",
                     longer_code,
-                    "languages"
+                    "languages",
                 )
         return None
 
@@ -387,19 +442,31 @@ class DataciteResolver(MetadataResolver):
     @handle_errors(error_placeholder="Unknown title", alert_user=True)
     def resolve_datacite_main_title(self, *, titles, problems):
         for title in titles:
-            if 'title' in title and 'titleType' not in title:  # if titleType, it is additional title
+            if (
+                "title" in title and "titleType" not in title
+            ):  # if titleType, it is additional title
                 if len(title["title"]) < 3:
-                    problems.append(ResolverProblem(resolver=self.name, message=_(
-                        "The title is too short. A minimum of 3 characters is required to meet repository requirements."),
-                                                    level=ResolverProblemLevel.WARNING))
-                    return f'Incompatible title: {title} (please provide a corrected title)'
-                return title['title']
+                    problems.append(
+                        ResolverProblem(
+                            resolver=self.name,
+                            message=_(
+                                "The title is too short. A minimum of 3 characters is required to meet repository requirements."
+                            ),
+                            level=ResolverProblemLevel.WARNING,
+                        )
+                    )
+                    return f"Incompatible title: {title} (please provide a corrected title)"
+                return title["title"]
         # todo in the documentation it seems that it is possible to have only additional title, test this
         problems.append(
-            ResolverProblem(resolver=self.name, message=_("Missing title."),
-                            level=ResolverProblemLevel.WARNING))
+            ResolverProblem(
+                resolver=self.name,
+                message=_("Missing title."),
+                level=ResolverProblemLevel.WARNING,
+            )
+        )
 
-        return 'Missing title'  # should never happen
+        return "Missing title"  # should never happen
 
     @handle_errors()
     def resolve_datacite_additional_titles(self, titles):
@@ -430,7 +497,7 @@ class DataciteResolver(MetadataResolver):
                 current_app.logger.exception(
                     "Record '%s' was not found in the '%s' vocabulary.",
                     t_type,
-                    "titletypes"
+                    "titletypes",
                 )
                 continue
             t_title = title.get("title")
@@ -451,8 +518,8 @@ class DataciteResolver(MetadataResolver):
 
     @handle_errors()
     def split_personal_name(self, name):
-        if ',' in name:
-            family, given = [part.strip() for part in name.split(',', 1)]
+        if "," in name:
+            family, given = [part.strip() for part in name.split(",", 1)]
         else:
             family, given = name.strip(), ""
         return family, given
@@ -462,8 +529,12 @@ class DataciteResolver(MetadataResolver):
 
         if len(creators) == 0:
             problems.append(
-                ResolverProblem(resolver=self.name, message=_("Missing creators."),
-                                level=ResolverProblemLevel.WARNING))
+                ResolverProblem(
+                    resolver=self.name,
+                    message=_("Missing creators."),
+                    level=ResolverProblemLevel.WARNING,
+                )
+            )
             return CREATORS_PLACEHOLDER
 
         creator_list = []
@@ -471,35 +542,43 @@ class DataciteResolver(MetadataResolver):
         for creator in creators:
             creator_obj = {}
 
-            creator_type = creator.get('nameType', 'personal').lower()
-            creator_obj['type'] = creator_type
+            creator_type = creator.get("nameType", "personal").lower()
+            creator_obj["type"] = creator_type
 
-            given = creator.get('givenName')
-            family = creator.get('familyName')
-            name = creator.get('name')
+            given = creator.get("givenName")
+            family = creator.get("familyName")
+            name = creator.get("name")
             if name is None:
-                name = 'Unknown Creator'  # should never happen
+                name = "Unknown Creator"  # should never happen
                 problems.append(
-                    ResolverProblem(resolver=self.name, message=_(f"Missing creators name: {creator}."),
-                                    level=ResolverProblemLevel.WARNING))
+                    ResolverProblem(
+                        resolver=self.name,
+                        message=_(f"Missing creators name: {creator}."),
+                        level=ResolverProblemLevel.WARNING,
+                    )
+                )
 
-            creator_obj['name'] = name
+            creator_obj["name"] = name
 
-            if creator_type == 'personal':
+            if creator_type == "personal":
                 parsed_family, parsed_given = self.split_personal_name(name)
 
                 family = family or parsed_family
                 given = given or (parsed_given if parsed_given else None)
 
             if given:
-                creator_obj['given_name'] = given
+                creator_obj["given_name"] = given
             if family:
-                creator_obj['family_name'] = family
+                creator_obj["family_name"] = family
 
             name_identifiers = self.resolve_datacite_name_identifiers(
                 name_identifiers=creator.get("nameIdentifiers", [])
             )
-            if name_identifiers and type(name_identifiers) == list and len(name_identifiers) > 0:
+            if (
+                name_identifiers
+                and type(name_identifiers) == list
+                and len(name_identifiers) > 0
+            ):
                 creator_obj["identifiers"] = name_identifiers
             creator_list.append({"person_or_org": creator_obj})
 
@@ -518,9 +597,7 @@ class DataciteResolver(MetadataResolver):
 
             given = contributor.get("givenName")
             family = contributor.get("familyName")
-            name = contributor.get("name") or " ".join(
-                p for p in [given, family] if p
-            )
+            name = contributor.get("name") or " ".join(p for p in [given, family] if p)
             person["name"] = name
 
             if contributor_type == "personal":
@@ -563,7 +640,7 @@ class DataciteResolver(MetadataResolver):
                 current_app.logger.exception(
                     "Record '%s' was not found in the '%s' vocabulary.",
                     role,
-                    "contributorsroles"
+                    "contributorsroles",
                 )
             if resolved_role:
                 entry["role"] = {"id": resolved_role}
@@ -574,6 +651,7 @@ class DataciteResolver(MetadataResolver):
 
     @handle_errors()
     def resolve_datacite_name_identifiers(self, *, name_identifiers):
+        from datasets.services import resolve_orcid
 
         identifiers = []
         seen = []
@@ -588,6 +666,22 @@ class DataciteResolver(MetadataResolver):
 
             if not identifier or not scheme or scheme not in record_personorg_schemes:
                 continue
+            if scheme == "orcid":
+                try:
+                    identifier_dict = resolve_orcid(
+                        orcid=identifier,
+                        vocabulary="names",
+                        parent=ni,
+                        create_vocabulary_record=True,
+                        check_existing=True,
+                    )
+                    identifier = identifier_dict["id"]
+                except Exception:
+                    current_app.logger.exception(
+                        "Error resolving ORCID identifier '%s'.",
+                        identifier,
+                    )
+                    continue
             obj = {"identifier": identifier}
 
             obj["scheme"] = scheme
@@ -602,17 +696,24 @@ class DataciteResolver(MetadataResolver):
             edtf_string.deserialize(publication_date)
         except ValidationError as e:
             problems.append(
-                ResolverProblem(resolver=self.name, message=_(f"Invalid publication date format: {publication_date}."),
-                                level=ResolverProblemLevel.WARNING, original_exception=e))
+                ResolverProblem(
+                    resolver=self.name,
+                    message=_(f"Invalid publication date format: {publication_date}."),
+                    level=ResolverProblemLevel.WARNING,
+                    original_exception=e,
+                )
+            )
             return PUBLICATION_DATE_PLACEHOLDER
         if not validate_date(publication_date):
             publication_date = PUBLICATION_DATE_PLACEHOLDER
         return publication_date
 
-    @handle_errors('dataset')
+    @handle_errors("dataset")
     def resolve_datacite_resource_type(self, *, resource_type, problems):
-        vocabulary_id = 'resourcetypes'
-        _type = resource_type.get("resourceTypeGeneral", "Dataset")  # dataset as default option
+        vocabulary_id = "resourcetypes"
+        _type = resource_type.get(
+            "resourceTypeGeneral", "Dataset"
+        )  # dataset as default option
         try:
             escaped = escape_lucene(_type)
             voc = vocabulary_service.search(
@@ -622,11 +723,15 @@ class DataciteResolver(MetadataResolver):
             )
             resolved_types = voc.to_dict()["hits"]["hits"]
             if len(resolved_types) > 1:
-                ResolverProblem(resolver=self.name, message=_(
-                    f"Multiple values were resolved for the vocabulary value {_type}. The first value was used."),
-                                level=ResolverProblemLevel.WARNING)
+                ResolverProblem(
+                    resolver=self.name,
+                    message=_(
+                        f"Multiple values were resolved for the vocabulary value {_type}. The first value was used."
+                    ),
+                    level=ResolverProblemLevel.WARNING,
+                )
                 current_app.logger.exception(
-                   "Multiple values were resolved for the vocabulary value %s. The first value was used.",
+                    "Multiple values were resolved for the vocabulary value %s. The first value was used.",
                     _type,
                 )
                 return "dataset"
@@ -634,12 +739,18 @@ class DataciteResolver(MetadataResolver):
             return resolved_type
         except Exception as e:
             problems.append(
-                ResolverProblem(resolver=self.name, message=_(
-                    f"The provided resource type {_type} could not be parsed. The default value 'dataset' has been applied."),
-                                level=ResolverProblemLevel.WARNING, original_exception=e))
+                ResolverProblem(
+                    resolver=self.name,
+                    message=_(
+                        f"The provided resource type {_type} could not be parsed. The default value 'dataset' has been applied."
+                    ),
+                    level=ResolverProblemLevel.WARNING,
+                    original_exception=e,
+                )
+            )
             current_app.logger.exception(
                 "Record '%s' was not found in the '%s' vocabulary.",
                 _type,
-                vocabulary_id
+                vocabulary_id,
             )
             return "dataset"

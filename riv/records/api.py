@@ -32,6 +32,10 @@ class ExternalPIDProvider(DraftRecordIdProviderV2):
     # NEW status due to eg invenio_pidstore.resolver.Resolver.resolve crashing on resolving links
 
     @classmethod
+    def get_pid_value_from_record(cls, record_data: dict[str, Any]) -> str:
+        return cls.generate_id({"record": record_data})
+
+    @classmethod
     @override
     def generate_id(cls, options: dict[str, Any] = None) -> str:
         return options["record"]["id"]

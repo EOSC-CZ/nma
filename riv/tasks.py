@@ -1,9 +1,12 @@
+from __future__ import annotations
+
 import shlex
 import subprocess
 import sys
 import traceback
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import click
 from celery import shared_task
@@ -11,11 +14,15 @@ from flask import current_app
 from invenio_access.permissions import system_identity
 from invenio_jobs.jobs import JobType, PredefinedArgsSchema
 from invenio_records_resources.proxies import current_service_registry
+from invenio_search import current_search
 from marshmallow import fields
 from opensearch_dsl import Q
 
 from .config import LAST_CHECKED_THRESHOLD_DAYS
 from .utils import check_url_availability
+
+if TYPE_CHECKING:
+    from datetime import datetime
 
 
 @shared_task(ignore_result=True)
@@ -119,7 +126,7 @@ def check_availability_task():
 
 
 @shared_task(ignore_result=True)
-def invenio_command(cmdline: str):
+def invenio_command(cmdline: str, timeout=600):
     """Run an invenio CLI command in a Celery task."""
 
     # split the cmdline into parts separated by &&
@@ -128,7 +135,7 @@ def invenio_command(cmdline: str):
     failed_subcommands = []
     for command in commands:
         current_app.logger.info("Running command: invenio %s", command)
-        resultcode, stdout, stderr = _run_invenio_command(command)
+        resultcode, stdout, stderr = _run_invenio_command(command, timeout=timeout)
         for line in stdout:
             current_app.logger.info("%s", line)
         for line in stderr:
@@ -148,7 +155,7 @@ def invenio_command(cmdline: str):
         )
 
 
-def _run_invenio_command(cmdline: str) -> tuple[int, list[str], list[str]]:
+def _run_invenio_command(cmdline: str, timeout=600) -> tuple[int, list[str], list[str]]:
     # get the current python executable
     current_python = sys.executable
     invenio_cmd = Path(current_python).parent / "invenio"
@@ -156,12 +163,22 @@ def _run_invenio_command(cmdline: str) -> tuple[int, list[str], list[str]]:
         raise FileNotFoundError(f"Invenio command not found at {invenio_cmd}")
 
     try:
+        current_app.logger.info(
+            "Executing command: %s %s with timeout %s",
+            str(invenio_cmd),
+            cmdline,
+            timeout,
+        )
         result = subprocess.run(
             [str(invenio_cmd)] + shlex.split(cmdline),
             capture_output=True,
             text=True,
             stdin=subprocess.DEVNULL,
-            timeout=600,  # 10 minutes
+            timeout=timeout,  # 10 minutes by default
+        )
+        current_app.logger.info(
+            "Command executed with return code %s",
+            result.returncode,
         )
         return result.returncode, result.stdout.splitlines(), result.stderr.splitlines()
     except subprocess.CalledProcessError as e:
@@ -182,6 +199,12 @@ class InvenioTaskJobSchema(PredefinedArgsSchema):
     cmdline = fields.String(
         required=True,
         metadata={"description": "The Invenio CLI command to run."},
+    )
+    timeout = fields.Integer(
+        required=False,
+        dump_default=600,
+        load_default=600,
+        metadata={"description": "Timeout for each command in seconds."},
     )
 
 
@@ -205,7 +228,7 @@ class InvenioTaskJob(JobType):
             executed.
         :return: a dict of arguments to be injected on task execution.
         """
-        return {"cmdline": cmdline}
+        return {"cmdline": cmdline, "timeout": kwargs.get("timeout", 600)}
 
 
 @shared_task(ignore_result=True)
@@ -227,17 +250,24 @@ class CreateMissingIndicesJob(JobType):
 
 @shared_task(ignore_result=True)
 def rebuild_all_indices():
-    invenio_command(
-        "index destroy --yes-i-know"
-        + "&&"
-        + "index init"
-        + "&&"
-        + "rdm-records custom-fields init"
-        + "&&"
-        + "communities custom-fields init"
-        + "&&"
-        + "rdm rebuild-all-indices"
-    )
+
+    for name, response in current_search.delete(ignore=[400, 404]):
+        current_app.logger.info("Deleted index: %s, response: %s", name, response)
+    current_app.logger.info("Recreating all indices...")
+    for name, response in current_search.create(ignore_existing=True):
+        current_app.logger.info("Created index: %s, response: %s", name, response)
+    # oarepo patches
+    from importlib.metadata import entry_points
+
+    current_app.logger.info("Running Oarepo CLI search init entry points...")
+    for ep in entry_points(group="oarepo.cli.search.init"):
+        current_app.logger.info("Running entry point: %s", ep.name)
+        ep.load()()
+    current_app.logger.info("Oarepo CLI search init entry points completed.")
+
+    invenio_command("rdm-records custom-fields init")
+    invenio_command("communities custom-fields init")
+    invenio_command("rdm rebuild-all-indices")
 
 
 class RebuildAllIndicesJob(JobType):
