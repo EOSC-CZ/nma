@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-04 17:37+0100\n"
+"POT-Creation-Date: 2026-01-05 07:48+0100\n"
 "PO-Revision-Date: 2025-12-16 14:58+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cs\n"
@@ -267,7 +267,18 @@ msgstr ""
 "Přeskočit načítání metadat. Použijte pouze v případech, kdy běžný proces "
 "registrace opakovaně selhává."
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:135
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:34
+#, python-format
+msgid "Publication date format did not pass validation; format: %(date)s."
+msgstr "Formát data publikace neprošel validací; formát: %(date)s."
+
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:39
+#, python-format
+msgid "Invalid publication date format: %(date)s."
+msgstr "Neplatný formát data publikace: %(date)s."
+
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:131
+#, python-format
 msgid "An unexpected error occurred in the resolver '%(resolver)s': %(error)s."
 msgstr "V resolveru '%(resolver)s' došlo k neočekávané chybě: %(error)s."
 
@@ -278,7 +289,7 @@ msgid ""
 msgstr "Identifikátor vypadá jako DOI, ale nebyl nalezen v registru CrossRef."
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:110
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:447
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:451
 msgid ""
 "The title is too short. A minimum of 3 characters is required to meet "
 "repository requirements."
@@ -287,18 +298,18 @@ msgstr ""
 "minimálně 3 znaky."
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:115
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:458
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:114
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:462
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:115
 msgid "Missing title."
 msgstr "Chybí název."
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:123
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:528
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:127
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:532
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:128
 msgid "Missing creators."
 msgstr "Chybí autoři."
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:193
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:197
 msgid ""
 "The identifier looks like a DOI, but it was not found in the DataCite "
 "registry."
@@ -310,7 +321,14 @@ msgid ""
 "registry."
 msgstr "Identifikátor vypadá jako Handle, ale nebyl nalezen v registru Handle."
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:163
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:80
+#, python-format
+msgid ""
+"Unexpected error while resolving the Handle. Response returned: "
+"%(response)s. "
+msgstr "Neočekávaná chyba při zpracování Handle. Vrácená odpověď: %(response)s."
+
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:164
 msgid "Publication date missing."
 msgstr "Chybí datum publikace."
 
@@ -382,7 +400,7 @@ msgstr ""
 "href=\"%(browse_url)s\">procházet všechny záznamy</a>."
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:42
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:357
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:346
 msgid "Verify dataset for RIV"
 msgstr "Ověřit datovou sadu pro RIV"
 
@@ -426,47 +444,51 @@ msgid "Details"
 msgstr "Detaily"
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:22
-msgid "Original repository URL"
-msgstr "URL původního repozitáře"
+msgid "Deposited at"
+msgstr "Uloženo v"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:28
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:29
+msgid "Harvested from"
+msgstr "Sklizeno z"
+
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/resource_type.html:6
 msgid "Resource type"
 msgstr "Typ zdroje"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:29
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:35
 msgid "Publication date"
 msgstr "Datum publikace"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:30
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
 msgid "Publisher"
 msgstr "Vydavatel"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:31
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
 msgid "Published in"
 msgstr "Publikováno v"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:32
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:38
 msgid "Imprint"
 msgstr "Tiráž"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:33
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:39
 msgid "Thesis"
 msgstr "Závěrečná práce"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:40
 msgid "Conference"
 msgstr "Konference"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:35
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:41
 msgid "Languages"
 msgstr "Jazyky"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:42
 msgid "Formats"
 msgstr "Formáty"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:43
 msgid "Sizes"
 msgstr "Velikosti"
 
@@ -602,7 +624,7 @@ msgstr "InvenioRDM"
 msgid "Váš záznam byl vytvořen / Your record has been created – %(title)s"
 msgstr "Váš záznam byl vytvořen / Your record has been created – %(title)s"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:202
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:201
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
 " using the form below."
@@ -610,15 +632,7 @@ msgstr ""
 "Tato datová sada ještě není v repozitáři zaregistrována. Můžete ji "
 "zaregistrovat pomocí formuláře níže."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:247
-msgid ""
-"The provided identifier could not be resolved to metadata automatically. "
-"Please enter the metadata manually."
-msgstr ""
-"Nepodařilo se automaticky dohledat metadata pro zadaný identifikátor. "
-"Zadejte prosím metadata ručně."
-
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:263
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:253
 msgid ""
 "Dataset registered successfully without metadata retrieval. Please fill "
 "the minimum metadata below:"
@@ -626,12 +640,12 @@ msgstr ""
 "Datová sada byla úspěšně zaregistrována bez načtení metadat. Vyplňte "
 "prosím minimální metadata níže:"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:270
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:260
 #, python-format
 msgid "Successfully registered dataset with PID: %(pid)s"
 msgstr "Úspěšně zaregistrována datová sada s PID: %(pid)s"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:286
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:276
 msgid ""
 "Dataset was registered with issues. Please check/correct the metadata "
 "below:"
@@ -639,11 +653,7 @@ msgstr ""
 "Datová sada byla zaregistrována s problémy. Zkontrolujte/opravte prosím "
 "metadata níže:"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:293
-msgid "This dataset is already registered."
-msgstr "Tato datová sada je již zaregistrována."
-
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:300
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:289
 msgid ""
 "The provided identifier is a URL that can not be registered at the "
 "moment. If your dataset does not have a DOI or a handle in URL format, "
@@ -655,12 +665,12 @@ msgstr ""
 "URL, kontaktujte prosím podporu na <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:309
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:298
 #, python-format
 msgid "Error registering dataset: %(error)s"
 msgstr "Chyba při registraci datové sady: %(error)s"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:329
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:318
 msgid "User does not have permission to edit record."
 msgstr "Uživatel nemá oprávnění upravovat záznam."
 
@@ -988,4 +998,19 @@ msgstr ""
 
 #~ msgid "Datacite xml import"
 #~ msgstr "DataCite XML import"
+
+#~ msgid "Original repository URL"
+#~ msgstr "URL původního repozitáře"
+
+#~ msgid ""
+#~ "The provided identifier could not be "
+#~ "resolved to metadata automatically. Please "
+#~ "enter the metadata manually."
+#~ msgstr ""
+#~ "Nepodařilo se automaticky dohledat metadata"
+#~ " pro zadaný identifikátor. Zadejte prosím"
+#~ " metadata ručně."
+
+#~ msgid "This dataset is already registered."
+#~ msgstr "Tato datová sada je již zaregistrována."
 
