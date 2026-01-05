@@ -35,6 +35,7 @@ class PlaceholderRemoverComponent(UIResourceComponent):
         """
         if record["metadata"]["title"] == TITLE_PLACEHOLDER:
             record["metadata"]["title"] = ""
+            record["metadata"]["publication_date"] = ""
 
         creators = record["metadata"].get("creators", [])
         record["metadata"]["creators"] = [
