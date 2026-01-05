@@ -445,8 +445,9 @@ dl.details-list {
   }
 }
 
+// if you put top margin, then the subheaders on some pages get detached from the headers
 .invenio-page-body {
-  margin: 2rem 0 2rem 0;
+  margin: 0 0 2rem 0;
 }
 
 header.theme.header {
@@ -528,6 +529,9 @@ header.theme.header {
     }
     a:not(.item) {
       color: @linkColor !important;
+    }
+    a.auth-button {
+      color: @white !important;
     }
   }
 

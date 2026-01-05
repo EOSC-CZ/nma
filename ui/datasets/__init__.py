@@ -41,8 +41,8 @@ from oarepo_ui.resources.components.custom_fields import CustomFieldsComponent
 from oarepo_ui.resources.decorators import (
     allow_method,
     pass_query_args,
-    pass_record_latest,
     pass_route_args,
+    pass_record_or_draft,
 )
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
@@ -60,6 +60,7 @@ from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
 from ui.resources.components.placeholder_remover import PlaceholderRemoverComponent
+from ui.resources.components.support_contact import RDMSupportContactComponent
 
 logger = logging.getLogger("DatasetsUI")
 
@@ -98,7 +99,8 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         FilesQuotaAndTransferComponent,
         RDMVocabularyOptionsComponent,
         OAIRecordComponent,
-        PlaceholderRemoverComponent
+        PlaceholderRemoverComponent,
+        RDMSupportContactComponent,
     ]
 
     record_detail_permissions = [
@@ -309,7 +311,8 @@ class DatasetsUIResource(RecordsUIResource):
 
     @pass_route_args("view")
     @login_required
-    @pass_record_latest
+    # Read latest has different serialization that makes some items behave differently later in the UI
+    @pass_record_or_draft()
     @no_cache_response
     def deposit_edit(self, record, draft_files=None, files_locked=True, **kwargs):
         """Edit draft record."""
