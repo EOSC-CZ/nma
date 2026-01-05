@@ -35,8 +35,8 @@
     </div>
 </div>
 <div class="row pt-0 rel-mb-10">
-   <div class="sixteen wide column center aligned rel-mt-1">
-     <p>{% trans browse_url=url_for('datasets_ui.search') %}Can't find a dataset? Check or register it using its persistent identifier. Search for datasets by keywords or persistent identifiers. You can also <a href="{{ browse_url }}">browse all records</a>.{% endtrans %}</p>
+   <div class="sixteen wide mobile eight wide computer column centered rel-mt-2">
+     <p><i class="ui question circle outline green icon"></i>{% trans browse_url=url_for('datasets_ui.search') %}Can't find a dataset? Check or register it using its persistent identifier. Search for datasets by keywords or persistent identifiers. You can also <a href="{{ browse_url }}">browse all records</a>.{% endtrans %}</p>
      <button type="button" class="ui big primary import button rel-mt-1 rel-mb-7" data-testid="frontpage-import-record-button" id="frontpage-register-button" data-register-url="{{ url_for('datasets_ui.deposit_create') }}">
         <i class="plus circle icon"></i>
         {{ _("Verify dataset for RIV") }}

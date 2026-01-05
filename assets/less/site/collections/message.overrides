@@ -1,0 +1,3 @@
+.ui.login-info.message {
+    box-shadow: none !important;
+}

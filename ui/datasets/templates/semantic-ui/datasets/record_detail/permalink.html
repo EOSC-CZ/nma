@@ -1,15 +1,15 @@
 {% set record_permalink = record_ui.links.self_persistent_html or record_ui.links.self_html %}
 
-<h5 class="ui inverted header permanent-link-header">
-    <i class="ui icon linkify"></i>
+<h3 class="ui inverted header permanent-link-header">
     <div class="content">
+        <i class="ui icon linkify"></i>
         <a class="permanent-link" href="{{record_permalink}}" target="_blank" rel="noopener noreferrer"
         data-testid="record-detail-title-permanent-link">
             <span class="middle-ellipsis">{{ record_permalink }}</span>
         </a>
         <ClipboardCopyButton className="large" copyText={{record_permalink}} />
     </div>
-    <p class="detail ml-0">
+    <p class="detail text small ml-0">
         <small>{{ _("Use this persistent link when reporting results to RIV and other evaluation systems.") }}</small>
-      </p>
-</h5>
+    </p>
+</h3>

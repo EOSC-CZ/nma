@@ -38,7 +38,7 @@ export const EmptyResultsElement = ({
       <Grid.Row>
         <Grid.Column width={8}>
           <Divider horizontal fitted>
-            {OArepoUIi18next.t("or")}
+            {i18next.t("or")}
           </Divider>
         </Grid.Column>
       </Grid.Row>
