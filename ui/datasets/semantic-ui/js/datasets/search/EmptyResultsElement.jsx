@@ -42,11 +42,16 @@ export const EmptyResultsElement = ({
           </Divider>
         </Grid.Column>
       </Grid.Row>
-      <Grid.Row>
-        <Button as="a" primary href="/datasets/uploads/new">
-          <Icon name="add" />
-          {i18next.t("Register a Dataset")}
-        </Button>
+      <Grid.Row centered>
+        <Grid.Column centered width={4}>
+          <Button as="a" primary href="/datasets/uploads/new">
+            <Icon name="add" />
+            {i18next.t("Verify a dataset for RIV")}
+          </Button>
+        </Grid.Column>
+        <Grid.Column width={16} textAlign="center">
+          <small class="block rel-mt-1">{ i18next.t("If you are looking to report a dataset (type T result) in RIV.") }</small>
+        </Grid.Column>
       </Grid.Row>
       {extraContent && <Grid.Row>{extraContent}</Grid.Row>}
       <Grid.Row>

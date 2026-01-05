@@ -191,6 +191,10 @@ a.no-text-decoration:hover {
   a.permanent-link {
     color: @white;
   }
+
+  .detail {
+    padding-top: 0.5rem;
+  }
 }
 
 a.remove-default-style:hover {

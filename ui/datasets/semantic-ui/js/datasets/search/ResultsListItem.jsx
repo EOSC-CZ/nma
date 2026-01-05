@@ -10,9 +10,6 @@ class ResultsListItem extends Component {
     const { result } = this.props;
 
     const viewLink = _get(result, "links.self_html");
-    const accessStatusId = _get(result, "ui.access_status.id", "open");
-    const accessStatus = _get(result, "ui.access_status.title_l10n", "Open");
-    const accessStatusIcon = _get(result, "ui.access_status.icon", "unlock");
     const createdDate = _get(
       result,
       "ui.created_date_l10n_long",
@@ -51,14 +48,6 @@ class ResultsListItem extends Component {
             </Label>
             <Label horizontal size="small" className="neutral">
               {resourceType}
-            </Label>
-            <Label
-              horizontal
-              size="small"
-              className={`access-status ${accessStatusId}`}
-            >
-              {accessStatusIcon && <Icon name={accessStatusIcon} />}
-              {accessStatus}
             </Label>
           </Item.Extra>
           <Item.Header as="h2" className="theme-primary-text">
