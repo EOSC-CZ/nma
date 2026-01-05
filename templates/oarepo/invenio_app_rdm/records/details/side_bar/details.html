@@ -19,10 +19,16 @@
 
     <dl class="details-list">
       {% if persistent_url %}
-        <dt class="ui tiny header inline">{{ _('Original repository URL') }}</dt>
+        <dt class="ui tiny header inline">{{ _('Deposited at') }}</dt>
         <span id="copy-button-record-doi-badge" class="copy-doi-button inline" data-value="{{ persistent_url }}" data-size="mini"></span>
         <dd>
           <a href="{{ persistent_url }}" target="_blank" rel="noopener noreferrer">{{ persistent_url }}</a>
+        </dd>
+      {% endif %}
+      {% if oai_record %}
+        <dt class="ui tiny header inline">{{ _('Harvested from') }}</dt>
+        <dd>
+          {{ oai_record.harvester.name }}
         </dd>
       {% endif %}
       {{ show_detail(_('Resource type'), record_ui["ui"]["resource_type"]["title_l10n"]) if record_ui["ui"]["resource_type"] }}
