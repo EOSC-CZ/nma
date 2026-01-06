@@ -120,7 +120,7 @@ class HandleResolver(MetadataResolver):
                     level=ResolverProblemLevel.WARNING,
                 )
             )
-            return "Missing title."
+            return TITLE_PLACEHOLDER
 
     @handle_errors(error_placeholder=CREATORS_PLACEHOLDER, alert_user=True)
     def resolve_creators(self, *, tree, problems):
