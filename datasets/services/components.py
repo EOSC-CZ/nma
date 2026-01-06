@@ -1,3 +1,4 @@
+import datetime
 from typing import Any
 
 from flask import current_app
@@ -111,7 +112,8 @@ class UpdateEditorsComponent(ServiceComponent):
         record: Record = None,
         **kwargs: Any,
     ) -> None:
-        register_editor(record)
+        editor = register_editor(record)
+        editor["last_edited"] = datetime.datetime.now().isoformat()
 
     def publish(self, identity, draft=None, record=None, **kwargs):
         """Update draft metadata."""
