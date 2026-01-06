@@ -30,7 +30,6 @@ class DataciteResolver(MetadataResolver):
     name = "Datacite"
 
     def can_resolve(self, persistent_url: str) -> bool:
-
         return is_doi(persistent_url)
 
     def resolve_metadata(self, datacite_metadata) -> tuple[dict, list[ResolverProblem]]:
@@ -467,7 +466,7 @@ class DataciteResolver(MetadataResolver):
             )
         )
 
-        return "Missing title"  # should never happen
+        return TITLE_PLACEHOLDER # should never happen
 
     @handle_errors()
     def resolve_datacite_additional_titles(self, titles):

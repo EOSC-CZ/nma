@@ -113,7 +113,7 @@ class CrossrefResolver(MetadataResolver):
         problems.append(
             ResolverProblem(resolver=self.name, message=_("Missing title."),
                             level=ResolverProblemLevel.WARNING))
-        return 'Missing title'  # should never happen
+        return TITLE_PLACEHOLDER # should never happen
 
     @handle_errors(error_placeholder=CREATORS_PLACEHOLDER, alert_user=True)
     def resolve_crossref_authors(self, authors, problems):
