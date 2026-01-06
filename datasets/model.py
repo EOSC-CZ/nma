@@ -114,7 +114,7 @@ class UpdatableRecordServiceMixin:
         # service disables the update on published records completely, regardless
         # of permission policy
         return super(DraftRecordService, self).update(
-            identity, id_, current_data, *args, revision_id=revision_id, **kwargs
+            identity, id_, data, *args, revision_id=revision_id, **kwargs
         )
 
 
