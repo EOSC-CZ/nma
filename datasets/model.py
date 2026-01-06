@@ -87,18 +87,16 @@ class UpdatableRecordServiceMixin:
             title = right.get("title")
 
             if isinstance(title, str):
-                normalized_rights.append({"title": {"en": title}})
+                normalized_rights.append({**right, "title": {"en": title}})
                 continue
 
             if isinstance(title, dict) and title:
-                normalized_rights.append({"title": title})
+                normalized_rights.append({**right, "title": title})
                 continue
 
             if isinstance(title, list) and title and isinstance(title[0], str):
-                normalized_rights.append({"title": {"en": title[0]}})
-                continue
+                normalized_rights.append({**right, "title": {"en": title[0]}})
 
-            # If we get here, the right is invalid → drop it
         data["metadata"]["rights"] = normalized_rights
 
         # metadata/creators/person_or_org/affiliations - can not have identifiers
