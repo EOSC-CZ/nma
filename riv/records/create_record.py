@@ -107,13 +107,23 @@ def create_record(record_data, persistent_url, problems):
         )
 
         if draft_record.errors:
-            # TODO: better serialization of draft_record.errors
+            empty_metadata["persistent_url"] = draft_record.data["metadata"]["persistent_url"]
+            draft_record.data["metadata"] = empty_metadata
+            from invenio_i18n import lazy_gettext as _
+            "Due to an unexpected error, the data could not be loaded correctly. Please fill in the required information and save the record again. "
+            draft_record =  datasets_service.update_draft(system_identity, data=draft_record.data, id_ = record_data["id"])
             problems.append(
                 ResolverProblem(
-                    "record_creation",
-                    f"Errors during saving the record, please review them and save again: {draft_record.errors}",
+                    resolver="record_creation",
+                    message=_(f"Due to an unexpected error, the data could not be loaded correctly. "
+                              f"Please fill in the required information and save the record. "),
                     level=ResolverProblemLevel.ERROR,
                 )
+            )
+            current_app.logger.exception(
+                "Resolver did not catch the following problems for record_id=%s: %s",
+                    record_data["id"],
+                        draft_record.errors,
             )
 
         published_record = datasets_service.publish(
