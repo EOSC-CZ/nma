@@ -100,7 +100,6 @@ class UpdatableRecordServiceMixin:
 
             # If we get here, the right is invalid → drop it
         data["metadata"]["rights"] = normalized_rights
-        print(normalized_rights, flush=True)
 
         # metadata/creators/person_or_org/affiliations - can not have identifiers
         for creator in data["metadata"].get("creators", []):
