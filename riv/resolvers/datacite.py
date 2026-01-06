@@ -20,6 +20,7 @@ from .base import (
     CREATORS_PLACEHOLDER,
     PUBLICATION_DATE_PLACEHOLDER,
     TITLE_PLACEHOLDER,
+    RESOURCE_TYPE_PLACEHOLDER,
     ResolverProblem,
     ResolverProblemLevel,
 )
@@ -716,12 +717,12 @@ class DataciteResolver(MetadataResolver):
             publication_date = PUBLICATION_DATE_PLACEHOLDER
         return publication_date
 
-    @handle_errors("dataset")
+    @handle_errors(RESOURCE_TYPE_PLACEHOLDER)
     def resolve_datacite_resource_type(self, *, resource_type, problems):
         vocabulary_id = "resourcetypes"
         _type = resource_type.get(
-            "resourceTypeGeneral", "Dataset"
-        )  # dataset as default option
+            "resourceTypeGeneral", "Other"
+        )  # other as default option
         try:
             escaped = escape_lucene(_type)
             voc = vocabulary_service.search(
@@ -742,7 +743,7 @@ class DataciteResolver(MetadataResolver):
                     "Multiple values were resolved for the vocabulary value %s. The first value was used.",
                     _type,
                 )
-                return "dataset"
+                return RESOURCE_TYPE_PLACEHOLDER
             resolved_type = resolved_types[0]["id"]
             return resolved_type
         except Exception as e:
@@ -750,7 +751,7 @@ class DataciteResolver(MetadataResolver):
                 ResolverProblem(
                     resolver=self.name,
                     message=_(
-                        f"The provided resource type {_type} could not be parsed. The default value 'dataset' has been applied."
+                        f"The provided resource type {_type} could not be parsed. The default value {RESOURCE_TYPE_PLACEHOLDER} has been applied."
                     ),
                     level=ResolverProblemLevel.WARNING,
                     original_exception=e,
@@ -761,4 +762,4 @@ class DataciteResolver(MetadataResolver):
                 _type,
                 vocabulary_id,
             )
-            return "dataset"
+            return RESOURCE_TYPE_PLACEHOLDER

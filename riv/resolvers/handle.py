@@ -16,6 +16,7 @@ from .base import (
     CREATORS_PLACEHOLDER,
     PUBLICATION_DATE_PLACEHOLDER,
     TITLE_PLACEHOLDER,
+    RESOURCE_TYPE_PLACEHOLDER,
     ResolverProblem,
     ResolverProblemLevel,
     get_invalid_publication_date_message,
@@ -101,7 +102,7 @@ class HandleResolver(MetadataResolver):
         )
         # there are dataset related tags, dataset_creator, dataset_license, dataset_keyword ..
         # but they are used also on things that aren't datasets
-        metadata["resource_type"] = {"id": "other"}
+        metadata["resource_type"] = {"id": RESOURCE_TYPE_PLACEHOLDER}
 
         return metadata, problem_list
 

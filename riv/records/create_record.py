@@ -14,7 +14,7 @@ from ..config import EDIT_GRANT_EXPIRATION_DAYS, RIV_CURATORS_GROUP_ID
 from ..errors import RIVRegistrationException
 from ..resolvers.base import ResolverProblem, ResolverProblemLevel
 from .api import generate_id
-from riv.resolvers.base import TITLE_PLACEHOLDER, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER
+from riv.resolvers.base import TITLE_PLACEHOLDER, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER, RESOURCE_TYPE_PLACEHOLDER
 example_data = {
     "metadata": {
         "creators": [
@@ -62,7 +62,7 @@ def create_record(record_data, persistent_url, problems):
         "title": TITLE_PLACEHOLDER,
         "publication_date": PUBLICATION_DATE_PLACEHOLDER,
         "creators": CREATORS_PLACEHOLDER,
-        "resource_type": {"id": "dataset"},
+        "resource_type": {"id": RESOURCE_TYPE_PLACEHOLDER},
         "persistent_url": persistent_url,
     }
     if not record_data:

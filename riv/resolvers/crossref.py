@@ -16,7 +16,7 @@ from invenio_vocabularies.proxies import current_service as vocabulary_service
 from marshmallow import ValidationError
 from marshmallow_utils.fields import EDTFDateString
 
-from .base import ResolverProblem, ResolverProblemLevel, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER, TITLE_PLACEHOLDER
+from .base import ResolverProblem, ResolverProblemLevel, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER, TITLE_PLACEHOLDER, RESOURCE_TYPE_PLACEHOLDER
 from .utils import handle_errors
 from ..resolvers import MetadataResolver
 
@@ -134,10 +134,10 @@ class CrossrefResolver(MetadataResolver):
                 creator_obj["name"] += ", " + crossref_author.get("given", "")
             if crossref_author.get("ORCID"):
                 orcid_id = crossref_author.get("ORCID", "").removeprefix("https://orcid.org/")
-                creator_obj["identifiers"] = {
+                creator_obj["identifiers"] = [{
                     "identifier": orcid_id,
                     "scheme": "orcid"
-                }
+                }]
             creator_list.append({"person_or_org": creator_obj})
         return creator_list
 
@@ -154,10 +154,10 @@ class CrossrefResolver(MetadataResolver):
             return PUBLICATION_DATE_PLACEHOLDER
         return publication_date
 
-    @handle_errors('other')
+    @handle_errors(RESOURCE_TYPE_PLACEHOLDER)
     def resolve_crossref_resource_type(self, *, resource_type, problems):
         vocabulary_id = 'resourceTypeGeneral'
-        _type = resource_type.get("type", "other").lower()
+        _type = resource_type.get("type", RESOURCE_TYPE_PLACEHOLDER).lower()
         try:
             vocabulary_service.read(
                 system_identity, (vocabulary_id, _type)
@@ -173,4 +173,4 @@ class CrossrefResolver(MetadataResolver):
                 _type,
                 vocabulary_id
             )
-            return {"id": "other"}
+            return {"id": RESOURCE_TYPE_PLACEHOLDER}

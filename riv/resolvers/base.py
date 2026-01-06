@@ -28,6 +28,7 @@ CREATORS_PLACEHOLDER = [
 ]
 PUBLICATION_DATE_PLACEHOLDER = "2025-01-01"
 TITLE_PLACEHOLDER = "Unknown title"
+RESOURCE_TYPE_PLACEHOLDER = "other"
 
 def get_validation_failed_on_date_format_message(date):
     return _(
