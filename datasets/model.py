@@ -19,6 +19,8 @@ from oarepo_model.customizations import (
     AddMetadataExport,
     AddMetadataImport,
     AddServiceComponent,
+    PatchIndexPropertyMapping,
+    PatchIndexSettings,
     PrependMixin,
     ReplaceBaseClass,
 )
@@ -203,6 +205,57 @@ datasets_model = model(
             [
                 "metadata.publisher",
             ],
+        ),
+        # index tweaks
+        PatchIndexSettings(
+            {
+                "analysis": {
+                    # lowercase splits on whitespaces and performs lowercasing
+                    "tokenizer": {"people_tokenizer": {"type": "lowercase"}},
+                    "analyzer": {
+                        "people_analyzer": {
+                            "type": "custom",
+                            "tokenizer": "people_tokenizer",
+                        },
+                        "asciifolded_people_analyzer": {
+                            "type": "custom",
+                            "tokenizer": "people_tokenizer",
+                            # additionally removes diacritics
+                            "filter": ["asciifolding"],
+                        },
+                    },
+                }
+            }
+        ),
+        # add multi-field mappings to people names for improved searching/suggesting
+        PatchIndexPropertyMapping(
+            "metadata.creators.person_or_org.name",
+            {
+                "fields": {
+                    # using both means that queries that match both ascii and non-ascii
+                    # versions are ranked higher (if query is Novák, records with Novák
+                    # will have better ranking than Novak and both will be found),
+                    # but if user searches for Novak Novák will still match with
+                    # lower ranking than Novak
+                    "_search": {"type": "text", "analyzer": "people_analyzer"},
+                    "_ascii_search": {
+                        "type": "text",
+                        "analyzer": "asciifolded_people_analyzer",
+                    },
+                }
+            },
+        ),
+        PatchIndexPropertyMapping(
+            "metadata.contributors.person_or_org.name",
+            {
+                "fields": {
+                    "_search": {"type": "text", "analyzer": "people_analyzer"},
+                    "_ascii_search": {
+                        "type": "text",
+                        "analyzer": "asciifolded_people_analyzer",
+                    },
+                }
+            },
         ),
     ],
     configuration={"ui_blueprint_name": "datasets_ui"},
