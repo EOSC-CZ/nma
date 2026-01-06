@@ -56,6 +56,7 @@ from riv.resolvers.base import (
     UnsupportedPIDError,
     resolve_metadata,
 )
+from riv.records.utils import user_edit_grant_and_notification
 from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
@@ -271,6 +272,7 @@ class DatasetsUIResource(RecordsUIResource):
                     )
                 else:
                     # Sanitize problem messages to prevent XSS
+                    user_edit_grant_and_notification(record_data, problems)
                     issues_list = "".join(
                         [f"<li>{escape(problem.message)}</li>" for problem in problems]
                     )
