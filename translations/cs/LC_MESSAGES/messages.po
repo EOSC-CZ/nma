@@ -483,7 +483,6 @@ msgid "Harvested from"
 msgstr "Sklizeno z"
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/resource_type.html:6
 msgid "Resource type"
 msgstr "Typ zdroje"
 
@@ -923,6 +922,16 @@ msgid ""
 msgstr ""
 "Použijte tento persistentní odkaz při hlášení výsledků do RIV a dalších "
 "evaluačních systémů."
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:4
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:12
+#, fuzzy
+msgid "Citation"
+msgstr "Citace"
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:7
+msgid "Link for RIV"
+msgstr "Odkaz pro RIV"
 
 #~ msgid "Datacite export"
 #~ msgstr "Export DataCite"
