@@ -72,34 +72,41 @@ class UpdatableRecordServiceMixin:
 
     def update(self, identity, id_, data, *args, revision_id=None, **kwargs):
         """Override update to allow updating published records.
-
-        Note: invenio RDM's editor has an issue that it modifies fields that are
-        not in the editor - for example removes title from rights. To workaround this,
-        we fetch the record here, just propagate the changes from editor fields and
-        leave other fields intact.
         """
-        current_data = self.read(identity, id_).to_dict()
-        if "metadata" not in current_data:
-            current_data["metadata"] = {}
-        metadata = data.get("metadata", {})
-
-        for fld in self.EDITABLE_FIELDS:
-            if fld in metadata:
-                current_data["metadata"][fld] = metadata[fld]
-
+        
         # metadata.rights: invenio rdm can not upload record that has rights that contain both id and title
         # so we remove all other props if there is an id
-        for right in current_data["metadata"].get("rights", []):
-            if "id" in right:
-                for k in list(right.keys()):
-                    if k != "id":
-                        right.pop(k)
+        rights = data["metadata"].get("rights", [])
+        normalized_rights = []
+
+        for right in rights:
+            if "id" in right and isinstance(right["id"], str):
+                normalized_rights.append({"id": right["id"]})
+                continue
+
+            title = right.get("title")
+
+            if isinstance(title, str):
+                normalized_rights.append({"title": {"en": title}})
+                continue
+
+            if isinstance(title, dict) and title:
+                normalized_rights.append({"title": title})
+                continue
+
+            if isinstance(title, list) and title and isinstance(title[0], str):
+                normalized_rights.append({"title": {"en": title[0]}})
+                continue
+
+            # If we get here, the right is invalid → drop it
+        data["metadata"]["rights"] = normalized_rights
+        print(normalized_rights, flush=True)
 
         # metadata/creators/person_or_org/affiliations - can not have identifiers
-        for creator in current_data["metadata"].get("creators", []):
+        for creator in data["metadata"].get("creators", []):
             for aff in creator.get("affiliations", []):
                 aff.pop("identifiers", None)
-        for contributor in current_data["metadata"].get("contributors", []):
+        for contributor in data["metadata"].get("contributors", []):
             for aff in contributor.get("affiliations", []):
                 aff.pop("identifiers", None)
 
