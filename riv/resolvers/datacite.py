@@ -565,7 +565,15 @@ class DataciteResolver(MetadataResolver):
 
                 family = family or parsed_family
                 given = given or (parsed_given if parsed_given else None)
-
+                if family == "": #This will happen if only the given name is provided, which may occur in DataCite, but is not valid in RDM.
+                    problems.append(
+                        ResolverProblem(
+                            resolver=self.name,
+                            message=_(f"Missing creators family name: {creator}."),
+                            level=ResolverProblemLevel.WARNING,
+                        )
+                    )
+                    family = "Unknown"
             if given:
                 creator_obj["given_name"] = given
             if family:
