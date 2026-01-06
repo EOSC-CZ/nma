@@ -1,6 +1,6 @@
 {% set record_access = record_ui["access"]["record"] %}
 <span role="note"
-        class="ui label {% if record_access == "public" %}positive{% else %}negative{% endif %} horizontal small access-status-{{ record_access }} mb-5"
+        class="ui top right attached basic label {% if record_access == "public" %}positive{% else %}negative{% endif %} horizontal small access-status-{{ record_access }} rel-mr-1"
         data-inverted=""
         data-testid="record-detail-header-info-access-status"
         aria-label="{{ _('Access') }}"
