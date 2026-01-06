@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-06 16:31+0100\n"
+"POT-Creation-Date: 2026-01-06 09:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,7 +241,7 @@ msgstr ""
 
 #: /Users/alzbetapokorna/nma/8/nma/riv/views.py:28
 msgid "Persistent Identifier"
-msgstr ""
+msgstr "Persistentní identifikátor"
 
 #: /Users/alzbetapokorna/nma/8/nma/riv/views.py:30
 msgid "Please enter a persistent identifier"
@@ -374,9 +374,9 @@ msgstr ""
 msgid "EU and MINISTRY OF EDUCATION YOUTH AND SPORTS"
 msgstr ""
 
-#: /Users/alzbetapokorna/nma/8/nma/templates/header_frontpage.html:29
-#: /Users/alzbetapokorna/nma/8/nma/templates/header_frontpage.html:30
-msgid "Search metadata records"
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:29
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:30
+msgid "Search by title, author, or identifier (DOI, Handle)"
 msgstr ""
 
 #: /Users/alzbetapokorna/nma/8/nma/templates/header_frontpage.html:39
@@ -387,8 +387,8 @@ msgid ""
 "You can also <a href=\"%(browse_url)s\">browse all records</a>."
 msgstr ""
 
-#: /Users/alzbetapokorna/nma/8/nma/templates/header_frontpage.html:42
-#: /Users/alzbetapokorna/nma/8/nma/ui/datasets/__init__.py:351
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:42
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:351
 msgid "Verify dataset for RIV"
 msgstr ""
 
@@ -602,30 +602,30 @@ msgstr ""
 msgid "Váš záznam byl vytvořen / Your record has been created – %(title)s"
 msgstr ""
 
-#: /Users/alzbetapokorna/nma/8/nma/ui/datasets/__init__.py:205
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:205
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
 " using the form below."
 msgstr ""
 
-#: /Users/alzbetapokorna/nma/8/nma/ui/datasets/__init__.py:257
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:257
 msgid ""
 "Dataset registered successfully without metadata retrieval. Please fill "
 "the minimum metadata below:"
 msgstr ""
 
-#: /Users/alzbetapokorna/nma/8/nma/ui/datasets/__init__.py:264
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:264
 #, python-format
 msgid "Successfully registered dataset with PID: %(pid)s"
 msgstr ""
 
-#: /Users/alzbetapokorna/nma/8/nma/ui/datasets/__init__.py:280
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:280
 msgid ""
 "Dataset was registered with issues. Please check/correct the metadata "
 "below:"
 msgstr ""
 
-#: /Users/alzbetapokorna/nma/8/nma/ui/datasets/__init__.py:293
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:293
 msgid ""
 "The provided identifier is a URL that can not be registered at the "
 "moment. If your dataset does not have a DOI or a handle in URL format, "
@@ -633,12 +633,12 @@ msgid ""
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
-#: /Users/alzbetapokorna/nma/8/nma/ui/datasets/__init__.py:302
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:302
 #, python-format
 msgid "Error registering dataset: %(error)s"
 msgstr ""
 
-#: /Users/alzbetapokorna/nma/8/nma/ui/datasets/__init__.py:323
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:323
 msgid "User does not have permission to edit record."
 msgstr ""
 
