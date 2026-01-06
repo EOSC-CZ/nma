@@ -91,7 +91,7 @@ class UpdatableRecordServiceMixin:
                 continue
 
             if isinstance(title, dict) and title:
-                normalized_rights.append({**right, "title": title})
+                normalized_rights.append(right)
                 continue
 
             if isinstance(title, list) and title and isinstance(title[0], str):
