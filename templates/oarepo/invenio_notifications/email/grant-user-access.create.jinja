@@ -5,6 +5,7 @@
 
 {% set record_title = record.metadata.title %}
 {% set shared_link = record.links.self_html %}
+{% set expiration_days = notification.context.expiration %}
 
 {%- block subject -%}
         {{ _("👤✔️ You were granted {permission} access to all versions of the record '{record_title}'").format(permission=permission, record_title=record_title) }}
@@ -30,6 +31,7 @@
     </tr>
     <tr>
         <td>
+            <p>You can access and edit it using the link below (valid for {{ expiration_days }} days)</p>
             <a href="{{ shared_link }}" class="button">
             {{ _("View the record") }}
             </a>
