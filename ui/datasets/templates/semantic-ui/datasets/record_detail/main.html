@@ -91,15 +91,11 @@ Note: Context variables available:
 
 {%- block record_title -%}
   <div class="ui two column stackable rel-mt-1 rel-pl-1 rel-pr-1 grid">
-    <div class="ui green row pb-0">
+    <div class="ui pink row rel-p-1 rel-pt-2">
+      {% include "datasets/record_detail/access_status.html" %}
+      <div class="divider hidden"></div>
       <div class="ui sixteen wide column">
         {% include "datasets/record_detail/permalink.html" %}
-      </div>
-    </div>
-    <div class="ui green row">
-      <div class="ui green p-0 rel-pb-1 rel-pr-1 right aligned right floated column">
-        {% include "datasets/record_detail/resource_type.html" %}
-        {% include "datasets/record_detail/access_status.html" %}
       </div>
     </div>
   </div>
