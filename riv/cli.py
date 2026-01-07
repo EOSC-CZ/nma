@@ -8,19 +8,19 @@
 #
 
 """CLI for RIV availability checker."""
-
-import traceback
+import json
+from datetime import datetime
+from functools import wraps
 
 import click
 import tqdm
 from flask.cli import with_appcontext
-from invenio_db import db
-from invenio_pidstore.models import PersistentIdentifier
-from oarepo_oaipmh_harvester.oai_record.models import OAIHarvestedRecord
-from sqlalchemy import select
+from flask_security import ConfirmRegisterForm
+from flask_security.utils import hash_password
+from werkzeug.datastructures import MultiDict
 
 from .tasks import check_availability_task
-
+from invenio_accounts.cli import _datastore
 
 @click.group()
 def riv():

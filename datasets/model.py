@@ -4,6 +4,8 @@ Structured collections of research data, identified with a persistent identifier
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
 from invenio_drafts_resources.services.records import (
     RecordService as DraftRecordService,
@@ -48,7 +50,7 @@ from .services.components import (
     UpdateMetadataComponent,
 )
 
-
+from typing import TYPE_CHECKING, Any, override
 class PIDStatusCheckFieldMixin:
     """Custom PID status check field returning False when PID is not set."""
 
@@ -138,10 +140,136 @@ class OverriddenRouteResourceConfigMixin:
         return updated_routes
 
 
+from invenio_access.permissions import system_identity
+from invenio_drafts_resources.services import RecordService as RecordServiceWithDrafts
+from invenio_pidstore.errors import PIDDoesNotExistError
+from invenio_rdm_records.requests.entity_resolvers import RDMRecordServiceResultProxy, RDMRecordServiceResultResolver
+from invenio_records_resources.references.entity_resolvers.results import (
+    ServiceResultResolver as InvenioServiceResultResolver,
+)
+from oarepo_model.customizations import (
+    AddEntryPoint,
+    AddModule,
+    AddToModule,
+    Customization,
+)
+from oarepo_model.presets import Preset
+from oarepo_runtime.typing import record_from_result
+from sqlalchemy.exc import NoResultFound
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
+
+    from invenio_drafts_resources.records import Draft
+    from invenio_records_resources.records import Record
+    from invenio_records_resources.references import RecordResolver
+    from invenio_records_resources.services.records.results import RecordItem
+    from oarepo_model.builder import InvenioModelBuilder
+    from oarepo_model.model import InvenioModel
+
+class RecordServiceResultProxy(RDMRecordServiceResultProxy):
+    """Proxy to resolve a record service result."""
+
+    @override
+    def _resolve(self) -> dict[str, Any]:
+        """Resolve the result item from the proxy's reference dict."""
+        pid_value = self._parse_ref_dict_id()
+        if isinstance(self.service, RecordServiceWithDrafts):
+            try:
+                draft = self.service.read_draft(system_identity, pid_value)
+            except (PIDDoesNotExistError, NoResultFound):
+                record = self._get_record(pid_value)
+            else:
+                record = (
+                    draft if not record_from_result(draft).is_published else self._get_record(pid_value)  # type: ignore[reportAttributeAccessIssue]
+                )
+        else:
+            record = self._get_record(pid_value)
+
+        return record.to_dict()  # type: ignore[no-any-return]
+
+
+class RecordServiceResultResolver(RDMRecordServiceResultResolver):
+    """Service result resolver for draft records."""
+
+    def __init__(
+        self,
+        service_id: str,
+        type_key: str,
+        proxy_cls: type[RecordServiceResultProxy] = RecordServiceResultProxy,
+        item_cls: type[RecordItem] | None = None,
+        record_cls: type[Record] | None = None,
+    ):
+        """Initialize the resolver."""
+        super(RDMRecordServiceResultResolver, self).__init__(service_id, type_key, proxy_cls, item_cls, record_cls)
+
+    @property
+    @override
+    def draft_cls(self) -> type[Draft] | None:
+        """Get specified draft class or from service."""
+        service = self.get_service()
+        return service.draft_cls if isinstance(service, RecordServiceWithDrafts) else None
+
+    @override
+    def matches_entity(self, entity: Any) -> bool:
+        """Check if the entity is a draft."""
+        if self.draft_cls and isinstance(entity, self.draft_cls):
+            return True
+
+        return InvenioServiceResultResolver.matches_entity(self, entity=entity)  # type: ignore[no-any-return]
+
+class RegisterResolversPreset(Preset):
+    """Preset for registering resolvers."""
+
+    @override
+    def apply(
+        self,
+        builder: InvenioModelBuilder,
+        model: InvenioModel,
+        dependencies: dict[str, Any],
+    ) -> Generator[Customization]:
+        def register_entity_resolver() -> RecordResolver:
+            service_id = builder.model.base_name
+            runtime_dependencies = builder.get_runtime_dependencies()
+            resolver = runtime_dependencies.get("RecordResolver")
+            return resolver(
+                record_cls=runtime_dependencies.get("Record"),
+                service_id=service_id,
+                type_key=service_id,
+                proxy_cls=runtime_dependencies.get("RecordProxy"),
+            )
+
+        def register_notification_resolver() -> RecordServiceResultResolver:
+            service_id = builder.model.base_name
+            return RecordServiceResultResolver(
+                service_id=service_id,
+                type_key=service_id,
+                proxy_cls=RecordServiceResultProxy,
+            )
+
+        # just invenio things
+        register_notification_resolver.type_key = builder.model.base_name  # type: ignore[attr-defined]
+
+        yield AddModule("resolvers", exists_ok=True)
+        yield AddToModule("resolvers", "register_entity_resolver", staticmethod(register_entity_resolver))
+        yield AddToModule("resolvers", "register_notification_resolver", staticmethod(register_notification_resolver))
+        yield AddEntryPoint(
+            group="invenio_requests.entity_resolvers",
+            name=f"{model.base_name}_requests",
+            value="resolvers:register_entity_resolver",
+            separator=".",
+        )
+        yield AddEntryPoint(
+            group="invenio_notifications.entity_resolvers",
+            name=f"{model.base_name}_requests",
+            value="resolvers:register_notification_resolver",
+            separator=".",
+        )
+
 datasets_model = model(
     "datasets",
     version="1.0.0",
-    presets=[rdm_complete_preset],
+    presets=[rdm_complete_preset, [RegisterResolversPreset]],
     types=[from_yaml("metadata.yaml", __file__), from_yaml("record.yaml", __file__)],
     metadata_type="Metadata",
     record_type="Record",
