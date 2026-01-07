@@ -56,6 +56,7 @@ from riv.resolvers.base import (
     UnsupportedPIDError,
     resolve_metadata,
 )
+from riv.records.utils import user_edit_grant_and_notification, create_user_edit_grant
 from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
@@ -252,6 +253,7 @@ class DatasetsUIResource(RecordsUIResource):
                 )
 
                 if not problems and skip_metadata:
+                    user_edit_grant_and_notification(record_data, problems)
                     flash(
                         _(
                             "Dataset registered successfully without metadata retrieval. Please fill the minimum metadata below:"
@@ -270,6 +272,7 @@ class DatasetsUIResource(RecordsUIResource):
                         )
                     )
                 else:
+                    user_edit_grant_and_notification(record_data, problems)
                     # Sanitize problem messages to prevent XSS
                     issues_list = "".join(
                         [f"<li>{escape(problem.message)}</li>" for problem in problems]

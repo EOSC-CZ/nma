@@ -14,6 +14,8 @@ Record:
             type: keyword
           affiliations:
             type: keyword
+          last_edited:
+            type: datetime
           expiration:
             type: datetime
           access_granted:

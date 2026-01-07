@@ -1,16 +1,12 @@
-from datetime import datetime, timedelta
-
-from flask import current_app, url_for
+from flask import current_app
 from flask_login import current_user
 from invenio_access.permissions import system_identity
-from invenio_accounts.models import User
-from invenio_notifications.models import Notification, Recipient
 from invenio_pidstore.errors import PIDAlreadyExists
 from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.resources.errors import PermissionDeniedError
 
-from ..config import EDIT_GRANT_EXPIRATION_DAYS, RIV_CURATORS_GROUP_ID
+from ..config import RIV_CURATORS_GROUP_ID
 from ..errors import RIVRegistrationException
 from ..resolvers.base import ResolverProblem, ResolverProblemLevel
 from .api import generate_id
@@ -77,11 +73,10 @@ def create_record(record_data, persistent_url, problems):
     if current_user.is_anonymous:
         raise PermissionDeniedError("Please login first.")
 
+    # do we actually want to crash here when notifications don't work?
     notification_backends = current_app.config.get("NOTIFICATION_BACKENDS", {})
     if not notification_backends.get("email"):
         raise RuntimeError("Email notification backend is not configured.")
-
-    user = User.query.filter(User.id == current_user.id).one()
 
     # disable files by default
     record_data = {**record_data, "files": {"enabled": False}}
@@ -137,64 +132,10 @@ def create_record(record_data, persistent_url, problems):
         raise RIVRegistrationException(
             f"Error during record creation/publishing of {record_data["id"]}: {e}"
         )
-    # call access service and grant
-
-    user_grant_data = {
-        "grants": [
-            {
-                "subject": {"type": "user", "id": str(user.id)},
-                "permission": "edit",
-                "notify": False,  # TODO: Could be False?
-                "message": "expires in:"
-                + (
-                    datetime.today() + timedelta(days=EDIT_GRANT_EXPIRATION_DAYS)
-                ).strftime("%Y-%m-%d"),
-            }
-        ]
-    }
-    access_service = current_rdm_records_service.access
-
-    service_result = access_service.bulk_create_grants(
-        system_identity, draft_record["id"], user_grant_data
-    )
-
-    edit_link = url_for(
-        "datasets_ui.deposit_edit", pid_value=published_record["id"], _external=True
-    )
-
-    try:
-        # send email to the user with an editation link
-        notification = Notification(
-            type="data-riv-record-created",
-            context={
-                "record_data": record_data,
-                "expiration_time": str(EDIT_GRANT_EXPIRATION_DAYS),
-                "edit_link": edit_link,
-            },
-        )
-        recipient = Recipient(
-            data={"preferences": user.preferences, "email": user.email}
-        )
-
-        email_backend_cls = notification_backends.get("email")
-        email_backend = email_backend_cls()
-        email_backend.send(notification, recipient)
-    except Exception as ex:
-        current_app.logger.exception(
-            f"Error sending notification email for record {draft_record['id']}"
-        )
-        problems.append(
-            ResolverProblem(
-                "notification",
-                f"Error sending notification email to {user.email}.",
-                level=ResolverProblemLevel.WARNING,
-                original_exception=ex,
-            )
-        )
 
     try:
         # Grant the curators group manage permission (as a support).
-        _ = access_service.bulk_create_grants(
+        _ = current_rdm_records_service.access.bulk_create_grants(
             identity=system_identity, id_=draft_record["id"], data=grant_data
         )
     except Exception:
