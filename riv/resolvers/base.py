@@ -81,6 +81,12 @@ class MetadataResolver(Protocol):
             total_retries=4,
             status_forcelist=[403, 429, 500, 502],
         )
+    
+    @property
+    def resolve_timeout(self):
+        """Default timeout (seconds) applied on resolver requests.
+        """
+        return 10
 
     def can_resolve(self, identifier: str) -> bool:
         """Check if this resolver can handle the given identifier.
