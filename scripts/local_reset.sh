@@ -90,7 +90,6 @@ print_step "Creating users and roles..."
 # 123456 to keep invenio-cli compatibility if not entered
 invenio users create -a -c user@demo.org --password ${DEMO_USER_PASSWORD:-123456}
 invenio roles create riv_curators
-invenio roles create administration-moderation
 invenio access allow administration-access user user@demo.org
 invenio access allow administration-moderation user user@demo.org
 invenio roles add user@demo.org riv_curators
