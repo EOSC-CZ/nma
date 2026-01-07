@@ -59,7 +59,7 @@ def send_user_edit_grant_notification(user: User, record_data: dict[str, Any], p
 
     except Exception as ex:
         current_app.logger.exception(
-            f"Error sending notification email for record {record_data['id']}"
+            f"Error sending notification email for record %s.", record_data['id']
         )
         problems.append(
             ResolverProblem(
