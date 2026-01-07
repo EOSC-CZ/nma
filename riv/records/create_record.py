@@ -115,8 +115,8 @@ def create_record(record_data, persistent_url, problems):
             problems.append(
                 ResolverProblem(
                     resolver="record_creation",
-                    message=_(f"Due to an unexpected error, the data could not be loaded correctly. "
-                              f"Please fill in the required information and save the record. "),
+                    message=_("Due to an unexpected error, the data could not be loaded correctly. "
+                              "Please fill in the required information and save the record. "),
                     level=ResolverProblemLevel.ERROR,
                 )
             )
