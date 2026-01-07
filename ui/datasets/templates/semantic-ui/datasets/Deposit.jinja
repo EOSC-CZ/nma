@@ -14,7 +14,7 @@
     <div class="row">
         <div class="sixteen wide mobile ten wide computer column">
             <div class="ui centered fluid pink bg-primary card rel-pl-3 rel-pr-3 rel-pt-2 rel-pb-2 rel-mb-2">
-                <form class="ui form" novalidate method="POST" action="{{ url_for('datasets_ui.deposit_create') }}" data-testid="deposit-create-register-doi-form">
+                <form id="register-dataset-form" class="ui form" novalidate method="POST" action="{{ url_for('datasets_ui.deposit_create') }}" data-testid="deposit-create-register-doi-form">
                     {{ form.hidden_tag() }}
                     <div class="field{% if form.pid.errors %} error{% endif %} required">
                             {{ form.pid.label(class="tiny") }}
@@ -80,3 +80,8 @@
     </div>
 </div>
 {%- endblock page_body %}
+
+{% block javascript %}
+{{ super() }}
+{{ webpack["datasets_register_form.js"] }}
+{% endblock javascript %}
