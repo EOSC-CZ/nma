@@ -50,7 +50,6 @@ fi
 invenio db init create
 invenio files location create --default default "s3://$BUCKET"
 invenio roles create admin
-invenio roles create administration-moderation
 invenio access allow superuser-access role admin
 invenio index init
 invenio rdm-records custom-fields init
