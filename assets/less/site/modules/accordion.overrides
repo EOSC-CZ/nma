@@ -1,0 +1,13 @@
+/* Prevent status icons from rotating when accordion is clicked */
+.ui.accordion.source-check {
+  .title.active {
+    .icons {
+      .icon:last-child {
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+    .icon:not(.dropdown) {
+      transform: none;
+    }
+  }
+}

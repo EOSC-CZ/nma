@@ -117,30 +117,32 @@ Note: Context variables available:
 
 {%- if check_status %}
 
-<div class="ui fluid accordion rel-mb-1">
-  <div class="title">
-    <div class="ui basic label source-check">
+<div class="ui fluid accordion text size small source-check styled rel-mb-1">
+  <div class="title pt-5 pb-5">
+      {%- if check_message %}
+        <i class="dropdown icon source-check mt-5"></i>
+      {%- endif %}
       <span
           data-testid="record-detail-header-info-original-source-check"
-          class="ui image mr-0"
+          class="ui image mb-5 mr-0"
           aria-label="{{ _('Original source check status') }}"
         >
         {%- if check_status == 'success' %}
-          <i class="ui medium icons">
-            <i class="ui big positive certificate icon"></i>
-            <i class="ui check pr-5 white inverted icon"></i>
+          <i class="small icons">
+            <i class="big positive certificate icon"></i>
+            <i class="small check pr-5 white inverted icon"></i>
           </i>
         {%- elif check_status == 'not_found' %}
-          <i class="ui big red exclamation circle icon"></i>
+          <i class="large red exclamation circle icon"></i>
         {%- elif check_status == 'error' %}
-          <i class="ui big red times circle icon"></i>
+          <i class="large red times circle icon"></i>
         {%- elif check_status == 'not_accessible' %}
-          <i class="ui big orange lock icon"></i>
+          <i class="large orange lock icon"></i>
         {%- elif check_status == 'warning' %}
-          <i class="ui big yellow exclamation triangle icon"></i>
+          <i class="large yellow exclamation triangle icon"></i>
         {%- endif %}
       </span>
-
+      <span>
       {%- if check_status == 'success' %}
         {{ _("Original source confirmed. The dataset is still available at its authoritative repository.") }}
       {%- elif check_status == 'not_found' %}
@@ -152,21 +154,18 @@ Note: Context variables available:
       {%- elif check_status == 'warning' %}
         {{ _("Warning: Issue detected with original source.") }}
       {%- endif %}
+      </span>
 
+  </div>
+  {%- if check_message %}
+  <div class="content rel-ml-1">
+    <div class="ui fitted divider"></div>
+    <p>
       {%- if last_checked %}
         <div class="detail text-muted">{{ _("Last checked: ") }}{{ last_checked }}</div>
       {%- endif %}
-
-      {%- if check_message %}
-        <i class="dropdown icon source-check"></i>
-      {%- endif %}
-    </div>
-  </div>
-  {%- if check_message %}
-  <div class="content">
-    <div class="ui message">
       {{ check_message }}
-    </div>
+    </p>
   </div>
   {%- endif %}
 </div>

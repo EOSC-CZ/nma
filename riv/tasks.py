@@ -4,7 +4,7 @@ import shlex
 import subprocess
 import sys
 import traceback
-from datetime import  timedelta, timezone
+from datetime import timedelta, timezone, datetime
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -271,6 +271,7 @@ def rebuild_all_indices():
     invenio_command("communities custom-fields init")
     invenio_command("rdm rebuild-all-indices")
 
+
 @shared_task(ignore_result=True)
 def cleanup_unknown_titles():
     datasets_service = current_service_registry.get("datasets")
@@ -289,13 +290,17 @@ def cleanup_unknown_titles():
     for hit in hits:
         datasets_service.delete(identity=system_identity, id_=hit["id"])
 
+
 class CleanupUnknownTitlesJob(JobType):
     """A job type to run invenio CLI commands as Celery tasks."""
 
     id = "cleanup_unknown_titles"
     title = "Cleanup datasets with unknown title"
-    description = "Deletes datasets older than one day that still have the title 'Unknown title'."
+    description = (
+        "Deletes datasets older than one day that still have the title 'Unknown title'."
+    )
     task = cleanup_unknown_titles
+
 
 class RebuildAllIndicesJob(JobType):
     """A job type to run invenio CLI commands as Celery tasks."""
