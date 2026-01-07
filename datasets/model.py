@@ -208,6 +208,8 @@ datasets_model = model(
             "default",
             [
                 "metadata.publisher",
+                "metadata.resource_type",
+                "metadata.languages",
             ],
         ),
         # index tweaks
