@@ -1,41 +1,40 @@
-{% set record_title = notification.context.record_data.metadata.title %}
-{% set edit_link = record.links.self_html %}
+{% set record_title = notification.context.record.metadata.title %}
+{% set edit_link = notification.context.record.links.self_html %}
 {% set expiration_days = notification.context.expiration %}
 
 {%- block subject -%}
-        {{ _("👤✔️ You were granted {permission} access to all versions of the record '{record_title}'").format(permission=permission, record_title=record_title) }}
+    {{ _("Byla Vám přidělena práva k úpravě záznamu / Permissions to edit your record ware granted – %(title)s", title=record_title|e) }}
 {%- endblock subject -%}
 
+{# ------------------------------------------------------- #}
+{# ---------------------- HTML BODY ----------------------- #}
+{# ------------------------------------------------------- #}
 {%- block html_body -%}
-<table style="font-family:'Lato',Helvetica,Arial,sans-serif;border-spacing:15px">
-    <tr>
-        <td>
-        {{ _("You have now permission to {permission} all versions of the record '{record_title}'.").format(record_title=record_title, permission=permission)}}
 
-        {% if message %}
-            <br>
-            <br>
-            {{ _("Message:")}}
-        {% endif %}
-        </td>
-    </tr>
-    <tr>
-        {% if message %}
-        <td><em>{{message}}</em></td>
-        {% endif %}
-    </tr>
-    <tr>
-        <td>
-            <p>You can access and edit it using the link below (valid for {{ expiration_days }} days)</p>
-            <a href="{{ shared_link }}" class="button">
-            {{ _("View the record") }}
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td><strong>_</strong></td>
-    </tr>
-</table>
+<p><em>For English see version below:</em></p>
+
+<p>Vážený uživateli Národního metadatového adresáře,</p>
+
+<p>Přidělili jsme Vám práva na úpravu záznamu <strong>{{ record_title | e }}</strong> v Národním metadatovém adresáři (NMA).</p>
+
+<p>Úpravy budou možné po dobu sedmi dnů na následujícím odkazu:</p>
+
+<p><a href="{{ edit_link }}">{{ edit_link }}</a></p>
+
+<p>Váš Národní metadatový adresář</p>
+
+<hr>
+
+<p>Dear National Metadata Directory user,</p>
+
+<p>We have granted you rights to edit the record <strong>{{ record_title | e }}</strong> in the National Metadata Directory (NMD).</p>
+
+<p>Edits will be possible for a period of seven days at the following link:</p>
+
+<p><a href="{{ edit_link }}">{{ edit_link }}</a></p>
+
+<p>Your National Metadata Directory</p>
+
 {%- endblock html_body -%}
 
 {# ------------------------------------------------------- #}
@@ -47,18 +46,10 @@
 
 Vážený uživateli Národního metadatového adresáře,
 
-Váš záznam {{ record_title }} v Národním metadatovém adresáři (NMA) byl úspěšně
-vytvořen.
+Přidělili jsme Vám práva na úpravu záznamu {{ record_title | e }} v Národním metadatovém adresáři (NMA).
 
-Pokud v něm potřebujete provádět jakékoli opravy, bude to možné po dobu
-sedmi dnů od vytvoření záznamu na následujícím odkazu:
+Úpravy budou možné po dobu sedmi dnů na následujícím odkazu:
 {{ edit_link }}
-Pro úpravy záznamu musíte být v NMA přihlášeni identitou, která záznam
-vytvořila.
-
-Pokud byste záznam potřebovali opravit později, obraťte se prosím na
-uživatelskou podporu na adrese info@eosc.cz a uveďte odkaz nebo
-persistentní identifikátor záznamu, který potřebujete zpřístupnit.
 
 Váš Národní metadatový adresář
 
@@ -66,19 +57,41 @@ Váš Národní metadatový adresář
 
 Dear National Metadata Directory user,
 
-Your record {{ record_title }} in the National Metadata Directory (NMD) has been
-created.
+We have granted you rights to edit the record {{ record_title | e }} in the National Metadata Directory (NMD).
 
-If you need to perform any corrections, it will be possible on the
-following link for seven days after record creation:
+Edits will be possible for a period of seven days at the following link:
 {{ edit_link }}
-You need to be logged in the NMD (with the identity that created the
-record) to edit the record.
-
-Should you need any corrections later, kindly contact the user support at
-info@eosc.cz, please identify the record in question by its link or its
-persistent identifier.
 
 Your National Metadata Directory
 
 {%- endblock plain_body -%}
+
+
+{# ------------------------------------------------------- #}
+{# ---------------------- MD BODY ------------------------- #}
+{# ------------------------------------------------------- #}
+{%- block md_body -%}
+_For English see version below:_
+
+Vážený uživateli Národního metadatového adresáře,
+
+Přidělili jsme Vám práva na úpravu záznamu **{{ record_title | e }}** v Národním metadatovém adresáři (NMA).
+
+Úpravy budou možné po dobu sedmi dnů na následujícím odkazu:
+
+{{ edit_link }}
+
+Váš Národní metadatový adresář
+
+---
+
+Dear National Metadata Directory user,
+
+We have granted you rights to edit the record **{{ record_title | e }}** in the National Metadata Directory (NMD).
+
+Edits will be possible for a period of seven days at the following link:
+
+{{ edit_link }}
+
+Your National Metadata Directory
+{%- endblock md_body -%}
