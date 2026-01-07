@@ -50,7 +50,7 @@ export const EmptyResultsElement = ({
           </Button>
         </Grid.Column>
         <Grid.Column width={16} textAlign="center">
-          <small class="block rel-mt-1">
+          <small>
             {i18next.t(
               "If you are looking to report a dataset (type T result) in RIV."
             )}

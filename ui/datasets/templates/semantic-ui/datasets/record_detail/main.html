@@ -117,9 +117,11 @@ Note: Context variables available:
 
 {%- if check_status %}
 
-<div class="ui fluid accordion rel-mb-1">
+<div class="ui fluid accordion text size small source-check styled rel-mb-1">
   <div class="title">
-    <div class="ui basic label source-check">
+      {%- if check_message %}
+        <i class="dropdown icon source-check"></i>
+      {%- endif %}
       <span
           data-testid="record-detail-header-info-original-source-check"
           class="ui image mr-0"
@@ -153,20 +155,16 @@ Note: Context variables available:
         {{ _("Warning: Issue detected with original source.") }}
       {%- endif %}
       </span>
-      {%- if last_checked %}
-        <div class="detail text-muted">{{ _("Last checked: ") }}{{ last_checked }}</div>
-      {%- endif %}
 
-      {%- if check_message %}
-        <i class="dropdown icon source-check"></i>
-      {%- endif %}
-    </div>
   </div>
   {%- if check_message %}
   <div class="content">
-    <div class="ui message">
+    <p>
+      {%- if last_checked %}
+        <div class="detail text-muted">{{ _("Last checked: ") }}{{ last_checked }}</div>
+      {%- endif %}
       {{ check_message }}
-    </div>
+    </p>
   </div>
   {%- endif %}
 </div>
