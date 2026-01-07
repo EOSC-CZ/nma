@@ -1,6 +1,6 @@
 from invenio_records_resources.references.entity_resolvers.results import ServiceResultResolver
 
-class RecordServiceResultResolver(ServiceResultResolver):
+class RecordByPIDServiceResultResolver(ServiceResultResolver):
     """Resolver for rdm record result items."""
 
     def _reference_entity(self, entity):
