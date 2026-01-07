@@ -14,9 +14,8 @@ from flask import (
     request,
     url_for,
 )
-from flask_login import login_required, current_user
+from flask_login import login_required
 from flask_menu import current_menu
-from invenio_accounts.models import User
 from invenio_app_rdm.records_ui.views.decorators import no_cache_response
 from invenio_i18n import lazy_gettext as _
 from invenio_pidstore.errors import PIDAlreadyExists, PIDDoesNotExistError
