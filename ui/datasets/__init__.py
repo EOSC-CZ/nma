@@ -14,8 +14,9 @@ from flask import (
     request,
     url_for,
 )
-from flask_login import login_required
+from flask_login import login_required, current_user
 from flask_menu import current_menu
+from invenio_accounts.models import User
 from invenio_app_rdm.records_ui.views.decorators import no_cache_response
 from invenio_i18n import lazy_gettext as _
 from invenio_pidstore.errors import PIDAlreadyExists, PIDDoesNotExistError
@@ -56,7 +57,7 @@ from riv.resolvers.base import (
     UnsupportedPIDError,
     resolve_metadata,
 )
-from riv.records.utils import user_edit_grant_and_notification
+from riv.records.utils import user_edit_grant_and_notification, create_user_edit_grant
 from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
@@ -274,7 +275,6 @@ class DatasetsUIResource(RecordsUIResource):
                 else:
                     user_edit_grant_and_notification(record_data, problems)
                     # Sanitize problem messages to prevent XSS
-                    user_edit_grant_and_notification(record_data, problems)
                     issues_list = "".join(
                         [f"<li>{escape(problem.message)}</li>" for problem in problems]
                     )
