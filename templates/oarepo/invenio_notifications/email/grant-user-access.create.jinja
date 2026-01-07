@@ -1,6 +1,5 @@
 {% set record_title = notification.context.record.metadata.title %}
 {% set edit_link = notification.context.record.links.self_html %}
-{% set expiration_days = notification.context.expiration %}
 
 {%- block subject -%}
     {{ _("Byla Vám přidělena práva k úpravě záznamu / Permissions to edit your record ware granted – %(title)s", title=record_title|e) }}
