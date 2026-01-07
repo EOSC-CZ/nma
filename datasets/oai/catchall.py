@@ -912,9 +912,9 @@ class CatchAllTransformer(BaseTransformer):
         languages = []
         for lang in language_list:
             if isinstance(lang, dict):
-                lang_id = lang.pop("id", None)
+                lang_id = lang.pop("slug", None)
                 if lang_id:
-                    languages.append({"id": self.convert_lang2_to_lang3(lang_id)})
+                    languages.append({"id": lang_id})
             elif isinstance(lang, str):
                 languages.append({"id": self.convert_lang2_to_lang3(lang)})
         return languages if languages else None
