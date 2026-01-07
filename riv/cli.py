@@ -200,11 +200,3 @@ def remove_records(harvested_only, yes_i_know):
         "Records removed successfully. Please wait, the search index is being rebuilt.",
         fg="green",
     )
-@riv.command("harvest")
-@click.argument("harvester")
-@with_appcontext
-def temporary_harvest_catch_all(harvester):
-    from oarepo_oaipmh_harvester.tasks import harvest_oaipmh_records
-
-    # for testing purposes
-    harvest_oaipmh_records(harvester_id=harvester, batch_size=1)
