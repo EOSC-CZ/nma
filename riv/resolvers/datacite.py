@@ -190,6 +190,7 @@ class DataciteResolver(MetadataResolver):
         url = f"{datacite_url}/{doi}"
         response = self.session.get(
             url=url,
+            timeout=self.resolve_timeout
         )
         if response.status_code != 200:
             if response.status_code == 404:

@@ -63,7 +63,8 @@ class HandleResolver(MetadataResolver):
         handle_url = current_app.config.get("HANDLE_URL")
 
         response = self.session.get(  # redirect is hardcoded at 3
-            url=f"{handle_url}/{handle}"
+            url=f"{handle_url}/{handle}",
+            timeout=self.resolve_timeout
         )
 
         if response.status_code != 200:
