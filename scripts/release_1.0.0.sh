@@ -50,6 +50,7 @@ fi
 invenio db init create
 invenio files location create --default default "s3://$BUCKET"
 invenio roles create admin
+invenio roles create administration-moderation
 invenio access allow superuser-access role admin
 invenio index init
 invenio rdm-records custom-fields init
@@ -62,5 +63,6 @@ invenio rdm-records fixtures
 
 invenio roles create riv_curators
 invenio access allow manage-record role riv_curators
+invenio access allow administration-moderation role riv_curators
 
 $(dirname "$0")/create_oai_harvesters.sh
