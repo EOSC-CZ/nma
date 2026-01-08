@@ -1,5 +1,6 @@
 import dataclasses
 import enum
+import unicodedata
 from typing import Protocol
 
 from flask import current_app
@@ -29,6 +30,7 @@ CREATORS_PLACEHOLDER = [
 PUBLICATION_DATE_PLACEHOLDER = "2025-01-01"
 TITLE_PLACEHOLDER = "Unknown title"
 RESOURCE_TYPE_PLACEHOLDER = "other"
+
 
 def get_validation_failed_on_date_format_message(date):
     return _(
@@ -81,11 +83,10 @@ class MetadataResolver(Protocol):
             total_retries=4,
             status_forcelist=[403, 429, 500, 502],
         )
-    
+
     @property
     def resolve_timeout(self):
-        """Default timeout (seconds) applied on resolver requests.
-        """
+        """Default timeout (seconds) applied on resolver requests."""
         return 10
 
     def can_resolve(self, identifier: str) -> bool:
@@ -95,6 +96,23 @@ class MetadataResolver(Protocol):
         the identifier format.
         """
         return False
+
+    def normalize(self, identifier: str) -> str:
+        """Normalize an identifier to canonical form.
+
+        This method ensures identifiers are stored consistently to prevent duplicates.
+        Each resolver implements normalization appropriate for its identifier type.
+
+        Args:
+            identifier: The identifier to normalize
+
+        Returns:
+            The normalized identifier (e.g., lowercased for case-insensitive types)
+        """
+        # Default implementation: trim whitespace and normalize Unicode
+        if identifier.startswith("http://"):
+            identifier = identifier.replace("http://", "https://", 1)
+        return unicodedata.normalize("NFC", identifier.strip())
 
     def resolve(self, identifier: str) -> (dict | None, list[ResolverProblem]):
         """Resolve metadata by identifier.

@@ -16,6 +16,7 @@ from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
 
 
 def generate_id(url: str) -> str:
+    """Generate PID from URL using configured patterns."""
     for prefix, val in current_app.config["PERSISTENT_IDENTIFIER_PATTERNS"].items():
         m = re.match(prefix, url)
         if m:

@@ -22,6 +22,8 @@ from invenio_pidstore.errors import PIDAlreadyExists, PIDDoesNotExistError
 from invenio_records_resources.services.errors import (
     PermissionDeniedError,
 )
+from invenio_records_resources.proxies import current_service_registry
+
 from markupsafe import Markup, escape
 from oarepo_runtime.typing import record_from_result
 from oarepo_ui.overrides import UIComponent
@@ -173,7 +175,7 @@ class DatasetsUIResource(RecordsUIResource):
     ):
         """Return search page.
 
-        If the query string contains a URL (starts with https://),
+        If the query string contains a URL (starts with https:// or http://),
         this method will:
         1. Check if the URL is resolvable (supported by our resolvers)
         2. Convert it to our internal ID format
@@ -182,11 +184,27 @@ class DatasetsUIResource(RecordsUIResource):
         5. Redirect to the registration page if it doesn't exist
         """
         query = request.args.get("q", "").strip()
-        if query.startswith("https://"):
-            query_resolvable = any(
-                r.can_resolve(query)
-                for r in current_riv_extension.persistent_identifiers_resolvers
-            )
+        query_resolvable = False
+        if query and (query.startswith("https://") or query.startswith("http://")):
+            # Validate URL structure
+            from urllib.parse import urlparse
+
+            try:
+                parsed = urlparse(query)
+                if not parsed.scheme or not parsed.netloc:
+                    # Invalid URL structure
+                    return self._search(page, size, **kwargs)
+            except ValueError:
+                # Malformed URL
+                return self._search(page, size, **kwargs)
+
+            # Find resolver that can handle this identifier
+            for r in current_riv_extension.persistent_identifiers_resolvers:
+                if r.can_resolve(query):
+                    query = r.normalize(query)
+                    query_resolvable = True
+                    break
+
             if query_resolvable:
                 try:
                     repository_id = generate_id(query)
@@ -225,7 +243,20 @@ class DatasetsUIResource(RecordsUIResource):
     def deposit_create(self):
         """Create and publish record by persistent identifier. Generate secret link and send email to user. Grant access to support."""
 
-        identifier = request.args.get("identifier", "")
+        identifier = request.args.get("identifier", "").strip()
+
+        # Validate identifier if provided
+        if identifier:
+            from urllib.parse import urlparse
+
+            try:
+                parsed = urlparse(identifier)
+                if not parsed.scheme or not parsed.netloc:
+                    flash(_("Invalid URL format provided."), "error")
+                    identifier = ""
+            except ValueError:
+                flash(_("Malformed URL provided."), "error")
+                identifier = ""
 
         if request.method == "GET" and identifier:
             form = RegisterForm(data={"pid": identifier})
@@ -233,8 +264,46 @@ class DatasetsUIResource(RecordsUIResource):
             form = RegisterForm()
 
         if form.validate_on_submit():
-            pid = form.pid.data
+            pid = form.pid.data.strip()
             skip_metadata = form.skip_metadata.data
+
+            # Validate and normalize the PID
+            from urllib.parse import urlparse
+
+            try:
+                parsed = urlparse(pid)
+                if not parsed.scheme or not parsed.netloc:
+                    flash(_("Invalid URL format. Please provide a valid URL."), "error")
+                    return redirect(url_for("datasets_ui.deposit_create"))
+            except ValueError:
+                flash(_("Malformed URL. Please provide a valid URL."), "error")
+                return redirect(url_for("datasets_ui.deposit_create"))
+
+            # Find resolver and normalize the identifier
+            for r in current_riv_extension.persistent_identifiers_resolvers:
+                if r.can_resolve(pid):
+                    pid = r.normalize(pid)
+                    break
+            try:
+                record_id = generate_id(pid)
+                _record = current_service_registry.get("datasets").read(
+                    identity=g.identity, id_=record_id
+                )
+                flash(
+                    _(
+                        "The dataset with the provided identifier is already registered."
+                    ),
+                    "info",
+                )
+                return redirect(
+                    url_for(
+                        "datasets_ui.record_detail",
+                        pid_value=record_id,
+                    )
+                )
+            except PIDDoesNotExistError:
+                # Record does not exist, continue
+                pass
 
             try:
                 if skip_metadata:
@@ -242,6 +311,7 @@ class DatasetsUIResource(RecordsUIResource):
                     record_data = {"metadata": {}}
                 else:
                     # Normal flow: resolve metadata from the identifier
+
                     metadata, problems = resolve_metadata(pid)
                     record_data = {"metadata": metadata}
 

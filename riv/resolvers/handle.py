@@ -57,14 +57,30 @@ class HandleResolver(MetadataResolver):
             or "http://hdl.handle.net" in persistent_url
         )
 
+    def normalize(self, identifier: str) -> str:
+        """Normalize Handle to canonical form.
+
+        Handles are case-insensitive for ASCII characters in the Global Handle
+        Registry per RFC 3651, so we lowercase the entire URL.
+
+        Args:
+            identifier: The Handle to normalize
+
+        Returns:
+            Lowercased, trimmed, Unicode-normalized Handle
+        """
+        # Trim whitespace and normalize Unicode
+        identifier = super().normalize(identifier)
+        # Handles in GHR are case-insensitive for ASCII, so lowercase everything
+        return identifier.lower()
+
     def resolve(self, persistent_url: str) -> tuple[dict | None, list[ResolverProblem]]:
 
         handle = normalize_handle(persistent_url)
         handle_url = current_app.config.get("HANDLE_URL")
 
         response = self.session.get(  # redirect is hardcoded at 3
-            url=f"{handle_url}/{handle}",
-            timeout=self.resolve_timeout
+            url=f"{handle_url}/{handle}", timeout=self.resolve_timeout
         )
 
         if response.status_code != 200:

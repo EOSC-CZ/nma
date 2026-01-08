@@ -33,6 +33,22 @@ class DataciteResolver(MetadataResolver):
     def can_resolve(self, persistent_url: str) -> bool:
         return is_doi(persistent_url)
 
+    def normalize(self, identifier: str) -> str:
+        """Normalize DOI to canonical form.
+
+        DOIs are case-insensitive per ISO 26324, so we lowercase the entire URL.
+
+        Args:
+            identifier: The DOI to normalize
+
+        Returns:
+            Lowercased, trimmed, Unicode-normalized DOI
+        """
+        # Trim whitespace and normalize Unicode
+        identifier = super().normalize(identifier)
+        # DOIs are case-insensitive, so lowercase everything
+        return identifier.lower()
+
     def resolve_metadata(self, datacite_metadata) -> tuple[dict, list[ResolverProblem]]:
         metadata = {}
         problems = []
@@ -188,10 +204,7 @@ class DataciteResolver(MetadataResolver):
         datacite_url = current_app.config.get("DATACITE_URL")
         doi = normalize_doi(persistent_url)
         url = f"{datacite_url}/{doi}"
-        response = self.session.get(
-            url=url,
-            timeout=self.resolve_timeout
-        )
+        response = self.session.get(url=url, timeout=self.resolve_timeout)
         if response.status_code != 200:
             if response.status_code == 404:
                 return None, [
@@ -468,7 +481,7 @@ class DataciteResolver(MetadataResolver):
             )
         )
 
-        return TITLE_PLACEHOLDER # should never happen
+        return TITLE_PLACEHOLDER  # should never happen
 
     @handle_errors()
     def resolve_datacite_additional_titles(self, titles):
@@ -567,7 +580,9 @@ class DataciteResolver(MetadataResolver):
 
                 family = family or parsed_family
                 given = given or (parsed_given if parsed_given else None)
-                if family == "": #This will happen if only the given name is provided, which may occur in DataCite, but is not valid in RDM.
+                if (
+                    family == ""
+                ):  # This will happen if only the given name is provided, which may occur in DataCite, but is not valid in RDM.
                     problems.append(
                         ResolverProblem(
                             resolver=self.name,

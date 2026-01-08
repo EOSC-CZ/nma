@@ -3,7 +3,7 @@
  *
  * This script handles the "Find or Register Dataset" button behavior on the frontpage.
  * When clicked:
- * - If the search input contains a URL (starts with https://),
+ * - If the search input contains a URL (starts with https:// or http://),
  *   it submits the search form to redirect to the search page
  * - Otherwise, it navigates to the dataset registration page
  */
@@ -24,7 +24,7 @@
     function handleAction() {
       const query = searchInput.value.trim();
 
-      if (query.startsWith("https://")) {
+      if (query.startsWith("https://") || query.startsWith("http://")) {
         searchForm.submit();
       } else {
         const registerUrl = registerButton.getAttribute("data-register-url");

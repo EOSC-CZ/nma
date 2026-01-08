@@ -7,6 +7,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
+
 from flask import current_app
 from idutils.normalizers import normalize_doi
 from idutils.validators import is_doi
@@ -43,6 +44,22 @@ class CrossrefResolver(MetadataResolver):
 
     def can_resolve(self, persistent_url: str) -> bool:
         return is_doi(persistent_url)
+
+    def normalize(self, identifier: str) -> str:
+        """Normalize DOI to canonical form.
+
+        DOIs are case-insensitive per ISO 26324, so we lowercase the entire URL.
+
+        Args:
+            identifier: The DOI to normalize
+
+        Returns:
+            Lowercased, trimmed, Unicode-normalized DOI
+        """
+        # Trim whitespace and normalize Unicode
+        identifier = super().normalize(identifier)
+        # DOIs are case-insensitive, so lowercase everything
+        return identifier.lower()
 
     def resolve(self, persistent_url: str) -> (dict | None, str):
         """
