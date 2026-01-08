@@ -40,7 +40,11 @@ class ResultsListItem extends Component {
     );
 
     return (
-      <Item key={result.id} data-testid="result-item">
+      <Item
+        key={result.id}
+        data-testid="result-item"
+        className="search-result-item"
+      >
         <Item.Content>
           <Item.Extra className="labels-actions">
             <Label horizontal size="small" className="primary theme-primary">

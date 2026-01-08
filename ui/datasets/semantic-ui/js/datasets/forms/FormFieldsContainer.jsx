@@ -17,11 +17,6 @@ const FormFieldsContainerComponent = ({ record }) => {
   return (
     <React.Fragment>
       <TextField fieldPath="metadata.title" />
-      <ResourceTypeField
-        options={vocabularies.resource_type}
-        fieldPath="metadata.resource_type"
-        required
-      />
       <EDTFSingleDatePicker fieldPath="metadata.publication_date" />
       <CreatibutorsField
         fieldPath="metadata.creators"
