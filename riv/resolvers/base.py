@@ -6,6 +6,7 @@ from flask import current_app
 from invenio_i18n import lazy_gettext as _
 from requests.exceptions import RetryError
 from urllib3.exceptions import MaxRetryError
+import unicodedata
 
 from riv.proxies import current_riv_extension
 from riv.utils import create_session_with_retries
@@ -59,6 +60,15 @@ class ResolverProblem:
 # by logger.error(... resolver problem ...)
 
 
+class PIDDoesNotExistError(Exception):
+    """
+    """
+
+    def __init__(self, identifier: str):
+        self.identifier = identifier
+        super().__init__(f"Non existing persistent identifier: '{identifier}'.")
+
+
 class UnsupportedPIDError(Exception):
     """Raised when a persistent identifier is not supported by any resolver.
 
@@ -71,6 +81,10 @@ class UnsupportedPIDError(Exception):
         self.identifier = identifier
         super().__init__(f"Unsupported identifier '{identifier}'.")
 
+class PIDProcessingError(Exception):
+    def __init__(self, identifier: str):
+        self.identifier = identifier
+        super().__init__(f"Error while processing identifier '{identifier}'.")
 
 class MetadataResolver(Protocol):
 
@@ -103,10 +117,27 @@ class MetadataResolver(Protocol):
         If the metadata is resolved, returns (metadata_dict, list[ResolverProblem]).
         """
 
-
+    def exists(self, identifier: str) -> tuple: #asi teda chci bool a data nebo bool a None
+        """Check if identifier exists on resolvers api."""
+    def normalize(self, identifier: str) -> str:
+        """Normalize an identifier to canonical form.
+        This method ensures identifiers are stored consistently to prevent duplicates.
+        Each resolver implements normalization appropriate for its identifier type.
+        Args:
+            identifier: The identifier to normalize
+        Returns:
+            The normalized identifier (e.g., lowercased for case-insensitive types)
+        """
+        # Default implementation: trim whitespace and normalize Unicode
+        if identifier.startswith("http://"):
+            identifier = identifier.replace("http://", "https://", 1)
+        return unicodedata.normalize("NFC", identifier.strip())
+    def generate_id(self, identifier: str) -> str:
+        """doku."""
+from ..proxies import current_resolver_registry
 def resolve_metadata(persistent_url: str) -> (dict | None, list[ResolverProblem]):
     """Resolve metadata by persistent url.
-
+    current_resolver_registery.resolve_metadata(prersistent_url)
     If the metadata can not be resolved, returns (None, "error_message").
     If the metadata is resolved, returns (metadata_dict, "warning message").
     Raises ValueError if all resolvers fail (for now)
@@ -115,6 +146,7 @@ def resolve_metadata(persistent_url: str) -> (dict | None, list[ResolverProblem]
 
         If no resolver succeeds, the collected problems from all resolvers are returned.
     """
+    current_resolver_registry.resolve_metadata(persistent_url)
 
     resolvers = current_riv_extension.persistent_identifiers_resolvers
     collected_messages: list[ResolverProblem] = []

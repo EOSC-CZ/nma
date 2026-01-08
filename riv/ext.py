@@ -16,7 +16,7 @@ from . import config
 from invenio_base.utils import obj_or_import_string
 from flask import Flask
 from .resolvers.base import MetadataResolver
-
+from .resolvers.registry import ResolverRegistry
 if TYPE_CHECKING:  # pragma: no cover
     from flask import Flask
 
@@ -30,6 +30,8 @@ class RIVResolverExtension:
         """Flask application initialization."""
         self.app = app
         self.init_config(app)
+        self.resolver_registry =ResolverRegistry()
+
         app.extensions["riv-extension"] = self
 
     def init_config(self, app: Flask) -> None:

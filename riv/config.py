@@ -11,8 +11,8 @@ from idutils.utils import handle_regexp
 
 PERSISTENT_IDENTIFIER_RESOLVERS = [
     "riv.resolvers.DataciteResolver",
-    "riv.resolvers.CrossrefResolver",
-    "riv.resolvers.HandleResolver",
+    # "riv.resolvers.CrossrefResolver",
+    # "riv.resolvers.HandleResolver",
 ]
 
 PERSISTENT_IDENTIFIER_PATTERNS = {
