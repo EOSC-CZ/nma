@@ -103,6 +103,12 @@ class DataciteResolver(MetadataResolver):
         if len(dates) > 0:
             metadata["dates"] = dates
 
+        # subjects
+        datacite_subjects = datacite_metadata.get("subjects", [])
+        subjects = self.resolve_datacite_subjects(datacite_subjects)
+        if len(subjects) > 0:
+            metadata["subjects"] = subjects
+
         # language
         # not required
         # one string in datacite, list of voc in rdm
@@ -259,13 +265,38 @@ class DataciteResolver(MetadataResolver):
         for d in descriptions:
             _type = d.get("descriptionType")
             description = d.get("description")
-            if _type == "Abstract":
-                continue
-            if description and _type:
-                if type(description) == str and len(description) >= 3:
-                    return description
-
+            if _type == "Abstract" and type(description) is str and len(description) >= 3:
+                return description
         return None
+
+    @handle_errors()
+    def resolve_datacite_affiliations(self, affiliations):
+        affiliations_list = []
+        seen = set()
+
+        for a in affiliations or []:
+            if type(a) == str:
+                seen.add(a)
+                affiliations_list.append({"name":a})
+            elif isinstance(a, dict):
+                a_scheme = a.get("affiliationIdentifierScheme")
+                if a_scheme == "ROR":
+                    a_identifier = a.get("affiliationIdentifier")
+                    if not a_identifier or a_identifier in seen:
+                        continue
+                    affiliations_list.append({"id": a_identifier})
+                    seen.add(a_identifier)
+                else:
+                    name = a.get("name")
+                    if not name or not isinstance(name, str):
+                        continue
+                    if name in seen:
+                        continue
+                    seen.add(name)
+
+                    affiliations_list.append({"name": name})
+
+        return affiliations_list
 
     @handle_errors()
     def resolve_related_identifiers(self, related_identifiers):
@@ -440,6 +471,23 @@ class DataciteResolver(MetadataResolver):
             return str(publisher)
         return None
 
+    @handle_errors()
+    def resolve_datacite_subjects(self, subjects):
+        subjects_list = []
+        seen = set()
+        for s in subjects or []:
+            if not isinstance(s, dict):
+                continue
+
+            value = s.get("subject")
+            if not value or not isinstance(value, str):
+                continue
+            if value in seen:
+                continue
+            seen.add(value)
+            subjects_list.append({"subject": value})
+        return subjects_list
+
     @handle_errors(error_placeholder=TITLE_PLACEHOLDER, alert_user=True)
     def resolve_datacite_main_title(self, *, titles, problems):
         for title in titles:
@@ -589,7 +637,11 @@ class DataciteResolver(MetadataResolver):
                 and len(name_identifiers) > 0
             ):
                 creator_obj["identifiers"] = name_identifiers
-            creator_list.append({"person_or_org": creator_obj})
+            entry = {"person_or_org": creator_obj}
+            affs = self.resolve_datacite_affiliations(creator.get("affiliation", []))
+            if len(affs) > 0:
+                entry["affiliations"] = affs
+            creator_list.append(entry)
 
         return creator_list
 
@@ -598,7 +650,7 @@ class DataciteResolver(MetadataResolver):
 
         contributor_list = []
 
-        for contributor in contributors or []:
+        for contributor in contributors:
             person = {}
 
             contributor_type = (contributor.get("nameType") or "Personal").lower()
@@ -626,6 +678,9 @@ class DataciteResolver(MetadataResolver):
                 person["identifiers"] = name_identifiers
 
             entry = {"person_or_org": person}
+            affs = self.resolve_datacite_affiliations(contributor.get("affiliation", []))
+            if len(affs) > 0:
+                entry["affiliations"] = affs
             resolved_role = None
             role = contributor.get("contributorType")
 
