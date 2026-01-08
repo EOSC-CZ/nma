@@ -235,9 +235,10 @@ class DatasetsUIResource(RecordsUIResource):
                     pid_value=published_record["id"],
                     _external=True,
                 )
+
                 if not problems:
                     flash(
-                        _("Successfully registered dataset with PID: %(pid)s", pid=pid),
+                        _("Thank you for submitting the record to the National Metadata Directory. If you need to add a link to you RIV submission, please use the link below."),
                         "success",
                     )
                     return redirect(
@@ -254,7 +255,7 @@ class DatasetsUIResource(RecordsUIResource):
                     warning_message = Markup(
                         f'<div class="header">'
                         f'<i class="exclamation triangle icon"></i>'
-                        f'{_("Dataset was registered with issues. Please check/correct the metadata below:")}'
+                        f'{_("Thank you for submitting the record to the National Metadata Directory. We detected some metadata issues within the record. To obtain a URL for RIV reporting, please check and correct the metadata below.")}'
                         f"</div>"
                         f'<ul class="list">{issues_list}</ul>'
                     )

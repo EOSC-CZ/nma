@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-07 16:03+0100\n"
+"POT-Creation-Date: 2026-01-08 11:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -507,6 +507,18 @@ msgstr ""
 msgid "Edited by"
 msgstr ""
 
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_notifications/email/data-riv-record-created.jinja:6
+#, python-format
+msgid "Váš záznam byl vytvořen / Your record has been created – %(title)s"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_notifications/email/grant-user-access.create.jinja:5
+#, python-format
+msgid ""
+"Byla Vám přidělena práva k úpravě záznamu / Permissions to edit your "
+"record ware granted – %(title)s"
+msgstr ""
+
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo_ui/macros/records_list.html:10
 msgid "Recently Added Metadata"
 msgstr ""
@@ -604,11 +616,6 @@ msgstr ""
 msgid "InvenioRDM"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_notifications/email/data-riv-record-created.jinja:6
-#, python-format
-msgid "Váš záznam byl vytvořen / Your record has been created – %(title)s"
-msgstr ""
-
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:206
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
@@ -617,19 +624,23 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:259
 msgid ""
-"Dataset registered successfully without metadata retrieval. Please fill "
-"the minimum metadata below:"
+"Thank you for submitting the record to the National Metadata Directory. "
+"Metadata retrieval was skipped. To obtain a URL for RIV reporting, please"
+" provide the required metadata below."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:266
-#, python-format
-msgid "Successfully registered dataset with PID: %(pid)s"
+msgid ""
+"Thank you for submitting the record to the National Metadata Directory. "
+"If you need to add a link to you RIV submission, please use the link "
+"below."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:283
 msgid ""
-"Dataset was registered with issues. Please check/correct the metadata "
-"below:"
+"Thank you for submitting the record to the National Metadata Directory. "
+"We detected some metadata issues within the record. To obtain a URL for "
+"RIV reporting, please check and correct the metadata below."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:296
@@ -802,35 +813,35 @@ msgstr ""
 msgid "Manage record"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:128
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:124
 msgid "Original source check status"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:147
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:143
 msgid ""
 "Original source confirmed. The dataset is still available at its "
 "authoritative repository."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:149
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:145
 msgid ""
 "Original source not found. The dataset is no longer available at the "
 "specified location."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:151
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:147
 msgid "Error checking original source. Unable to verify dataset availability."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:153
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:149
 msgid "Original source not accessible. The dataset location cannot be reached."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:155
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:151
 msgid "Warning: Issue detected with original source."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:165
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:161
 msgid "Last checked: "
 msgstr ""
 
