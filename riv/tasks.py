@@ -4,19 +4,20 @@ import shlex
 import subprocess
 import sys
 import traceback
-from datetime import timedelta, timezone, datetime
+from celery import shared_task
+from datetime import timedelta, timezone
+from flask import current_app
+from invenio_access.permissions import system_identity
+from invenio_records_resources.proxies import current_service_registry
+from invenio_search import current_search
+from marshmallow import fields
+from oarepo_oaipmh_harvester.oai_harvester.models import OAIHarvester
+from oarepo_oaipmh_harvester.tasks import harvest_oaipmh_records
+from opensearch_dsl import Q
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from celery import shared_task
-from flask import current_app
-from invenio_access.permissions import system_identity
 from invenio_jobs.jobs import JobType, PredefinedArgsSchema
-from invenio_records_resources.proxies import current_service_registry
-from invenio_search import current_search
-
-from marshmallow import fields
-from opensearch_dsl import Q
 from .config import LAST_CHECKED_THRESHOLD_DAYS
 from .utils import check_url_availability, create_session_with_retries
 
@@ -252,7 +253,6 @@ class CreateMissingIndicesJob(JobType):
 
 @shared_task(ignore_result=True)
 def rebuild_all_indices():
-
     for name, response in current_search.delete(ignore=[400, 404]):
         current_app.logger.info("Deleted index: %s, response: %s", name, response)
     current_app.logger.info("Recreating all indices...")
@@ -318,3 +318,19 @@ class CheckAvailabilityJob(JobType):
     title = "Check record persistent URLs availability"
     description = "Check availability of dataset persistent URLs."
     task = check_availability_task
+
+
+@shared_task(ignore_result=True)
+def run_all_harvesters():
+    harvesters = OAIHarvester.query.all()
+    for harvester in harvesters:
+        harvest_oaipmh_records(harvester.id)
+
+
+class RunAllHarvesters(JobType):
+    """A job type to run invenio CLI commands as Celery tasks."""
+
+    id = "run_all_harvesters"
+    title = "Run all harvester tasks"
+    description = "Run all harvester tasks."
+    task = run_all_harvesters
