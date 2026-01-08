@@ -3,6 +3,10 @@
 Metadata:
   type: object
   properties:
+    publication_date:
+      help:
+        en: Choose the publication date from the calendar. It can be a year, year and month or a full date. You can toggle date format using selector below the date in the calendar.
+        cs: Vyberte datum publikace v kalendáři. Může to být rok, rok a měsíc nebo celé datum. Formát data můžete přepínat pomocí voliče pod datem.
     persistent_url:
       type: keyword
     last_checked:

@@ -21,6 +21,7 @@ const FormFieldsContainerComponent = ({ record }) => {
         options={vocabularies.resource_type}
         fieldPath="metadata.resource_type"
         required
+        upward={false}
       />
       <EDTFSingleDatePicker fieldPath="metadata.publication_date" />
       <CreatibutorsField
