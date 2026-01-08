@@ -177,6 +177,9 @@ a.no-text-decoration:hover {
 }
 
 .permanent-link-header {
+  .content {
+    width: 100%;
+  }
   .copy-button {
     color: @white !important;
     margin-left: 0.5rem !important;
