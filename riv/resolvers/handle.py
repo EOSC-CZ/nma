@@ -191,9 +191,10 @@ class HandleResolver(MetadataResolver):
 
     @handle_errors(PUBLICATION_DATE_PLACEHOLDER, alert_user=True)
     def resolve_publication_date(self, *, tree, problems):
-        dates = tree.xpath(
+        dates = (tree.xpath(
             '//meta[@name="citation_publication_date"]/@content'
         ) or tree.xpath('//meta[@name="publication_date"]/@content')
+          or tree.xpath('//meta[@name="citation_date"]/@content'))
 
         if not dates:
             problems.append(
