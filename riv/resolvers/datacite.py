@@ -19,8 +19,8 @@ from ..resolvers import MetadataResolver
 from .base import (
     CREATORS_PLACEHOLDER,
     PUBLICATION_DATE_PLACEHOLDER,
-    TITLE_PLACEHOLDER,
     RESOURCE_TYPE_PLACEHOLDER,
+    TITLE_PLACEHOLDER,
     ResolverProblem,
     ResolverProblemLevel,
 )
@@ -196,14 +196,15 @@ class DataciteResolver(MetadataResolver):
             return f"doi/{m.group(1)}"
         raise ValueError(f"Could not generate pid from url: {identifier}")
 
+    def normalize(self, identifier: str) -> str:
+        """DOIs are case-insensitive, so we lowercase them."""
+        return super().normalize(identifier).lower()
+
     def exists(self, persistent_url: str) -> bool:
         datacite_url = current_app.config.get("DATACITE_URL")
         doi = normalize_doi(persistent_url)
         url = f"{datacite_url}/{doi}"
-        response = self.session.get(
-            url=url,
-            timeout=self.resolve_timeout
-        )
+        response = self.session.get(url=url, timeout=self.resolve_timeout)
         if response.status_code != 200:
             return False
         return True
@@ -213,10 +214,7 @@ class DataciteResolver(MetadataResolver):
         datacite_url = current_app.config.get("DATACITE_URL")
         doi = normalize_doi(persistent_url)
         url = f"{datacite_url}/{doi}"
-        response = self.session.get(
-            url=url,
-            timeout=self.resolve_timeout
-        )
+        response = self.session.get(url=url, timeout=self.resolve_timeout)
         if response.status_code != 200:
             if response.status_code == 404:
                 return None, [
@@ -285,7 +283,11 @@ class DataciteResolver(MetadataResolver):
         for d in descriptions:
             _type = d.get("descriptionType")
             description = d.get("description")
-            if _type == "Abstract" and type(description) is str and len(description) >= 3:
+            if (
+                _type == "Abstract"
+                and type(description) is str
+                and len(description) >= 3
+            ):
                 return description
         return None
 
@@ -297,7 +299,7 @@ class DataciteResolver(MetadataResolver):
         for a in affiliations or []:
             if type(a) == str:
                 seen.add(a)
-                affiliations_list.append({"name":a})
+                affiliations_list.append({"name": a})
             elif isinstance(a, dict):
                 a_scheme = a.get("affiliationIdentifierScheme")
                 if a_scheme == "ROR":
@@ -535,7 +537,7 @@ class DataciteResolver(MetadataResolver):
             )
         )
 
-        return TITLE_PLACEHOLDER # should never happen
+        return TITLE_PLACEHOLDER  # should never happen
 
     @handle_errors()
     def resolve_datacite_additional_titles(self, titles):
@@ -634,7 +636,9 @@ class DataciteResolver(MetadataResolver):
 
                 family = family or parsed_family
                 given = given or (parsed_given if parsed_given else None)
-                if family == "": #This will happen if only the given name is provided, which may occur in DataCite, but is not valid in RDM.
+                if (
+                    family == ""
+                ):  # This will happen if only the given name is provided, which may occur in DataCite, but is not valid in RDM.
                     problems.append(
                         ResolverProblem(
                             resolver=self.name,
@@ -698,7 +702,9 @@ class DataciteResolver(MetadataResolver):
                 person["identifiers"] = name_identifiers
 
             entry = {"person_or_org": person}
-            affs = self.resolve_datacite_affiliations(contributor.get("affiliation", []))
+            affs = self.resolve_datacite_affiliations(
+                contributor.get("affiliation", [])
+            )
             if len(affs) > 0:
                 entry["affiliations"] = affs
             resolved_role = None

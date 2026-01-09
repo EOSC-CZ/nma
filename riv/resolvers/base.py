@@ -1,14 +1,9 @@
 import dataclasses
 import enum
-from typing import Protocol
-
-from flask import current_app
-from invenio_i18n import lazy_gettext as _
-from requests.exceptions import RetryError
-from urllib3.exceptions import MaxRetryError
 import unicodedata
 
-from riv.proxies import current_riv_extension
+from invenio_i18n import lazy_gettext as _
+
 from riv.utils import create_session_with_retries
 
 
@@ -30,6 +25,7 @@ CREATORS_PLACEHOLDER = [
 PUBLICATION_DATE_PLACEHOLDER = "2025-01-01"
 TITLE_PLACEHOLDER = "Unknown title"
 RESOURCE_TYPE_PLACEHOLDER = "other"
+
 
 def get_validation_failed_on_date_format_message(date):
     return _(
@@ -84,14 +80,16 @@ class UnsupportedPIDError(Exception):
         self.identifier = identifier
         super().__init__(f"Unsupported identifier '{identifier}'.")
 
+
 class PIDProcessingError(Exception):
     """Raised when an error occurs while processing a persistent identifier."""
-    
+
     def __init__(self, identifier: str):
         self.identifier = identifier
         super().__init__(f"Error while processing identifier '{identifier}'.")
 
-class MetadataResolver(Protocol):
+
+class MetadataResolver:
 
     name: str
 
@@ -100,11 +98,10 @@ class MetadataResolver(Protocol):
             total_retries=4,
             status_forcelist=[403, 429, 500, 502],
         )
-    
+
     @property
     def resolve_timeout(self):
-        """Default timeout (seconds) applied on resolver requests.
-        """
+        """Default timeout (seconds) applied on resolver requests."""
         return 10
 
     def can_resolve(self, identifier: str) -> bool:
