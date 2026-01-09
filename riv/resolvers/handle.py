@@ -2,14 +2,17 @@ import datetime
 import re
 
 import dateutil
+import langcodes
 from dateutil.parser import ParserError
 from flask import current_app
 from idutils.normalizers import normalize_handle
 from idutils.validators import is_handle
+from invenio_access.permissions import system_identity
 from invenio_i18n import lazy_gettext as _
 from lxml import html
 from marshmallow import ValidationError
 from marshmallow_utils.fields import EDTFDateString
+from invenio_vocabularies.proxies import current_service as vocabulary_service
 
 from ..resolvers import MetadataResolver
 from .base import (
@@ -63,6 +66,12 @@ class HandleResolver(MetadataResolver):
         # there are dataset related tags, dataset_creator, dataset_license, dataset_keyword ..
         # but they are used also on things that aren't datasets
         metadata["resource_type"] = {"id": RESOURCE_TYPE_PLACEHOLDER}
+
+        additional_desc = self.resolve_additional_description(
+            tree=metadata_tree, problems=problem_list
+        )
+        if len(additional_desc) > 0:
+            metadata["additional_descriptions"] = additional_desc
 
         return metadata, problem_list
 
@@ -205,3 +214,45 @@ class HandleResolver(MetadataResolver):
                 )
             )
         return parsed_date
+
+    @handle_errors()
+    def resolve_additional_description(self, *, tree, problems):
+        descriptions = tree.xpath('//meta[@name="DCTERMS.abstract"]')
+        des_list = []
+        for d in descriptions:
+            # _type = d.get("descriptionType")
+            description = d.get("content")
+
+            if description:
+                description_obj = {}
+                if type(description) == str and len(description) >= 3:
+                    description_obj["description"] = description
+                else:
+                    continue
+                d_lang = d.get("xml:lang")
+                if type(d_lang) != str:
+                    continue
+                lang = self.resolve_language(language=d_lang)
+                if lang:
+                    description_obj["lang"] = {"id": lang}
+                description_obj["type"] = {"id": "abstract"}
+                des_list.append(description_obj)
+
+        return des_list
+
+    # TODO: copy paste from datacite
+    @handle_errors()
+    def resolve_language(self, language):
+        if language:
+            try:
+                longer_code = langcodes.Language.get(language.lower()).to_alpha3()
+                vocabulary_service.read(system_identity, ("languages", longer_code))
+                return longer_code
+            except:
+                current_app.logger.exception(
+                    "Record '%s' was not found in the '%s' vocabulary.",
+                    longer_code,
+                    "languages",
+                )
+        return None
+
