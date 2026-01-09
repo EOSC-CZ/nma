@@ -51,6 +51,31 @@ def parse_date(date):
 class HandleResolver(MetadataResolver):
     name = "Handle"
 
+
+    def normalize(self, identifier: str) -> str:
+        """Handles are case-insensitive, so we lowercase them."""
+        return super().normalize(identifier).lower()
+
+    def generate_id(self, identifier: str) -> str:
+        pattern = r"https?://hdl.handle.net/(.+)"
+        m = re.match(pattern, identifier)
+        if m:
+            return f"handle/{m.group(1)}"
+        raise ValueError(f"Could not generate pid from url: {identifier}")
+
+    def exists(self, persistent_url: str) -> bool:
+        handle_url = current_app.config.get("HANDLE_URL")
+        handle = normalize_handle(persistent_url)
+        url = f"{handle_url}/{handle}"
+        # response = requests.get(url)
+        response = self.session.get(
+            url=url,
+            timeout=self.resolve_timeout
+        )
+        if response.status_code != 200:
+            return False
+        return True
+
     def can_resolve(self, persistent_url: str) -> bool:
         return is_handle(persistent_url) and (
             "https://hdl.handle.net" in persistent_url
