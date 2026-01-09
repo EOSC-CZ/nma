@@ -55,7 +55,11 @@ class DatasetsPermissionPolicyMixin(ModelMixin):
         SystemProcess(),
         Administration(),
     ]  # system process can update records (in tasks etc)
-
+    can_update_draft = [
+        AccessGrant("edit"),
+        SystemProcess(),
+        Administration(),
+    ]
     can_create = [
         SystemProcess(),
         Administration(),

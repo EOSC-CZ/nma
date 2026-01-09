@@ -4,12 +4,9 @@ Structured collections of research data, identified with a persistent identifier
 
 from __future__ import annotations
 
+from invenio_access.permissions import system_identity
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
-from invenio_drafts_resources.services.records import (
-    RecordService as DraftRecordService,
-)
 from invenio_i18n import lazy_gettext as _
-from invenio_pidstore.models import PIDStatus
 from invenio_rdm_records.resources.serializers.ui.schema import UIRecordSchema
 from invenio_records_resources.records.systemfields import PIDField
 from invenio_records_resources.services import RecordEndpointLink
@@ -35,7 +32,6 @@ from riv.records.api import ExternalPIDProvider
 from riv.records.system_fields import (
     ExternalPIDField,
     ExternalPIDFieldContextMixin,
-    PIDStatusCheckField,
 )
 
 from .deserializers import DataCiteJSONDeserializer, DataCiteXMLDeserializer
@@ -47,12 +43,6 @@ from .services.components import (
     UpdateEditorsComponent,
     UpdateMetadataComponent,
 )
-
-
-class PIDStatusCheckFieldMixin:
-    """Custom PID status check field returning False when PID is not set."""
-
-    is_published = PIDStatusCheckField(status=PIDStatus.REGISTERED, dump=True)
 
 
 class UpdatableRecordServiceMixin:
@@ -73,9 +63,8 @@ class UpdatableRecordServiceMixin:
     """
 
     def update(self, identity, id_, data, *args, revision_id=None, **kwargs):
-        """Override update to allow updating published records.
-        """
-        
+        """Override update to allow updating published records."""
+
         # metadata.rights: invenio rdm can not upload record that has rights that contain both id and title
         # so we remove all other props if there is an id
         rights = data["metadata"].get("rights", [])
@@ -109,12 +98,19 @@ class UpdatableRecordServiceMixin:
             for aff in contributor.get("affiliations", []):
                 aff.pop("identifiers", None)
 
-        # we need to call super directly on the base record service, because draft
-        # service disables the update on published records completely, regardless
-        # of permission policy
-        return super(DraftRecordService, self).update(
+        # go through drafts
+        edit_resp = self.edit(system_identity, id_)
+        resp = self.update_draft(
             identity, id_, data, *args, revision_id=revision_id, **kwargs
         )
+        if resp.errors:
+            self.delete_draft(system_identity, id_)
+            return resp
+        return self.publish(system_identity, id_)
+
+        # return super(DraftRecordService, self).update(
+        #     identity, id_, data, *args, revision_id=revision_id, **kwargs
+        # )
 
 
 class OverriddenRouteResourceConfigMixin:
@@ -201,7 +197,6 @@ datasets_model = model(
             ),
         ),
         PrependMixin("PIDFieldContext", ExternalPIDFieldContextMixin),
-        PrependMixin("Draft", PIDStatusCheckFieldMixin),
         PrependMixin("RecordService", UpdatableRecordServiceMixin),
         PrependMixin("RecordResourceConfig", OverriddenRouteResourceConfigMixin),
         AddFacetGroup(
