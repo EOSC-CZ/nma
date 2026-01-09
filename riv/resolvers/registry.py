@@ -57,12 +57,12 @@ class ResolverRegistry:
             if isinstance(e, MaxRetryError):
                 e = getattr(e, "reason", e)
             current_app.logger.exception("Unexpected error while finding resolver for id: %s", normalized_persistent_url)
-            raise PIDProcessingError(message=str(e))
+            raise PIDProcessingError(str(e))
         try:
             metadata, problems = resolver.resolve(normalized_persistent_url)
         except Exception as e:
             current_app.logger.exception("Exception calling resolver %s %s", resolver, normalized_persistent_url)
-            raise PIDProcessingError(message=str(e))
+            raise PIDProcessingError(str(e))
 
         collected_messages.extend(problems)
         if metadata is None:

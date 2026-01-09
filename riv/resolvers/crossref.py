@@ -6,6 +6,7 @@
 # nma is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 #
+import re
 
 from flask import current_app
 from idutils.normalizers import normalize_doi
@@ -16,7 +17,8 @@ from invenio_vocabularies.proxies import current_service as vocabulary_service
 from marshmallow import ValidationError
 from marshmallow_utils.fields import EDTFDateString
 
-from .base import ResolverProblem, ResolverProblemLevel, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER, TITLE_PLACEHOLDER, RESOURCE_TYPE_PLACEHOLDER
+from .base import ResolverProblem, ResolverProblemLevel, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER, \
+    TITLE_PLACEHOLDER, RESOURCE_TYPE_PLACEHOLDER
 from .utils import handle_errors
 from ..resolvers import MetadataResolver
 
@@ -35,6 +37,7 @@ But currently returns "Resource not found."
 
 example: https://api.crossref.org/works/doi/10.64000/wadve-3tj60&mailto=info@eosc.cz
 """
+
 
 class CrossrefResolver(MetadataResolver):
     """Crossref resolver."""
@@ -114,7 +117,7 @@ class CrossrefResolver(MetadataResolver):
         problems.append(
             ResolverProblem(resolver=self.name, message=_("Missing title."),
                             level=ResolverProblemLevel.WARNING))
-        return TITLE_PLACEHOLDER # should never happen
+        return TITLE_PLACEHOLDER  # should never happen
 
     @handle_errors(error_placeholder=CREATORS_PLACEHOLDER, alert_user=True)
     def resolve_crossref_authors(self, authors, problems):
@@ -167,7 +170,7 @@ class CrossrefResolver(MetadataResolver):
         except Exception as e:
             problems.append(
                 ResolverProblem(resolver=self.name, message=_(
-                    f"The provided resource type {_type} could not be parsed. The default value 'dataset' has been applied."),
+                    f"The provided resource type {_type} could not be parsed. The default value 'other' has been applied."),
                                 level=ResolverProblemLevel.WARNING, original_exception=e))
             current_app.logger.exception(
                 "Record '%s' was not found in the '%s' vocabulary.",
@@ -175,3 +178,27 @@ class CrossrefResolver(MetadataResolver):
                 vocabulary_id
             )
             return {"id": RESOURCE_TYPE_PLACEHOLDER}
+
+    def exists(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
+        crossref_url = current_app.config["CROSSREF_URL"]
+        doi = normalize_doi(persistent_url)
+
+        url = f"{crossref_url}/{doi}"
+        response = self.session.get(
+            url=url,
+            timeout=self.resolve_timeout
+        )
+        if response.status_code != 200:
+            return False
+        return True
+
+    def generate_id(self, identifier: str) -> str:
+        pattern = r"https://doi.org/(.*)"
+        m = re.match(pattern, identifier)
+        if m:
+            return f"doi/{m.group(1)}"
+        raise ValueError(f"Could not generate pid from url: {identifier}")
+
+    def normalize(self, identifier: str) -> str:
+        """DOIs are case-insensitive, so we lowercase them."""
+        return super().normalize(identifier).lower()
