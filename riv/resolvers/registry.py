@@ -7,8 +7,6 @@ from invenio_i18n import lazy_gettext as _
 from requests.exceptions import RetryError
 from urllib3.exceptions import MaxRetryError
 
-from riv.proxies import current_riv_extension
-from riv.utils import create_session_with_retries
 from .base import ResolverProblem, ResolverProblemLevel, UnsupportedPIDError, PIDDoesNotExistError, PIDProcessingError
 from riv.proxies import current_riv_extension
 
