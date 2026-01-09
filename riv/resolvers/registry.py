@@ -33,8 +33,8 @@ class ResolverRegistry:
             if resolver.exists(persistent_url):
                 return resolver
         if not resolver_seen:
-            raise UnsupportedPIDError()
-        raise PIDDoesNotExistError()
+            raise UnsupportedPIDError(persistent_url)
+        raise PIDDoesNotExistError(persistent_url)
 
     def resolve(self, persistent_url):
         """
