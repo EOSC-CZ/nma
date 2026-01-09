@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-09 14:00+0100\n"
+"POT-Creation-Date: 2026-01-09 14:15+0100\n"
 "PO-Revision-Date: 2026-01-05 13:19+0100\n"
 "Last-Translator: \n"
 "Language: cs\n"
@@ -256,7 +256,6 @@ msgid "Import metadata from DataCite JSON format"
 msgstr "Importovat metadata z formátu DataCite JSON"
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/views.py:28
-#, fuzzy
 msgid "Persistent Identifier"
 msgstr "Zadejte prosím persistentní identifikátor"
 
@@ -414,7 +413,7 @@ msgid "Search by title, author, or identifier (DOI, Handle)"
 msgstr "Hledejte podle názvu, autora nebo identifikátoru (DOI, Handle)"
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:40
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Search for datasets by keywords or persistent identifiers. You can also "
 "<a href=\"%(browse_url)s\">browse all records</a>."
@@ -427,7 +426,6 @@ msgstr ""
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:354
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
-#, fuzzy
 msgid "Obtain the link for RIV"
 msgstr "Získat odkaz pro RIV"
 
@@ -789,12 +787,10 @@ msgstr ""
 "repozitáře, ať jej nechá sklízet do NMA."
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
-#, fuzzy
 msgid "Using a different persistent identifier?"
 msgstr "Používáte jiný persistentní identifikátor?"
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:70
-#, fuzzy
 msgid ""
 "NMA can discover metadata primarily for datasets identified by <a "
 "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\" "
@@ -807,7 +803,6 @@ msgstr ""
 "target=\"_blank\">Handle</a>."
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:73
-#, fuzzy
 msgid "If your datasets use a different type of identifier, please contact us at"
 msgstr ""
 "Pokud vaše datové sady používají jiný typ identifikátorů, kontaktujte nás"
@@ -918,7 +913,6 @@ msgstr "Použijte tento odkaz pro zadání datové sady do RIVu."
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:4
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:12
-#, fuzzy
 msgid "Citation"
 msgstr "Citace"
 
