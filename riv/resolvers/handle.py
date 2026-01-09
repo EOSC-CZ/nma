@@ -51,6 +51,21 @@ def parse_date(date):
 class HandleResolver(MetadataResolver):
     name = "Handle"
 
+    def resolve_metadata(self, metadata_tree) -> tuple[dict, list[ResolverProblem]]:
+
+        problem_list = []
+        metadata = {}
+        metadata["title"] = self.resolve_main_title(tree=metadata_tree, problems=problem_list)
+        metadata["creators"] = self.resolve_creators(tree=metadata_tree, problems=problem_list)
+        metadata["publication_date"] = self.resolve_publication_date(
+            tree=metadata_tree, problems=problem_list
+        )
+        # there are dataset related tags, dataset_creator, dataset_license, dataset_keyword ..
+        # but they are used also on things that aren't datasets
+        metadata["resource_type"] = {"id": RESOURCE_TYPE_PLACEHOLDER}
+
+        return metadata, problem_list
+
 
     def normalize(self, identifier: str) -> str:
         """Handles are case-insensitive, so we lowercase them."""
@@ -67,14 +82,12 @@ class HandleResolver(MetadataResolver):
         handle_url = current_app.config.get("HANDLE_URL")
         handle = normalize_handle(persistent_url)
         url = f"{handle_url}/{handle}"
-        # response = requests.get(url)
         response = self.session.get(
             url=url,
-            timeout=self.resolve_timeout
+            timeout=self.resolve_timeout,
+            allow_redirects=False
         )
-        if response.status_code != 200:
-            return False
-        return True
+        return 200 <= response.status_code < 400
 
     def can_resolve(self, persistent_url: str) -> bool:
         return is_handle(persistent_url) and (
@@ -82,7 +95,7 @@ class HandleResolver(MetadataResolver):
             or "http://hdl.handle.net" in persistent_url
         )
 
-    def resolve(self, persistent_url: str) -> tuple[dict | None, list[ResolverProblem]]:
+    def resolve(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
 
         handle = normalize_handle(persistent_url)
         handle_url = current_app.config.get("HANDLE_URL")
@@ -115,22 +128,10 @@ class HandleResolver(MetadataResolver):
                     )
                 ]
 
-        problem_list = []
-        metadata = {}
-
         tree = html.fromstring(response.content)
         tree = tree.xpath("/html/head")[0]
 
-        metadata["title"] = self.resolve_main_title(tree=tree, problems=problem_list)
-        metadata["creators"] = self.resolve_creators(tree=tree, problems=problem_list)
-        metadata["publication_date"] = self.resolve_publication_date(
-            tree=tree, problems=problem_list
-        )
-        # there are dataset related tags, dataset_creator, dataset_license, dataset_keyword ..
-        # but they are used also on things that aren't datasets
-        metadata["resource_type"] = {"id": RESOURCE_TYPE_PLACEHOLDER}
-
-        return metadata, problem_list
+        return self.resolve_metadata(metadata_tree=tree)
 
     @handle_errors(error_placeholder=TITLE_PLACEHOLDER, alert_user=True)
     def resolve_main_title(self, *, tree, problems):
