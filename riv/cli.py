@@ -19,6 +19,8 @@ from invenio_db import db
 from invenio_pidstore.models import PersistentIdentifier
 from oarepo_oaipmh_harvester.oai_record.models import OAIHarvestedRecord
 from sqlalchemy import select
+from invenio_access.permissions import system_identity
+from fixtures import FixturesEngine
 
 from fixtures import FixturesEngine
 
@@ -204,6 +206,15 @@ def remove_records(harvested_only, yes_i_know):
         fg="green",
     )
 
+@riv.command("fixtures")
+@with_appcontext
+def create_fixtures():
+    """Create the fixtures required for record creation."""
+    click.secho("Creating required fixtures...", fg="green")
+
+    FixturesEngine(system_identity).run()
+
+    click.secho("Created required fixtures!", fg="green")
 
 @riv.command("fixtures")
 @with_appcontext
