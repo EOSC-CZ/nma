@@ -43,6 +43,7 @@ export const FormTitle = () => {
 const BaseFormLayoutComponent = ({ record, errors = {}, actionState }) => {
   const sidebarRef = React.useRef(null);
   const formFeedbackRef = React.useRef(null);
+  const { setErrors } = useFormikContext();
   const {
     config: { supportContact },
   } = useFormConfig();
@@ -62,6 +63,12 @@ const BaseFormLayoutComponent = ({ record, errors = {}, actionState }) => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, []);
+
+  useEffect(() => {
+    //there is issue with formik not reinitializing properly, because reinitialization happens when record passed to formik
+    // changes, which now sometimes does not happen, as we return 400 and errors and not the record in case of errors
+    setErrors(errors);
+  }, [errors]);
 
   const metadataErrorKeys = Object.keys(errors.metadata || {});
 

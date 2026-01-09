@@ -15,6 +15,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField
 from wtforms.validators import DataRequired, URL
 
+
 class StrippedStringField(StringField):
     def process_formdata(self, valuelist):
         if valuelist:
@@ -29,13 +30,13 @@ class RegisterForm(FlaskForm):
         validators=[
             DataRequired(message=_("Please enter a persistent identifier")),
             URL(
-                message=_("Please enter a valid URL (e.g., https://doi.org/... or https://hdl.handle.net/...)")
+                message=_(
+                    "Please enter a valid URL (e.g., https://doi.org/... or https://hdl.handle.net/...)"
+                )
             ),
         ],
-        render_kw={"autofocus": "true", "data-testid": "deposit-create-register-doi-input"},
-    )
-
-    skip_metadata = BooleanField(
-        _("Skip metadata retrieval. Use only in cases when the normal registration process repeatedly fails."),
-        default=False
+        render_kw={
+            "autofocus": "true",
+            "data-testid": "deposit-create-register-doi-input",
+        },
     )
