@@ -149,10 +149,9 @@ class CrossrefResolver(MetadataResolver):
 
         try:
             publication_date_parts = publication_date_parts[0]
-            year = publication_date_parts[0]
-            month = publication_date_parts[1]
-            day = publication_date_parts[2]
-            publication_date = date(year=int(year), month=int(month), day=int(day)).isoformat()
+            publication_date = "-".join(f"{x:02d}" for x in publication_date_parts[:3])
+            edtf_date_string = EDTFDateString()
+            edtf_date_string.deserialize(publication_date)
         except Exception as e:
             problems.append(
                 ResolverProblem(resolver=self.name, message=_(f"Invalid publication date-parts format: {publication_date_parts}."),
