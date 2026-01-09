@@ -97,4 +97,4 @@ print_success "Role 'riv_curators' created and user@demo.org assigned"
 
 # Step 6: Create harvesters
 print_step "Creating OAI harvesters..."
-$(dirname "$0")/create_oai_harvesters.sh
+invenio riv fixtures

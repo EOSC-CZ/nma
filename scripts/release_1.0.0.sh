@@ -64,4 +64,4 @@ invenio roles create riv_curators
 invenio access allow manage-record role riv_curators
 invenio access allow administration-moderation role riv_curators
 
-$(dirname "$0")/create_oai_harvesters.sh
+invenio riv fixtures
