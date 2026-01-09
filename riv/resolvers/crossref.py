@@ -7,7 +7,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 import re
-
+from datetime import date
 from flask import current_app
 from idutils.normalizers import normalize_doi
 from idutils.validators import is_doi
@@ -97,11 +97,10 @@ class CrossrefResolver(MetadataResolver):
         crossref_authors = crossref_metadata.get("author", [])
         metadata["creators"] = self.resolve_crossref_authors(authors=crossref_authors, problems=problems)
 
-        publication_date = crossref_metadata.get("deposited", {}).get("date-time")
-        metadata["publication_date"] = self.resolve_crossref_publication_date(publication_date=publication_date,
+        publication_date_parts = crossref_metadata.get("deposited", {}).get("date-parts")
+        metadata["publication_date"] = self.resolve_crossref_publication_date(publication_date_parts=publication_date_parts,
                                                                               problems=problems)
-        metadata["resource_type"] = self.resolve_crossref_resource_type(resource_type=crossref_metadata,
-                                                                        problems=problems)
+        metadata["resource_type"] = {"id": RESOURCE_TYPE_PLACEHOLDER}
 
         return metadata, problems
 
@@ -146,14 +145,17 @@ class CrossrefResolver(MetadataResolver):
         return creator_list
 
     @handle_errors(PUBLICATION_DATE_PLACEHOLDER)
-    def resolve_crossref_publication_date(self, *, publication_date, problems):
-        publication_date = str(publication_date)
-        edtf_string = EDTFDateString()
+    def resolve_crossref_publication_date(self, *, publication_date_parts, problems):
+
         try:
-            edtf_string.deserialize(publication_date)
-        except ValidationError as e:
+            publication_date_parts = publication_date_parts[0]
+            year = publication_date_parts[0]
+            month = publication_date_parts[1]
+            day = publication_date_parts[2]
+            publication_date = date(year=int(year), month=int(month), day=int(day)).isoformat()
+        except Exception as e:
             problems.append(
-                ResolverProblem(resolver=self.name, message=_(f"Invalid publication date format: {publication_date}."),
+                ResolverProblem(resolver=self.name, message=_(f"Invalid publication date-parts format: {publication_date_parts}."),
                                 level=ResolverProblemLevel.WARNING, original_exception=e))
             return PUBLICATION_DATE_PLACEHOLDER
         return publication_date
