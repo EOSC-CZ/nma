@@ -61,7 +61,10 @@ class ResolverProblem:
 
 
 class PIDDoesNotExistError(Exception):
-    """
+    """Raised when a persistent identifier cannot be found.
+
+    This exception indicates that the identifier is syntactically valid,
+    but cannot be resolved.
     """
 
     def __init__(self, identifier: str):
@@ -82,6 +85,8 @@ class UnsupportedPIDError(Exception):
         super().__init__(f"Unsupported identifier '{identifier}'.")
 
 class PIDProcessingError(Exception):
+    """Raised when an error occurs while processing a persistent identifier."""
+    
     def __init__(self, identifier: str):
         self.identifier = identifier
         super().__init__(f"Error while processing identifier '{identifier}'.")
