@@ -90,12 +90,10 @@ class HandleResolver(MetadataResolver):
         return 200 <= response.status_code < 400
 
     def can_resolve(self, persistent_url: str) -> bool:
-        return is_handle(persistent_url) and (
-            "https://hdl.handle.net" in persistent_url
-            or "http://hdl.handle.net" in persistent_url
-        )
+        persistent_url = self.normalize(persistent_url)
+        return is_handle(persistent_url) and "https://hdl.handle.net" in persistent_url
 
-    def resolve(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
+    def resolve(self, persistent_url: str) -> tuple[dict | None, list[ResolverProblem]]:
 
         handle = normalize_handle(persistent_url)
         handle_url = current_app.config.get("HANDLE_URL")

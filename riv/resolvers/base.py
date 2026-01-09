@@ -112,7 +112,7 @@ class MetadataResolver:
         """
         return False
 
-    def resolve(self, identifier: str) -> (dict | None, list[ResolverProblem]):
+    def resolve(self, identifier: str) -> tuple[dict | None, list[ResolverProblem]]:
         """Resolve metadata by identifier.
 
         If the metadata can not be resolved, returns (None, list[ResolverProblem]).
