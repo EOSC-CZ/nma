@@ -45,7 +45,7 @@ export const EmptyResultsElement = ({
       <Grid.Row centered>
         <Grid.Column textAlign="center" width={8}>
           <Button as="a" primary href="/datasets/uploads/new">
-            <Icon name="add" />
+            <Icon name="linkify" />
             {i18next.t("Obtain the link for RIV")}
           </Button>
         </Grid.Column>
