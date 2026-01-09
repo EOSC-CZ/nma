@@ -2,14 +2,17 @@ import datetime
 import re
 
 import dateutil
+import langcodes
 from dateutil.parser import ParserError
 from flask import current_app
 from idutils.normalizers import normalize_handle
 from idutils.validators import is_handle
+from invenio_access.permissions import system_identity
 from invenio_i18n import lazy_gettext as _
 from lxml import html
 from marshmallow import ValidationError
 from marshmallow_utils.fields import EDTFDateString
+from invenio_vocabularies.proxies import current_service as vocabulary_service
 
 from ..resolvers import MetadataResolver
 from .base import (
@@ -51,11 +54,53 @@ def parse_date(date):
 class HandleResolver(MetadataResolver):
     name = "Handle"
 
-    def can_resolve(self, persistent_url: str) -> bool:
-        return is_handle(persistent_url) and (
-            "https://hdl.handle.net" in persistent_url
-            or "http://hdl.handle.net" in persistent_url
+    def resolve_metadata(self, metadata_tree) -> tuple[dict, list[ResolverProblem]]:
+
+        problem_list = []
+        metadata = {}
+        metadata["title"] = self.resolve_main_title(tree=metadata_tree, problems=problem_list)
+        metadata["creators"] = self.resolve_creators(tree=metadata_tree, problems=problem_list)
+        metadata["publication_date"] = self.resolve_publication_date(
+            tree=metadata_tree, problems=problem_list
         )
+        # there are dataset related tags, dataset_creator, dataset_license, dataset_keyword ..
+        # but they are used also on things that aren't datasets
+        metadata["resource_type"] = {"id": RESOURCE_TYPE_PLACEHOLDER}
+
+        additional_desc = self.resolve_additional_description(
+            tree=metadata_tree, problems=problem_list
+        )
+        if len(additional_desc) > 0:
+            metadata["additional_descriptions"] = additional_desc
+
+        return metadata, problem_list
+
+
+    def normalize(self, identifier: str) -> str:
+        """Handles are case-insensitive, so we lowercase them."""
+        return super().normalize(identifier).lower()
+
+    def generate_id(self, identifier: str) -> str:
+        pattern = r"https?://hdl.handle.net/(.+)"
+        m = re.match(pattern, identifier)
+        if m:
+            return f"handle/{m.group(1)}"
+        raise ValueError(f"Could not generate pid from url: {identifier}")
+
+    def exists(self, persistent_url: str) -> bool:
+        handle_url = current_app.config.get("HANDLE_URL")
+        handle = normalize_handle(persistent_url)
+        url = f"{handle_url}/{handle}"
+        response = self.session.get(
+            url=url,
+            timeout=self.resolve_timeout,
+            allow_redirects=False
+        )
+        return 200 <= response.status_code < 400
+
+    def can_resolve(self, persistent_url: str) -> bool:
+        persistent_url = self.normalize(persistent_url)
+        return is_handle(persistent_url) and "https://hdl.handle.net" in persistent_url
 
     def resolve(self, persistent_url: str) -> tuple[dict | None, list[ResolverProblem]]:
 
@@ -90,22 +135,10 @@ class HandleResolver(MetadataResolver):
                     )
                 ]
 
-        problem_list = []
-        metadata = {}
-
         tree = html.fromstring(response.content)
         tree = tree.xpath("/html/head")[0]
 
-        metadata["title"] = self.resolve_main_title(tree=tree, problems=problem_list)
-        metadata["creators"] = self.resolve_creators(tree=tree, problems=problem_list)
-        metadata["publication_date"] = self.resolve_publication_date(
-            tree=tree, problems=problem_list
-        )
-        # there are dataset related tags, dataset_creator, dataset_license, dataset_keyword ..
-        # but they are used also on things that aren't datasets
-        metadata["resource_type"] = {"id": RESOURCE_TYPE_PLACEHOLDER}
-
-        return metadata, problem_list
+        return self.resolve_metadata(metadata_tree=tree)
 
     @handle_errors(error_placeholder=TITLE_PLACEHOLDER, alert_user=True)
     def resolve_main_title(self, *, tree, problems):
@@ -158,9 +191,10 @@ class HandleResolver(MetadataResolver):
 
     @handle_errors(PUBLICATION_DATE_PLACEHOLDER, alert_user=True)
     def resolve_publication_date(self, *, tree, problems):
-        dates = tree.xpath(
+        dates = (tree.xpath(
             '//meta[@name="citation_publication_date"]/@content'
         ) or tree.xpath('//meta[@name="publication_date"]/@content')
+          or tree.xpath('//meta[@name="citation_date"]/@content'))
 
         if not dates:
             problems.append(
@@ -181,3 +215,41 @@ class HandleResolver(MetadataResolver):
                 )
             )
         return parsed_date
+
+    @handle_errors()
+    def resolve_additional_description(self, *, tree, problems):
+        descriptions = tree.xpath('//meta[@name="DCTERMS.abstract"]')
+        des_list = []
+        for d in descriptions:
+            description = d.get("content")
+
+            if description:
+                description_obj = {}
+                if len(description) < 3:
+                    continue
+                d_lang = d.get("xml:lang")
+                lang = self.resolve_language(language=d_lang)
+                if lang:
+                    description_obj["lang"] = {"id": lang}
+                description_obj["type"] = {"id": "abstract"}
+                description_obj["description"] = description
+                des_list.append(description_obj)
+
+        return des_list
+
+    # TODO: copy paste from datacite
+    @handle_errors()
+    def resolve_language(self, language):
+        if language:
+            try:
+                longer_code = langcodes.Language.get(language.lower()).to_alpha3()
+                vocabulary_service.read(system_identity, ("languages", longer_code))
+                return longer_code
+            except:
+                current_app.logger.exception(
+                    "Record '%s' was not found in the '%s' vocabulary.",
+                    longer_code,
+                    "languages",
+                )
+        return None
+

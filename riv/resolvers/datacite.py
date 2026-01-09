@@ -209,7 +209,7 @@ class DataciteResolver(MetadataResolver):
             return False
         return True
 
-    def resolve(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
+    def resolve(self, persistent_url: str) -> tuple[dict | None, list[ResolverProblem]]:
 
         datacite_url = current_app.config.get("DATACITE_URL")
         doi = normalize_doi(persistent_url)
