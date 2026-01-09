@@ -3,6 +3,10 @@
 Metadata:
   type: object
   properties:
+    publication_date:
+      help:
+        en: If the exact date is unknown, use the earliest known date.
+        cs: Pokud není známo přesné datum, uveďte nejdříve známé datum.
     persistent_url:
       type: keyword
     last_checked:

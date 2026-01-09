@@ -627,3 +627,7 @@ div.flex:has(button.clear-filters-button) {
 .creatibutor-wrap {
   line-height: 1;
 }
+
+.search-result-item {
+  word-break: break-word;
+}
