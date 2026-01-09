@@ -189,6 +189,25 @@ class DataciteResolver(MetadataResolver):
 
         return metadata, problems
 
+    def generate_id(self, identifier: str) -> str:
+        pattern = r"https://doi.org/(.*)"
+        m = re.match(pattern, identifier)
+        if m:
+            return f"doi/{m.group(1)}"
+        raise ValueError(f"Could not generate pid from url: {identifier}")
+
+    def exists(self, persistent_url: str) -> bool:
+        datacite_url = current_app.config.get("DATACITE_URL")
+        doi = normalize_doi(persistent_url)
+        url = f"{datacite_url}/{doi}"
+        response = self.session.get(
+            url=url,
+            timeout=self.resolve_timeout
+        )
+        if response.status_code != 200:
+            return False
+        return True
+
     def resolve(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
 
         datacite_url = current_app.config.get("DATACITE_URL")

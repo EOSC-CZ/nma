@@ -20,5 +20,6 @@ if TYPE_CHECKING:
     from .ext import RIVResolverExtension
     current_riv_extension: RIVResolverExtension  # type: ignore[reportRedeclaration]
 
-current_riv_extension = LocalProxy(lambda: current_app.extensions["riv-extension"])  # type: ignore[assignment]
 
+current_riv_extension = LocalProxy(lambda: current_app.extensions["riv-extension"])  # type: ignore[assignment]
+current_resolver_registry = LocalProxy(lambda: current_riv_extension.resolver_registry) # type: ignore[assignment]

@@ -6,6 +6,7 @@ from flask import current_app
 from invenio_i18n import lazy_gettext as _
 from requests.exceptions import RetryError
 from urllib3.exceptions import MaxRetryError
+import unicodedata
 
 from riv.proxies import current_riv_extension
 from riv.utils import create_session_with_retries
@@ -59,6 +60,18 @@ class ResolverProblem:
 # by logger.error(... resolver problem ...)
 
 
+class PIDDoesNotExistError(Exception):
+    """Raised when a persistent identifier cannot be found.
+
+    This exception indicates that the identifier is syntactically valid,
+    but cannot be resolved.
+    """
+
+    def __init__(self, identifier: str):
+        self.identifier = identifier
+        super().__init__(f"Non existing persistent identifier: '{identifier}'.")
+
+
 class UnsupportedPIDError(Exception):
     """Raised when a persistent identifier is not supported by any resolver.
 
@@ -71,6 +84,12 @@ class UnsupportedPIDError(Exception):
         self.identifier = identifier
         super().__init__(f"Unsupported identifier '{identifier}'.")
 
+class PIDProcessingError(Exception):
+    """Raised when an error occurs while processing a persistent identifier."""
+    
+    def __init__(self, identifier: str):
+        self.identifier = identifier
+        super().__init__(f"Error while processing identifier '{identifier}'.")
 
 class MetadataResolver(Protocol):
 
@@ -103,61 +122,22 @@ class MetadataResolver(Protocol):
         If the metadata is resolved, returns (metadata_dict, list[ResolverProblem]).
         """
 
+    def exists(self, identifier: str) -> bool:
+        """Check if identifier exists on resolvers api."""
 
-def resolve_metadata(persistent_url: str) -> (dict | None, list[ResolverProblem]):
-    """Resolve metadata by persistent url.
+    def normalize(self, identifier: str) -> str:
+        """Normalize an identifier to canonical form.
+        This method ensures identifiers are stored consistently to prevent duplicates.
+        Each resolver implements normalization appropriate for its identifier type.
+        Args:
+            identifier: The identifier to normalize
+        Returns:
+            The normalized identifier (e.g., lowercased for case-insensitive types)
+        """
+        # Default implementation: trim whitespace and normalize Unicode
+        if identifier.startswith("http://"):
+            identifier = identifier.replace("http://", "https://", 1)
+        return unicodedata.normalize("NFC", identifier.strip())
 
-    If the metadata can not be resolved, returns (None, "error_message").
-    If the metadata is resolved, returns (metadata_dict, "warning message").
-    Raises ValueError if all resolvers fail (for now)
-
-        The first resolver that returns metadata wins and its problems are returned.
-
-        If no resolver succeeds, the collected problems from all resolvers are returned.
-    """
-
-    resolvers = current_riv_extension.persistent_identifiers_resolvers
-    collected_messages: list[ResolverProblem] = []
-    can_be_resolved = False
-    for resolver in resolvers:
-        try:
-            if not resolver.can_resolve(persistent_url):
-                continue
-            can_be_resolved = True
-            metadata, problems = resolver.resolve(persistent_url)
-        except Exception as e:
-            current_app.logger.exception("Exception calling resolver %s", resolver)
-            if isinstance(e, RetryError) and e.args:
-                e = e.args[0]
-            if isinstance(e, MaxRetryError):
-                e = getattr(e, "reason", e)
-            problems = [
-                ResolverProblem(
-                    resolver=resolver.name,
-                    message=_(
-                        "An unexpected error occurred in the resolver '%(resolver)s': %(error)s.",
-                        resolver=resolver.name,
-                        error=str(e),
-                    ),
-                    level=ResolverProblemLevel.ERROR,
-                    original_exception=e,
-                )
-            ]
-            metadata = None
-
-        collected_messages.extend(problems)
-
-        if metadata is not None:
-            metadata["persistent_url"] = persistent_url
-            return metadata, problems
-        else:
-            if not problems:
-                raise ValueError(
-                    f"Resolver {resolver} returned no metadata and no problems. "
-                    "This is an implementation error and must be fixed."
-                )
-
-    if not can_be_resolved:
-        raise UnsupportedPIDError(persistent_url)
-
-    return None, collected_messages
+    def generate_id(self, identifier: str) -> str:
+        """Generate id."""

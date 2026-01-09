@@ -54,7 +54,7 @@ from riv.records.api import generate_id
 from riv.records.create_record import create_record
 from riv.resolvers.base import (
     UnsupportedPIDError,
-    resolve_metadata,
+    PIDProcessingError
 )
 from riv.records.utils import user_edit_grant_and_notification, create_user_edit_grant
 from riv.views import RegisterForm
@@ -62,6 +62,7 @@ from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
 from ui.resources.components.placeholder_remover import PlaceholderRemoverComponent
 from ui.resources.components.support_contact import RDMSupportContactComponent
+from riv.proxies import current_resolver_registry
 
 logger = logging.getLogger("DatasetsUI")
 
@@ -182,40 +183,29 @@ class DatasetsUIResource(RecordsUIResource):
         5. Redirect to the registration page if it doesn't exist
         """
         query = request.args.get("q", "").strip()
-        if query.startswith("https://"):
-            query_resolvable = any(
-                r.can_resolve(query)
-                for r in current_riv_extension.persistent_identifiers_resolvers
-            )
-            if query_resolvable:
-                try:
-                    repository_id = generate_id(query)
-                    datasets_service = self.api_service
+        if query.startswith("https://") or query.startswith("http://"):
+            try:
+                possible_id = current_resolver_registry.generate_id(query)
+                self.api_service.read(identity=g.identity, id_=possible_id)
 
-                    try:
-                        datasets_service.read(identity=g.identity, id_=repository_id)
-
-                        return redirect(
-                            url_for(
-                                "datasets_ui.record_detail", pid_value=repository_id
-                            )
-                        )
-                    except PIDDoesNotExistError:
-                        flash(
-                            _(
-                                "This dataset is not yet registered in the repository. "
-                                "You can register it using the form below."
-                            ),
-                            "info",
-                        )
-                        return redirect(
-                            url_for("datasets_ui.deposit_create", identifier=query)
-                        )
-
-                except Exception:
-                    logger.exception(
-                        "Error while resolving identifier from search query: %s", query
+                return redirect(
+                    url_for(
+                        "datasets_ui.record_detail", pid_value=possible_id
                     )
+                )
+            except UnsupportedPIDError:
+                pass
+            except PIDDoesNotExistError:
+                flash(
+                    _(
+                        "This dataset is not yet registered in the repository. "
+                        "You can register it using the form below."
+                    ),
+                    "info",
+                )
+                return redirect(
+                    url_for("datasets_ui.deposit_create", identifier=query)
+                )
 
         return self._search(page, size, **kwargs)
 
@@ -234,16 +224,10 @@ class DatasetsUIResource(RecordsUIResource):
 
         if form.validate_on_submit():
             pid = form.pid.data
-            skip_metadata = form.skip_metadata.data
 
             try:
-                if skip_metadata:
-                    problems = []
-                    record_data = {"metadata": {}}
-                else:
-                    # Normal flow: resolve metadata from the identifier
-                    metadata, problems = resolve_metadata(pid)
-                    record_data = {"metadata": metadata}
+                # Normal flow: resolve metadata from the identifier
+                record_data, problems = current_resolver_registry.resolve(pid)
 
                 published_record = create_record(record_data, pid, problems)
                 edit_link = url_for(
@@ -251,16 +235,6 @@ class DatasetsUIResource(RecordsUIResource):
                     pid_value=published_record["id"],
                     _external=True,
                 )
-
-                if not problems and skip_metadata:
-                    user_edit_grant_and_notification(record_data, problems)
-                    flash(
-                        _(
-                            "Dataset registered successfully without metadata retrieval. Please fill the minimum metadata below:"
-                        ),
-                        "success",
-                    )
-                    return redirect(edit_link)
                 if not problems:
                     flash(
                         _("Successfully registered dataset with PID: %(pid)s", pid=pid),
@@ -299,11 +273,27 @@ class DatasetsUIResource(RecordsUIResource):
                     ),
                     "error",
                 )
-                return redirect(url_for("datasets_ui.deposit_create"))
+
+            except PIDDoesNotExistError:
+                flash(
+                    _(
+                        "The provided identifier does not exist. "
+                        "Please check it for typos and try again. "
+                        'If the problem persists, please contact support at <a href="mailto:info@eosc.cz">info@eosc.cz</a>.'
+                    ),
+                    "error",
+                )
+            except PIDProcessingError:
+                flash(
+                    _(
+                        "We were unable to resolve metadata at the moment, please try it again later."
+                        'If the problem persists, please contact support at <a href="mailto:info@eosc.cz">info@eosc.cz</a>.'
+                    ),
+                    "error",
+                )
             except Exception as e:
                 logger.exception("Error registering dataset with PID %s", pid)
                 flash(_("Error registering dataset: %(error)s", error=str(e)), "error")
-                return redirect(url_for("datasets_ui.deposit_create"))
 
         return current_oarepo_ui.catalog.render(
             self.get_jinjax_macro(

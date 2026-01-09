@@ -61,22 +61,9 @@ def create_record(record_data, persistent_url, problems):
         "resource_type": {"id": RESOURCE_TYPE_PLACEHOLDER},
         "persistent_url": persistent_url,
     }
-    if not record_data:
-        record_data = {"metadata": {}}
-    if not record_data.get("metadata"):
-        record_data["metadata"] = {}
     metadata = record_data["metadata"]
     for key, value in empty_metadata.items():
         metadata.setdefault(key, value)
-
-    record_data["id"] = generate_id(persistent_url)
-    if current_user.is_anonymous:
-        raise PermissionDeniedError("Please login first.")
-
-    # do we actually want to crash here when notifications don't work?
-    notification_backends = current_app.config.get("NOTIFICATION_BACKENDS", {})
-    if not notification_backends.get("email"):
-        raise RuntimeError("Email notification backend is not configured.")
 
     # disable files by default
     record_data = {**record_data, "files": {"enabled": False}}
@@ -105,7 +92,7 @@ def create_record(record_data, persistent_url, problems):
             empty_metadata["persistent_url"] = draft_record.data["metadata"]["persistent_url"]
             draft_record.data["metadata"] = empty_metadata
             from invenio_i18n import lazy_gettext as _
-            "Due to an unexpected error, the data could not be loaded correctly. Please fill in the required information and save the record again. "
+
             draft_record =  datasets_service.update_draft(system_identity, data=draft_record.data, id_ = record_data["id"])
             problems.append(
                 ResolverProblem(

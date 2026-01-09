@@ -14,11 +14,12 @@ import traceback
 import click
 import tqdm
 from flask.cli import with_appcontext
+from invenio_access.permissions import system_identity
 from invenio_db import db
 from invenio_pidstore.models import PersistentIdentifier
 from oarepo_oaipmh_harvester.oai_record.models import OAIHarvestedRecord
 from sqlalchemy import select
-from invenio_access.permissions import system_identity
+
 from fixtures import FixturesEngine
 
 from .tasks import check_availability_task
@@ -202,6 +203,7 @@ def remove_records(harvested_only, yes_i_know):
         "Records removed successfully. Please wait, the search index is being rebuilt.",
         fg="green",
     )
+
 
 @riv.command("fixtures")
 @with_appcontext
