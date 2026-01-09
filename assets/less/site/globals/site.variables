@@ -44,8 +44,8 @@
 @embargoed-components-background-color: #fbf8ee;
 @embargoed-components-border-color: #c9ba9b;
 
-@footerLightColor: #EEE5E7;
-@footerDarkColor: darken(@footerLightColor, 5%);
+@footerLightColor: lighten(@livelyGreen, 70%);
+@footerDarkColor: darken(@footerLightColor, 1%);
 @subFooterColor: @footerDarkColor;
 @footerTextLightColor: @textColor;
 @footerTextDarkColor: darken(@textColor, 5%);

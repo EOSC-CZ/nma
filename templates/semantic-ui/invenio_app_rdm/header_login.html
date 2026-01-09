@@ -20,8 +20,22 @@
 </form>
 {% endmacro %}
 
+{%- if config.ACCOUNTS and current_user.is_authenticated %}
+    {%- set plus_menu_items = current_menu.submenu('plus').children %}
+    {%- if plus_menu_items %}
+      <div class="menu item p-5">
+      {%- for item in plus_menu_items if item.visible and item.name == 'create_datasets' %}
+        <a id="import-record-button" class="ui vertical animated primary button rel-mr-1" href="{{ item.url }}" data-testid="header-login-import-record-button">
+          <div class="content visible">{{ item.text }}</div>
+          <div class="content hidden"><i class="ui icon linkify"></i></div>
+        </a>
+      {%- endfor %}
+      </div>
+    {%- endif %}
+{%- endif %}
+
 {%- if config.I18N_LANGUAGES %}
-  <div class="language-selector" data-testid="header-language-selector">
+  <div class="language-selector rel-mr-1" data-testid="header-language-selector">
     {% from "invenio_i18n/macros/language_selector.html" import language_selector_dropdown %}
     {{ language_selector_dropdown() }}
   </div>
@@ -32,7 +46,7 @@
     <form>
       <a
         href="{{ url_for_security('login', next=request.path) }}"
-        class="ui primary button auth-button rel-ml-1" aria-busy="false" aria-live="polite" aria-label="{{ _('Sign in') }}"
+        class="ui primary button auth-button" aria-busy="false" aria-live="polite" aria-label="{{ _('Sign in') }}"
         data-testid="header-login-sign-in-button"
       >
         <i class="sign-in icon auth-icon" aria-hidden="true"></i>
@@ -40,51 +54,12 @@
       </a>
     </form>
   {%- else %}
-    {# Desktop Quick-create ("plus") menu #}
-    {%- set plus_menu_items = current_menu.submenu('plus').children %}
-    {%- if plus_menu_items %}
-      <div
-        id="quick-create-dropdown"
-        class="ui floating dropdown computer only rel-mr-1 rel-ml-1"
-        >
-        <button
-          id="quick-create-dropdown-btn"
-          data-testid="header-login-quick-create-dropdown-menu"
-          class="ui right floated  primary button"
-          aria-controls="quick-create-menu"
-          aria-label="{{ _('Quick create') }}"
-          aria-expanded="false"
-          aria-haspopup="menu"
-        >
-          <i class="fitted plus icon inverted" aria-hidden="true"></i>
-          <i class="fitted dropdown icon inverted" aria-hidden="true"></i>
-        </button>
-        <div role="menu" aria-labelledby="quick-create-dropdown-btn" id="quick-create-menu" class="menu">
-          {%- for item in plus_menu_items if item.visible %}
-            <a role="menuitem" class="item" href="{{ item.url }}">{{ item.text }}</a>
-          {%- endfor %}
-        </div>
-      </div>
-
-      {# Mobile/Tablet Quick create ("plus") menu #}
-      <div class="sub-menu mobile tablet only">
-        <h2 class="ui small header">{{ _("Actions") }}</h2>
-        <div role="menu" data-testid="header-login-quick-create-dropdown-menu">
-          {%- for item in plus_menu_items if item.visible %}
-            <a role="menuitem" class="item" href="{{ item.url }}">
-              <i class="plus icon"></i>
-              {{ item.text }}
-            </a>
-          {%- endfor %}
-        </div>
-      </div>
-    {% endif %}
     {# Desktop Account dropdown menu #}
     {%- if config.USERPROFILES %}
       <div id="user-profile-dropdown" class="ui floating dropdown computer only">
         <button
           id="user-profile-dropdown-btn"
-          class="ui right labeled right floated icon primary button text"
+          class="ui right labeled right floated icon basic button text"
           aria-controls="user-profile-menu"
           aria-expanded="false"
           aria-haspopup="menu"

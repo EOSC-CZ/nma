@@ -466,6 +466,7 @@ header.theme.header {
     bottom: 0;
     z-index: 0;
     right: 4rem;
+    overflow: hidden;
 
     &.mini {
       height: 10rem;
@@ -492,6 +493,15 @@ header.theme.header {
 
     /* smooth movement when resizing */
     transition: transform 220ms linear;
+  }
+
+  #user-profile-dropdown-btn{
+    background-color: white !important;
+  }
+
+  #import-record-button {
+    font-size: @small !important;
+    color: @white !important;
   }
 
   .navbar-brand,
@@ -591,7 +601,7 @@ header.theme.header {
   & * {
     color: @footerTextLightColor !important;
   }
-
+  border-top: 1px solid @lightGrey;
   background-color: @footerLightColor;
   font-weight: 500;
   .app-rdm-footer {

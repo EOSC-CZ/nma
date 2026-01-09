@@ -7,7 +7,7 @@
   <div class="ui stackable responsive grid centered container">
     <h1 class="ui header row rel-mb-1">
       <div class="content">
-        {{ _('Verify a dataset for RIV') }}
+        {{ _('Obtain the link for RIV') }}
         <p class="sub header rel-mt-1">{{ _("To report a dataset (type T result) in RIV, you must provide a link to the National Metadata Directory (NMD), which records its core metadata. On this page, you can verify whether the NMD has the dataset registered or register it into the NMD if needed.") }}</p>
       </div>
     </h1>
@@ -35,11 +35,8 @@
                     </p>
                     <button class="ui huge primary button rel-mt-1" type="submit" data-testid="deposit-create-register-doi-submit">
                         <i class="linkify icon"></i>
-                        {{ _('Obtain the link for RIV submission') }}
+                        {{ _('Obtain the link for RIV') }}
                     </button>
-                    <p class="text-tiny text-muted block rel-mt-2">
-                        {% trans %}By submitting this Persistent Identifier (PID) using the <strong>Obtain the link for RIV submission</strong> button, you declare that you have the legal right or authorization to register, curate, or otherwise manage the associated dataset within the National Metadata Directory (NMD). You confirm that the registration of this dataset does not infringe any intellectual property rights, contractual obligations, confidentiality agreements, or applicable institutional or funding rules.{% endtrans %}
-                    </p>
                 </form>
             </div>
         </div>
@@ -61,13 +58,13 @@
             <div class="ui message mt-0">
                 <div class="header rel-mb-1">
                     <i class="barcode icon"></i>
-                    {{ _('Using a Different Identifier?') }}
+                    {{ _('Using a different persistent identifier?') }}
                 </div>
                 <p>
-                    {% trans %}NMD currently accepts datasets referenced by <a href="https://www.doi.org/the-identifier/what-is-a-doi/" target="_blank">DOI</a> or <a href="https://www.handle.net" target="_blank">Handle</a> identifiers.{% endtrans %}
+                    {% trans %}NMA can discover metadata primarily for datasets identified by <a href="https://www.doi.org/the-identifier/what-is-a-doi/" target="_blank">DOI</a> or <a href="https://www.handle.net" target="_blank">Handle</a> identifiers.{% endtrans %}
                 </p>
                 <p>
-                    {{ _('If your dataset uses a different type of identifier, please reach out to us at') }} <a href="mailto:{{ config.REPOSITORY_SUPPORT_CONTACT }}">{{ config.REPOSITORY_SUPPORT_CONTACT }}</a> — {{ _("we will help you determine whether registration is possible.") }}
+                    {{ _('If your datasets use a different type of identifier, please contact us at') }} <a href="mailto:{{ config.REPOSITORY_SUPPORT_CONTACT }}">{{ config.REPOSITORY_SUPPORT_CONTACT }}</a> {{ _("(metadata can also be entered manually if needed).") }}
                 </p>
             </div>
         </div>
