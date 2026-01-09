@@ -81,6 +81,8 @@ class UnsupportedPIDError(Exception):
         super().__init__(f"Unsupported identifier '{identifier}'.")
 
 class PIDProcessingError(Exception):
+    """Raised when an error occurs while processing a persistent identifier."""
+    
     def __init__(self, identifier: str):
         self.identifier = identifier
         super().__init__(f"Error while processing identifier '{identifier}'.")
