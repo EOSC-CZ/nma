@@ -53,6 +53,9 @@ class ResultsListItem extends Component {
             <Label horizontal size="small" className="neutral">
               {resourceType}
             </Label>
+            <Label horizontal size="small" className="basic green">
+              {result.id}
+            </Label>
           </Item.Extra>
           <Item.Header as="h2" className="theme-primary-text">
             <a href={viewLink}>{title}</a>
