@@ -220,22 +220,18 @@ class HandleResolver(MetadataResolver):
         descriptions = tree.xpath('//meta[@name="DCTERMS.abstract"]')
         des_list = []
         for d in descriptions:
-            # _type = d.get("descriptionType")
             description = d.get("content")
 
             if description:
                 description_obj = {}
-                if type(description) == str and len(description) >= 3:
-                    description_obj["description"] = description
-                else:
+                if len(description) < 3:
                     continue
                 d_lang = d.get("xml:lang")
-                if type(d_lang) != str:
-                    continue
                 lang = self.resolve_language(language=d_lang)
                 if lang:
                     description_obj["lang"] = {"id": lang}
                 description_obj["type"] = {"id": "abstract"}
+                description_obj["description"] = description
                 des_list.append(description_obj)
 
         return des_list
