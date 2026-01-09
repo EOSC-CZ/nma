@@ -117,8 +117,9 @@ class MetadataResolver(Protocol):
         If the metadata is resolved, returns (metadata_dict, list[ResolverProblem]).
         """
 
-    def exists(self, identifier: str) -> tuple: #asi teda chci bool a data nebo bool a None
+    def exists(self, identifier: str) -> bool:
         """Check if identifier exists on resolvers api."""
+
     def normalize(self, identifier: str) -> str:
         """Normalize an identifier to canonical form.
         This method ensures identifiers are stored consistently to prevent duplicates.
@@ -132,64 +133,6 @@ class MetadataResolver(Protocol):
         if identifier.startswith("http://"):
             identifier = identifier.replace("http://", "https://", 1)
         return unicodedata.normalize("NFC", identifier.strip())
+
     def generate_id(self, identifier: str) -> str:
-        """doku."""
-from ..proxies import current_resolver_registry
-def resolve_metadata(persistent_url: str) -> (dict | None, list[ResolverProblem]):
-    """Resolve metadata by persistent url.
-    current_resolver_registery.resolve_metadata(prersistent_url)
-    If the metadata can not be resolved, returns (None, "error_message").
-    If the metadata is resolved, returns (metadata_dict, "warning message").
-    Raises ValueError if all resolvers fail (for now)
-
-        The first resolver that returns metadata wins and its problems are returned.
-
-        If no resolver succeeds, the collected problems from all resolvers are returned.
-    """
-    current_resolver_registry.resolve_metadata(persistent_url)
-
-    resolvers = current_riv_extension.persistent_identifiers_resolvers
-    collected_messages: list[ResolverProblem] = []
-    can_be_resolved = False
-    for resolver in resolvers:
-        try:
-            if not resolver.can_resolve(persistent_url):
-                continue
-            can_be_resolved = True
-            metadata, problems = resolver.resolve(persistent_url)
-        except Exception as e:
-            current_app.logger.exception("Exception calling resolver %s", resolver)
-            if isinstance(e, RetryError) and e.args:
-                e = e.args[0]
-            if isinstance(e, MaxRetryError):
-                e = getattr(e, "reason", e)
-            problems = [
-                ResolverProblem(
-                    resolver=resolver.name,
-                    message=_(
-                        "An unexpected error occurred in the resolver '%(resolver)s': %(error)s.",
-                        resolver=resolver.name,
-                        error=str(e),
-                    ),
-                    level=ResolverProblemLevel.ERROR,
-                    original_exception=e,
-                )
-            ]
-            metadata = None
-
-        collected_messages.extend(problems)
-
-        if metadata is not None:
-            metadata["persistent_url"] = persistent_url
-            return metadata, problems
-        else:
-            if not problems:
-                raise ValueError(
-                    f"Resolver {resolver} returned no metadata and no problems. "
-                    "This is an implementation error and must be fixed."
-                )
-
-    if not can_be_resolved:
-        raise UnsupportedPIDError(persistent_url)
-
-    return None, collected_messages
+        """Generate id."""

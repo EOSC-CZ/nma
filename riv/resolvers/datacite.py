@@ -33,42 +33,6 @@ class DataciteResolver(MetadataResolver):
     def can_resolve(self, persistent_url: str) -> bool:
         return is_doi(persistent_url)
 
-    def exists(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
-
-        datacite_url = current_app.config.get("DATACITE_URL")
-        doi = normalize_doi(persistent_url)
-        url = f"{datacite_url}/{doi}"
-        response = self.session.get(
-            url=url,
-            timeout=self.resolve_timeout
-        )
-        if response.status_code != 200:
-            if response.status_code == 404:
-                return False, [
-                    ResolverProblem(
-                        resolver=self.name,
-                        message=_(
-                            "The identifier looks like a DOI, but it was not found in the DataCite registry."
-                        ),
-                        level=ResolverProblemLevel.ERROR,
-                    )
-                ]
-            else:
-                return False,  [
-                    ResolverProblem(
-                        resolver=self.name,
-                        message=_(
-                            f"Unexpected error while resolving the DOI. DataCite returned: {response.content}. "
-                        ),
-                        level=ResolverProblemLevel.ERROR,
-                    )
-                ]
-
-        data = response.json()
-        datacite_metadata = data["data"]["attributes"]
-        return True, datacite_metadata #jen true/false
-
-        # return self.resolve_metadata(datacite_metadata=datacite_metadata)
     def resolve_metadata(self, datacite_metadata) -> tuple[dict, list[ResolverProblem]]:
         metadata = {}
         problems = []
@@ -224,6 +188,25 @@ class DataciteResolver(MetadataResolver):
                 break
 
         return metadata, problems
+
+    def generate_id(self, identifier: str) -> str:
+        pattern = r"https://doi.org/(.*)"
+        m = re.match(pattern, identifier)
+        if m:
+            return f"doi/{m.group(1)}"
+        raise ValueError(f"Could not generate pid from url: {identifier}")
+
+    def exists(self, persistent_url: str) -> bool:
+        datacite_url = current_app.config.get("DATACITE_URL")
+        doi = normalize_doi(persistent_url)
+        url = f"{datacite_url}/{doi}"
+        response = self.session.get(
+            url=url,
+            timeout=self.resolve_timeout
+        )
+        if response.status_code != 200:
+            return False
+        return True
 
     def resolve(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
 
