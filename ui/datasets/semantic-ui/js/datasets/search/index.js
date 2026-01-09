@@ -33,7 +33,6 @@ const ContribSearchAppFacetsWithConfig = parametrize(ContribSearchAppFacets, {
   toggle: false,
 });
 
-
 export const componentOverrides = {
   [`${overridableIdPrefix}.ResultsGrid.item`]: RDMRecordResultsGridItem,
   [`${overridableIdPrefix}.EmptyResults.element`]: EmptyResultsElement,
@@ -49,5 +48,5 @@ export const componentOverrides = {
   [`${overridableIdPrefix}.BucketAggregationValues.element`]: ContribBucketAggregationValuesElement,
   [`${overridableIdPrefix}.SearchApp.facets`]: ContribSearchAppFacetsWithConfig,
 };
-console.log({componentOverrides})
+
 createSearchAppsInit({ componentOverrides });
