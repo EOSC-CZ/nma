@@ -2,7 +2,7 @@
 {% set edit_link = notification.context.record.links.self_html %}
 
 {%- block subject -%}
-    {{ _("NMA: Přístup k úpravě záznamu / Edit access granted – %(title)s", title=record_title|e) }}
+    NMA: Přístup k úpravě záznamu / Edit access granted – {{ record_title | e }}
 {%- endblock subject -%}
 
 {# ------------------------------------------------------- #}

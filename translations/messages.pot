@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-09 14:15+0100\n"
+"POT-Creation-Date: 2026-01-09 15:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -267,72 +267,67 @@ msgid ""
 "process repeatedly fails."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/records/create_record.py:113
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/records/create_record.py:100
 msgid ""
 "Due to an unexpected error, the data could not be loaded correctly. "
 "Please fill in the required information and save the record. "
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:35
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:32
 #, python-format
 msgid "Publication date format did not pass validation; format: %(date)s."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:40
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:37
 #, python-format
 msgid "Invalid publication date format: %(date)s."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:138
-#, python-format
-msgid "An unexpected error occurred in the resolver '%(resolver)s': %(error)s."
-msgstr ""
-
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:79
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:82
 msgid ""
 "The identifier looks like a DOI, but it was not found in the CrossRef "
 "registry."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:110
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:503
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:112
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:524
 msgid ""
 "The title is too short. A minimum of 3 characters is required to meet "
 "repository requirements."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:115
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:514
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:121
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:117
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:535
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:154
 msgid "Missing title."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:123
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:584
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:134
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:125
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:605
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:167
 msgid "Missing creators."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:207
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:224
 msgid ""
 "The identifier looks like a DOI, but it was not found in the DataCite "
 "registry."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:76
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:121
 msgid ""
 "The identifier looks like a Handle, but it was not found in the Handle "
 "registry."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:86
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:131
 #, python-format
 msgid ""
 "Unexpected error while resolving the Handle. Response returned: "
 "%(response)s. "
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:170
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:204
 msgid "Publication date missing."
 msgstr ""
 
@@ -402,7 +397,7 @@ msgid ""
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:43
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:354
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:344
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
 msgid "Obtain the link for RIV"
@@ -515,18 +510,6 @@ msgstr ""
 msgid "Edited by"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_notifications/email/data-riv-record-created.jinja:6
-#, python-format
-msgid "Váš záznam byl vytvořen / Your record has been created – %(title)s"
-msgstr ""
-
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_notifications/email/grant-user-access.create.jinja:5
-#, python-format
-msgid ""
-"Byla Vám přidělena práva k úpravě záznamu / Permissions to edit your "
-"record ware granted – %(title)s"
-msgstr ""
-
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo_ui/macros/records_list.html:10
 msgid "Recently Added Metadata"
 msgstr ""
@@ -614,7 +597,7 @@ msgstr ""
 msgid "InvenioRDM"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:206
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:201
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
 " using the form below."
@@ -634,14 +617,14 @@ msgid ""
 "below."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:283
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:257
 msgid ""
 "Thank you for submitting the record to the National Metadata Directory. "
 "We detected some metadata issues within the record. To obtain a URL for "
 "RIV reporting, please check and correct the metadata below."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:296
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:270
 msgid ""
 "The provided identifier is a URL that can not be registered at the "
 "moment. If your dataset does not have a DOI or a handle in URL format, "
@@ -649,12 +632,26 @@ msgid ""
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:305
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:280
+msgid ""
+"The provided identifier does not exist. Please check it for typos and try"
+" again. If the problem persists, please contact support at <a "
+"href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:289
+msgid ""
+"We were unable to resolve metadata at the moment, please try it again "
+"later.If the problem persists, please contact support at <a "
+"href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:296
 #, python-format
 msgid "Error registering dataset: %(error)s"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:326
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:316
 msgid "User does not have permission to edit record."
 msgstr ""
 
