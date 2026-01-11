@@ -1,14 +1,16 @@
-import dataclasses
-import enum
-from typing import Protocol
-
 from flask import current_app
-from invenio_i18n import lazy_gettext as _
 from requests.exceptions import RetryError
 from urllib3.exceptions import MaxRetryError
 
-from .base import ResolverProblem, ResolverProblemLevel, UnsupportedPIDError, PIDDoesNotExistError, PIDProcessingError
 from riv.proxies import current_riv_extension
+
+from .base import (
+    PIDDoesNotExistError,
+    PIDProcessingError,
+    ResolverProblem,
+    UnsupportedPIDError,
+)
+
 
 class ResolverRegistry:
 
@@ -46,7 +48,7 @@ class ResolverRegistry:
         collected_messages: list[ResolverProblem] = []
 
         try:
-            resolver =  self.find_resolver(normalized_persistent_url)
+            resolver = self.find_resolver(normalized_persistent_url)
         except UnsupportedPIDError:
             raise
         except PIDDoesNotExistError:
@@ -56,12 +58,17 @@ class ResolverRegistry:
                 e = e.args[0]
             if isinstance(e, MaxRetryError):
                 e = getattr(e, "reason", e)
-            current_app.logger.exception("Unexpected error while finding resolver for id: %s", normalized_persistent_url)
+            current_app.logger.exception(
+                "Unexpected error while finding resolver for id: %s",
+                normalized_persistent_url,
+            )
             raise PIDProcessingError(str(e))
         try:
             metadata, problems = resolver.resolve(normalized_persistent_url)
         except Exception as e:
-            current_app.logger.exception("Exception calling resolver %s %s", resolver, normalized_persistent_url)
+            current_app.logger.exception(
+                "Exception calling resolver %s %s", resolver, normalized_persistent_url
+            )
             raise PIDProcessingError(str(e))
 
         collected_messages.extend(problems)
@@ -69,7 +76,10 @@ class ResolverRegistry:
             raise Exception("Implementation error.")
         metadata["persistent_url"] = persistent_url
 
-        return {"metadata": metadata, "id": resolver.generate_id(normalized_persistent_url)}, collected_messages
+        return {
+            "metadata": metadata,
+            "id": resolver.generate_id(normalized_persistent_url),
+        }, collected_messages
 
     def generate_id(self, persistent_url):
         resolvers = current_riv_extension.persistent_identifiers_resolvers
@@ -79,11 +89,9 @@ class ResolverRegistry:
                 return resolver.generate_id(normalized_identifier)
         raise UnsupportedPIDError(persistent_url)
 
-
     def normalize(self, persistent_url) -> str:
         resolvers = current_riv_extension.persistent_identifiers_resolvers
         for resolver in resolvers:
             if resolver.can_resolve(persistent_url):
                 return resolver.normalize(persistent_url)
         raise UnsupportedPIDError(persistent_url)
-
