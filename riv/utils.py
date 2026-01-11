@@ -60,7 +60,7 @@ def create_session_with_retries(
     :return: Configured requests session with automatic retries
     """
     if status_forcelist is None:
-        status_forcelist = [403, 429, 500, 502]
+        status_forcelist = [413, 429, 500, 502, 503]
 
     retry_strategy = Retry(
         total=total_retries,
