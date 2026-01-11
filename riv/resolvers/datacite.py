@@ -217,7 +217,7 @@ class DataciteResolver(MetadataResolver):
         response = self.session.get(url=url, timeout=self.resolve_timeout)
         if response.status_code != 200:
             if response.status_code == 404:
-                return None, [
+                return {}, [
                     ResolverProblem(
                         resolver=self.name,
                         message=_(
@@ -227,11 +227,16 @@ class DataciteResolver(MetadataResolver):
                     )
                 ]
             else:
-                return None, [
+                current_app.logger.error(
+                    "Unexpected error while resolving the datacite DOI. Response code: %s, content: %s",
+                    response.status_code,
+                    response.content,
+                )
+                return {}, [
                     ResolverProblem(
                         resolver=self.name,
                         message=_(
-                            f"Unexpected error while resolving the DOI. DataCite returned: {response.content}. "
+                            "Unexpected error while resolving the DOI. Please fill the metadata manually."
                         ),
                         level=ResolverProblemLevel.ERROR,
                     )
