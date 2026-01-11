@@ -9,17 +9,17 @@ from idutils.normalizers import normalize_handle
 from idutils.validators import is_handle
 from invenio_access.permissions import system_identity
 from invenio_i18n import lazy_gettext as _
+from invenio_vocabularies.proxies import current_service as vocabulary_service
 from lxml import html
 from marshmallow import ValidationError
 from marshmallow_utils.fields import EDTFDateString
-from invenio_vocabularies.proxies import current_service as vocabulary_service
 
 from ..resolvers import MetadataResolver
 from .base import (
     CREATORS_PLACEHOLDER,
     PUBLICATION_DATE_PLACEHOLDER,
-    TITLE_PLACEHOLDER,
     RESOURCE_TYPE_PLACEHOLDER,
+    TITLE_PLACEHOLDER,
     ResolverProblem,
     ResolverProblemLevel,
     get_invalid_publication_date_message,
@@ -58,8 +58,12 @@ class HandleResolver(MetadataResolver):
 
         problem_list = []
         metadata = {}
-        metadata["title"] = self.resolve_main_title(tree=metadata_tree, problems=problem_list)
-        metadata["creators"] = self.resolve_creators(tree=metadata_tree, problems=problem_list)
+        metadata["title"] = self.resolve_main_title(
+            tree=metadata_tree, problems=problem_list
+        )
+        metadata["creators"] = self.resolve_creators(
+            tree=metadata_tree, problems=problem_list
+        )
         metadata["publication_date"] = self.resolve_publication_date(
             tree=metadata_tree, problems=problem_list
         )
@@ -74,7 +78,6 @@ class HandleResolver(MetadataResolver):
             metadata["additional_descriptions"] = additional_desc
 
         return metadata, problem_list
-
 
     def normalize(self, identifier: str) -> str:
         """Handles are case-insensitive, so we lowercase them."""
@@ -92,9 +95,7 @@ class HandleResolver(MetadataResolver):
         handle = normalize_handle(persistent_url)
         url = f"{handle_url}/{handle}"
         response = self.session.get(
-            url=url,
-            timeout=self.resolve_timeout,
-            allow_redirects=False
+            url=url, timeout=self.resolve_timeout, allow_redirects=False
         )
         return 200 <= response.status_code < 400
 
@@ -108,13 +109,12 @@ class HandleResolver(MetadataResolver):
         handle_url = current_app.config.get("HANDLE_URL")
 
         response = self.session.get(  # redirect is hardcoded at 3
-            url=f"{handle_url}/{handle}",
-            timeout=self.resolve_timeout
+            url=f"{handle_url}/{handle}", timeout=self.resolve_timeout
         )
 
         if response.status_code != 200:
             if response.status_code == 404:
-                return None, [
+                return {}, [
                     ResolverProblem(
                         resolver=self.name,
                         message=_(
@@ -124,12 +124,16 @@ class HandleResolver(MetadataResolver):
                     )
                 ]
             else:
-                return None, [
+                current_app.logger.error(
+                    "Unexpected error while resolving the Handle. Response code: %s, content: %s",
+                    response.status_code,
+                    response.content,
+                )
+                return {}, [
                     ResolverProblem(
                         resolver=self.name,
                         message=_(
-                            "Unexpected error while resolving the Handle. Response returned: %(response)s. ",
-                            response=response.content,
+                            "Unexpected error while resolving the Handle. Please fill the metadata manually.",
                         ),
                         level=ResolverProblemLevel.ERROR,
                     )
@@ -191,10 +195,11 @@ class HandleResolver(MetadataResolver):
 
     @handle_errors(PUBLICATION_DATE_PLACEHOLDER, alert_user=True)
     def resolve_publication_date(self, *, tree, problems):
-        dates = (tree.xpath(
-            '//meta[@name="citation_publication_date"]/@content'
-        ) or tree.xpath('//meta[@name="publication_date"]/@content')
-          or tree.xpath('//meta[@name="citation_date"]/@content'))
+        dates = (
+            tree.xpath('//meta[@name="citation_publication_date"]/@content')
+            or tree.xpath('//meta[@name="publication_date"]/@content')
+            or tree.xpath('//meta[@name="citation_date"]/@content')
+        )
 
         if not dates:
             problems.append(
@@ -252,4 +257,3 @@ class HandleResolver(MetadataResolver):
                     "languages",
                 )
         return None
-
