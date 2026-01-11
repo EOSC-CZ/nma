@@ -302,8 +302,8 @@ class LoadIdentifiersFromRIVDumpJob(JobType):
     """A job type to run invenio CLI commands as Celery tasks."""
 
     id = "load_identifiers_from_riv_dump"
-    title = "Invenio Command"
-    description = "Run an arbitrary Invenio CLI command or a sequence of commands separated by &&."
+    title = "Import RIV identifiers"
+    description = "Import names, affiliations and funders from RIV CSV dump."
 
     task = load_identifiers_from_riv_dump
 
