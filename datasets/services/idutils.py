@@ -257,6 +257,7 @@ def resolve_orcid(
     check_existing: bool = True,
     path: str = "",
     uow: UnitOfWork | None = None,
+    session: Any = None,
 ) -> dict:
     """Resolve ORCID identifier to URL.
 
@@ -288,7 +289,7 @@ def resolve_orcid(
 
     from riv.utils import create_session_with_retries
 
-    session = create_session_with_retries()
+    session = session or create_session_with_retries()
     headers = {"Accept": "application/json"}
 
     orcid_key = current_app.config.get("ORCID_READ_PUBLIC_KEY")
@@ -319,6 +320,7 @@ def resolve_ror(
     check_existing: bool = True,
     path: str = "",
     uow: UnitOfWork | None = None,
+    session: Any = None,
 ) -> dict:
     """Resolve ROR identifier to URL.
 
@@ -341,7 +343,7 @@ def resolve_ror(
     client_id = current_app.config["ROR_CLIENT_ID"]
     from riv.utils import create_session_with_retries
 
-    session = create_session_with_retries()
+    session = session or create_session_with_retries()
     headers = {"Accept": "application/json", "Client-ID": client_id}
     url = f"https://api.ror.org/v2/organizations/{quote(ror)}"
     resp = session.get(url, headers=headers)

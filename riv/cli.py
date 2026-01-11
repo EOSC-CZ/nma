@@ -214,3 +214,30 @@ def create_fixtures():
     FixturesEngine(system_identity).run()
 
     click.secho("Created required fixtures!", fg="green")
+
+
+@riv.command("load-riv-dump", hidden=True)
+@click.argument(
+    "riv_csv_url",
+    type=str,
+    default="https://www.isvavai.cz/dokumenty/opendata/RIV-2024.csv",
+)
+@click.option(
+    "--eager",
+    "-e",
+    is_flag=True,
+    help="Run task synchronously instead of sending to Celery queue.",
+)
+@with_appcontext
+def load_riv_dump(riv_csv_url, eager=False):
+    """Load RIV CSV dump into local caches."""
+    from riv.tasks.riv_dump_loader import load_identifiers_from_riv_dump
+
+    if eager:
+        click.secho("Loading RIV dump synchronously...", fg="green")
+
+        load_identifiers_from_riv_dump(riv_csv_url, delayed=False)
+        click.secho("RIV dump loaded successfully.", fg="green")
+    else:
+        load_identifiers_from_riv_dump.delay(riv_csv_url, delayed=True)
+        click.secho("RIV dump loading task sent to Celery queue...", fg="yellow")
