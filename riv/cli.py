@@ -10,6 +10,7 @@
 """CLI for RIV availability checker."""
 
 import traceback
+from types import SimpleNamespace
 
 import click
 import tqdm
@@ -241,3 +242,32 @@ def load_riv_dump(riv_csv_url, eager=False):
     else:
         load_identifiers_from_riv_dump.delay(riv_csv_url, delayed=True)
         click.secho("RIV dump loading task sent to Celery queue...", fg="yellow")
+
+
+@riv.command("temporary-fix-expires", hidden=True)
+@with_appcontext
+def temporary_fix_expires():
+    from sqlalchemy import text
+
+    with db.engine.connect() as connection:
+        connection.execute(
+            text(
+                "ALTER TABLE oauthclient_remotetoken RENAME COLUMN expires_at TO expires"
+            )
+        )
+        connection.commit()
+        click.secho(
+            "Renamed expires_at to expires in oauthclient_remotetoken table.",
+            fg="green",
+        )
+
+
+@riv.command("temporary-fix-stats-file-download", hidden=True)
+@with_appcontext
+def temporary_fix_stats_file_download():
+    from invenio_search.proxies import current_search
+
+    mapping_path = SimpleNamespace()
+    mapping_path.read_text = lambda: "{}"
+
+    current_search.create_index(index="stats-file-download", mapping_path=mapping_path)
