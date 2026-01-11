@@ -1,64 +1,68 @@
 {% set record_title = notification.context.record_data.metadata.title %}
 {% set edit_link = notification.context.edit_link %}
-{% set expiration_days = notification.context.expiration_time %}
+
 
 {%- block subject -%}
-    {{ _("Váš záznam byl vytvořen / Your record has been created – %(title)s", title=record_title|e) }}
+    NMA: Přístup k úpravě záznamu / Edit access granted – {{ record_title | e }}
 {%- endblock subject -%}
-
 
 {# ------------------------------------------------------- #}
 {# ---------------------- HTML BODY ----------------------- #}
 {# ------------------------------------------------------- #}
 {%- block html_body -%}
 
-<p><em>For English see version below:</em></p>
+<p><em>For English, see below:</em></p>
 
-<p>Váš záznam <strong>{{ record_title | e }}</strong> byl úspěšně vytvořen.</p>
+<p>Vážený uživateli Národního metadatového adresáře,</p>
 
-<p>Ke záznamu se můžete dostat a upravovat jej pomocí odkazu níže 
-(platnost odkazu je {{ expiration_days }} dní):</p>
+<p>Přidělili jsme Vám práva na úpravu záznamu <strong>{{ record_title | e }}</strong> v Národním metadatovém adresáři (NMA).</p>
 
+<p>Úpravy budou možné <strong>po dobu sedmi dnů</strong> na následujícím odkazu:</p>
 <p><a href="{{ edit_link }}">{{ edit_link }}</a></p>
 
-<p>Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.</p>
+<p>Váš Národní metadatový adresář</p>
 
 <hr>
 
-<p>Your record <strong>{{ record_title | e }}</strong> has been successfully created.</p>
+<p>Dear National Metadata Directory user,</p>
 
-<p>You can access and edit it using the link below (valid for {{ expiration_days }} days):</p>
+<p>We have granted you rights to edit the record <strong>{{ record_title | e }}</strong> in the National Metadata Directory (NMD).</p>
+
+<p>Edits will be possible for a period of <strong>seven days</strong> at the following link:</p>
 
 <p><a href="{{ edit_link }}">{{ edit_link }}</a></p>
 
-<p>If the link has expired, please contact support to receive a new one.</p>
+<p>Your National Metadata Directory</p>
 
 {%- endblock html_body -%}
-
 
 {# ------------------------------------------------------- #}
 {# --------------------- PLAIN BODY ----------------------- #}
 {# ------------------------------------------------------- #}
 {%- block plain_body -%}
-For English see version below:
-----------------------------------------
 
-Váš záznam "{{ record_title | e }}" byl úspěšně vytvořen.
+** For English, see below **
 
-Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
-(platný {{ expiration_days }} dní):
+Vážený uživateli Národního metadatového adresáře,
+
+Přidělili jsme Vám práva na úpravu záznamu "{{ record_title | e }}" v Národním metadatovém adresáři (NMA).
+
+Úpravy budou možné po dobu sedmi dnů na následujícím odkazu:
 {{ edit_link }}
 
-Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
+Váš Národní metadatový adresář
 
-----------------------------------------
+========= ENGLISH =========
 
-Your record "{{ record_title | e }}" has been successfully created.
+Dear National Metadata Directory user,
 
-You can access and edit it using this link (valid for {{ expiration_days }} days):
+We have granted you rights to edit the record "{{ record_title | e }}" in the National Metadata Directory (NMD).
+
+Edits will be possible for a period of seven days at the following link:
 {{ edit_link }}
 
-If the link has expired, please contact support to receive a new one.
+Your National Metadata Directory
+
 {%- endblock plain_body -%}
 
 
@@ -66,24 +70,27 @@ If the link has expired, please contact support to receive a new one.
 {# ---------------------- MD BODY ------------------------- #}
 {# ------------------------------------------------------- #}
 {%- block md_body -%}
-_For English see version below:_
+** For English, see below **
 
-Váš záznam **{{ record_title | e }}** byl úspěšně vytvořen.
+Vážený uživateli Národního metadatového adresáře,
 
-Ke záznamu se můžete dostat a upravovat jej pomocí tohoto odkazu 
-(platný **{{ expiration_days }} dní**):
+Přidělili jsme Vám práva na úpravu záznamu **{{ record_title | e }}** v Národním metadatovém adresáři (NMA).
+
+Úpravy budou možné po dobu  **sedmi dnů** na následujícím odkazu:
 
 {{ edit_link }}
 
-Pokud odkaz expiroval, kontaktujte prosím podporu a vystavíme vám nový.
+Váš Národní metadatový adresář
 
 ---
 
-Your record **{{ record_title | e }}** has been successfully created.
+Dear National Metadata Directory user,
 
-You can access and edit it using this link (valid for **{{ expiration_days }} days**):
+We have granted you rights to edit the record **{{ record_title | e }}** in the National Metadata Directory (NMD).
+
+Edits will be possible for a period of **seven days** at the following link:
 
 {{ edit_link }}
 
-If the link has expired, please contact support to receive a new one.
+Your National Metadata Directory
 {%- endblock md_body -%}

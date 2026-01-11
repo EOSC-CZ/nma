@@ -1,4 +1,5 @@
 {% extends "oarepo_ui/frontpage.html" %}
+{% set hide_footer_mandatory_publicity = True %}
 
 {%- block page_header %}
     {%- include "header_frontpage.html" %}
@@ -14,12 +15,18 @@
 {%- endblock javascript %}
 
 {%- block bottom_section %}
+
+{% set logo_locale = current_i18n.language %}
+{% if logo_locale not in ['cs', 'en'] %}
+  {% set logo_locale = 'en' %}
+{% endif %}
+
 <section class="brought-to-you-section section-content light-bg rel-pt-3 rel-pb-3">
   <div class="ui container center aligned">
     <div class="ui equal width vertically centered middle aligned container centered grid stackable">
       <div class="seven wide column">
         <a href="https://msmt.gov.cz">
-          <img class="collaborators-logo" src="{{ url_for('static', filename='images/EU+MSMT.png') }}"
+          <img class="collaborators-logo" src="{{ url_for('static', filename='images/eu_msmt_' ~ logo_locale ~ '.png') }}"
                 title="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}"
                 alt="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}">
         </a>

@@ -10,6 +10,12 @@ import {
   RDMRecordMultipleSearchBarElement,
   RDMToggleComponent,
 } from "@js/invenio_app_rdm/search/components";
+import {
+  ContribSearchAppFacets,
+  ContribBucketAggregationElement,
+  ContribBucketAggregationValuesElement,
+} from "@js/invenio_search_ui/components";
+
 import { parametrize } from "react-overridable";
 import { EmptyResultsElement } from "./EmptyResultsElement";
 import ResultsListItem from "./ResultsListItem";
@@ -23,6 +29,10 @@ export const RDMRecordSearchBarContainerWithConfig = parametrize(
   }
 );
 
+const ContribSearchAppFacetsWithConfig = parametrize(ContribSearchAppFacets, {
+  toggle: false,
+});
+
 export const componentOverrides = {
   [`${overridableIdPrefix}.ResultsGrid.item`]: RDMRecordResultsGridItem,
   [`${overridableIdPrefix}.EmptyResults.element`]: EmptyResultsElement,
@@ -34,6 +44,9 @@ export const componentOverrides = {
   [`${overridableIdPrefix}.Count.element`]: RDMCountComponent,
   [`${overridableIdPrefix}.Error.element`]: RDMErrorComponent,
   [`${overridableIdPrefix}.SearchFilters.Toggle.element`]: RDMToggleComponent,
+  [`${overridableIdPrefix}.BucketAggregation.element`]: ContribBucketAggregationElement,
+  [`${overridableIdPrefix}.BucketAggregationValues.element`]: ContribBucketAggregationValuesElement,
+  [`${overridableIdPrefix}.SearchApp.facets`]: ContribSearchAppFacetsWithConfig,
 };
 
 createSearchAppsInit({ componentOverrides });

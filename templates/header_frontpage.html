@@ -1,5 +1,6 @@
 {%- extends "invenio_app_rdm/header_frontpage.html" %}
 
+
 {%- block twinfinity_logo %}
 {# This is a very first element in .theme.header DOM - we need to position it before everything else #}
 <div class="twinfinity-logo"></div>
@@ -36,10 +37,10 @@
 </div>
 <div class="row pt-0 rel-mb-10">
    <div class="sixteen wide mobile eight wide computer column centered rel-mt-2">
-     <p><i class="ui question circle outline green icon"></i>{% trans browse_url=url_for('datasets_ui.search') %}Can't find a dataset? Check or register it using its persistent identifier. Search for datasets by keywords or persistent identifiers. You can also <a href="{{ browse_url }}">browse all records</a>.{% endtrans %}</p>
+     <p><i class="ui large green icons mr-10"><i class="ui circle notched green icon"></i><i class="ui mini info green icon pr-5"></i></i>{% trans browse_url=url_for('datasets_ui.search') %}Search for datasets by keywords or persistent identifiers. You can also <a href="{{ browse_url }}">browse all records</a>.{% endtrans %}</p>
      <button type="button" class="ui big primary import button rel-mt-1 rel-mb-7" data-testid="frontpage-import-record-button" id="frontpage-register-button" data-register-url="{{ url_for('datasets_ui.deposit_create') }}">
-        <i class="plus circle icon"></i>
-        {{ _("Verify dataset for RIV") }}
+        <i class="ui linkify icon"></i>
+        {{ _("Obtain the link for RIV") }}
     </button>
    </div>
 </div>

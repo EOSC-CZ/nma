@@ -17,7 +17,7 @@
   "Published in: {{- publishInfo }}": "Published in: {{- publishInfo }}",
   "There was an error saving your changes. If the problem persists please contact": "There was an error saving your changes. If the problem persists please contact",
   "support.": "support.",
-  "Verify a dataset for RIV": "Verify a dataset for RIV",
   "If you are looking to report a dataset (type T result) in RIV.": "If you are looking to report a dataset (type T result) in RIV.",
-  "or": "or"
+  "or": "or",
+  "Obtain the link for RIV": "Obtain the link for RIV"
 }

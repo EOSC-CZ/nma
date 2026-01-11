@@ -17,7 +17,7 @@
   "Published in: {{- publishInfo }}": "Publikováno v: {{- publishInfo }}",
   "There was an error saving your changes. If the problem persists please contact": "Při ukládání změn došlo k chybě. Pokud problém přetrvává, kontaktujte prosím",
   "support.": "podporu.",
-  "Verify a dataset for RIV": "Ověřit datovou sadu pro RIV",
   "If you are looking to report a dataset (type T result) in RIV.": "Pokud hledáte datovou sadu pro vykázání jako výsledek typu T v RIV.",
-  "or": "nebo"
+  "or": "nebo",
+  "Obtain the link for RIV": "Získat odkaz pro RIV"
 }

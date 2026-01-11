@@ -342,7 +342,7 @@ def init_menu(app):
     with app.app_context():
         current_menu.submenu("plus.create_datasets").register(
             f"{ui_resource_config.blueprint_name}.deposit_create",
-            _("Verify dataset for RIV"),
+            _("Obtain the link for RIV"),
             order=1,
             visible_when=can_view_deposit_page,
         )
