@@ -35,7 +35,6 @@ def seconds_to_hms(seconds: float) -> str:
 @shared_task(ignore_result=True)
 def load_identifiers_from_riv_dump(
     riv_csv_url: str = "https://www.isvavai.cz/dokumenty/opendata/RIV-2024.csv",
-    delayed: bool = True,
 ):
     session = create_session_with_retries(throttle_sleep=0.1)
     dois_to_process: set[str] = set()
@@ -67,7 +66,10 @@ def load_identifiers_from_riv_dump(
     start_time = time.time()
     seen: set[str] = set()
     for idx, doi in enumerate(dois_to_process, 1):
-        load_identifiers_from_doi(doi, session, seen)
+        try:
+            load_identifiers_from_doi(doi, session, seen)
+        except:
+            current_app.logger.exception("Error processing DOI %s: ", doi)
 
         elapsed = time.time() - start_time
         rate = idx / elapsed if elapsed > 0 else 0

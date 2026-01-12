@@ -32,7 +32,7 @@ def cleanup_unknown_titles():
 
 
 class CleanupUnknownTitlesJob(JobType):
-    """A job type to run invenio CLI commands as Celery tasks."""
+    """A job type that cleans up datasets with an unknown title."""
 
     id = "cleanup_unknown_titles"
     title = "Cleanup datasets with unknown title"

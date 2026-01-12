@@ -44,7 +44,7 @@ def rebuild_all_indices():
 
 
 class CreateMissingIndicesJob(JobType):
-    """A job type to run invenio CLI commands as Celery tasks."""
+    """A job type to create any missing search indices."""
 
     id = "create_missing_indices"
     title = "Create missing indices"
@@ -53,7 +53,7 @@ class CreateMissingIndicesJob(JobType):
 
 
 class RebuildAllIndicesJob(JobType):
-    """A job type to run invenio CLI commands as Celery tasks."""
+    """A job type to rebuild all indices."""
 
     id = "rebuild_all_indices"
     title = "Rebuild all indices (drop them and recreate and reindex everything)"
