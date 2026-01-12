@@ -184,3 +184,5 @@
 ------------------*/
 @listSeparator: ";";
 @listCommaSeparator: ",";
+
+@codeBackgroundColor: #fdf2f8;
