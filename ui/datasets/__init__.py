@@ -379,4 +379,15 @@ def create_record_detail_redirect_blueprint(app):
     return bp
 
 
+def create_registered_blueprint(app):
+    """Blueprint containing registration success page."""
+    bp = Blueprint("registered", __name__)
+
+    @bp.route("/registered")
+    def registered():
+        return render_template("registered.html")
+
+    return bp
+
+
 # TODO: register init_menu to finalize_app similarly blueprints & webpack is registered
