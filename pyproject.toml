@@ -57,7 +57,6 @@ repository = "common:alembic"
 [project.entry-points."invenio_base.blueprints"]
 ui_datasets = "ui.datasets:create_blueprint"
 record_detail_redirect = "ui.datasets:create_record_detail_redirect_blueprint"
-ui_debug = "ui.debug:bp"
 
 [project.entry-points."invenio_base.finalize_app"]
 ui_datasets = "ui.datasets:finalize_app"
@@ -75,6 +74,7 @@ create_missing_indices = "riv.tasks:CreateMissingIndicesJob"
 rebuild_all_indices = "riv.tasks:RebuildAllIndicesJob"
 check_record_availability = "riv.tasks:CheckAvailabilityJob"
 cleanup_unknown_titles = "riv.tasks:CleanupUnknownTitlesJob"
+load_identifiers_from_riv_dump = "riv.tasks:LoadIdentifiersFromRIVDumpJob"
 
 [project.entry-points."invenio_access.actions"]
 manage_record_action = "datasets.permissions:manage_record_action"

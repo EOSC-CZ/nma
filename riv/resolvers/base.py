@@ -2,6 +2,7 @@ import dataclasses
 import enum
 import unicodedata
 
+from invenio_i18n import gettext
 from invenio_i18n import lazy_gettext as _
 
 from riv.utils import create_session_with_retries
@@ -65,7 +66,12 @@ class PIDDoesNotExistError(Exception):
 
     def __init__(self, identifier: str):
         self.identifier = identifier
-        super().__init__(f"Non existing persistent identifier: '{identifier}'.")
+        super().__init__(
+            gettext(
+                "Non-existent persistent identifier: '%(identifier)s'.",
+                identifier=identifier,
+            )
+        )
 
 
 class UnsupportedPIDError(Exception):
@@ -78,7 +84,11 @@ class UnsupportedPIDError(Exception):
 
     def __init__(self, identifier: str):
         self.identifier = identifier
-        super().__init__(f"Unsupported identifier '{identifier}'.")
+        super().__init__(
+            gettext(
+                "Unsupported identifier type '%(identifier)s'.", identifier=identifier
+            )
+        )
 
 
 class PIDProcessingError(Exception):
@@ -86,7 +96,12 @@ class PIDProcessingError(Exception):
 
     def __init__(self, identifier: str):
         self.identifier = identifier
-        super().__init__(f"Error while processing identifier '{identifier}'.")
+        super().__init__(
+            gettext(
+                "Error while processing identifier '%(identifier)s'.",
+                identifier=identifier,
+            )
+        )
 
 
 class MetadataResolver:
@@ -96,7 +111,6 @@ class MetadataResolver:
     def __init__(self):
         self.session = create_session_with_retries(
             total_retries=4,
-            status_forcelist=[403, 429, 500, 502],
         )
 
     @property
@@ -118,9 +132,11 @@ class MetadataResolver:
         If the metadata can not be resolved, returns (None, list[ResolverProblem]).
         If the metadata is resolved, returns (metadata_dict, list[ResolverProblem]).
         """
+        raise NotImplementedError()
 
     def exists(self, identifier: str) -> bool:
         """Check if identifier exists on resolvers api."""
+        raise NotImplementedError()
 
     def normalize(self, identifier: str) -> str:
         """Normalize an identifier to canonical form.
@@ -138,3 +154,4 @@ class MetadataResolver:
 
     def generate_id(self, identifier: str) -> str:
         """Generate id."""
+        raise NotImplementedError()

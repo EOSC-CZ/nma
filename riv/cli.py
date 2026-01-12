@@ -10,6 +10,7 @@
 """CLI for RIV availability checker."""
 
 import traceback
+from types import SimpleNamespace
 
 import click
 import tqdm
@@ -214,3 +215,59 @@ def create_fixtures():
     FixturesEngine(system_identity).run()
 
     click.secho("Created required fixtures!", fg="green")
+
+
+@riv.command("load-riv-dump", hidden=True)
+@click.argument(
+    "riv_csv_url",
+    type=str,
+    default="https://www.isvavai.cz/dokumenty/opendata/RIV-2024.csv",
+)
+@click.option(
+    "--eager",
+    "-e",
+    is_flag=True,
+    help="Run task synchronously instead of sending to Celery queue.",
+)
+@with_appcontext
+def load_riv_dump(riv_csv_url, eager=False):
+    """Load RIV CSV dump into local caches."""
+    from riv.tasks.riv_dump_loader import load_identifiers_from_riv_dump
+
+    if eager:
+        click.secho("Loading RIV dump synchronously...", fg="green")
+
+        load_identifiers_from_riv_dump(riv_csv_url, delayed=False)
+        click.secho("RIV dump loaded successfully.", fg="green")
+    else:
+        load_identifiers_from_riv_dump.delay(riv_csv_url, delayed=True)
+        click.secho("RIV dump loading task sent to Celery queue...", fg="yellow")
+
+
+@riv.command("temporary-fix-expires", hidden=True)
+@with_appcontext
+def temporary_fix_expires():
+    from sqlalchemy import text
+
+    with db.engine.connect() as connection:
+        connection.execute(
+            text(
+                "ALTER TABLE oauthclient_remotetoken RENAME COLUMN expires_at TO expires"
+            )
+        )
+        connection.commit()
+        click.secho(
+            "Renamed expires_at to expires in oauthclient_remotetoken table.",
+            fg="green",
+        )
+
+
+@riv.command("temporary-fix-stats-file-download", hidden=True)
+@with_appcontext
+def temporary_fix_stats_file_download():
+    from invenio_search.proxies import current_search
+
+    mapping_path = SimpleNamespace()
+    mapping_path.read_text = lambda: "{}"
+
+    current_search.create_index(index="stats-file-download", mapping_path=mapping_path)
