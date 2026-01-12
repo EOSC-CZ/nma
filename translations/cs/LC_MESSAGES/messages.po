@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:12
 msgid "Czech"
 msgstr "Čeština"
 
-#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:17
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:17
 msgid "National Metadata Directory"
 msgstr "Národní metadatový adresář"
 
-#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:18
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:18
 msgid "Harvesting metadata of scientific repositories in the Czech Republic"
 msgstr "Sbírá metadata vědeckých repozitářů v České republice"
 
-#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:20
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:20
 msgid ""
 "The National Metadata Directory (NMD) aggregates metadata from Czech "
 "research repositories and enables unified searching across datasets with "
@@ -40,7 +40,7 @@ msgstr ""
 "repozitářů a umožňuje jednotné vyhledávání napříč datovými sadami s "
 "odkazy na původní záznamy."
 
-#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:23
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:23
 msgid ""
 "national metadata directory, NMD, dataset metadata, research data search,"
 " data repositories, metadata aggregator, Czech academic data, research "
@@ -206,52 +206,52 @@ msgstr "Chicago"
 msgid "IEEE"
 msgstr "IEEE"
 
-#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:360
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:360
 msgid "state:draft"
 msgstr "koncept"
 
-#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:361
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:361
 msgid "state:published"
 msgstr "publikováno"
 
-#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:362
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:362
 msgid "state:submitted"
 msgstr "odesláno"
 
-#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:363
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:363
 msgid "state:retracting"
 msgstr "staženo"
 
-#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:364
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:364
 msgid "state:deleted"
 msgstr "smazáno"
 
-#: /Users/m/w/rdm-14/nrp/nma/datasets/just_for_translations.py:4
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/just_for_translations.py:4
 msgid "metadata/publisher.label"
 msgstr "Vydavatel"
 
-#: /Users/m/w/rdm-14/nrp/nma/datasets/just_for_translations.py:5
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/just_for_translations.py:5
 msgid "metadata/resource_type.label"
 msgstr "Typ zdroje"
 
-#: /Users/m/w/rdm-14/nrp/nma/datasets/just_for_translations.py:6
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/just_for_translations.py:6
 msgid "metadata/languages.label"
 msgstr "Jazyky"
 
-#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:162
-#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:178
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:162
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:178
 msgid "DataCite JSON"
 msgstr "DataCite JSON"
 
-#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:169
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:169
 msgid "DataCite XML"
 msgstr "DataCite XML"
 
-#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:170
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:170
 msgid "Import metadata from DataCite XML format"
 msgstr "Importovat metadata z formátu DataCite XML"
 
-#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:179
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:179
 msgid "Import metadata from DataCite JSON format"
 msgstr "Importovat metadata z formátu DataCite JSON"
 
@@ -259,11 +259,11 @@ msgstr "Importovat metadata z formátu DataCite JSON"
 msgid "Persistent Identifier"
 msgstr "Persistentní identifikátor"
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/views.py:31
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/views.py:31
 msgid "Please enter a persistent identifier"
 msgstr "Zadejte prosím persistentní identifikátor"
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/views.py:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/views.py:34
 msgid ""
 "Please enter a valid URL (e.g., https://doi.org/... or "
 "https://hdl.handle.net/...)"
@@ -289,7 +289,7 @@ msgstr "Formát data publikace neprošel validací; formát: %(date)s."
 msgid "Invalid publication date format: %(date)s."
 msgstr "Neplatný formát data publikace: %(date)s."
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:71
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:71
 #, python-format
 msgid "Non-existent persistent identifier: '%(identifier)s'."
 msgstr "Neexistující persistentní identifikátor '%(identifier)s'."
@@ -319,8 +319,8 @@ msgstr ""
 "Neočekávaná chyba při načítání metadat z DOI. Prosím, vyplňte metadata "
 "ručně."
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:141
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:529
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:141
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:529
 msgid ""
 "The title is too short. A minimum of 3 characters is required to meet "
 "repository requirements."
@@ -364,7 +364,7 @@ msgstr ""
 msgid "Publication date missing."
 msgstr "Chybí datum publikace."
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/utils.py:35
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/utils.py:35
 msgid "Unexpected error while parsing the metadata."
 msgstr "Neočekávaná chyba při načítání metadat."
 
@@ -441,11 +441,11 @@ msgstr ""
 msgid "Obtain the link for RIV"
 msgstr "Získat odkaz pro RIV"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/manage_menu.html:11
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/manage_menu.html:11
 msgid "Record management"
 msgstr "Správa záznamu"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/page.html:3
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/page.html:3
 msgid "Invenio"
 msgstr "Invenio"
 
@@ -471,11 +471,11 @@ msgstr "Přihlásit se"
 msgid "Institutional Login"
 msgstr "Institucionální přihlášení"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_accounts/login_user.html:15
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:15
 msgid "Sign in using your institutional credentials via E-INFRA AAI."
 msgstr "Přihlaste se pomocí účtu u vaší instituce prostřednictvím E-INFRA AAI."
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_accounts/login_user.html:24
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:24
 msgid ""
 "When you choose Sign in with E-INFRA AAI, you will be asked to select "
 "your institution from the list.\n"
@@ -487,7 +487,7 @@ msgstr ""
 "Následně budete přesměrováni na poskytovatele identit vaší instituce, kde"
 " se přihlásíte pomocí svých institucionálních přihlašovacích údajů."
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_accounts/login_user.html:26
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:26
 #, python-format
 msgid ""
 "\n"
@@ -504,71 +504,71 @@ msgstr ""
 "přihlášení.\n"
 "      "
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:17
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:17
 msgid "Details"
 msgstr "Detaily"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:22
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:22
 msgid "Deposited at"
 msgstr "Uloženo v"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:29
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:29
 msgid "Harvested from"
 msgstr "Sklizeno z"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
 msgid "Resource type"
 msgstr "Typ zdroje"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:35
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:35
 msgid "Publication date"
 msgstr "Datum publikace"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
 msgid "Publisher"
 msgstr "Vydavatel"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
 msgid "Published in"
 msgstr "Publikováno v"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:38
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:38
 msgid "Imprint"
 msgstr "Tiráž"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:39
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:39
 msgid "Thesis"
 msgstr "Závěrečná práce"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:40
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:40
 msgid "Conference"
 msgstr "Konference"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:41
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:41
 msgid "Languages"
 msgstr "Jazyky"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:42
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:42
 msgid "Formats"
 msgstr "Formáty"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:43
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:43
 msgid "Sizes"
 msgstr "Velikosti"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:5
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:5
 msgid "Upload information"
 msgstr "Informace o nahrání"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:8
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:8
 msgid "Technical metadata"
 msgstr "Technická metadata"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:10
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:10
 msgid "Created"
 msgstr "Vytvořeno"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:15
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:15
 msgid "Modified"
 msgstr "Upraveno"
 
@@ -576,12 +576,12 @@ msgstr "Upraveno"
 msgid "Edited by"
 msgstr "Upravil"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo_ui/macros/records_list.html:10
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo_ui/macros/records_list.html:10
 msgid "Recently Added Metadata"
 msgstr "Nedávno přidaná metadata"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:16
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:18
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:16
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:18
 msgid "Log out"
 msgstr "Odhlásit se"
 
@@ -590,7 +590,7 @@ msgstr "Odhlásit se"
 msgid "My account"
 msgstr "Můj účet"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:18
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:18
 msgid ""
 "The National Metadata Directory (NMD) is a central aggregator of metadata"
 " for scientific datasets in the Czech Republic. The NMD collects metadata"
@@ -606,15 +606,15 @@ msgstr ""
 "vyhledávací místo napříč repozitáři a uživatele dovede k primárním "
 "repozitářům."
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:23
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:23
 msgid "About the National Metadata Directory"
 msgstr "O Národním metadatovém adresáři"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
 msgid "Metadata Aggregation"
 msgstr "Agregace metadat"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
 msgid ""
 "NMD Harvests metadata from repositories in the National Repository "
 "Platform and beyond."
@@ -622,7 +622,7 @@ msgstr ""
 "NMA sklízí metadata z repozitářů v Národní repozitářové platformě a "
 "dalších zdrojů."
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
 msgid "Discover & Locate"
 msgstr "Objevovat a dohledávat"
 
@@ -634,37 +634,37 @@ msgstr ""
 "Vyhledávejte napříč repozitáři a dohledávejte datové sady s odkazy na "
 "původní data."
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
 msgid "Persistent Links"
 msgstr "Persistentní odkazy"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
 msgid ""
 "Every record has a persistent URL and a reference to the original "
 "repository."
 msgstr "Každý záznam má persistentní URL a odkaz na původní repozitář."
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:53
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:53
 msgid "Code"
 msgstr "Kód"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "CESNET a.l.e."
 msgstr "CESNET z. s. p. o."
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "National Metadata Directory (NMD) CZ"
 msgstr "Národní metadatový adresář (NMA) CZ"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "Version"
 msgstr "Verze"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:13
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:13
 msgid "Powered by"
 msgstr "Běží na"
 
-#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:14
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:14
 msgid "InvenioRDM"
 msgstr "InvenioRDM"
 
@@ -676,7 +676,7 @@ msgstr ""
 "Tato datová sada ještě není v repozitáři zaregistrována. Můžete ji "
 "zaregistrovat pomocí formuláře níže."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:241
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:241
 msgid ""
 "Thank you for submitting the record to the National Metadata Directory. "
 "If you need to add a link to you RIV submission, please use the link "
@@ -685,7 +685,7 @@ msgstr ""
 "Děkujeme za odeslání záznamu do Národního metadatového adresáře. Pro "
 "účely vykazování do RIV použijte prosím níže uvedený odkaz."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:258
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:258
 msgid ""
 "Thank you for submitting the record to the National Metadata Directory. "
 "We detected some metadata issues within the record. To obtain a URL for "
@@ -737,7 +737,7 @@ msgstr "Chyba při registraci datové sady: %(error)s"
 msgid "User does not have permission to edit record."
 msgstr "Uživatel nemá oprávnění upravovat záznam."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:11
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:11
 msgid ""
 "To report a dataset (type T result) in RIV, you must provide a link to "
 "the National Metadata Directory (NMD), which records its core metadata. "
@@ -749,11 +749,11 @@ msgstr ""
 " metadata. Na této stránce si můžete ověřit, zda NMA datovou sadu "
 "eviduje, případně ji do NMA zaregistrovat."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:22
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:22
 msgid "https://doi.org/… or https://hdl.handle.net/…"
 msgstr "https://doi.org/… nebo https://hdl.handle.net/…"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:34
 msgid ""
 "The dataset must have a persistent identifier. If the dataset has "
 "multiple identifiers (e.g., both a DOI and a Handle), we recommend "
@@ -836,19 +836,19 @@ msgstr ""
 msgid "(metadata can also be entered manually if needed)."
 msgstr "(metadata můžete případně zadat ručně)."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:16
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:16
 msgid "Metadata Record"
 msgstr "Metadatový záznam"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:20
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:20
 msgid "Modify record metadata."
 msgstr "Upravit metadata záznamu."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "Search results"
 msgstr "Výsledky vyhledávání"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "datasets"
 msgstr "datové sady"
 
@@ -857,49 +857,23 @@ msgstr "datové sady"
 msgid "Actions"
 msgstr "Akce"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
 msgid "Edit"
 msgstr "Upravit"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/access_status.html:6
-msgid "Access"
-msgstr "Přístup"
-
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/access_status.html:10
-msgid ""
-"This record is publicly accessible. Anyone can view and download the "
-"content."
-msgstr "Tento záznam je veřejně přístupný. Kdokoli může zobrazit a stáhnout obsah."
-
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/access_status.html:10
-msgid ""
-"This record is not publicly accessible. Viewing or downloading the "
-"content requires meeting specific access conditions."
-msgstr ""
-"Tento záznam není veřejně přístupný. Zobrazení nebo stažení obsahu "
-"vyžaduje splnění specifických přístupových podmínek."
-
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/access_status.html:12
-msgid "Open"
-msgstr "Otevřený"
-
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/access_status.html:12
-msgid "Restricted"
-msgstr "Omezený"
-
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:74
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:74
 msgid "Open record management menu"
 msgstr "Otevřít menu správy záznamu"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:76
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:76
 msgid "Manage record"
 msgstr "Spravovat záznam"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:124
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:123
 msgid "Original source check status"
 msgstr "Stav kontroly původního zdroje"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:143
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:142
 msgid ""
 "Original source confirmed. The dataset is still available at its "
 "authoritative repository."
@@ -907,7 +881,7 @@ msgstr ""
 "Původní zdroj potvrzen. Datová sada je stále dostupná ve svém "
 "autoritativním repozitáři."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:145
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:144
 msgid ""
 "Original source not found. The dataset is no longer available at the "
 "specified location."
@@ -915,19 +889,19 @@ msgstr ""
 "Původní zdroj nebyl nalezen. Datová sada již není na uvedeném místě "
 "dostupná."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:147
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:146
 msgid "Error checking original source. Unable to verify dataset availability."
 msgstr "Chyba při kontrole původního zdroje. Nelze ověřit dostupnost datové sady."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:149
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:148
 msgid "Original source not accessible. The dataset location cannot be reached."
 msgstr "Původní zdroj není přístupný. K umístění datové sady se nelze připojit."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:151
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:150
 msgid "Warning: Issue detected with original source."
 msgstr "Varování: Zjištěn problém s původním zdrojem."
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:161
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:160
 msgid "Last checked: "
 msgstr "Naposledy zkontrolováno: "
 
@@ -940,6 +914,6 @@ msgstr "Použijte tento odkaz pro zadání datové sady do RIVu."
 msgid "Citation"
 msgstr "Citace"
 
-#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:7
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:7
 msgid "Link for RIV"
 msgstr "Odkaz pro RIV"

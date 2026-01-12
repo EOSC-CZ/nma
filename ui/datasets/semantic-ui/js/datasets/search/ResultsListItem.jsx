@@ -54,7 +54,7 @@ class ResultsListItem extends Component {
               {resourceType}
             </Label>
             <Label horizontal size="small" className="basic green">
-              {result.id}
+              {result.metadata.persistent_url}
             </Label>
           </Item.Extra>
           <Item.Header as="h2" className="theme-primary-text">
