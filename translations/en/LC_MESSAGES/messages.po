@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-09 15:12+0100\n"
+"POT-Creation-Date: 2026-01-12 10:47+0100\n"
 "PO-Revision-Date: 2025-12-22 11:51+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -45,157 +45,157 @@ msgid ""
 "science cloud"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:158
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:158
 msgid "DataCite"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:213
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:213
 msgid "ORCID"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:214
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:255
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:214
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:255
 msgid "ISNI"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:215
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:215
 msgid "GND"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:216
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:216
 msgid "ROR"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:218
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:218
 msgid "ResearcherID"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:223
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:223
 msgid "Scopus Author ID"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:228
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:244
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:228
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:244
 msgid "DOI"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:232
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:232
 msgid "ARK"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:233
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:233
 msgid "arXiv"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:235
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:235
 msgid "Bibcode"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:240
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:240
 msgid "Crossref Funder ID"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:245
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:245
 msgid "EAN13"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:246
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:246
 msgid "EISSN"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:247
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:247
 msgid "GRID"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:249
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:249
 msgid "Handle"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:253
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:253
 msgid "IGSN"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:254
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:254
 msgid "ISBN"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:256
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:256
 msgid "ISSN"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:257
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:257
 msgid "ISTC"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:258
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:258
 msgid "LISSN"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:259
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:259
 msgid "LSID"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:260
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:260
 msgid "PMID"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:261
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:261
 msgid "PURL"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:262
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:262
 msgid "UPC"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:263
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:263
 msgid "URL"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:264
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:264
 msgid "URN"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:265
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:265
 msgid "W3ID"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:266
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:266
 msgid "Other"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:275
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:275
 msgid "Wikidata"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:276
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:276
 msgid "GeoNames"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:337
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:337
 msgid "ČSN ISO 690"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:338
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:338
 msgid "APA"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:339
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:339
 msgid "Harvard"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:340
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:340
 msgid "MLA"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:341
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:341
 msgid "Vancouver"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:342
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:342
 msgid "Chicago"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:343
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:343
 msgid "IEEE"
 msgstr ""
 
@@ -227,7 +227,7 @@ msgstr "Publisher"
 msgid "metadata/resource_type.label"
 msgstr "Resource type"
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/just_for_translations.py:6
+#: /Users/m/w/rdm-14/nrp/nma/datasets/just_for_translations.py:6
 msgid "metadata/languages.label"
 msgstr "Languages"
 
@@ -262,24 +262,18 @@ msgid ""
 "https://hdl.handle.net/...)"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/views.py:39
-msgid ""
-"Skip metadata retrieval. Use only in cases when the normal registration "
-"process repeatedly fails."
-msgstr ""
-
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/records/create_record.py:100
+#: /Users/m/w/rdm-14/nrp/nma/riv/records/create_record.py:100
 msgid ""
 "Due to an unexpected error, the data could not be loaded correctly. "
 "Please fill in the required information and save the record. "
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:32
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:33
 #, python-format
 msgid "Publication date format did not pass validation; format: %(date)s."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:37
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:38
 #, python-format
 msgid "Invalid publication date format: %(date)s."
 msgstr ""
@@ -289,12 +283,12 @@ msgstr ""
 msgid "Non-existent persistent identifier: '%(identifier)s'."
 msgstr ""
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:88
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:89
 #, python-format
 msgid "Unsupported identifier type '%(identifier)s'."
 msgstr ""
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:99
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:101
 #, python-format
 msgid "Error while processing identifier '%(identifier)s'."
 msgstr ""
@@ -319,38 +313,37 @@ msgid ""
 "repository requirements."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:117
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:535
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:154
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:151
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:540
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:158
 msgid "Missing title."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:125
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:605
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:167
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:163
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:610
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:171
 msgid "Missing creators."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:224
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:224
 msgid ""
 "The identifier looks like a DOI, but it was not found in the DataCite "
 "registry."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:121
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:121
 msgid ""
 "The identifier looks like a Handle, but it was not found in the Handle "
 "registry."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:131
-#, python-format
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:136
 msgid ""
 "Unexpected error while resolving the Handle. Please fill the metadata "
 "manually."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:204
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:209
 msgid "Publication date missing."
 msgstr ""
 
@@ -358,11 +351,11 @@ msgstr ""
 msgid "Unexpected error while parsing the metadata."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:32
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:32
 msgid "NMD"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:36
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:36
 #, python-format
 msgid ""
 "\n"
@@ -371,58 +364,58 @@ msgid ""
 "        "
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:44
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:45
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/frontpage.html:30
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/frontpage.html:31
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:44
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:45
+#: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:30
+#: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:31
 msgid "EU and MINISTRY OF EDUCATION YOUTH AND SPORTS"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:51
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:52
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:62
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/frontpage.html:37
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/frontpage.html:38
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:51
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:52
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:62
+#: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:37
+#: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:38
 msgid "EOSC-CZ project"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:59
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:59
 msgid "Resources"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:61
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:44
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:61
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:44
 msgid "Docs"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:63
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:63
 msgid "FAQs"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:69
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:69
 msgid "Contact"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:71
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:71
 msgid "User support"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:30
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:31
+#: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:30
+#: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:31
 msgid "Search by title, author, or identifier (DOI, Handle)"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:40
+#: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:40
 #, python-format
 msgid ""
 "Search for datasets by keywords or persistent identifiers. You can also "
 "<a href=\"%(browse_url)s\">browse all records</a>."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:43
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:344
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
+#: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:43
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:345
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
 msgid "Obtain the link for RIV"
 msgstr ""
 
@@ -432,6 +425,24 @@ msgstr ""
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/page.html:3
 msgid "Invenio"
+msgstr ""
+
+#: /Users/m/w/rdm-14/nrp/nma/templates/registered.html:2
+msgid "Registration Successful"
+msgstr ""
+
+#: /Users/m/w/rdm-14/nrp/nma/templates/registered.html:6
+msgid "Thank you for registering to the National Metadata Directory."
+msgstr ""
+
+#: /Users/m/w/rdm-14/nrp/nma/templates/registered.html:8
+msgid "You can now log in (using the identity you registered with):"
+msgstr ""
+
+#: /Users/m/w/rdm-14/nrp/nma/templates/registered.html:9
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:49
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:53
+msgid "Sign in"
 msgstr ""
 
 #: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_accounts/login_user.html:14
@@ -481,11 +492,11 @@ msgstr ""
 msgid "Publication date"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
 msgid "Publisher"
 msgstr "published"
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
 msgid "Published in"
 msgstr "published"
 
@@ -529,7 +540,7 @@ msgstr ""
 msgid "Modified"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:26
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:26
 msgid "Edited by"
 msgstr ""
 
@@ -542,13 +553,8 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:49
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:53
-msgid "Sign in"
-msgstr ""
-
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:66
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:107
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:66
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:107
 msgid "My account"
 msgstr ""
 
@@ -620,7 +626,7 @@ msgstr ""
 msgid "InvenioRDM"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:201
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:201
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
 " using the form below."
@@ -633,14 +639,14 @@ msgid ""
 "below."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:257
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:258
 msgid ""
 "Thank you for submitting the record to the National Metadata Directory. "
 "We detected some metadata issues within the record. To obtain a URL for "
 "RIV reporting, please check and correct the metadata below."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:270
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:271
 msgid ""
 "The provided identifier is a URL that can not be registered at the "
 "moment. If your dataset does not have a DOI or a handle in URL format, "
@@ -648,26 +654,26 @@ msgid ""
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:280
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:281
 msgid ""
 "The provided identifier does not exist. Please check it for typos and try"
 " again. If the problem persists, please contact support at <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:289
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:290
 msgid ""
 "We were unable to resolve metadata at the moment, please try it again "
 "later.If the problem persists, please contact support at <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:296
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:297
 #, python-format
 msgid "Error registering dataset: %(error)s"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:316
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:317
 msgid "User does not have permission to edit record."
 msgstr ""
 
@@ -690,52 +696,52 @@ msgid ""
 "providing the DOI."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:53
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:47
 msgid "What happens next?"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:56
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:50
 msgid ""
 "If the dataset is already in the NMD, we issue the RIV link immediately. "
 "No further action is needed."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:57
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:51
 msgid ""
 "If the dataset is not in the NMD, we attempt to automatically retrieve "
 "and download its metadata."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:58
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:52
 msgid ""
 "If this results in a complete, valid record in the NMD, you will receive "
 "the RIV link."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:59
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:53
 msgid ""
 "If key fields are missing, we will request additional information from "
 "you. You’ll also receive an email with a link to amend the record if "
 "corrections are needed. ⚠️ This link expires after 7 days."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:60
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:54
 msgid ""
 "Need assistance? Contact: <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:61
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
 msgid ""
 "If you had to create or correct the record manually, ask your repository "
 "administrator to have it harvested into the NMD."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:61
 msgid "Using a different persistent identifier?"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:70
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:64
 msgid ""
 "NMA can discover metadata primarily for datasets identified by <a "
 "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\" "
@@ -743,11 +749,11 @@ msgid ""
 "target=\"_blank\">Handle</a> identifiers."
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:73
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
 msgid "If your datasets use a different type of identifier, please contact us at"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:73
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
 msgid "(metadata can also be entered manually if needed)."
 msgstr ""
 
@@ -767,17 +773,12 @@ msgstr ""
 msgid "datasets"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
 msgid "Actions"
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
-msgid "Actions"
-msgstr ""
-
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
 msgid "Edit"
 msgstr ""
 
@@ -845,7 +846,7 @@ msgstr ""
 msgid "Last checked: "
 msgstr ""
 
-#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:13
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:13
 msgid "Use this link when reporting the dataset in RIV."
 msgstr ""
 
@@ -942,8 +943,8 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ""
-#~ "Dataset registered successfully without "
-#~ "metadata retrieval. Please fill the "
-#~ "minimum metadata below:"
+#~ "Skip metadata retrieval. Use only in "
+#~ "cases when the normal registration "
+#~ "process repeatedly fails."
 #~ msgstr ""
 
