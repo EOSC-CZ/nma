@@ -271,14 +271,6 @@ msgstr ""
 "Zadejte prosím platnou adresu URL (např. https://doi.org/... nebo https://"
 "hdl.handle.net/...)"
 
-#: /Users/m/w/rdm-14/nrp/nma/riv/records/create_record.py:100
-msgid ""
-"Due to an unexpected error, the data could not be loaded correctly. Please fill "
-"in the required information and save the record. "
-msgstr ""
-"Přeskočit načítání metadat. Použijte pouze v případech, kdy běžný proces "
-"registrace opakovaně selhává."
-
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/records/create_record.py:100
 msgid ""
 "Due to an unexpected error, the data could not be loaded correctly. "
@@ -299,12 +291,12 @@ msgstr "Neplatný formát data publikace: %(date)s."
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:71
 #, python-format
-msgid "Non existing persistent identifier: '%(identifier)s'."
+msgid "Non-existent persistent identifier: '%(identifier)s'."
 msgstr "Neexistující persistentní identifikátor '%(identifier)s'."
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:88
 #, python-format
-msgid "Unsupported identifier '%(identifier)s'."
+msgid "Unsupported identifier type '%(identifier)s'."
 msgstr "Nepodporovaný typ identifikátoru '%(identifier)s'."
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:99

@@ -68,7 +68,7 @@ class PIDDoesNotExistError(Exception):
         self.identifier = identifier
         super().__init__(
             gettext(
-                "Non existing persistent identifier: '%(identifier)s'.",
+                "Non-existent persistent identifier: '%(identifier)s'.",
                 identifier=identifier,
             )
         )
@@ -85,7 +85,9 @@ class UnsupportedPIDError(Exception):
     def __init__(self, identifier: str):
         self.identifier = identifier
         super().__init__(
-            gettext("Unsupported identifier '%(identifier)s'.", identifier=identifier)
+            gettext(
+                "Unsupported identifier type '%(identifier)s'.", identifier=identifier
+            )
         )
 
 

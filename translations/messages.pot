@@ -285,12 +285,12 @@ msgstr ""
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:71
 #, python-format
-msgid "Non existing persistent identifier: '%(identifier)s'."
+msgid "Non-existent persistent identifier: '%(identifier)s'."
 msgstr ""
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:88
 #, python-format
-msgid "Unsupported identifier '%(identifier)s'."
+msgid "Unsupported identifier type '%(identifier)s'."
 msgstr ""
 
 #: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:99
