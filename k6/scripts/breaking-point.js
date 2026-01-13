@@ -5,6 +5,7 @@ import { Trend, Rate } from 'k6/metrics';
 // Base configuration
 const BASE_URL = __ENV.BASE_URL || 'https://127.0.0.1:5000';
 const MAX_VUS = __ENV.MAX_VUS || 1000
+const MAX_RPS = __ENV.MAX_RPS || MAX_VUS
 const DURATION = __ENV.BASE_URL || '30m'
 const SEARCH_URL = `${BASE_URL}/api/datasets`
 const SEARCH_UI_URL = `${BASE_URL}/datasets`
@@ -22,9 +23,8 @@ export const options = {
         breakpoint: {
             executor: 'ramping-arrival-rate', //Assure load increase if the system slows
             preAllocatedVUs: 1,
-            maxVUs: MAX_VUS,
             stages: [
-                { target: MAX_VUS, duration: DURATION },
+                { target: MAX_RPS, duration: DURATION },
             ],
         }
     },
