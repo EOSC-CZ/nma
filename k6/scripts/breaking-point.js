@@ -6,7 +6,7 @@ import { Trend, Rate } from 'k6/metrics';
 const BASE_URL = __ENV.BASE_URL || 'https://127.0.0.1:5000';
 const MAX_VUS = __ENV.MAX_VUS || 1000
 const MAX_RPS = __ENV.MAX_RPS || MAX_VUS
-const DURATION = __ENV.BASE_URL || '30m'
+const DURATION = __ENV.DURATION || '30m'
 const SEARCH_URL = `${BASE_URL}/api/datasets`
 const SEARCH_UI_URL = `${BASE_URL}/datasets`
 const ABORT_ON_UX_FAIL = false;
