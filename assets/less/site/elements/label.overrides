@@ -6,4 +6,23 @@
   &.source-check {
     width: 100%;
   }
+  &.active-filter-label {
+    font-weight: normal;
+    color: black;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  &.active-filters-count-label {
+    left: 110%;
+    background-color: @primaryColor;
+    color: @white;
+  }
+}
+
+.ui.labels {
+  &.active-filters-group > .label {
+    color: black;
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
 }
