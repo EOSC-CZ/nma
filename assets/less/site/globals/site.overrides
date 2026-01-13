@@ -495,7 +495,7 @@ header.theme.header {
     transition: transform 220ms linear;
   }
 
-  #user-profile-dropdown-btn{
+  #user-profile-dropdown-btn {
     background-color: white !important;
   }
 
@@ -640,4 +640,26 @@ div.flex:has(button.clear-filters-button) {
 
 .search-result-item {
   word-break: break-word;
+}
+
+.facet-wrapper {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.5rem;
+
+  .ui.checkbox {
+    flex: 1;
+    min-width: 0; // Allow flex item to shrink below content size
+
+    label {
+      word-break: break-word;
+      white-space: normal;
+    }
+  }
+
+  .ui.label.facet-count {
+    flex-shrink: 0; // Prevent the count from shrinking
+    align-self: flex-start;
+    margin-left: auto; // Push to the right
+  }
 }
