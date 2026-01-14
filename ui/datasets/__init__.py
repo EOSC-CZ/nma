@@ -14,7 +14,7 @@ from flask import (
     request,
     url_for,
 )
-from flask_login import login_required
+from flask_login import current_user, login_required
 from flask_menu import current_menu
 from invenio_app_rdm.records_ui.views.decorators import no_cache_response
 from invenio_i18n import lazy_gettext as _
@@ -41,28 +41,24 @@ from oarepo_ui.resources.components.custom_fields import CustomFieldsComponent
 from oarepo_ui.resources.decorators import (
     allow_method,
     pass_query_args,
-    pass_route_args,
     pass_record_or_draft,
+    pass_route_args,
 )
 from oarepo_ui.resources.records.config import RecordsUIResourceConfig
 from oarepo_ui.resources.records.resource import RecordsUIResource
 from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
 
-from riv.proxies import current_riv_extension
+from riv.proxies import current_resolver_registry, current_riv_extension
 from riv.records.api import generate_id
 from riv.records.create_record import create_record
-from riv.resolvers.base import (
-    UnsupportedPIDError,
-    PIDProcessingError
-)
-from riv.records.utils import user_edit_grant_and_notification, create_user_edit_grant
+from riv.records.utils import create_user_edit_grant, user_edit_grant_and_notification
+from riv.resolvers.base import PIDProcessingError, UnsupportedPIDError
 from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
-from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
 from ui.resources.components.placeholder_remover import PlaceholderRemoverComponent
+from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
 from ui.resources.components.support_contact import RDMSupportContactComponent
-from riv.proxies import current_resolver_registry
 
 logger = logging.getLogger("DatasetsUI")
 
@@ -189,9 +185,7 @@ class DatasetsUIResource(RecordsUIResource):
                 self.api_service.read(identity=g.identity, id_=possible_id)
 
                 return redirect(
-                    url_for(
-                        "datasets_ui.record_detail", pid_value=possible_id
-                    )
+                    url_for("datasets_ui.record_detail", pid_value=possible_id)
                 )
             except UnsupportedPIDError:
                 pass
@@ -203,9 +197,7 @@ class DatasetsUIResource(RecordsUIResource):
                     ),
                     "info",
                 )
-                return redirect(
-                    url_for("datasets_ui.deposit_create", identifier=query)
-                )
+                return redirect(url_for("datasets_ui.deposit_create", identifier=query))
 
         return self._search(page, size, **kwargs)
 
@@ -238,7 +230,9 @@ class DatasetsUIResource(RecordsUIResource):
 
                 if not problems:
                     flash(
-                        _("Thank you for submitting the record to the National Metadata Directory. If you need to add a link to you RIV submission, please use the link below."),
+                        _(
+                            "Thank you for submitting the record to the National Metadata Directory. If you need to add a link to you RIV submission, please use the link below."
+                        ),
                         "success",
                     )
                     return redirect(
@@ -385,6 +379,8 @@ def create_registered_blueprint(app):
 
     @bp.route("/registered")
     def registered():
+        if current_user is not None and current_user.is_authenticated:
+            return redirect("/")
         return render_template("registered.html")
 
     return bp
