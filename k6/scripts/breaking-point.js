@@ -33,7 +33,7 @@ export const options = {
 
     thresholds: {
         // Overall KPIs tied to UX
-        errors: [{ threshold: 'rate<0.01', abortOnFail: true, delayAbortEval: '10s' }],
+        errors: [{ threshold: 'rate<0.01', abortOnFail: false, delayAbortEval: '10s' }],
         http_req_failed: [{
             threshold: 'rate<0.02', abortOnFail: true, delayAbortEval: '10s',
         }],      // <2% HTTP errors tolerated
