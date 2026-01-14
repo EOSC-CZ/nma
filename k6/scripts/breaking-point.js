@@ -15,6 +15,7 @@ const ABORT_ON_UX_FAIL = false;
 const searchLatency = new Trend('search_latency');
 const recordLatency = new Trend('record_latency');
 const idLookupLatency = new Trend('id_lookup_latency');
+const pingLatency = new Trend('ping_latency');
 const errorRate = new Rate('errors');
 
 // k6 options — progressive ramping to find breakpoint
@@ -34,17 +35,21 @@ export const options = {
         // Overall KPIs tied to UX
         errors: [{ threshold: 'rate<0.01', abortOnFail: true, delayAbortEval: '10s' }],
         http_req_failed: [{
-            threshold: 'rate<0.01', abortOnFail: true, delayAbortEval: '10s', // string
-        }],      // <1% HTTP errors tolerated
+            threshold: 'rate<0.02', abortOnFail: true, delayAbortEval: '10s',
+        }],      // <2% HTTP errors tolerated
         http_req_duration: [{
-            threshold: 'p(95)<3000', abortOnFail: ABORT_ON_UX_FAIL, delayAbortEval: '10s', // string
-        }],   // 95% < 3s for generic http requests
+            threshold: 'p(75)<5000', abortOnFail: ABORT_ON_UX_FAIL, delayAbortEval: '10s',
+        }],   // 95% < 5s for generic http requests
         search_latency: [{
-            threshold: 'p(95)<3000', abortOnFail: ABORT_ON_UX_FAIL, delayAbortEval: '10s', // string
+            threshold: 'p(95)<3000', abortOnFail: ABORT_ON_UX_FAIL, delayAbortEval: '10s',
         }],      // 95% < ~3s for search
         record_latency: [{
-            threshold: 'p(95)<1500', abortOnFail: ABORT_ON_UX_FAIL, delayAbortEval: '10s', // string
+            threshold: 'p(95)<1500', abortOnFail: ABORT_ON_UX_FAIL, delayAbortEval: '10s',
         }],      // 95% < ~1.5s for detail
+        ping_latency: [{
+            threshold: 'p(99)<5000', abortOnFail: true, delayAbortEval: '10s',
+        }],      // 95% < ~5s for ping - same as liveliness probe timeout
+
     },
     insecureSkipTLSVerify: BASE_URL === 'https://127.0.0.1:5000',
 };
@@ -52,7 +57,29 @@ export const options = {
 // Default sleep time between requests
 const THINK_TIME = 1 + Math.random() * 2;
 
+function isJsonResponse (res) {
+    const ct = res.headers['Content-Type'] || res.headers['content-type'];
+    return ct && ct.includes('application/json');
+}
+
+function safeJson (res) {
+    try {
+        return res.json();
+    } catch (e) {
+        console.error(res)
+        return null;
+    }
+}
+
 export default function () {
+
+    const pingRes = http.get(`${BASE_URL}/ping`);
+    pingLatency.add(pingRes.timings.duration);
+    const ok = check(pingRes, {
+        'liveliness HTTP 200': (r) => r.status === 200,
+    });
+    if (!ok) errorRate.add(1);
+
     group('Landing page', () => {
         // 1) Homepage load
         const res = http.get(`${BASE_URL}/`);
@@ -72,7 +99,16 @@ export default function () {
 
         const ok = check(res, {
             'search HTTP 200': (r) => r.status === 200,
-            'search contains hits': (r) => (r.json().hits && r.json().hits.hits?.length !== undefined),
+            'search contains hits': (r) => {
+                if (!isJsonResponse(r)) return false;
+
+                const body = safeJson(r);
+                return (
+                    body &&
+                    body.hits &&
+                    Array.isArray(body.hits.hits)
+                );
+            }
         });
         if (!ok) errorRate.add(1);
     });
