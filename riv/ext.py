@@ -9,12 +9,13 @@
 
 """RIV resolver extension."""
 
-from typing import TYPE_CHECKING, List
 from functools import cached_property
-from . import config
+from typing import TYPE_CHECKING, List
 
-from invenio_base.utils import obj_or_import_string
 from flask import Flask
+from invenio_base.utils import obj_or_import_string
+
+from . import config
 from .resolvers.base import MetadataResolver
 from .resolvers.registry import ResolverRegistry
 
@@ -48,6 +49,19 @@ class RIVResolverExtension:
         app.config.setdefault("DATACITE_URL", config.DATACITE_URL)
         app.config.setdefault("HANDLE_URL", config.HANDLE_URL)
         app.config.setdefault("CROSSREF_URL", config.CROSSREF_URL)
+        app.config.setdefault(
+            "ORCID_PUBLIC_DUMP_S3_BUCKET_NAME", config.ORCID_PUBLIC_DUMP_S3_BUCKET_NAME
+        )
+
+    @cached_property
+    def orcid_importer(self):
+        """Return ORCID importer reading ORCID public dumps from AWS S3."""
+        from datasets.services.idutils import ORCIDImporter
+
+        return ORCIDImporter(
+            self.app.config["ORCID_AWS_ACCESS_KEY_ID"],
+            self.app.config["ORCID_AWS_SECRET_ACCESS_KEY"],
+        )
 
     @cached_property
     def persistent_identifiers_resolvers(self) -> List[MetadataResolver]:

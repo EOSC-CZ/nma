@@ -217,7 +217,7 @@ def create_fixtures():
     click.secho("Created required fixtures!", fg="green")
 
 
-@riv.command("load-riv-dump", hidden=True)
+@riv.command("load-riv-dump")
 @click.argument(
     "riv_csv_url",
     type=str,
@@ -237,10 +237,10 @@ def load_riv_dump(riv_csv_url, eager=False):
     if eager:
         click.secho("Loading RIV dump synchronously...", fg="green")
 
-        load_identifiers_from_riv_dump(riv_csv_url, delayed=False)
+        load_identifiers_from_riv_dump(riv_csv_url)
         click.secho("RIV dump loaded successfully.", fg="green")
     else:
-        load_identifiers_from_riv_dump.delay(riv_csv_url, delayed=True)
+        load_identifiers_from_riv_dump.delay(riv_csv_url)
         click.secho("RIV dump loading task sent to Celery queue...", fg="yellow")
 
 

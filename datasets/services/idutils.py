@@ -5,6 +5,8 @@ import json
 from typing import Any, Callable, Generator, cast
 from urllib.parse import quote
 
+import boto3
+import botocore
 from flask import current_app
 from invenio_access.permissions import system_identity
 from invenio_db.uow import UnitOfWork
@@ -13,6 +15,7 @@ from invenio_records_resources.proxies import current_service_registry
 from invenio_records_resources.services.records import RecordService
 from invenio_vocabularies.contrib.common.ror.datastreams import RORTransformer
 from invenio_vocabularies.datastreams.datastreams import StreamEntry
+from lxml import etree
 from marshmallow import ValidationError
 from opensearchpy.exceptions import OpenSearchException
 from sqlalchemy.exc import NoResultFound
@@ -143,110 +146,222 @@ def resolve_identifier(
     identifier[id_key] = resolved[vocabulary_key]
 
 
-def orcid_to_names(orcid_response: dict, parent: Any = None) -> dict:
-    """Convert ORCID API response to names vocabulary schema.
+class ORCIDImporter:
+    def __init__(self, aws_access_key_id: str, aws_secret_access_key: str):
+        # initialize boto3 client
+        self.boto_client = boto3.client(
+            "s3",
+            aws_access_key_id=aws_access_key_id,
+            aws_secret_access_key=aws_secret_access_key,
+        )
 
-    Args:
-        orcid_response: The JSON response from ORCID API
-        parent: Parent element (e.g., person_or_org) to use for fallback data
+    def orcid_to_names(
+        self, orcid_response: etree._Element, parent: Any = None
+    ) -> dict:
+        """Convert ORCID XML response to names vocabulary schema.
 
-    Returns:
-        Dictionary conforming to the names vocabulary schema
-    """
-    result_identifiers: list[dict[str, str]] = []
-    result: dict[str, Any] = {"identifiers": result_identifiers}
+        Args:
+            orcid_response: The XML element from ORCID dump (etree Element)
+            parent: Parent element (e.g., person_or_org) to use for fallback data
 
-    # Extract person name information. is None if private.
-    person = get_object(orcid_response, "person")
-    name_data = get_object(person, "name")
+        Returns:
+            Dictionary conforming to the names vocabulary schema
+        """
+        # Define namespaces used in ORCID XML
+        namespaces = {
+            "common": "http://www.orcid.org/ns/common",
+            "person": "http://www.orcid.org/ns/person",
+            "personal-details": "http://www.orcid.org/ns/personal-details",
+            "activities": "http://www.orcid.org/ns/activities",
+            "employment": "http://www.orcid.org/ns/employment",
+        }
 
-    given_name = get_with_default(get_object(name_data, "given-names"), "value", "")
-    family_name = get_with_default(get_object(name_data, "family-name"), "value", "")
+        def element_text(elem: etree._Element | None) -> str | None:
+            return (
+                elem.text
+                if elem is not None and elem.text and elem.text.strip()
+                else None
+            )
 
-    # If name data is missing (private), use parent data as fallback
-    if not given_name and not family_name and parent:
-        given_name = parent.get("given_name", "")
-        family_name = parent.get("family_name", "")
+        result_identifiers: list[dict[str, str]] = []
+        result: dict[str, Any] = {"identifiers": result_identifiers}
 
-    if given_name:
-        result["given_name"] = given_name
-    if family_name:
-        result["family_name"] = family_name
+        # Extract person name information (may be None if private)
+        person_elem = orcid_response.find(".//person:person", namespaces)
+        given_name = ""
+        family_name = ""
 
-    # Construct full name
-    name_parts = []
-    if family_name:
-        name_parts.append(family_name)
-    if given_name:
-        name_parts.append(given_name)
-    if name_parts:
-        result["name"] = ", ".join(name_parts)
-    elif parent:
-        # If no name parts but parent has a name, use it
-        result["name"] = parent.get("name", "")
-
-    # Add ORCID identifier
-    orcid_identifier = get_object(orcid_response, "orcid-identifier")
-    orcid_path = orcid_identifier.get("path")
-    if orcid_path:
-        result_identifiers.append({"identifier": orcid_path, "scheme": "orcid"})
-        result["id"] = orcid_path
-
-    # Extract affiliations from employments
-    affiliations = []
-    activities = get_object(orcid_response, "activities-summary")
-    employments = get_object(activities, "employments")
-    affiliation_groups = get_with_default(employments, "affiliation-group", [])
-
-    seen_affiliations = set()
-    for group in affiliation_groups:
-        summaries = get_with_default(group, "summaries", [])
-        for summary_wrapper in summaries:
-            employment = get_object(summary_wrapper, "employment-summary")
-            organization = get_object(employment, "organization")
-            org_name = organization.get("name")
-
-            if org_name:
-                affiliation = {"name": org_name}
-
-                # Try to get ROR identifier if available
-                disambiguated_org = get_object(
-                    organization, "disambiguated-organization"
+        if person_elem is not None:
+            name_elem = person_elem.find(".//person:name", namespaces)
+            if name_elem is not None:
+                given_name_elem = name_elem.find(
+                    ".//personal-details:given-names", namespaces
                 )
-                if disambiguated_org:
-                    disambiguation_source = disambiguated_org.get(
-                        "disambiguation-source"
-                    )
-                    org_identifier = disambiguated_org.get(
-                        "disambiguated-organization-identifier"
-                    )
+                family_name_elem = name_elem.find(
+                    ".//personal-details:family-name", namespaces
+                )
 
-                    if disambiguation_source == "ROR" and org_identifier:
-                        # Extract ROR ID from URL if it's a full URL
-                        if org_identifier.startswith("https://ror.org/"):
-                            ror_id = org_identifier.split("https://ror.org/")[-1]
-                            affiliation["id"] = ror_id
-                        else:
-                            affiliation["id"] = org_identifier
-                        resolve_ror(
-                            affiliation["id"],
-                            vocabulary="affiliations",
-                            create_vocabulary_record=True,
-                            check_existing=True,
+                given_name = element_text(given_name_elem) or ""
+                family_name = element_text(family_name_elem) or ""
+
+        # If name data is missing (private), use parent data as fallback
+        if not given_name and not family_name and parent:
+            given_name = parent.get("given_name", "")
+            family_name = parent.get("family_name", "")
+
+        if given_name:
+            result["given_name"] = given_name
+        if family_name:
+            result["family_name"] = family_name
+
+        # Construct full name
+        name_parts = []
+        if family_name:
+            name_parts.append(family_name)
+        if given_name:
+            name_parts.append(given_name)
+        if name_parts:
+            result["name"] = ", ".join(name_parts)
+        elif parent:
+            # If no name parts but parent has a name, use it
+            result["name"] = parent.get("name", "")
+
+        # Add ORCID identifier
+        orcid_path_elem = orcid_response.find(
+            ".//common:orcid-identifier/common:path", namespaces
+        )
+        orcid_path = element_text(orcid_path_elem)
+        if orcid_path:
+            result_identifiers.append({"identifier": orcid_path, "scheme": "orcid"})
+            result["id"] = orcid_path
+
+        # Extract affiliations from employments
+        affiliations = []
+        affiliation_groups = orcid_response.findall(
+            ".//activities:employments/activities:affiliation-group", namespaces
+        )
+
+        seen_affiliations = set()
+        for group in affiliation_groups:
+            employment_summaries = group.findall(
+                ".//employment:employment-summary", namespaces
+            )
+            for employment in employment_summaries:
+                org_elem = employment.find(".//common:organization", namespaces)
+                if org_elem is not None:
+                    org_name_elem = org_elem.find(".//common:name", namespaces)
+                    org_name = element_text(org_name_elem)
+
+                    if org_name:
+                        affiliation = {"name": org_name}
+
+                        # Try to get ROR identifier if available
+                        disambiguated_org = org_elem.find(
+                            ".//common:disambiguated-organization", namespaces
                         )
+                        if disambiguated_org is not None:
+                            disambiguation_source_elem = disambiguated_org.find(
+                                ".//common:disambiguation-source", namespaces
+                            )
+                            org_identifier_elem = disambiguated_org.find(
+                                ".//common:disambiguated-organization-identifier",
+                                namespaces,
+                            )
 
-                # Only append if this affiliation hasn't been seen before
-                affiliation_fingerprint = affiliation.get("id") or json.dumps(
-                    affiliation, sort_keys=True
+                            disambiguation_source = element_text(
+                                disambiguation_source_elem
+                            )
+                            org_identifier = element_text(org_identifier_elem)
+
+                            if disambiguation_source == "ROR" and org_identifier:
+                                # Extract ROR ID from URL if it's a full URL
+                                if org_identifier.startswith("https://ror.org/"):
+                                    ror_id = org_identifier.split("https://ror.org/")[
+                                        -1
+                                    ]
+                                    affiliation["id"] = ror_id
+                                else:
+                                    affiliation["id"] = org_identifier
+                                resolve_ror(
+                                    affiliation["id"],
+                                    vocabulary="affiliations",
+                                    create_vocabulary_record=True,
+                                    check_existing=True,
+                                )
+
+                        # Only append if this affiliation hasn't been seen before
+                        affiliation_fingerprint = affiliation.get("id") or json.dumps(
+                            affiliation, sort_keys=True
+                        )
+                        if affiliation_fingerprint not in seen_affiliations:
+                            seen_affiliations.add(affiliation_fingerprint)
+                            affiliations.append(affiliation)
+
+        if affiliations:
+            result["affiliations"] = affiliations
+
+        return result
+
+    def resolve(
+        self,
+        orcid: str,
+        vocabulary: str,
+        parent: Any = None,
+        create_vocabulary_record: bool = True,
+        check_existing: bool = True,
+        path: str = "",
+        uow: UnitOfWork | None = None,
+        session: Any = None,
+    ) -> dict:
+        """Resolve ORCID identifier to URL.
+
+        Args:
+            orcid: ORCID identifier
+            vocabulary: Vocabulary name
+            parent: Parent element (e.g., person_or_org) for fallback data
+            create_vocabulary_record: Whether to create a vocabulary record
+            check_existing: Whether to check for existing records
+            path: Path for error messages
+        """
+        # look up in the vocabulary service first
+        svc = cast(RecordService, current_service_registry.get(vocabulary))
+        if orcid.startswith("https://orcid.org/"):
+            orcid = orcid.split("https://orcid.org/")[-1]
+        elif orcid.startswith("http://orcid.org/"):
+            orcid = orcid.split("http://orcid.org/")[-1]
+        if check_existing:
+            with contextlib.suppress(OpenSearchException):
+                hits = svc.search(
+                    system_identity, params={"q": f"identifiers.identifier:{orcid}"}
                 )
-                if affiliation_fingerprint not in seen_affiliations:
-                    seen_affiliations.add(affiliation_fingerprint)
-                    affiliations.append(affiliation)
+                for hit in hits:
+                    if any(
+                        id_["identifier"] == orcid and id_["scheme"] == "orcid"
+                        for id_ in hit["identifiers"]
+                    ):
+                        return hit
 
-    if affiliations:
-        result["affiliations"] = affiliations
+        try:
+            response = self.boto_client.get_object(
+                Bucket=current_app.config["ORCID_PUBLIC_DUMP_S3_BUCKET_NAME"],
+                Key=f"{orcid[-3:]}/{orcid}.xml",
+            )
 
-    return result
+            xml_data = response["Body"].read()
+        except botocore.exceptions.ClientError as e:
+            raise ValidationError(
+                f"ORCID {orcid} could not be resolved.", field_name=path
+            ) from e
+
+        xml_el = etree.fromstring(xml_data)
+
+        names_record = self.orcid_to_names(xml_el, parent=parent)
+
+        if create_vocabulary_record:
+            return create_vocabulary_item(
+                vocabulary_service_id=vocabulary, data=names_record, uow=uow
+            )
+        return names_record
 
 
 def resolve_orcid(
@@ -258,58 +373,19 @@ def resolve_orcid(
     path: str = "",
     uow: UnitOfWork | None = None,
     session: Any = None,
-) -> dict:
-    """Resolve ORCID identifier to URL.
+):
+    from riv.proxies import current_orcid_importer
 
-    Args:
-        orcid: ORCID identifier
-        vocabulary: Vocabulary name
-        parent: Parent element (e.g., person_or_org) for fallback data
-        create_vocabulary_record: Whether to create a vocabulary record
-        check_existing: Whether to check for existing records
-        path: Path for error messages
-    """
-    # look up in the vocabulary service first
-    svc = cast(RecordService, current_service_registry.get(vocabulary))
-    if orcid.startswith("https://orcid.org/"):
-        orcid = orcid.split("https://orcid.org/")[-1]
-    elif orcid.startswith("http://orcid.org/"):
-        orcid = orcid.split("http://orcid.org/")[-1]
-    if check_existing:
-        with contextlib.suppress(OpenSearchException):
-            hits = svc.search(
-                system_identity, params={"q": f"identifiers.identifier:{orcid}"}
-            )
-            for hit in hits:
-                if any(
-                    id_["identifier"] == orcid and id_["scheme"] == "orcid"
-                    for id_ in hit["identifiers"]
-                ):
-                    return hit
-
-    from riv.utils import create_session_with_retries
-
-    session = session or create_session_with_retries()
-    headers = {"Accept": "application/json"}
-
-    orcid_key = current_app.config.get("ORCID_READ_PUBLIC_KEY")
-    if orcid_key:
-        headers["Authorization"] = f"Bearer {orcid_key}"
-
-    url = f"https://pub.orcid.org/v3.0/{quote(orcid)}"
-    resp = session.get(url, headers=headers)
-    if resp.status_code != 200:
-        raise ValidationError(f"ORCID {orcid} could not be resolved.", field_name=path)
-
-    # Convert ORCID response to names vocabulary format
-    orcid_data = resp.json()
-    names_record = orcid_to_names(orcid_data, parent=parent)
-
-    if create_vocabulary_record:
-        return create_vocabulary_item(
-            vocabulary_service_id=vocabulary, data=names_record, uow=uow
-        )
-    return names_record
+    return current_orcid_importer.resolve(
+        orcid,
+        vocabulary=vocabulary,
+        parent=parent,
+        create_vocabulary_record=create_vocabulary_record,
+        check_existing=check_existing,
+        path=path,
+        uow=uow,
+        session=session,
+    )
 
 
 def resolve_ror(
