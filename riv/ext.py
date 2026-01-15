@@ -17,8 +17,10 @@ from invenio_base.utils import obj_or_import_string
 from flask import Flask
 from .resolvers.base import MetadataResolver
 from .resolvers.registry import ResolverRegistry
+
 if TYPE_CHECKING:  # pragma: no cover
     from flask import Flask
+
 
 class RIVResolverExtension:
     def __init__(self, app: Flask | None = None):
@@ -30,20 +32,27 @@ class RIVResolverExtension:
         """Flask application initialization."""
         self.app = app
         self.init_config(app)
-        self.resolver_registry =ResolverRegistry()
+
+        self.resolver_registry = ResolverRegistry()
 
         app.extensions["riv-extension"] = self
 
     def init_config(self, app: Flask) -> None:
         """Initialize the configuration for the extension."""
-        app.config.setdefault("PERSISTENT_IDENTIFIER_RESOLVERS", config.PERSISTENT_IDENTIFIER_RESOLVERS)
-        app.config.setdefault("PERSISTENT_IDENTIFIER_PATTERNS", config.PERSISTENT_IDENTIFIER_PATTERNS)
+        app.config.setdefault(
+            "PERSISTENT_IDENTIFIER_RESOLVERS", config.PERSISTENT_IDENTIFIER_RESOLVERS
+        )
+        app.config.setdefault(
+            "PERSISTENT_IDENTIFIER_PATTERNS", config.PERSISTENT_IDENTIFIER_PATTERNS
+        )
         app.config.setdefault("DATACITE_URL", config.DATACITE_URL)
         app.config.setdefault("HANDLE_URL", config.HANDLE_URL)
         app.config.setdefault("CROSSREF_URL", config.CROSSREF_URL)
 
     @cached_property
-    def persistent_identifiers_resolvers(self)-> List[MetadataResolver]:
+    def persistent_identifiers_resolvers(self) -> List[MetadataResolver]:
         """Return resolvers for persistent identifiers."""
-        return [obj_or_import_string(res)() for res in self.app.config["PERSISTENT_IDENTIFIER_RESOLVERS"]]
-
+        return [
+            obj_or_import_string(res)()
+            for res in self.app.config["PERSISTENT_IDENTIFIER_RESOLVERS"]
+        ]
