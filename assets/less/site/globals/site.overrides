@@ -179,6 +179,8 @@ a.no-text-decoration:hover {
 .permanent-link-header {
   .content {
     width: 100%;
+    background-color: darken(@primaryColor, 5%);
+    border-radius: @borderRadius;
   }
   .copy-button {
     color: @white !important;
@@ -191,7 +193,7 @@ a.no-text-decoration:hover {
     background-color: darken(@green, 5%) !important;
   }
 
-  a.permanent-link {
+  span.permanent-link {
     color: @white;
   }
 
