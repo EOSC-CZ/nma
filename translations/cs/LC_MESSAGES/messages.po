@@ -691,8 +691,8 @@ msgid ""
 "We detected some metadata issues within the record. To obtain a URL for "
 "RIV reporting, please check and correct the metadata below."
 msgstr ""
-"Děkujeme za odeslání záznamu do Národního metadatového adresáře.V "
-"metadatech záznamu byly zjištěny problémy.Pro získání URL k vykazování do"
+"Děkujeme za odeslání záznamu do Národního metadatového adresáře. V "
+"metadatech záznamu byly zjištěny problémy. Pro získání URL k vykazování do"
 " RIV prosím zkontrolujte a opravte metadata níže."
 
 #: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:271
