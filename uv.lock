@@ -4048,7 +4048,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-runtime"
-version = "2.0.0.dev54"
+version = "2.0.0.dev55"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "langcodes" },
@@ -4056,9 +4056,9 @@ dependencies = [
     { name = "oarepo-invenio-typing-stubs" },
     { name = "signposting" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/27/ab/154f7ec771096b205b5852d6a2742b06039caff074e38c02fa8dfc799be6/oarepo_runtime-2.0.0.dev54.tar.gz", hash = "sha256:49ee92270728537370aefbf9e56c7bc644fffe130908477e94c9de4e176ac51d", size = 47172, upload-time = "2026-01-13T13:12:32.38Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f3/c9/a122eb222c352ca2c040a629f16f168a75a412ac3303b787a3df3d15bcda/oarepo_runtime-2.0.0.dev55.tar.gz", hash = "sha256:f9fea42899b4b6ad5bc92fe7f41de1413801097dba474e1b9a13fa05fabf92b4", size = 47478, upload-time = "2026-01-15T12:24:02.171Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/85/b6/6f17b5d104d55c071c7438879da09ab5f7f46d3802f705c65ee5be7bf904/oarepo_runtime-2.0.0.dev54-py3-none-any.whl", hash = "sha256:83a97393956b675d5e191ff4faecae669e5a61a899ce5c4a3d707751a04bd901", size = 71305, upload-time = "2026-01-13T13:12:31.006Z" },
+    { url = "https://files.pythonhosted.org/packages/8b/b2/46002ac963c0b04d6309499a5c2d02a87b0853032f0dd5450ecc4f8165b3/oarepo_runtime-2.0.0.dev55-py3-none-any.whl", hash = "sha256:184391f84a8c17e1aa9303a986cc30fb166f2507ff0c02f90b3a7f05d576ab5a", size = 71593, upload-time = "2026-01-15T12:24:00.782Z" },
 ]
 
 [[package]]
