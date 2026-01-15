@@ -17,7 +17,6 @@ from invenio_base.utils import obj_or_import_string
 from flask import Flask
 from .resolvers.base import MetadataResolver
 from .resolvers.registry import ResolverRegistry
-from prometheus_flask_exporter import PrometheusMetrics
 
 if TYPE_CHECKING:  # pragma: no cover
     from flask import Flask
@@ -33,9 +32,6 @@ class RIVResolverExtension:
         """Flask application initialization."""
         self.app = app
         self.init_config(app)
-        # TODO: just a quick POC - find a better ext module for this
-        metrics = PrometheusMetrics.for_app_factory()
-        metrics.init_app(app)
 
         self.resolver_registry = ResolverRegistry()
 

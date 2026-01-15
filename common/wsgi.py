@@ -17,6 +17,5 @@ application = create_app()
 
 REST API is mounted under ``/api``.
 """
-# TODO: just a quick POC - find a better place for this module
 metrics = UWsgiPrometheusMetrics(application)
 metrics.start_http_server(int(os.getenv("METRICS_PORT")))

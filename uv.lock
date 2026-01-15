@@ -3559,6 +3559,7 @@ dependencies = [
     { name = "oarepo-theme" },
     { name = "oarepo-ui" },
     { name = "oarepo-vocabularies" },
+    { name = "prometheus-flask-exporter" },
     { name = "python-dotenv" },
     { name = "rapidfuzz" },
     { name = "traceback-with-variables" },
@@ -3580,6 +3581,7 @@ requires-dist = [
     { name = "oarepo-theme", specifier = ">=1.0.0.dev3,<2.0.0" },
     { name = "oarepo-ui", specifier = ">=6.0.0.dev0,<7.0.0" },
     { name = "oarepo-vocabularies", specifier = ">=3.0.0.dev6,<4.0.0" },
+    { name = "prometheus-flask-exporter" },
     { name = "python-dotenv" },
     { name = "rapidfuzz" },
     { name = "traceback-with-variables" },
@@ -3957,14 +3959,14 @@ wheels = [
 
 [[package]]
 name = "oarepo-glitchtip"
-version = "1.1.0"
+version = "1.1.1"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "sentry-sdk", extra = ["flask"] },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/83/00/1314d093dd60fd80c8f43cdcbb027c9b59839b5d5a45494b2c94b886ba90/oarepo_glitchtip-1.1.0.tar.gz", hash = "sha256:e9d3029fd6421dd3667b07b82b2f9c99e5ff6e91c828cb30ebe713a28c32dc02", size = 3965, upload-time = "2025-12-09T07:49:10.182Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f4/90/787bde2bf25ca5858c02c005ca02fd9afdb81e24bf7c82bb5b397f7240f0/oarepo_glitchtip-1.1.1.tar.gz", hash = "sha256:e0bbc52368c6f470e799287142cd224b60818d872b940f80a1b305e84d23e88c", size = 4003, upload-time = "2026-01-13T09:44:06.216Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2f/59/6a9c4aac1035b81c1609b0ce717bbfe216bbea622d2460065e2dbc78277a/oarepo_glitchtip-1.1.0-py3-none-any.whl", hash = "sha256:1fcd4223f06f2dcb6b184be940c62c684f2c10b01df2d64318ad8f1dd90e5056", size = 5045, upload-time = "2025-12-09T07:49:09.143Z" },
+    { url = "https://files.pythonhosted.org/packages/77/2e/4408908927b24cbcb8b16dcbbf7619041dca19507eadf6682306b830da45/oarepo_glitchtip-1.1.1-py3-none-any.whl", hash = "sha256:d80def7596ebc64c27d874025f57a1f27c339acee44647a35f2d4cc8edf117cd", size = 5083, upload-time = "2026-01-13T09:44:05.103Z" },
 ]
 
 [[package]]
@@ -4046,7 +4048,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-runtime"
-version = "2.0.0.dev53"
+version = "2.0.0.dev54"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "langcodes" },
@@ -4054,9 +4056,9 @@ dependencies = [
     { name = "oarepo-invenio-typing-stubs" },
     { name = "signposting" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4c/51/86f5adc217c383e3c80c1f37188e6b429cda201b389e65b889ce0d335524/oarepo_runtime-2.0.0.dev53.tar.gz", hash = "sha256:c56dcb4920c9507ce9f9963c933236b6d98f7dba492f0c2dba7fcbcdac9ae346", size = 46542, upload-time = "2026-01-07T13:03:16.961Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/27/ab/154f7ec771096b205b5852d6a2742b06039caff074e38c02fa8dfc799be6/oarepo_runtime-2.0.0.dev54.tar.gz", hash = "sha256:49ee92270728537370aefbf9e56c7bc644fffe130908477e94c9de4e176ac51d", size = 47172, upload-time = "2026-01-13T13:12:32.38Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d1/98/7fa2117ed17c68a8a127be33f8e34bd70f935329421fef94e6427ce47c98/oarepo_runtime-2.0.0.dev53-py3-none-any.whl", hash = "sha256:1da5e81b460425a1675d704d16c471c819dad2e1f765d9fbae5a101d7f5a0d2c", size = 70644, upload-time = "2026-01-07T13:03:15.34Z" },
+    { url = "https://files.pythonhosted.org/packages/85/b6/6f17b5d104d55c071c7438879da09ab5f7f46d3802f705c65ee5be7bf904/oarepo_runtime-2.0.0.dev54-py3-none-any.whl", hash = "sha256:83a97393956b675d5e191ff4faecae669e5a61a899ce5c4a3d707751a04bd901", size = 71305, upload-time = "2026-01-13T13:12:31.006Z" },
 ]
 
 [[package]]
@@ -4073,7 +4075,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-ui"
-version = "6.0.0.dev28"
+version = "6.0.0.dev29"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "deepmerge" },
@@ -4085,9 +4087,9 @@ dependencies = [
     { name = "oarepo-theme" },
     { name = "python-dotenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8e/b4/208e96e119f3d0030dc9a960b1dec1b7ebe79a09b3d5ca362452585ae508/oarepo_ui-6.0.0.dev28.tar.gz", hash = "sha256:e7ee4d8bd79b6634981d00e68f12703c32b7628537efdf9357687cac40d399a6", size = 193746, upload-time = "2026-01-08T15:34:30.251Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f9/e5/3a15a7621eb36b0b0acfa623c135b6a6861ee1a898b4f4982bd509013ef8/oarepo_ui-6.0.0.dev29.tar.gz", hash = "sha256:60000047979d04916974d6dea39a561a6e7b0655e9ca4b800721e91cdad5fcd9", size = 193882, upload-time = "2026-01-12T12:24:13.24Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/94/56/19afa4cbe55ec2459c44acc659bb59575b81604fa180125c5b9a69b48fb5/oarepo_ui-6.0.0.dev28-py3-none-any.whl", hash = "sha256:aca890d159080b47f0c885da236c0eb42a66572734c9333edce179580838ce31", size = 321867, upload-time = "2026-01-08T15:34:28.912Z" },
+    { url = "https://files.pythonhosted.org/packages/03/c0/f0412f719463b6ddf825fdfc0356d5d1ef7473c9be72e344634ac83a8a1f/oarepo_ui-6.0.0.dev29-py3-none-any.whl", hash = "sha256:de48075c5fee2b556622c59789328267491e93644a0cb8cc0345596e1f502505", size = 321937, upload-time = "2026-01-12T12:24:11.411Z" },
 ]
 
 [[package]]
@@ -4495,6 +4497,28 @@ source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/py
 sdist = { url = "https://files.pythonhosted.org/packages/10/9a/79b1067d27e38ddf84fe7da6ec516f1743f31f752c6122193e7bce38bdbf/polib-1.2.0.tar.gz", hash = "sha256:f3ef94aefed6e183e342a8a269ae1fc4742ba193186ad76f175938621dbfc26b", size = 161658, upload-time = "2023-02-23T17:53:56.873Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/6b/99/45bb1f9926efe370c6dbe324741c749658e44cb060124f28dad201202274/polib-1.2.0-py2.py3-none-any.whl", hash = "sha256:1c77ee1b81feb31df9bca258cbc58db1bbb32d10214b173882452c73af06d62d", size = 20634, upload-time = "2023-02-23T17:53:59.919Z" },
+]
+
+[[package]]
+name = "prometheus-client"
+version = "0.24.1"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f0/58/a794d23feb6b00fc0c72787d7e87d872a6730dd9ed7c7b3e954637d8f280/prometheus_client-0.24.1.tar.gz", hash = "sha256:7e0ced7fbbd40f7b84962d5d2ab6f17ef88a72504dcf7c0b40737b43b2a461f9", size = 85616, upload-time = "2026-01-14T15:26:26.965Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/74/c3/24a2f845e3917201628ecaba4f18bab4d18a337834c1df2a159ee9d22a42/prometheus_client-0.24.1-py3-none-any.whl", hash = "sha256:150db128af71a5c2482b36e588fc8a6b95e498750da4b17065947c16070f4055", size = 64057, upload-time = "2026-01-14T15:26:24.42Z" },
+]
+
+[[package]]
+name = "prometheus-flask-exporter"
+version = "0.23.2"
+source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
+dependencies = [
+    { name = "flask" },
+    { name = "prometheus-client" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8f/40/736bd2cb19b065cea395deb57b5b520a2df105dab92af3fb200ee560ad92/prometheus_flask_exporter-0.23.2.tar.gz", hash = "sha256:41fc9bbd7d48cc958ed8384aacf60c3621d9e903768be61c4e7f0c63872eaf1a", size = 31801, upload-time = "2025-03-11T23:05:30.409Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/96/04/486040e241708a723ee7673d98733c35f2cf081f63ced0091124b8572177/prometheus_flask_exporter-0.23.2-py3-none-any.whl", hash = "sha256:94922a636d4c1d8b68e1ee605c30a23e9bbb0b21756df8222aa919634871784c", size = 19002, upload-time = "2025-03-11T23:05:29.176Z" },
 ]
 
 [[package]]

@@ -46,6 +46,7 @@ riv_extension = "riv.ext:RIVResolverExtension"
 
 [project.entry-points."invenio_base.apps"]
 riv_extension = "riv.ext:RIVResolverExtension"
+metrics_extension = "metrics.ext:PrometheusMetricsExporterExt"
 
 [project.entry-points."invenio_assets.webpack"]
 i18n = "i18n.webpack:theme"
