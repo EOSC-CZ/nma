@@ -18,4 +18,4 @@ application = create_app()
 REST API is mounted under ``/api``.
 """
 metrics = UWsgiPrometheusMetrics(application)
-metrics.start_http_server(int(os.getenv("METRICS_PORT")))
+metrics.start_http_server(int(os.getenv("INVENIO_METRICS_PORT")))
