@@ -68,7 +68,7 @@ def load_identifiers_from_riv_dump(
     for idx, doi in enumerate(dois_to_process, 1):
         try:
             load_identifiers_from_doi(doi, session, seen)
-        except:
+        except Exception:
             current_app.logger.exception("Error processing DOI %s: ", doi)
 
         elapsed = time.time() - start_time
