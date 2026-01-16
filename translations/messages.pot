@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-16 12:03+0100\n"
+"POT-Creation-Date: 2026-01-16 12:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -403,19 +403,19 @@ msgstr ""
 msgid "User support"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:30
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:31
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:27
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:28
 msgid "Search by title, author, or identifier (DOI, Handle)"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:40
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:37
 #, python-format
 msgid ""
 "Search for datasets by keywords or persistent identifiers. You can also "
 "<a href=\"%(browse_url)s\">browse all records</a>."
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:43
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:40
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:339
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
@@ -637,7 +637,7 @@ msgstr ""
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:195
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
-" using the form below."
+" using the button 'Obtain the link for RIV' below."
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:234
@@ -722,7 +722,7 @@ msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:52
 msgid ""
-"If this results in a complete, valid record in the NMD, you will receive "
+"If this result is a complete, valid record in the NMD, you will receive "
 "the RIV link."
 msgstr ""
 
@@ -742,7 +742,7 @@ msgstr ""
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
 msgid ""
 "If you had to create or correct the record manually, ask your repository "
-"administrator to have it harvested into the NMD."
+"administrator to have the repository harvested into the NMD."
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:61
@@ -751,7 +751,7 @@ msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:64
 msgid ""
-"NMA can discover metadata primarily for datasets identified by <a "
+"NMD can discover metadata primarily for datasets identified by <a "
 "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\" "
 "target=\"_blank\">DOI</a> or <a href=\"https://www.handle.net\" "
 "target=\"_blank\">Handle</a> identifiers."

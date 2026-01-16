@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-16 12:03+0100\n"
+"POT-Creation-Date: 2026-01-16 12:41+0100\n"
 "PO-Revision-Date: 2026-01-05 13:19+0100\n"
 "Last-Translator: \n"
 "Language: cs\n"
@@ -424,12 +424,12 @@ msgstr "Kontakt"
 msgid "User support"
 msgstr "Uživatelská podpora"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:30
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:31
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:27
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:28
 msgid "Search by title, author, or identifier (DOI, Handle)"
 msgstr "Hledejte podle názvu, autora nebo identifikátoru (DOI, Handle)"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:40
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:37
 #, python-format
 msgid ""
 "Search for datasets by keywords or persistent identifiers. You can also "
@@ -439,7 +439,7 @@ msgstr ""
 "identifikátorů. Také můžete <a href=\"%(browse_url)s\">procházet všechny "
 "záznamy</a>."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:43
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:40
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:339
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
@@ -681,12 +681,13 @@ msgid "InvenioRDM"
 msgstr "InvenioRDM"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:195
+#, fuzzy
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
-" using the form below."
+" using the button 'Obtain the link for RIV' below."
 msgstr ""
 "Tato datová sada ještě není v repozitáři zaregistrována. Můžete ji "
-"zaregistrovat pomocí formuláře níže."
+"zaregistrovat pomocí tlačítka „Získat odkaz pro RIV“ níže."
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:234
 msgid ""
@@ -694,7 +695,7 @@ msgid ""
 "If you need to add a link to you RIV submission, please use the link "
 "below."
 msgstr ""
-"Děkujeme za odeslání záznamu do Národního metadatového adresáře. Pro "
+"Děkujeme za registraci záznamu do Národního metadatového adresáře. Pro "
 "účely vykazování do RIV použijte prosím níže uvedený odkaz."
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:252
@@ -703,7 +704,7 @@ msgid ""
 "We detected some metadata issues within the record. To obtain a URL for "
 "RIV reporting, please check and correct the metadata below."
 msgstr ""
-"Děkujeme za odeslání záznamu do Národního metadatového adresáře. V "
+"Děkujeme za registraci záznamu do Národního metadatového adresáře. V "
 "metadatech záznamu byly zjištěny problémy. Pro získání URL k vykazování "
 "do RIV prosím zkontrolujte a opravte metadata níže."
 
@@ -791,8 +792,9 @@ msgid ""
 msgstr "Pokud záznam nemáme, zkusíme jeho metadata dohledat a stáhnout."
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:52
+#, fuzzy
 msgid ""
-"If this results in a complete, valid record in the NMD, you will receive "
+"If this result is a complete, valid record in the NMD, you will receive "
 "the RIV link."
 msgstr "Jestli tak vznikl kompletní validní záznam, dostanete odkaz pro RIV."
 
@@ -815,9 +817,10 @@ msgstr ""
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
+#, fuzzy
 msgid ""
 "If you had to create or correct the record manually, ask your repository "
-"administrator to have it harvested into the NMD."
+"administrator to have the repository harvested into the NMD."
 msgstr ""
 "Pokud jste svůj záznam doplňovali ručně, řekněte správci svého "
 "repozitáře, ať jej nechá sklízet do NMA."
@@ -827,8 +830,9 @@ msgid "Using a different persistent identifier?"
 msgstr "Používáte jiný persistentní identifikátor?"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:64
+#, fuzzy
 msgid ""
-"NMA can discover metadata primarily for datasets identified by <a "
+"NMD can discover metadata primarily for datasets identified by <a "
 "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\" "
 "target=\"_blank\">DOI</a> or <a href=\"https://www.handle.net\" "
 "target=\"_blank\">Handle</a> identifiers."
@@ -930,9 +934,12 @@ msgstr "Citace"
 msgid "Link for RIV"
 msgstr "Odkaz pro RIV"
 
+#: flask_security/core.py:206
+msgid "Please log in to access this page."
+msgstr "Pro přístup na tuto stránku se prosím přihlaste."
+
 #~ msgid "Docs"
 #~ msgstr "Dokumentace"
 
 #~ msgid "Code"
 #~ msgstr "Kód"
-
