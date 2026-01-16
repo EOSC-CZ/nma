@@ -49,10 +49,10 @@
                 <ul class="list">
                     <li>{{ _('If the dataset is already in the NMD, we issue the RIV link immediately. No further action is needed.') }}</li>
                     <li>{{ _('If the dataset is not in the NMD, we attempt to automatically retrieve and download its metadata.') }}</li>
-                    <li>{{ _('If this results in a complete, valid record in the NMD, you will receive the RIV link.') }}</li>
+                    <li>{{ _('If this result is a complete, valid record in the NMD, you will receive the RIV link.') }}</li>
                     <li class="rel-mb-1">{{ _('If key fields are missing, we will request additional information from you. You’ll also receive an email with a link to amend the record if corrections are needed. ⚠️ This link expires after 7 days.') }}</li>
                     <li>{% trans %}Need assistance? Contact: <a href="mailto:info@eosc.cz">info@eosc.cz</a>.{% endtrans %}</li>
-                    <li>{{ _('If you had to create or correct the record manually, ask your repository administrator to have it harvested into the NMD.') }}</li>
+                    <li>{{ _('If you had to create or correct the record manually, ask your repository administrator to have the repository harvested into the NMD.') }}</li>
                 </ul>
             </div>
             <div class="ui message mt-0">
@@ -61,7 +61,7 @@
                     {{ _('Using a different persistent identifier?') }}
                 </div>
                 <p>
-                    {% trans %}NMA can discover metadata primarily for datasets identified by <a href="https://www.doi.org/the-identifier/what-is-a-doi/" target="_blank">DOI</a> or <a href="https://www.handle.net" target="_blank">Handle</a> identifiers.{% endtrans %}
+                    {% trans %}NMD can discover metadata primarily for datasets identified by <a href="https://www.doi.org/the-identifier/what-is-a-doi/" target="_blank">DOI</a> or <a href="https://www.handle.net" target="_blank">Handle</a> identifiers.{% endtrans %}
                 </p>
                 <p>
                     {{ _('If your datasets use a different type of identifier, please contact us at') }} <a href="mailto:{{ config.REPOSITORY_SUPPORT_CONTACT }}">{{ config.REPOSITORY_SUPPORT_CONTACT }}</a> {{ _("(metadata can also be entered manually if needed).") }}
