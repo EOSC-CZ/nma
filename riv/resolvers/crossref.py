@@ -7,6 +7,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 import re
+from xml.etree import ElementTree as ET
 
 from flask import current_app
 from idutils.normalizers import normalize_doi
@@ -16,7 +17,6 @@ from invenio_i18n import lazy_gettext as _
 from invenio_vocabularies.proxies import current_service as vocabulary_service
 from marshmallow_utils.fields import EDTFDateString
 
-from ..resolvers import MetadataResolver
 from .base import (
     CREATORS_PLACEHOLDER,
     PUBLICATION_DATE_PLACEHOLDER,
@@ -26,6 +26,7 @@ from .base import (
     ResolverProblemLevel,
 )
 from .utils import handle_errors
+from ..resolvers import MetadataResolver
 
 """Crossref resolver to retrieve RDM-like metadata based on PID.
 
@@ -127,6 +128,12 @@ class CrossrefResolver(MetadataResolver):
             publication_date_parts=publication_date_parts, problems=problems
         )
         metadata["resource_type"] = {"id": RESOURCE_TYPE_PLACEHOLDER}
+
+        crossref_abstract = crossref_metadata.get("abstract")
+        if crossref_abstract:
+            metadata["description"] = self.resolve_crossref_abstract(
+            jats_snippet=crossref_abstract
+        )
 
         return metadata, problems
 
@@ -231,6 +238,25 @@ class CrossrefResolver(MetadataResolver):
                 vocabulary_id,
             )
             return {"id": RESOURCE_TYPE_PLACEHOLDER}
+
+    @handle_errors()
+    def resolve_crossref_abstract(self, jats_snippet: str) -> str:
+        # Crossref often gives fragments, so wrap in a root element
+        wrapped = f"<root xmlns:jats='http://www.ncbi.nlm.nih.gov/JATS1'>{jats_snippet}</root>"
+        root = ET.fromstring(wrapped)
+
+        parts = []
+        for el in root.iter():
+            # skip the "Abstract" label/title
+            if el.tag.endswith("title"):
+                continue
+            # capture paragraph text (and any nested text)
+            if el.tag.endswith("p"):
+                text = "".join(el.itertext()).strip()
+                if text:
+                    parts.append(text)
+
+        return "\n\n".join(parts).strip()
 
     def exists(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
         crossref_url = current_app.config["CROSSREF_URL"]
