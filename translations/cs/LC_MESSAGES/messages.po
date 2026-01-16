@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-16 11:35+0100\n"
+"POT-Creation-Date: 2026-01-16 12:03+0100\n"
 "PO-Revision-Date: 2026-01-05 13:19+0100\n"
 "Last-Translator: \n"
 "Language: cs\n"
@@ -392,7 +392,7 @@ msgstr "EU a Ministerstvo školství, mládeže a tělovýchovy"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:51
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:52
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:62
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:63
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/frontpage.html:37
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/frontpage.html:38
 msgid "EOSC-CZ project"
@@ -404,10 +404,15 @@ msgstr "Odkazy"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:61
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:44
-msgid "Docs"
-msgstr "Dokumentace"
+msgid "User Manual"
+msgstr "Návody pro uživatele"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:63
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:62
+#, fuzzy
+msgid "Source Code"
+msgstr "Zdrojový kód"
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:64
 msgid "FAQs"
 msgstr "Časté dotazy"
 
@@ -579,11 +584,11 @@ msgstr "Technická metadata"
 msgid "Created"
 msgstr "Vytvořeno"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:15
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:16
 msgid "Modified"
 msgstr "Upraveno"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:26
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:28
 msgid "Edited by"
 msgstr "Upravil"
 
@@ -654,10 +659,6 @@ msgid ""
 "Every record has a persistent URL and a reference to the original "
 "repository."
 msgstr "Každý záznam má persistentní URL a odkaz na původní repozitář."
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:53
-msgid "Code"
-msgstr "Kód"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "CESNET a.l.e."
@@ -928,4 +929,10 @@ msgstr "Citace"
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:7
 msgid "Link for RIV"
 msgstr "Odkaz pro RIV"
+
+#~ msgid "Docs"
+#~ msgstr "Dokumentace"
+
+#~ msgid "Code"
+#~ msgstr "Kód"
 

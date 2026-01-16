@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-16 11:35+0100\n"
+"POT-Creation-Date: 2026-01-16 12:03+0100\n"
 "PO-Revision-Date: 2025-12-22 11:51+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -373,7 +373,7 @@ msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:51
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:52
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:62
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:63
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/frontpage.html:37
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/frontpage.html:38
 msgid "EOSC-CZ project"
@@ -385,10 +385,14 @@ msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:61
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:44
-msgid "Docs"
+msgid "User Manual"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:63
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:62
+msgid "Source Code"
+msgstr ""
+
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:64
 msgid "FAQs"
 msgstr ""
 
@@ -545,11 +549,11 @@ msgstr ""
 msgid "Created"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:15
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:16
 msgid "Modified"
 msgstr ""
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:26
+#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:28
 msgid "Edited by"
 msgstr ""
 
@@ -609,10 +613,6 @@ msgstr ""
 msgid ""
 "Every record has a persistent URL and a reference to the original "
 "repository."
-msgstr ""
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:53
-msgid "Code"
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
@@ -931,5 +931,11 @@ msgstr ""
 #~ "Skip metadata retrieval. Use only in "
 #~ "cases when the normal registration "
 #~ "process repeatedly fails."
+#~ msgstr ""
+
+#~ msgid "Docs"
+#~ msgstr ""
+
+#~ msgid "Code"
 #~ msgstr ""
 
