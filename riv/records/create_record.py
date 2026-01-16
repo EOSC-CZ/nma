@@ -1,16 +1,20 @@
 from flask import current_app
-from flask_login import current_user
 from invenio_access.permissions import system_identity
 from invenio_pidstore.errors import PIDAlreadyExists
 from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.proxies import current_service_registry
-from invenio_records_resources.resources.errors import PermissionDeniedError
+
+from riv.resolvers.base import (
+    CREATORS_PLACEHOLDER,
+    PUBLICATION_DATE_PLACEHOLDER,
+    RESOURCE_TYPE_PLACEHOLDER,
+    TITLE_PLACEHOLDER,
+)
 
 from ..config import RIV_CURATORS_GROUP_ID
 from ..errors import RIVRegistrationException
 from ..resolvers.base import ResolverProblem, ResolverProblemLevel
-from .api import generate_id
-from riv.resolvers.base import TITLE_PLACEHOLDER, CREATORS_PLACEHOLDER, PUBLICATION_DATE_PLACEHOLDER, RESOURCE_TYPE_PLACEHOLDER
+
 example_data = {
     "metadata": {
         "creators": [
@@ -83,29 +87,39 @@ def create_record(record_data, persistent_url, problems):
         pass
 
     try:
+        creators = metadata.get("creators", [])
+        if len(creators) > 30:
+            # limit to 30 creators
+            metadata["creators"] = creators[:30]
 
         draft_record = datasets_service.create(
             identity=system_identity, data=record_data
         )
 
         if draft_record.errors:
-            empty_metadata["persistent_url"] = draft_record.data["metadata"]["persistent_url"]
+            empty_metadata["persistent_url"] = draft_record.data["metadata"][
+                "persistent_url"
+            ]
             draft_record.data["metadata"] = empty_metadata
             from invenio_i18n import lazy_gettext as _
 
-            draft_record =  datasets_service.update_draft(system_identity, data=draft_record.data, id_ = record_data["id"])
+            draft_record = datasets_service.update_draft(
+                system_identity, data=draft_record.data, id_=record_data["id"]
+            )
             problems.append(
                 ResolverProblem(
                     resolver="record_creation",
-                    message=_("Due to an unexpected error, the data could not be loaded correctly. "
-                              "Please fill in the required information and save the record. "),
+                    message=_(
+                        "Due to an unexpected error, the data could not be loaded correctly. "
+                        "Please fill in the required information and save the record. "
+                    ),
                     level=ResolverProblemLevel.ERROR,
                 )
             )
             current_app.logger.exception(
                 "Resolver did not catch the following problems for record_id=%s: %s",
-                    record_data["id"],
-                        draft_record.errors,
+                record_data["id"],
+                draft_record.errors,
             )
 
         published_record = datasets_service.publish(
