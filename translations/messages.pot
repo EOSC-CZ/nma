@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-16 12:41+0100\n"
+"POT-Creation-Date: 2026-01-16 14:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -477,9 +477,6 @@ msgid ""
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/help/search.cs.html:9
-msgid "Průvodce vyhledáváním"
-msgstr ""
-
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/help/search.en.html:11
 msgid "Search guide"
 msgstr ""
@@ -637,7 +634,7 @@ msgstr ""
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:195
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
-" using the button 'Obtain the link for RIV' below."
+" using the 'Obtain the link for RIV' button below."
 msgstr ""
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:234

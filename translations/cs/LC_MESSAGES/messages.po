@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-16 12:41+0100\n"
+"POT-Creation-Date: 2026-01-16 14:40+0100\n"
 "PO-Revision-Date: 2026-01-05 13:19+0100\n"
 "Last-Translator: \n"
 "Language: cs\n"
@@ -408,7 +408,6 @@ msgid "User Manual"
 msgstr "Návody pro uživatele"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:62
-#, fuzzy
 msgid "Source Code"
 msgstr "Zdrojový kód"
 
@@ -512,13 +511,9 @@ msgstr ""
 "          "
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/help/search.cs.html:9
-msgid "Průvodce vyhledáváním"
-msgstr ""
-
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/help/search.en.html:11
-#, fuzzy
 msgid "Search guide"
-msgstr "ResearcherID"
+msgstr "Průvodce vyhledáváním"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:17
 msgid "Details"
@@ -681,10 +676,9 @@ msgid "InvenioRDM"
 msgstr "InvenioRDM"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:195
-#, fuzzy
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
-" using the button 'Obtain the link for RIV' below."
+" using the 'Obtain the link for RIV' button below."
 msgstr ""
 "Tato datová sada ještě není v repozitáři zaregistrována. Můžete ji "
 "zaregistrovat pomocí tlačítka „Získat odkaz pro RIV“ níže."
@@ -792,7 +786,6 @@ msgid ""
 msgstr "Pokud záznam nemáme, zkusíme jeho metadata dohledat a stáhnout."
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:52
-#, fuzzy
 msgid ""
 "If this result is a complete, valid record in the NMD, you will receive "
 "the RIV link."
@@ -817,7 +810,6 @@ msgstr ""
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
-#, fuzzy
 msgid ""
 "If you had to create or correct the record manually, ask your repository "
 "administrator to have the repository harvested into the NMD."
@@ -830,7 +822,6 @@ msgid "Using a different persistent identifier?"
 msgstr "Používáte jiný persistentní identifikátor?"
 
 #: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:64
-#, fuzzy
 msgid ""
 "NMD can discover metadata primarily for datasets identified by <a "
 "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\" "

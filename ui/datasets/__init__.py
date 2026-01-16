@@ -193,7 +193,7 @@ class DatasetsUIResource(RecordsUIResource):
                 flash(
                     _(
                         "This dataset is not yet registered in the repository. "
-                        "You can register it using the button 'Obtain the link for RIV' below."
+                        "You can register it using the 'Obtain the link for RIV' button below."
                     ),
                     "info",
                 )
