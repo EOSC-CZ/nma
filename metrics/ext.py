@@ -22,7 +22,7 @@ class PrometheusMetricsExporterExt:
     def init_app(self, app: Flask) -> None:
         """Flask application initialization."""
         self.app = app
-        metrics = PrometheusMetrics.for_app_factory()
+        metrics = PrometheusMetrics.for_app_factory(path=None)
         metrics.init_app(app)
 
         app.extensions["metrics-extension"] = self
