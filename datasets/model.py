@@ -22,7 +22,7 @@ from oarepo_model.customizations import (
     PatchIndexPropertyMapping,
     PatchIndexSettings,
     PrependMixin,
-    ReplaceBaseClass,
+    ReplaceBaseClass, PatchIndexMapping, SetDefaultSearchFields,
 )
 from oarepo_model.customizations.high_level.add_link import AddLink
 from oarepo_model.datatypes.registry import from_yaml
@@ -137,6 +137,32 @@ class OverriddenRouteResourceConfigMixin:
 
         return updated_routes
 
+
+COPY_TO_MAPPINGS = [
+    # boost_10 - Primary identifiers (highest weight)
+    ("metadata.title", 10),
+
+    # boost_5 - Important searchable content
+    ("metadata.additional_titles.title", 5),
+    ("metadata.description", 5),
+    ("metadata.creators.person_or_org.name._search", 5),
+    # Author names
+
+    # boost_1 - Supplementary content
+    ("metadata.additional_descriptions.description", 1),
+    ("metadata.contributors.person_or_org.name._search", 1),
+    # Contributor names
+    ("metadata.publisher", 1),
+    # Publisher
+    ("metadata.funding.funder.name", 1),
+    # Funder names
+    ("metadata.locations.features.place", 1),
+    # Place names
+    ("metadata.references.reference", 1),
+    # References
+]
+
+copy_to_mappings = [PatchIndexPropertyMapping(c[0], {"copy_to": f"boost_{c[1]}"}) for c in COPY_TO_MAPPINGS]
 
 datasets_model = model(
     "datasets",
@@ -263,6 +289,17 @@ datasets_model = model(
                 }
             },
         ),
+        PatchIndexMapping(
+            {
+                "properties": {
+                    "boost_10": {"type": "text", "boost": 10},
+                    "boost_5": {"type": "text", "boost": 5},
+                    "boost_1": {"type": "text", "boost": 1}
+                }
+            }
+        ),
+        *copy_to_mappings,
+        SetDefaultSearchFields("boost_10", "boost_5", "boost_1")
     ],
     configuration={"ui_blueprint_name": "datasets_ui"},
 )
