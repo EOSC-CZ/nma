@@ -808,9 +808,7 @@ class DataciteResolver(MetadataResolver):
     @handle_errors(RESOURCE_TYPE_PLACEHOLDER)
     def resolve_datacite_resource_type(self, *, resource_type, problems):
         vocabulary_id = "resourcetypes"
-        _type = resource_type.get(
-            "resourceTypeGeneral", "Other"
-        )  # other as default option
+        _type = resource_type.get("resourceTypeGeneral") or "Other"
         try:
             escaped = escape_lucene(_type)
             voc = vocabulary_service.search(
