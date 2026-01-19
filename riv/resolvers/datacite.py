@@ -303,6 +303,8 @@ class DataciteResolver(MetadataResolver):
 
         for a in affiliations or []:
             if type(a) == str:
+                if a in seen:
+                    continue
                 seen.add(a)
                 affiliations_list.append({"name": a})
             elif isinstance(a, dict):
@@ -618,7 +620,7 @@ class DataciteResolver(MetadataResolver):
         for creator in creators:
             creator_obj = {}
 
-            creator_type = creator.get("nameType", "personal").lower()
+            creator_type = (creator.get("nameType") or "personal").lower()
             creator_obj["type"] = creator_type
 
             given = creator.get("givenName")
@@ -682,7 +684,7 @@ class DataciteResolver(MetadataResolver):
         for contributor in contributors:
             person = {}
 
-            contributor_type = (contributor.get("nameType") or "Personal").lower()
+            contributor_type = (contributor.get("nameType") or "personal").lower()
             person["type"] = contributor_type
 
             given = contributor.get("givenName")
@@ -806,9 +808,7 @@ class DataciteResolver(MetadataResolver):
     @handle_errors(RESOURCE_TYPE_PLACEHOLDER)
     def resolve_datacite_resource_type(self, *, resource_type, problems):
         vocabulary_id = "resourcetypes"
-        _type = resource_type.get(
-            "resourceTypeGeneral", "Other"
-        )  # other as default option
+        _type = resource_type.get("resourceTypeGeneral") or "Other"
         try:
             escaped = escape_lucene(_type)
             voc = vocabulary_service.search(
@@ -818,6 +818,8 @@ class DataciteResolver(MetadataResolver):
             )
             resolved_types = voc.to_dict()["hits"]["hits"]
             if len(resolved_types) > 1:
+                if escaped == 'Image':
+                    return 'image'
                 ResolverProblem(
                     resolver=self.name,
                     message=_(
