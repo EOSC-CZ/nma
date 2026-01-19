@@ -164,6 +164,19 @@ COPY_TO_MAPPINGS = [
     ]
 
 copy_to_mappings = [PatchIndexPropertyMapping(c[0], {"copy_to": f"boost_{c[1]}"}) for c in COPY_TO_MAPPINGS]
+analyzer_fields = {"fields": {
+    # using both means that queries that match both ascii and non-ascii
+    # versions are ranked higher (if query is Novák, records with Novák
+    # will have better ranking than Novak and both will be found),
+    # but if user searches for Novak Novák will still match with
+    # lower ranking than Novak
+    "_search": {"type": "text", "analyzer": "lowercase_analyzer"},
+    "_ascii_search": {
+        "type": "text",
+        "analyzer": "asciifolded_lowercase_analyzer",
+    },
+}
+}
 
 datasets_model = model(
     "datasets",
@@ -244,15 +257,15 @@ datasets_model = model(
             {
                 "analysis": {
                     # lowercase splits on whitespaces and performs lowercasing
-                    "tokenizer": {"people_tokenizer": {"type": "lowercase"}},
+                    "tokenizer": {"lowercase_tokenizer": {"type": "lowercase"}},
                     "analyzer": {
-                        "people_analyzer": {
+                        "lowercase_analyzer": {
                             "type": "custom",
-                            "tokenizer": "people_tokenizer",
+                            "tokenizer": "lowercase_tokenizer",
                         },
-                        "asciifolded_people_analyzer": {
+                        "asciifolded_lowercase_analyzer": {
                             "type": "custom",
-                            "tokenizer": "people_tokenizer",
+                            "tokenizer": "lowercase_tokenizer",
                             # additionally removes diacritics
                             "filter": ["asciifolding"],
                         },
@@ -260,47 +273,19 @@ datasets_model = model(
                 }
             }
         ),
-        # add multi-field mappings to people names for improved searching/suggesting
-        PatchIndexPropertyMapping(
-            "metadata.creators.person_or_org.name",
-            {
-                "fields": {
-                    # using both means that queries that match both ascii and non-ascii
-                    # versions are ranked higher (if query is Novák, records with Novák
-                    # will have better ranking than Novak and both will be found),
-                    # but if user searches for Novak Novák will still match with
-                    # lower ranking than Novak
-                    "_search": {"type": "text", "analyzer": "people_analyzer"},
-                    "_ascii_search": {
-                        "type": "text",
-                        "analyzer": "asciifolded_people_analyzer",
-                    },
-                }
-            },
-        ),
-        PatchIndexPropertyMapping(
-            "metadata.contributors.person_or_org.name",
-            {
-                "fields": {
-                    "_search": {"type": "text", "analyzer": "people_analyzer"},
-                    "_ascii_search": {
-                        "type": "text",
-                        "analyzer": "asciifolded_people_analyzer",
-                    },
-                }
-            },
-        ),
         PatchIndexMapping(
             {
                 "properties": {
-                    "boost_10": {"type": "text", "boost": 10},
-                    "boost_5": {"type": "text", "boost": 5},
-                    "boost_1": {"type": "text", "boost": 1}
+                    "boost_10": {"type": "text", "boost": 10, **analyzer_fields},
+                    "boost_5": {"type": "text", "boost": 5, **analyzer_fields},
+                    "boost_1": {"type": "text", "boost": 1, **analyzer_fields}
                 }
             }
         ),
         *copy_to_mappings,
-        SetDefaultSearchFields("boost_10", "boost_5", "boost_1")
+        SetDefaultSearchFields("boost_10", "boost_5", "boost_1", "boost_10._search",
+                               "boost_5._search", "boost_1._search", "boost_10._ascii_search",
+                               "boost_5._ascii_search", "boost_1._ascii_search")
     ],
     configuration={"ui_blueprint_name": "datasets_ui"},
 )
