@@ -141,16 +141,18 @@ class OverriddenRouteResourceConfigMixin:
 COPY_TO_MAPPINGS = [
     # boost_10 - Primary identifiers (highest weight)
     ("metadata.title", 10),
+    ("metadata.persistent_url", 10),
+    ("id", 10),
 
     # boost_5 - Important searchable content
     ("metadata.additional_titles.title", 5),
     ("metadata.description", 5),
-    ("metadata.creators.person_or_org.name._search", 5),
-    # Author names
 
+    ("metadata.creators.person_or_org.name", 5),
+    # Author names
     # boost_1 - Supplementary content
     ("metadata.additional_descriptions.description", 1),
-    ("metadata.contributors.person_or_org.name._search", 1),
+    ("metadata.contributors.person_or_org.name", 1),
     # Contributor names
     ("metadata.publisher", 1),
     # Publisher
@@ -158,9 +160,8 @@ COPY_TO_MAPPINGS = [
     # Funder names
     ("metadata.locations.features.place", 1),
     # Place names
-    ("metadata.references.reference", 1),
-    # References
-]
+    ("metadata.references.reference", 1)
+    ]
 
 copy_to_mappings = [PatchIndexPropertyMapping(c[0], {"copy_to": f"boost_{c[1]}"}) for c in COPY_TO_MAPPINGS]
 
