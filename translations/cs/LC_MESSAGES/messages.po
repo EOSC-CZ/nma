@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-01-16 14:40+0100\n"
+"POT-Creation-Date: 2026-01-27 16:45+0100\n"
 "PO-Revision-Date: 2026-01-05 13:19+0100\n"
 "Last-Translator: \n"
 "Language: cs\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:12
 msgid "Czech"
 msgstr "Čeština"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:17
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:17
 msgid "National Metadata Directory"
 msgstr "Národní metadatový adresář"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:18
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:18
 msgid "Harvesting metadata of scientific repositories in the Czech Republic"
 msgstr "Sbírá metadata vědeckých repozitářů v České republice"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:20
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:20
 msgid ""
 "The National Metadata Directory (NMD) aggregates metadata from Czech "
 "research repositories and enables unified searching across datasets with "
@@ -40,7 +40,7 @@ msgstr ""
 "repozitářů a umožňuje jednotné vyhledávání napříč datovými sadami s "
 "odkazy na původní záznamy."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:23
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:23
 msgid ""
 "national metadata directory, NMD, dataset metadata, research data search,"
 " data repositories, metadata aggregator, Czech academic data, research "
@@ -52,218 +52,218 @@ msgstr ""
 "data, výzkumné datové sady, platforma pro objevování dat, eosc-cz, eosc "
 "cz, european open science cloud"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:158
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:156
 msgid "DataCite"
 msgstr "DataCite"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:213
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:216
 msgid "ORCID"
 msgstr "ORCID"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:214
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:255
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:217
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:258
 msgid "ISNI"
 msgstr "ISNI"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:215
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:218
 msgid "GND"
 msgstr "GND"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:216
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:219
 msgid "ROR"
 msgstr "ROR"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:218
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:221
 msgid "ResearcherID"
 msgstr "ResearcherID"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:223
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:226
 msgid "Scopus Author ID"
 msgstr "Scopus Author ID"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:228
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:244
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:231
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:247
 msgid "DOI"
 msgstr "DOI"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:232
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:235
 msgid "ARK"
 msgstr "ARK"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:233
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:236
 msgid "arXiv"
 msgstr "arXiv"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:235
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:238
 msgid "Bibcode"
 msgstr "Bibcode"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:240
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:243
 msgid "Crossref Funder ID"
 msgstr "Crossref Funder ID"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:245
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:248
 msgid "EAN13"
 msgstr "EAN13"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:246
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:249
 msgid "EISSN"
 msgstr "EISSN"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:247
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:250
 msgid "GRID"
 msgstr "GRID"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:249
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:252
 msgid "Handle"
 msgstr "Handle"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:253
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:256
 msgid "IGSN"
 msgstr "IGSN"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:254
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:257
 msgid "ISBN"
 msgstr "ISBN"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:256
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:259
 msgid "ISSN"
 msgstr "ISSN"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:257
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:260
 msgid "ISTC"
 msgstr "ISTC"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:258
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:261
 msgid "LISSN"
 msgstr "LISSN"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:259
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:262
 msgid "LSID"
 msgstr "LSID"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:260
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:263
 msgid "PMID"
 msgstr "PMID"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:261
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:264
 msgid "PURL"
 msgstr "PURL"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:262
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:265
 msgid "UPC"
 msgstr "UPC"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:263
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:266
 msgid "URL"
 msgstr "URL"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:264
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:267
 msgid "URN"
 msgstr "URN"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:265
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:268
 msgid "W3ID"
 msgstr "W3ID"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:266
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:269
 msgid "Other"
 msgstr "Jiný"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:275
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:278
 msgid "Wikidata"
 msgstr "Wikidata"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:276
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:279
 msgid "GeoNames"
 msgstr "GeoNames"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:337
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:340
 msgid "ČSN ISO 690"
 msgstr "ČSN ISO 690"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:338
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:341
 msgid "APA"
 msgstr "APA"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:339
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:342
 msgid "Harvard"
 msgstr "Harvard"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:340
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:343
 msgid "MLA"
 msgstr "MLA"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:341
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:344
 msgid "Vancouver"
 msgstr "Vancouver"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:342
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:345
 msgid "Chicago"
 msgstr "Chicago"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/invenio.cfg:343
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:346
 msgid "IEEE"
 msgstr "IEEE"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:360
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:360
 msgid "state:draft"
 msgstr "koncept"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:361
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:361
 msgid "state:published"
 msgstr "publikováno"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:362
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:362
 msgid "state:submitted"
 msgstr "odesláno"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:363
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:363
 msgid "state:retracting"
 msgstr "staženo"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/common/workflows/default.py:364
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/common/workflows/default.py:364
 msgid "state:deleted"
 msgstr "smazáno"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/datasets/just_for_translations.py:4
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/just_for_translations.py:4
 msgid "metadata/publisher.label"
 msgstr "Vydavatel"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/datasets/just_for_translations.py:5
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/just_for_translations.py:5
 msgid "metadata/resource_type.label"
 msgstr "Typ zdroje"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/datasets/just_for_translations.py:6
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/just_for_translations.py:6
 msgid "metadata/languages.label"
 msgstr "Jazyky"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/datasets/model.py:162
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/datasets/model.py:178
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:202
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:218
 msgid "DataCite JSON"
 msgstr "DataCite JSON"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/datasets/model.py:169
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:209
 msgid "DataCite XML"
 msgstr "DataCite XML"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/datasets/model.py:170
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:210
 msgid "Import metadata from DataCite XML format"
 msgstr "Importovat metadata z formátu DataCite XML"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/datasets/model.py:179
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/datasets/model.py:219
 msgid "Import metadata from DataCite JSON format"
 msgstr "Importovat metadata z formátu DataCite JSON"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/views.py:29
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/views.py:29
 msgid "Persistent Identifier"
 msgstr "Persistentní identifikátor"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/views.py:31
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/views.py:31
 msgid "Please enter a persistent identifier"
 msgstr "Zadejte prosím persistentní identifikátor"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/views.py:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/views.py:34
 msgid ""
 "Please enter a valid URL (e.g., https://doi.org/... or "
 "https://hdl.handle.net/...)"
@@ -271,7 +271,7 @@ msgstr ""
 "Zadejte prosím platnou adresu URL (např. https://doi.org/... nebo "
 "https://hdl.handle.net/...)"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/records/create_record.py:100
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/records/create_record.py:113
 msgid ""
 "Due to an unexpected error, the data could not be loaded correctly. "
 "Please fill in the required information and save the record. "
@@ -279,39 +279,39 @@ msgstr ""
 "Kvůli neočekávané chybě se data nepodařilo správně načíst. Vyplňte prosím"
 " povinné údaje a uložte záznam."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/base.py:33
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:33
 #, python-format
 msgid "Publication date format did not pass validation; format: %(date)s."
 msgstr "Formát data publikace neprošel validací; formát: %(date)s."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/base.py:38
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:38
 #, python-format
 msgid "Invalid publication date format: %(date)s."
 msgstr "Neplatný formát data publikace: %(date)s."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/base.py:71
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:71
 #, python-format
 msgid "Non-existent persistent identifier: '%(identifier)s'."
 msgstr "Neexistující persistentní identifikátor '%(identifier)s'."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/base.py:89
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:89
 #, python-format
 msgid "Unsupported identifier type '%(identifier)s'."
 msgstr "Nepodporovaný typ identifikátoru '%(identifier)s'."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/base.py:101
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:101
 #, python-format
 msgid "Error while processing identifier '%(identifier)s'."
 msgstr "Chyba při načítání identifikátoru '%(identifier)s'."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/crossref.py:87
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:88
 msgid ""
 "The identifier looks like a DOI, but it was not found in the CrossRef "
 "registry."
 msgstr "Identifikátor vypadá jako DOI, ale nebyl nalezen v registru CrossRef."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/crossref.py:102
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/datacite.py:239
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:103
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:239
 msgid ""
 "Unexpected error while resolving the DOI. Please fill the metadata "
 "manually."
@@ -319,8 +319,8 @@ msgstr ""
 "Neočekávaná chyba při načítání metadat z DOI. Prosím, vyplňte metadata "
 "ručně."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/crossref.py:141
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/datacite.py:529
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:148
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:531
 msgid ""
 "The title is too short. A minimum of 3 characters is required to meet "
 "repository requirements."
@@ -328,31 +328,31 @@ msgstr ""
 "Název je příliš krátký. Pro splnění požadavků repozitáře jsou vyžadovány "
 "minimálně 3 znaky."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/crossref.py:151
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/datacite.py:540
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/handle.py:158
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:158
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:542
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:158
 msgid "Missing title."
 msgstr "Chybí název."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/crossref.py:163
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/datacite.py:610
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/handle.py:171
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:170
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:612
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:171
 msgid "Missing creators."
 msgstr "Chybí autoři."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/datacite.py:224
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:224
 msgid ""
 "The identifier looks like a DOI, but it was not found in the DataCite "
 "registry."
 msgstr "Identifikátor vypadá jako DOI, ale nebyl nalezen v registru DataCite."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/handle.py:121
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:121
 msgid ""
 "The identifier looks like a Handle, but it was not found in the Handle "
 "registry."
 msgstr "Identifikátor vypadá jako Handle, ale nebyl nalezen v registru Handle."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/handle.py:136
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:136
 msgid ""
 "Unexpected error while resolving the Handle. Please fill the metadata "
 "manually."
@@ -360,75 +360,92 @@ msgstr ""
 "Neočekávaná chyba při načítání metadat z cílového repozitáře. Prosím, "
 "vyplňte metadata ručně."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/handle.py:209
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/handle.py:209
 msgid "Publication date missing."
 msgstr "Chybí datum publikace."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/riv/resolvers/utils.py:35
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/utils.py:35
 msgid "Unexpected error while parsing the metadata."
 msgstr "Neočekávaná chyba při načítání metadat."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:32
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/500.html:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/500.html:61
+msgid "Internal server error"
+msgstr ""
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/500.html:50
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/500.html:65
+#, fuzzy
+msgid "Error identifier"
+msgstr "Persistentní identifikátor"
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:37
 msgid "NMD"
 msgstr "NMA"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:36
-#, python-format
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:43
+#, fuzzy, python-format
 msgid ""
 "\n"
+"\n"
 "        A part of the <a href=\"%(link)s\">EOSC-CZ</a> project "
-"(CZ.02.01.01/00/22_004/0007682). \n"
+"(CZ.02.01.01/00/22_004/0007682).\n"
+"\n"
 "        "
 msgstr ""
 "Součást projektu <a href=\"%(link)s\">EOSC-CZ</a> "
 "(CZ.02.01.01/00/22_004/0007682)."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:44
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:45
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/frontpage.html:30
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/frontpage.html:31
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:56
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:57
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/frontpage.html:30
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/frontpage.html:31
 msgid "EU and MINISTRY OF EDUCATION YOUTH AND SPORTS"
 msgstr "EU a Ministerstvo školství, mládeže a tělovýchovy"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:51
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:52
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:63
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/frontpage.html:37
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/frontpage.html:38
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:63
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:64
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:77
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/frontpage.html:37
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/frontpage.html:38
 msgid "EOSC-CZ project"
 msgstr "Projekt EOSC-CZ"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:59
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:73
 msgid "Resources"
 msgstr "Odkazy"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:61
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:44
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:75
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:44
 msgid "User Manual"
 msgstr "Návody pro uživatele"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:62
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:76
 msgid "Source Code"
 msgstr "Zdrojový kód"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:64
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:78
 msgid "FAQs"
 msgstr "Časté dotazy"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:69
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:79
+msgid "Personal data processing information"
+msgstr "Informace o zpracování osobních údajů"
+
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:85
 msgid "Contact"
 msgstr "Kontakt"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/footer.html:71
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:88
 msgid "User support"
 msgstr "Uživatelská podpora"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:27
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:28
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:27
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:28
 msgid "Search by title, author, or identifier (DOI, Handle)"
 msgstr "Hledejte podle názvu, autora nebo identifikátoru (DOI, Handle)"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:37
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:37
 #, python-format
 msgid ""
 "Search for datasets by keywords or persistent identifiers. You can also "
@@ -438,48 +455,48 @@ msgstr ""
 "identifikátorů. Také můžete <a href=\"%(browse_url)s\">procházet všechny "
 "záznamy</a>."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/header_frontpage.html:40
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:339
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:40
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:337
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
 msgid "Obtain the link for RIV"
 msgstr "Získat odkaz pro RIV"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/manage_menu.html:11
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/manage_menu.html:11
 msgid "Record management"
 msgstr "Správa záznamu"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/page.html:3
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/page.html:3
 msgid "Invenio"
 msgstr "Invenio"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/registered.html:2
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/registered.html:2
 msgid "Registration Successful"
 msgstr "Úspěšná registrace"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/registered.html:6
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/registered.html:6
 msgid "Thank you for registering to the National Metadata Directory."
 msgstr "Děkujeme za registraci do Národního metadatového adresáře."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/registered.html:8
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/registered.html:8
 msgid "You can now log in (using the identity you registered with):"
 msgstr "Nyní se můžete přihlásit (stejnou identitou, kterou jste se registrovali):"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/registered.html:9
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/header_login.html:49
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/header_login.html:53
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/registered.html:9
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:49
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:53
 msgid "Sign in"
 msgstr "Přihlásit se"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_accounts/login_user.html:14
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:14
 msgid "Institutional Login"
 msgstr "Institucionální přihlášení"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_accounts/login_user.html:15
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:15
 msgid "Sign in using your institutional credentials via E-INFRA AAI."
 msgstr "Přihlaste se pomocí účtu u vaší instituce prostřednictvím E-INFRA AAI."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_accounts/login_user.html:24
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:24
 msgid ""
 "When you choose Sign in with E-INFRA AAI, you will be asked to select "
 "your institution from the list.\n"
@@ -491,7 +508,7 @@ msgstr ""
 "Následně budete přesměrováni na poskytovatele identit vaší instituce, kde"
 " se přihlásíte pomocí svých institucionálních přihlašovacích údajů."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_accounts/login_user.html:26
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:26
 #, python-format
 msgid ""
 "\n"
@@ -510,98 +527,98 @@ msgstr ""
 "je ale preferováno.\n"
 "          "
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/help/search.cs.html:9
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/help/search.en.html:11
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/help/search.cs.html:9
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/help/search.en.html:11
 msgid "Search guide"
 msgstr "Průvodce vyhledáváním"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:17
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:17
 msgid "Details"
 msgstr "Detaily"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:22
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:22
 msgid "Deposited at"
 msgstr "Uloženo v"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:29
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:29
 msgid "Harvested from"
 msgstr "Sklizeno z"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
 msgid "Resource type"
 msgstr "Typ zdroje"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:35
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:35
 msgid "Publication date"
 msgstr "Datum publikace"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
 msgid "Publisher"
 msgstr "Vydavatel"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
 msgid "Published in"
 msgstr "Publikováno v"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:38
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:38
 msgid "Imprint"
 msgstr "Tiráž"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:39
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:39
 msgid "Thesis"
 msgstr "Závěrečná práce"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:40
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:40
 msgid "Conference"
 msgstr "Konference"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:41
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:41
 msgid "Languages"
 msgstr "Jazyky"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:42
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:42
 msgid "Formats"
 msgstr "Formáty"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:43
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:43
 msgid "Sizes"
 msgstr "Velikosti"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:5
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:5
 msgid "Upload information"
 msgstr "Informace o nahrání"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:8
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:8
 msgid "Technical metadata"
 msgstr "Technická metadata"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:10
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:10
 msgid "Created"
 msgstr "Vytvořeno"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:16
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:15
 msgid "Modified"
 msgstr "Upraveno"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:28
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:26
 msgid "Edited by"
 msgstr "Upravil"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/oarepo_ui/macros/records_list.html:10
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo_ui/macros/records_list.html:10
 msgid "Recently Added Metadata"
 msgstr "Nedávno přidaná metadata"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/header_login.html:16
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/header_login.html:18
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:16
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:18
 msgid "Log out"
 msgstr "Odhlásit se"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/header_login.html:66
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/header_login.html:107
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:66
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:107
 msgid "My account"
 msgstr "Můj účet"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:18
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:18
 msgid ""
 "The National Metadata Directory (NMD) is a central aggregator of metadata"
 " for scientific datasets in the Czech Republic. The NMD collects metadata"
@@ -617,15 +634,15 @@ msgstr ""
 "vyhledávací místo napříč repozitáři a uživatele dovede k primárním "
 "repozitářům."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:23
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:23
 msgid "About the National Metadata Directory"
 msgstr "O Národním metadatovém adresáři"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
 msgid "Metadata Aggregation"
 msgstr "Agregace metadat"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
 msgid ""
 "NMD Harvests metadata from repositories in the National Repository "
 "Platform and beyond."
@@ -633,11 +650,11 @@ msgstr ""
 "NMA sklízí metadata z repozitářů v Národní repozitářové platformě a "
 "dalších zdrojů."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
 msgid "Discover & Locate"
 msgstr "Objevovat a dohledávat"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
 msgid ""
 "Search across repositories and locate datasets with links to original "
 "data."
@@ -645,37 +662,37 @@ msgstr ""
 "Vyhledávejte napříč repozitáři a dohledávejte datové sady s odkazy na "
 "původní data."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
 msgid "Persistent Links"
 msgstr "Persistentní odkazy"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
 msgid ""
 "Every record has a persistent URL and a reference to the original "
 "repository."
 msgstr "Každý záznam má persistentní URL a odkaz na původní repozitář."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "CESNET a.l.e."
 msgstr "CESNET z. s. p. o."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "National Metadata Directory (NMD) CZ"
 msgstr "Národní metadatový adresář (NMA) CZ"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "Version"
 msgstr "Verze"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/site_footer.html:13
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:13
 msgid "Powered by"
 msgstr "Běží na"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/templates/semantic-ui/invenio_app_rdm/site_footer.html:14
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:14
 msgid "InvenioRDM"
 msgstr "InvenioRDM"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:195
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:193
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
 " using the 'Obtain the link for RIV' button below."
@@ -683,7 +700,7 @@ msgstr ""
 "Tato datová sada ještě není v repozitáři zaregistrována. Můžete ji "
 "zaregistrovat pomocí tlačítka „Získat odkaz pro RIV“ níže."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:234
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:232
 msgid ""
 "Thank you for submitting the record to the National Metadata Directory. "
 "If you need to add a link to you RIV submission, please use the link "
@@ -692,7 +709,7 @@ msgstr ""
 "Děkujeme za registraci záznamu do Národního metadatového adresáře. Pro "
 "účely vykazování do RIV použijte prosím níže uvedený odkaz."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:252
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:250
 msgid ""
 "Thank you for submitting the record to the National Metadata Directory. "
 "We detected some metadata issues within the record. To obtain a URL for "
@@ -702,7 +719,7 @@ msgstr ""
 "metadatech záznamu byly zjištěny problémy. Pro získání URL k vykazování "
 "do RIV prosím zkontrolujte a opravte metadata níže."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:265
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:263
 msgid ""
 "The provided identifier is a URL that can not be registered at the "
 "moment. If your dataset does not have a DOI or a handle in URL format, "
@@ -714,7 +731,7 @@ msgstr ""
 "URL, kontaktujte prosím podporu na <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:275
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:273
 msgid ""
 "The provided identifier does not exist. Please check it for typos and try"
 " again. If the problem persists, please contact support at <a "
@@ -724,7 +741,7 @@ msgstr ""
 " chyby, a zkuste znovu. Pokud se Vám problém nepodaří vyřešit, "
 "kontaktujte <a href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:284
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:282
 msgid ""
 "We were unable to resolve metadata at the moment, please try it again "
 "later.If the problem persists, please contact support at <a "
@@ -735,16 +752,16 @@ msgstr ""
 "URL, kontaktujte prosím podporu na <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:291
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:289
 #, python-format
 msgid "Error registering dataset: %(error)s"
 msgstr "Chyba při registraci datové sady: %(error)s"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/__init__.py:311
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:309
 msgid "User does not have permission to edit record."
 msgstr "Uživatel nemá oprávnění upravovat záznam."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:11
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:11
 msgid ""
 "To report a dataset (type T result) in RIV, you must provide a link to "
 "the National Metadata Directory (NMD), which records its core metadata. "
@@ -756,11 +773,11 @@ msgstr ""
 " metadata. Na této stránce si můžete ověřit, zda NMA datovou sadu "
 "eviduje, případně ji do NMA zaregistrovat."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:22
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:22
 msgid "https://doi.org/… or https://hdl.handle.net/…"
 msgstr "https://doi.org/… nebo https://hdl.handle.net/…"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:34
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:34
 msgid ""
 "The dataset must have a persistent identifier. If the dataset has "
 "multiple identifiers (e.g., both a DOI and a Handle), we recommend "
@@ -769,29 +786,29 @@ msgstr ""
 "Datová sada musí mít persistentní identifikátor. Pokud má sada "
 "identifikátorů více, např. DOI a Handle, doporučujeme zadat DOI."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:47
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:47
 msgid "What happens next?"
 msgstr "Co se stane dále?"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:50
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:50
 msgid ""
 "If the dataset is already in the NMD, we issue the RIV link immediately. "
 "No further action is needed."
 msgstr "Pokud v NMA máme záznam, vydáme odkaz pro RIV a tím bude vše vyřízeno."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:51
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:51
 msgid ""
 "If the dataset is not in the NMD, we attempt to automatically retrieve "
 "and download its metadata."
 msgstr "Pokud záznam nemáme, zkusíme jeho metadata dohledat a stáhnout."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:52
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:52
 msgid ""
 "If this result is a complete, valid record in the NMD, you will receive "
 "the RIV link."
 msgstr "Jestli tak vznikl kompletní validní záznam, dostanete odkaz pro RIV."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:53
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:53
 msgid ""
 "If key fields are missing, we will request additional information from "
 "you. You’ll also receive an email with a link to amend the record if "
@@ -801,7 +818,7 @@ msgstr ""
 "takovém případě dostanete mailem odkaz na případné opravy zadaného "
 "záznamu, které pak lze dělat ještě sedm dnů, kdy odkaz platí."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:54
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:54
 msgid ""
 "Need assistance? Contact: <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
@@ -809,7 +826,7 @@ msgstr ""
 "Pokud budete potřebovat pomoci, napište na <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
 msgid ""
 "If you had to create or correct the record manually, ask your repository "
 "administrator to have the repository harvested into the NMD."
@@ -817,11 +834,11 @@ msgstr ""
 "Pokud jste svůj záznam doplňovali ručně, řekněte správci svého "
 "repozitáře, ať jej nechá sklízet do NMA."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:61
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:61
 msgid "Using a different persistent identifier?"
 msgstr "Používáte jiný persistentní identifikátor?"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:64
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:64
 msgid ""
 "NMD can discover metadata primarily for datasets identified by <a "
 "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\" "
@@ -833,54 +850,29 @@ msgstr ""
 "target=\"_blank\">DOI</a> a <a href=\"https://www.handle.net\" "
 "target=\"_blank\">Handle</a>."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
 msgid "If your datasets use a different type of identifier, please contact us at"
 msgstr ""
 "Pokud vaše datové sady používají jiný typ identifikátorů, kontaktujte nás"
 " prosím na"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
 msgid "(metadata can also be entered manually if needed)."
 msgstr "(metadata můžete případně zadat ručně)."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:16
-msgid "Metadata Record"
-msgstr "Metadatový záznam"
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:20
-msgid "Modify record metadata."
-msgstr "Upravit metadata záznamu."
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
-msgid "Search results"
-msgstr "Výsledky vyhledávání"
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
-msgid "datasets"
-msgstr "datové sady"
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
-msgid "Actions"
-msgstr "Akce"
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
-msgid "Edit"
-msgstr "Upravit"
-
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:74
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:74
 msgid "Open record management menu"
 msgstr "Otevřít menu správy záznamu"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:76
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:76
 msgid "Manage record"
 msgstr "Spravovat záznam"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:123
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:123
 msgid "Original source check status"
 msgstr "Stav kontroly původního zdroje"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:142
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:142
 msgid ""
 "Original source confirmed. The dataset is still available at its "
 "authoritative repository."
@@ -888,7 +880,7 @@ msgstr ""
 "Původní zdroj potvrzen. Datová sada je stále dostupná ve svém "
 "autoritativním repozitáři."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:144
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:144
 msgid ""
 "Original source not found. The dataset is no longer available at the "
 "specified location."
@@ -896,41 +888,59 @@ msgstr ""
 "Původní zdroj nebyl nalezen. Datová sada již není na uvedeném místě "
 "dostupná."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:146
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:146
 msgid "Error checking original source. Unable to verify dataset availability."
 msgstr "Chyba při kontrole původního zdroje. Nelze ověřit dostupnost datové sady."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:148
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:148
 msgid "Original source not accessible. The dataset location cannot be reached."
 msgstr "Původní zdroj není přístupný. K umístění datové sady se nelze připojit."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:150
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:150
 msgid "Warning: Issue detected with original source."
 msgstr "Varování: Zjištěn problém s původním zdrojem."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:160
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:160
 msgid "Last checked: "
 msgstr "Naposledy zkontrolováno: "
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:8
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:8
 msgid "Use this link when reporting the dataset in RIV."
 msgstr "Použijte tento odkaz pro zadání datové sady do RIVu."
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:4
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:12
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:4
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:12
 msgid "Citation"
 msgstr "Citace"
 
-#: /home/martin/Projects/CESNET/Repozitare/nma-2/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:7
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:7
 msgid "Link for RIV"
 msgstr "Odkaz pro RIV"
-
-#: flask_security/core.py:206
-msgid "Please log in to access this page."
-msgstr "Pro přístup na tuto stránku se prosím přihlaste."
 
 #~ msgid "Docs"
 #~ msgstr "Dokumentace"
 
 #~ msgid "Code"
 #~ msgstr "Kód"
+
+#~ msgid "Metadata Record"
+#~ msgstr "Metadatový záznam"
+
+#~ msgid "Modify record metadata."
+#~ msgstr "Upravit metadata záznamu."
+
+#~ msgid "Search results"
+#~ msgstr "Výsledky vyhledávání"
+
+#~ msgid "datasets"
+#~ msgstr "datové sady"
+
+#~ msgid "Actions"
+#~ msgstr "Akce"
+
+#~ msgid "Edit"
+#~ msgstr "Upravit"
+
+#~ msgid "Please log in to access this page."
+#~ msgstr "Pro přístup na tuto stránku se prosím přihlaste."
+
