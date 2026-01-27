@@ -121,9 +121,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     application_id = "datasets"
 
     templates = {
-        "record_detail": "datasets.RecordDetail",
-        "search": "datasets.Search",
-        "deposit_edit": "datasets.DepositEdit",
+        **RecordsUIResourceConfig.templates,
         "deposit_create": "datasets.Deposit",
     }
 
