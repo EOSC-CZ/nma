@@ -67,7 +67,7 @@
     - "lindat"
 
 - id: av
-  name: "Academy of sciences repository harvester"
+  name: "Academy of Sciences repository harvester"
   base-url: "https://asep.lib.cas.cz/arl-cav/cs/oai/"
   metadata-prefix: "dataciteoai"
   setspec: OAIDATACITE
