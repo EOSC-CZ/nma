@@ -76,3 +76,39 @@
   transformer:
     - 'oai-import{"model":"datasets"}'
     - "id-from-doi"
+
+# Archaeological Information System of the Czech Republic (AIS CR) Zenodo community
+# https://www.zenodo.org/communities/aiscr
+- id: zenodo-aiscr
+  name: "Zenodo AISCR community harvester"
+  base-url: "https://zenodo.org"
+  metadata-prefix: "aiscr"
+  model: datasets
+  loader: zenodo
+  transformer:
+    - "zenodo"
+  setspec: 'communities:aiscr AND resource_type.type:dataset'
+  
+# Czech Academy of Sciences, Institute of Archaeology, Prague (ARU) Zenodo community
+# https://www.zenodo.org/communities/iap-cas
+- id: zenodo-arup
+  name: "Zenodo ARUP community harvester"
+  base-url: "https://zenodo.org"
+  metadata-prefix: "arup"
+  model: datasets
+  loader: zenodo
+  transformer:
+    - "zenodo"
+  setspec: 'communities:iap-cas AND resource_type.type:dataset'
+
+# Czech Academy of Sciences, Institute of Archaeology, Brno (ARUB) Zenodo community
+# https://www.zenodo.org/communities/arub
+- id: zenodo-arub
+  name: "Zenodo ARUB community harvester"
+  base-url: "https://zenodo.org"
+  metadata-prefix: "arub"
+  model: datasets
+  loader: zenodo
+  transformer:
+    - "zenodo"
+  setspec: 'communities:arub AND resource_type.type:dataset'
