@@ -19,10 +19,13 @@ from oarepo_model.customizations import (
     AddMetadataExport,
     AddMetadataImport,
     AddServiceComponent,
+    AddToList,
+    PatchIndexMapping,
     PatchIndexPropertyMapping,
     PatchIndexSettings,
     PrependMixin,
-    ReplaceBaseClass, PatchIndexMapping, SetDefaultSearchFields,
+    ReplaceBaseClass,
+    SetDefaultSearchFields,
 )
 from oarepo_model.customizations.high_level.add_link import AddLink
 from oarepo_model.datatypes.registry import from_yaml
@@ -40,6 +43,11 @@ from riv.records.system_fields import (
 
 from .deserializers import DataCiteJSONDeserializer, DataCiteXMLDeserializer
 from .permissions import DatasetsPermissionPolicyMixin
+from .semantic_search import (
+    SemanticSearchDumperExtension,
+    SemanticSearchOptionsMixin,
+    SemanticSearchResourceConfigMixin,
+)
 from .serializers import DataCiteJSONSerializer
 from .services.components import (
     ExternalPIDComponent,
@@ -73,9 +81,8 @@ class UpdatableRecordServiceMixin:
     """
 
     def update(self, identity, id_, data, *args, revision_id=None, **kwargs):
-        """Override update to allow updating published records.
-        """
-        
+        """Override update to allow updating published records."""
+
         # metadata.rights: invenio rdm can not upload record that has rights that contain both id and title
         # so we remove all other props if there is an id
         rights = data["metadata"].get("rights", [])
@@ -143,11 +150,9 @@ COPY_TO_MAPPINGS = [
     ("metadata.title", 10),
     ("metadata.persistent_url", 10),
     ("id", 10),
-
     # boost_5 - Important searchable content
     ("metadata.additional_titles.title", 5),
     ("metadata.description", 5),
-
     ("metadata.creators.person_or_org.name", 5),
     # Author names
     # boost_1 - Supplementary content
@@ -160,22 +165,26 @@ COPY_TO_MAPPINGS = [
     # Funder names
     ("metadata.locations.features.place", 1),
     # Place names
-    ("metadata.references.reference", 1)
-    ]
+    ("metadata.references.reference", 1),
+]
 
-copy_to_mappings = [PatchIndexPropertyMapping(c[0], {"copy_to": f"boost_{c[1]}"}) for c in COPY_TO_MAPPINGS]
-analyzer_fields = {"fields": {
-    # using both means that queries that match both ascii and non-ascii
-    # versions are ranked higher (if query is Novák, records with Novák
-    # will have better ranking than Novak and both will be found),
-    # but if user searches for Novak Novák will still match with
-    # lower ranking than Novak
-    "_search": {"type": "text", "analyzer": "lowercase_analyzer"},
-    "_ascii_search": {
-        "type": "text",
-        "analyzer": "asciifolded_lowercase_analyzer",
-    },
-}
+copy_to_mappings = [
+    PatchIndexPropertyMapping(c[0], {"copy_to": f"boost_{c[1]}"})
+    for c in COPY_TO_MAPPINGS
+]
+analyzer_fields = {
+    "fields": {
+        # using both means that queries that match both ascii and non-ascii
+        # versions are ranked higher (if query is Novák, records with Novák
+        # will have better ranking than Novak and both will be found),
+        # but if user searches for Novak Novák will still match with
+        # lower ranking than Novak
+        "_search": {"type": "text", "analyzer": "lowercase_analyzer"},
+        "_ascii_search": {
+            "type": "text",
+            "analyzer": "asciifolded_lowercase_analyzer",
+        },
+    }
 }
 
 datasets_model = model(
@@ -255,6 +264,7 @@ datasets_model = model(
         # index tweaks
         PatchIndexSettings(
             {
+                "index.knn": True,
                 "analysis": {
                     # lowercase splits on whitespaces and performs lowercasing
                     "tokenizer": {"lowercase_tokenizer": {"type": "lowercase"}},
@@ -270,7 +280,7 @@ datasets_model = model(
                             "filter": ["asciifolding"],
                         },
                     },
-                }
+                },
             }
         ),
         PatchIndexMapping(
@@ -278,14 +288,40 @@ datasets_model = model(
                 "properties": {
                     "boost_10": {"type": "text", "boost": 10, **analyzer_fields},
                     "boost_5": {"type": "text", "boost": 5, **analyzer_fields},
-                    "boost_1": {"type": "text", "boost": 1, **analyzer_fields}
+                    "boost_1": {"type": "text", "boost": 1, **analyzer_fields},
+                    "embedding": {
+                        "type": "knn_vector",
+                        "dimension": 256,
+                        # "mode": "on_disk",
+                        # "method": {
+                        #     "name": "hnsw",
+                        #     "space_type": "l2",
+                        # },
+                    },
                 }
             }
         ),
         *copy_to_mappings,
-        SetDefaultSearchFields("boost_10", "boost_5", "boost_1", "boost_10._search",
-                               "boost_5._search", "boost_1._search", "boost_10._ascii_search",
-                               "boost_5._ascii_search", "boost_1._ascii_search")
+        SetDefaultSearchFields(
+            "boost_10",
+            "boost_5",
+            "boost_1",
+            "boost_10._search",
+            "boost_5._search",
+            "boost_1._search",
+            "boost_10._ascii_search",
+            "boost_5._ascii_search",
+            "boost_1._ascii_search",
+        ),
+        AddToList(
+            "record_dumper_extensions",
+            SemanticSearchDumperExtension(
+                "metadata.title",
+                "metadata.description",
+            ),
+        ),
+        PrependMixin("RecordSearchOptions", SemanticSearchOptionsMixin),
+        PrependMixin("RecordResourceConfig", SemanticSearchResourceConfigMixin),
     ],
     configuration={"ui_blueprint_name": "datasets_ui"},
 )
