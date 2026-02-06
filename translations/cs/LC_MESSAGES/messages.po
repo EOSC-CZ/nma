@@ -914,15 +914,15 @@ msgstr "Naposledy zkontrolováno: "
 
 #: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:7
 msgid "Primary persistent identifier of the record"
-msgstr "Primární persistentní identifikátor tohoto záznamu"
+msgstr "Primární perzistentní identifikátor tohoto záznamu"
 
 #: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:16
 msgid ""
 "Use it for citations, references in publications, and long-term "
 "identification of the record."
 msgstr ""
-"Používejte jej pro citace, odkazy v publikacích a dlouhodobou "                      
-"identifikaci záznamu." 
+"Používejte jej pro citace, odkazy v publikacích a dlouhodobou "
+"identifikaci záznamu."
 
 #: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:24
 msgid "Persistent link (RIV only)"
@@ -936,7 +936,7 @@ msgstr "Tento odkaz slouží výhradně pro vkládání záznamů do RIV."
 msgid ""
 "Do not use it for citations, general sharing, or references in "
 "publications."
-msgstr "Nepoužívejte jej pro citace, běžné sdílení ani odkazy v publikacích." 
+msgstr "Nepoužívejte jej pro citace, běžné sdílení ani odkazy v publikacích."
 
 #: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:4
 #: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:12
