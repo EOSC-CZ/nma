@@ -90,10 +90,10 @@ Note: Context variables available:
 {%- endblock record_header %} 
 
 {%- block record_title -%}
-  <div class="ui two column stackable rel-mt-1 rel-pl-1 rel-pr-1 grid">
-    <div class="ui pink row rel-p-1 rel-pt-2">
+  <div class="ui two column stackable grid">
+    <div class="ui row rel-p-1 rel-pt-2">
       <div class="divider hidden"></div>
-      <div class="ui sixteen wide column">
+      <div class="ui sixteen wide column pl-0 pr-0 permalink-container">
         {% include "datasets/record_detail/permalink.html" %}
       </div>
     </div>
