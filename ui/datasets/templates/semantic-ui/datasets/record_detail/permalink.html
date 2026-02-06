@@ -3,7 +3,7 @@
 
 {# Primary persistent identifier - Green section #}
 <div class="ui segment persistent-identifier">
-    <div class="ui label green">
+    <div class="segment-header green">
         {{ _("Primary persistent identifier of the record") }}
     </div>
     <div class="content mt-15">
@@ -20,11 +20,9 @@
 {# RIV-only persistent link - Warning section #}
 <div class="ui segment riv-identifier">
     <div class="segment-header red">
-        <i class="warning sign icon"></i>
         {{ _("Persistent link (RIV only)") }}
     </div>
     <div class="content mt-15">
-        <i class="linkify icon"></i>
         <span class="identifier-link" data-testid="record-detail-title-permanent-link">
             {{ record_permalink | trim }}
             <ClipboardCopyButton className="ml-5" copyText={{record_permalink}} />

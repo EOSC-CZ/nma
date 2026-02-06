@@ -44,25 +44,4 @@
       }
     }
   }
-
-  &.persistent-identifier {
-    position: relative;
-    padding-left: 3rem;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2rem;
-      background-color: @green;
-      border-radius: 0.28571429rem 0 0 0.28571429rem;
-    }
-
-    .segment-header {
-      margin-left: -3rem;
-      padding-left: 3rem;
-    }
-  }
 }
