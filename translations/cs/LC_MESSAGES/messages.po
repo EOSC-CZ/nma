@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-06 12:16+0100\n"
+"POT-Creation-Date: 2026-02-09 07:22+0100\n"
 "PO-Revision-Date: 2026-01-05 13:19+0100\n"
 "Last-Translator: \n"
 "Language: cs\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:12
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:12
 msgid "Czech"
 msgstr "Čeština"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:17
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:17
 msgid "National Metadata Directory"
 msgstr "Národní metadatový adresář"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:18
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:18
 msgid "Harvesting metadata of scientific repositories in the Czech Republic"
 msgstr "Sbírá metadata vědeckých repozitářů v České republice"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:20
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:20
 msgid ""
 "The National Metadata Directory (NMD) aggregates metadata from Czech "
 "research repositories and enables unified searching across datasets with "
@@ -40,7 +40,7 @@ msgstr ""
 "repozitářů a umožňuje jednotné vyhledávání napříč datovými sadami s "
 "odkazy na původní záznamy."
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:23
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:23
 msgid ""
 "national metadata directory, NMD, dataset metadata, research data search,"
 " data repositories, metadata aggregator, Czech academic data, research "
@@ -52,218 +52,218 @@ msgstr ""
 "data, výzkumné datové sady, platforma pro objevování dat, eosc-cz, eosc "
 "cz, european open science cloud"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:156
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:156
 msgid "DataCite"
 msgstr "DataCite"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:211
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:211
 msgid "ORCID"
 msgstr "ORCID"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:212
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:253
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:212
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:253
 msgid "ISNI"
 msgstr "ISNI"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:213
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:213
 msgid "GND"
 msgstr "GND"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:214
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:214
 msgid "ROR"
 msgstr "ROR"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:216
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:216
 msgid "ResearcherID"
 msgstr "ResearcherID"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:221
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:221
 msgid "Scopus Author ID"
 msgstr "Scopus Author ID"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:226
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:242
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:226
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:242
 msgid "DOI"
 msgstr "DOI"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:230
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:230
 msgid "ARK"
 msgstr "ARK"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:231
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:231
 msgid "arXiv"
 msgstr "arXiv"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:233
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:233
 msgid "Bibcode"
 msgstr "Bibcode"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:238
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:238
 msgid "Crossref Funder ID"
 msgstr "Crossref Funder ID"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:243
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:243
 msgid "EAN13"
 msgstr "EAN13"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:244
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:244
 msgid "EISSN"
 msgstr "EISSN"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:245
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:245
 msgid "GRID"
 msgstr "GRID"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:247
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:247
 msgid "Handle"
 msgstr "Handle"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:251
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:251
 msgid "IGSN"
 msgstr "IGSN"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:252
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:252
 msgid "ISBN"
 msgstr "ISBN"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:254
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:254
 msgid "ISSN"
 msgstr "ISSN"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:255
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:255
 msgid "ISTC"
 msgstr "ISTC"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:256
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:256
 msgid "LISSN"
 msgstr "LISSN"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:257
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:257
 msgid "LSID"
 msgstr "LSID"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:258
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:258
 msgid "PMID"
 msgstr "PMID"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:259
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:259
 msgid "PURL"
 msgstr "PURL"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:260
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:260
 msgid "UPC"
 msgstr "UPC"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:261
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:261
 msgid "URL"
 msgstr "URL"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:262
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:262
 msgid "URN"
 msgstr "URN"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:263
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:263
 msgid "W3ID"
 msgstr "W3ID"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:264
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:264
 msgid "Other"
 msgstr "Jiný"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:273
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:273
 msgid "Wikidata"
 msgstr "Wikidata"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:274
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:274
 msgid "GeoNames"
 msgstr "GeoNames"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:335
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:335
 msgid "ČSN ISO 690"
 msgstr "ČSN ISO 690"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:336
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:336
 msgid "APA"
 msgstr "APA"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:337
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:337
 msgid "Harvard"
 msgstr "Harvard"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:338
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:338
 msgid "MLA"
 msgstr "MLA"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:339
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:339
 msgid "Vancouver"
 msgstr "Vancouver"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:340
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:340
 msgid "Chicago"
 msgstr "Chicago"
 
-#: /Users/dusanstojanovic/Projects/nma/invenio.cfg:341
+#: /Users/m/w/rdm-14/nrp/nma/invenio.cfg:341
 msgid "IEEE"
 msgstr "IEEE"
 
-#: /Users/dusanstojanovic/Projects/nma/common/workflows/default.py:360
+#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:360
 msgid "state:draft"
 msgstr "koncept"
 
-#: /Users/dusanstojanovic/Projects/nma/common/workflows/default.py:361
+#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:361
 msgid "state:published"
 msgstr "publikováno"
 
-#: /Users/dusanstojanovic/Projects/nma/common/workflows/default.py:362
+#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:362
 msgid "state:submitted"
 msgstr "odesláno"
 
-#: /Users/dusanstojanovic/Projects/nma/common/workflows/default.py:363
+#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:363
 msgid "state:retracting"
 msgstr "staženo"
 
-#: /Users/dusanstojanovic/Projects/nma/common/workflows/default.py:364
+#: /Users/m/w/rdm-14/nrp/nma/common/workflows/default.py:364
 msgid "state:deleted"
 msgstr "smazáno"
 
-#: /Users/dusanstojanovic/Projects/nma/datasets/just_for_translations.py:4
+#: /Users/m/w/rdm-14/nrp/nma/datasets/just_for_translations.py:4
 msgid "metadata/publisher.label"
 msgstr "Vydavatel"
 
-#: /Users/dusanstojanovic/Projects/nma/datasets/just_for_translations.py:5
+#: /Users/m/w/rdm-14/nrp/nma/datasets/just_for_translations.py:5
 msgid "metadata/resource_type.label"
 msgstr "Typ zdroje"
 
-#: /Users/dusanstojanovic/Projects/nma/datasets/just_for_translations.py:6
+#: /Users/m/w/rdm-14/nrp/nma/datasets/just_for_translations.py:6
 msgid "metadata/languages.label"
 msgstr "Jazyky"
 
-#: /Users/dusanstojanovic/Projects/nma/datasets/model.py:162
-#: /Users/dusanstojanovic/Projects/nma/datasets/model.py:178
+#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:162
+#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:178
 msgid "DataCite JSON"
 msgstr "DataCite JSON"
 
-#: /Users/dusanstojanovic/Projects/nma/datasets/model.py:169
+#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:169
 msgid "DataCite XML"
 msgstr "DataCite XML"
 
-#: /Users/dusanstojanovic/Projects/nma/datasets/model.py:170
+#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:170
 msgid "Import metadata from DataCite XML format"
 msgstr "Importovat metadata z formátu DataCite XML"
 
-#: /Users/dusanstojanovic/Projects/nma/datasets/model.py:179
+#: /Users/m/w/rdm-14/nrp/nma/datasets/model.py:179
 msgid "Import metadata from DataCite JSON format"
 msgstr "Importovat metadata z formátu DataCite JSON"
 
-#: /Users/dusanstojanovic/Projects/nma/riv/views.py:29
+#: /Users/m/w/rdm-14/nrp/nma/riv/views.py:29
 msgid "Persistent Identifier"
 msgstr "Persistentní identifikátor"
 
-#: /Users/dusanstojanovic/Projects/nma/riv/views.py:31
+#: /Users/m/w/rdm-14/nrp/nma/riv/views.py:31
 msgid "Please enter a persistent identifier"
 msgstr "Zadejte prosím persistentní identifikátor"
 
-#: /Users/dusanstojanovic/Projects/nma/riv/views.py:34
+#: /Users/m/w/rdm-14/nrp/nma/riv/views.py:34
 msgid ""
 "Please enter a valid URL (e.g., https://doi.org/... or "
 "https://hdl.handle.net/...)"
@@ -271,7 +271,7 @@ msgstr ""
 "Zadejte prosím platnou adresu URL (např. https://doi.org/... nebo "
 "https://hdl.handle.net/...)"
 
-#: /Users/dusanstojanovic/Projects/nma/riv/records/create_record.py:113
+#: /Users/m/w/rdm-14/nrp/nma/riv/records/create_record.py:113
 msgid ""
 "Due to an unexpected error, the data could not be loaded correctly. "
 "Please fill in the required information and save the record. "
@@ -279,39 +279,39 @@ msgstr ""
 "Kvůli neočekávané chybě se data nepodařilo správně načíst. Vyplňte prosím"
 " povinné údaje a uložte záznam."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/base.py:33
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:33
 #, python-format
 msgid "Publication date format did not pass validation; format: %(date)s."
 msgstr "Formát data publikace neprošel validací; formát: %(date)s."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/base.py:38
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:38
 #, python-format
 msgid "Invalid publication date format: %(date)s."
 msgstr "Neplatný formát data publikace: %(date)s."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/base.py:71
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:71
 #, python-format
 msgid "Non-existent persistent identifier: '%(identifier)s'."
 msgstr "Neexistující persistentní identifikátor '%(identifier)s'."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/base.py:89
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:89
 #, python-format
 msgid "Unsupported identifier type '%(identifier)s'."
 msgstr "Nepodporovaný typ identifikátoru '%(identifier)s'."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/base.py:101
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/base.py:101
 #, python-format
 msgid "Error while processing identifier '%(identifier)s'."
 msgstr "Chyba při načítání identifikátoru '%(identifier)s'."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/crossref.py:88
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:88
 msgid ""
 "The identifier looks like a DOI, but it was not found in the CrossRef "
 "registry."
 msgstr "Identifikátor vypadá jako DOI, ale nebyl nalezen v registru CrossRef."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/crossref.py:103
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/datacite.py:239
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:103
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:239
 msgid ""
 "Unexpected error while resolving the DOI. Please fill the metadata "
 "manually."
@@ -319,8 +319,8 @@ msgstr ""
 "Neočekávaná chyba při načítání metadat z DOI. Prosím, vyplňte metadata "
 "ručně."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/crossref.py:148
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/datacite.py:529
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:148
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:529
 msgid ""
 "The title is too short. A minimum of 3 characters is required to meet "
 "repository requirements."
@@ -328,31 +328,31 @@ msgstr ""
 "Název je příliš krátký. Pro splnění požadavků repozitáře jsou vyžadovány "
 "minimálně 3 znaky."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/crossref.py:158
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/datacite.py:540
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/handle.py:158
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:158
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:540
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:158
 msgid "Missing title."
 msgstr "Chybí název."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/crossref.py:170
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/datacite.py:610
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/handle.py:171
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/crossref.py:170
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:610
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:171
 msgid "Missing creators."
 msgstr "Chybí autoři."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/datacite.py:224
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/datacite.py:224
 msgid ""
 "The identifier looks like a DOI, but it was not found in the DataCite "
 "registry."
 msgstr "Identifikátor vypadá jako DOI, ale nebyl nalezen v registru DataCite."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/handle.py:121
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:121
 msgid ""
 "The identifier looks like a Handle, but it was not found in the Handle "
 "registry."
 msgstr "Identifikátor vypadá jako Handle, ale nebyl nalezen v registru Handle."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/handle.py:136
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:136
 msgid ""
 "Unexpected error while resolving the Handle. Please fill the metadata "
 "manually."
@@ -360,19 +360,19 @@ msgstr ""
 "Neočekávaná chyba při načítání metadat z cílového repozitáře. Prosím, "
 "vyplňte metadata ručně."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/handle.py:209
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/handle.py:209
 msgid "Publication date missing."
 msgstr "Chybí datum publikace."
 
-#: /Users/dusanstojanovic/Projects/nma/riv/resolvers/utils.py:35
+#: /Users/m/w/rdm-14/nrp/nma/riv/resolvers/utils.py:35
 msgid "Unexpected error while parsing the metadata."
 msgstr "Neočekávaná chyba při načítání metadat."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:32
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:32
 msgid "NMD"
 msgstr "NMA"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:36
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:36
 #, python-format
 msgid ""
 "\n"
@@ -383,52 +383,52 @@ msgstr ""
 "Součást projektu <a href=\"%(link)s\">EOSC-CZ</a> "
 "(CZ.02.01.01/00/22_004/0007682)."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:44
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:45
-#: /Users/dusanstojanovic/Projects/nma/templates/frontpage.html:30
-#: /Users/dusanstojanovic/Projects/nma/templates/frontpage.html:31
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:44
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:45
+#: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:30
+#: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:31
 msgid "EU and MINISTRY OF EDUCATION YOUTH AND SPORTS"
 msgstr "EU a Ministerstvo školství, mládeže a tělovýchovy"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:51
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:52
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:63
-#: /Users/dusanstojanovic/Projects/nma/templates/frontpage.html:37
-#: /Users/dusanstojanovic/Projects/nma/templates/frontpage.html:38
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:51
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:52
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:63
+#: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:37
+#: /Users/m/w/rdm-14/nrp/nma/templates/frontpage.html:38
 msgid "EOSC-CZ project"
 msgstr "Projekt EOSC-CZ"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:59
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:59
 msgid "Resources"
 msgstr "Odkazy"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:61
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:44
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:61
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:44
 msgid "User Manual"
 msgstr "Návody pro uživatele"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:62
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:62
 msgid "Source Code"
 msgstr "Zdrojový kód"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:64
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:64
 msgid "FAQs"
 msgstr "Časté dotazy"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:69
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:69
 msgid "Contact"
 msgstr "Kontakt"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/footer.html:71
+#: /Users/m/w/rdm-14/nrp/nma/templates/footer.html:71
 msgid "User support"
 msgstr "Uživatelská podpora"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/header_frontpage.html:27
-#: /Users/dusanstojanovic/Projects/nma/templates/header_frontpage.html:28
+#: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:27
+#: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:28
 msgid "Search by title, author, or identifier (DOI, Handle)"
 msgstr "Hledejte podle názvu, autora nebo identifikátoru (DOI, Handle)"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/header_frontpage.html:37
+#: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:37
 #, python-format
 msgid ""
 "Search for datasets by keywords or persistent identifiers. You can also "
@@ -438,48 +438,48 @@ msgstr ""
 "identifikátorů. Také můžete <a href=\"%(browse_url)s\">procházet všechny "
 "záznamy</a>."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/header_frontpage.html:40
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:339
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
+#: /Users/m/w/rdm-14/nrp/nma/templates/header_frontpage.html:40
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:339
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:10
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:38
 msgid "Obtain the link for RIV"
 msgstr "Získat odkaz pro RIV"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/manage_menu.html:11
+#: /Users/m/w/rdm-14/nrp/nma/templates/manage_menu.html:11
 msgid "Record management"
 msgstr "Správa záznamu"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/page.html:3
+#: /Users/m/w/rdm-14/nrp/nma/templates/page.html:3
 msgid "Invenio"
 msgstr "Invenio"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/registered.html:2
+#: /Users/m/w/rdm-14/nrp/nma/templates/registered.html:2
 msgid "Registration Successful"
 msgstr "Úspěšná registrace"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/registered.html:6
+#: /Users/m/w/rdm-14/nrp/nma/templates/registered.html:6
 msgid "Thank you for registering to the National Metadata Directory."
 msgstr "Děkujeme za registraci do Národního metadatového adresáře."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/registered.html:8
+#: /Users/m/w/rdm-14/nrp/nma/templates/registered.html:8
 msgid "You can now log in (using the identity you registered with):"
 msgstr "Nyní se můžete přihlásit (stejnou identitou, kterou jste se registrovali):"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/registered.html:9
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:49
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:53
+#: /Users/m/w/rdm-14/nrp/nma/templates/registered.html:9
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:49
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:53
 msgid "Sign in"
 msgstr "Přihlásit se"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_accounts/login_user.html:14
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_accounts/login_user.html:14
 msgid "Institutional Login"
 msgstr "Institucionální přihlášení"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_accounts/login_user.html:15
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_accounts/login_user.html:15
 msgid "Sign in using your institutional credentials via E-INFRA AAI."
 msgstr "Přihlaste se pomocí účtu u vaší instituce prostřednictvím E-INFRA AAI."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_accounts/login_user.html:24
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_accounts/login_user.html:24
 msgid ""
 "When you choose Sign in with E-INFRA AAI, you will be asked to select "
 "your institution from the list.\n"
@@ -491,7 +491,7 @@ msgstr ""
 "Následně budete přesměrováni na poskytovatele identit vaší instituce, kde"
 " se přihlásíte pomocí svých institucionálních přihlašovacích údajů."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_accounts/login_user.html:26
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_accounts/login_user.html:26
 #, python-format
 msgid ""
 "\n"
@@ -510,98 +510,98 @@ msgstr ""
 "je ale preferováno.\n"
 "          "
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/help/search.cs.html:9
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/help/search.en.html:11
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/help/search.cs.html:9
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/help/search.en.html:11
 msgid "Search guide"
 msgstr "Průvodce vyhledáváním"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:17
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:17
 msgid "Details"
 msgstr "Detaily"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:22
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:22
 msgid "Deposited at"
 msgstr "Uloženo v"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:29
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:29
 msgid "Harvested from"
 msgstr "Sklizeno z"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:34
 msgid "Resource type"
 msgstr "Typ zdroje"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:35
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:35
 msgid "Publication date"
 msgstr "Datum publikace"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
 msgid "Publisher"
 msgstr "Vydavatel"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
 msgid "Published in"
 msgstr "Publikováno v"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:38
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:38
 msgid "Imprint"
 msgstr "Tiráž"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:39
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:39
 msgid "Thesis"
 msgstr "Závěrečná práce"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:40
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:40
 msgid "Conference"
 msgstr "Konference"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:41
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:41
 msgid "Languages"
 msgstr "Jazyky"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:42
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:42
 msgid "Formats"
 msgstr "Formáty"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:43
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:43
 msgid "Sizes"
 msgstr "Velikosti"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:5
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:5
 msgid "Upload information"
 msgstr "Informace o nahrání"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:8
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:8
 msgid "Technical metadata"
 msgstr "Technická metadata"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:10
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:10
 msgid "Created"
 msgstr "Vytvořeno"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:15
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:15
 msgid "Modified"
 msgstr "Upraveno"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:26
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/technical_metadata.html:26
 msgid "Edited by"
 msgstr "Upravil"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/oarepo_ui/macros/records_list.html:10
+#: /Users/m/w/rdm-14/nrp/nma/templates/oarepo_ui/macros/records_list.html:10
 msgid "Recently Added Metadata"
 msgstr "Nedávno přidaná metadata"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:16
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:18
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:16
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:18
 msgid "Log out"
 msgstr "Odhlásit se"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:66
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:107
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:66
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/header_login.html:107
 msgid "My account"
 msgstr "Můj účet"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:18
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:18
 msgid ""
 "The National Metadata Directory (NMD) is a central aggregator of metadata"
 " for scientific datasets in the Czech Republic. The NMD collects metadata"
@@ -617,15 +617,15 @@ msgstr ""
 "vyhledávací místo napříč repozitáři a uživatele dovede k primárním "
 "repozitářům."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:23
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:23
 msgid "About the National Metadata Directory"
 msgstr "O Národním metadatovém adresáři"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
 msgid "Metadata Aggregation"
 msgstr "Agregace metadat"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
 msgid ""
 "NMD Harvests metadata from repositories in the National Repository "
 "Platform and beyond."
@@ -633,11 +633,11 @@ msgstr ""
 "NMA sklízí metadata z repozitářů v Národní repozitářové platformě a "
 "dalších zdrojů."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
 msgid "Discover & Locate"
 msgstr "Objevovat a dohledávat"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
 msgid ""
 "Search across repositories and locate datasets with links to original "
 "data."
@@ -645,37 +645,37 @@ msgstr ""
 "Vyhledávejte napříč repozitáři a dohledávejte datové sady s odkazy na "
 "původní data."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
 msgid "Persistent Links"
 msgstr "Persistentní odkazy"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
 msgid ""
 "Every record has a persistent URL and a reference to the original "
 "repository."
 msgstr "Každý záznam má persistentní URL a odkaz na původní repozitář."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "CESNET a.l.e."
 msgstr "CESNET z. s. p. o."
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "National Metadata Directory (NMD) CZ"
 msgstr "Národní metadatový adresář (NMA) CZ"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:12
 msgid "Version"
 msgstr "Verze"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:13
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:13
 msgid "Powered by"
 msgstr "Běží na"
 
-#: /Users/dusanstojanovic/Projects/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:14
+#: /Users/m/w/rdm-14/nrp/nma/templates/semantic-ui/invenio_app_rdm/site_footer.html:14
 msgid "InvenioRDM"
 msgstr "InvenioRDM"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:195
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:195
 msgid ""
 "This dataset is not yet registered in the repository. You can register it"
 " using the 'Obtain the link for RIV' button below."
@@ -683,7 +683,7 @@ msgstr ""
 "Tato datová sada ještě není v repozitáři zaregistrována. Můžete ji "
 "zaregistrovat pomocí tlačítka „Získat odkaz pro RIV“ níže."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:234
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:234
 msgid ""
 "Thank you for submitting the record to the National Metadata Directory. "
 "If you need to add a link to you RIV submission, please use the link "
@@ -692,7 +692,7 @@ msgstr ""
 "Děkujeme za registraci záznamu do Národního metadatového adresáře. Pro "
 "účely vykazování do RIV použijte prosím níže uvedený odkaz."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:252
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:252
 msgid ""
 "Thank you for submitting the record to the National Metadata Directory. "
 "We detected some metadata issues within the record. To obtain a URL for "
@@ -702,7 +702,7 @@ msgstr ""
 "metadatech záznamu byly zjištěny problémy. Pro získání URL k vykazování "
 "do RIV prosím zkontrolujte a opravte metadata níže."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:265
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:265
 msgid ""
 "The provided identifier is a URL that can not be registered at the "
 "moment. If your dataset does not have a DOI or a handle in URL format, "
@@ -714,7 +714,7 @@ msgstr ""
 "URL, kontaktujte prosím podporu na <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:275
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:275
 msgid ""
 "The provided identifier does not exist. Please check it for typos and try"
 " again. If the problem persists, please contact support at <a "
@@ -724,7 +724,7 @@ msgstr ""
 " chyby, a zkuste znovu. Pokud se Vám problém nepodaří vyřešit, "
 "kontaktujte <a href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:284
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:284
 msgid ""
 "We were unable to resolve metadata at the moment, please try it again "
 "later.If the problem persists, please contact support at <a "
@@ -735,16 +735,16 @@ msgstr ""
 "URL, kontaktujte prosím podporu na <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:291
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:291
 #, python-format
 msgid "Error registering dataset: %(error)s"
 msgstr "Chyba při registraci datové sady: %(error)s"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:311
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/__init__.py:311
 msgid "User does not have permission to edit record."
 msgstr "Uživatel nemá oprávnění upravovat záznam."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:11
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:11
 msgid ""
 "To report a dataset (type T result) in RIV, you must provide a link to "
 "the National Metadata Directory (NMD), which records its core metadata. "
@@ -756,11 +756,11 @@ msgstr ""
 " metadata. Na této stránce si můžete ověřit, zda NMA datovou sadu "
 "eviduje, případně ji do NMA zaregistrovat."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:22
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:22
 msgid "https://doi.org/… or https://hdl.handle.net/…"
 msgstr "https://doi.org/… nebo https://hdl.handle.net/…"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:34
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:34
 msgid ""
 "The dataset must have a persistent identifier. If the dataset has "
 "multiple identifiers (e.g., both a DOI and a Handle), we recommend "
@@ -769,29 +769,29 @@ msgstr ""
 "Datová sada musí mít persistentní identifikátor. Pokud má sada "
 "identifikátorů více, např. DOI a Handle, doporučujeme zadat DOI."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:47
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:47
 msgid "What happens next?"
 msgstr "Co se stane dále?"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:50
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:50
 msgid ""
 "If the dataset is already in the NMD, we issue the RIV link immediately. "
 "No further action is needed."
 msgstr "Pokud v NMA máme záznam, vydáme odkaz pro RIV a tím bude vše vyřízeno."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:51
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:51
 msgid ""
 "If the dataset is not in the NMD, we attempt to automatically retrieve "
 "and download its metadata."
 msgstr "Pokud záznam nemáme, zkusíme jeho metadata dohledat a stáhnout."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:52
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:52
 msgid ""
 "If this result is a complete, valid record in the NMD, you will receive "
 "the RIV link."
 msgstr "Jestli tak vznikl kompletní validní záznam, dostanete odkaz pro RIV."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:53
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:53
 msgid ""
 "If key fields are missing, we will request additional information from "
 "you. You’ll also receive an email with a link to amend the record if "
@@ -801,7 +801,7 @@ msgstr ""
 "takovém případě dostanete mailem odkaz na případné opravy zadaného "
 "záznamu, které pak lze dělat ještě sedm dnů, kdy odkaz platí."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:54
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:54
 msgid ""
 "Need assistance? Contact: <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
@@ -809,7 +809,7 @@ msgstr ""
 "Pokud budete potřebovat pomoci, napište na <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
 msgid ""
 "If you had to create or correct the record manually, ask your repository "
 "administrator to have the repository harvested into the NMD."
@@ -817,11 +817,11 @@ msgstr ""
 "Pokud jste svůj záznam doplňovali ručně, řekněte správci svého "
 "repozitáře, ať jej nechá sklízet do NMA."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:61
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:61
 msgid "Using a different persistent identifier?"
 msgstr "Používáte jiný persistentní identifikátor?"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:64
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:64
 msgid ""
 "NMD can discover metadata primarily for datasets identified by <a "
 "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\" "
@@ -833,54 +833,54 @@ msgstr ""
 "target=\"_blank\">DOI</a> a <a href=\"https://www.handle.net\" "
 "target=\"_blank\">Handle</a>."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
 msgid "If your datasets use a different type of identifier, please contact us at"
 msgstr ""
 "Pokud vaše datové sady používají jiný typ identifikátorů, kontaktujte nás"
 " prosím na"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
 msgid "(metadata can also be entered manually if needed)."
 msgstr "(metadata můžete případně zadat ručně)."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:16
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:16
 msgid "Metadata Record"
 msgstr "Metadatový záznam"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:20
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/DepositEdit.jinja:20
 msgid "Modify record metadata."
 msgstr "Upravit metadata záznamu."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "Search results"
 msgstr "Výsledky vyhledávání"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Search.jinja:3
 msgid "datasets"
 msgstr "datové sady"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:5
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:6
 msgid "Actions"
 msgstr "Akce"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/Sidebar.jinja:10
 msgid "Edit"
 msgstr "Upravit"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:74
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:74
 msgid "Open record management menu"
 msgstr "Otevřít menu správy záznamu"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:76
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:76
 msgid "Manage record"
 msgstr "Spravovat záznam"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:123
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:123
 msgid "Original source check status"
 msgstr "Stav kontroly původního zdroje"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:142
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:142
 msgid ""
 "Original source confirmed. The dataset is still available at its "
 "authoritative repository."
@@ -888,7 +888,7 @@ msgstr ""
 "Původní zdroj potvrzen. Datová sada je stále dostupná ve svém "
 "autoritativním repozitáři."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:144
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:144
 msgid ""
 "Original source not found. The dataset is no longer available at the "
 "specified location."
@@ -896,27 +896,27 @@ msgstr ""
 "Původní zdroj nebyl nalezen. Datová sada již není na uvedeném místě "
 "dostupná."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:146
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:146
 msgid "Error checking original source. Unable to verify dataset availability."
 msgstr "Chyba při kontrole původního zdroje. Nelze ověřit dostupnost datové sady."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:148
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:148
 msgid "Original source not accessible. The dataset location cannot be reached."
 msgstr "Původní zdroj není přístupný. K umístění datové sady se nelze připojit."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:150
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:150
 msgid "Warning: Issue detected with original source."
 msgstr "Varování: Zjištěn problém s původním zdrojem."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:160
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:160
 msgid "Last checked: "
 msgstr "Naposledy zkontrolováno: "
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:7
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:7
 msgid "Primary persistent identifier of the record"
-msgstr "Primární perzistentní identifikátor tohoto záznamu"
+msgstr "Primární perzistentní identifikátor originálního záznamu"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:16
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:16
 msgid ""
 "Use it for citations, references in publications, and long-term "
 "identification of the record."
@@ -924,26 +924,30 @@ msgstr ""
 "Používejte jej pro citace, odkazy v publikacích a dlouhodobou "
 "identifikaci záznamu."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:24
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:23
 msgid "Persistent link (RIV only)"
 msgstr "Perzistentní odkaz (pouze pro RIV)"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:35
-msgid "This link is intended exclusively for submitting records to RIV."
-msgstr "Tento odkaz slouží výhradně pro vkládání záznamů do RIV."
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:33
+msgid ""
+"This link is intended exclusively for submitting records to the RIV (the "
+"“Record in the National Metadata Directory” item)."
+msgstr ""
+"Tento odkaz slouží výhradně pro vkládání záznamů do RIV "
+"(položka Záznam v Národním metadatovém adresáři)"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:38
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:36
 msgid ""
 "Do not use it for citations, general sharing, or references in "
 "publications."
 msgstr "Nepoužívejte jej pro citace, běžné sdílení ani odkazy v publikacích."
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:4
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:12
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:4
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:12
 msgid "Citation"
 msgstr "Citace"
 
-#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:7
+#: /Users/m/w/rdm-14/nrp/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/side_bar/citations.html:7
 msgid "Link for RIV"
 msgstr "Odkaz pro RIV"
 
