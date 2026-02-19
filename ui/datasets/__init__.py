@@ -122,7 +122,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
 
     templates = {
         **RecordsUIResourceConfig.templates,
-        "deposit_create": "datasets.Deposit",
+        "deposit_create": "datasets.DepositCreate"
     }
 
 
@@ -288,11 +288,15 @@ class DatasetsUIResource(RecordsUIResource):
                 logger.exception("Error registering dataset with PID %s", pid)
                 flash(_("Error registering dataset: %(error)s", error=str(e)), "error")
 
+        render_kwargs = {
+            "form": form,
+        }
+
         return current_oarepo_ui.catalog.render(
             self.get_jinjax_macro(
                 "deposit_create",
             ),
-            **{"form": form},
+            **render_kwargs,
         )
 
     @pass_route_args("view")
