@@ -47,7 +47,7 @@ from .services.components import (
     UpdateEditorsComponent,
     UpdateMetadataComponent,
 )
-
+from oai.openaire.openaire_serializer import OpenAIREXMLSerializer
 
 class PIDStatusCheckFieldMixin:
     """Custom PID status check field returning False when PID is not set."""
@@ -211,6 +211,15 @@ datasets_model = model(
             mimetype="application/vnd.datacite.datacite+xml",
             deserializer=DataCiteXMLDeserializer(),
             oai_name=("http://datacite.org/schema/kernel-4e", "resource"),
+        ),
+        AddMetadataExport(
+            code="aire",
+            name=_("OpenAIRE"),
+            mimetype="application/vnd.datacite.datacite+xml",
+            serializer=OpenAIREXMLSerializer(),
+            oai_metadata_prefix="oai_datacite",
+            oai_schema="http://schema.datacite.org/meta/kernel-4.5/metadata.xsd",
+            oai_namespace="http://datacite.org/schema/kernel-4",
         ),
         # datacite json import
         AddMetadataImport(
