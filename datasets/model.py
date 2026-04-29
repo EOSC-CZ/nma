@@ -19,6 +19,7 @@ from oarepo_model.customizations import (
     AddMetadataExport,
     AddMetadataImport,
     AddServiceComponent,
+    AddToList,
     PatchIndexPropertyMapping,
     PatchIndexSettings,
     PrependMixin,
@@ -37,7 +38,7 @@ from riv.records.system_fields import (
     ExternalPIDFieldContextMixin,
     PIDStatusCheckField,
 )
-
+from .records.is_harvested_dumper import IsHarvestedDumperExt
 from .deserializers import DataCiteJSONDeserializer, DataCiteXMLDeserializer
 from .permissions import DatasetsPermissionPolicyMixin
 from .serializers import DataCiteJSONSerializer
@@ -252,6 +253,7 @@ datasets_model = model(
                 "metadata.languages",
             ],
         ),
+        AddToList("record_dumper_extensions", IsHarvestedDumperExt()),
         # index tweaks
         PatchIndexSettings(
             {
@@ -278,7 +280,8 @@ datasets_model = model(
                 "properties": {
                     "boost_10": {"type": "text", "boost": 10, **analyzer_fields},
                     "boost_5": {"type": "text", "boost": 5, **analyzer_fields},
-                    "boost_1": {"type": "text", "boost": 1, **analyzer_fields}
+                    "boost_1": {"type": "text", "boost": 1, **analyzer_fields},
+                    "parent.is_harvested": {"type": "boolean"},
                 }
             }
         ),
