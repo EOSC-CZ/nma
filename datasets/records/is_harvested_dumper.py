@@ -25,3 +25,10 @@ class IsHarvestedDumperExt(SearchDumperExt):
         data["parent"]["is_harvested"] = is_harvested
 
         return data
+
+    def load(self, record, data):
+        parent = data.get("parent")
+        if parent:
+            parent.pop("is_harvested", None)
+
+        return data
