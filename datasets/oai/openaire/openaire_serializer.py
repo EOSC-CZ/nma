@@ -30,8 +30,6 @@ class OpenAIREXMLSerializer(MarshmallowSerializer):
 
         primary_identifier = obj["id"]
 
-        result = None
-
         if "doi/" in primary_identifier:
             identifier = primary_identifier.split("doi/")[1]
             identifier_type = "DOI"
@@ -42,11 +40,11 @@ class OpenAIREXMLSerializer(MarshmallowSerializer):
             identifier = primary_identifier
             identifier_type = "URL"
 
-        if result is None:
-            result = {
+
+        result = {
                 "identifier": identifier,
                 "identifierType": identifier_type
-            }
+        }
 
         link_to_original = {
             "relatedIdentifier": persistent_url,
