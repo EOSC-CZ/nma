@@ -26,3 +26,11 @@
     padding: 0.5rem 1rem;
   }
 }
+
+.ui.form {
+  .field {
+    label.helptext {
+      margin-top: 0;
+    }
+  }
+}

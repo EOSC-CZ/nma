@@ -3750,7 +3750,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-rdm"
-version = "3.2.0"
+version = "3.3.0"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "invenio-app-rdm" },
@@ -3760,9 +3760,9 @@ dependencies = [
     { name = "oarepo-runtime" },
     { name = "oarepo-ui" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/57/96/f062955972f7888074a45c41c5763d23016c6020dbeaa0e3195e303c0cca/oarepo_rdm-3.2.0.tar.gz", hash = "sha256:17ec24d644d004784a35739c22d3729046f65f71081c412543fbacb39497bef8", size = 50921, upload-time = "2026-05-06T10:32:31.6Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c0/21/6db52311b25fee282933b8cc272228b46eedb7c4bd84fe35b89b0aa67892/oarepo_rdm-3.3.0.tar.gz", hash = "sha256:27199b1563d0c99c7259fd04f4f88956325b29e4d4ea11aadf54b6fef6fe31f6", size = 52078, upload-time = "2026-05-19T11:44:31.76Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/86/f3/8639e79e29e27ce964141409fa4ae602f1ba924caacae9cf42e0d02c8b20/oarepo_rdm-3.2.0-py3-none-any.whl", hash = "sha256:ce3d91d1988dae18c52f47ca10b2adb07b1c169d44b6ff1ab3f15ec834fbb1f8", size = 109010, upload-time = "2026-05-06T10:32:30.068Z" },
+    { url = "https://files.pythonhosted.org/packages/55/8b/78315af320820ab11073a42bd7b997df178649e53130672ab30deb6090ef/oarepo_rdm-3.3.0-py3-none-any.whl", hash = "sha256:8de180837e823c2fe95bcb924d349f67992694360f7719f2c5d86d38f8c95557", size = 110378, upload-time = "2026-05-19T11:44:30.215Z" },
 ]
 
 [[package]]
