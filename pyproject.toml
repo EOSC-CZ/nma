@@ -6,40 +6,31 @@ packages = []
 authors = []
 dependencies = [
     "json5",
-    "oarepo[s3,rdm]>=14.0.0,<=14.1.0",
-    "oarepo-runtime>=2.0.0dev0,<3.0.0",
-    "oarepo-ui>=6.0.0.dev0,<7.0.0",
-    "oarepo-model>=0.1.0dev0,<1.0.0",
-    "oarepo-rdm>=1.0.0dev0,<2.0.0",
-    "oarepo-theme>=1.0.0dev3,<2.0.0",
-    "oarepo-dashboard>=2.0.0dev1,<3.0.0",
+    "oarepo[s3,rdm]>=14.2.1b10.dev7,<15.0.0",
+    "oarepo-app[development]>=4.0.0,<5.0.0",
     "python-dotenv",
-    "marshmallow-i18n-messages",
-    "oarepo-glitchtip==1.*",
-    "oarepo-oidc-einfra>=2.0.0dev0,<3.0.0",
     "beautifulsoup4",
     "rapidfuzz",
-    "oarepo-vocabularies>=3.0.0dev6,<4.0.0",
-    "oarepo-oai-pmh-harvester>=6.0.0.dev2,<7.0.0",
     "traceback-with-variables",                    # for better error logging
     "prometheus-flask-exporter",                   # to expose Flask app /metrics to prometheus
+    "oarepo-oai-pmh-harvester>=7.0.0,<8.0.0"
 ]
-requires-python = ">=3.13,<3.15"
+requires-python = ">=3.14,<3.15"
 
 [project.entry-points."invenio_administration.views"]
-invenio_users_resources_users_list = "invenio_app_rdm.administration.users:UsersListView"
-invenio_users_resources_users_details = "invenio_app_rdm.administration.users:UsersDetailView"
-invenio_users_resources_domains_list = "invenio_app_rdm.administration.domains:DomainsListView"
-invenio_users_resources_domains_edit = "invenio_app_rdm.administration.domains:DomainsEditView"
-invenio_users_resources_domains_detail = "invenio_app_rdm.administration.domains:DomainsDetailView"
-invenio_users_resources_domains_create = "invenio_app_rdm.administration.domains:DomainsCreateView"
-invenio_requests_user_moderation_list = "invenio_app_rdm.administration.user_moderation:UserModerationListView"
-invenio_requests_user_moderation_detail = "invenio_app_rdm.administration.user_moderation:UserModerationRequestDetailView"
-invenio_requests_moderation_requests_list = "invenio_app_rdm.administration.moderation.requests:ModerationRequestListView"
-invenio_requests_moderation_requests_details = "invenio_app_rdm.administration.moderation.requests:ModerationRequestDetailView"
-invenio_app_rdm_records_list = "invenio_app_rdm.administration.records:RecordAdminListView"
-invenio_app_rdm_drafts_list = "invenio_app_rdm.administration.records:DraftAdminListView"
-invenio_app_rdm_audit_logs = "invenio_app_rdm.administration.audit_logs:AuditLogListView"
+#invenio_users_resources_users_list = "invenio_app_rdm.administration.users:UsersListView"
+#invenio_users_resources_users_details = "invenio_app_rdm.administration.users:UsersDetailView"
+#invenio_users_resources_domains_list = "invenio_app_rdm.administration.domains:DomainsListView"
+#invenio_users_resources_domains_edit = "invenio_app_rdm.administration.domains:DomainsEditView"
+#invenio_users_resources_domains_detail = "invenio_app_rdm.administration.domains:DomainsDetailView"
+#invenio_users_resources_domains_create = "invenio_app_rdm.administration.domains:DomainsCreateView"
+#invenio_requests_user_moderation_list = "invenio_app_rdm.administration.user_moderation:UserModerationListView"
+#invenio_requests_user_moderation_detail = "invenio_app_rdm.administration.user_moderation:UserModerationRequestDetailView"
+#invenio_requests_moderation_requests_list = "invenio_app_rdm.administration.moderation.requests:ModerationRequestListView"
+#invenio_requests_moderation_requests_details = "invenio_app_rdm.administration.moderation.requests:ModerationRequestDetailView"
+#invenio_app_rdm_records_list = "invenio_app_rdm.administration.records:RecordAdminListView"
+#invenio_app_rdm_drafts_list = "invenio_app_rdm.administration.records:DraftAdminListView"
+#invenio_app_rdm_audit_logs = "invenio_app_rdm.administration.audit_logs:AuditLogListView"
 
 [project.entry-points."invenio_base.api_apps"]
 riv_extension = "riv.ext:RIVResolverExtension"
@@ -85,6 +76,7 @@ manage_record_action = "datasets.permissions:manage_record_action"
 [tool.uv.build-backend]
 module-root = ""
 module-name = ["common", "i18n", "ui", "datasets"]
+
 
 [build-system]
 requires = ["uv_build>=0.8.7,<0.9.0"]

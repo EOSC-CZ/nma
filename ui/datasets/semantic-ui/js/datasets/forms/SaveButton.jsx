@@ -1,18 +1,39 @@
-import { SaveButtonComponent } from "@js/oarepo_ui/forms/components/SaveButton/SaveButton";
+import React from "react";
+import { Button } from "semantic-ui-react";
+import { useDispatch, useSelector } from "react-redux";
+import { useFormikContext } from "formik";
+import { i18next } from "@translations/invenio_rdm_records/i18next";
+import { DRAFT_SAVE_STARTED } from "@js/invenio_rdm_records/src/deposit/state/types";
 import { save } from "./actions";
-import { connect } from "react-redux";
 
-const mapDispatchToProps = (dispatch) => ({
-  saveAction: (values, params) => dispatch(save(values, params)),
-});
+export const SaveButton = (props) => {
+  const dispatch = useDispatch();
+  const actionState = useSelector((state) => state.deposit.actionState);
+  const { values, isSubmitting, setSubmitting } = useFormikContext();
 
-const mapStateToProps = (state) => ({
-  actionState: state.deposit.actionState,
-});
+  const handleSave = async () => {
+    setSubmitting(true);
+    try {
+      await dispatch(save(values));
+    } catch {
+      // errors land in state.deposit.errors; BaseFormLayout bridges them into Formik
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
-export const SaveButton = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SaveButtonComponent);
+  return (
+    <Button
+      name="save"
+      disabled={isSubmitting}
+      onClick={handleSave}
+      icon="save"
+      loading={isSubmitting && actionState === DRAFT_SAVE_STARTED}
+      labelPosition="left"
+      content={i18next.t("Save draft")}
+      {...props}
+    />
+  );
+};
 
 export default SaveButton;
