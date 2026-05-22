@@ -34,7 +34,7 @@
 </div>
 <div class="row pt-0 rel-mb-10">
    <div class="sixteen wide mobile eight wide computer column centered rel-mt-2">
-     <p><i class="ui large green icons mr-10"><i class="ui circle notched green icon"></i><i class="ui mini info green icon pr-5"></i></i>{% trans browse_url=url_for('datasets_ui.search') %}Search for datasets by keywords or persistent identifiers. You can also <a href="{{ browse_url }}">browse all records</a>.{% endtrans %}</p>
+     <p><i class="ui large green icons mr-10"><i class="ui circle notched green icon"></i><i class="ui mini info green icon pr-5"></i></i>{% trans browse_url=url_for('datasets_ui.search') %}Search for datasets by keywords or persistent identifiers. You can also <a href="{{ browse_url }}">browse all records</a>.{% endtrans %} {% trans semantic_url='https://discovery.eosc.cz/' %}We also invite you to try our new <a href="{{ semantic_url }}" target="_blank" rel="noopener noreferrer">experimental discovery portal</a>, which combines semantic suggestions, keyword exact‑matching and other intelligent techniques to surface more relevant results to your queries.{% endtrans %}</p>
      <button type="button" class="ui big primary import button rel-mt-1 rel-mb-7" data-testid="frontpage-import-record-button" id="frontpage-register-button" data-register-url="{{ url_for('datasets_ui.deposit_create') }}">
         <i class="ui linkify icon"></i>
         {{ _("Obtain the link for RIV") }}
