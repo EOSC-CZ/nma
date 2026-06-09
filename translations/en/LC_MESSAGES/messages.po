@@ -524,11 +524,11 @@ msgstr ""
 
 #: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:36
 msgid "Publisher"
-msgstr "published"
+msgstr ""
 
 #: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:37
 msgid "Published in"
-msgstr "published"
+msgstr ""
 
 #: /Users/dusanstojanovic/Projects/nma/templates/oarepo/invenio_app_rdm/records/details/side_bar/details.html:38
 msgid "Imprint"
