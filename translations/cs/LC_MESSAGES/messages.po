@@ -457,11 +457,10 @@ msgid ""
 "and other intelligent techniques to surface more relevant results to your"
 " queries."
 msgstr ""
-"Zveme vás také, abyste vyzkoušeli náš nový <a href=\"%(semantic_url)s\" "
-"target=\"_blank\" rel=\"noopener noreferrer\">experimentální objevovací "
-"portál</a>, který kombinuje sémantické návrhy, přesnou shodu klíčových "
-"slov a další inteligentní techniky, aby vám přinesl relevantnější "
-"výsledky vašich dotazů."
+"Vyzkoušejte také náš nový <a href=\"%(semantic_url)s\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">experimentální portál</a> pro objevování "
+"záznamů na základě sémantického vyhledávání, přesné shody klíčových slov"
+" a dalších pokročilých technik na vaše dotazy."
 
 #: /Users/dusanstojanovic/Projects/nma/templates/header_frontpage.html:40
 #: /Users/dusanstojanovic/Projects/nma/ui/datasets/__init__.py:341
