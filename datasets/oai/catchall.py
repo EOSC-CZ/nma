@@ -34,7 +34,7 @@ class CatchAllReader(BaseReader):
 
     def __init__(self, origin=None, mode="r", identifiers=None, *args, **kwargs):
         super().__init__(
-            origin=origin or "https://datarepo.eosc.cz/datasets/all/",
+            origin=origin or "https://data.narodni-repozitar.cz/datasets/all/",
             mode=mode,
             *args,
             **kwargs,

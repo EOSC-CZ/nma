@@ -1,5 +1,6 @@
 """DataCite v4.3 JSON to OpenAIRE XML transformations."""
 
+from lxml import etree
 from lxml.builder import E
 
 from datacite.xmlutils import (
@@ -18,10 +19,20 @@ ns = base_schema43.ns
 root_attribs = base_schema43.root_attribs
 validator = base_schema43.validator
 
+OAI_DATACITE_NS = "http://schema.datacite.org/oai/oai-1.1/"
+OAI_DATACITE_SCHEMA_VERSION = "4.3"
+OAI_DATACITE_DATACENTRE_SYMBOL = "NMD"
+
 
 def dump_etree(data):
     """Convert JSON dictionary to DataCite v4.3 XML as ElementTree."""
-    return dump_etree_helper(data, rules, ns, root_attribs)
+    resource = dump_etree_helper(data, rules, ns, root_attribs)
+    root = etree.Element(f"{{{OAI_DATACITE_NS}}}oai_datacite", nsmap={None: OAI_DATACITE_NS})
+    etree.SubElement(root, f"{{{OAI_DATACITE_NS}}}schemaVersion").text = OAI_DATACITE_SCHEMA_VERSION
+    etree.SubElement(root, f"{{{OAI_DATACITE_NS}}}datacentreSymbol").text = OAI_DATACITE_DATACENTRE_SYMBOL
+    payload = etree.SubElement(root, f"{{{OAI_DATACITE_NS}}}payload")
+    payload.append(resource)
+    return root
 
 
 def tostring(data, **kwargs):
