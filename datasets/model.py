@@ -212,8 +212,8 @@ datasets_model = model(
             serializer=OpenAIREXMLSerializer(),
             about_serializer=aire_about_etree,
             oai_metadata_prefix="oai_datacite",
-            oai_schema="http://schema.datacite.org/meta/kernel-4.5/metadata.xsd",
-            oai_namespace="http://datacite.org/schema/kernel-4",
+            oai_schema="http://schema.datacite.org/oai/oai-1.1/oai.xsd",
+            oai_namespace="http://schema.datacite.org/oai/oai-1.1/",
         ),
         # datacite xml import
         AddMetadataImport(
