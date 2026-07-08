@@ -1,0 +1,7 @@
+# Changes here will be overwritten by Copier
+_commit: 6abc908
+_src_path: https://github.com/oarepo/nrp-app-copier
+languages: cs
+repository_description: National Metadata Directory
+repository_human_name: NMA
+use_ccmm: true
