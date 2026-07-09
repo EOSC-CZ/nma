@@ -10,7 +10,7 @@ Template inheritance chain:
    {%- block footer_top %}  # Main footer content container
      {%- block footer_top_left %}  # Left side of footer - About, Get involved, Community sections
      {%- endblock footer_top_left %}
-     
+
      {%- block footer_top_right %}  # Right side of footer
      {%- endblock footer_top_right %}
    {%- endblock footer_top %}
@@ -18,11 +18,76 @@ Template inheritance chain:
 You can override any of these blocks to customize the footer.
 #}
 
+{% set logo_locale = current_i18n.language %}
 
-{%- block footer_top_left %}
-<p class="margin-small">
-  <span class="ui small inverted header">{{_("Contact")}}:&nbsp;</span>
-  <i class="envelope icon"></i>
-  <a href="mailto:support@repo.com">support@repo.com</a>
-</p>
-{%- endblock footer_top_left -%}
+{% if logo_locale not in ['cs', 'en'] %}
+
+  {% set logo_locale = 'en' %}
+
+{% endif %}
+
+{%- block footer_top %}
+
+<div class="ui container footer-top ">
+  <div class="ui stackable divided equal height relaxed grid rel-pt-2 rel-pr-2 rel-pl-2 app-rdm-footer">
+    <div class="sixteen wide mobile ten wide tablet five wide computer column ">
+      <h5 class="ui inverted header">
+        <img class="hero-icon tablet computer only" src="{{ url_for('static', filename='images/frontpage-icon.png') }}" alt="frontpage repository icon" />
+
+        {{ _("NMD") }}
+
+      </h5>
+      <p class="ui description">
+        <em>
+
+        {% trans link="https://www.eosc.cz/en/about-eosc-cz/" %}
+
+        A part of the <a href="{{link}}">EOSC-CZ</a> project (CZ.02.01.01/00/22_004/0007682).
+
+        {% endtrans %}
+
+      </em>
+
+      {% if not hide_footer_mandatory_publicity %}
+
+        <div class="rel-pt-1 rel-pr-1">
+          <a href="https://msmt.gov.cz">
+            <img class="collaborators-logo" src="{{ url_for('static', filename='images/eu_msmt_' ~ logo_locale ~ '.png') }}"
+                  title="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}"
+                  alt="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}">
+          </a>
+        </div>
+        <div class="rel-p-1">
+          <a href="https://www.eosc.cz/en">
+            <img class="collaborators-logo" src="{{ url_for('static', filename='images/eosc-logo-barevne_CZ_ENG 1.png') }}"
+                  title="{{ _('EOSC-CZ project') }}"
+                  alt="{{ _('EOSC-CZ project') }}">
+          </a>
+        </div>
+
+      {% endif %}
+
+      </p>
+    </div>
+    <div class="five wide column">
+      <h5 class="ui inverted header">{{ _("Resources") }}</h5>
+      <div class="ui inverted link list">
+        <a href="https://docs.nrp.eosc.cz/en/docs/end_users/national-metadata-directory/national-metadata-directory-introduction" target="_blank" class="item">{{ _('User Manual') }}</a>
+        <a href="https://github.com/EOSC-CZ/nma" target="_blank" class="item">{{ _('Source Code') }}</a>
+        <a href="https://www.eosc.cz/en/about-eosc-cz/" target="_blank" class="item">{{ _('EOSC-CZ project') }}</a>
+        <a href="https://www.eosc.cz/en/about-eosc-cz/faq#NMD" target="_blank" class="item">{{ _('FAQs') }}</a>
+        <a href="https://www.cesnet.cz/sdruzeni/dokumenty/oou/" target="_blank" class="item">{{ _('Personal data processing information') }}</a>
+      </div>
+    </div>
+    <div class="sixteen wide mobile six wide computer column">
+      <h5 class="ui inverted header">
+
+        {{ _("Contact") }}
+
+      </h5>
+      <p><a href="mailto:{{ config.REPOSITORY_SUPPORT_CONTACT}}">{{ _('User support') }}</a></p>
+    </div>
+  </div>
+</div>
+
+{%- endblock footer_top %}

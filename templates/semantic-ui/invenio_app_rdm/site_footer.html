@@ -9,12 +9,9 @@
 
 <div class="footer-bottom sub-footer text small">
   <div class="ui center aligned basic segment">
-    {% set deployment_version = config.get('DEPLOYMENT_VERSION') %}
-    {% if deployment_version %}
-    <small class="p-0 m-0">{{ _("Version") }}: {{ deployment_version }}</small>
-    {% endif %}
+    <small class="p-0 m-0">© {{ now.year }} {{ _("CESNET a.l.e.") }} <strong>·</strong> {{ _("National Metadata Directory (NMD) CZ") }} <strong>·</strong> {{ _("Version") }}: {{ config.DEPLOYMENT_VERSION }}</small>
     <p class="rel-mt-1">{{ _("Powered by") }}
-    <a target="_blank" href="https://inveniosoftware.org/products/rdm">{{ _("InvenioRDM") }}</a> | <a target="_blank" rel="noopener noreferrer" href="https://inveniosoftware.org">inveniosoftware.org</a>
+    <a target="_blank" href="http://inveniosoftware.org/products/rdm">{{ _("InvenioRDM") }}</a> | <a target="_blank" href="http://inveniosoftware.org">inveniosoftware.org</a>
     </p>
   </div>
 </div>

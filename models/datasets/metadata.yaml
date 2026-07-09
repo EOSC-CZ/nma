@@ -1,0 +1,23 @@
+# Definition of metadata for datasets. Please do not add ccmm model here,
+# add the ccmm_preset instead.
+Metadata:
+  type: object
+  properties:
+    publication_date:
+      help:
+        en: If the exact date is unknown, use the earliest known date.
+        cs: Pokud není známo přesné datum, uveďte nejdříve známé datum.
+    persistent_url:
+      type: keyword
+    last_checked:
+      type: datetime
+    check_status:
+      type: keyword
+      enum:
+        - success
+        - not_found
+        - error
+        - not_accessible
+        - warning
+    check_message:
+      type: fulltext

@@ -1,0 +1,16 @@
+{% set record_permalink = record_ui.links.self_persistent_html or record_ui.links.self_html %}
+
+<div class="sidebar-container">
+  <h2 class="ui medium top attached header mt-0">{{ _('Citation') }}</h2>
+  <div id="citation" class="ui segment bottom attached rdm-sidebar">
+    <dl class="details-list">
+        <dt class="ui tiny header inline">{{ _('Link for RIV') }}</dt>
+        <dd class="flex justify-space-between align-items-center">
+          <a class="inline-block" href="{{ record_permalink }}" target="_blank" rel="noopener noreferrer">{{ record_permalink }}</a>
+          <span id="copy-button-record-doi-badge" class="copy-doi-button inline-block ml-5" data-value="{{ record_permalink }}" data-size="medium"></span>
+        </dd>
+        <dt class="ui tiny header inline">{{ _('Citation') }}</dt>
+    </dl>
+    {%- include "invenio_app_rdm/records/details/citation.html" %}
+  </div>
+</div>

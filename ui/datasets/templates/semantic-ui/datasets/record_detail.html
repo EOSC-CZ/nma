@@ -1,0 +1,16 @@
+{% extends "oarepo_ui/record_detail.html" %}
+
+{%- block page_body %}
+{%- block page_banners -%}
+  {% include model_name ~ "/record_detail/banners.html" %}
+{%- endblock page_banners -%}
+
+{%- block page_main -%}
+  {% include model_name ~ "/record_detail/main.html" %}
+{%- endblock page_main -%}
+{%- endblock page_body -%}
+
+{%- block javascript -%}
+   {{ super() }}
+   {{ webpack["record_management.js"] }}
+{%- endblock javascript -%}

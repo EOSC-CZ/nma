@@ -1,5 +1,52 @@
 {% extends "oarepo_ui/base_page.html" %}
 
+{% set site_name = _(config.THEME_SITENAME) or _("Invenio") %}
+{% set page_title = title ~ " - " ~ site_name if title else site_name %}
+
+{%- block head_meta %}
+{{ super() }}
+<!-- OpenGraph -->
+<meta property="og:title" content="{{page_title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nma.eosc.cz/">
+<meta property="og:site_name" content="{{site_name}}">
+<meta property="og:locale" content="en_US">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{page_title}}">
+<meta name="twitter:description" content="{{description}}">
+{%- endblock head_meta %}
+
+{%- block head_title %}
+<title>{{page_title}}</title>
+{%- endblock head_title %}
+
+{%- block header %}
+{{ super() }}
+<link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+<link rel="shortcut icon" href="/static/favicon.ico" />
+<link rel="manifest" href="/static/site.webmanifest" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{site_name}}",
+  "url": "https://nma.eosc.cz/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://nma.eosc.cz/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "description": "{{description}}"
+}
+</script>
+
+{%- endblock header %}
+
 {# Available template blocks (showing closest override point):
 
 Head Section (from oarepo_ui/base_page.html):

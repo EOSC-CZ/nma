@@ -1,0 +1,39 @@
+{% extends "semantic-ui/invenio_accounts/login_user.html" %}
+
+{% block page_body %}
+  <div class="ui padded segments big form">
+    <div class="ui login segment top padded attached red p-0">
+      {%- block form_header %}
+        <h1 class="ui medium login header">{{ config.THEME_SITENAME }}</h1>
+      {%- endblock form_header %}
+    </div>
+
+    <div class="ui login segment">
+      <div class="ui icon header rel-mt-1">
+          <i class="key circular icon"></i>
+          <h2 class="ui small header">{{ _("Institutional Login") }}</h2>
+          <small class="text small text-muted">{{ _("Sign in using your institutional credentials via E-INFRA AAI.") }}</small>
+      </div> 
+      {%- block form_outer %}
+        {{ super() }}
+      {%- endblock form_outer %}
+      <div class="divider hidden"></div>
+      <div class="ui login-info message">
+        <i class="ui icon info"></i>
+        <small class="text content small">
+          {{ _("When you choose Sign in with E-INFRA AAI, you will be asked to select your institution from the list.
+          You will then be redirected to your institution's identity provider to authenticate using your institutional credentials.") }}
+          {% trans docs_url="https://docs.nrp.eosc.cz/en/docs/end_users/national-metadata-directory/national-metadata-directory-access" %}
+            If your institution is not listed, please refer to the <a href="{{ docs_url }}" target="_blank" rel="noopener noreferrer">documentation</a> for information about alternative login options (Google, GitHub, etc.). Signing in using your institution/employer is nevertheless preferred.
+          {% endtrans %}
+        </small>
+      </div>
+    </div>
+
+    {%- block registerable %}
+    {%- endblock registerable %}
+  </div>
+
+  {%- block recoverable %}
+  {%- endblock recoverable %}
+{% endblock page_body %}

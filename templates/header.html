@@ -1,5 +1,28 @@
 {% extends "invenio_app_rdm/header.html" %}
 
+{%- block navbar %}
+{# This is a very first element in .theme.header DOM - we need to position it before everything else #}
+{%- block twinfinity_logo %}
+<div class="twinfinity-logo mini"></div>
+{%- endblock -%}
+{{ super() }}
+{%- endblock navbar %}
+
+{%- block brand %}
+{%- set hidden_menu = current_menu.submenu("settings.oauthclient").hide() %}
+<a href="/" class="navbar-brand d-flex align-items-center" data-testid="header-site-logo">
+    <img
+      src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+      class="navbar-brand-logo rel-pr-1"
+      alt="{{ _(config.THEME_SITENAME) }}"
+      loading="lazy"
+    />
+  </a>
+{%- endblock brand %}
+
+{%- block navbar_nav %}
+{%- endblock navbar_nav %}
+
 {# Available template blocks (showing closest override point):
 
 User Status (from invenio_app_rdm/header.html):

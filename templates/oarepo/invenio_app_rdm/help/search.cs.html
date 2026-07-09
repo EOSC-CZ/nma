@@ -1,0 +1,249 @@
+{#
+  Copyright (c) 2025 CESNET z.s.p.o.
+
+ This file is a part of nma (see https://github.com/EOSC-CZ/nma).
+
+ nma is free software; you can redistribute it and/or modify it
+ under the terms of the MIT License; see LICENSE file for more details.
+#}
+{%- set title = _("Search guide") %}
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block page_body %}
+<div class="ui container mt-25">
+  <h1>Průvodce vyhledáváním</h1>
+  <p>
+    Tento průvodce vysvětluje, jak psát pokročilé vyhledávací dotazy pomocí
+    snadno pochopitelných příkladů.
+  </p>
+  <h3>Jednoduché vyhledávání (jeden nebo více termínů)</h3>
+  <p>
+    <strong>Příklad:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=otevřená%20věda"
+      ><code>otevřená věda</code></a
+    >
+  </p>
+  <p>
+    Výsledky budou odpovídat záznamům s <em>termíny</em> <code>otevřená</code>
+    <em>nebo</em> <code>věda</code> v <em>jakémkoli poli</em>. Pozor, použije se
+    stemming, takže např. <code>věda</code> bude odpovídat i
+    <code>vědy</code>. Výsledky vyhledávání jsou řazeny podle algoritmu,
+    který bere v úvahu vaše vyhledávací termíny.
+  </p>
+  <p>
+    Můžete vyžadovat <em>přítomnost</em> obou termínů použitím operátoru
+    <code>+</code> nebo <code>AND</code>:
+  </p>
+  <p>
+    <strong>Příklady:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=%2Botevřená%20%2Bvěda"
+      ><code>+otevřená +věda</code></a
+    >
+    nebo
+    <a href="/search?page=1&amp;size=20&amp;q=otevřená%20AND%20věda"
+      ><code>otevřená AND věda</code></a
+    >
+  </p>
+  <p>
+    Můžete vyžadovat <em>nepřítomnost</em> jednoho nebo více termínů použitím operátoru
+    <code>-</code> nebo <code>NOT</code>:
+  </p>
+  <p>
+    <strong>Příklady:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=-otevřená%20%2Bvěda"
+      ><code>-otevřená +věda</code></a
+    >
+    nebo
+    <a href="/search?page=1&amp;size=20&amp;q=NOT%20otevřená%20AND%20věda"
+      ><code>NOT otevřená AND věda</code></a
+    >
+  </p>
+  <h3>Vyhledávání fráze</h3>
+  <p>
+    <strong>Příklad:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=%22otevřená%20věda%22"
+      ><code>"otevřená věda"</code></a
+    >
+  </p>
+  <p>
+    Výsledky budou odpovídat záznamům s <em>frází</em>
+    <code>otevřená věda</code> v <em>jakémkoli poli</em>.
+  </p>
+  <h3>Vyhledávání podle pole</h3>
+  <p>
+    <strong>Příklad:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=metadata.title:otevřená"
+      ><code>metadata.title:otevřená</code></a
+    >
+  </p>
+  <p>
+    Výsledky budou odpovídat záznamům s <em>termínem</em> <code>otevřená</code> v
+    <em>poli</em> <code>metadata.title</code>. Pokud chcete vyhledat více termínů
+    v názvu, musíte <strong>seskupit termíny</strong> pomocí závorek:
+  </p>
+  <p>
+    <strong>Příklad:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=metadata.title:(otevřená%20věda)"
+      ><code>metadata.title:(otevřená věda)</code></a
+    >
+  </p>
+  <h3>Kombinované jednoduché vyhledávání, fráze nebo vyhledávání podle pole</h3>
+  <p>
+    <strong>Příklad:</strong>
+    <a
+      href="/search?page=1&amp;size=20&amp;q=%2Bmetadata.title:%22otevřená%20věda%22%20-metadata.title:politika"
+      ><code>+metadata.title:"otevřená věda" -metadata.title:politika</code></a
+    >
+    nebo např.
+    <a href="/search?page=1&amp;size=20&amp;q=metadata.title:(-otevřená%20%2Bvěda)"
+      ><code>metadata.title:(-otevřená +věda)</code></a
+    >
+  </p>
+  <p>
+    Můžete kombinovat jednoduché vyhledávání, fráze a vyhledávání podle pole
+    pro vytvoření pokročilých vyhledávacích dotazů.
+  </p>
+  <h3>Vyhledávání rozsahu</h3>
+  <p>
+    <strong>Příklad:</strong>
+    <a
+      href="/search?page=1&amp;size=20&amp;q=metadata.publication_date:%5B2017%20TO%202018%5D"
+      ><code>metadata.publication_date:[2017 TO 2018]</code></a
+    >
+    (pozor, musíte psát <code>TO</code> velkými písmeny).
+  </p>
+  <p>
+    Výsledky budou odpovídat jakémukoli záznamu s datem publikace mezi 2017-01-01 a
+    2018-01-01 (obě data včetně).
+  </p>
+  <p>Pozor, částečná data jsou rozšířena na úplná data, např.:</p>
+  <ul>
+    <li>2017 je rozšířeno na 2017-01-01</li>
+    <li>2017-06 je rozšířeno na 2017-06-01</li>
+  </ul>
+  <p>
+    Použijte hranaté závorky (<code>[]</code>) pro <em>inkluzivní</em> rozsahy a použijte
+    složené závorky (<code>{}</code>) pro <em>exkluzivní</em> rozsahy, např.:
+  </p>
+  <ul>
+    <li>
+      <code>[2017 TO 2018}</code> je ekvivalentní s
+      <code>[2017-01-01 TO 2017-12-31]</code> kvůli rozšíření data a
+      exkluzivní horní hranici.
+    </li>
+  </ul>
+  <p>Příklady dalších rozsahů:</p>
+  <ul>
+    <li>
+      <code>metadata.publication_date:{* TO 2017-01-01}</code>: Všechny dny do roku 2017.
+    </li>
+    <li>
+      <code>metadata.publication_date:[2017-01-01 TO *]</code>: Všechny dny od roku 2017.
+    </li>
+  </ul>
+  <h3>Řazení</h3>
+  <p>
+    Ve výchozím nastavení jsou všechna vyhledávání seřazena podle interního algoritmu
+    řazení, který hodnotí každou shodu s vaším dotazem. V uživatelském
+    rozhraní i REST API je možné výsledky seřadit podle:
+  </p>
+  <ul>
+    <li>Nejnovější</li>
+    <li>Nejlepší shoda</li>
+    <li>Nejstarší</li>
+  </ul>
+  <h3>Regulární výrazy</h3>
+  <p>
+    Regulární výrazy jsou mocný nástroj pro hledání vzorů, který umožňuje
+    vyhledávat konkrétní vzory v poli. Pokud bychom například chtěli najít
+    všechny záznamy s DOI-prefixem 10.5281, mohli bychom použít vyhledávání pomocí regulárního výrazu:
+  </p>
+  <p>
+    <strong>Příklad:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=metadata.subjects.identifier:%2F03yrm5c2%5B1%2C6%5D%2F"
+      ><code>metadata.subjects.identifier:/03yrm5c2[1,6]/</code></a
+    >
+  </p>
+  <p>
+    Pozor, regulární výraz musí odpovídat <em>celé</em> hodnotě pole.
+    Viz
+    <a
+      href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax"
+      >syntaxe regulárních výrazů</a
+    >
+    pro další podrobnosti.
+  </p>
+  <h3>Chybějící hodnoty</h3>
+  <p>
+    Je možné vyhledávat záznamy, které buď nemají hodnotu, nebo mají
+    hodnotu v konkrétním poli pomocí jmen polí <code>_exists_</code> a
+    <code>NOT _exists_</code>.
+  </p>
+  <p>
+    <strong>Příklad:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=_exists_:metadata.creators"
+      ><code>_exists_:metadata.creators</code></a
+    >
+    (všechny záznamy s metadata.creators)
+  </p>
+  <h3>Pokročilé koncepty</h3>
+  <h4>Zvýšení relevance</h4>
+  <p>
+    Můžete použít operátor zvýšení relevance <code>^</code>, když je jeden termín relevantnější
+    než jiný. Například můžete vyhledat všechny záznamy s frází
+    <em>otevřená věda</em> buď v poli <em>název</em> nebo
+    <em>popis</em>, ale záznamy s frází v poli
+    <em>název</em> budou mít vyšší pořadí:
+  </p>
+  <p>
+    <strong>Příklad:</strong>
+    <a
+      href="/search?page=1&amp;size=20&amp;q=metadata.title:%22otevřená%20věda%22%5E5%20metadata.description:%22otevřená%20věda%22"
+      ><code>metadata.title:"otevřená věda"^5 metadata.description:"otevřená věda"</code></a
+    >
+  </p>
+  <h4>Přibližnost</h4>
+  <p>
+    Můžete vyhledávat termíny podobné, ale ne přesně stejné jako váš vyhledávací termín
+    pomocí operátoru přibližnosti <code>~</code>.
+  </p>
+  <p>
+    <strong>Příklad:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=otveřná~"><code>otveřná~</code></a>
+  </p>
+  <p>
+    Výsledky budou odpovídat záznamům s termíny podobnými <code>otveřná</code>, což
+    by např. odpovídalo i <code>otevřená</code>.
+  </p>
+  <h4>Vyhledávání v blízkosti</h4>
+  <p>
+    Vyhledávání fráze jako <code>"otevřená věda"</code> ve výchozím nastavení očekává všechny termíny
+    přesně ve stejném pořadí, a proto by například neodpovídalo záznamu
+    obsahujícímu frázi <em>"otevřený přístup a věda"</em>. Vyhledávání v blízkosti
+    umožňuje, aby termíny nebyly v přesném pořadí a mezi nimi mohly být jiné termíny.
+    Stupeň flexibility je specifikován celým číslem:
+  </p>
+  <p>
+    <strong>Příklad:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=%22otevřená%20věda%22~5"
+      ><code>"otevřená věda"~5</code></a
+    >
+  </p>
+  <h4>Zástupné znaky</h4>
+  <p>
+    Můžete použít zástupné znaky ve vyhledávacích termínech k nahrazení jednoho znaku (použitím
+    operátoru <code>?</code>) nebo nuly či více znaků (použitím
+    operátoru <code>*</code>).
+  </p>
+  <p>
+    <strong>Příklad:</strong>
+    <a href="/search?page=1&amp;size=20&amp;q=otev%3F%20věd*"
+      ><code>otev? věd*</code></a
+    >
+  </p>
+  <p>
+    Vyhledávání se zástupnými znaky může být pomalé a mělo by být normálně
+    vyhýbáno, pokud je to možné.
+  </p>
+</div>
+{%- endblock page_body%}

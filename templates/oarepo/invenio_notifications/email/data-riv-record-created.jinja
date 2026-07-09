@@ -1,0 +1,108 @@
+{% set record_title = notification.context.record_data.metadata.title %}
+{% set edit_link = notification.context.edit_link %}
+
+
+{%- block subject -%}
+    NMA: Přístup k úpravě záznamu / Edit access granted – {{ record_title | e }}
+{%- endblock subject -%}
+
+{# ------------------------------------------------------- #}
+{# ---------------------- HTML BODY ----------------------- #}
+{# ------------------------------------------------------- #}
+{%- block html_body -%}
+
+<p><em>For English, see below:</em></p>
+
+<p>Vážený uživateli Národního metadatového adresáře,</p>
+
+<p>přidělili jsme Vám práva na úpravu záznamu <strong>{{ record_title | e }}</strong> v Národním metadatovém adresáři (NMA).</p>
+
+<p>Úpravy budou možné <strong>po dobu sedmi dnů</strong> na následujícím odkazu:</p>
+<p><a href="{{ edit_link }}">{{ edit_link }}</a></p>
+
+<p>Pro editaci musíte být přihlášeni stejnou identitou, kterou jste záznam vytvořili.</p>
+
+<p>Váš Národní metadatový adresář</p>
+
+<hr>
+
+<p>Dear National Metadata Directory user,</p>
+
+<p>We have granted you rights to edit the record <strong>{{ record_title | e }}</strong> in the National Metadata Directory (NMD).</p>
+
+<p>Edits will be possible for a period of <strong>seven days</strong> at the following link:</p>
+
+<p><a href="{{ edit_link }}">{{ edit_link }}</a></p>
+
+<p>To edit the record, you need to be logged in using the identity that created the record.</p>
+
+<p>Your National Metadata Directory</p>
+
+{%- endblock html_body -%}
+
+{# ------------------------------------------------------- #}
+{# --------------------- PLAIN BODY ----------------------- #}
+{# ------------------------------------------------------- #}
+{%- block plain_body -%}
+
+** For English, see below **
+
+Vážený uživateli Národního metadatového adresáře,
+
+přidělili jsme Vám práva na úpravu záznamu "{{ record_title | e }}" v Národním metadatovém adresáři (NMA).
+
+Úpravy budou možné po dobu sedmi dnů na následujícím odkazu:
+{{ edit_link }}
+
+Pro editaci musíte být přihlášeni stejnou identitou, kterou jste záznam vytvořili.
+
+Váš Národní metadatový adresář
+
+========= ENGLISH =========
+
+Dear National Metadata Directory user,
+
+We have granted you rights to edit the record "{{ record_title | e }}" in the National Metadata Directory (NMD).
+
+Edits will be possible for a period of seven days at the following link:
+{{ edit_link }}
+
+To edit the record, you need to be logged in using the identity that created the record.
+
+Your National Metadata Directory
+
+{%- endblock plain_body -%}
+
+
+{# ------------------------------------------------------- #}
+{# ---------------------- MD BODY ------------------------- #}
+{# ------------------------------------------------------- #}
+{%- block md_body -%}
+** For English, see below **
+
+Vážený uživateli Národního metadatového adresáře,
+
+přidělili jsme Vám práva na úpravu záznamu **{{ record_title | e }}** v Národním metadatovém adresáři (NMA).
+
+Úpravy budou možné po dobu  **sedmi dnů** na následujícím odkazu:
+
+{{ edit_link }}
+
+Pro editaci musíte být přihlášeni stejnou identitou, kterou jste záznam vytvořili.
+
+Váš Národní metadatový adresář
+
+---
+
+Dear National Metadata Directory user,
+
+We have granted you rights to edit the record **{{ record_title | e }}** in the National Metadata Directory (NMD).
+
+Edits will be possible for a period of **seven days** at the following link:
+
+{{ edit_link }}
+
+To edit the record, you need to be logged in using the identity that created the record.
+
+Your National Metadata Directory
+{%- endblock md_body -%}

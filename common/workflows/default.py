@@ -23,7 +23,6 @@
 
 from datetime import timedelta
 
-from invenio_i18n import lazy_gettext as _
 from invenio_rdm_records.services.generators import IfRecordDeleted, IfRestricted
 from invenio_records_permissions.generators import (
     AnyUser,

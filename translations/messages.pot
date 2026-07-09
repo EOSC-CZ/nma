@@ -1,0 +1,77 @@
+# Translations template for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-07-08 14:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: /Users/alzbetapokorna/cesnet/2026/new_nma/nma/common/workflows/default.py:360
+msgid "state:draft"
+msgstr ""
+
+#: /Users/alzbetapokorna/cesnet/2026/new_nma/nma/common/workflows/default.py:361
+msgid "state:published"
+msgstr ""
+
+#: /Users/alzbetapokorna/cesnet/2026/new_nma/nma/common/workflows/default.py:362
+msgid "state:submitted"
+msgstr ""
+
+#: /Users/alzbetapokorna/cesnet/2026/new_nma/nma/common/workflows/default.py:363
+msgid "state:retracting"
+msgstr ""
+
+#: /Users/alzbetapokorna/cesnet/2026/new_nma/nma/common/workflows/default.py:364
+msgid "state:deleted"
+msgstr ""
+
+#: /Users/alzbetapokorna/cesnet/2026/new_nma/nma/ui/datasets/__init__.py:54
+msgid "New Datasets"
+msgstr ""
+
+#: /Users/alzbetapokorna/cesnet/2026/new_nma/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:62
+msgid "Record title"
+msgstr ""
+
+#: /Users/alzbetapokorna/cesnet/2026/new_nma/nma/models/datasets/model.py:40
+msgid "Datacite export"
+msgstr ""
+
+msgid "No creation date found."
+msgstr ""
+
+msgid "No description"
+msgstr ""
+
+msgid "No publication date found."
+msgstr ""
+
+msgid "No resource type"
+msgstr ""
+
+msgid "No title"
+msgstr ""
+
+msgid "Uploaded on "
+msgstr ""
+
+msgid "Published in:"
+msgstr ""
+
+msgid " more versions exist for this record"
+msgid_plural " more versions exist for this record"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""

@@ -1,0 +1,10 @@
+{% set record_permalink = record_ui.links.self_persistent_html or record_ui.links.self_html %}
+
+<h3 class="ui inverted header permanent-link-header">
+    <div class="content rel-p-1">
+        <i class="ui icon linkify mr-10"></i><span class="permanent-link" data-testid="record-detail-title-permanent-link"><span class="middle-ellipsis mr-5">{{ record_permalink | trim }}</span><ClipboardCopyButton className="large" copyText={{record_permalink}} />
+    </div>
+    <p class="detail text small ml-0">
+        <small>{{ _("Use this link when reporting the dataset in RIV.") }}</small>
+    </p>
+</h3>

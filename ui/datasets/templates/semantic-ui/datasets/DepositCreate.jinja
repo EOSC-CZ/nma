@@ -1,0 +1,78 @@
+{#def form #}
+
+{% extends "page.html" %}
+
+{%- block page_body %}
+<div class="ui inverted vertical center aligned container rel-mt-5 rel-mb-5">
+  <div class="ui stackable responsive grid centered container">
+    <h1 class="ui header row rel-mb-1">
+      <div class="content">
+        {{ _('Obtain the link for RIV') }}
+        <p class="sub header rel-mt-1">{{ _("To report a dataset (type T result) in RIV, you must provide a link to the National Metadata Directory (NMD), which records its core metadata. On this page, you can verify whether the NMD has the dataset registered or register it into the NMD if needed.") }}</p>
+      </div>
+    </h1>
+    <div class="row">
+        <div class="sixteen wide mobile ten wide computer column">
+            <div class="ui centered fluid pink bg-primary card rel-pl-3 rel-pr-3 rel-pt-2 rel-pb-2 rel-mb-2">
+                <form id="register-dataset-form" class="ui form" novalidate method="POST" action="{{ url_for('datasets_ui.deposit_create') }}" data-testid="deposit-create-register-doi-form">
+                    {{ form.hidden_tag() }}
+                    <div class="field{% if form.pid.errors %} error{% endif %} required">
+                            {{ form.pid.label(class="tiny") }}
+                        <div class="ui huge input">
+                            {{ form.pid(placeholder=_("https://doi.org/… or https://hdl.handle.net/…")) }}
+                        </div>
+                        
+                    {% if form.pid.errors %}
+                        <div class="ui pointing red basic label">
+                        {% for error in form.pid.errors %}
+                            {{ error }}
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                    </div>
+                    <p class="text-tiny">
+                        {{ _("The dataset must have a persistent identifier. If the dataset has multiple identifiers (e.g., both a DOI and a Handle), we recommend providing the DOI.") }}
+                    </p>
+                    <button class="ui huge primary button rel-mt-1" type="submit" data-testid="deposit-create-register-doi-submit">
+                        <i class="linkify icon"></i>
+                        {{ _('Obtain the link for RIV') }}
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="sixteen wide mobile six wide computer column">
+            <div class="ui message info mt-0">
+                <div class="header">
+                    <i class="question circle icon"></i>
+                    {{ _('What happens next?') }}
+                </div>
+                <ul class="list">
+                    <li>{{ _('If the dataset is already in the NMD, we issue the RIV link immediately. No further action is needed.') }}</li>
+                    <li>{{ _('If the dataset is not in the NMD, we attempt to automatically retrieve and download its metadata.') }}</li>
+                    <li>{{ _('If this result is a complete, valid record in the NMD, you will receive the RIV link.') }}</li>
+                    <li class="rel-mb-1">{{ _('If key fields are missing, we will request additional information from you. You’ll also receive an email with a link to amend the record if corrections are needed. ⚠️ This link expires after 7 days.') }}</li>
+                    <li>{% trans %}Need assistance? Contact: <a href="mailto:info@eosc.cz">info@eosc.cz</a>.{% endtrans %}</li>
+                    <li>{{ _('If you had to create or correct the record manually, ask your repository administrator to have the repository harvested into the NMD.') }}</li>
+                </ul>
+            </div>
+            <div class="ui message mt-0">
+                <div class="header rel-mb-1">
+                    <i class="barcode icon"></i>
+                    {{ _('Using a different persistent identifier?') }}
+                </div>
+                <p>
+                    {% trans %}NMD can discover metadata primarily for datasets identified by <a href="https://www.doi.org/the-identifier/what-is-a-doi/" target="_blank">DOI</a> or <a href="https://www.handle.net" target="_blank">Handle</a> identifiers.{% endtrans %}
+                </p>
+                <p>
+                    {{ _('If your datasets use a different type of identifier, please contact us at') }} <a href="mailto:{{ config.REPOSITORY_SUPPORT_CONTACT }}">{{ config.REPOSITORY_SUPPORT_CONTACT }}</a> {{ _("(metadata can also be entered manually if needed).") }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{%- endblock page_body %}
+
+{% block javascript %}
+{{ super() }}
+{{ webpack["datasets_register_form.js"] }}
+{% endblock javascript %}
