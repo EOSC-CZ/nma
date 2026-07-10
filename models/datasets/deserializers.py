@@ -22,7 +22,7 @@ class DataCiteJSONDeserializer(JSONDeserializer):
         return self._deserialize_json(as_json_object)
 
     def _deserialize_json(self, data: dict) -> dict:
-        from riv.resolvers import DataciteResolver
+        from oarepo_related_resources.resolvers import DataciteResolver
 
         resolver = DataciteResolver()
         metadata, problems = resolver.resolve_metadata(data)

@@ -9,9 +9,9 @@
 """RIV resolver config."""
 
 PERSISTENT_IDENTIFIER_RESOLVERS = [
-    "riv.resolvers.DataciteResolver",
-    "riv.resolvers.CrossrefResolver",
-    "riv.resolvers.HandleResolver",
+    "riv.resolvers.NMADataciteResolver",
+    "riv.resolvers.NMACrossrefResolver",
+    "riv.resolvers.NMAHandleResolver",
 ]
 
 PERSISTENT_IDENTIFIER_PATTERNS = {

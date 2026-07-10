@@ -199,6 +199,8 @@ datasets_model = model(
         from_yaml("metadata.yaml", __file__), from_yaml("record.yaml", __file__)
     ],
     metadata_type="Metadata",
+    record_type="Record",
+
     customizations=[
         # Add your customizations here, such as custom exports and class mixins. 
         # The list of available extensions is at https://github.com/oarepo/oarepo-model.

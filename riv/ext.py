@@ -14,9 +14,9 @@ from typing import TYPE_CHECKING, List
 
 from flask import Flask
 from invenio_base.utils import obj_or_import_string
+from oarepo_related_resources.resolvers.base import MetadataResolver
 
 from . import config
-from .resolvers.base import MetadataResolver
 from .resolvers.registry import ResolverRegistry
 
 if TYPE_CHECKING:  # pragma: no cover

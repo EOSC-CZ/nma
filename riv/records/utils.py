@@ -9,7 +9,7 @@ from invenio_notifications.models import Notification, Recipient
 from invenio_rdm_records.proxies import current_rdm_records_service
 
 from riv.config import EDIT_GRANT_EXPIRATION_DAYS
-from riv.resolvers.base import ResolverProblem, ResolverProblemLevel
+from oarepo_related_resources.resolvers.base import ResolverProblem, ResolverProblemLevel
 
 # moving riv/records as the only other module that isn't in riv/resolvers with ResolverProblem dependency is there
 

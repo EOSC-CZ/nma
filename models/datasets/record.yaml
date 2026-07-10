@@ -3,6 +3,8 @@
 Record:
   type: object
   properties:
+    ccmm_xml:
+      type: fulltext
     editors:
       type: array
       items:

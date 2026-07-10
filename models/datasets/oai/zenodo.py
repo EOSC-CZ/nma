@@ -7,7 +7,7 @@ from invenio_vocabularies.datastreams.datastreams import StreamEntry
 from invenio_vocabularies.datastreams.readers import BaseReader
 from invenio_vocabularies.datastreams.transformers import BaseTransformer
 
-from riv.resolvers import DataciteResolver
+from oarepo_related_resources.resolvers import DataciteResolver
 from riv.utils import create_session_with_retries
 
 

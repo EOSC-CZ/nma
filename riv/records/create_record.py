@@ -4,7 +4,7 @@ from invenio_pidstore.errors import PIDAlreadyExists
 from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.proxies import current_service_registry
 
-from riv.resolvers.base import (
+from ..resolvers.utils import (
     CREATORS_PLACEHOLDER,
     PUBLICATION_DATE_PLACEHOLDER,
     RESOURCE_TYPE_PLACEHOLDER,
@@ -13,37 +13,8 @@ from riv.resolvers.base import (
 
 from ..config import RIV_CURATORS_GROUP_ID
 from ..errors import RIVRegistrationException
-from ..resolvers.base import ResolverProblem, ResolverProblemLevel
+from oarepo_related_resources.resolvers.base import ResolverProblem, ResolverProblemLevel
 
-example_data = {
-    "metadata": {
-        "creators": [
-            {
-                "person_or_org": {
-                    "family_name": "First",
-                    "given_name": "Creator",
-                    "name": "First, Creator",
-                    "type": "personal",
-                }
-            },
-            {
-                "person_or_org": {
-                    "family_name": "Second",
-                    "given_name": "Creator",
-                    "name": "Second, Creator",
-                    "type": "personal",
-                }
-            },
-        ],
-        "publication_date": "2025-12-02",
-        "resource_type": {
-            "id": "dataset",
-        },
-        "title": "example title for riv",
-        "blah": "blah",
-    },
-    "id": "doi:10.5281/zenodo.17801700",
-}
 
 # It will always be the same data that is beeing sent to grant service
 grant_data = {
@@ -91,6 +62,7 @@ def create_record(record_data, persistent_url, problems):
         if len(creators) > 30:
             # limit to 30 creators
             metadata["creators"] = creators[:30]
+
 
         draft_record = datasets_service.create(
             identity=system_identity, data=record_data

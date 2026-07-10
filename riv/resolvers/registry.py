@@ -4,12 +4,12 @@ from urllib3.exceptions import MaxRetryError
 
 from riv.proxies import current_riv_extension
 
-from .base import (
+from oarepo_related_resources.errors import (
     PIDDoesNotExistError,
     PIDProcessingError,
-    ResolverProblem,
     UnsupportedPIDError,
 )
+from oarepo_related_resources.resolvers.base import ResolverProblem
 
 
 class ResolverRegistry:
