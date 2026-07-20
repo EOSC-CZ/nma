@@ -111,7 +111,7 @@ def create_record(record_data, persistent_url, problems):
         _ = current_rdm_records_service.access.bulk_create_grants(
             identity=system_identity, id_=draft_record["id"], data=grant_data
         )
-    except Exception:
+    except Exception as e:
         current_app.logger.exception(
             f"Error granting manage permission to curators group for record {draft_record['id']}"
         )
