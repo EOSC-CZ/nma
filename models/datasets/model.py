@@ -143,7 +143,6 @@ class OverriddenRouteResourceConfigMixin:
 
         return updated_routes
 
-#todo metadata
 COPY_TO_MAPPINGS = [
     # boost_10 - Primary identifiers (highest weight)
     ("metadata.title", 10),
@@ -166,8 +165,10 @@ COPY_TO_MAPPINGS = [
     # Funder names
     ("metadata.locations.features.place", 1),
     # Place names
-    ("metadata.references.reference", 1)
-    ]
+    ("metadata.related_resources.title", 1),
+    ("metadata.related_resources.identifiers.identifier", 1),
+
+]
 
 copy_to_mappings = [PatchIndexPropertyMapping(c[0], {"copy_to": f"boost_{c[1]}"}) for c in COPY_TO_MAPPINGS]
 analyzer_fields = {"fields": {
@@ -242,7 +243,6 @@ ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
         PrependMixin("Draft", PIDStatusCheckFieldMixin),
         PrependMixin("RecordService", UpdatableRecordServiceMixin),
         PrependMixin("RecordResourceConfig", OverriddenRouteResourceConfigMixin),
-        #todo metadata
         AddFacetGroup(
             "default",
             [
@@ -251,14 +251,6 @@ ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
                 "metadata.languages",
             ],
         ),
-        # AddFacetGroup(
-        #     "default",
-        #     [
-        #         "metadata.publisher",
-        #         "metadata.resource_type",
-        #         "metadata.languages",
-        #     ],
-        # ),
         AddToList("record_dumper_extensions", IsHarvestedDumperExt()),
         # index tweaks
         PatchIndexSettings(
@@ -291,9 +283,7 @@ ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
                 }
             }
         ),
-        # todo: fix and uncomment this
-
-        # *copy_to_mappings,
+        *copy_to_mappings,
         SetDefaultSearchFields("boost_10", "boost_5", "boost_1", "boost_10._search",
                                "boost_5._search", "boost_1._search", "boost_10._ascii_search",
                                "boost_5._ascii_search", "boost_1._ascii_search")
