@@ -220,6 +220,17 @@ datasets_model = model(
             mimetype="application/vnd.datacite.datacite+json",
             serializer=DataCiteJSONSerializer()
         ),
+        AddMetadataExport(
+        code="aire",
+      name=_("OpenAIRE"),
+      mimetype="application/vnd.datacite.datacite+xml",
+      serializer=OpenAIREXMLSerializer(),
+      about_serializer=aire_about_etree,
+      oai_metadata_prefix="oai_datacite",
+      oai_schema="http://schema.datacite.org/oai/oai-1.1/oai.xsd",
+      oai_namespace="http://schema.datacite.org/oai/oai-1.1/",
+    ),
+
         AddServiceComponent(ExternalPIDComponent),
         ReplaceBaseClass(
             "PIDProvider",

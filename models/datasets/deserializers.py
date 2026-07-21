@@ -25,7 +25,8 @@ class DataCiteJSONDeserializer(JSONDeserializer):
         from oarepo_related_resources.resolvers import DataciteResolver
 
         resolver = DataciteResolver()
-        metadata, problems = resolver.resolve_metadata(data)
+        resolver.metadata = data
+        metadata, problems = resolver.resolve_metadata()
         if problems:
             raise ValidationError(f"Errors during DataCite resolution: {problems}")
         return {
