@@ -10,7 +10,7 @@ from marshmallow import ValidationError
 
 class DataCiteJSONDeserializer(JSONDeserializer):
     """
-    Converts json data in DataCite format to RDM representation.
+    Converts json data in DataCite format to CCMM invenio representation.
     """
 
     @override
