@@ -113,12 +113,6 @@ class DataCiteXMLDeserializer(DataCiteJSONDeserializer):
         if related_identifiers := self._convert_related_identifiers(resource):
             result["relatedIdentifiers"] = related_identifiers
 
-        if sizes := self._convert_sizes(resource):
-            result["sizes"] = sizes
-
-        if formats := self._convert_formats(resource):
-            result["formats"] = formats
-
         if version := self._get_version(resource):
             result["version"] = version
 

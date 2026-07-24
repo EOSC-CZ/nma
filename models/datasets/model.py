@@ -221,15 +221,27 @@ datasets_model = model(
             serializer=DataCiteJSONSerializer()
         ),
         AddMetadataExport(
-        code="aire",
-      name=_("OpenAIRE"),
-      mimetype="application/vnd.datacite.datacite+xml",
-      serializer=OpenAIREXMLSerializer(),
-      about_serializer=aire_about_etree,
-      oai_metadata_prefix="oai_datacite",
-      oai_schema="http://schema.datacite.org/oai/oai-1.1/oai.xsd",
-      oai_namespace="http://schema.datacite.org/oai/oai-1.1/",
-    ),
+            code="aire",
+            name=_("OpenAIRE"),
+            mimetype="application/vnd.datacite.datacite+xml",
+            serializer=OpenAIREXMLSerializer(),
+            about_serializer=aire_about_etree,
+            oai_metadata_prefix="oai_datacite",
+            oai_schema="http://schema.datacite.org/oai/oai-1.1/oai.xsd",
+            oai_namespace="http://schema.datacite.org/oai/oai-1.1/",
+        ),
+        AddMetadataImport(
+            code="datacite-xml",
+            name=_("DataCite XML"),
+            description=_("Import metadata from DataCite XML format"),
+            mimetype="application/vnd.datacite.datacite+xml",
+            deserializer=DataCiteXMLDeserializer(),
+            oai_name=(
+                "http://datacite.org/schema/kernel-4e",
+                "resource",
+        ),
+        ),
+
 
         AddServiceComponent(ExternalPIDComponent),
         ReplaceBaseClass(
