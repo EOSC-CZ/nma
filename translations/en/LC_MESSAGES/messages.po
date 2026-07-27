@@ -10,12 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2026-01-27 16:45+0100\n"
 "PO-Revision-Date: 2025-12-22 11:51+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.17.0\n"
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:12
@@ -39,10 +39,10 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:23
 msgid ""
-"national metadata directory, NMD, dataset metadata, research data search,"
-" data repositories, metadata aggregator, Czech academic data, research "
-"datasets, data discovery platform, eosc-cz, eosc cz, european open "
-"science cloud"
+"national metadata directory, NMD, dataset metadata, research data search, "
+"data repositories, metadata aggregator, Czech academic data, research "
+"datasets, data discovery platform, eosc-cz, eosc cz, european open science "
+"cloud"
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/invenio.cfg:156
@@ -264,8 +264,8 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/records/create_record.py:113
 msgid ""
-"Due to an unexpected error, the data could not be loaded correctly. "
-"Please fill in the required information and save the record. "
+"Due to an unexpected error, the data could not be loaded correctly. Please "
+"fill in the required information and save the record. "
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/base.py:33
@@ -302,8 +302,7 @@ msgstr ""
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:103
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/datacite.py:239
 msgid ""
-"Unexpected error while resolving the DOI. Please fill the metadata "
-"manually."
+"Unexpected error while resolving the DOI. Please fill the metadata manually."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/riv/resolvers/crossref.py:148
@@ -370,8 +369,7 @@ msgstr ""
 msgid ""
 "\n"
 "\n"
-"        A part of the <a href=\"%(link)s\">EOSC-CZ</a> project "
-"(CZ.02.01.01/00/22_004/0007682).\n"
+"        A part of the <a href=\"%(link)s\">EOSC-CZ</a> project (CZ.02.01.01/00/22_004/0007682).\n"
 "\n"
 "        "
 msgstr ""
@@ -428,8 +426,8 @@ msgstr ""
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:37
 #, python-format
 msgid ""
-"Search for datasets by keywords or persistent identifiers. You can also "
-"<a href=\"%(browse_url)s\">browse all records</a>."
+"Search for datasets by keywords or persistent identifiers. You can also <a "
+"href=\"%(browse_url)s\">browse all records</a>."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/header_frontpage.html:40
@@ -475,21 +473,15 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:24
 msgid ""
-"When you choose Sign in with E-INFRA AAI, you will be asked to select "
-"your institution from the list.\n"
-"          You will then be redirected to your institution's identity "
-"provider to authenticate using your institutional credentials."
+"When you choose Sign in with E-INFRA AAI, you will be asked to select your institution from the list.\n"
+"          You will then be redirected to your institution's identity provider to authenticate using your institutional credentials."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/oarepo/invenio_accounts/login_user.html:26
 #, python-format
 msgid ""
 "\n"
-"            If your institution is not listed, please refer to the <a "
-"href=\"%(docs_url)s\" target=\"_blank\" rel=\"noopener "
-"noreferrer\">documentation</a> for information about alternative login "
-"options (Google, GitHub, etc.). Signing in using your "
-"institution/employer is nevertheless preferred.\n"
+"            If your institution is not listed, please refer to the <a href=\"%(docs_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">documentation</a> for information about alternative login options (Google, GitHub, etc.). Signing in using your institution/employer is nevertheless preferred.\n"
 "          "
 msgstr ""
 
@@ -586,12 +578,12 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:18
 msgid ""
-"The National Metadata Directory (NMD) is a central aggregator of metadata"
-" for scientific datasets in the Czech Republic. The NMD collects metadata"
-" from all repositories within the National Repository Platform and from "
-"other repositories containing datasets created by the Czech academic "
-"community. It serves as the primary discovery point across repositories "
-"and directs users to the primary repositories where the datasets reside."
+"The National Metadata Directory (NMD) is a central aggregator of metadata "
+"for scientific datasets in the Czech Republic. The NMD collects metadata "
+"from all repositories within the National Repository Platform and from other"
+" repositories containing datasets created by the Czech academic community. "
+"It serves as the primary discovery point across repositories and directs "
+"users to the primary repositories where the datasets reside."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:23
@@ -604,8 +596,8 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:32
 msgid ""
-"NMD Harvests metadata from repositories in the National Repository "
-"Platform and beyond."
+"NMD Harvests metadata from repositories in the National Repository Platform "
+"and beyond."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
@@ -614,8 +606,7 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:33
 msgid ""
-"Search across repositories and locate datasets with links to original "
-"data."
+"Search across repositories and locate datasets with links to original data."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/semantic-ui/invenio_app_rdm/intro_section.html:34
@@ -650,36 +641,34 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:193
 msgid ""
-"This dataset is not yet registered in the repository. You can register it"
-" using the 'Obtain the link for RIV' button below."
+"This dataset is not yet registered in the repository. You can register it "
+"using the 'Obtain the link for RIV' button below."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:232
 msgid ""
-"Thank you for submitting the record to the National Metadata Directory. "
-"If you need to add a link to you RIV submission, please use the link "
-"below."
+"Thank you for submitting the record to the National Metadata Directory. If "
+"you need to add a link to you RIV submission, please use the link below."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:250
 msgid ""
-"Thank you for submitting the record to the National Metadata Directory. "
-"We detected some metadata issues within the record. To obtain a URL for "
-"RIV reporting, please check and correct the metadata below."
+"Thank you for submitting the record to the National Metadata Directory. We "
+"detected some metadata issues within the record. To obtain a URL for RIV "
+"reporting, please check and correct the metadata below."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:263
 msgid ""
-"The provided identifier is a URL that can not be registered at the "
-"moment. If your dataset does not have a DOI or a handle in URL format, "
-"please contact support at <a "
-"href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
+"The provided identifier is a URL that can not be registered at the moment. "
+"If your dataset does not have a DOI or a handle in URL format, please "
+"contact support at <a href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/__init__.py:273
 msgid ""
-"The provided identifier does not exist. Please check it for typos and try"
-" again. If the problem persists, please contact support at <a "
+"The provided identifier does not exist. Please check it for typos and try "
+"again. If the problem persists, please contact support at <a "
 "href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
@@ -701,10 +690,10 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:11
 msgid ""
-"To report a dataset (type T result) in RIV, you must provide a link to "
-"the National Metadata Directory (NMD), which records its core metadata. "
-"On this page, you can verify whether the NMD has the dataset registered "
-"or register it into the NMD if needed."
+"To report a dataset (type T result) in RIV, you must provide a link to the "
+"National Metadata Directory (NMD), which records its core metadata. On this "
+"page, you can verify whether the NMD has the dataset registered or register "
+"it into the NMD if needed."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:22
@@ -713,9 +702,8 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:34
 msgid ""
-"The dataset must have a persistent identifier. If the dataset has "
-"multiple identifiers (e.g., both a DOI and a Handle), we recommend "
-"providing the DOI."
+"The dataset must have a persistent identifier. If the dataset has multiple "
+"identifiers (e.g., both a DOI and a Handle), we recommend providing the DOI."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:47
@@ -724,33 +712,32 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:50
 msgid ""
-"If the dataset is already in the NMD, we issue the RIV link immediately. "
-"No further action is needed."
+"If the dataset is already in the NMD, we issue the RIV link immediately. No "
+"further action is needed."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:51
 msgid ""
-"If the dataset is not in the NMD, we attempt to automatically retrieve "
-"and download its metadata."
+"If the dataset is not in the NMD, we attempt to automatically retrieve and "
+"download its metadata."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:52
 msgid ""
-"If this result is a complete, valid record in the NMD, you will receive "
-"the RIV link."
+"If this result is a complete, valid record in the NMD, you will receive the "
+"RIV link."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:53
 msgid ""
-"If key fields are missing, we will request additional information from "
-"you. You’ll also receive an email with a link to amend the record if "
-"corrections are needed. ⚠️ This link expires after 7 days."
+"If key fields are missing, we will request additional information from you. "
+"You’ll also receive an email with a link to amend the record if corrections "
+"are needed. ⚠️ This link expires after 7 days."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:54
 msgid ""
-"Need assistance? Contact: <a "
-"href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
+"Need assistance? Contact: <a href=\"mailto:info@eosc.cz\">info@eosc.cz</a>."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:55
@@ -772,7 +759,8 @@ msgid ""
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
-msgid "If your datasets use a different type of identifier, please contact us at"
+msgid ""
+"If your datasets use a different type of identifier, please contact us at"
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/Deposit.jinja:67
@@ -808,7 +796,8 @@ msgid "Error checking original source. Unable to verify dataset availability."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:148
-msgid "Original source not accessible. The dataset location cannot be reached."
+msgid ""
+"Original source not accessible. The dataset location cannot be reached."
 msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/main.html:150
@@ -832,6 +821,90 @@ msgstr ""
 msgid "Link for RIV"
 msgstr ""
 
+#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:7
+msgid "Primary persistent identifier of the record"
+msgstr ""
+
+#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:16
+msgid ""
+"Use it for citations, references in publications, and long-term "
+"identification of the record."
+msgstr ""
+
+#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:23
+msgid "Persistent link (RIV only)"
+msgstr ""
+
+#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:33
+msgid ""
+"This link is intended exclusively for submitting records to the RIV (the "
+"“Record in the National Metadata Directory” item)."
+msgstr ""
+
+#: /Users/dusanstojanovic/Projects/nma/ui/datasets/templates/semantic-ui/datasets/record_detail/permalink.html:36
+msgid ""
+"Do not use it for citations, general sharing, or references in publications."
+msgstr ""
+
+msgid ""
+"There was an error saving your changes. If the problem persists please "
+"contact"
+msgstr ""
+
+msgid "support."
+msgstr ""
+
+msgid "Save draft"
+msgstr ""
+
+msgid "We couldn't find any matches for {{- search}}"
+msgstr ""
+
+msgid "your search"
+msgstr ""
+
+msgid "Start over"
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+msgid "If you are looking to report a dataset (type T result) in RIV."
+msgstr ""
+
+msgid "ProTip"
+msgstr ""
+
+msgid "will give you all the publications from 2025 until today."
+msgstr ""
+
+msgid "For more tips, check out our "
+msgstr ""
+
+msgid "search guide"
+msgstr ""
+
+msgid "for defining advanced search queries."
+msgstr ""
+
+msgid "No creation date found."
+msgstr ""
+
+msgid "No publication date found."
+msgstr ""
+
+msgid "No resource type"
+msgstr ""
+
+msgid "No title"
+msgstr ""
+
+msgid "Uploaded on {{uploadDate}}"
+msgstr ""
+
+msgid "Published in: {{- publishInfo }}"
+msgstr ""
+
 #~ msgid "Datacite export"
 #~ msgstr ""
 
@@ -851,9 +924,8 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ""
-#~ "The provided identifier could not be "
-#~ "resolved to metadata automatically. Please "
-#~ "enter the metadata manually."
+#~ "The provided identifier could not be resolved to metadata automatically. "
+#~ "Please enter the metadata manually."
 #~ msgstr ""
 
 #~ msgid "This dataset is already registered."
@@ -861,16 +933,8 @@ msgstr ""
 
 #~ msgid ""
 #~ "\n"
-#~ "        After clicking to sign in "
-#~ "via E-INFRA, if you find your "
-#~ "institution in the list, please choose"
-#~ " it to log in through your "
-#~ "institutional account.\n"
-#~ "        If you don't find your "
-#~ "institution, please refer to the <a "
-#~ "href=\"%(docs_url)s\" target=\"_blank\" rel=\"noopener "
-#~ "noreferrer\">documentation</a> for more information"
-#~ " about login options.\n"
+#~ "        After clicking to sign in via E-INFRA, if you find your institution in the list, please choose it to log in through your institutional account.\n"
+#~ "        If you don't find your institution, please refer to the <a href=\"%(docs_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">documentation</a> for more information about login options.\n"
 #~ "      "
 #~ msgstr ""
 
@@ -881,8 +945,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ""
-#~ "Dataset registered successfully without "
-#~ "metadata retrieval. Please fill the "
+#~ "Dataset registered successfully without metadata retrieval. Please fill the "
 #~ "minimum metadata below:"
 #~ msgstr ""
 
@@ -890,34 +953,29 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ""
-#~ "Dataset was registered with issues. "
-#~ "Please check/correct the metadata below:"
+#~ "Dataset was registered with issues. Please check/correct the metadata below:"
 #~ msgstr ""
 
 #~ msgid ""
-#~ "Thank you for submitting the record "
-#~ "to the National Metadata Directory. We"
-#~ " detected metadata issues within the "
-#~ "dataset. To obtain a URL for RIV"
-#~ " reporting, please check and correct "
-#~ "the metadata below."
+#~ "Thank you for submitting the record to the National Metadata Directory. We "
+#~ "detected metadata issues within the dataset. To obtain a URL for RIV "
+#~ "reporting, please check and correct the metadata below."
 #~ msgstr ""
 
-#~ msgid "An unexpected error occurred in the resolver '%(resolver)s': %(error)s."
+#~ msgid ""
+#~ "An unexpected error occurred in the resolver '%(resolver)s': %(error)s."
 #~ msgstr ""
 
 #~ msgid "Váš záznam byl vytvořen / Your record has been created – %(title)s"
 #~ msgstr ""
 
 #~ msgid ""
-#~ "Byla Vám přidělena práva k úpravě "
-#~ "záznamu / Permissions to edit your "
-#~ "record ware granted – %(title)s"
+#~ "Byla Vám přidělena práva k úpravě záznamu / Permissions to edit your record "
+#~ "ware granted – %(title)s"
 #~ msgstr ""
 
 #~ msgid ""
-#~ "Skip metadata retrieval. Use only in "
-#~ "cases when the normal registration "
+#~ "Skip metadata retrieval. Use only in cases when the normal registration "
 #~ "process repeatedly fails."
 #~ msgstr ""
 
@@ -928,31 +986,25 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ""
-#~ "This dataset is not yet registered "
-#~ "in the repository. You can register "
-#~ "it using the form below."
+#~ "This dataset is not yet registered in the repository. You can register it "
+#~ "using the form below."
 #~ msgstr ""
 
 #~ msgid ""
-#~ "If this results in a complete, "
-#~ "valid record in the NMD, you will"
-#~ " receive the RIV link."
+#~ "If this results in a complete, valid record in the NMD, you will receive the"
+#~ " RIV link."
 #~ msgstr ""
 
 #~ msgid ""
-#~ "If you had to create or correct"
-#~ " the record manually, ask your "
-#~ "repository administrator to have it "
-#~ "harvested into the NMD."
+#~ "If you had to create or correct the record manually, ask your repository "
+#~ "administrator to have it harvested into the NMD."
 #~ msgstr ""
 
 #~ msgid ""
-#~ "NMA can discover metadata primarily for"
-#~ " datasets identified by <a "
-#~ "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\""
-#~ " target=\"_blank\">DOI</a> or <a "
-#~ "href=\"https://www.handle.net\" target=\"_blank\">Handle</a> "
-#~ "identifiers."
+#~ "NMA can discover metadata primarily for datasets identified by <a "
+#~ "href=\"https://www.doi.org/the-identifier/what-is-a-doi/\" "
+#~ "target=\"_blank\">DOI</a> or <a href=\"https://www.handle.net\" "
+#~ "target=\"_blank\">Handle</a> identifiers."
 #~ msgstr ""
 
 #~ msgid "Please log in to access this page."
@@ -962,17 +1014,13 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ""
-#~ "This dataset is not yet registered "
-#~ "in the repository. You can register "
-#~ "it using the button 'Obtain the "
-#~ "link for RIV' below."
+#~ "This dataset is not yet registered in the repository. You can register it "
+#~ "using the button 'Obtain the link for RIV' below."
 #~ msgstr ""
 
 #~ msgid ""
 #~ "\n"
-#~ "        A part of the <a "
-#~ "href=\"%(link)s\">EOSC-CZ</a> project "
-#~ "(CZ.02.01.01/00/22_004/0007682). \n"
+#~ "        A part of the <a href=\"%(link)s\">EOSC-CZ</a> project (CZ.02.01.01/00/22_004/0007682). \n"
 #~ "        "
 #~ msgstr ""
 
@@ -993,4 +1041,3 @@ msgstr ""
 
 #~ msgid "Edit"
 #~ msgstr ""
-

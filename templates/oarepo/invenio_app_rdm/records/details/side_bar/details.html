@@ -25,10 +25,11 @@
           <span id="copy-button-record-doi-badge" class="copy-doi-button inline-block ml-5" data-value="{{ persistent_url }}" data-size="medium"></span>
         </dd>
       {% endif %}
+      {{ show_detail(_('Publication date'), record_ui["ui"]["publication_date_l10n_full"]) if record_ui["ui"].get("publication_date_l10n_full") }}
       {% if oai_record %}
         <dt class="ui tiny header inline">{{ _('Harvested from') }}</dt>
         <dd>
-          {{ oai_record.harvester.name }}
+          {{ oai_record.harvester.name }} 
         </dd>
       {% endif %}
       {{ show_detail(_('Resource type'), record_ui["ui"]["resource_type"]["title_l10n"]) if record_ui["ui"]["resource_type"] }}

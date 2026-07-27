@@ -1,10 +1,38 @@
 {% set record_permalink = record_ui.links.self_persistent_html or record_ui.links.self_html %}
+{%- set persistent_url = record_ui.get("metadata", {}).get("persistent_url") %}
 
-<h3 class="ui inverted header permanent-link-header">
-    <div class="content rel-p-1">
-        <i class="ui icon linkify mr-10"></i><span class="permanent-link" data-testid="record-detail-title-permanent-link"><span class="middle-ellipsis mr-5">{{ record_permalink | trim }}</span><ClipboardCopyButton className="large" copyText={{record_permalink}} />
+{# Primary persistent identifier - Green section #}
+<div class="ui segment persistent-identifier">
+    <div class="segment-header green">
+        {{ _("Primary persistent identifier of the record") }}
     </div>
-    <p class="detail text small ml-0">
-        <small>{{ _("Use this link when reporting the dataset in RIV.") }}</small>
+    <div class="content mt-15">
+        <span class="identifier-link" data-testid="record-detail-title-persistent-identifier">
+            <strong>{{ persistent_url | trim }}</strong>
+            <ClipboardCopyButton className="ml-5" copyText={{persistent_url}} />
+        </span>
+    </div>
+    <p class="mt-10">
+        <strong>{{ _("Use it for citations, references in publications, and long-term identification of the record.") }}</strong>
     </p>
-</h3>
+</div>
+
+{# RIV-only persistent link - Warning section #}
+<div class="ui segment riv-identifier">
+    <div class="segment-header red">
+        {{ _("Persistent link (RIV only)") }}
+    </div>
+    <div class="content mt-15">
+        <span class="identifier-link" data-testid="record-detail-title-permanent-link">
+            {{ record_permalink | trim }}
+            <ClipboardCopyButton className="ml-5" copyText={{record_permalink}} />
+        </span>
+    </div>
+    <p class="mt-10">
+        <i class="warning sign icon"></i>
+        <strong>{{ _("This link is intended exclusively for submitting records to the RIV (the “Record in the National Metadata Directory” item).") }}</strong>
+    </p>
+    <p class="mt-10">
+        <strong>{{ _("Do not use it for citations, general sharing, or references in publications.") }}</strong>
+    </p>
+</div>
