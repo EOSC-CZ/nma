@@ -14,9 +14,9 @@ from typing import TYPE_CHECKING, List
 
 from flask import Flask
 from invenio_base.utils import obj_or_import_string
+from oarepo_related_resources.resolvers.base import MetadataResolver
 
 from . import config
-from .resolvers.base import MetadataResolver
 from .resolvers.registry import ResolverRegistry
 
 if TYPE_CHECKING:  # pragma: no cover
@@ -56,7 +56,7 @@ class RIVResolverExtension:
     @cached_property
     def orcid_importer(self):
         """Return ORCID importer reading ORCID public dumps from AWS S3."""
-        from datasets.services.idutils import ORCIDImporter
+        from models.datasets.services.idutils import ORCIDImporter
 
         return ORCIDImporter(
             self.app.config["ORCID_AWS_ACCESS_KEY_ID"],

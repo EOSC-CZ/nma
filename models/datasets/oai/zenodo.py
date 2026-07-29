@@ -7,7 +7,7 @@ from invenio_vocabularies.datastreams.datastreams import StreamEntry
 from invenio_vocabularies.datastreams.readers import BaseReader
 from invenio_vocabularies.datastreams.transformers import BaseTransformer
 
-from riv.resolvers import DataciteResolver
+from oarepo_related_resources.resolvers import DataciteResolver
 from riv.utils import create_session_with_retries
 
 
@@ -81,7 +81,7 @@ class ZenodoReader(BaseReader):
                     hit["links"]["self"],
                     headers={"Accept": "application/vnd.datacite.datacite+json"},
                 ).json()
-                record["id"] = hit["conceptrecid"]
+                record["id"] = hit["conceptrecid"] #todo: why??
                 record["updated"] = hit["modified"]
                 yield record
 
@@ -103,28 +103,28 @@ class ZenodoTransformer(BaseTransformer):
         """
         stream_entry.entry = {
             "oai_record": stream_entry.entry,
-            "record": self.convert_zenodo_to_rdm(stream_entry.entry.json),
+            "record": self.convert_zenodo_to_ccmm(stream_entry.entry.json),
         }
         return stream_entry
 
-    def convert_zenodo_to_rdm(self, rec):
+    def convert_zenodo_to_ccmm(self, rec):
+
         resolver = DataciteResolver()
-        metadata, _ = resolver.resolve_metadata(rec)  # todo handle problems?
+        resolver.metadata = rec
+        metadata, problems = resolver.resolve_metadata()
 
-        # take DOI if present
-        for identifier in rec.get("identifiers", []):
-            if identifier.get("identifierType") == "DOI":
-                record_id = "doi/" + identifier.get("identifier")
-                break
-        else:
-            # otherwise just suppose that it will be this one
-            record_id = f"doi/10.5281/zenodo.{rec['id']}"
 
-        rdm_record = {
+        doi = rec["doi"]
+
+        record_id = f"doi/{doi}"
+        metadata["persistent_url"] = f"https://doi.org/{doi}"
+
+
+        ccmm_record = {
             "id": record_id,
             "metadata": metadata,
         }
-        rdm_record["files"] = {"enabled": False}
-        rdm_record["media_files"] = {"enabled": False}
+        ccmm_record["files"] = {"enabled": False}
+        ccmm_record["media_files"] = {"enabled": False}
 
-        return rdm_record
+        return ccmm_record

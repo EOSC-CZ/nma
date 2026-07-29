@@ -1,3 +1,4 @@
+from ccmm_invenio.serializers import CCMMProductionDataCiteJSONSerializer_1_1_0 as DataCiteJSONSerializer
 from flask_resources import BaseListSchema, MarshmallowSerializer
 from flask_resources.serializers import BaseSerializerSchema, JSONSerializer
 from invenio_rdm_records.resources.serializers.datacite.schema import DataCite43Schema as DataCiteSchema

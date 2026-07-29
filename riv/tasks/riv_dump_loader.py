@@ -11,7 +11,7 @@ from idutils import normalize_doi
 from invenio_jobs.jobs import JobType, PredefinedArgsSchema
 from marshmallow import fields
 
-from datasets.services.idutils import (
+from models.datasets.services.idutils import (
     resolve_orcid,
     resolve_ror,
 )

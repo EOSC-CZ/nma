@@ -1,0 +1,23 @@
+{
+  "No title": "Bez názvu",
+  "Edit": "Upravit",
+  "We couldn't find any matches for {{- search}}": "Nenašli jsme žádné shody pro {{- search}}",
+  "your search": "vaše vyhledávání",
+  "Start over": "Začít znovu",
+  "ProTip": "Tip",
+  "will give you all the publications from 2025 until today.": "vám dá všechny publikace od roku 2025 do dnešního dne.",
+  "For more tips, check out our ": "Pro další tipy se podívejte do naší ",
+  "Search guide": "Průvodce vyhledáváním",
+  "search guide": "průvodce vyhledáváním",
+  "for defining advanced search queries.": "pro definování pokročilých vyhledávacích dotazů.",
+  "No creation date found.": "Datum vytvoření nenalezeno.",
+  "No publication date found.": "Datum publikace nenalezeno.",
+  "No resource type": "Bez typu zdroje",
+  "Uploaded on {{uploadDate}}": "Nahráno {{uploadDate}}",
+  "Published in: {{- publishInfo }}": "Publikováno v: {{- publishInfo }}",
+  "There was an error saving your changes. If the problem persists please contact": "Při ukládání změn došlo k chybě. Pokud problém přetrvává, kontaktujte prosím",
+  "support.": "podporu.",
+  "If you are looking to report a dataset (type T result) in RIV.": "Pokud hledáte datovou sadu pro vykázání jako výsledek typu T v RIV.",
+  "or": "nebo",
+  "Obtain the link for RIV": "Získat odkaz pro RIV"
+}

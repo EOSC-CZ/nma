@@ -14,8 +14,12 @@ class IdFromDOITransformer(BaseTransformer):
             return stream_entry
 
         for identifier in rec.get("metadata", {}).get("identifiers", []):
-            if identifier.get("scheme") == "doi":
-                rec["id"] = "doi/" + identifier.get("identifier")
+            scheme = identifier.get("scheme")
+            value = identifier.get("identifier")
+
+            if scheme == "doi" and value:
+                rec["id"] = f"doi/{value}"
+                rec["metadata"]["persistent_url"] = f"https://doi.org/{value}"
                 return stream_entry
 
         # otherwise just suppose that it will be this one

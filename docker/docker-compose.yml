@@ -27,7 +27,7 @@ services:
       - "${INVENIO_RABBIT_HOST}:${INVENIO_RABBIT_PORT}:5672"
 
   search:
-    image: bitnami/opensearch:2
+    image: opensearchproject/opensearch:2
     restart: "unless-stopped"
     environment:
       # settings only for development. DO NOT use in production!

@@ -1,9 +1,15 @@
 """
-Structured collections of research data, identified with a persistent identifier
+A generic dataset model
 """
-
 from __future__ import annotations
 
+from invenio_i18n import lazy_gettext as _
+from oarepo_model.api import model
+from oarepo_model.customizations import AddMetadataExport
+from oarepo_model.datatypes.registry import from_yaml
+from ccmm_invenio.models import ccmm_production_preset_1_1_0
+
+from .serializers import DataCiteJSONSerializer
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
 from invenio_drafts_resources.services.records import (
     RecordService as DraftRecordService,
@@ -49,7 +55,7 @@ from .services.components import (
     UpdateMetadataComponent,
 )
 from common.oai.aire_provenance import aire_about_etree
-from datasets.oai.openaire.openaire_serializer import OpenAIREXMLSerializer
+from models.datasets.oai.openaire.openaire_serializer import OpenAIREXMLSerializer
 
 class PIDStatusCheckFieldMixin:
     """Custom PID status check field returning False when PID is not set."""
@@ -77,7 +83,7 @@ class UpdatableRecordServiceMixin:
     def update(self, identity, id_, data, *args, revision_id=None, **kwargs):
         """Override update to allow updating published records.
         """
-        
+
         # metadata.rights: invenio rdm can not upload record that has rights that contain both id and title
         # so we remove all other props if there is an id
         rights = data["metadata"].get("rights", [])
@@ -117,8 +123,6 @@ class UpdatableRecordServiceMixin:
         return super(DraftRecordService, self).update(
             identity, id_, data, *args, revision_id=revision_id, **kwargs
         )
-
-
 class OverriddenRouteResourceConfigMixin:
     @property
     def routes(self):
@@ -138,7 +142,6 @@ class OverriddenRouteResourceConfigMixin:
             updated_routes[key] = updated_route
 
         return updated_routes
-
 
 COPY_TO_MAPPINGS = [
     # boost_10 - Primary identifiers (highest weight)
@@ -162,8 +165,10 @@ COPY_TO_MAPPINGS = [
     # Funder names
     ("metadata.locations.features.place", 1),
     # Place names
-    ("metadata.references.reference", 1)
-    ]
+    ("metadata.related_resources.title", 1),
+    ("metadata.related_resources.identifiers.identifier", 1),
+
+]
 
 copy_to_mappings = [PatchIndexPropertyMapping(c[0], {"copy_to": f"boost_{c[1]}"}) for c in COPY_TO_MAPPINGS]
 analyzer_fields = {"fields": {
@@ -180,15 +185,25 @@ analyzer_fields = {"fields": {
 }
 }
 
+# TODO: Consider letting users add an image/icon for the model,
+# so that the deposit model selection page is more visually appealing.
 datasets_model = model(
     "datasets",
     version="1.0.0",
-    presets=[rdm_complete_preset],
-    types=[from_yaml("metadata.yaml", __file__), from_yaml("record.yaml", __file__)],
+    description="A generic dataset model",
+    presets=[
+
+        ccmm_production_preset_1_1_0
+
+    ],
+    types=[
+        from_yaml("metadata.yaml", __file__), from_yaml("record.yaml", __file__)
+    ],
     metadata_type="Metadata",
     record_type="Record",
+
     customizations=[
-        # Add your customizations here, such as custom exports and class mixins.
+        # Add your customizations here, such as custom exports and class mixins. 
         # The list of available extensions is at https://github.com/oarepo/oarepo-model.
         # If you do not find a customization that suits your needs or need a
         # help with using customizations, please contact us at support@cesnet.cz and
@@ -201,9 +216,9 @@ datasets_model = model(
         # export for datacite
         AddMetadataExport(
             code="datacite",
-            name=_("DataCite JSON"),
+            name=_("Datacite export"),
             mimetype="application/vnd.datacite.datacite+json",
-            serializer=DataCiteJSONSerializer(),
+            serializer=DataCiteJSONSerializer()
         ),
         AddMetadataExport(
             code="aire",
@@ -215,31 +230,26 @@ datasets_model = model(
             oai_schema="http://schema.datacite.org/oai/oai-1.1/oai.xsd",
             oai_namespace="http://schema.datacite.org/oai/oai-1.1/",
         ),
-        # datacite xml import
         AddMetadataImport(
-            code="datacite",
+            code="datacite-xml",
             name=_("DataCite XML"),
             description=_("Import metadata from DataCite XML format"),
             mimetype="application/vnd.datacite.datacite+xml",
             deserializer=DataCiteXMLDeserializer(),
-            oai_name=("http://datacite.org/schema/kernel-4e", "resource"),
+            oai_name=(
+                "http://datacite.org/schema/kernel-4e",
+                "resource",
         ),
-        # datacite json import
-        AddMetadataImport(
-            code="datacite",
-            name=_("DataCite JSON"),
-            description=_("Import metadata from DataCite JSON format"),
-            mimetype="application/vnd.datacite.datacite+json",
-            deserializer=DataCiteJSONDeserializer(),
         ),
-        # support for non-generated persistent identifiers (always taken from the id field)
+
+
         AddServiceComponent(ExternalPIDComponent),
         ReplaceBaseClass(
             "PIDProvider",
             DraftRecordIdProviderV2,
             ExternalPIDProvider,
         ),
-        ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
+ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
         #
         AddServiceComponent(UpdateMetadataComponent),
         AddServiceComponent(UpdateEditorsComponent),
@@ -300,6 +310,9 @@ datasets_model = model(
         SetDefaultSearchFields("boost_10", "boost_5", "boost_1", "boost_10._search",
                                "boost_5._search", "boost_1._search", "boost_10._ascii_search",
                                "boost_5._ascii_search", "boost_1._ascii_search")
+
     ],
-    configuration={"ui_blueprint_name": "datasets_ui"},
+    configuration={
+        "ui_blueprint_name": "datasets_ui"
+    }
 )

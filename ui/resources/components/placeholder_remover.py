@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any
 
-from riv.resolvers.base import TITLE_PLACEHOLDER, CREATORS_PLACEHOLDER
+from riv.resolvers.utils import TITLE_PLACEHOLDER, CREATORS_PLACEHOLDER
 from oarepo_ui.resources.components import UIResourceComponent
 
 if TYPE_CHECKING:

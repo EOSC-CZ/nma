@@ -6,14 +6,13 @@ packages = []
 authors = []
 dependencies = [
     "json5",
-    "oarepo[s3,rdm]>=14.2.1b10.dev7,<15.0.0",
-    "oarepo-app[development]>=4.0.0,<5.0.0",
+    "oarepo[s3,rdm]>=14.0.0b1,<15.0.0",
+    "oarepo-app[ccmm,production,oaipmh-harvester]>=6.2.0,<7.0.0",
     "python-dotenv",
     "beautifulsoup4",
     "rapidfuzz",
     "traceback-with-variables",                    # for better error logging
     "prometheus-flask-exporter",                   # to expose Flask app /metrics to prometheus
-    "oarepo-oai-pmh-harvester>=7.0.0,<8.0.0"
 ]
 requires-python = ">=3.14,<3.15"
 
@@ -52,6 +51,9 @@ ui_datasets = "ui.datasets:create_blueprint"
 record_detail_redirect = "ui.datasets:create_record_detail_redirect_blueprint"
 registered = "ui.datasets:create_registered_blueprint"
 
+[project.entry-points."invenio_i18n.translations"]
+translations = "i18n"
+
 [project.entry-points."invenio_base.finalize_app"]
 ui_datasets = "ui.datasets:finalize_app"
 
@@ -60,7 +62,7 @@ riv = "riv.cli:riv"
 
 [project.entry-points."invenio_celery.tasks"]
 riv = "riv.tasks"
-datasets = "datasets.tasks"
+datasets = "models.datasets.tasks"
 
 [project.entry-points."invenio_jobs.jobs"]
 invenio_command = "riv.tasks:InvenioTaskJob"
@@ -71,13 +73,20 @@ cleanup_unknown_titles = "riv.tasks:CleanupUnknownTitlesJob"
 load_identifiers_from_riv_dump = "riv.tasks:LoadIdentifiersFromRIVDumpJob"
 
 [project.entry-points."invenio_access.actions"]
-manage_record_action = "datasets.permissions:manage_record_action"
+manage_record_action = "models.datasets.permissions:manage_record_action"
+
 
 [tool.uv.build-backend]
 module-root = ""
-module-name = ["common", "i18n", "ui", "datasets"]
-
+module-name = [
+    "common",
+    "i18n",
+    "ui",
+    "models",
+]
 
 [build-system]
-requires = ["uv_build>=0.8.7,<0.9.0"]
+requires = [
+    "uv_build>=0.8.7,<0.9.0",
+]
 build-backend = "uv_build"

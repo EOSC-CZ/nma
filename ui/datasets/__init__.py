@@ -53,7 +53,7 @@ from riv.proxies import current_resolver_registry, current_riv_extension
 from riv.records.api import generate_id
 from riv.records.create_record import create_record
 from riv.records.utils import create_user_edit_grant, user_edit_grant_and_notification
-from riv.resolvers.base import PIDProcessingError, UnsupportedPIDError
+from oarepo_related_resources.errors import PIDProcessingError, UnsupportedPIDError
 from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.placeholder_remover import PlaceholderRemoverComponent

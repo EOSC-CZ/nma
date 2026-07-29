@@ -1,1 +1,9 @@
 {% extends "oarepo_ui/deposit_edit.html" %}
+{% set community = none %}
+{% set community_ui = none %}
+{% set theme = none %}
+{% set community_use_jinja_header = false %}
+
+{% block css %} {# zmena #}
+  {{ super.super() }} {# zmena #}
+{% endblock css %} {# zmena #}

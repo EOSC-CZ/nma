@@ -67,7 +67,7 @@ def remove_records(harvested_only, yes_i_know):
     """Remove records from RIV dataset."""
     from sqlalchemy_continuum import version_class
 
-    from datasets.model import datasets_model
+    from models.datasets.model import datasets_model
 
     RecordVersion = version_class(datasets_model.RecordMetadata)
 

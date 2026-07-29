@@ -10,7 +10,7 @@ from marshmallow import ValidationError
 
 class DataCiteJSONDeserializer(JSONDeserializer):
     """
-    Converts json data in DataCite format to RDM representation.
+    Converts json data in DataCite format to CCMM invenio representation.
     """
 
     @override
@@ -22,10 +22,11 @@ class DataCiteJSONDeserializer(JSONDeserializer):
         return self._deserialize_json(as_json_object)
 
     def _deserialize_json(self, data: dict) -> dict:
-        from riv.resolvers import DataciteResolver
+        from oarepo_related_resources.resolvers import DataciteResolver
 
         resolver = DataciteResolver()
-        metadata, problems = resolver.resolve_metadata(data)
+        resolver.metadata = data
+        metadata, problems = resolver.resolve_metadata()
         if problems:
             raise ValidationError(f"Errors during DataCite resolution: {problems}")
         return {
@@ -111,12 +112,6 @@ class DataCiteXMLDeserializer(DataCiteJSONDeserializer):
 
         if related_identifiers := self._convert_related_identifiers(resource):
             result["relatedIdentifiers"] = related_identifiers
-
-        if sizes := self._convert_sizes(resource):
-            result["sizes"] = sizes
-
-        if formats := self._convert_formats(resource):
-            result["formats"] = formats
 
         if version := self._get_version(resource):
             result["version"] = version

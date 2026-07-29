@@ -88,7 +88,7 @@
   transformer:
     - "zenodo"
   setspec: 'communities:aiscr AND resource_type.type:dataset'
-  
+
 # Czech Academy of Sciences, Institute of Archaeology, Prague Zenodo community
 # https://www.zenodo.org/communities/iap-cas
 - id: zenodo-aru
@@ -112,3 +112,16 @@
   transformer:
     - "zenodo"
   setspec: 'communities:arub AND resource_type.type:dataset'
+
+# University of Ostrava Zenodo community
+# https://zenodo.org/communities/university-of-ostrava
+- id: zenodo-ostrava
+  name: "Zenodo University of Ostrava community harvester"
+  base-url: "https://zenodo.org"
+  metadata-prefix: "ostrava"
+  model: datasets
+  loader: zenodo
+  transformer:
+    - "zenodo"
+  setspec: 'communities:university-of-ostrava AND resource_type.type:dataset'
+

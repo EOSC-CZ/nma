@@ -27,7 +27,7 @@ class HarvestersFixture(FixtureMixin):
             if not transformers:
                 transformers = [f'oai-import{{model:"{model}"}}']
             if not writers:
-                writers = [f'oai-service{{model:"{model}",update:true}}']
+                writers = [f'collision-aware{{model:"{model}"}}']
 
         harvester_data = {
             "id": entry.pop("id"),
