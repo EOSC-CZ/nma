@@ -125,3 +125,14 @@
     - "zenodo"
   setspec: 'communities:university-of-ostrava AND resource_type.type:dataset'
 
+# Forestry and Game Management Research Institute Zenodo community
+# https://zenodo.org/communities/vulhm
+- id: zenodo-vulhm
+  name: "Zenodo VULHM community harvester"
+  base-url: "https://zenodo.org"
+  metadata-prefix: "vulhm"
+  model: datasets
+  loader: zenodo
+  transformer:
+    - "zenodo"
+  setspec: 'communities:vulhm AND resource_type.type:dataset'
