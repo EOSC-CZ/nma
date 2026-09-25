@@ -7,9 +7,8 @@ from invenio_i18n import lazy_gettext as _
 from oarepo_model.api import model
 from oarepo_model.customizations import AddMetadataExport
 from oarepo_model.datatypes.registry import from_yaml
-from ccmm_invenio.models import ccmm_production_preset_1_1_0
+from ccmm_invenio.models import ccmm_preset_1_1_0
 
-from .serializers import DataCiteJSONSerializer
 from invenio_drafts_resources.records.api import DraftRecordIdProviderV2
 from invenio_drafts_resources.services.records import (
     RecordService as DraftRecordService,
@@ -47,7 +46,6 @@ from riv.records.system_fields import (
 from .records.is_harvested_dumper import IsHarvestedDumperExt
 from .deserializers import DataCiteJSONDeserializer, DataCiteXMLDeserializer
 from .permissions import DatasetsPermissionPolicyMixin
-from .serializers import DataCiteJSONSerializer
 from .services.components import (
     ExternalPIDComponent,
     FetchIdentifiersComponent,
@@ -174,7 +172,7 @@ datasets_model = model(
     description="A generic dataset model",
     presets=[
 
-        ccmm_production_preset_1_1_0
+        ccmm_preset_1_1_0
 
     ],
     types=[
@@ -194,13 +192,6 @@ datasets_model = model(
         PrependMixin("PermissionPolicy", DatasetsPermissionPolicyMixin),
         # TODO: move this to oarepo-rdm
         PrependMixin("RecordUISchema", UIRecordSchema),
-        # export for datacite
-        AddMetadataExport(
-            code="datacite",
-            name=_("Datacite export"),
-            mimetype="application/vnd.datacite.datacite+json",
-            serializer=DataCiteJSONSerializer()
-        ),
         AddMetadataExport(
             code="aire",
             name=_("OpenAIRE"),
