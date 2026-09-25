@@ -123,25 +123,6 @@ class UpdatableRecordServiceMixin:
         return super(DraftRecordService, self).update(
             identity, id_, data, *args, revision_id=revision_id, **kwargs
         )
-class OverriddenRouteResourceConfigMixin:
-    @property
-    def routes(self):
-        """Override routes to use path instead of default converter for pid_value.
-
-        This was causing a problem when PID contained slashes (doi:1234/zenodo.12345 for example).
-        It would parse only first part before the slash.
-        """
-        routes = super().routes
-
-        updated_routes = {}
-        for (
-            key,
-            route,
-        ) in routes.items():
-            updated_route = route.replace("<pid_value>", "<path:pid_value>")
-            updated_routes[key] = updated_route
-
-        return updated_routes
 
 COPY_TO_MAPPINGS = [
     # boost_10 - Primary identifiers (highest weight)
@@ -203,7 +184,7 @@ datasets_model = model(
     record_type="Record",
 
     customizations=[
-        # Add your customizations here, such as custom exports and class mixins. 
+        # Add your customizations here, such as custom exports and class mixins.
         # The list of available extensions is at https://github.com/oarepo/oarepo-model.
         # If you do not find a customization that suits your needs or need a
         # help with using customizations, please contact us at support@cesnet.cz and
@@ -265,7 +246,6 @@ ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
         PrependMixin("PIDFieldContext", ExternalPIDFieldContextMixin),
         PrependMixin("Draft", PIDStatusCheckFieldMixin),
         PrependMixin("RecordService", UpdatableRecordServiceMixin),
-        PrependMixin("RecordResourceConfig", OverriddenRouteResourceConfigMixin),
         AddFacetGroup(
             "default",
             [
