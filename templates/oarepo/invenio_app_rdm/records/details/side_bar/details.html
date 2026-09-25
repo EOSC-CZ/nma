@@ -25,6 +25,7 @@
           <span id="copy-button-record-doi-badge" class="copy-doi-button inline-block ml-5" data-value="{{ persistent_url }}" data-size="medium"></span>
         </dd>
       {% endif %}
+      {{ show_detail(_('Publication date'), record_ui["ui"]["publication_date_l10n_full"]) if record_ui["ui"].get("publication_date_l10n_full") }}
       {% if oai_record %}
         <dt class="ui tiny header inline">{{ _('Harvested from') }}</dt>
         <dd>
@@ -32,7 +33,6 @@
         </dd>
       {% endif %}
       {{ show_detail(_('Resource type'), record_ui["ui"]["resource_type"]["title_l10n"]) if record_ui["ui"]["resource_type"] }}
-      {{ show_detail(_('Publication date'), record_ui["ui"]["publication_date_l10n"]) if record_ui["ui"]["publication_date_l10n"] }}
       {{ show_detail(_('Publisher'), metadata.publisher) if metadata.publisher }}
       {{ show_detail(_('Published in'), record_ui["ui"]["publishing_information"]["journal"]) if record_ui["ui"].get('publishing_information', {}).get('journal') }}
       {{ show_detail(_('Imprint'), record_ui["ui"]["publishing_information"]["imprint"]) if record_ui["ui"].get('publishing_information', {}).get('imprint') }}

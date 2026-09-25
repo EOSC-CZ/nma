@@ -14,4 +14,34 @@
       font-size: 14px !important;
     }
   }
+
+  // Persistent identifier segments
+  &.persistent-identifier,
+  &.riv-identifier {
+    .identifier-link {
+      word-break: break-word;
+      font-size: @h3;
+      font-weight: bold;
+      .ui.button {
+        font-size: @h3;
+      }
+    }
+    background-color: lighten(@lightGrey, 5%);
+    .segment-header {
+      padding: 0.75em 1em;
+      margin: -1em -1em 1em -1em;
+      font-weight: bold;
+      border-radius: 0.28571429rem 0.28571429rem 0 0;
+
+      &.green {
+        background-color: @green;
+        color: white;
+      }
+
+      &.red {
+        background-color: @pink;
+        color: white;
+      }
+    }
+  }
 }
