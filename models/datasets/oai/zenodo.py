@@ -81,7 +81,7 @@ class ZenodoReader(BaseReader):
                     hit["links"]["self"],
                     headers={"Accept": "application/vnd.datacite.datacite+json"},
                 ).json()
-                record["id"] = hit["conceptrecid"] #todo: why??
+                record["id"] = hit["id"]  # version id, not conceptrecid: do not deduplicate versions
                 record["updated"] = hit["modified"]
                 yield record
 
