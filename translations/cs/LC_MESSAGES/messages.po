@@ -636,6 +636,10 @@ msgstr ""
 #~ msgid "NMD"
 #~ msgstr "NMA"
 
+#: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:37
+msgid "NMD"
+msgstr "Národní metadatový adresář"
+
 #~ msgid ""
 #~ "\n"
 #~ "\n"
