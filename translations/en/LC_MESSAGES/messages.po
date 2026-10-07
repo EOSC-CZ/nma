@@ -362,7 +362,7 @@ msgstr ""
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:37
 msgid "NMD"
-msgstr ""
+msgstr "National Metadata Directory"
 
 #: /Users/miroslavbauer/Code/github.com/EOSC-CZ/nma/templates/footer.html:43
 #, python-format
