@@ -14,9 +14,17 @@ from invenio_records_permissions.generators import (
     Generator,
     SystemProcess,
 )
+from invenio_jobs.services.permissions import JobLogsPermissionPolicy as InvenioJobLogsPermissionPolicy
 from oarepo_model.model import ModelMixin
+from oarepo_runtime.services.generators import AdministrationWithQueryFilter
 
 manage_record_action = action_factory("manage-record")
+
+
+class JobLogsPermissionPolicy(InvenioJobLogsPermissionPolicy):
+    """Permission policy for invenio-jobs logs (administration query-filtered)."""
+
+    can_read = [AdministrationWithQueryFilter()]
 
 
 # TODO: manage-record seems not to work if assigned to role and not to user
