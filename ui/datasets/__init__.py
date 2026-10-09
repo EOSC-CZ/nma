@@ -44,8 +44,7 @@ from oarepo_ui.resources.decorators import (
     pass_record_or_draft,
     pass_route_args,
 )
-from oarepo_ui.resources.records.config import RecordsUIResourceConfig
-from oarepo_ui.resources.records.resource import RecordsUIResource
+from ccmm_invenio.ui import CCMMRecordsUIResource, CCMMRecordsUIResourceConfig
 from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
 
@@ -57,13 +56,12 @@ from oarepo_related_resources.errors import PIDProcessingError, UnsupportedPIDEr
 from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.placeholder_remover import PlaceholderRemoverComponent
-from ui.resources.components.rdm_vocabularies import RDMVocabularyOptionsComponent
 from ui.resources.components.support_contact import RDMSupportContactComponent
 
 logger = logging.getLogger("DatasetsUI")
 
 
-class DatasetsUIResourceConfig(RecordsUIResourceConfig):
+class DatasetsUIResourceConfig(CCMMRecordsUIResourceConfig):
     template_folder = "templates"
     url_prefix = "/datasets"
     blueprint_name = "datasets_ui"
@@ -95,7 +93,6 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
         EmptyRecordAccessComponent,
         FilesLockedComponent,
         FilesQuotaAndTransferComponent,
-        RDMVocabularyOptionsComponent,
         OAIRecordComponent,
         PlaceholderRemoverComponent,
         RDMSupportContactComponent,
@@ -121,7 +118,7 @@ class DatasetsUIResourceConfig(RecordsUIResourceConfig):
     application_id = "datasets"
 
     templates = {
-        **RecordsUIResourceConfig.templates,
+        **CCMMRecordsUIResourceConfig.templates,
         "deposit_create": "datasets.DepositCreate"
     }
 
@@ -157,7 +154,7 @@ def handle_riv_errors(func):
     return wrapper
 
 
-class DatasetsUIResource(RecordsUIResource):
+class DatasetsUIResource(CCMMRecordsUIResource):
 
     @pass_query_args("search")
     def search(
