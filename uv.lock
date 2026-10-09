@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = "==3.14.*"
 
 [options]
@@ -2842,11 +2842,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/5e/73/e01e4c5e11ad0494f
 
 [[package]]
 name = "json5"
-version = "0.15.0"
+version = "0.16.0"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/e4/7d/05c46a96a78147ae3bf99c2f4169ce144a70220b8d6fcd56f6ec368b8ce9/json5-0.15.0.tar.gz", hash = "sha256:7424d1f1eb1d56da6e3d70643f53619862b4ce81440bdb8ecfd6f875e5ba4a71", size = 53278, upload-time = "2026-06-19T20:08:27.716Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/80/63/503651a3946bfacb6d6098985f2af6b3bf880d8eedc53035761c628d13bc/json5-0.16.0.tar.gz", hash = "sha256:8b135a77b231f22e3656c601fec7621c5354c64c4fb2773715ee0814e4dc6bf7", size = 55924, upload-time = "2026-10-08T03:08:26.732Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/eb/be/59527c99478aade6bb33a68d72e6e18dd4e6ff6eacfc7d01bdb15bc76912/json5-0.15.0-py3-none-any.whl", hash = "sha256:56636a30c0e8a4665fe2179c0212f32eae3796dea89ea6f649b9436ecdb39618", size = 36570, upload-time = "2026-06-19T20:08:26.748Z" },
+    { url = "https://files.pythonhosted.org/packages/22/ea/6983226ffa91ff470b685e1673b7bd863e526eb208af1e7458fd71f02e31/json5-0.16.0-py3-none-any.whl", hash = "sha256:ab703e0d2e565ecff92b4d3525159108911db47e1becc3903a9433d4d504505a", size = 37394, upload-time = "2026-10-08T03:08:25.715Z" },
 ]
 
 [[package]]
@@ -4004,7 +4004,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-model"
-version = "6.0.1"
+version = "6.2.0"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "deepmerge" },
@@ -4018,9 +4018,9 @@ dependencies = [
     { name = "shapely" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a0/d6/254dde16e0c709407c642ab09695de59912cf81d8f7892f507a666d9f17b/oarepo_model-6.0.1.tar.gz", hash = "sha256:74dd29f7e88eed2912f0d4b3d86a2c5113f1dadd142d6fe9a2549d4b32e745c9", size = 508364, upload-time = "2026-10-01T16:56:29.107Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ca/29/3c3714b236bca0412b4cabe34990818bcd082350eacd1e7c85891d8f9f76/oarepo_model-6.2.0.tar.gz", hash = "sha256:7c9f90c93e158be9561d469b931e6f539e1cf63dd420d8d5213dd3abb925c1bb", size = 523143, upload-time = "2026-10-08T12:23:54.208Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0f/3b/7ce36c0d6c3fedbaa6b4354b815d2e87b694abd5fdeb56c7a55aa9c20e8c/oarepo_model-6.0.1-py3-none-any.whl", hash = "sha256:ce24db95d6dabcf03f8c74b35b43b8cfa85bb04246b92db32c65ef0a8d81ffbe", size = 294960, upload-time = "2026-10-01T16:56:27.644Z" },
+    { url = "https://files.pythonhosted.org/packages/50/b2/e956a1fa09a0ddfc83d2fafcc4203b16ee4c96b34aadba7920e4aa70293d/oarepo_model-6.2.0-py3-none-any.whl", hash = "sha256:a111adf978fbbd34d955ab9d15979a7d84eeab51c8956584fb177e26d92d645c", size = 301742, upload-time = "2026-10-08T12:23:52.396Z" },
 ]
 
 [[package]]
@@ -4061,7 +4061,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-rdm"
-version = "9.0.0"
+version = "9.1.0"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "invenio-app-rdm" },
@@ -4071,9 +4071,9 @@ dependencies = [
     { name = "oarepo-runtime" },
     { name = "oarepo-ui" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/09/af/190cfeeab1ee567bc844619a87b8476729fc14184dc675b92cf6d6c0c47c/oarepo_rdm-9.0.0.tar.gz", hash = "sha256:271020965d8c06cb2a2d94f27488b16c02b8261761104080cd39c72659760966", size = 56236, upload-time = "2026-10-05T08:49:02.324Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/fb/96/778b3efcab2a676c18b94b90152f85a952e65bc6b8950c5f29d50cec41a5/oarepo_rdm-9.1.0.tar.gz", hash = "sha256:97c18ff0b13490d15bd8657c3a1fc25806194d65b1372f2fdb158965ba4ec9bd", size = 56289, upload-time = "2026-10-09T06:30:58.076Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2d/2e/b8df9788b199d82d10dabb5a9e3476691c51633662446846f1a1cb0062cf/oarepo_rdm-9.0.0-py3-none-any.whl", hash = "sha256:fd43d5852008a141c3a1b7d98ca8da3a3c56060248586eb49a4a0eea52637815", size = 117046, upload-time = "2026-10-05T08:49:00.904Z" },
+    { url = "https://files.pythonhosted.org/packages/a8/82/55abe92cf78ce1b854f7fbe14f4593a79bde79adec1bd2bf18771e277419/oarepo_rdm-9.1.0-py3-none-any.whl", hash = "sha256:aa639355c492687dc9ca1e6b3462e9974d7dfc9a96ecbb81c311505a731b6769", size = 117064, upload-time = "2026-10-09T06:30:56.854Z" },
 ]
 
 [[package]]
@@ -4150,7 +4150,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-ui"
-version = "13.5.4"
+version = "13.5.5"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "deepmerge" },
@@ -4164,9 +4164,9 @@ dependencies = [
     { name = "oarepo-theme" },
     { name = "python-dotenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/10/87/54d6677cd9203dc14ef1c984dfa8f66ef77ad488c5ac560caf3a2d787670/oarepo_ui-13.5.4.tar.gz", hash = "sha256:e0d3a872f41dc5ed3949a974760b6fc9c135b8c050a77cd06acdb2f75b8f5daa", size = 216918, upload-time = "2026-10-05T13:16:06.376Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/34/1b/0a3909766dfaf789f8bc5216cfd7682b3bc0c114d06763e8d93c6b1833d0/oarepo_ui-13.5.5.tar.gz", hash = "sha256:b1c1a7599fbe2123e55c213e4b7d4db539bb3f9e399347de2f7a8dda574c64c6", size = 217113, upload-time = "2026-10-08T11:06:20.941Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/30/70/aaeae8fff55c43fd5fe74129d2e26f61c12204b57c33f4ba8f8c094f942b/oarepo_ui-13.5.4-py3-none-any.whl", hash = "sha256:78c0cd0ac245de4591e4390b3332512f5a09795c578a283da21f31b146c486db", size = 348877, upload-time = "2026-10-05T13:16:04.669Z" },
+    { url = "https://files.pythonhosted.org/packages/25/37/b33daa2d35d636e84bc9d5fb9931f98193fc852e379eb42cd698dc6fe23a/oarepo_ui-13.5.5-py3-none-any.whl", hash = "sha256:75e9fd03be73f09072cf2fdf9be06a2e2723867088a66ac078869d3d450313fb", size = 349192, upload-time = "2026-10-08T11:06:19.463Z" },
 ]
 
 [[package]]
@@ -4884,7 +4884,7 @@ wheels = [
 
 [[package]]
 name = "pytest-invenio"
-version = "4.0.2"
+version = "4.0.3"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "check-manifest" },
@@ -4900,9 +4900,9 @@ dependencies = [
     { name = "selenium" },
     { name = "snowballstemmer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bb/86/30e48972419e9b8aa51d9bd61ee247c076fb500d4bfba23fae5cfb124891/pytest_invenio-4.0.2.tar.gz", hash = "sha256:987074bf8ee7f1c59ef41f96c3725940062a597f322387a59c9d10aeacd40afc", size = 19723, upload-time = "2026-07-02T13:58:14.446Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/37/ee/dc0936abafc0fc29b4d1646a59053034a21e5cf3943d66c3f6fb43b4e97f/pytest_invenio-4.0.3.tar.gz", hash = "sha256:2544370d8ba5d938f50715c9326aa6ea869ac9aea801d71fa4373e80283f4e1d", size = 20001, upload-time = "2026-10-08T07:10:53.414Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1d/6c/91620b499f54ca616cf141475388fb975e34f78fdbcaba9ceda40818ff32/pytest_invenio-4.0.2-py3-none-any.whl", hash = "sha256:85041625a0a4e626649fa1c2a318189b012c8c3223f8783a8534d829af30c4d7", size = 22199, upload-time = "2026-07-02T13:58:13.336Z" },
+    { url = "https://files.pythonhosted.org/packages/fb/b6/115f593d52cecdf1354aae5ce69aa0f10e4090cc01c110faf8d1ac627c4c/pytest_invenio-4.0.3-py3-none-any.whl", hash = "sha256:685555693f8115447e28146cdd53ac7406bd83d6c28cc1b33bef1d36b5140488", size = 22482, upload-time = "2026-10-08T07:10:52.254Z" },
 ]
 
 [[package]]
