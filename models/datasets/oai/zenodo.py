@@ -30,6 +30,7 @@ class ZenodoReader(BaseReader):
     def __init__(self, origin=None, mode="r", *args, **kwargs):
 
         self.set = kwargs.get("set")
+        self.from_date = kwargs.get("from_date")
 
         super().__init__(
             origin=origin or "https://zenodo.org/api/records/",
@@ -57,8 +58,16 @@ class ZenodoReader(BaseReader):
     def read(self, item=None, *args, **kwargs):
         yield from self._iter(fp=None, *args, **kwargs)
 
+    def _query(self):
+        """Zenodo search query - the set, restricted to records updated since from_date."""
+        if not self.from_date:
+            return self.set
+        updated = f'updated:["{self.from_date}" TO *]'
+        return f"({self.set}) AND {updated}" if self.set else updated
+
     def fetch_records(self, session):
         url = self._origin
+        query = self._query()
 
         while True:
             current_app.logger.info("Fetching Zenodo records from %s", url)
@@ -67,7 +76,7 @@ class ZenodoReader(BaseReader):
                 url,
                 headers={"Accept": "application/json"},
                 params={
-                    "q": self.set,
+                    "q": query,
                 },
             )
             response.raise_for_status()

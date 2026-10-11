@@ -1,0 +1,96 @@
+# One community per harvester in oai_harvesters.yaml, slug = harvester id.
+# Loaded by `invenio rdm-records fixtures` (needs a running celery worker).
+- slug: datarepo
+  logo: datarepo.png
+  metadata:
+    title: "Catch-all Multi-discipline data repository"
+    description: "Datasets harvested from the Catch-all Multi-discipline data repository, run under the Czech EOSC programme."
+  access: &access
+    visibility: public
+    members_visibility: restricted
+    member_policy: closed
+    record_policy: closed
+
+- slug: zenodo-czu
+  logo: zenodo-czu.png
+  metadata:
+    title: "Czech University of Life Sciences Prague"
+    description: "Datasets of the Czech University of Life Sciences Prague harvested from Zenodo."
+  access: *access
+
+- slug: zenodo-cvut
+  logo: zenodo-cvut.png
+  metadata:
+    title: "Czech Technical University in Prague"
+    description: "Datasets of the Czech Technical University in Prague harvested from Zenodo."
+  access: *access
+
+- slug: zenodo-upol
+  logo: zenodo-upol.png
+  metadata:
+    title: "Palacký University Olomouc"
+    description: "Datasets of Palacký University Olomouc harvested from Zenodo."
+  access: *access
+
+- slug: zenodo-utb
+  logo: zenodo-utb.png
+  metadata:
+    title: "Tomas Bata University in Zlín"
+    description: "Datasets of Tomas Bata University in Zlín harvested from Zenodo."
+  access: *access
+
+- slug: zenodo-vscht
+  logo: zenodo-vscht.png
+  metadata:
+    title: "University of Chemistry and Technology, Prague"
+    description: "Datasets of the University of Chemistry and Technology, Prague harvested from Zenodo."
+  access: *access
+
+- slug: lindat
+  logo: lindat.png
+  metadata:
+    title: "LINDAT/CLARIAH-CZ"
+    description: "Datasets harvested from the LINDAT/CLARIAH-CZ repository."
+  access: *access
+
+- slug: av
+  logo: av.png
+  metadata:
+    title: "Czech Academy of Sciences"
+    description: "Datasets of the Czech Academy of Sciences harvested from the ASEP repository."
+  access: *access
+
+- slug: zenodo-aiscr
+  logo: zenodo-aiscr.png
+  metadata:
+    title: "Archaeological Information System of the Czech Republic"
+    description: "Datasets of the Archaeological Information System of the Czech Republic (AIS CR) harvested from Zenodo."
+  access: *access
+
+- slug: zenodo-aru
+  logo: zenodo-aru.png
+  metadata:
+    title: "Institute of Archaeology of the Czech Academy of Sciences, Prague"
+    description: "Datasets of the Institute of Archaeology of the Czech Academy of Sciences, Prague harvested from Zenodo."
+  access: *access
+
+- slug: zenodo-arub
+  logo: zenodo-arub.png
+  metadata:
+    title: "Institute of Archaeology of the Czech Academy of Sciences, Brno"
+    description: "Datasets of the Institute of Archaeology of the Czech Academy of Sciences, Brno harvested from Zenodo."
+  access: *access
+
+- slug: zenodo-ostrava
+  logo: zenodo-ostrava.png
+  metadata:
+    title: "University of Ostrava"
+    description: "Datasets of the University of Ostrava harvested from Zenodo."
+  access: *access
+
+- slug: zenodo-vulhm
+  logo: zenodo-vulhm.png
+  metadata:
+    title: "Forestry and Game Management Research Institute"
+    description: "Datasets of the Forestry and Game Management Research Institute harvested from Zenodo."
+  access: *access
