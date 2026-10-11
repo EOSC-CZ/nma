@@ -10,11 +10,12 @@ class PIDStatusCheckField(InvenioPIDStatusCheckField):
     def __get__(self, instance: Record, owner: type[Record]=None)->bool:
         """Get the pid status."""
         try:
-            super().__get__(instance, owner)
+            return super().__get__(instance, owner)
         except AttributeError:
             pid = getattr(instance, self.key)
             if pid is None:
                 return False
+            raise
 
 
 class ExternalPIDFieldContextMixin:

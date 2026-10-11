@@ -455,7 +455,7 @@ wheels = [
 
 [[package]]
 name = "ccmm-invenio"
-version = "2.0.1"
+version = "2.0.4"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "idutils" },
@@ -471,9 +471,9 @@ dependencies = [
     { name = "shapely" },
     { name = "xmlschema" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/98/e3/24e41c89499bf63a084a9f894cb56dabb3fe09df2c1d0134ca8d10564c4d/ccmm_invenio-2.0.1.tar.gz", hash = "sha256:e828fc9b050a19f404dd66d062c833f3dcc7abb2ab9cfd6e53b22f3a27109410", size = 918304, upload-time = "2026-10-09T11:21:07.243Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/24/bc/67e0a5e38a53312af4a958c8218521ba863602e17a51280a2e731bf0283d/ccmm_invenio-2.0.4.tar.gz", hash = "sha256:a3ba9eb7d98ff5c8980948e6e9918730f2329274f26bfd3582c4b2d8bc32d7d5", size = 919547, upload-time = "2026-10-11T21:00:10.454Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/23/d8/186c6bff0017e6deceed5cd5a0da653a2d410bdb5449d5d59abd319c6ea1/ccmm_invenio-2.0.1-py3-none-any.whl", hash = "sha256:e677428a3a57bd796c5cfed84a54c53aed05ceb2178d28ca0e60ec09d4dcea24", size = 1034536, upload-time = "2026-10-09T11:21:05.387Z" },
+    { url = "https://files.pythonhosted.org/packages/af/37/372bec7dad6f93bdeb0c5a1a2606c511cf59a0b78c121027aac550b045e7/ccmm_invenio-2.0.4-py3-none-any.whl", hash = "sha256:474cb00755219e1836792df308d00b5544ed5c8df9ad4d441dddb484cace71e5", size = 1035988, upload-time = "2026-10-11T21:00:08.73Z" },
 ]
 
 [[package]]
@@ -4025,7 +4025,7 @@ wheels = [
 
 [[package]]
 name = "oarepo-oai-pmh-harvester"
-version = "9.2.0"
+version = "9.3.0"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "httpx" },
@@ -4035,9 +4035,9 @@ dependencies = [
     { name = "oarepo", extra = ["tests"] },
     { name = "rich" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2d/2a/62fdf6d356f3daf700b5d98e2e8d4751e49340010855e1500508950c966e/oarepo_oai_pmh_harvester-9.2.0.tar.gz", hash = "sha256:6b6a353558bb27799ab9c0c12588939a0389dff432204620ba719a31fb877fcb", size = 40077, upload-time = "2026-10-07T12:09:37.3Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/76/ea/23d9f87ba4c1c9b8045f82ccb43f804bdce65392e34586a99da24d5c0af8/oarepo_oai_pmh_harvester-9.3.0.tar.gz", hash = "sha256:3d65d2df58d5e889bf14aa800c652d75487e992406b502e1c4af2e6c8995a08b", size = 50764, upload-time = "2026-10-11T20:41:22.753Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ee/c2/ee37e75fd52311ebea9b48a0699337c9923bd58cbf08f7dca7bb7f27101a/oarepo_oai_pmh_harvester-9.2.0-py3-none-any.whl", hash = "sha256:800461bfd03c4485469ea4a829de1edcc83fecb5846b4edfe7d03235a23c4835", size = 64674, upload-time = "2026-10-07T12:09:36.183Z" },
+    { url = "https://files.pythonhosted.org/packages/d1/b9/c2b964f6f32a1ac56c003135741d1efcd7b8374a75d021fae3aee6b6d4cd/oarepo_oai_pmh_harvester-9.3.0-py3-none-any.whl", hash = "sha256:dc2dbc6cacedf7805612aa7187da93b0ba053a198cdbe3c878f7726d8c850ddd", size = 72564, upload-time = "2026-10-11T20:41:21.709Z" },
 ]
 
 [[package]]

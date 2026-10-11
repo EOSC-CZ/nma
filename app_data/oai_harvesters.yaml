@@ -1,17 +1,31 @@
-- id: catchall
-  name: "Catch-all repository harvester"
-  base-url: "https://data.narodni-repozitar.cz"
-  metadata-prefix: "catchall"
+- id: datarepo-test
+  name: "Catch-all Multi-discipline data repository, tests only, never use in production"
+  base-url: "https://test1.datarepo.du.cesnet.cz/oai2d"
+  metadata-prefix: "ccmm"
   model: datasets
-  loader: catch-all
+  community: catchall
+  loader: oai-pmh
   transformer:
-    - "catch-all"
+    - 'oai-import{"model":"datasets"}'
+    - "id-from-doi"
+
+- id: datarepo
+  name: "Catch-all Multi-discipline data repository"
+  base-url: "https://datarepo.eosc.cz/oai2d"
+  metadata-prefix: "ccmm"
+  model: datasets
+  community: catchall
+  loader: oai-pmh
+  transformer:
+    - 'oai-import{"model":"datasets"}'
+    - "id-from-doi"
 
 - id: zenodo-czu
   name: "Zenodo CZU harvester"
   base-url: "https://zenodo.org"
   metadata-prefix: "czu"
   model: datasets
+  community: zenodo-czu
   loader: zenodo
   transformer:
     - "zenodo"
@@ -22,6 +36,7 @@
   base-url: "https://zenodo.org"
   metadata-prefix: "cvut"
   model: datasets
+  community: zenodo-cvut
   loader: zenodo
   transformer:
     - "zenodo"
@@ -32,6 +47,7 @@
   base-url: "https://zenodo.org"
   metadata-prefix: "upol"
   model: datasets
+  community: zenodo-upol
   loader: zenodo
   transformer:
     - "zenodo"
@@ -42,6 +58,7 @@
   base-url: "https://zenodo.org"
   metadata-prefix: "utb"
   model: datasets
+  community: zenodo-utb
   loader: zenodo
   transformer:
     - "zenodo"
@@ -52,6 +69,7 @@
   base-url: "https://zenodo.org"
   metadata-prefix: "vscht"
   model: datasets
+  community: zenodo-vscht
   loader: zenodo
   transformer:
     - "zenodo"
@@ -62,6 +80,7 @@
   base-url: "https://lindat.mff.cuni.cz/repository/server/oai/request"
   metadata-prefix: "cmdi"
   model: datasets
+  community: lindat
   loader: oai-pmh
   transformer:
     - "lindat"
@@ -72,6 +91,7 @@
   metadata-prefix: "dataciteoai"
   setspec: OAIDATACITE
   model: datasets
+  community: av
   loader: oai-pmh
   transformer:
     - 'oai-import{"model":"datasets"}'
@@ -84,6 +104,7 @@
   base-url: "https://zenodo.org"
   metadata-prefix: "aiscr"
   model: datasets
+  community: zenodo-aiscr
   loader: zenodo
   transformer:
     - "zenodo"
@@ -96,6 +117,7 @@
   base-url: "https://zenodo.org"
   metadata-prefix: "aru"
   model: datasets
+  community: zenodo-aru
   loader: zenodo
   transformer:
     - "zenodo"
@@ -108,6 +130,7 @@
   base-url: "https://zenodo.org"
   metadata-prefix: "arub"
   model: datasets
+  community: zenodo-arub
   loader: zenodo
   transformer:
     - "zenodo"
@@ -120,6 +143,7 @@
   base-url: "https://zenodo.org"
   metadata-prefix: "ostrava"
   model: datasets
+  community: zenodo-ostrava
   loader: zenodo
   transformer:
     - "zenodo"
@@ -132,6 +156,7 @@
   base-url: "https://zenodo.org"
   metadata-prefix: "vulhm"
   model: datasets
+  community: zenodo-vulhm
   loader: zenodo
   transformer:
     - "zenodo"
