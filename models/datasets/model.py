@@ -55,6 +55,10 @@ from .services.components import (
 from common.oai.aire_provenance import aire_about_etree
 from models.datasets.oai.openaire.openaire_serializer import OpenAIREXMLSerializer
 
+from oarepo_requests.model.presets.requests import requests_preset
+from oarepo_workflows.model.presets import workflows_preset
+from oarepo_communities.model.presets import communities_preset
+
 class PIDStatusCheckFieldMixin:
     """Custom PID status check field returning False when PID is not set."""
 
@@ -172,7 +176,10 @@ datasets_model = model(
     description="A generic dataset model",
     presets=[
 
-        ccmm_preset_1_1_0
+        ccmm_preset_1_1_0,
+        requests_preset,
+        workflows_preset,
+        communities_preset,
 
     ],
     types=[

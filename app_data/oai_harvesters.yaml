@@ -3,7 +3,7 @@
   base-url: "https://test1.datarepo.du.cesnet.cz/oai2d"
   metadata-prefix: "ccmm"
   model: datasets
-  community: catchall
+  community: datarepo
   loader: oai-pmh
   transformer:
     - 'oai-import{"model":"datasets"}'
@@ -14,7 +14,7 @@
   base-url: "https://datarepo.eosc.cz/oai2d"
   metadata-prefix: "ccmm"
   model: datasets
-  community: catchall
+  community: datarepo
   loader: oai-pmh
   transformer:
     - 'oai-import{"model":"datasets"}'
