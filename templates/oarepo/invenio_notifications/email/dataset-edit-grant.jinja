@@ -1,0 +1,67 @@
+{#
+  SPDX-FileCopyrightText: 2026 CESNET z.s.p.o.
+  SPDX-License-Identifier: MIT
+#}
+{% set record = notification.context.record %}
+{% set expiration_time = notification.context.expiration_time %}
+
+{% set record_title = record.metadata.title %}
+{# Link presence is permission-gated (has_permission("update")), so it renders
+   only when the recipient is actually allowed to edit. #}
+{% set edit_link = record.links.edit_html %}
+{% set account_settings_link = invenio_url_for("invenio_notifications_settings.index") %}
+
+{%- block subject -%}
+NMA: {{ _("Edit access granted for record '{record_title}'").format(record_title=record_title) }}
+{%- endblock subject -%}
+
+{# ------------------------------------------------------- #}
+{# ---------------------- HTML BODY ----------------------- #}
+{# ------------------------------------------------------- #}
+{%- block html_body -%}
+<table style="font-family:'Lato',Helvetica,Arial,sans-serif;border-spacing:15px">
+    <tr>
+        <td>
+            {{ _("Dear National Metadata Directory user,") }}
+            <br><br>
+            {{ _("We have granted you permission to edit the record '{record_title}' in the National Metadata Directory (NMD).").format(record_title=record_title) }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ _("Edits will be possible for the next %(days)s days at the following link:", days=expiration_time) }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="{{ edit_link }}" class="button">{{ _("Edit the record") }}</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ _("To edit the record, you need to be logged in using the identity that created the record.") }}
+        </td>
+    </tr>
+    <tr>
+        <td style="font-size:smaller">{{ _("This is an auto-generated message. To manage notifications, visit your")}} <a href="{{ account_settings_link }}">{{ _("account settings")}}</a>.</td>
+    </tr>
+</table>
+{%- endblock html_body -%}
+
+{#
+    Because of whitespace interpretation for plain text we have to: indent, format and strip jinja blocks (-)
+    just so to get the right output. This is unfortunate for code readability but required for output.
+#}
+{%- block plain_body -%}
+{{ _("Dear National Metadata Directory user,") }}
+
+{{ _("We have granted you permission to edit the record '{record_title}' in the National Metadata Directory (NMD).").format(record_title=record_title) }}
+
+{{ _("Edits will be possible for the next %(days)s days at the following link:", days=expiration_time) }}
+
+{{ _("Edit the record: ")}}{{ edit_link }}
+
+{{ _("To edit the record, you need to be logged in using the identity that created the record.") }}
+
+{{ _("This is an auto-generated message. To manage notifications, visit your account settings: ")}}{{ account_settings_link }} .
+{%- endblock plain_body -%}

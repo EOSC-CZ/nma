@@ -1,0 +1,39 @@
+{#
+  SPDX-FileCopyrightText: 2026 CESNET z.s.p.o.
+  SPDX-License-Identifier: MIT
+
+  Datasets manage-menu override (replaces
+  ``invenio_app_rdm/records/details/side_bar/manage_menu.html`` through oarepo's
+  template chain). Renders the datasets manage-menu mount point
+  (#dataset-record-management), which our ``datasets_record_management.js``
+  bundle (ui/datasets/semantic-ui/js/datasets/record-management/index.js) reads
+  to render Edit (``record.links.edit_html``) + Share. The stock upstream
+  manage-menu also carries a "New version" button, which this rendering omits.
+#}
+
+{% if show_record_management_menu %}
+  <section id="record-manage-menu"
+           aria-label="{{ _('Record management') }}"
+           class="ui grid segment computer only sidebar-container rdm-sidebar"
+  >
+    <div class="column"
+         id="dataset-record-management"
+         data-record='{{ record_ui | tojson }}'
+         data-permissions='{{ permissions | tojson }}'
+         data-groups-enabled='{{ config.USERS_RESOURCES_GROUPS_ENABLED | tojson }}'
+         data-audit-logs-enabled='{{ config.AUDIT_LOGS_ENABLED | tojson }}'
+         {% if config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
+          {% include config.RDM_DETAIL_SIDE_BAR_MANAGE_ATTRIBUTES_EXTENSION_TEMPLATE %}
+         {% endif %}
+         >
+      <div class="ui placeholder">
+        <div class="header">
+          <div class="full line"></div>
+          <div class="full line"></div>
+          <div class="full line"></div>
+          <div class="full line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
