@@ -94,3 +94,10 @@
     title: "Forestry and Game Management Research Institute"
     description: "Datasets of the Forestry and Game Management Research Institute harvested from Zenodo."
   access: *access
+
+- slug: zenodo-qm4st
+  logo: zenodo-qm4st.png
+  metadata:
+    title: "Quantum Materials for Sustainability Zenodo community"
+    description: "Datasets of the Quantum Materials for Sustainability community harvested from Zenodo."
+  access: *access
