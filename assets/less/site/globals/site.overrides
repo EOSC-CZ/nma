@@ -446,6 +446,11 @@ dl.details-list {
   max-height: 250px;
 }
 
+// footer counterpart sits in its own full-width row; keep it much shorter
+#rdm-footer-element .collaborators-logo {
+  max-height: 8rem;
+}
+
 .navbar-brand {
   font-weight: 700;
   letter-spacing: 0.1rem;

@@ -48,18 +48,6 @@ You can override any of these blocks to customize the footer.
 
       </em>
 
-      {% if not hide_footer_mandatory_publicity %}
-
-        <div class="rel-pt-1 rel-pr-1">
-          <a href="https://www.eosc.cz/en">
-            <img class="collaborators-logo" src="{{ 'https://www.eosc.cz/media/4184114/svg__eu-msmt-eosccz.svg' if logo_locale == 'cs' else 'https://www.eosc.cz/media/4184108/svg__en-eu-msmt-eosccz.svg' }}"
-                  title="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }} / {{ _('EOSC-CZ project') }}"
-                  alt="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }} / {{ _('EOSC-CZ project') }}">
-          </a>
-        </div>
-
-      {% endif %}
-
       </p>
     </div>
     <div class="five wide column">
@@ -81,6 +69,16 @@ You can override any of these blocks to customize the footer.
       <p><a href="mailto:{{ config.REPOSITORY_SUPPORT_CONTACT}}">{{ _('User support') }}</a></p>
     </div>
   </div>
+
+  {% if not hide_footer_mandatory_publicity %}
+    <div class="ui center aligned container rel-pt-2 rel-pb-2">
+      <a href="https://www.eosc.cz/en">
+        <img class="collaborators-logo" src="{{ 'https://www.eosc.cz/media/4184114/svg__eu-msmt-eosccz.svg' if logo_locale == 'cs' else 'https://www.eosc.cz/media/4184108/svg__en-eu-msmt-eosccz.svg' }}"
+              title="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }} / {{ _('EOSC-CZ project') }}"
+              alt="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }} / {{ _('EOSC-CZ project') }}">
+      </a>
+    </div>
+  {% endif %}
 </div>
 
 {%- endblock footer_top %}
