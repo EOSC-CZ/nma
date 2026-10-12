@@ -3,6 +3,7 @@ import traceback
 from collections.abc import Mapping
 from functools import wraps
 
+from ccmm_invenio.ui import CCMMRecordsUIResource, CCMMRecordsUIResourceConfig
 from flask import (
     Blueprint,
     abort,
@@ -23,6 +24,7 @@ from invenio_records_resources.services.errors import (
     PermissionDeniedError,
 )
 from markupsafe import Markup, escape
+from oarepo_related_resources.errors import PIDProcessingError, UnsupportedPIDError
 from oarepo_runtime.typing import record_from_result
 from oarepo_ui.overrides import UIComponent
 from oarepo_ui.overrides.components import UIComponentImportMode
@@ -44,7 +46,6 @@ from oarepo_ui.resources.decorators import (
     pass_record_or_draft,
     pass_route_args,
 )
-from ccmm_invenio.ui import CCMMRecordsUIResource, CCMMRecordsUIResourceConfig
 from oarepo_ui.utils import can_view_deposit_page
 from werkzeug.exceptions import HTTPException
 
@@ -52,7 +53,6 @@ from riv.proxies import current_resolver_registry, current_riv_extension
 from riv.records.api import generate_id
 from riv.records.create_record import create_record
 from riv.records.utils import create_user_edit_grant, user_edit_grant_and_notification
-from oarepo_related_resources.errors import PIDProcessingError, UnsupportedPIDError
 from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.placeholder_remover import PlaceholderRemoverComponent
@@ -201,7 +201,6 @@ class DatasetsUIResource(CCMMRecordsUIResource):
     @handle_riv_errors
     def deposit_create(self):
         """Create and publish record by persistent identifier. Generate secret link and send email to user. Grant access to support."""
-
         identifier = request.args.get("identifier", "")
 
         if request.method == "GET" and identifier:
@@ -235,21 +234,20 @@ class DatasetsUIResource(CCMMRecordsUIResource):
                             "datasets_ui.record_detail", pid_value=record_data["id"]
                         )
                     )
-                else:
-                    user_edit_grant_and_notification(record_data, problems)
-                    # Sanitize problem messages to prevent XSS
-                    issues_list = "".join(
-                        [f"<li>{escape(problem.message)}</li>" for problem in problems]
-                    )
-                    warning_message = Markup(
-                        f'<div class="header">'
-                        f'<i class="exclamation triangle icon"></i>'
-                        f'{_("Thank you for submitting the record to the National Metadata Directory. We detected some metadata issues within the record. To obtain a URL for RIV reporting, please check and correct the metadata below.")}'
-                        f"</div>"
-                        f'<ul class="list">{issues_list}</ul>'
-                    )
-                    flash(warning_message, "warning")
-                    return redirect(edit_link)
+                user_edit_grant_and_notification(record_data, problems)
+                # Sanitize problem messages to prevent XSS
+                issues_list = "".join(
+                    [f"<li>{escape(problem.message)}</li>" for problem in problems]
+                )
+                warning_message = Markup(
+                    f'<div class="header">'
+                    f'<i class="exclamation triangle icon"></i>'
+                    f'{_("Thank you for submitting the record to the National Metadata Directory. We detected some metadata issues within the record. To obtain a URL for RIV reporting, please check and correct the metadata below.")}'
+                    f"</div>"
+                    f'<ul class="list">{issues_list}</ul>'
+                )
+                flash(warning_message, "warning")
+                return redirect(edit_link)
             except PIDAlreadyExists as e:
                 return redirect(
                     url_for("datasets_ui.record_detail", pid_value=e.pid_value)
@@ -354,7 +352,6 @@ def finalize_app(app):
 
 def create_blueprint(app):
     """Register blueprint for this resource."""
-
     blueprint = DatasetsUIResource(DatasetsUIResourceConfig()).as_blueprint()
     return blueprint
 
@@ -368,6 +365,33 @@ def create_record_detail_redirect_blueprint(app):
     @bp.route("/s/<path:pid_value>")
     def redirect(pid_value):
         return flask_redirect(url_for("datasets_ui.record_detail", pid_value=pid_value))
+
+    return bp
+
+
+def create_uploads_redirect_blueprint(app):
+    """Redirect legacy ``/uploads`` URLs to the canonical ``/datasets/uploads`` UI.
+
+    The datasets deposit/edit form is canonical at ``/datasets/uploads/...``
+    (blueprint ``url_prefix="/datasets"``). Upstream
+    ``invenio_app_rdm_records.deposit_edit`` lives at the root ``/uploads/<pid_value>``
+    with a url-safe converter that cannot match pids containing ``/`` (e.g.
+    ``doi:10.5281/...``), producing a 404 at the router. These redirect views keep
+    legacy URLs working while the canonical route stays prefixed. ``pid_value``
+    arrives percent-decoded via the ``path`` converter and is passed to
+    ``url_for`` as-is (Werkzeug encodes it for URL building itself).
+    """
+    bp = Blueprint("datasets_uploads_redirect", __name__)
+
+    @bp.route("/uploads/new")
+    def redirect_deposit_create():
+        return redirect(url_for("datasets_ui.deposit_create", **request.args), code=301)
+
+    @bp.route("/uploads/<path:pid_value>")
+    def redirect_deposit_edit(pid_value):
+        return redirect(
+            url_for("datasets_ui.deposit_edit", pid_value=pid_value), code=301
+        )
 
     return bp
 

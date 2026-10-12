@@ -9,7 +9,8 @@ theme = WebpackThemeBundle(
             entry={
                 "datasets_search": "./js/datasets/search/index.js",
                 "datasets_deposit_form": "./js/datasets/forms/index.js",
-                "datasets_register_form": "./js/datasets/forms/register-dataset-form.js"
+                "datasets_register_form": "./js/datasets/forms/register-dataset-form.js",
+                "datasets_record_management": "./js/datasets/record-management/index.js",
             },
             dependencies={},
             devDependencies={},
