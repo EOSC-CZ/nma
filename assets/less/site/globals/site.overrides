@@ -437,6 +437,15 @@ dl.details-list {
   display: flex;
 }
 
+// publicity/footer logos: wider & taller than the upstream 250x150 cap, ratio preserved
+.brought-to-you-section img,
+.trusted-by-section img,
+.collaborators-logo {
+  width: auto;
+  max-width: 100%;
+  max-height: 250px;
+}
+
 .navbar-brand {
   font-weight: 700;
   letter-spacing: 0.1rem;
@@ -446,7 +455,16 @@ dl.details-list {
     text-decoration: none;
   }
   .navbar-brand-logo {
-    max-height: 3rem;
+    // light frosted patch so the dots don't clutter the logo, kept
+    // translucent with a wide soft halo instead of a solid box
+    max-height: 4.5rem;
+    position: relative;
+    z-index: 1;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.5rem;
+    background-color: hsla(185, 100%, 97%, 0.8);
+    // halo biased upward so it never spills over the navbar's own drop shadow
+    box-shadow: 0 -1.75rem 2.5rem 1.5rem hsla(185, 100%, 97%, 0.8);
   }
 }
 

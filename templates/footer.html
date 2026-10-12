@@ -51,17 +51,10 @@ You can override any of these blocks to customize the footer.
       {% if not hide_footer_mandatory_publicity %}
 
         <div class="rel-pt-1 rel-pr-1">
-          <a href="https://msmt.gov.cz">
-            <img class="collaborators-logo" src="{{ url_for('static', filename='images/eu_msmt_' ~ logo_locale ~ '.png') }}"
-                  title="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}"
-                  alt="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }}">
-          </a>
-        </div>
-        <div class="rel-p-1">
           <a href="https://www.eosc.cz/en">
-            <img class="collaborators-logo" src="{{ url_for('static', filename='images/eosc-logo-barevne_CZ_ENG 1.png') }}"
-                  title="{{ _('EOSC-CZ project') }}"
-                  alt="{{ _('EOSC-CZ project') }}">
+            <img class="collaborators-logo" src="{{ 'https://www.eosc.cz/media/4184114/svg__eu-msmt-eosccz.svg' if logo_locale == 'cs' else 'https://www.eosc.cz/media/4184108/svg__en-eu-msmt-eosccz.svg' }}"
+                  title="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }} / {{ _('EOSC-CZ project') }}"
+                  alt="{{ _('EU and MINISTRY OF EDUCATION YOUTH AND SPORTS') }} / {{ _('EOSC-CZ project') }}">
           </a>
         </div>
 

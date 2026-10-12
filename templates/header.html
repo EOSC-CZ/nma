@@ -12,7 +12,7 @@
 {%- set hidden_menu = current_menu.submenu("settings.oauthclient").hide() %}
 <a href="/" class="navbar-brand d-flex align-items-center" data-testid="header-site-logo">
     <img
-      src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+      src="{{ 'https://www.eosc.cz/media/4236967/nma_logo-09.svg' if current_i18n.language == 'cs' else 'https://www.eosc.cz/media/4236965/nma_logo-10.svg' }}"
       class="navbar-brand-logo rel-pr-1"
       alt="{{ _(config.THEME_SITENAME) }}"
       loading="lazy"
