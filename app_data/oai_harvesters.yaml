@@ -174,3 +174,15 @@
   transformer:
     - "zenodo"
   setspec: 'communities:qm4st AND resource_type.type:dataset'
+
+
+- id: digitalia
+  name: "Metasys Digitalia MUNI ARTS"
+  base-url: "https://metasys.phil.muni.cz/oai/request"
+  metadata-prefix: "ccmm-xml"
+  model: datasets
+  community: digitalia
+  loader: oai-pmh
+  transformer:
+    - 'oai-import{"model":"datasets"}'
+    - "id-from-doi"

@@ -101,3 +101,12 @@
     title: "Quantum Materials for Sustainability Zenodo community"
     description: "Datasets of the Quantum Materials for Sustainability community harvested from Zenodo."
   access: *access
+
+- slug: digitalia
+  logo: digitalia.png
+  metadata:
+    title: Metasys Digitalia MUNI ARTS
+    description: |
+        Digitalia MUNI ARTS is a research infrastructure whose main purpose is to support
+        digital research in the humanities and arts at the Faculty of Arts of Masaryk University (FF MU).
+  access: *access
