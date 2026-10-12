@@ -73,7 +73,7 @@
   loader: zenodo
   transformer:
     - "zenodo"
-  setspec: 'creators.affiliation:("vscht" OR "Vysoká škola chemicko-technologická v Praze" OR "UCT Prague" OR "University of Chemistry and Technology, Prague") AND resource_type.type:dataset'
+  setspec: '(creators.affiliation:("vscht" OR "Vysoká škola chemicko-technologická v Praze" OR "UCT Prague" OR "University of Chemistry and Technology, Prague") OR communities:uct-prague) AND resource_type.type:dataset'
 
 - id: lindat
   name: "LINDAT/CLARIN repository harvester"
@@ -161,3 +161,16 @@
   transformer:
     - "zenodo"
   setspec: 'communities:vulhm AND resource_type.type:dataset'
+
+# Quantum Materials for Sustainability Zenodo community
+# https://zenodo.org/communities/qm4st
+- id: zenodo-qm4st
+  name: "Zenodo QM4ST community harvester"
+  base-url: "https://zenodo.org"
+  metadata-prefix: "qm4st"
+  model: datasets
+  community: zenodo-qm4st
+  loader: zenodo
+  transformer:
+    - "zenodo"
+  setspec: 'communities:qm4st AND resource_type.type:dataset'
