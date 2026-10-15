@@ -57,9 +57,6 @@ Note: Context variables available:
 - files/media_files: File entries
 - is_preview/is_draft: Record state
 #}
-{%- block record_header_info %}
-{%- endblock record_header_info %}
-
 {%- set show_record_management_menu = permissions.can_update or permissions.can_manage %}
 {%- block record_header %}
   {% if show_record_management_menu %}
@@ -87,7 +84,7 @@ Note: Context variables available:
     </section>
   </div>
   {% endif %}
-{%- endblock record_header %} 
+{%- endblock record_header %}
 
 {%- block record_title -%}
   <div class="ui two column stackable grid">
@@ -99,9 +96,13 @@ Note: Context variables available:
     </div>
   </div>
 
-  <div class="ui secondary basic padded rel-pl-2 rel-pt-2 rel-pb-1 rel-pr-2 record-title segment">
+  <div class="ui secondary basic padded rel-pl-2 rel-pt-1 rel-pb-1 rel-pr-2 record-title segment">
+    {#- Inside the title segment (not record_header) so permalinks come first and the main column top stays aligned with the sidebar #}
+    {%- block record_header_info %}
+      {{ super() }}
+    {%- endblock record_header_info %}
     {{ super() }}
-</div>
+  </div>
 {%- endblock record_title -%}
 
 {%- block record_footer %}
