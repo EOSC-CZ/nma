@@ -186,3 +186,15 @@
   transformer:
     - 'oai-import{"model":"datasets"}'
     - "id-from-doi"
+
+
+- id: archeo-vault
+  name: "The Czech Archaeological Repository for Analytical Data"
+  base-url: "https://archaeo-vault.cz/oai/request"
+  metadata-prefix: "ccmm-xml"
+  model: datasets
+  community: archeo-vault
+  loader: oai-pmh
+  transformer:
+    - 'oai-import{"model":"datasets"}'
+    - "id-from-doi"
