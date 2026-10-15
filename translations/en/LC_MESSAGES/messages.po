@@ -909,6 +909,16 @@ msgstr ""
 msgid "OpenAIRE"
 msgstr ""
 
+#: templates/templates/header_frontpage.html:37
+#, python-format
+msgid ""
+"We also invite you to try our new <a href=\"%(semantic_url)s\" "
+"target=\"_blank\" rel=\"noopener noreferrer\">experimental discovery "
+"portal</a>, which combines semantic suggestions, keyword exact‑matching and "
+"other intelligent techniques to surface more relevant results to your "
+"queries."
+msgstr ""
+
 #~ msgid "Datacite export"
 #~ msgstr ""
 
