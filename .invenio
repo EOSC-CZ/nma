@@ -2,15 +2,16 @@
 flavour = RDM
 javascript_package_manager = pnpm
 python_package_manager = uv
+use_rpc = true
 
 [cookiecutter]
 project_name = NMA
 project_shortname = nma
 package_name = nma
 project_site = nma.com
-author_name = 
-author_email = 
-year = 
+author_name =
+author_email =
+year =
 database = postgresql
 search = opensearch2
 file_storage = S3
