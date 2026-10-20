@@ -19,6 +19,8 @@ fi
 if [ -z "$KUBERNETES_SERVICE_HOST" ] ; then
     ./run.sh services setup
 else
+    # RPC server socket lives in the instance dir, which is read-only in the pod
+    sed -i 's/^use_rpc *= *true/use_rpc = false/' .invenio
     ./run.sh services setup --no-services -N
 fi
 
