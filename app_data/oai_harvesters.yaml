@@ -198,3 +198,14 @@
   transformer:
     - 'oai-import{"model":"datasets"}'
     - "id-from-doi"
+
+- id: czu-agris
+  name: "Czech University of Life Sciences Prague Agris repository harvester"
+  base-url: "https://rdm.damp.pef.czu.cz/oai2d"
+  metadata-prefix: "datacite"
+  model: datasets
+  community: czu-agris
+  loader: oai-pmh
+  transformer:
+    - 'oai-import{"model":"datasets"}'
+    - "id-from-doi"

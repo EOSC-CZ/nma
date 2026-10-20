@@ -219,8 +219,19 @@ datasets_model = model(
                 "http://datacite.org/schema/kernel-4e",
                 "resource",
         ),
-        ),
 
+        ),
+        AddMetadataImport(
+            code="datacite-xml-kernel4",
+            name=_("DataCite XML"),
+            description=_("Import metadata from DataCite XML format"),
+            mimetype="application/vnd.datacite.datacite+xml",
+            deserializer=DataCiteXMLDeserializer(),
+            oai_name=(
+                "http://datacite.org/schema/kernel-4",
+                "resource",
+            ),
+        ),
 
         AddServiceComponent(ExternalPIDComponent),
         ReplaceBaseClass(
