@@ -6,6 +6,14 @@
 <div class="twinfinity-logo"></div>
 {%- endblock twinfinity_logo %}
 
+{%- block site_banner %}{%- endblock site_banner %}
+
+{%- block frontpage_search %}
+{%- from 'invenio_banners/banner.html' import banner %}
+{{ banner() }}
+{{ super() }}
+{%- endblock frontpage_search %}
+
 
 {%- block frontpage_title %}
         <div class="ui center aligned header">
