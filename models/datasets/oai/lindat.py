@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import re
 from typing import Any, override
+from urllib.parse import urlparse
 from uuid import uuid4
 
 import bleach
@@ -12,7 +14,38 @@ from invenio_vocabularies.proxies import current_service as vocabulary_service
 from langcodes import Language
 from lxml import etree
 
+from .lindat_licenses import license_candidates
+
 RDM_MINIMAL_DESCRIPTION_LENGTH = 3  # Minimum length for description field
+
+# English language names used instead of codes in some LINDAT records
+# (langcodes needs the optional language_data package to look up names)
+LANGUAGE_NAMES = {
+    "belarusian": "bel",
+    "bulgarian": "bul",
+    "croatian": "hrv",
+    "czech": "ces",
+    "dutch": "nld",
+    "english": "eng",
+    "french": "fra",
+    "german": "deu",
+    "hungarian": "hun",
+    "italian": "ita",
+    "latin": "lat",
+    "polish": "pol",
+    "portuguese": "por",
+    "russian": "rus",
+    "serbian": "srp",
+    "slovak": "slk",
+    "slovenian": "slv",
+    "spanish": "spa",
+    "ukrainian": "ukr",
+}
+
+# retired ISO 639-3 codes and their replacements
+RETIRED_LANGUAGE_CODES = {
+    "ajp": "apc",  # South Levantine Arabic, merged into Levantine Arabic in 2023
+}
 
 
 class LindatTransformer(BaseTransformer):
@@ -24,6 +57,67 @@ class LindatTransformer(BaseTransformer):
 
     def __init__(self, *args, **kwargs):
         self.warnings: list[str] = []
+        self._license_exists: dict[str, bool] = {}
+        self._language_exists: dict[str, bool] = {}
+
+    def _resolve_license(self, value: str) -> dict:
+        """Convert a license URI or name to a rights entry.
+
+        Uses the first candidate id that exists in the licenses vocabulary,
+        otherwise keeps the license as free text (not reported as an error).
+        """
+        for candidate in license_candidates(value):
+            if candidate not in self._license_exists:
+                try:
+                    vocabulary_service.read(system_identity, ("licenses", candidate))
+                    self._license_exists[candidate] = True
+                except Exception:
+                    self._license_exists[candidate] = False
+            if self._license_exists[candidate]:
+                return {"id": candidate}
+
+        current_app.logger.info(f"License '{value}' not found in licenses vocabulary, using free text")
+        if value.startswith(("http://", "https://")):
+            # a bare url is not a readable license name, point the reader to its site instead
+            host = urlparse(value).hostname or value
+            host = host.removeprefix("www.")
+            return {"title": {"en": f"License terms at {host}"}, "link": value}
+        return {"title": {"en": value}}
+
+    def _resolve_languages(self, value: str) -> list:
+        """Convert a language code or name (possibly "english; czech") to language entries.
+
+        Languages not found in the vocabulary are replaced with 'und' (undetermined),
+        which is logged but not reported as an error.
+        """
+        languages = []
+        for part in re.split(r"[;,]", value):
+            part = part.strip()
+            if not part:
+                continue
+            code = LANGUAGE_NAMES.get(part.lower()) or self._convert_lang_code(part)
+            code = RETIRED_LANGUAGE_CODES.get(code, code)
+            if code not in self._language_exists:
+                try:
+                    vocabulary_service.read(system_identity, ("languages", code))
+                    self._language_exists[code] = True
+                except Exception:
+                    self._language_exists[code] = False
+            if not self._language_exists[code]:
+                current_app.logger.info(f"Language '{part}' not in vocabulary, using 'und' (undetermined)")
+                code = "und"
+            if {"id": code} not in languages:
+                languages.append({"id": code})
+        return languages
+
+    def _resolve_licenses(self, values: list[str]) -> list:
+        """Resolve license values, dropping duplicates (e.g. OLAC lists both uri and name)."""
+        rights = []
+        for value in values:
+            entry = self._resolve_license(value)
+            if entry not in rights:
+                rights.append(entry)
+        return rights
 
     def _validate_vocabulary_item(
         self, vocabulary_id: str, item_id: str, field_name: str = ""
@@ -462,12 +556,14 @@ class LindatTransformer(BaseTransformer):
         known_elements = {
             "alternative",
             "available",
+            "bibliographicCitation",
             "contributor",
             "creator",
             "date",
             "description",
             "format",
             "identifier",
+            "isPartOf",
             "isReferencedBy",
             "isReplacedBy",
             "issued",
@@ -475,6 +571,7 @@ class LindatTransformer(BaseTransformer):
             "publisher",
             "relation",
             "replaces",
+            "requires",
             "rights",
             "source",
             "subject",
@@ -485,7 +582,7 @@ class LindatTransformer(BaseTransformer):
         for child in olac_component:
             local_name = etree.QName(child).localname
             if local_name not in known_elements:
-                current_app.logger.error(
+                current_app.logger.warning(
                     "Unknown OLAC-DcmiTerms element: %s. Known elements: %s",
                     local_name,
                     ", ".join(sorted(known_elements)),
@@ -602,17 +699,7 @@ class LindatTransformer(BaseTransformer):
                 lang_code = lang_elem.text.strip()
 
             if lang_code:
-                lang_code_3 = self._convert_lang_code(lang_code)
-                if self._validate_vocabulary_item(
-                    "languages", lang_code_3, "languages"
-                ):
-                    languages.append({"id": lang_code_3})
-                else:
-                    # Language not in vocabulary, use 'und' (undetermined)
-                    self.warnings.append(
-                        f"Language code '{lang_code_3}' not in vocabulary, using 'und' (undetermined)"
-                    )
-                    languages.append({"id": "und"})
+                languages = self._resolve_languages(lang_code)
         return languages
 
     def _extract_olac_creators(self, olac_component: etree._Element) -> list:
@@ -715,30 +802,15 @@ class LindatTransformer(BaseTransformer):
 
     def _extract_olac_rights(self, olac_component: etree._Element) -> list:
         """Extract rights/licenses from OLAC metadata."""
-        rights = []
-        for rights_elem in self.find_all_elements(
-            olac_component, self.NS_CMD, "rights"
-        ):
-            if rights_elem.text:
-                rights_text = rights_elem.text.strip()
-                if rights_text:
-                    # Try to extract license ID from text
-                    license_id = None
-                    if "/" in rights_text:
-                        license_id = rights_text.split("/")[-1].lower()
-
-                    if license_id and self._validate_vocabulary_item(
-                        "licenses", license_id, "rights"
-                    ):
-                        rights.append({"id": license_id})
-                    else:
-                        # Use title/link format if not in vocabulary
-                        rights.append(
-                            {
-                                "title": {"en": rights_text},
-                            }
-                        )
-        return rights
+        return self._resolve_licenses(
+            [
+                rights_elem.text.strip()
+                for rights_elem in self.find_all_elements(
+                    olac_component, self.NS_CMD, "rights"
+                )
+                if rights_elem.text and rights_elem.text.strip()
+            ]
+        )
 
     def _extract_olac_formats(self, olac_component: etree._Element) -> list:
         """Extract formats from OLAC metadata."""
@@ -846,6 +918,37 @@ class LindatTransformer(BaseTransformer):
                             "relation_type": {"id": "iscitedby"},
                         }
                     )
+
+        # Add isPartOf, requires, bibliographicCitation (publication describing the resource)
+        # and the generic relation (no specific type, the vocabulary has no "is related to")
+        for element_name, relation_type in (
+            ("isPartOf", "ispartof"),
+            ("requires", "requires"),
+            ("bibliographicCitation", "isdescribedby"),
+            ("relation", "references"),
+        ):
+            for elem in self.find_all_elements(olac_component, self.NS_CMD, element_name):
+                if elem.text:
+                    identifier_text = elem.text.strip()
+                    if element_name == "relation" and (
+                        # grant agreements are funding information, not related resources
+                        identifier_text.startswith("info:eu-repo/grantAgreement/")
+                        # already related with a more specific relation type
+                        or any(r["identifier"] == identifier_text for r in related_identifiers)
+                    ):
+                        continue
+                    if identifier_text and self._validate_vocabulary_item(
+                        "relationtypes", relation_type, "relation_type"
+                    ):
+                        related_identifiers.append(
+                            {
+                                "identifier": identifier_text,
+                                "scheme": (
+                                    "url" if identifier_text.startswith("http") else "other"
+                                ),
+                                "relation_type": {"id": relation_type},
+                            }
+                        )
 
         return related_identifiers
 
@@ -1083,19 +1186,10 @@ class LindatTransformer(BaseTransformer):
             ):
                 lang_code = self.get_element_text(lang_elem, self.NS_CMD, "code")
                 if lang_code:
-                    # Convert to 3-letter code if needed
-                    lang_code_3 = self._convert_lang_code(lang_code)
-                    if self._validate_vocabulary_item(
-                        "languages", lang_code_3, "languages"
-                    ):
-                        languages.append({"id": lang_code_3})
-                    else:
-                        # Language not in vocabulary, use 'und' (undetermined)
-                        self.warnings.append(
-                            f"Language code '{lang_code_3}' not in vocabulary, using 'und' (undetermined)"
-                        )
-                        languages.append({"id": "und"})
-        return languages if languages else []
+                    for language in self._resolve_languages(lang_code):
+                        if language not in languages:
+                            languages.append(language)
+        return languages
 
     def _extract_subjects(self, data_info: etree._Element) -> list:
         """Extract subjects/keywords from dataInfo."""
@@ -1113,35 +1207,11 @@ class LindatTransformer(BaseTransformer):
 
     def _extract_rights(self, license_info: etree._Element) -> list:
         """Extract rights/license from licenseInfo."""
-        rights = []
         license_elem = self.find_element_optional(license_info, self.NS_CMD, "license")
-        if license_elem is not None:
-            license_uri = self.get_element_text(license_elem, self.NS_CMD, "uri")
-            if license_uri:
-                # Try to extract license ID from URI
-                # e.g., "http://opensource.org/licenses/LGPL-3.0" -> "lgpl-3.0"
-                license_id = None
-                if "/" in license_uri:
-                    license_id = license_uri.split("/")[-1].lower()
-
-                if license_id:
-                    # Validate the license exists in vocabulary
-                    if self._validate_vocabulary_item("licenses", license_id, "rights"):
-                        rights.append({"id": license_id})
-                    else:
-                        # If not in vocabulary, use title and link instead
-                        rights.append(
-                            {
-                                "title": {"en": license_uri},
-                            }
-                        )
-                else:
-                    rights.append(
-                        {
-                            "title": {"en": license_uri},
-                        }
-                    )
-        return rights if rights else []
+        if license_elem is None:
+            return []
+        license_uri = self.get_element_text(license_elem, self.NS_CMD, "uri")
+        return self._resolve_licenses([license_uri.strip()]) if license_uri else []
 
     def _extract_funding(self, bibliographic_info: etree._Element) -> list:
         """Extract funding information from bibliographicInfo."""
