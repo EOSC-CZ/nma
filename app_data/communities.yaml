@@ -123,7 +123,7 @@
   access: *access
 
 - slug: czu-agris
-  logo: agris_logo_new.png
+  logo: czu-agris.svg
   metadata:
     title: "Czech University of Life Sciences Prague RDM Repository"
     description: "Datasets harvested from the Czech University of Life Sciences Prague RDM Repository."
