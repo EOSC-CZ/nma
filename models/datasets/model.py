@@ -30,7 +30,6 @@ from oarepo_model.customizations import (
     PrependMixin,
     ReplaceBaseClass, PatchIndexMapping, SetDefaultSearchFields,
 )
-from oarepo_model.customizations.base import Customization
 from oarepo_model.customizations.high_level.add_link import AddLink
 from oarepo_model.datatypes.registry import from_yaml
 from oarepo_rdm.model.presets import rdm_complete_preset
@@ -59,17 +58,6 @@ from models.datasets.oai.openaire.openaire_serializer import OpenAIREXMLSerializ
 from oarepo_requests.model.presets.requests import requests_preset
 from oarepo_workflows.model.presets import workflows_preset
 from oarepo_communities.model.presets import communities_preset
-
-class HideMetadataExport(Customization):
-    """Hide an export format from the UI, keeping it available in the REST API."""
-
-    modifies = ("exports",)
-
-    def apply(self, builder, model):
-        for export in builder.get_list("exports"):
-            if export.code == self.name:
-                export.display = False
-
 
 class PIDStatusCheckFieldMixin:
     """Custom PID status check field returning False when PID is not set."""
@@ -221,10 +209,6 @@ datasets_model = model(
             oai_schema="http://schema.datacite.org/oai/oai-1.1/oai.xsd",
             oai_namespace="http://schema.datacite.org/oai/oai-1.1/",
         ),
-        # TODO: move to oarepo-rdm - the citation serializer reads
-        # resource_requestctx.args, which is None in the UI record_export
-        # view, so downloading it from the export panel returns 500.
-        HideMetadataExport("citation"),
         AddMetadataImport(
             code="datacite-xml",
             name=_("DataCite XML"),
