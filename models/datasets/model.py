@@ -203,6 +203,8 @@ datasets_model = model(
             code="aire",
             name=_("OpenAIRE"),
             mimetype="application/vnd.datacite.datacite+xml",
+            # the mimetype guess maps +xml types to .xsl
+            extension=".xml",
             serializer=OpenAIREXMLSerializer(),
             about_serializer=aire_about_etree,
             oai_metadata_prefix="oai_datacite",
