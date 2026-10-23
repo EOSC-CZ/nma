@@ -1,0 +1,111 @@
+name: "🐛 Bug Report"
+description: "Report a problem with the NMA application"
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping us improve NMA!
+
+        Please describe the problem in your own words. You do not need any technical knowledge.
+        Check [existing issues](https://github.com/EOSC-CZ/nma/issues) before reporting a new one.
+
+        **Privacy:** This is a public repository. Do not share passwords, access tokens,
+        personal information, or screenshots containing sensitive data.
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: "Bug description"
+      description: "Briefly explain where you encountered the problem and what you were trying to do."
+      placeholder: "Example: I was trying to log out of the application from the user menu."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "Steps to reproduce"
+      description: "Tell us how to encounter this problem, step by step. If you are not sure, please write 'Not sure'."
+      placeholder: |
+        1. Open the application
+        2. Go to ...
+        3. Click on ...
+        4. Notice that ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: "Actual behavior"
+      description: "What actually happened? Describe any error message or unexpected behavior."
+      placeholder: "Example: The Log out button appeared disabled, and clicking it did nothing."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected behavior (optional)"
+      description: "What did you expect the application to do instead? It's okay if you're not sure."
+      placeholder: "Example: I expected to be logged out and returned to the login page."
+    validations:
+      required: false
+
+  - type: input
+    id: page-url
+    attributes:
+      label: "Page URL (optional)"
+      description: "Copy the address of the page where the problem occurred, if it can be shared publicly."
+      placeholder: "https://..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: "Environment (optional)"
+      description: "Where did you experience the problem?"
+      options:
+        - "Production (live website)"
+        - "Testing environment"
+        - "Other"
+        - "I'm not sure"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: "Web browser (optional)"
+      options:
+        - "Google Chrome"
+        - "Mozilla Firefox"
+        - "Microsoft Edge"
+        - "Safari"
+        - "Other"
+        - "I'm not sure"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: "How often does this happen? (optional)"
+      options:
+        - "Every time"
+        - "Sometimes"
+        - "Only once"
+        - "I'm not sure"
+    validations:
+      required: false
+
+  - type: upload
+    id: evidence
+    attributes:
+      label: "Screenshots or screen recordings (optional)"
+      description: "Attach a screenshot or short video if it helps explain the problem. Remove sensitive information first."
+    validations:
+      required: false
