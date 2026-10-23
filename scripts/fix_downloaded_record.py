@@ -5,12 +5,26 @@
   the schema); the affiliation id and name are kept
 - Scopus author id given as a URL: keep only the authorId value
 - language "enc": replace with "eng"
+- related identifiers: converted to ccmm related resources (title = the
+  identifier); ccmm derives the related identifiers from them and drops any
+  others
 """
 
 import json
 from urllib.parse import parse_qs, urlparse
 
 import click
+
+
+def related_resource(related_identifier):
+    resource = {
+        "title": related_identifier["identifier"],
+        "identifiers": [{"identifier": related_identifier["identifier"], "scheme": related_identifier["scheme"]}],
+        "relation_type": {"id": related_identifier["relation_type"]["id"]},
+    }
+    if resource_type := related_identifier.get("resource_type"):
+        resource["resource_type"] = {"id": resource_type["id"]}
+    return resource
 
 
 def fix_record(record):
@@ -34,6 +48,11 @@ def fix_record(record):
     ]
     if not metadata["languages"]:
         del metadata["languages"]
+
+    if related_identifiers := metadata.pop("related_identifiers", []):
+        metadata.setdefault("related_resources", []).extend(
+            related_resource(related_identifier) for related_identifier in related_identifiers
+        )
 
     return record
 
