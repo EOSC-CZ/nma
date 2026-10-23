@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Fix known problems in downloaded NMA records (see validate_records.py).
 
-- creatibutors' affiliations: drop the dereferenced "identifiers" (not accepted by
-  the schema); the affiliation id and name are kept
+- creators' and contributors' affiliations: drop dereferenced "identifiers" and
+  deduplicate them, preferring the variant with an affiliation id
 - Scopus author id given as a URL: keep only the authorId value
 - language "enc": replace with "eng"
 - related identifiers: converted to ccmm related resources (title = the
@@ -14,6 +14,33 @@ import json
 from urllib.parse import parse_qs, urlparse
 
 import click
+
+
+def fix_affiliations(person):
+    """Remove rejected fields and duplicate affiliations, preferring IDs."""
+    affiliations = person.get("affiliations", [])
+
+    for affiliation in affiliations:
+        affiliation.pop("identifiers", None)
+
+    names_with_id = {
+        affiliation["name"]
+        for affiliation in affiliations
+        if affiliation.get("id") and affiliation.get("name")
+    }
+
+    unique = []
+    seen = set()
+    for affiliation in affiliations:
+        if not affiliation.get("id") and affiliation.get("name") in names_with_id:
+            continue
+
+        key = (affiliation.get("id"), affiliation.get("name"))
+        if key not in seen:
+            seen.add(key)
+            unique.append(affiliation)
+
+    person["affiliations"] = unique
 
 
 def related_resource(related_identifier):
@@ -31,8 +58,7 @@ def fix_record(record):
     metadata = record.get("metadata", {})
 
     for creator in metadata.get("creators", []):
-        for affiliation in creator.get("affiliations", []):
-            affiliation.pop("identifiers", None)
+        fix_affiliations(creator)
 
         for identifier in creator.get("person_or_org", {}).get("identifiers", []):
             value = identifier.get("identifier", "")
@@ -40,8 +66,7 @@ def fix_record(record):
                 identifier["identifier"] = parse_qs(urlparse(value).query)["authorId"][0]
 
     for contributor in metadata.get("contributors", []):
-        for affiliation in contributor.get("affiliations", []):
-            affiliation.pop("identifiers", None)
+        fix_affiliations(contributor)
 
     metadata["languages"] = [
         {"id": "eng"} if language.get("id") == "enc" else language for language in metadata.get("languages", [])
