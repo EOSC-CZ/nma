@@ -1,0 +1,6742 @@
+# Licenses from ccmm_invenio (fixtures/data/licenses.yaml), followed by LINDAT/CLARIN licenses
+- id: 0bsd
+  title:
+    en: BSD Zero Clause License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/0bsd
+  mappings:
+  - identifier: https://opensource.org/license/0bsd
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: aal
+  title:
+    en: Attribution Assurance License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/attribution-php
+  mappings:
+  - identifier: https://opensource.org/license/attribution-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: abstyles
+  title:
+    en: Abstyles License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Abstyles
+  mappings:
+  - identifier: https://spdx.org/licenses/Abstyles
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: adobe-2006
+  title:
+    en: Adobe Systems Incorporated Source Code License Agreement
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Adobe-2006
+  mappings:
+  - identifier: https://spdx.org/licenses/Adobe-2006
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: adobe-glyph
+  title:
+    en: Adobe Glyph List License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Adobe-Glyph
+  mappings:
+  - identifier: https://spdx.org/licenses/Adobe-Glyph
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: adsl
+  title:
+    en: Amazon Digital Services License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ADSL
+  mappings:
+  - identifier: https://spdx.org/licenses/ADSL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: afl-1.1
+  title:
+    en: Academic Free License v1.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/AFL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/AFL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: afl-1.2
+  title:
+    en: Academic Free License v1.2
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/AFL-1.2
+  mappings:
+  - identifier: https://spdx.org/licenses/AFL-1.2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: afl-2.0
+  title:
+    en: Academic Free License v2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/AFL-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/AFL-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: afl-2.1
+  title:
+    en: Academic Free License v2.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/AFL-2.1
+  mappings:
+  - identifier: https://spdx.org/licenses/AFL-2.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: afl-3.0
+  title:
+    en: Academic Free License v3.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/afl-3-0-php
+  mappings:
+  - identifier: https://opensource.org/license/afl-3-0-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: afmparse
+  title:
+    en: Afmparse License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Afmparse
+  mappings:
+  - identifier: https://spdx.org/licenses/Afmparse
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: agpl-1.0-only
+  title:
+    en: Affero General Public License v1.0 only
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/AGPL-1.0-only
+  mappings:
+  - identifier: https://spdx.org/licenses/AGPL-1.0-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: agpl-1.0-or-later
+  title:
+    en: Affero General Public License v1.0 or later
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/AGPL-1.0-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/AGPL-1.0-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: agpl-3.0-only
+  title:
+    en: GNU Affero General Public License v3.0 only
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/agpl-v3
+  mappings:
+  - identifier: https://opensource.org/license/agpl-v3
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: agpl-3.0-or-later
+  title:
+    en: GNU Affero General Public License v3.0 or later
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/AGPL-3.0-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/AGPL-3.0-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: aladdin
+  title:
+    en: Aladdin Free Public License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Aladdin
+  mappings:
+  - identifier: https://spdx.org/licenses/Aladdin
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: amdplpa
+  title:
+    en: AMD's plpa_map.c License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/AMDPLPA
+  mappings:
+  - identifier: https://spdx.org/licenses/AMDPLPA
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: aml
+  title:
+    en: Apple MIT License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/AML
+  mappings:
+  - identifier: https://spdx.org/licenses/AML
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ampas
+  title:
+    en: Academy of Motion Picture Arts and Sciences BSD
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/AMPAS
+  mappings:
+  - identifier: https://spdx.org/licenses/AMPAS
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: antlr-pd
+  title:
+    en: ANTLR Software Rights Notice
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ANTLR-PD
+  mappings:
+  - identifier: https://spdx.org/licenses/ANTLR-PD
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: antlr-pd-fallback
+  title:
+    en: ANTLR Software Rights Notice with license fallback
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ANTLR-PD-fallback
+  mappings:
+  - identifier: https://spdx.org/licenses/ANTLR-PD-fallback
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: apache-1.0
+  title:
+    en: Apache License 1.0
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Apache-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/Apache-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: apache-1.1
+  title:
+    en: Apache License 1.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/apache-1-1
+  mappings:
+  - identifier: https://opensource.org/license/apache-1-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: apache-2.0
+  title:
+    en: Apache License 2.0
+  description:
+    en: A permissive license whose main conditions require preservation of copyright
+      and license notices. Contributors provide an express grant of patent rights.
+      Licensed works, modifications, and larger works may be distributed under different
+      terms and without source code.
+  tags:
+  - all
+  - recommended
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/apache-2-0
+  mappings:
+  - identifier: https://opensource.org/license/apache-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: apafml
+  title:
+    en: Adobe Postscript AFM License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/APAFML
+  mappings:
+  - identifier: https://spdx.org/licenses/APAFML
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: apl-1.0
+  title:
+    en: Adaptive Public License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/apl1-0-php
+  mappings:
+  - identifier: https://opensource.org/license/apl1-0-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: apsl-1.0
+  title:
+    en: Apple Public Source License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/APSL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/APSL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: apsl-1.1
+  title:
+    en: Apple Public Source License 1.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/APSL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/APSL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: apsl-1.2
+  title:
+    en: Apple Public Source License 1.2
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/APSL-1.2
+  mappings:
+  - identifier: https://spdx.org/licenses/APSL-1.2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: apsl-2.0
+  title:
+    en: Apple Public Source License 2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/apsl-2-0
+  mappings:
+  - identifier: https://opensource.org/license/apsl-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: artistic-1.0
+  title:
+    en: Artistic License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/artistic-1-0
+  mappings:
+  - identifier: https://opensource.org/license/artistic-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: artistic-1.0-cl8
+  title:
+    en: Artistic License 1.0 w/clause 8
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/Artistic-1.0-cl8
+  mappings:
+  - identifier: https://spdx.org/licenses/Artistic-1.0-cl8
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: artistic-1.0-perl
+  title:
+    en: Artistic License 1.0 (Perl)
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/artistic-perl-1-0-2
+  mappings:
+  - identifier: https://opensource.org/license/artistic-perl-1-0-2
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: artistic-2.0
+  title:
+    en: Artistic License 2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/artistic-2-0
+  mappings:
+  - identifier: https://opensource.org/license/artistic-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: bahyph
+  title:
+    en: Bahyph License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Bahyph
+  mappings:
+  - identifier: https://spdx.org/licenses/Bahyph
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: barr
+  title:
+    en: Barr License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Barr
+  mappings:
+  - identifier: https://spdx.org/licenses/Barr
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: beerware
+  title:
+    en: Beerware License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Beerware
+  mappings:
+  - identifier: https://spdx.org/licenses/Beerware
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bittorrent-1.0
+  title:
+    en: BitTorrent Open Source License v1.0
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BitTorrent-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/BitTorrent-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bittorrent-1.1
+  title:
+    en: BitTorrent Open Source License v1.1
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BitTorrent-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/BitTorrent-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: blessing
+  title:
+    en: SQLite Blessing
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/blessing
+  mappings:
+  - identifier: https://spdx.org/licenses/blessing
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: blueoak-1.0.0
+  title:
+    en: Blue Oak Model License 1.0.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BlueOak-1.0.0
+  mappings:
+  - identifier: https://spdx.org/licenses/BlueOak-1.0.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: borceux
+  title:
+    en: Borceux license
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Borceux
+  mappings:
+  - identifier: https://spdx.org/licenses/Borceux
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-1-clause
+  title:
+    en: BSD 1-Clause License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/bsd-1-clause
+  mappings:
+  - identifier: https://opensource.org/license/bsd-1-clause
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: bsd-2-clause
+  title:
+    en: BSD 2-Clause "Simplified" License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/bsd-2-clause
+  mappings:
+  - identifier: https://opensource.org/license/bsd-2-clause
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: bsd-2-clause-patent
+  title:
+    en: BSD-2-Clause Plus Patent License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/bsdpluspatent
+  mappings:
+  - identifier: https://opensource.org/license/bsdpluspatent
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: bsd-2-clause-views
+  title:
+    en: BSD 2-Clause with views sentence
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-2-Clause-Views
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-2-Clause-Views
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-3-clause
+  title:
+    en: BSD 3-Clause "New" or "Revised" License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/bsd-3-clause
+  mappings:
+  - identifier: https://opensource.org/license/bsd-3-clause
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: bsd-3-clause-attribution
+  title:
+    en: BSD with attribution
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-3-Clause-Attribution
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-3-Clause-Attribution
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-3-clause-clear
+  title:
+    en: BSD 3-Clause Clear License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-3-Clause-Clear
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-3-Clause-Clear
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-3-clause-lbnl
+  title:
+    en: Lawrence Berkeley National Labs BSD variant license
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/bsd-3-clause-lbnl
+  mappings:
+  - identifier: https://opensource.org/license/bsd-3-clause-lbnl
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: bsd-3-clause-no-nuclear-license
+  title:
+    en: BSD 3-Clause No Nuclear License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-License
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-License
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-3-clause-no-nuclear-license-2014
+  title:
+    en: BSD 3-Clause No Nuclear License 2014
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-License-2014
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-License-2014
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-3-clause-no-nuclear-warranty
+  title:
+    en: BSD 3-Clause No Nuclear Warranty
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-Warranty
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-3-Clause-No-Nuclear-Warranty
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-3-clause-open-mpi
+  title:
+    en: BSD 3-Clause Open MPI variant
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-3-Clause-Open-MPI
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-3-Clause-Open-MPI
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-4-clause
+  title:
+    en: BSD 4-Clause "Original" or "Old" License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-4-Clause
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-4-Clause
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-4-clause-uc
+  title:
+    en: BSD-4-Clause (University of California-Specific)
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-4-Clause-UC
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-4-Clause-UC
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-protection
+  title:
+    en: BSD Protection License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-Protection
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-Protection
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsd-source-code
+  title:
+    en: BSD Source Code Attribution
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BSD-Source-Code
+  mappings:
+  - identifier: https://spdx.org/licenses/BSD-Source-Code
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bsl-1.0
+  title:
+    en: Boost Software License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/bsl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/bsl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: busl-1.1
+  title:
+    en: Business Source License 1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/BUSL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/BUSL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bzip2-1.0.5
+  title:
+    en: bzip2 and libbzip2 License v1.0.5
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/bzip2-1.0.5
+  mappings:
+  - identifier: https://spdx.org/licenses/bzip2-1.0.5
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: bzip2-1.0.6
+  title:
+    en: bzip2 and libbzip2 License v1.0.6
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/bzip2-1.0.6
+  mappings:
+  - identifier: https://spdx.org/licenses/bzip2-1.0.6
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cal-1.0
+  title:
+    en: Cryptographic Autonomy License 1.0
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cal-1-0
+  mappings:
+  - identifier: https://opensource.org/license/cal-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cal-1.0-combined-work-exception
+  title:
+    en: Cryptographic Autonomy License 1.0 (Combined Work Exception)
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/CAL-1.0-Combined-Work-Exception
+  mappings:
+  - identifier: https://spdx.org/licenses/CAL-1.0-Combined-Work-Exception
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: caldera
+  title:
+    en: Caldera License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Caldera
+  mappings:
+  - identifier: https://spdx.org/licenses/Caldera
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: catosl-1.1
+  title:
+    en: Computer Associates Trusted Open Source License 1.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ca-tosl1-1-php
+  mappings:
+  - identifier: https://opensource.org/license/ca-tosl1-1-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cc
+  title:
+    cs: Licence Creative Commons
+    en: License Creative Commons
+- id: cc-by-3.0-at
+  title:
+    en: Creative Commons Attribution 3.0 Austria
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by/3.0/at/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by/3.0/at/
+    scheme: https://creativecommons.org/licenses/by/3.0/at/
+    relation: exactMatch
+- id: cc-by-3.0-us
+  title:
+    en: Creative Commons Attribution 3.0 United States
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by/3.0/us/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by/3.0/us/
+    scheme: https://creativecommons.org/licenses/by/3.0/us/
+    relation: exactMatch
+- id: cc-by-nc-nd-3.0-igo
+  title:
+    en: Creative Commons Attribution Non Commercial No Derivatives 3.0 IGO
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-nd/3.0/igo/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-nd/3.0/igo/
+    scheme: https://creativecommons.org/licenses/by-nc-nd/3.0/igo/
+    relation: exactMatch
+- id: cc-by-sa-2.0-uk
+  title:
+    en: Creative Commons Attribution Share Alike 2.0 England and Wales
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-sa/2.0/uk/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-sa/2.0/uk/
+    scheme: https://creativecommons.org/licenses/by-sa/2.0/uk/
+    relation: exactMatch
+- id: cc-by-sa-3.0-at
+  title:
+    en: Creative Commons Attribution-Share Alike 3.0 Austria
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-sa/3.0/at/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-sa/3.0/at/
+    scheme: https://creativecommons.org/licenses/by-sa/3.0/at/
+    relation: exactMatch
+- id: cc-pddc
+  title:
+    en: Creative Commons Public Domain Dedication and Certification
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/publicdomain/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/publicdomain/
+    scheme: https://creativecommons.org/licenses/publicdomain/
+    relation: exactMatch
+- id: cc-pdm-1.0
+  title:
+    en: Creative Commons Public Domain Mark 1.0 Universal
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+  mappings:
+  - identifier: https://creativecommons.org/publicdomain/mark/1.0/
+    scheme: https://creativecommons.org/publicdomain/mark/1.0/
+    relation: exactMatch
+- id: cddl-1.0
+  title:
+    en: Common Development and Distribution License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cddl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/cddl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cddl-1.1
+  title:
+    en: Common Development and Distribution License 1.1
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CDDL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/CDDL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cdla-permissive-1.0
+  title:
+    en: Community Data License Agreement Permissive 1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CDLA-Permissive-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/CDLA-Permissive-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cdla-sharing-1.0
+  title:
+    en: Community Data License Agreement Sharing 1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CDLA-Sharing-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/CDLA-Sharing-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cecill-1.0
+  title:
+    en: CeCILL Free Software License Agreement v1.0
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CECILL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/CECILL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cecill-1.1
+  title:
+    en: CeCILL Free Software License Agreement v1.1
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CECILL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/CECILL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cecill-2.0
+  title:
+    en: CeCILL Free Software License Agreement v2.0
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CECILL-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/CECILL-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cecill-2.1
+  title:
+    en: CeCILL Free Software License Agreement v2.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cecill-2-1
+  mappings:
+  - identifier: https://opensource.org/license/cecill-2-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cecill-b
+  title:
+    en: CeCILL-B Free Software License Agreement
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CECILL-B
+  mappings:
+  - identifier: https://spdx.org/licenses/CECILL-B
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cecill-c
+  title:
+    en: CeCILL-C Free Software License Agreement
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CECILL-C
+  mappings:
+  - identifier: https://spdx.org/licenses/CECILL-C
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cern-ohl-1.1
+  title:
+    en: CERN Open Hardware Licence v1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CERN-OHL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/CERN-OHL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cern-ohl-1.2
+  title:
+    en: CERN Open Hardware Licence v1.2
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CERN-OHL-1.2
+  mappings:
+  - identifier: https://spdx.org/licenses/CERN-OHL-1.2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cern-ohl-p-2.0
+  title:
+    en: CERN Open Hardware Licence Version 2 - Permissive
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cern-ohl-p
+  mappings:
+  - identifier: https://opensource.org/license/cern-ohl-p
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cern-ohl-s-2.0
+  title:
+    en: CERN Open Hardware Licence Version 2 - Strongly Reciprocal
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cern-ohl-s
+  mappings:
+  - identifier: https://opensource.org/license/cern-ohl-s
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cern-ohl-w-2.0
+  title:
+    en: CERN Open Hardware Licence Version 2 - Weakly Reciprocal
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cern-ohl-w
+  mappings:
+  - identifier: https://opensource.org/license/cern-ohl-w
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: clartistic
+  title:
+    en: Clarified Artistic License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ClArtistic
+  mappings:
+  - identifier: https://spdx.org/licenses/ClArtistic
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cnri-jython
+  title:
+    en: CNRI Jython License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CNRI-Jython
+  mappings:
+  - identifier: https://spdx.org/licenses/CNRI-Jython
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cnri-python
+  title:
+    en: CNRI Python License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cnri-python
+  mappings:
+  - identifier: https://opensource.org/license/cnri-python
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cnri-python-gpl-compatible
+  title:
+    en: CNRI Python Open Source GPL Compatible License Agreement
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CNRI-Python-GPL-Compatible
+  mappings:
+  - identifier: https://spdx.org/licenses/CNRI-Python-GPL-Compatible
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: condor-1.1
+  title:
+    en: Condor Public License v1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Condor-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/Condor-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: copyleft-next-0.3.0
+  title:
+    en: copyleft-next 0.3.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/copyleft-next-0.3.0
+  mappings:
+  - identifier: https://spdx.org/licenses/copyleft-next-0.3.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: copyleft-next-0.3.1
+  title:
+    en: copyleft-next 0.3.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/copyleft-next-0.3.1
+  mappings:
+  - identifier: https://spdx.org/licenses/copyleft-next-0.3.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cpal-1.0
+  title:
+    en: Common Public Attribution License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cpal_1-0
+  mappings:
+  - identifier: https://opensource.org/license/cpal_1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cpl-1.0
+  title:
+    en: Common Public License 1.0
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cpl1-0-txt
+  mappings:
+  - identifier: https://opensource.org/license/cpl1-0-txt
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cpol-1.02
+  title:
+    en: Code Project Open License 1.02
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CPOL-1.02
+  mappings:
+  - identifier: https://spdx.org/licenses/CPOL-1.02
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: crossword
+  title:
+    en: Crossword License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Crossword
+  mappings:
+  - identifier: https://spdx.org/licenses/Crossword
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: crystalstacker
+  title:
+    en: CrystalStacker License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/CrystalStacker
+  mappings:
+  - identifier: https://spdx.org/licenses/CrystalStacker
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: cua-opl-1.0
+  title:
+    en: CUA Office Public License v1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/cuaoffice-php
+  mappings:
+  - identifier: https://opensource.org/license/cuaoffice-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cube
+  title:
+    en: Cube License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Cube
+  mappings:
+  - identifier: https://spdx.org/licenses/Cube
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: curl
+  title:
+    en: curl License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/curl
+  mappings:
+  - identifier: https://spdx.org/licenses/curl
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: d-fsl-1.0
+  title:
+    en: Deutsche Freie Software Lizenz
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/D-FSL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/D-FSL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: diffmark
+  title:
+    en: diffmark license
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/diffmark
+  mappings:
+  - identifier: https://spdx.org/licenses/diffmark
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: doc
+  title:
+    en: DOC License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/DOC
+  mappings:
+  - identifier: https://spdx.org/licenses/DOC
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: dotseqn
+  title:
+    en: Dotseqn License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Dotseqn
+  mappings:
+  - identifier: https://spdx.org/licenses/Dotseqn
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: dsdp
+  title:
+    en: DSDP License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/DSDP
+  mappings:
+  - identifier: https://spdx.org/licenses/DSDP
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: dvipdfm
+  title:
+    en: dvipdfm License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/dvipdfm
+  mappings:
+  - identifier: https://spdx.org/licenses/dvipdfm
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ecl-1.0
+  title:
+    en: Educational Community License v1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ecl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/ecl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: ecl-2.0
+  title:
+    en: Educational Community License v2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ecl-2-0
+  mappings:
+  - identifier: https://opensource.org/license/ecl-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: efl-1.0
+  title:
+    en: Eiffel Forum License v1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/efl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/efl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: efl-2.0
+  title:
+    en: Eiffel Forum License v2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ver2_eiffel-php
+  mappings:
+  - identifier: https://opensource.org/license/ver2_eiffel-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: egenix
+  title:
+    en: eGenix.com Public License 1.1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/eGenix
+  mappings:
+  - identifier: https://spdx.org/licenses/eGenix
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: entessa
+  title:
+    en: Entessa Public License v1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/entessa
+  mappings:
+  - identifier: https://opensource.org/license/entessa
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: epics
+  title:
+    en: EPICS Open License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/EPICS
+  mappings:
+  - identifier: https://spdx.org/licenses/EPICS
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: epl-1.0
+  title:
+    en: Eclipse Public License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/epl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/epl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: epl-2.0
+  title:
+    en: Eclipse Public License 2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/epl-2-0
+  mappings:
+  - identifier: https://opensource.org/license/epl-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: erlpl-1.1
+  title:
+    en: Erlang Public License v1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ErlPL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/ErlPL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: etalab-2.0
+  title:
+    en: Etalab Open License 2.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/etalab-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/etalab-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: eudatagrid
+  title:
+    en: EU DataGrid Software License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/eudatagrid-php
+  mappings:
+  - identifier: https://opensource.org/license/eudatagrid-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: eupl-1.0
+  title:
+    en: European Union Public License 1.0
+  tags:
+  - all
+  - sofware
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/EUPL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/EUPL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: eupl-1.1
+  title:
+    en: European Union Public License 1.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/eupl-1-1
+  mappings:
+  - identifier: https://opensource.org/license/eupl-1-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: eupl-1.2
+  title:
+    en: European Union Public License 1.2
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/eupl-1-2
+  mappings:
+  - identifier: https://opensource.org/license/eupl-1-2
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: eurosym
+  title:
+    en: Eurosym License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Eurosym
+  mappings:
+  - identifier: https://spdx.org/licenses/Eurosym
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: fair
+  title:
+    en: Fair License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/fair
+  mappings:
+  - identifier: https://opensource.org/license/fair
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: frameworx-1.0
+  title:
+    en: Frameworx Open License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/frameworx-php
+  mappings:
+  - identifier: https://opensource.org/license/frameworx-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: freeimage
+  title:
+    en: FreeImage Public License v1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/FreeImage
+  mappings:
+  - identifier: https://spdx.org/licenses/FreeImage
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: fsfap
+  title:
+    en: FSF All Permissive License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/FSFAP
+  mappings:
+  - identifier: https://spdx.org/licenses/FSFAP
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: fsful
+  title:
+    en: FSF Unlimited License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/FSFUL
+  mappings:
+  - identifier: https://spdx.org/licenses/FSFUL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: fsfullr
+  title:
+    en: FSF Unlimited License (with License Retention)
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/FSFULLR
+  mappings:
+  - identifier: https://spdx.org/licenses/FSFULLR
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ftl
+  title:
+    en: Freetype Project License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/FTL
+  mappings:
+  - identifier: https://spdx.org/licenses/FTL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.1-invariants-only
+  title:
+    en: GNU Free Documentation License v1.1 only - invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.1-invariants-only
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.1-invariants-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.1-invariants-or-later
+  title:
+    en: GNU Free Documentation License v1.1 or later - invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.1-invariants-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.1-invariants-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.1-no-invariants-only
+  title:
+    en: GNU Free Documentation License v1.1 only - no invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.1-no-invariants-only
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.1-no-invariants-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.1-no-invariants-or-later
+  title:
+    en: GNU Free Documentation License v1.1 or later - no invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.1-no-invariants-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.1-no-invariants-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.1-only
+  title:
+    en: GNU Free Documentation License v1.1 only
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.1-only
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.1-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.1-or-later
+  title:
+    en: GNU Free Documentation License v1.1 or later
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.1-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.1-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.2-invariants-only
+  title:
+    en: GNU Free Documentation License v1.2 only - invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.2-invariants-only
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.2-invariants-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.2-invariants-or-later
+  title:
+    en: GNU Free Documentation License v1.2 or later - invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.2-invariants-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.2-invariants-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.2-no-invariants-only
+  title:
+    en: GNU Free Documentation License v1.2 only - no invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.2-no-invariants-only
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.2-no-invariants-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.2-no-invariants-or-later
+  title:
+    en: GNU Free Documentation License v1.2 or later - no invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.2-no-invariants-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.2-no-invariants-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.2-only
+  title:
+    en: GNU Free Documentation License v1.2 only
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.2-only
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.2-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.2-or-later
+  title:
+    en: GNU Free Documentation License v1.2 or later
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.2-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.2-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.3-invariants-only
+  title:
+    en: GNU Free Documentation License v1.3 only - invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.3-invariants-only
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.3-invariants-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.3-invariants-or-later
+  title:
+    en: GNU Free Documentation License v1.3 or later - invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.3-invariants-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.3-invariants-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.3-no-invariants-only
+  title:
+    en: GNU Free Documentation License v1.3 only - no invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.3-no-invariants-only
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.3-no-invariants-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.3-no-invariants-or-later
+  title:
+    en: GNU Free Documentation License v1.3 or later - no invariants
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.3-no-invariants-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.3-no-invariants-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.3-only
+  title:
+    en: GNU Free Documentation License v1.3 only
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.3-only
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.3-only
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gfdl-1.3-or-later
+  title:
+    en: GNU Free Documentation License v1.3 or later
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GFDL-1.3-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GFDL-1.3-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: giftware
+  title:
+    en: Giftware License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Giftware
+  mappings:
+  - identifier: https://spdx.org/licenses/Giftware
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gl2ps
+  title:
+    en: GL2PS License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GL2PS
+  mappings:
+  - identifier: https://spdx.org/licenses/GL2PS
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: glide
+  title:
+    en: 3dfx Glide License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Glide
+  mappings:
+  - identifier: https://spdx.org/licenses/Glide
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: glulxe
+  title:
+    en: Glulxe License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Glulxe
+  mappings:
+  - identifier: https://spdx.org/licenses/Glulxe
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: glwtpl
+  title:
+    en: Good Luck With That Public License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GLWTPL
+  mappings:
+  - identifier: https://spdx.org/licenses/GLWTPL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gnuplot
+  title:
+    en: gnuplot License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/gnuplot
+  mappings:
+  - identifier: https://spdx.org/licenses/gnuplot
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gpl-1.0-only
+  title:
+    en: GNU General Public License v1.0 only
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://opensource.org/license/gpl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/gpl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: gpl-1.0-or-later
+  title:
+    en: GNU General Public License v1.0 or later
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/GPL-1.0-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GPL-1.0-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gpl-2.0-only
+  title:
+    en: GNU General Public License v2.0 only
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/gpl-2-0
+  mappings:
+  - identifier: https://opensource.org/license/gpl-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: gpl-2.0-or-later
+  title:
+    en: GNU General Public License v2.0 or later
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/GPL-2.0-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GPL-2.0-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gpl-3.0-only
+  title:
+    en: GNU General Public License v3.0 only
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/gpl-3-0
+  mappings:
+  - identifier: https://opensource.org/license/gpl-3-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: gpl-3.0-or-later
+  title:
+    en: GNU General Public License v3.0 or later
+  description:
+    en: Permissions of this strong copyleft license are conditioned on making available
+      complete source code of licensed works and modifications, which include larger
+      works using a licensed work, under the same license. Copyright and license notices
+      must be preserved. Contributors provide an express grant of patent rights.
+  tags:
+  - all
+  - recommended
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/GPL-3.0-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/GPL-3.0-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: gsoap-1.3b
+  title:
+    en: gSOAP Public License v1.3b
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/gSOAP-1.3b
+  mappings:
+  - identifier: https://spdx.org/licenses/gSOAP-1.3b
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: haskellreport
+  title:
+    en: Haskell Language Report License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/HaskellReport
+  mappings:
+  - identifier: https://spdx.org/licenses/HaskellReport
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: hippocratic-2.1
+  title:
+    en: Hippocratic License 2.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Hippocratic-2.1
+  mappings:
+  - identifier: https://spdx.org/licenses/Hippocratic-2.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: hpnd
+  title:
+    en: Historical Permission Notice and Disclaimer
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/historical-php
+  mappings:
+  - identifier: https://opensource.org/license/historical-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: hpnd-sell-variant
+  title:
+    en: Historical Permission Notice and Disclaimer - sell variant
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/HPND-sell-variant
+  mappings:
+  - identifier: https://spdx.org/licenses/HPND-sell-variant
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: htmltidy
+  title:
+    en: HTML Tidy License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/HTMLTIDY
+  mappings:
+  - identifier: https://spdx.org/licenses/HTMLTIDY
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ibm-pibs
+  title:
+    en: IBM PowerPC Initialization and Boot Software
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/IBM-pibs
+  mappings:
+  - identifier: https://spdx.org/licenses/IBM-pibs
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: icu
+  title:
+    en: ICU License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ICU
+  mappings:
+  - identifier: https://spdx.org/licenses/ICU
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ijg
+  title:
+    en: Independent JPEG Group License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/IJG
+  mappings:
+  - identifier: https://spdx.org/licenses/IJG
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: imagemagick
+  title:
+    en: ImageMagick License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ImageMagick
+  mappings:
+  - identifier: https://spdx.org/licenses/ImageMagick
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: imatix
+  title:
+    en: iMatix Standard Function Library Agreement
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/iMatix
+  mappings:
+  - identifier: https://spdx.org/licenses/iMatix
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: imlib2
+  title:
+    en: Imlib2 License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Imlib2
+  mappings:
+  - identifier: https://spdx.org/licenses/Imlib2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: info-zip
+  title:
+    en: Info-ZIP License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Info-ZIP
+  mappings:
+  - identifier: https://spdx.org/licenses/Info-ZIP
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: intel
+  title:
+    en: Intel Open Source License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/intel
+  mappings:
+  - identifier: https://opensource.org/license/intel
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: intel-acpi
+  title:
+    en: Intel ACPI Software License Agreement
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Intel-ACPI
+  mappings:
+  - identifier: https://spdx.org/licenses/Intel-ACPI
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: interbase-1.0
+  title:
+    en: Interbase Public License v1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Interbase-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/Interbase-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ipa
+  title:
+    en: IPA Font License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ipafont-html
+  mappings:
+  - identifier: https://opensource.org/license/ipafont-html
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: ipl-1.0
+  title:
+    en: IBM Public License v1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ibmpl-php
+  mappings:
+  - identifier: https://opensource.org/license/ibmpl-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: isc
+  title:
+    en: ISC License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/isc-license-txt
+  mappings:
+  - identifier: https://opensource.org/license/isc-license-txt
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: jasper-2.0
+  title:
+    en: JasPer License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/JasPer-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/JasPer-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: jpnic
+  title:
+    en: Japan Network Information Center License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/JPNIC
+  mappings:
+  - identifier: https://spdx.org/licenses/JPNIC
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: json
+  title:
+    en: JSON License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/JSON
+  mappings:
+  - identifier: https://spdx.org/licenses/JSON
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lal-1.2
+  title:
+    en: Licence Art Libre 1.2
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/LAL-1.2
+  mappings:
+  - identifier: https://spdx.org/licenses/LAL-1.2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lal-1.3
+  title:
+    en: Licence Art Libre 1.3
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/LAL-1.3
+  mappings:
+  - identifier: https://spdx.org/licenses/LAL-1.3
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: latex2e
+  title:
+    en: Latex2e License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Latex2e
+  mappings:
+  - identifier: https://spdx.org/licenses/Latex2e
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: leptonica
+  title:
+    en: Leptonica License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Leptonica
+  mappings:
+  - identifier: https://spdx.org/licenses/Leptonica
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lgpl-2.0-only
+  title:
+    en: GNU Library General Public License v2 only
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/lgpl-2-0
+  mappings:
+  - identifier: https://opensource.org/license/lgpl-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: lgpl-2.0-or-later
+  title:
+    en: GNU Library General Public License v2 or later
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/LGPL-2.0-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/LGPL-2.0-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lgpl-2.1-only
+  title:
+    en: GNU Lesser General Public License v2.1 only
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/lgpl-2-1
+  mappings:
+  - identifier: https://opensource.org/license/lgpl-2-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: lgpl-2.1-or-later
+  title:
+    en: GNU Lesser General Public License v2.1 or later
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/LGPL-2.1-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/LGPL-2.1-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lgpl-3.0-only
+  title:
+    en: GNU Lesser General Public License v3.0 only
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/lgpl-3-0
+  mappings:
+  - identifier: https://opensource.org/license/lgpl-3-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: lgpl-3.0-or-later
+  title:
+    en: GNU Lesser General Public License v3.0 or later
+  description:
+    en: Permissions of this copyleft license are conditioned on making available complete
+      source code of licensed works and modifications under the same license or the
+      GNU GPLv3. Copyright and license notices must be preserved. Contributors provide
+      an express grant of patent rights. However, a larger work using the licensed
+      work through interfaces provided by the licensed work may be distributed under
+      different terms and without source code for the larger work.
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/LGPL-3.0-or-later
+  mappings:
+  - identifier: https://spdx.org/licenses/LGPL-3.0-or-later
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lgpllr
+  title:
+    en: Lesser General Public License For Linguistic Resources
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/LGPLLR
+  mappings:
+  - identifier: https://spdx.org/licenses/LGPLLR
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: libpng
+  title:
+    en: libpng License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Libpng
+  mappings:
+  - identifier: https://spdx.org/licenses/Libpng
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: libpng-2.0
+  title:
+    en: PNG Reference Library version 2
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/libpng-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/libpng-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: libselinux-1.0
+  title:
+    en: libselinux public domain notice
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/libselinux-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/libselinux-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: libtiff
+  title:
+    en: libtiff License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/libtiff
+  mappings:
+  - identifier: https://spdx.org/licenses/libtiff
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: liliq-p-1.1
+  title:
+    en: Licence Libre du Québec – Permissive version 1.1
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/liliq-p-1-1
+  mappings:
+  - identifier: https://opensource.org/license/liliq-p-1-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: liliq-r-1.1
+  title:
+    en: Licence Libre du Québec – Réciprocité version 1.1
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/liliq-r-1-1
+  mappings:
+  - identifier: https://opensource.org/license/liliq-r-1-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: liliq-rplus-1.1
+  title:
+    en: Licence Libre du Québec – Réciprocité forte version 1.1
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/liliq-rplus-1-1
+  mappings:
+  - identifier: https://opensource.org/license/liliq-rplus-1-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: linux-openib
+  title:
+    en: Linux Kernel Variant of OpenIB.org license
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Linux-OpenIB
+  mappings:
+  - identifier: https://spdx.org/licenses/Linux-OpenIB
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lpl-1.0
+  title:
+    en: Lucent Public License Version 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/lpl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/lpl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: lpl-1.02
+  title:
+    en: Lucent Public License v1.02
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/lucent1-02-php
+  mappings:
+  - identifier: https://opensource.org/license/lucent1-02-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: lppl-1.0
+  title:
+    en: LaTeX Project Public License v1.0
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/LPPL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/LPPL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lppl-1.1
+  title:
+    en: LaTeX Project Public License v1.1
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/LPPL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/LPPL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lppl-1.2
+  title:
+    en: LaTeX Project Public License v1.2
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/LPPL-1.2
+  mappings:
+  - identifier: https://spdx.org/licenses/LPPL-1.2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lppl-1.3a
+  title:
+    en: LaTeX Project Public License v1.3a
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/LPPL-1.3a
+  mappings:
+  - identifier: https://spdx.org/licenses/LPPL-1.3a
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: lppl-1.3c
+  title:
+    en: LaTeX Project Public License v1.3c
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/lppl
+  mappings:
+  - identifier: https://opensource.org/license/lppl
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: makeindex
+  title:
+    en: MakeIndex License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/MakeIndex
+  mappings:
+  - identifier: https://spdx.org/licenses/MakeIndex
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: miros
+  title:
+    en: The MirOS Licence
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/miros-html
+  mappings:
+  - identifier: https://opensource.org/license/miros-html
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: mit
+  title:
+    en: MIT License
+  description:
+    en: A short and simple permissive license with conditions only requiring preservation
+      of copyright and license notices. Licensed works, modifications, and larger
+      works may be distributed under different terms and without source code.
+  tags:
+  - all
+  - recommended
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/mit
+  mappings:
+  - identifier: https://opensource.org/license/mit
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: mit-0
+  title:
+    en: MIT No Attribution
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/mit-0
+  mappings:
+  - identifier: https://opensource.org/license/mit-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: mit-advertising
+  title:
+    en: Enlightenment License (e16)
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/MIT-advertising
+  mappings:
+  - identifier: https://spdx.org/licenses/MIT-advertising
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: mit-cmu
+  title:
+    en: CMU License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/MIT-CMU
+  mappings:
+  - identifier: https://spdx.org/licenses/MIT-CMU
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: mit-enna
+  title:
+    en: enna License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/MIT-enna
+  mappings:
+  - identifier: https://spdx.org/licenses/MIT-enna
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: mit-feh
+  title:
+    en: feh License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/MIT-feh
+  mappings:
+  - identifier: https://spdx.org/licenses/MIT-feh
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: mit-open-group
+  title:
+    en: MIT Open Group variant
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/MIT-open-group
+  mappings:
+  - identifier: https://spdx.org/licenses/MIT-open-group
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: mitnfa
+  title:
+    en: MIT +no-false-attribs license
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/MITNFA
+  mappings:
+  - identifier: https://spdx.org/licenses/MITNFA
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: motosoto
+  title:
+    en: Motosoto License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/motosoto
+  mappings:
+  - identifier: https://opensource.org/license/motosoto
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: mpich2
+  title:
+    en: mpich2 License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/mpich2
+  mappings:
+  - identifier: https://spdx.org/licenses/mpich2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: mpl-1.0
+  title:
+    en: Mozilla Public License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/mpl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/mpl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: mpl-1.1
+  title:
+    en: Mozilla Public License 1.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/mpl-1-1
+  mappings:
+  - identifier: https://opensource.org/license/mpl-1-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: mpl-2.0
+  title:
+    en: Mozilla Public License 2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/mpl-2-0
+  mappings:
+  - identifier: https://opensource.org/license/mpl-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: mpl-2.0-no-copyleft-exception
+  title:
+    en: Mozilla Public License 2.0 (no copyleft exception)
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/MPL-2.0-no-copyleft-exception
+  mappings:
+  - identifier: https://spdx.org/licenses/MPL-2.0-no-copyleft-exception
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ms-pl
+  title:
+    en: Microsoft Public License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ms-pl-html
+  mappings:
+  - identifier: https://opensource.org/license/ms-pl-html
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: ms-rl
+  title:
+    en: Microsoft Reciprocal License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ms-rl-html
+  mappings:
+  - identifier: https://opensource.org/license/ms-rl-html
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: mtll
+  title:
+    en: Matrix Template Library License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/MTLL
+  mappings:
+  - identifier: https://spdx.org/licenses/MTLL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: mulanpsl-1.0
+  title:
+    en: Mulan Permissive Software License, Version 1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/MulanPSL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/MulanPSL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: mulanpsl-2.0
+  title:
+    en: Mulan Permissive Software License, Version 2
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/mulanpsl-2-0
+  mappings:
+  - identifier: https://opensource.org/license/mulanpsl-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: multics
+  title:
+    en: Multics License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/multics-txt
+  mappings:
+  - identifier: https://opensource.org/license/multics-txt
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: mup
+  title:
+    en: Mup License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Mup
+  mappings:
+  - identifier: https://spdx.org/licenses/Mup
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: nasa-1.3
+  title:
+    en: NASA Open Source Agreement 1.3
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/nasa1-3-php
+  mappings:
+  - identifier: https://opensource.org/license/nasa1-3-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: naumen
+  title:
+    en: Naumen Public License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/naumen-php
+  mappings:
+  - identifier: https://opensource.org/license/naumen-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: nbpl-1.0
+  title:
+    en: Net Boolean Public License v1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NBPL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/NBPL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ncgl-uk-2.0
+  title:
+    en: Non-Commercial Government Licence
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NCGL-UK-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/NCGL-UK-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ncsa
+  title:
+    en: University of Illinois/NCSA Open Source License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/uoi-ncsa-php
+  mappings:
+  - identifier: https://opensource.org/license/uoi-ncsa-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: net-snmp
+  title:
+    en: Net-SNMP License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Net-SNMP
+  mappings:
+  - identifier: https://spdx.org/licenses/Net-SNMP
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: netcdf
+  title:
+    en: NetCDF license
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NetCDF
+  mappings:
+  - identifier: https://spdx.org/licenses/NetCDF
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: newsletr
+  title:
+    en: Newsletr License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Newsletr
+  mappings:
+  - identifier: https://spdx.org/licenses/Newsletr
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ngpl
+  title:
+    en: Nethack General Public License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/nethack
+  mappings:
+  - identifier: https://opensource.org/license/nethack
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: nist-pd
+  title:
+    en: NIST Public Domain Notice
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NIST-PD
+  mappings:
+  - identifier: https://spdx.org/licenses/NIST-PD
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: nist-pd-fallback
+  title:
+    en: NIST Public Domain Notice with license fallback
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NIST-PD-fallback
+  mappings:
+  - identifier: https://spdx.org/licenses/NIST-PD-fallback
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: nlod-1.0
+  title:
+    en: Norwegian Licence for Open Government Data
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NLOD-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/NLOD-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: nlpl
+  title:
+    en: No Limit Public License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NLPL
+  mappings:
+  - identifier: https://spdx.org/licenses/NLPL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: nokia
+  title:
+    en: Nokia Open Source License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/nokia
+  mappings:
+  - identifier: https://opensource.org/license/nokia
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: nosl
+  title:
+    en: Netizen Open Source License
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NOSL
+  mappings:
+  - identifier: https://spdx.org/licenses/NOSL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: noweb
+  title:
+    en: Noweb License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Noweb
+  mappings:
+  - identifier: https://spdx.org/licenses/Noweb
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: npl-1.0
+  title:
+    en: Netscape Public License v1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NPL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/NPL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: npl-1.1
+  title:
+    en: Netscape Public License v1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NPL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/NPL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: nposl-3.0
+  title:
+    en: Non-Profit Open Software License 3.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/nposl-3-0
+  mappings:
+  - identifier: https://opensource.org/license/nposl-3-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: nrl
+  title:
+    en: NRL License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NRL
+  mappings:
+  - identifier: https://spdx.org/licenses/NRL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ntp
+  title:
+    en: NTP License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ntp-license-php
+  mappings:
+  - identifier: https://opensource.org/license/ntp-license-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: ntp-0
+  title:
+    en: NTP No Attribution
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/NTP-0
+  mappings:
+  - identifier: https://spdx.org/licenses/NTP-0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: o-uda-1.0
+  title:
+    en: Open Use of Data Agreement v1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/O-UDA-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/O-UDA-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: occt-pl
+  title:
+    en: Open CASCADE Technology Public License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OCCT-PL
+  mappings:
+  - identifier: https://spdx.org/licenses/OCCT-PL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oclc-2.0
+  title:
+    en: OCLC Research Public License 2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/oclc2-php
+  mappings:
+  - identifier: https://opensource.org/license/oclc2-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: odbl-1.0
+  title:
+    en: ODC Open Database License v1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ODbL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/ODbL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: odc-by-1.0
+  title:
+    en: Open Data Commons Attribution License v1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ODC-By-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/ODC-By-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ofl-1.0
+  title:
+    en: SIL Open Font License 1.0
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OFL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/OFL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ofl-1.0-no-rfn
+  title:
+    en: SIL Open Font License 1.0 with no Reserved Font Name
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OFL-1.0-no-RFN
+  mappings:
+  - identifier: https://spdx.org/licenses/OFL-1.0-no-RFN
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ofl-1.0-rfn
+  title:
+    en: SIL Open Font License 1.0 with Reserved Font Name
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OFL-1.0-RFN
+  mappings:
+  - identifier: https://spdx.org/licenses/OFL-1.0-RFN
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ofl-1.1
+  title:
+    en: SIL Open Font License 1.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ofl-1-1
+  mappings:
+  - identifier: https://opensource.org/license/ofl-1-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: ofl-1.1-no-rfn
+  title:
+    en: SIL Open Font License 1.1 with no Reserved Font Name
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/OFL-1.1-no-RFN
+  mappings:
+  - identifier: https://spdx.org/licenses/OFL-1.1-no-RFN
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ofl-1.1-rfn
+  title:
+    en: SIL Open Font License 1.1 with Reserved Font Name
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/OFL-1.1-RFN
+  mappings:
+  - identifier: https://spdx.org/licenses/OFL-1.1-RFN
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ogc-1.0
+  title:
+    en: OGC Software License, Version 1.0
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OGC-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/OGC-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ogl-canada-2.0
+  title:
+    en: Open Government Licence - Canada
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OGL-Canada-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/OGL-Canada-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ogl-uk-1.0
+  title:
+    en: Open Government Licence v1.0
+  tags:
+  - all
+  - data
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OGL-UK-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/OGL-UK-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ogl-uk-2.0
+  title:
+    en: Open Government Licence v2.0
+  tags:
+  - all
+  - data
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OGL-UK-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/OGL-UK-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ogl-uk-3.0
+  title:
+    en: Open Government Licence v3.0
+  tags:
+  - all
+  - data
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OGL-UK-3.0
+  mappings:
+  - identifier: https://spdx.org/licenses/OGL-UK-3.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ogtsl
+  title:
+    en: Open Group Test Suite License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/opengroup-php
+  mappings:
+  - identifier: https://opensource.org/license/opengroup-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: oldap-1.1
+  title:
+    en: Open LDAP Public License v1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-1.2
+  title:
+    en: Open LDAP Public License v1.2
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-1.2
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-1.2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-1.3
+  title:
+    en: Open LDAP Public License v1.3
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-1.3
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-1.3
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-1.4
+  title:
+    en: Open LDAP Public License v1.4
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-1.4
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-1.4
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.0
+  title:
+    en: Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.0.1
+  title:
+    en: Open LDAP Public License v2.0.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.0.1
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.0.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.1
+  title:
+    en: Open LDAP Public License v2.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.1
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.2
+  title:
+    en: Open LDAP Public License v2.2
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.2
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.2.1
+  title:
+    en: Open LDAP Public License v2.2.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.2.1
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.2.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.2.2
+  title:
+    en: Open LDAP Public License 2.2.2
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.2.2
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.2.2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.3
+  title:
+    en: Open LDAP Public License v2.3
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.3
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.3
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.4
+  title:
+    en: Open LDAP Public License v2.4
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.4
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.4
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.5
+  title:
+    en: Open LDAP Public License v2.5
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.5
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.5
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.6
+  title:
+    en: Open LDAP Public License v2.6
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.6
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.6
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.7
+  title:
+    en: Open LDAP Public License v2.7
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OLDAP-2.7
+  mappings:
+  - identifier: https://spdx.org/licenses/OLDAP-2.7
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oldap-2.8
+  title:
+    en: Open LDAP Public License v2.8
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/oldap-2-8
+  mappings:
+  - identifier: https://opensource.org/license/oldap-2-8
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: oml
+  title:
+    en: Open Market License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OML
+  mappings:
+  - identifier: https://spdx.org/licenses/OML
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: openssl
+  title:
+    en: OpenSSL License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OpenSSL
+  mappings:
+  - identifier: https://spdx.org/licenses/OpenSSL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: opl-1.0
+  title:
+    en: Open Public License v1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OPL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/OPL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: oset-pl-2.1
+  title:
+    en: OSET Public License version 2.1
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/opl-2-1
+  mappings:
+  - identifier: https://opensource.org/license/opl-2-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: osl-1.0
+  title:
+    en: Open Software License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/osl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/osl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: osl-1.1
+  title:
+    en: Open Software License 1.1
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/OSL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/OSL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: osl-2.0
+  title:
+    en: Open Software License 2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://spdx.org/licenses/OSL-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/OSL-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: osl-2.1
+  title:
+    en: Open Software License 2.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/osl-2-1
+  mappings:
+  - identifier: https://opensource.org/license/osl-2-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: osl-3.0
+  title:
+    en: Open Software License 3.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/osl-3-0-php
+  mappings:
+  - identifier: https://opensource.org/license/osl-3-0-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: parity-6.0.0
+  title:
+    en: The Parity Public License 6.0.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Parity-6.0.0
+  mappings:
+  - identifier: https://spdx.org/licenses/Parity-6.0.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: parity-7.0.0
+  title:
+    en: The Parity Public License 7.0.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Parity-7.0.0
+  mappings:
+  - identifier: https://spdx.org/licenses/Parity-7.0.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: pddl-1.0
+  title:
+    en: ODC Public Domain Dedication & License 1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/PDDL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/PDDL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: php-3.0
+  title:
+    en: PHP License v3.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/php-3-0
+  mappings:
+  - identifier: https://opensource.org/license/php-3-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: php-3.01
+  title:
+    en: PHP License v3.01
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/php-3-01
+  mappings:
+  - identifier: https://opensource.org/license/php-3-01
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: plexus
+  title:
+    en: Plexus Classworlds License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Plexus
+  mappings:
+  - identifier: https://spdx.org/licenses/Plexus
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: polyform-noncommercial-1.0.0
+  title:
+    en: PolyForm Noncommercial License 1.0.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/PolyForm-Noncommercial-1.0.0
+  mappings:
+  - identifier: https://spdx.org/licenses/PolyForm-Noncommercial-1.0.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: polyform-small-business-1.0.0
+  title:
+    en: PolyForm Small Business License 1.0.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/PolyForm-Small-Business-1.0.0
+  mappings:
+  - identifier: https://spdx.org/licenses/PolyForm-Small-Business-1.0.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: postgresql
+  title:
+    en: PostgreSQL License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/postgresql
+  mappings:
+  - identifier: https://opensource.org/license/postgresql
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: psf-2.0
+  title:
+    en: Python Software Foundation License 2.0
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/PSF-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/PSF-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: psfrag
+  title:
+    en: psfrag License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/psfrag
+  mappings:
+  - identifier: https://spdx.org/licenses/psfrag
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: psutils
+  title:
+    en: psutils License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/psutils
+  mappings:
+  - identifier: https://spdx.org/licenses/psutils
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: python-2.0
+  title:
+    en: Python License 2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/python-2.0
+  mappings:
+  - identifier: https://opensource.org/license/python-2.0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: qhull
+  title:
+    en: Qhull License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Qhull
+  mappings:
+  - identifier: https://spdx.org/licenses/Qhull
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: qpl-1.0
+  title:
+    en: Q Public License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/qpl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/qpl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: rdisc
+  title:
+    en: Rdisc License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Rdisc
+  mappings:
+  - identifier: https://spdx.org/licenses/Rdisc
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: rhecos-1.1
+  title:
+    en: Red Hat eCos Public License v1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/RHeCos-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/RHeCos-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: rpl-1.1
+  title:
+    en: Reciprocal Public License 1.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/rpl-1-1
+  mappings:
+  - identifier: https://opensource.org/license/rpl-1-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: rpl-1.5
+  title:
+    en: Reciprocal Public License 1.5
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/rpl-1-5
+  mappings:
+  - identifier: https://opensource.org/license/rpl-1-5
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: rpsl-1.0
+  title:
+    en: RealNetworks Public Source License v1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/real-php
+  mappings:
+  - identifier: https://opensource.org/license/real-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: rsa-md
+  title:
+    en: RSA Message-Digest License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/RSA-MD
+  mappings:
+  - identifier: https://spdx.org/licenses/RSA-MD
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: rscpl
+  title:
+    en: Ricoh Source Code Public License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ricohpl-php
+  mappings:
+  - identifier: https://opensource.org/license/ricohpl-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: ruby
+  title:
+    en: Ruby License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Ruby
+  mappings:
+  - identifier: https://spdx.org/licenses/Ruby
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: sax-pd
+  title:
+    en: Sax Public Domain Notice
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SAX-PD
+  mappings:
+  - identifier: https://spdx.org/licenses/SAX-PD
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: saxpath
+  title:
+    en: Saxpath License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Saxpath
+  mappings:
+  - identifier: https://spdx.org/licenses/Saxpath
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: scea
+  title:
+    en: SCEA Shared Source License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SCEA
+  mappings:
+  - identifier: https://spdx.org/licenses/SCEA
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: sendmail
+  title:
+    en: Sendmail License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Sendmail
+  mappings:
+  - identifier: https://spdx.org/licenses/Sendmail
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: sendmail-8.23
+  title:
+    en: Sendmail License 8.23
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Sendmail-8.23
+  mappings:
+  - identifier: https://spdx.org/licenses/Sendmail-8.23
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: sgi-b-1.0
+  title:
+    en: SGI Free Software License B v1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SGI-B-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/SGI-B-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: sgi-b-1.1
+  title:
+    en: SGI Free Software License B v1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SGI-B-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/SGI-B-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: sgi-b-2.0
+  title:
+    en: SGI Free Software License B v2.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SGI-B-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/SGI-B-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: shl-0.5
+  title:
+    en: Solderpad Hardware License v0.5
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SHL-0.5
+  mappings:
+  - identifier: https://spdx.org/licenses/SHL-0.5
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: shl-0.51
+  title:
+    en: Solderpad Hardware License, Version 0.51
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SHL-0.51
+  mappings:
+  - identifier: https://spdx.org/licenses/SHL-0.51
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: simpl-2.0
+  title:
+    en: Simple Public License 2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/simpl-2-0-html
+  mappings:
+  - identifier: https://opensource.org/license/simpl-2-0-html
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: sissl
+  title:
+    en: Sun Industry Standards Source License v1.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/sissl
+  mappings:
+  - identifier: https://opensource.org/license/sissl
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: sissl-1.2
+  title:
+    en: Sun Industry Standards Source License v1.2
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SISSL-1.2
+  mappings:
+  - identifier: https://spdx.org/licenses/SISSL-1.2
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: sleepycat
+  title:
+    en: Sleepycat License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/sleepycat-php
+  mappings:
+  - identifier: https://opensource.org/license/sleepycat-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: smlnj
+  title:
+    en: Standard ML of New Jersey License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SMLNJ
+  mappings:
+  - identifier: https://spdx.org/licenses/SMLNJ
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: smppl
+  title:
+    en: Secure Messaging Protocol Public License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SMPPL
+  mappings:
+  - identifier: https://spdx.org/licenses/SMPPL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: snia
+  title:
+    en: SNIA Public License 1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SNIA
+  mappings:
+  - identifier: https://spdx.org/licenses/SNIA
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: spencer-86
+  title:
+    en: Spencer License 86
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Spencer-86
+  mappings:
+  - identifier: https://spdx.org/licenses/Spencer-86
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: spencer-94
+  title:
+    en: Spencer License 94
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Spencer-94
+  mappings:
+  - identifier: https://spdx.org/licenses/Spencer-94
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: spencer-99
+  title:
+    en: Spencer License 99
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Spencer-99
+  mappings:
+  - identifier: https://spdx.org/licenses/Spencer-99
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: spl-1.0
+  title:
+    en: Sun Public License v1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/sunpublic-php
+  mappings:
+  - identifier: https://opensource.org/license/sunpublic-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: ssh-openssh
+  title:
+    en: SSH OpenSSH license
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SSH-OpenSSH
+  mappings:
+  - identifier: https://spdx.org/licenses/SSH-OpenSSH
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ssh-short
+  title:
+    en: SSH short notice
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SSH-short
+  mappings:
+  - identifier: https://spdx.org/licenses/SSH-short
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: sspl-1.0
+  title:
+    en: Server Side Public License, v 1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SSPL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/SSPL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: sugarcrm-1.1.3
+  title:
+    en: SugarCRM Public License v1.1.3
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SugarCRM-1.1.3
+  mappings:
+  - identifier: https://spdx.org/licenses/SugarCRM-1.1.3
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: swl
+  title:
+    en: Scheme Widget Library (SWL) Software License Agreement
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/SWL
+  mappings:
+  - identifier: https://spdx.org/licenses/SWL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: tapr-ohl-1.0
+  title:
+    en: TAPR Open Hardware License v1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/TAPR-OHL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/TAPR-OHL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: tcl
+  title:
+    en: TCL/TK License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/TCL
+  mappings:
+  - identifier: https://spdx.org/licenses/TCL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: tcp-wrappers
+  title:
+    en: TCP Wrappers License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/TCP-wrappers
+  mappings:
+  - identifier: https://spdx.org/licenses/TCP-wrappers
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: tmate
+  title:
+    en: TMate Open Source License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/TMate
+  mappings:
+  - identifier: https://spdx.org/licenses/TMate
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: torque-1.1
+  title:
+    en: TORQUE v2.5+ Software License v1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/TORQUE-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/TORQUE-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: tosl
+  title:
+    en: Trusster Open Source License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/TOSL
+  mappings:
+  - identifier: https://spdx.org/licenses/TOSL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: tu-berlin-1.0
+  title:
+    en: Technische Universitaet Berlin License 1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/TU-Berlin-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/TU-Berlin-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: tu-berlin-2.0
+  title:
+    en: Technische Universitaet Berlin License 2.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/TU-Berlin-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/TU-Berlin-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ucl-1.0
+  title:
+    en: Upstream Compatibility License v1.0
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/ucl-1-0
+  mappings:
+  - identifier: https://opensource.org/license/ucl-1-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: unicode-dfs-2015
+  title:
+    en: Unicode License Agreement - Data Files and Software (2015)
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Unicode-DFS-2015
+  mappings:
+  - identifier: https://spdx.org/licenses/Unicode-DFS-2015
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: unicode-dfs-2016
+  title:
+    en: Unicode License Agreement - Data Files and Software (2016)
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/unicode-inc-license-agreement-data-files-and-software
+  mappings:
+  - identifier: https://opensource.org/license/unicode-inc-license-agreement-data-files-and-software
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: unicode-tou
+  title:
+    en: Unicode Terms of Use
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Unicode-TOU
+  mappings:
+  - identifier: https://spdx.org/licenses/Unicode-TOU
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: unlicense
+  title:
+    en: The Unlicense
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/unlicense
+  mappings:
+  - identifier: https://opensource.org/license/unlicense
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: upl-1.0
+  title:
+    en: Universal Permissive License v1.0
+  tags:
+  - all
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/upl
+  mappings:
+  - identifier: https://opensource.org/license/upl
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: vim
+  title:
+    en: Vim License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Vim
+  mappings:
+  - identifier: https://spdx.org/licenses/Vim
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: vostrom
+  title:
+    en: VOSTROM Public License for Open Source
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/VOSTROM
+  mappings:
+  - identifier: https://spdx.org/licenses/VOSTROM
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: vsl-1.0
+  title:
+    en: Vovida Software License v1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/vovidapl-php
+  mappings:
+  - identifier: https://opensource.org/license/vovidapl-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: w3c
+  title:
+    en: W3C Software Notice and License (2002-12-31)
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/w3c
+  mappings:
+  - identifier: https://opensource.org/license/w3c
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: w3c-19980720
+  title:
+    en: W3C Software Notice and License (1998-07-20)
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/W3C-19980720
+  mappings:
+  - identifier: https://spdx.org/licenses/W3C-19980720
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: w3c-20150513
+  title:
+    en: W3C Software Notice and Document License (2015-05-13)
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/W3C-20150513
+  mappings:
+  - identifier: https://spdx.org/licenses/W3C-20150513
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: watcom-1.0
+  title:
+    en: Sybase Open Watcom Public License 1.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/sybase-php
+  mappings:
+  - identifier: https://opensource.org/license/sybase-php
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: wsuipa
+  title:
+    en: Wsuipa License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Wsuipa
+  mappings:
+  - identifier: https://spdx.org/licenses/Wsuipa
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: wtfpl
+  title:
+    en: Do What The F*ck You Want To Public License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/WTFPL
+  mappings:
+  - identifier: https://spdx.org/licenses/WTFPL
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: x11
+  title:
+    en: X11 License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/X11
+  mappings:
+  - identifier: https://spdx.org/licenses/X11
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: xerox
+  title:
+    en: Xerox License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Xerox
+  mappings:
+  - identifier: https://spdx.org/licenses/Xerox
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: xfree86-1.1
+  title:
+    en: XFree86 License 1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/XFree86-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/XFree86-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: xinetd
+  title:
+    en: xinetd License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/xinetd
+  mappings:
+  - identifier: https://spdx.org/licenses/xinetd
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: xnet
+  title:
+    en: X.Net License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/xnet
+  mappings:
+  - identifier: https://opensource.org/license/xnet
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: xpp
+  title:
+    en: XPP License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/xpp
+  mappings:
+  - identifier: https://spdx.org/licenses/xpp
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: xskat
+  title:
+    en: XSkat License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/XSkat
+  mappings:
+  - identifier: https://spdx.org/licenses/XSkat
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ypl-1.0
+  title:
+    en: Yahoo! Public License v1.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/YPL-1.0
+  mappings:
+  - identifier: https://spdx.org/licenses/YPL-1.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: ypl-1.1
+  title:
+    en: Yahoo! Public License v1.1
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/YPL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/YPL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: zed
+  title:
+    en: Zed License
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Zed
+  mappings:
+  - identifier: https://spdx.org/licenses/Zed
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: zend-2.0
+  title:
+    en: Zend License v2.0
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Zend-2.0
+  mappings:
+  - identifier: https://spdx.org/licenses/Zend-2.0
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: zimbra-1.3
+  title:
+    en: Zimbra Public License v1.3
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Zimbra-1.3
+  mappings:
+  - identifier: https://spdx.org/licenses/Zimbra-1.3
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: zimbra-1.4
+  title:
+    en: Zimbra Public License v1.4
+  tags:
+  - all
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/Zimbra-1.4
+  mappings:
+  - identifier: https://spdx.org/licenses/Zimbra-1.4
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: zlib
+  title:
+    en: zlib License
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/zlib
+  mappings:
+  - identifier: https://opensource.org/license/zlib
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: zlib-acknowledgement
+  title:
+    en: zlib/libpng License with Acknowledgement
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/zlib-acknowledgement
+  mappings:
+  - identifier: https://spdx.org/licenses/zlib-acknowledgement
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: zpl-1.1
+  title:
+    en: Zope Public License 1.1
+  tags:
+  - all
+  - software
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/ZPL-1.1
+  mappings:
+  - identifier: https://spdx.org/licenses/ZPL-1.1
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+- id: zpl-2.0
+  title:
+    en: Zope Public License 2.0
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/zpl-2-0
+  mappings:
+  - identifier: https://opensource.org/license/zpl-2-0
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: zpl-2.1
+  title:
+    en: Zope Public License 2.1
+  tags:
+  - all
+  - software
+  props:
+    osi_approved: y
+    scheme: spdx
+    url: https://opensource.org/license/zpl-2-1
+  mappings:
+  - identifier: https://opensource.org/license/zpl-2-1
+    scheme: https://opensource.org/license/
+    relation: exactMatch
+- id: cc-1.0
+  title:
+    cs: verze 1.0 Obecná licence
+    en: version 1.0 Generic License
+  description:
+    cs: Toto je starší verze licencí (1.0). Pokud licencujete své vlastní dílo, které
+      ještě nebylo pod žádnou licencí zveřejněno, doporučujeme místo toho použít některou
+      z variant licence 4.0.
+    en: This is an older version of the license (1.0). If you are licensing your own
+      work that has not yet been published under any license, we recommend using one
+      of the 4.0 license variants instead.
+  hierarchy:
+    parent: cc
+- id: cc-2.0
+  title:
+    cs: verze 2.0 Obecná licence
+    en: version 2.0 Generic License
+  description:
+    cs: Toto je starší verze licencí 2.0. Pokud licencujete své vlastní dílo, které
+      ještě nebylo pod žádnou licencí zveřejněno, doporučujeme místo toho použít některou
+      z variant licence 4.0.
+    en: This is an older version of the license (2.0). If you are licensing your own
+      work that has not yet been published under any license, we recommend using one
+      of the 4.0 license variants instead.
+  hierarchy:
+    parent: cc
+- id: cc-2.5
+  title:
+    cs: verze 2.5 Obecná licence
+    en: version 2.5 Generic License
+  description:
+    cs: Toto je starší verze licencí 2.5. Pokud licencujete své vlastní dílo, které
+      ještě nebylo pod žádnou licencí zveřejněno, doporučujeme místo toho použít některou
+      z variant licence 4.0.
+    en: This is an older version of the license (2.5). If you are licensing your own
+      work that has not yet been published under any license, we recommend using one
+      of the 4.0 license variants instead.
+  hierarchy:
+    parent: cc
+- id: cc-3.0
+  title:
+    cs: verze 3.0
+    en: version 3.0
+  description:
+    cs: Toto je starší verze licencí 3.0. Pokud licencujete své vlastní dílo, které
+      ještě nebylo pod žádnou licencí zveřejněno, doporučujeme místo toho použít některou
+      z variant licence 4.0.
+    en: This is an older version of the license (3.0). If you are licensing your own
+      work that has not yet been published under any license, we recommend using one
+      of the 4.0 license variants instead.
+  hierarchy:
+    parent: cc
+- id: cc-4.0
+  title:
+    cs: verze 4.0 mezinárodní licence
+    en: version 4.0 International License
+  description:
+    cs: Aktuální verze 4.0 existuje pouze jako mezinárodní, nebyla nutná adaptace
+      do národních právních řádů.
+    en: The current version 4.0 exists only as an international version, no adaptation
+      to national legal systems was necessary.
+  hierarchy:
+    parent: cc
+- id: cc0-1.0
+  title:
+    cs: Creative Commons Univerzální – Prohlášení o poskytnutí díla do veřejné domény
+    en: Creative Commons Zero v1.0 Universal
+  description:
+    en: CC0 waives copyright interest in a work you've created and dedicates it to
+      the world-wide public domain. Use CC0 to opt out of copyright entirely and ensure
+      your work has the widest reach.
+  hierarchy:
+    parent: cc
+  tags:
+  - all
+  - data
+  - recommended
+  - software
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  mappings:
+  - identifier: https://creativecommons.org/publicdomain/zero/1.0/
+    scheme: https://creativecommons.org/publicdomain/zero/1.0/
+    relation: exactMatch
+- id: cc-by-1.0
+  title:
+    cs: Creative Commons Uveďte původ 1.0 Obecná licence
+    en: Creative Commons Attribution 1.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora. V češtině: Uveďte autora; v angličtině:
+      Attribution; zkratka CC BY.'
+  hierarchy:
+    parent: cc-1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by/1.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by/1.0/
+    scheme: https://creativecommons.org/licenses/by/1.0/
+    relation: exactMatch
+- id: cc-by-2.0
+  title:
+    cs: Creative Commons Uveďte původ 2.0 Obecná licence
+    en: Creative Commons Attribution 2.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora. V češtině: Uveďte autora; v angličtině:
+      Attribution; zkratka CC BY.'
+  hierarchy:
+    parent: cc-2.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by/2.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by/2.0/
+    scheme: https://creativecommons.org/licenses/by/2.0/
+    relation: exactMatch
+- id: cc-by-2.5
+  title:
+    cs: Creative Commons Uveďte původ 2.5 Obecná licence
+    en: Creative Commons Attribution 2.5 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora. V češtině: Uveďte autora; v angličtině:
+      Attribution; zkratka CC BY.'
+  hierarchy:
+    parent: cc-2.5
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by/2.5/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by/2.5/
+    scheme: https://creativecommons.org/licenses/by/2.5/
+    relation: exactMatch
+- id: cc-by-3.0
+  title:
+    cs: Creative Commons Uveďte autora 3.0
+    en: Creative Commons Attribution 3.0 Unported
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora. V češtině: Uveďte autora; v angličtině:
+      Attribution; zkratka CC BY.'
+  hierarchy:
+    parent: cc-3.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by/3.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by/3.0/
+    scheme: https://creativecommons.org/licenses/by/3.0/
+    relation: exactMatch
+- id: cc-by-4.0
+  title:
+    cs: Creative Commons Uveďte původ 4.0 Mezinárodní licence
+    en: Creative Commons Attribution 4.0 International
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora. V češtině: Uveďte původ (v češtině
+      dříve označováno jako Uveďte autora); v angličtině: Attribution; zkratka CC
+      BY.'
+    en: The Creative Commons Attribution license allows re-distribution and re-use
+      of a licensed work on the condition that the creator is appropriately credited.
+  hierarchy:
+    parent: cc-4.0
+  tags:
+  - all
+  - data
+  - recommended
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by/4.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by/4.0/
+    scheme: https://creativecommons.org/licenses/by/4.0/
+    relation: exactMatch
+- id: cc-by-nc-1.0
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte komerčně 1.0 Obecná licence
+    en: Creative Commons Attribution Non Commercial 1.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora a pouze pro nevýdělečné účely. V
+      češtině: Uveďte autora-Neužívejte komerčně; v angličtině: Attribution-NonCommercial;
+      zkratka CC BY-NC.'
+  hierarchy:
+    parent: cc-1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc/1.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc/1.0/
+    scheme: https://creativecommons.org/licenses/by-nc/1.0/
+    relation: exactMatch
+- id: cc-by-nc-2.0
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte komerčně 2.0 Obecná licence
+    en: Creative Commons Attribution Non Commercial 2.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora a pouze pro nevýdělečné účely. V
+      češtině: Uveďte autora-Neužívejte komerčně; v angličtině: Attribution-NonCommercial;
+      zkratka CC BY-NC.'
+  hierarchy:
+    parent: cc-2.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc/2.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc/2.0/
+    scheme: https://creativecommons.org/licenses/by-nc/2.0/
+    relation: exactMatch
+- id: cc-by-nc-2.5
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte komerčně 2.5 Obecná licence
+    en: Creative Commons Attribution Non Commercial 2.5 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora a pouze pro nevýdělečné účely. V
+      češtině: Uveďte autora-Neužívejte komerčně; v angličtině: Attribution-NonCommercial;
+      zkratka CC BY-NC.'
+  hierarchy:
+    parent: cc-2.5
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc/2.5/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc/2.5/
+    scheme: https://creativecommons.org/licenses/by-nc/2.5/
+    relation: exactMatch
+- id: cc-by-nc-3.0
+  title:
+    cs: Creative Commons Uveďte autora-Neužívejte komerčně 3.0
+    en: Creative Commons Attribution Non Commercial 3.0 Unported
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora a pouze pro nevýdělečné účely. V
+      češtině: Uveďte autora-Neužívejte komerčně; v angličtině: Attribution-NonCommercial;
+      zkratka CC BY-NC.'
+  hierarchy:
+    parent: cc-3.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc/3.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc/3.0/
+    scheme: https://creativecommons.org/licenses/by-nc/3.0/
+    relation: exactMatch
+- id: cc-by-nc-4.0
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní licence
+    en: Creative Commons Attribution Non Commercial 4.0 International
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo a z
+      něj odvozená díla pouze při uvedení autora a pouze pro nevýdělečné účely. V
+      češtině: Uveďte původ-Neužívejte komerčně (v češtině dříve označováno jako Uveďte
+      autora-Neužívejte komerčně); v angličtině: Attribution-NonCommercial; zkratka
+      CC BY-NC.'
+  hierarchy:
+    parent: cc-4.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc/4.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc/4.0/
+    scheme: https://creativecommons.org/licenses/by-nc/4.0/
+    relation: exactMatch
+- id: cc-by-nc-nd-1.0
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte komerčně-Nezpracovávejte 1.0 Obecná
+      licence
+    en: Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, pouze pro nevýdělečné účely, je
+      nutné uvést autora. V češtině: Uveďte autora-Neužívejte komerčně-Nezasahujte
+      do díla; v angličtině: Attribution-Noncommercial-NoDerivs; zkratka CC BY-NC-ND.'
+  hierarchy:
+    parent: cc-1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nd-nc/1.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nd-nc/1.0/
+    scheme: https://creativecommons.org/licenses/by-nd-nc/1.0/
+    relation: exactMatch
+- id: cc-by-nc-nd-2.0
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte komerčně-Nezpracovávejte 2.0 Obecná
+      licence
+    en: Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, pouze pro nevýdělečné účely, je
+      nutné uvést autora. V češtině: Uveďte autora-Neužívejte komerčně-Nezasahujte
+      do díla; v angličtině: Attribution-Noncommercial-NoDerivs; zkratka CC BY-NC-ND.'
+  hierarchy:
+    parent: cc-2.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-nd/2.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-nd/2.0/
+    scheme: https://creativecommons.org/licenses/by-nc-nd/2.0/
+    relation: exactMatch
+- id: cc-by-nc-nd-2.5
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte komerčně-Nezpracovávejte 2.5 Obecná
+      licence
+    en: Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, pouze pro nevýdělečné účely, je
+      nutné uvést autora. V češtině: Uveďte autora-Neužívejte komerčně-Nezasahujte
+      do díla; v angličtině: Attribution-Noncommercial-NoDerivs; zkratka CC BY-NC-ND.'
+  hierarchy:
+    parent: cc-2.5
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-nd/2.5/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-nd/2.5/
+    scheme: https://creativecommons.org/licenses/by-nc-nd/2.5/
+    relation: exactMatch
+- id: cc-by-nc-nd-3.0
+  title:
+    cs: Creative Commons Uveďte autora-Neužívejte komerčně-Nezasahujte do díla 3.0
+    en: Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, pouze pro nevýdělečné účely, je
+      nutné uvést autora. V češtině: Uveďte autora-Neužívejte komerčně-Nezasahujte
+      do díla; v angličtině: Attribution-Noncommercial-NoDerivs; zkratka CC BY-NC-ND.'
+  hierarchy:
+    parent: cc-3.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-nd/3.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-nd/3.0/
+    scheme: https://creativecommons.org/licenses/by-nc-nd/3.0/
+    relation: exactMatch
+- id: cc-by-nc-nd-4.0
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte komerčně-Nezpracovávejte 4.0 Mezinárodní
+      licence
+    en: Creative Commons Attribution Non Commercial No Derivatives 4.0 International
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, pouze pro nevýdělečné účely, je
+      nutné uvést autora. V češtině: Uveďte původ-Neužívejte komerčně-Nezpracovávejte
+      (v češtině dříve označováno jako Uveďte autora-Neužívejte komerčně-Nezasahujte
+      do díla); v angličtině: Attribution-NonCommercial-NoDerivs; zkratka CC BY-NC-ND.'
+  hierarchy:
+    parent: cc-4.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-nd/4.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-nd/4.0/
+    scheme: https://creativecommons.org/licenses/by-nc-nd/4.0/
+    relation: exactMatch
+- id: cc-by-nc-sa-1.0
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte dílo komerčně-Zachovejte licenci
+      1.0 Obecná licence
+    en: Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo (případně
+      z něj odvozená díla) pouze pro nevýdělečné účely a pouze za podmínek identické
+      či slučitelné licence. Je nutné uvést autora. V češtině: Uveďte autora-Neužívejte
+      dílo komerčně-Zachovejte licenci; v angličtině: Attribution-NonCommercial-ShareAlike;
+      zkratka CC BY-NC-SA.'
+  hierarchy:
+    parent: cc-1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-sa/1.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-sa/1.0/
+    scheme: https://creativecommons.org/licenses/by-nc-sa/1.0/
+    relation: exactMatch
+- id: cc-by-nc-sa-2.0
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte dílo komerčně-Zachovejte licenci
+      2.0 Obecná licence
+    en: Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo (případně
+      z něj odvozená díla) pouze pro nevýdělečné účely a pouze za podmínek identické
+      či slučitelné licence. Je nutné uvést autora. V češtině: Uveďte autora-Neužívejte
+      dílo komerčně-Zachovejte licenci; v angličtině: Attribution-NonCommercial-ShareAlike;
+      zkratka CC BY-NC-SA.'
+  hierarchy:
+    parent: cc-2.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-sa/2.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-sa/2.0/
+    scheme: https://creativecommons.org/licenses/by-nc-sa/2.0/
+    relation: exactMatch
+- id: cc-by-nc-sa-2.5
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte dílo komerčně-Zachovejte licenci
+      2.5 Obecná licence
+    en: Creative Commons Attribution Non Commercial Share Alike 2.5 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo (případně
+      z něj odvozená díla) pouze pro nevýdělečné účely a pouze za podmínek identické
+      či slučitelné licence. Je nutné uvést autora. V češtině: Uveďte autora-Neužívejte
+      dílo komerčně-Zachovejte licenci; v angličtině: Attribution-NonCommercial-ShareAlike;
+      zkratka CC BY-NC-SA.'
+  hierarchy:
+    parent: cc-2.5
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-sa/2.5/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-sa/2.5/
+    scheme: https://creativecommons.org/licenses/by-nc-sa/2.5/
+    relation: exactMatch
+- id: cc-by-nc-sa-3.0
+  title:
+    cs: Creative Commons Uveďte autora-Neužívejte dílo komerčně-Zachovejte licenci
+      3.0
+    en: Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo (případně
+      z něj odvozená díla) pouze pro nevýdělečné účely a pouze za podmínek identické
+      či slučitelné licence. Je nutné uvést autora. V češtině: Uveďte autora-Neužívejte
+      dílo komerčně-Zachovejte licenci; v angličtině: Attribution-NonCommercial-ShareAlike;
+      zkratka CC BY-NC-SA.'
+  hierarchy:
+    parent: cc-3.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-sa/3.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-sa/3.0/
+    scheme: https://creativecommons.org/licenses/by-nc-sa/3.0/
+    relation: exactMatch
+- id: cc-by-nc-sa-4.0
+  title:
+    cs: Creative Commons Uveďte původ-Neužívejte komerčně-Zachovejte licenci 4.0 Mezinárodní
+      licence
+    en: Creative Commons Attribution Non Commercial Share Alike 4.0 International
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat dílo (případně
+      z něj odvozená díla) pouze pro nevýdělečné účely a pouze za podmínek identické
+      či slučitelné licence. Je nutné uvést autora. V češtině: Uveďte původ-Neužívejte
+      komerčně-Zachovejte licenci (v češtině dříve označováno jako Uveďte autora-Neužívejte
+      dílo komerčně-Zachovejte licenci); v angličtině: Attribution-NonCommercial-ShareAlike;
+      zkratka CC BY-NC-SA.'
+  hierarchy:
+    parent: cc-4.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nc-sa/4.0/
+    scheme: https://creativecommons.org/licenses/by-nc-sa/4.0/
+    relation: exactMatch
+- id: cc-by-nd-1.0
+  title:
+    cs: Creative Commons Uveďte původ-Nezpracovávejte 1.0 Obecná licence
+    en: Creative Commons Attribution No Derivatives 1.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, je nutné uvést autora. V češtině:
+      Uveďte autora-Nezasahujte do díla; v angličtině: Attribution-NoDerivs; zkratka
+      CC BY-ND.'
+  hierarchy:
+    parent: cc-1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nd/1.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nd/1.0/
+    scheme: https://creativecommons.org/licenses/by-nd/1.0/
+    relation: exactMatch
+- id: cc-by-nd-2.0
+  title:
+    cs: Creative Commons Uveďte původ-Nezpracovávejte 2.0 Obecná licence
+    en: Creative Commons Attribution No Derivatives 2.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, je nutné uvést autora. V češtině:
+      Uveďte autora-Nezasahujte do díla; v angličtině: Attribution-NoDerivs; zkratka
+      CC BY-ND.'
+  hierarchy:
+    parent: cc-2.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nd/2.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nd/2.0/
+    scheme: https://creativecommons.org/licenses/by-nd/2.0/
+    relation: exactMatch
+- id: cc-by-nd-2.5
+  title:
+    cs: Creative Commons Uveďte původ-Nezpracovávejte 2.5 Obecná licence
+    en: Creative Commons Attribution No Derivatives 2.5 Generic
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, je nutné uvést autora. V češtině:
+      Uveďte autora-Nezasahujte do díla; v angličtině: Attribution-NoDerivs; zkratka
+      CC BY-ND.'
+  hierarchy:
+    parent: cc-2.5
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nd/2.5/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nd/2.5/
+    scheme: https://creativecommons.org/licenses/by-nd/2.5/
+    relation: exactMatch
+- id: cc-by-nd-3.0
+  title:
+    cs: Creative Commons Uveďte autora-Nezasahujte do díla 3.0
+    en: Creative Commons Attribution No Derivatives 3.0 Unported
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, je nutné uvést autora. V češtině:
+      Uveďte autora-Nezasahujte do díla; v angličtině: Attribution-NoDerivs; zkratka
+      CC BY-ND.'
+  hierarchy:
+    parent: cc-3.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nd/3.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nd/3.0/
+    scheme: https://creativecommons.org/licenses/by-nd/3.0/
+    relation: exactMatch
+- id: cc-by-nd-4.0
+  title:
+    cs: Creative Commons Uveďte původ-Nezpracovávejte 4.0 Mezinárodní licence
+    en: Creative Commons Attribution No Derivatives 4.0 International
+  description:
+    cs: 'Umožňuje ostatním rozmnožovat, rozšiřovat, vystavovat a sdělovat pouze dílo
+      v původní podobě, nikoli díla z něj odvozená, je nutné uvést autora. V češtině:
+      Uveďte původ-Nezpracovávejte (v češtině dříve označováno jako Uveďte autora-Nezasahujte
+      do díla); v angličtině: Attribution-NoDerivs; zkratka BY-ND.'
+  hierarchy:
+    parent: cc-4.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-nd/4.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-nd/4.0/
+    scheme: https://creativecommons.org/licenses/by-nd/4.0/
+    relation: exactMatch
+- id: cc-by-sa-1.0
+  title:
+    cs: Creative Commons Uveďte původ-Zachovejte licenci 1.0 Obecná licence
+    en: Creative Commons Attribution Share Alike 1.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozšiřovat odvozená díla pouze za podmínek identické či
+      slučitelné licence, je nutné uvést autora. V češtině: Uveďte autora-Zachovejte
+      licenci; v angličtině: Attribution-ShareAlike; zkratka CC BY-SA.'
+  hierarchy:
+    parent: cc-1.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-sa/1.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-sa/1.0/
+    scheme: https://creativecommons.org/licenses/by-sa/1.0/
+    relation: exactMatch
+- id: cc-by-sa-2.0
+  title:
+    cs: Creative Commons Uveďte původ-Zachovejte licenci 2.0 Obecná licence
+    en: Creative Commons Attribution Share Alike 2.0 Generic
+  description:
+    cs: 'Umožňuje ostatním rozšiřovat odvozená díla pouze za podmínek identické či
+      slučitelné licence, je nutné uvést autora. V češtině: Uveďte autora-Zachovejte
+      licenci; v angličtině: Attribution-ShareAlike; zkratka CC BY-SA.'
+  hierarchy:
+    parent: cc-2.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-sa/2.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-sa/2.0/
+    scheme: https://creativecommons.org/licenses/by-sa/2.0/
+    relation: exactMatch
+- id: cc-by-sa-2.5
+  title:
+    cs: Creative Commons Uveďte původ-Zachovejte licenci 2.5 Obecná licence
+    en: Creative Commons Attribution Share Alike 2.5 Generic
+  description:
+    cs: 'Umožňuje ostatním rozšiřovat odvozená díla pouze za podmínek identické či
+      slučitelné licence, je nutné uvést autora. V češtině: Uveďte autora-Zachovejte
+      licenci; v angličtině: Attribution-ShareAlike; zkratka CC BY-SA.'
+  hierarchy:
+    parent: cc-2.5
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-sa/2.5/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-sa/2.5/
+    scheme: https://creativecommons.org/licenses/by-sa/2.5/
+    relation: exactMatch
+- id: cc-by-sa-3.0
+  title:
+    cs: Creative Commons Uveďte autora-Zachovejte licenci 3.0
+    en: Creative Commons Attribution Share Alike 3.0 Unported
+  description:
+    cs: 'Umožňuje ostatním rozšiřovat odvozená díla pouze za podmínek identické či
+      slučitelné licence, je nutné uvést autora. V češtině: Uveďte autora-Zachovejte
+      licenci; v angličtině: Attribution-ShareAlike; zkratka CC BY-SA.'
+  hierarchy:
+    parent: cc-3.0
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-sa/3.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-sa/3.0/
+    scheme: https://creativecommons.org/licenses/by-sa/3.0/
+    relation: exactMatch
+- id: cc-by-sa-4.0
+  title:
+    cs: Creative Commons Uveďte původ-Zachovejte licenci 4.0 Mezinárodní licence
+    en: Creative Commons Attribution Share Alike 4.0 International
+  description:
+    cs: 'Umožňuje ostatním rozšiřovat odvozená díla pouze za podmínek identické či
+      slučitelné licence, je nutné uvést autora. V češtině: Uveďte původ-Zachovejte
+      licenci (v češtině dříve označováno jako Uveďte autora-Zachovejte licenci);
+      v angličtině: Attribution-ShareAlike; zkratka CC BY-SA.'
+    en: Permits almost any use subject to providing credit and license notice. Frequently
+      used for media assets and educational materials. The most common license for
+      Open Access scientific publications. Not recommended for software.
+  hierarchy:
+    parent: cc-4.0
+  tags:
+  - all
+  - data
+  - recommended
+  props:
+    scheme: spdx
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+  mappings:
+  - identifier: https://creativecommons.org/licenses/by-sa/4.0/
+    scheme: https://creativecommons.org/licenses/by-sa/4.0/
+    relation: exactMatch
+# LINDAT/CLARIN licenses
+- id: lindat
+  title:
+    en: LINDAT/CLARIN licenses
+    cs: Licence LINDAT/CLARIN
+- id: lindat-cnc
+  title:
+    en: Czech National Corpus (Shuffled Corpus Data)
+  description:
+    en: 'LINDAT/CLARIN license, category: Academic Use (ACA).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-cnc.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-cnc.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-cnc.html
+    relation: exactMatch
+- id: lindat-cnc-data
+  title:
+    en: License Agreement for Czech National Corpus Data
+  description:
+    en: 'LINDAT/CLARIN license, category: Academic Use (ACA).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-cnc-data.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-cnc-data.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-cnc-data.html
+    relation: exactMatch
+- id: lindat-corefud-0.1
+  title:
+    en: Licence CorefUD v0.1
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-corefud-0.1.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-corefud-0.1.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-corefud-0.1.html
+    relation: exactMatch
+- id: lindat-corefud-0.2
+  title:
+    en: Licence CorefUD v0.2
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-corefud-0.2.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-corefud-0.2.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-corefud-0.2.html
+    relation: exactMatch
+- id: lindat-corefud-1.1
+  title:
+    en: Licence CorefUD v1.1
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.1.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.1.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.1.html
+    relation: exactMatch
+- id: lindat-corefud-1.2
+  title:
+    en: Licence CorefUD v1.2
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.2.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.2.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.2.html
+    relation: exactMatch
+- id: lindat-corefud-1.3
+  title:
+    en: Licence CorefUD v1.3
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.3.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.3.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.3.html
+    relation: exactMatch
+- id: lindat-corefud-1.4
+  title:
+    en: Licence CorefUD v1.4
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.4.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.4.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-corefud-1.4.html
+    relation: exactMatch
+- id: lindat-deep-sequoia
+  title:
+    en: Deep Sequoia Licence
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/deep-sequoia-licence.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/deep-sequoia-licence.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/deep-sequoia-licence.html
+    relation: exactMatch
+- id: lindat-hamledt-2.0
+  title:
+    en: HamleDT 2.0 Licence Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Academic Use (ACA).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-hamledt-2.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-hamledt-2.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-hamledt-2.0.html
+    relation: exactMatch
+- id: lindat-hamledt-3.0
+  title:
+    en: HamleDT 3.0 License Terms
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-hamledt-3.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-hamledt-3.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-hamledt-3.0.html
+    relation: exactMatch
+- id: lindat-lb
+  title:
+    en: Dictionary of Medieval Latin in the Czech Lands - digital version 2.2 License Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Academic Use (ACA).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-lb.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-lb.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-lb.html
+    relation: exactMatch
+- id: lindat-mwe-1.0
+  title:
+    en: PARSEME Shared Task Data (v. 1.0) Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.0.html
+    relation: exactMatch
+- id: lindat-mwe-1.1
+  title:
+    en: PARSEME Shared Task Data (v. 1.1) Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.1.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.1.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.1.html
+    relation: exactMatch
+- id: lindat-mwe-1.2
+  title:
+    en: PARSEME Shared Task Data (v. 1.2) Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.2.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.2.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.2.html
+    relation: exactMatch
+- id: lindat-mwe-1.2-raw
+  title:
+    en: PARSEME Shared Task Raw Corpus Data (v. 1.2) Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.2-raw.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.2-raw.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.2-raw.html
+    relation: exactMatch
+- id: lindat-mwe-1.3
+  title:
+    en: PARSEME Corpora v. 1.3 - Licence Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.3.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.3.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-mwe-1.3.html
+    relation: exactMatch
+- id: lindat-mwe-2.0
+  title:
+    en: PARSEME Corpora v. 2.0 - Licence Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-mwe-2.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-mwe-2.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-mwe-2.0.html
+    relation: exactMatch
+- id: lindat-mwe-literal
+  title:
+    en: License agreement for The Multilingual corpus of literal occurrences of multiword expressions
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-mwe-literal.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-mwe-literal.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-mwe-literal.html
+    relation: exactMatch
+- id: lindat-nlpc-wec
+  title:
+    en: NLP Centre Web Corpus License
+  description:
+    en: 'LINDAT/CLARIN license, category: Academic Use (ACA).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-NLPC-WeC.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-NLPC-WeC.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-NLPC-WeC.html
+    relation: exactMatch
+- id: lindat-paws
+  title:
+    en: PAWS License
+  description:
+    en: 'LINDAT/CLARIN license, category: Restricted Use (RES).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-PAWS.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-PAWS.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-PAWS.html
+    relation: exactMatch
+- id: lindat-pcedt2
+  title:
+    en: CC-BY-NC-SA + LDC99T42
+  description:
+    en: 'LINDAT/CLARIN license, category: Restricted Use (RES).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-pcedt2.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-pcedt2.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-pcedt2.html
+    relation: exactMatch
+- id: lindat-pdt2
+  title:
+    en: PDT 2.0 License
+  description:
+    en: 'LINDAT/CLARIN license, category: Academic Use (ACA).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-pdt2.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-pdt2.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-pdt2.html
+    relation: exactMatch
+- id: lindat-pdtsl
+  title:
+    en: PDTSL
+  description:
+    en: 'LINDAT/CLARIN license, category: Academic Use (ACA).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-pdtsl.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-pdtsl.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-pdtsl.html
+    relation: exactMatch
+- id: lindat-qwant-longeval-by-nc-sa
+  title:
+    en: Qwant LongEval Attribution-NonCommercial-ShareAlike License
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/Qwant_LongEval_BY-NC-SA_License.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/Qwant_LongEval_BY-NC-SA_License.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/Qwant_LongEval_BY-NC-SA_License.html
+    relation: exactMatch
+- id: lindat-selexini
+  title:
+    en: The SELEXINI Corpora License Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-selexini.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-selexini.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-selexini.html
+    relation: exactMatch
+- id: lindat-szn-dataset
+  title:
+    en: Seznam Dataset Licence
+  description:
+    en: 'LINDAT/CLARIN license, category: Restricted Use (RES).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/szn-dataset-licence.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/szn-dataset-licence.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/szn-dataset-licence.html
+    relation: exactMatch
+- id: lindat-taus-qt21
+  title:
+    en: Agreement on the Use of Data in QT21
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-TAUS_QT21.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-TAUS_QT21.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-TAUS_QT21.html
+    relation: exactMatch
+- id: lindat-theaitre
+  title:
+    en: THEAITRE AI research only license
+  description:
+    en: 'LINDAT/CLARIN license, category: Academic Use (ACA).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/theaitre-license.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/theaitre-license.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/theaitre-license.html
+    relation: exactMatch
+- id: lindat-ud-1.0
+  title:
+    en: Universal Dependencies 1.0 License Set
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-1.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-1.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-1.0.html
+    relation: exactMatch
+- id: lindat-ud-1.1
+  title:
+    en: Licence Universal Dependencies v1.1
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.1.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.1.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.1.html
+    relation: exactMatch
+- id: lindat-ud-1.2
+  title:
+    en: Licence Universal Dependencies v1.2
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.2.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.2.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.2.html
+    relation: exactMatch
+- id: lindat-ud-1.3
+  title:
+    en: Licence Universal Dependencies v1.3
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.3.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.3.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.3.html
+    relation: exactMatch
+- id: lindat-ud-1.4
+  title:
+    en: Licence Universal Dependencies v1.4
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.4.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.4.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-1.4.html
+    relation: exactMatch
+- id: lindat-ud-2.0
+  title:
+    en: Licence Universal Dependencies v2.0
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.0.html
+    relation: exactMatch
+- id: lindat-ud-2.1
+  title:
+    en: Licence Universal Dependencies v2.1
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.1.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.1.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.1.html
+    relation: exactMatch
+- id: lindat-ud-2.10
+  title:
+    en: Licence Universal Dependencies v2.10
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.10.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.10.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.10.html
+    relation: exactMatch
+- id: lindat-ud-2.11
+  title:
+    en: Licence Universal Dependencies v2.11
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.11.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.11.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.11.html
+    relation: exactMatch
+- id: lindat-ud-2.12
+  title:
+    en: Licence Universal Dependencies v2.12
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.12.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.12.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.12.html
+    relation: exactMatch
+- id: lindat-ud-2.13
+  title:
+    en: Licence Universal Dependencies v2.13
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.13.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.13.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.13.html
+    relation: exactMatch
+- id: lindat-ud-2.14
+  title:
+    en: Licence Universal Dependencies v2.14
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.14.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.14.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.14.html
+    relation: exactMatch
+- id: lindat-ud-2.15
+  title:
+    en: Licence Universal Dependencies v2.15
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.15.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.15.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.15.html
+    relation: exactMatch
+- id: lindat-ud-2.16
+  title:
+    en: Licence Universal Dependencies v2.16
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.16.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.16.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.16.html
+    relation: exactMatch
+- id: lindat-ud-2.17
+  title:
+    en: Licence Universal Dependencies v2.17
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.17.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.17.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.17.html
+    relation: exactMatch
+- id: lindat-ud-2.18
+  title:
+    en: Licence Universal Dependencies v2.18
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.18.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.18.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.18.html
+    relation: exactMatch
+- id: lindat-ud-2.2
+  title:
+    en: Licence Universal Dependencies v2.2
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.2.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.2.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.2.html
+    relation: exactMatch
+- id: lindat-ud-2.3
+  title:
+    en: Licence Universal Dependencies v2.3
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.3.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.3.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.3.html
+    relation: exactMatch
+- id: lindat-ud-2.4
+  title:
+    en: Licence Universal Dependencies v2.4
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.4.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.4.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.4.html
+    relation: exactMatch
+- id: lindat-ud-2.5
+  title:
+    en: Licence Universal Dependencies v2.5
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.5.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.5.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UD-2.5.html
+    relation: exactMatch
+- id: lindat-ud-2.6
+  title:
+    en: Licence Universal Dependencies v2.6
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.6.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.6.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.6.html
+    relation: exactMatch
+- id: lindat-ud-2.7
+  title:
+    en: Licence Universal Dependencies v2.7
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.7.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.7.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.7.html
+    relation: exactMatch
+- id: lindat-ud-2.8
+  title:
+    en: Licence Universal Dependencies v2.8
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.8.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.8.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.8.html
+    relation: exactMatch
+- id: lindat-ud-2.9
+  title:
+    en: Licence Universal Dependencies v2.9
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-ud-2.9.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-ud-2.9.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-ud-2.9.html
+    relation: exactMatch
+- id: lindat-uder-0.5
+  title:
+    en: Universal Derivations v0.5 License Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UDer-0.5.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UDer-0.5.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UDer-0.5.html
+    relation: exactMatch
+- id: lindat-uder-1.0
+  title:
+    en: Universal Derivations v1.0 License Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UDer-1.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UDer-1.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UDer-1.0.html
+    relation: exactMatch
+- id: lindat-uder-1.1
+  title:
+    en: Universal Derivations v1.1 License Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-UDer-1.1.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-UDer-1.1.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-UDer-1.1.html
+    relation: exactMatch
+- id: lindat-umr-1.0
+  title:
+    en: Uniform Meaning Representation v1.0 License Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-umr-1.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-umr-1.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-umr-1.0.html
+    relation: exactMatch
+- id: lindat-umr-2.0
+  title:
+    en: Uniform Meaning Representation v2.0 License Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-umr-2.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-umr-2.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-umr-2.0.html
+    relation: exactMatch
+- id: lindat-umr-2.2
+  title:
+    en: Uniform Meaning Representation v2.2 License Agreement
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/license-umr-2.2.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/license-umr-2.2.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/license-umr-2.2.html
+    relation: exactMatch
+- id: lindat-unisegs-1.0
+  title:
+    en: Universal Segmentations 1.0 License Terms
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-unisegs-1.0.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-unisegs-1.0.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-unisegs-1.0.html
+    relation: exactMatch
+- id: lindat-unisegs-1.5
+  title:
+    en: Universal Segmentations 1.5 License Terms
+  description:
+    en: 'LINDAT/CLARIN license, category: Publicly Available (PUB).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/licence-unisegs-1.5.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/licence-unisegs-1.5.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/licence-unisegs-1.5.html
+    relation: exactMatch
+- id: lindat-web-crawl
+  title:
+    en: LINDAT Web Crawl Licence
+  description:
+    en: 'LINDAT/CLARIN license, category: Restricted Use (RES).'
+  hierarchy:
+    parent: lindat
+  tags:
+  - all
+  - data
+  props:
+    url: https://lindat.mff.cuni.cz/repository/static/LINDAT-Web-Crawl-Licence.html
+  mappings:
+  - identifier: https://lindat.mff.cuni.cz/repository/static/LINDAT-Web-Crawl-Licence.html
+    scheme: https://lindat.mff.cuni.cz/repository/static/LINDAT-Web-Crawl-Licence.html
+    relation: exactMatch
+- id: wordnet
+  title:
+    en: WordNet License
+  tags:
+  - all
+  - data
+  props:
+    scheme: spdx
+    url: https://spdx.org/licenses/WordNet.html
+  mappings:
+  - identifier: https://spdx.org/licenses/WordNet.html
+    scheme: https://spdx.org/licenses/
+    relation: exactMatch
+  - identifier: https://wordnet.princeton.edu/license-and-commercial-use
+    scheme: https://wordnet.princeton.edu/license-and-commercial-use
+    relation: exactMatch
