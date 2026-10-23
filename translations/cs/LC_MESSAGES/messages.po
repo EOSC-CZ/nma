@@ -943,8 +943,8 @@ msgstr ""
 #~ msgid "Invalid publication date format: %(date)s."
 #~ msgstr "Neplatný formát data publikace: %(date)s."
 
-#~ msgid "Non-existent persistent identifier: '%(identifier)s'."
-#~ msgstr "Neexistující persistentní identifikátor '%(identifier)s'."
+msgid "Non-existent persistent identifier: '%(identifier)s'."
+msgstr "Neexistující persistentní identifikátor '%(identifier)s'."
 
 #~ msgid "Unsupported identifier type '%(identifier)s'."
 #~ msgstr "Nepodporovaný typ identifikátoru '%(identifier)s'."
