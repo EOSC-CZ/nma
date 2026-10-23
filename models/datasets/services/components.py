@@ -24,7 +24,10 @@ class ExternalPIDComponent(ServiceComponent):
         """Create PID when record is created.."""
         # We create the PID after all the data has been initialized. so that
         # we can rely on having the 'id' and type set.
-        record["id"] = data["id"]
+        # The fixture loader pops "id" from the entry and supplies it through
+        # its own pid provider instead, which sets record["id"] on pid creation.
+        if "id" in data:
+            record["id"] = data["id"]
         self.service.draft_cls.pid.create(record)
 
 
