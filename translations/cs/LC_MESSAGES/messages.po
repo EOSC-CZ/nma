@@ -183,6 +183,18 @@ msgstr ""
 msgid "Using a different persistent identifier?"
 msgstr "Používáte jiný persistentní identifikátor?"
 
+#: /home/work/code/nma/riv/views.py:29
+msgid "Persistent Identifier"
+msgstr "Persistentní identifikátor"
+
+#: /home/work/code/nma/riv/views.py:31
+msgid "Please enter a persistent identifier"
+msgstr "Zadejte prosím persistentní identifikátor"
+
+#: /home/work/code/nma/riv/views.py:34
+msgid "Please enter a valid URL (e.g., https://doi.org/... or https://hdl.handle.net/...)"
+msgstr "Zadejte prosím platnou URL (např. https://doi.org/... nebo https://hdl.handle.net/...)"
+
 #: /home/work/code/nma/ui/datasets/templates/semantic-ui/datasets/DepositCreate.jinja:64
 msgid ""
 "NMD can discover metadata primarily for datasets identified by <a "
