@@ -1,0 +1,24 @@
+{#
+SPDX-FileCopyrightText: 2017-2018 CERN.
+SPDX-License-Identifier: MIT
+#}
+
+{% extends "invenio_theme/page_cover.html" %}
+
+{% block site_banner %}
+    {% from 'invenio_banners/banner.html' import banner %}
+    {{ banner() }}
+{% endblock site_banner %}
+
+{% block brand %}
+    {%- if config.THEME_LOGO %}
+        <a href="/">
+            <img class="ui centered small image" src="{{ url_for('static', filename=config.THEME_LOGO) }}"
+                alt="{{ _(config.THEME_SITENAME) }}" />
+        </a>
+        {%- elif config.THEME_SITENAME %}
+        <a href="/" class="text-center">
+            {{ _(config.THEME_SITENAME) }}
+        </a>
+    {% endif %}
+{% endblock brand %}
