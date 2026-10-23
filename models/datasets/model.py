@@ -203,6 +203,8 @@ datasets_model = model(
             code="aire",
             name=_("OpenAIRE"),
             mimetype="application/vnd.datacite.datacite+xml",
+            # the mimetype guess maps +xml types to .xsl
+            extension=".xml",
             serializer=OpenAIREXMLSerializer(),
             about_serializer=aire_about_etree,
             oai_metadata_prefix="oai_datacite",
@@ -219,8 +221,19 @@ datasets_model = model(
                 "http://datacite.org/schema/kernel-4e",
                 "resource",
         ),
-        ),
 
+        ),
+        AddMetadataImport(
+            code="datacite-xml-kernel4",
+            name=_("DataCite XML"),
+            description=_("Import metadata from DataCite XML format"),
+            mimetype="application/vnd.datacite.datacite+xml",
+            deserializer=DataCiteXMLDeserializer(),
+            oai_name=(
+                "http://datacite.org/schema/kernel-4",
+                "resource",
+            ),
+        ),
 
         AddServiceComponent(ExternalPIDComponent),
         ReplaceBaseClass(

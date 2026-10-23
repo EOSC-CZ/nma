@@ -30,6 +30,7 @@ class ResultsListItem extends Component {
       "ui.resource_type.title_l10n",
       i18next.t("No resource type")
     );
+    const accessStatus = _get(result, "ui.access_status");
     const subjects = _get(result, "ui.subjects", []);
     const title = _get(result, "metadata.title", i18next.t("No title"));
 
@@ -53,6 +54,18 @@ class ResultsListItem extends Component {
             <Label horizontal size="small" className="neutral">
               {resourceType}
             </Label>
+            {accessStatus && (
+              <Label
+                horizontal
+                size="small"
+                className={`access-status ${accessStatus.id}`}
+                data-tooltip={accessStatus.description_l10n}
+                data-inverted=""
+              >
+                {accessStatus.icon && <Icon name={accessStatus.icon} />}
+                {accessStatus.title_l10n}
+              </Label>
+            )}
             <Label horizontal size="small" className="basic green">
               {result.metadata.persistent_url}
             </Label>

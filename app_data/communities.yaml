@@ -115,9 +115,12 @@
   logo: archeo-vault.png
   metadata:
     title: "ArchaeoVault"
-    description: |
-        ArchaeoVault, the Czech Archaeological Repository for Analytical Data, is a national repository
-        for analytical archaeological data (geospatial data, laboratory analyses, anthropological data,
-        3D data and databases), complementing the Archaeological Information System of the Czech Republic.
-        It is operated by Masaryk University (Digitalia MUNI ARTS).
+    description: "Analytical archaeological data (geospatial, laboratory, anthropological, 3D, databases) harvested from ArchaeoVault, the Czech Archaeological Repository for Analytical Data operated by Masaryk University."
+  access: *access
+
+- slug: czu-agris
+  logo: czu-agris.svg
+  metadata:
+    title: "Czech University of Life Sciences Prague RDM Repository"
+    description: "Datasets harvested from the Czech University of Life Sciences Prague RDM Repository."
   access: *access

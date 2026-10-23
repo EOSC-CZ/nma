@@ -107,9 +107,6 @@ class DataCiteXMLDeserializer(DataCiteJSONDeserializer):
         if identifiers := self._convert_identifiers(resource):
             result["identifiers"] = identifiers
 
-        if alternate_identifiers := self._convert_alternate_identifiers(resource):
-            result["alternateIdentifiers"] = alternate_identifiers
-
         if related_identifiers := self._convert_related_identifiers(resource):
             result["relatedIdentifiers"] = related_identifiers
 
@@ -387,45 +384,27 @@ class DataCiteXMLDeserializer(DataCiteJSONDeserializer):
         return language[0] if language else None
 
     def _convert_identifiers(self, resource: etree._Element) -> list:
-        """Convert identifier to identifiers list (for backward compatibility)."""
-        identifiers = []
-        identifier_elem = resource.xpath("dc:identifier", namespaces=self.NAMESPACE)
+        """Convert identifier and alternateIdentifiers to the identifiers list.
 
-        if identifier_elem:
-            id_elem = identifier_elem[0]
-            identifier = {}
-
-            if id_elem.text:
-                identifier["identifier"] = id_elem.text
-
-            if id_type := id_elem.get("identifierType"):
-                identifier["identifierType"] = id_type
-
-            if identifier:
-                identifiers.append(identifier)
-
-        return identifiers
-
-    def _convert_alternate_identifiers(self, resource: etree._Element) -> list:
-        """Convert alternateIdentifiers element to JSON format."""
-        alt_ids = []
-        alt_id_elements = resource.xpath(
-            "dc:alternateIdentifiers/dc:alternateIdentifier", namespaces=self.NAMESPACE
-        )
-
-        for alt_id_elem in alt_id_elements:
-            alt_id = {}
-
-            if alt_id_elem.text:
-                alt_id["alternateIdentifier"] = alt_id_elem.text
-
-            if alt_id_type := alt_id_elem.get("alternateIdentifierType"):
-                alt_id["alternateIdentifierType"] = alt_id_type
-
-            if alt_id:
-                alt_ids.append(alt_id)
-
-        return alt_ids
+        DataCite JSON keeps alternate identifiers in ``identifiers`` (the
+        DataciteResolver only reads that), so records without a DOI keep
+        e.g. their Handle.
+        """
+        elements = [
+            (elem, elem.get("identifierType"))
+            for elem in resource.xpath("dc:identifier", namespaces=self.NAMESPACE)
+        ] + [
+            (elem, elem.get("alternateIdentifierType"))
+            for elem in resource.xpath(
+                "dc:alternateIdentifiers/dc:alternateIdentifier",
+                namespaces=self.NAMESPACE,
+            )
+        ]
+        return [
+            {"identifier": elem.text.strip(), "identifierType": id_type}
+            for elem, id_type in elements
+            if elem.text and elem.text.strip() and id_type
+        ]
 
     def _convert_related_identifiers(self, resource: etree._Element) -> list:
         """Convert relatedIdentifiers element to JSON format."""
