@@ -15,6 +15,21 @@
     }
   }
 
+  // RDM record_header_info row rendered inside the title segment: drop grid/row padding and the trailing hidden divider
+  &.record-title {
+    #record-info > .ui.grid {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    #record-info > .ui.grid,
+    #record-info > .ui.grid > .row {
+      padding: 0;
+    }
+    #record-info + .ui.divider.hidden {
+      margin: 0.5rem 0;
+    }
+  }
+
   // Persistent identifier segments
   &.persistent-identifier,
   &.riv-identifier {
