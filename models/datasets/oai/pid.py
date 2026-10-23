@@ -13,8 +13,12 @@ from invenio_vocabularies.datastreams.transformers import BaseTransformer
 if TYPE_CHECKING:
     from invenio_vocabularies.datastreams.datastreams import StreamEntry
 
-# persistent identifier schemes usable as record id, in order of preference
-PID_SCHEMES = ("doi", "handle")
+# persistent identifier schemes usable as record id, in order of preference,
+# with the idutils check matching the regexp that normalize_pid relies on
+PID_SCHEMES = {
+    "doi": idutils.is_doi,
+    "handle": idutils.is_handle,
+}
 
 
 class IdFromPIDTransformer(BaseTransformer):
@@ -36,15 +40,25 @@ class IdFromPIDTransformer(BaseTransformer):
             return stream_entry
 
         identifiers = rec.get("metadata", {}).get("identifiers", [])
-        for scheme in PID_SCHEMES:
+        invalid = []
+        for scheme, is_valid in PID_SCHEMES.items():
             for identifier in identifiers:
-                value = identifier.get("identifier")
-                if identifier.get("scheme") == scheme and value:
-                    value = idutils.normalize_pid(value, scheme)
-                    rec["id"] = f"{scheme}/{value}"
-                    rec["metadata"]["persistent_url"] = idutils.to_url(value, scheme, url_scheme="https")
-                    return stream_entry
+                value = (identifier.get("identifier") or "").strip()
+                if identifier.get("scheme") != scheme or not value:
+                    continue
+                # normalize_pid raises AttributeError on values its regexp does not match,
+                # so skip them and fall back to the next identifier or scheme
+                if not is_valid(value):
+                    invalid.append(f"{scheme}:{value}")
+                    continue
+                value = idutils.normalize_pid(value, scheme)
+                rec["id"] = f"{scheme}/{value}"
+                rec["metadata"]["persistent_url"] = idutils.to_url(value, scheme, url_scheme="https")
+                return stream_entry
 
         stream_entry.filtered = True
-        stream_entry.errors.append("Missing DOI or Handle identifier for record.")
+        message = "Missing DOI or Handle identifier for record."
+        if invalid:
+            message += f" Invalid identifiers: {', '.join(invalid)}."
+        stream_entry.errors.append(message)
         return stream_entry
