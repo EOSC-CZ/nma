@@ -1,0 +1,12 @@
+/*--------------
+     Toggle
+---------------*/
+
+/* invenio_theme hardcodes the on-off toggle text in CSS, so gettext can't reach it */
+html[lang="cs"] .ui.toggle.checkbox.on-off label::before {
+  content: "VYP";
+}
+
+html[lang="cs"] .ui.toggle.checkbox.on-off input:checked ~ label::before {
+  content: "ZAP";
+}

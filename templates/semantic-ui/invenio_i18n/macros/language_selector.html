@@ -15,7 +15,7 @@
   <div>
     <select id="lang-code" name="lang_code" class="ui selection compact dropdown">
       {% for l in current_i18n.get_locales() %}
-        <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name() }}</option>
+        <option {% if current_i18n.language == l.language %}selected {% endif %}value="{{ l.language }}">{{ l.get_display_name()|capitalize }}</option>
       {% endfor %}
     </select>
   </div>
