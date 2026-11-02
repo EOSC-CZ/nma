@@ -243,7 +243,28 @@ def rights(path, values):
 
 @rules.rule("descriptions")
 def descriptions(path, values):
-    return base_schema43.descriptions(path, values)
+    if not values:
+        return
+
+    allowed_types = {
+        "Abstract",
+        "Methods",
+        "SeriesInformation",
+        "TableOfContents",
+        "Other",
+    }
+    normalized = []
+    for value in values:
+        if not value.get("description"):
+            continue
+
+        item = dict(value)
+        if item.get("descriptionType") not in allowed_types:
+            item["descriptionType"] = "Other"
+
+        normalized.append(item)
+
+    return base_schema43.descriptions(path, normalized)
 
 
 @rules.rule("geoLocations")
