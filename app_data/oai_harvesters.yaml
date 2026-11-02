@@ -1,14 +1,3 @@
-- id: datarepo-test
-  name: "Catch-all Multi-discipline data repository, tests only, never use in production"
-  base-url: "https://test1.datarepo.du.cesnet.cz/oai2d"
-  metadata-prefix: "ccmm"
-  model: datasets
-  community: datarepo
-  loader: oai-pmh
-  transformer:
-    - 'oai-import{"model":"datasets"}'
-    - "id-from-pid"
-
 - id: datarepo
   name: "Catch-all Multi-discipline data repository"
   base-url: "https://datarepo.eosc.cz/oai2d"
