@@ -198,3 +198,20 @@
   transformer:
     - 'oai-import{"model":"datasets"}'
     - "id-from-pid"
+
+# DataCite REST API - datasets with a creator / contributor affiliated (ROR) in the Czech Republic.
+# Fallback: records also harvested from their repository are written by that harvester
+# (skip-if-owned). DataCite OAI-PMH supports provider/client sets only, hence the REST loader.
+- id: datacite
+  name: "DataCite - datasets with Czech affiliations"
+  base-url: "https://api.datacite.org/dois"
+  # not used by the datacite loader, required by the harvester schema
+  metadata-prefix: "datacite"
+  model: datasets
+  community: datacite
+  loader: datacite
+  setspec: "affiliation-country=CZ"
+  transformer:
+    - "datacite"
+    - "id-from-pid"
+    - 'skip-if-owned{"model":"datasets"}'
