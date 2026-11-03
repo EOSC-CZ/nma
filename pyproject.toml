@@ -19,6 +19,7 @@ dependencies = [
     "oarepo-related-resources>=5.1.0,<6.0.0",
     "oarepo-oai-pmh-harvester>=9.2.0,<10.0.0",
     "oarepo-runtime>=7.10.1,<8.0.0",
+    "oarepo-formats>=1.0.0,<2.0.0",
 ]
 requires-python = ">=3.14,<3.15"
 

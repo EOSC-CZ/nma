@@ -17,6 +17,10 @@
     background-color: @primaryColor;
     color: @white;
   }
+  // NMA never stores files, so every record is "metadata-only" - the label carries no information
+  &.access-status.metadata-only {
+    display: none;
+  }
 }
 
 .ui.labels {

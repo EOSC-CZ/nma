@@ -124,3 +124,8 @@
     title: "Czech University of Life Sciences Prague RDM Repository"
     description: "Datasets harvested from the Czech University of Life Sciences Prague RDM Repository."
   access: *access
+- slug: datacite
+  metadata:
+    title: "DataCite"
+    description: "Datasets with Czech affiliations harvested from DataCite, not available from any other harvested repository."
+  access: *access
