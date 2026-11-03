@@ -210,7 +210,8 @@
   model: datasets
   community: datacite
   loader: datacite
-  setspec: "affiliation-country=CZ"
+  # without concept DOIs (HasVersion but not IsVersionOf) - their versions are harvested instead
+  setspec: "affiliation-country=CZ&query=NOT (relatedIdentifiers.relationType:HasVersion AND NOT relatedIdentifiers.relationType:IsVersionOf)"
   transformer:
     - "datacite"
     - "id-from-pid"
