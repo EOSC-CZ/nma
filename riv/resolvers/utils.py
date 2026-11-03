@@ -25,8 +25,7 @@ def validate_date(value: str) -> bool:
 
 
 def normalize_identifier_into_resolution_url(identifier: str) -> str:
-    """
-    Normalizes raw DOIs (`10.xxxx/...`) and prefixed identifiers (`doi:10.xxxx/...` or `DOI:10.xxxx/...`) into resolvable URLs (`https://doi.org/10.xxxx/...`).
+    """Normalizes raw DOIs (`10.xxxx/...`) and prefixed identifiers (`doi:10.xxxx/...` or `DOI:10.xxxx/...`) into resolvable URLs (`https://doi.org/10.xxxx/...`).
     If the input is already a resolvable URL or doesn't match known patterns, it returs the original string.
     """
     if not identifier:
