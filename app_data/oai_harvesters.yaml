@@ -198,3 +198,15 @@
   transformer:
     - 'oai-import{"model":"datasets"}'
     - "id-from-pid"
+
+# https://zenodo.org/communities/imc-cas
+- id: zenodo-imc-cas
+  name: "Zenodo IMC CAS community harvester"
+  base-url: "https://zenodo.org"
+  metadata-prefix: "imc-cas"
+  model: datasets
+  community: zenodo-imc-cas
+  loader: zenodo
+  transformer:
+    - "zenodo"
+  setspec: 'communities:imc-cas AND resource_type.type:dataset'
