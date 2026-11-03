@@ -192,8 +192,8 @@ msgid "Please enter a persistent identifier"
 msgstr "Zadejte prosím persistentní identifikátor"
 
 #: /home/work/code/nma/riv/views.py:34
-msgid "Please enter a valid URL (e.g., https://doi.org/... or https://hdl.handle.net/...)"
-msgstr "Zadejte prosím platnou URL (např. https://doi.org/... nebo https://hdl.handle.net/...)"
+msgid "Please enter a valid DOI (e.g., 10.xxxx/... or doi:10.xxxx/...) or full URL (e.g., https://doi.org/... or https://hdl.handle.net/...)"
+msgstr "Zadejte prosím platné DOI (např. 10.xxxx/... nebo doi:10.xxxx/...) nebo úplné URL (např. https://doi.org/... nebo https://hdl.handle.net/...)"
 
 #: /home/work/code/nma/ui/datasets/templates/semantic-ui/datasets/DepositCreate.jinja:64
 msgid ""

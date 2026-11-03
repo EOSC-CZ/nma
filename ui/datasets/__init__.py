@@ -54,6 +54,7 @@ from riv.proxies import current_resolver_registry, current_riv_extension
 from riv.records.api import generate_id
 from riv.records.create_record import create_record
 from riv.records.utils import create_user_edit_grant, user_edit_grant_and_notification
+from riv.resolvers.utils import normalize_identifier_into_resolution_url
 from riv.views import RegisterForm
 from ui.resources.components.oai_record import OAIRecordComponent
 from ui.resources.components.placeholder_remover import PlaceholderRemoverComponent
@@ -166,18 +167,23 @@ class DatasetsUIResource(CCMMRecordsUIResource):
     ):
         """Return search page.
 
-        If the query string contains a URL (starts with https://),
-        this method will:
-        1. Check if the URL is resolvable (supported by our resolvers)
-        2. Convert it to our internal ID format
-        3. Check if a record with that ID exists
-        4. Redirect to the record detail page if it exists
-        5. Redirect to the registration page if it doesn't exist
+        This method receives a query string and these steps follow:
+        1. The query string is normalized so it forms a resolvable URL (starts with https://).
+           Normalization accepts raw DOIs (`10.xxxx/...`) and prefixed identifiers (`doi:10.xxxx/...` or `DOI:10.xxxx/...`)
+        2. Check if the URL is resolvable (supported by our resolvers)
+        3. Convert it to our internal ID format
+        4. Check if a record with that ID exists
+        5. Redirect to the record detail page if it exists
+        6. Redirect to the registration page if it doesn't exist
         """
         query = request.args.get("q", "").strip()
-        if query.startswith("https://") or query.startswith("http://"):
+        normalized_query = normalize_identifier_into_resolution_url(query)
+
+        if normalized_query.startswith("https://") or normalized_query.startswith(
+            "http://"
+        ):
             try:
-                possible_id = current_resolver_registry.generate_id(query)
+                possible_id = current_resolver_registry.generate_id(normalized_query)
                 self.api_service.read(identity=g.identity, id_=possible_id)
 
                 return redirect(
@@ -193,7 +199,9 @@ class DatasetsUIResource(CCMMRecordsUIResource):
                     ),
                     "info",
                 )
-                return redirect(url_for("datasets_ui.deposit_create", identifier=query))
+                return redirect(
+                    url_for("datasets_ui.deposit_create", identifier=normalized_query)
+                )
 
         return self._search(page, size, **kwargs)
 
