@@ -25,7 +25,7 @@
           <ClipboardCopyButton copyText={{ persistent_url }} />
         </dd>
       {% endif %}
-      {{ show_detail(_('Publication date'), record_ui["ui"]["publication_date_l10n_full"]) if record_ui["ui"].get("publication_date_l10n_full") }}
+      {{ show_detail(_('Publication date'), record_ui["ui"]["publication_date_l10n_long"]) if record_ui["ui"].get("publication_date_l10n_long") }}
       {% if oai_record %}
         <dt class="ui tiny header inline">{{ _('Harvested from') }}</dt>
         <dd>
