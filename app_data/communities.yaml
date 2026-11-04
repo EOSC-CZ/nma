@@ -124,6 +124,20 @@
     title: "Czech University of Life Sciences Prague RDM Repository"
     description: "Datasets harvested from the Czech University of Life Sciences Prague RDM Repository."
   access: *access
+
+- slug: zenodo-imc-cas
+  logo: zenodo-imc-cas.png
+  metadata:
+    title: "Zenodo Institute of Macromolecular Chemistry, CAS community"
+    description: "Datasets harvested from the Czech Academy of Sciences, Institute of Macromolecular Chemistry Czech Academy of Sciences, Institute of Macromolecular Chemistry."
+  access: *access
+
+- slug: zenodo-fnbrno
+  logo: zenodo-fnbrno.jpg
+  metadata:
+    title: "Zenodo Institute of Macromolecular Chemistry, CAS community"
+    description: "Datasets harvested from the Czech Academy of Sciences, Institute of Macromolecular Chemistry Czech Academy of Sciences, Institute of Macromolecular Chemistry."
+  access: *access
 - slug: datacite
   metadata:
     title: "DataCite"
