@@ -12,6 +12,7 @@
 from invenio_i18n import lazy_gettext as _
 
 from flask_wtf import FlaskForm
+from riv.resolvers.utils import normalize_identifier_into_resolution_url
 from wtforms import StringField, BooleanField
 from wtforms.validators import DataRequired, URL
 
@@ -27,11 +28,12 @@ class RegisterForm(FlaskForm):
 
     pid = StrippedStringField(
         label=_("Persistent Identifier"),
+        filters=[normalize_identifier_into_resolution_url],
         validators=[
             DataRequired(message=_("Please enter a persistent identifier")),
             URL(
                 message=_(
-                    "Please enter a valid URL (e.g., https://doi.org/... or https://hdl.handle.net/...)"
+                    "Please enter a valid DOI (e.g., 10.xxxx/... or doi:10.xxxx/...) or full URL (e.g., https://doi.org/... or https://hdl.handle.net/...)"
                 )
             ),
         ],
