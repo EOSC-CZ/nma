@@ -2,6 +2,7 @@
 A generic dataset model
 """
 from __future__ import annotations
+from oarepo_formats.xslt import AddXSLTImport
 
 from invenio_i18n import lazy_gettext as _
 from oarepo_model.api import model
@@ -220,8 +221,7 @@ datasets_model = model(
             oai_name=(
                 "http://datacite.org/schema/kernel-4e",
                 "resource",
-        ),
-
+            ),
         ),
         AddMetadataImport(
             code="datacite-xml-kernel4",
@@ -234,6 +234,15 @@ datasets_model = model(
                 "resource",
             ),
         ),
+        AddXSLTImport(
+            code="ccmm-xml-2",
+            name=_("CCMM 2.0.0 XML"),
+            description=_("CCMM 2.0.0 XML document via XSLT transformation"),
+            mimetype="application/vnd.ccmm-2+xml",
+            stylesheet="https://raw.githubusercontent.com/techlib/CCMM-utils/refs/heads/nma-2.0.0/version-transformation/ccmm-2.0.0-to-1.1.0.xslt",
+            base_import="ccmm-xml",  # gets the transformed body
+            oai_name=("https://schema.ccmm.cz/research-data/2.0", "dataset"),
+        ),
 
         AddServiceComponent(ExternalPIDComponent),
         ReplaceBaseClass(
@@ -241,8 +250,7 @@ datasets_model = model(
             DraftRecordIdProviderV2,
             ExternalPIDProvider,
         ),
-ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
-        #
+        ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
         AddServiceComponent(UpdateMetadataComponent),
         AddServiceComponent(UpdateEditorsComponent),
         AddServiceComponent(FetchIdentifiersComponent),

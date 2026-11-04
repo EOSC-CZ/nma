@@ -138,3 +138,8 @@
     title: "Zenodo Institute of Macromolecular Chemistry, CAS community"
     description: "Datasets harvested from the Czech Academy of Sciences, Institute of Macromolecular Chemistry Czech Academy of Sciences, Institute of Macromolecular Chemistry."
   access: *access
+- slug: datacite
+  metadata:
+    title: "DataCite"
+    description: "Datasets with Czech affiliations harvested from DataCite, not available from any other harvested repository."
+  access: *access

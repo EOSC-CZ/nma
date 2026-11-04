@@ -23,12 +23,16 @@ class DataCiteJSONDeserializer(JSONDeserializer):
 
     def _deserialize_json(self, data: dict) -> dict:
         from oarepo_related_resources.resolvers import DataciteResolver
+        from oarepo_related_resources.resolvers.base import ResolverProblemLevel
 
         resolver = DataciteResolver()
         resolver.metadata = data
         metadata, problems = resolver.resolve_metadata()
-        if problems:
-            raise ValidationError(f"Errors during DataCite resolution: {problems}")
+        # info / warning problems are values the resolver omitted or defaulted - import the
+        # record without them, the source records can not be fixed
+        errors = [problem for problem in problems if problem.level == ResolverProblemLevel.ERROR]
+        if errors:
+            raise ValidationError(f"Errors during DataCite resolution: {errors}")
         return {
             "metadata": metadata,
             "files": {"enabled": False},
