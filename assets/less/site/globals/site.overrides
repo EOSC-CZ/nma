@@ -43,6 +43,10 @@ svg {
   display: block;
   max-width: 100%;
 }
+/* Keep identifier icons (ROR, ORCID, ...) inline with their text */
+.inline-id-icon {
+  display: inline-block;
+}
 /* 6. Inherit fonts for form controls */
 input,
 button,
