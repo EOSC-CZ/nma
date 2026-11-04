@@ -622,6 +622,17 @@ header.theme.header {
   }
 }
 
+/* header language selector: no label, compact dropdown (the macro comes from oarepo-ui) */
+.language-selector #language-code-form {
+  label {
+    display: none;
+  }
+
+  .ui.selection.dropdown {
+    min-width: 0;
+  }
+}
+
 #rdm-footer-element {
   & * {
     color: @footerTextLightColor !important;
