@@ -131,3 +131,10 @@
     title: "Zenodo Institute of Macromolecular Chemistry, CAS community"
     description: "Datasets harvested from the Czech Academy of Sciences, Institute of Macromolecular Chemistry Czech Academy of Sciences, Institute of Macromolecular Chemistry."
   access: *access
+
+- slug: zenodo-fnbrno
+  logo: zenodo-fnbrno.jpg
+  metadata:
+    title: "Zenodo Institute of Macromolecular Chemistry, CAS community"
+    description: "Datasets harvested from the Czech Academy of Sciences, Institute of Macromolecular Chemistry Czech Academy of Sciences, Institute of Macromolecular Chemistry."
+  access: *access

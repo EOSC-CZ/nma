@@ -210,3 +210,15 @@
   transformer:
     - "zenodo"
   setspec: 'communities:imc-cas AND resource_type.type:dataset'
+
+# https://zenodo.org/communities/fnbrno
+- id: zenodo-fnbrno
+  name: "Zenodo University Hospital Brno"
+  base-url: "https://zenodo.org"
+  metadata-prefix: "fnbrno"
+  model: datasets
+  community: zenodo-fnbrno
+  loader: zenodo
+  transformer:
+    - "zenodo"
+  setspec: 'communities:fnbrno AND resource_type.type:dataset'
