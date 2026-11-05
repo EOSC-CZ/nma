@@ -68,6 +68,10 @@ load_identifiers_from_riv_dump = "riv.tasks:LoadIdentifiersFromRIVDumpJob"
 [project.entry-points."invenio_access.actions"]
 manage_record_action = "models.datasets.permissions:manage_record_action"
 
+# `invenio rdm-records add-to-fixture communities` creates the missing communities
+[project.entry-points."oarepo.fixtures"]
+communities = "common.fixtures:CommunitiesFixture"
+
 [tool.uv]
 # Use the local ccmm-invenio checkout (see [tool.uv.sources]) regardless of
 # version constraints coming from oarepo-app[ccmm]; the local package has a
