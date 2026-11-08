@@ -13,13 +13,15 @@ dependencies = [
     "rapidfuzz",
     "traceback-with-variables",                    # for better error logging
     "prometheus-flask-exporter",                   # to expose Flask app /metrics to prometheus
-    "ccmm-invenio>=2.0.0,<3.0.0",
-    "oarepo-model>=6.0.0,<7.0.0",
-    "oarepo-rdm>=9.0.0,<10.0.0",
-    "oarepo-related-resources>=5.1.0,<6.0.0",
-    "oarepo-oai-pmh-harvester>=9.2.0,<10.0.0",
-    "oarepo-runtime>=7.10.1,<8.0.0",
-    "oarepo-formats>=1.0.0,<2.0.0",
+    "ccmm-invenio>=2.4.0,<3.0.0",
+    "oarepo-model>=6.2.3,<7.0.0",
+    "oarepo-rdm>=9.2.0,<10.0.0",
+    "oarepo-related-resources>=6.0.0,<7.0.0",
+    "oarepo-requests>=10.0.0,<11.0.0",
+    "oarepo-workflows>=8.0.1,<9.0.0",
+    "oarepo-oai-pmh-harvester>=9.6.1,<10.0.0",
+    "oarepo-runtime>=7.13.0,<8.0.0",
+    "oarepo-formats>=1.0.2,<2.0.0",
 ]
 requires-python = ">=3.14,<3.15"
 
@@ -43,6 +45,7 @@ ui_datasets = "ui.datasets:create_blueprint"
 record_detail_redirect = "ui.datasets:create_record_detail_redirect_blueprint"
 uploads_redirect = "ui.datasets:create_uploads_redirect_blueprint"
 registered = "ui.datasets:create_registered_blueprint"
+harvest_validate = "ui.harvest_validate:create_blueprint"
 
 [project.entry-points."invenio_i18n.translations"]
 translations = "i18n"
@@ -69,18 +72,18 @@ load_identifiers_from_riv_dump = "riv.tasks:LoadIdentifiersFromRIVDumpJob"
 manage_record_action = "models.datasets.permissions:manage_record_action"
 
 [tool.uv]
-# Use the local ccmm-invenio checkout (see [tool.uv.sources]) regardless of
-# version constraints coming from oarepo-app[ccmm]; the local package has a
-# higher, pre-release version that would otherwise fail resolution.
-# Force oarepo-model>=6 (incompatible with the version oarepo-app pins) and
-# oarepo-rdm from git main regardless of constraints from the oarepo 14 chain.
+# Force these versions regardless of older constraints declared by other
+# packages (e.g. oarepo-communities still declares oarepo-requests<10 and
+# oarepo-workflows<8).
 override-dependencies = [
-    "ccmm-invenio>=2.0.0,<3.0.0",
-    "oarepo-model>=6.0.0,<7.0.0",
-    "oarepo-rdm>=9.0.0,<10.0.0",
-    "oarepo-related-resources>=5.1.0,<6.0.0",
-    "oarepo-oai-pmh-harvester>=9.2.0,<10.0.0",
-    "oarepo-runtime>=7.10.1,<8.0.0",
+    "ccmm-invenio>=2.4.0,<3.0.0",
+    "oarepo-model>=6.2.3,<7.0.0",
+    "oarepo-rdm>=9.2.0,<10.0.0",
+    "oarepo-related-resources>=6.0.0,<7.0.0",
+    "oarepo-requests>=10.0.0,<11.0.0",
+    "oarepo-workflows>=8.0.1,<9.0.0",
+    "oarepo-oai-pmh-harvester>=9.6.1,<10.0.0",
+    "oarepo-runtime>=7.13.0,<8.0.0",
 ]
 
 # CESNET GitLab package index - hosts CI-built artifacts pinned by oarepo

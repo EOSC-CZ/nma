@@ -1,0 +1,77 @@
+{%- extends config.BASE_TEMPLATE %}
+{%- set title = _("Validate harvested record") %}
+
+{%- block page_body %}
+<div class="ui main container rel-mt-3 rel-mb-3">
+  <h1 class="ui header">{{ title }}</h1>
+  <form method="post" class="ui form">
+    {{ form.hidden_tag() }}
+    {% macro render_field(field, help=None) %}
+      <div class="field {{ 'error' if field.errors }}">
+        {{ field.label }}
+        {{ field() }}
+        {% if help %}<small>{{ help }}</small>{% endif %}
+        {% for message in field.errors %}<div class="ui pointing red basic label">{{ message }}</div>{% endfor %}
+      </div>
+    {% endmacro %}
+    <div class="ui info icon message">
+      <i class="info circle icon" aria-hidden="true"></i>
+      <div class="content">
+        <div class="header">{{ _("Provide one record") }}</div>
+        <p>{{ _("Paste a whole OAI-PMH record or just the content of its metadata element, or enter an OAI URL, metadata format and OAI identifier to fetch it from the source. If you do both, the pasted record is used.") }}</p>
+      </div>
+    </div>
+    <div class="ui stackable two column grid">
+      <div class="column">
+        {{ render_field(form.oai_xml) }}
+      </div>
+      <div class="column">
+        {{ render_field(form.base_url) }}
+        {{ render_field(form.metadata_prefix) }}
+        {{ render_field(form.identifier) }}
+      </div>
+    </div>
+    {{ render_field(form.transformer, help=_("Normally leave this on oai-import. Change it only for a source that needs a special conversion.")) }}
+    <button class="ui primary button rel-mt-1" type="submit">{{ _("Validate") }}</button>
+    <button class="ui button rel-mt-1" type="submit" form="validation-reset" name="reset" value="1">{{ _("Reset") }}</button>
+  </form>
+  {# separate form, so that a paste over the size limit can't block the reset #}
+  <form id="validation-reset" method="post">
+    <input type="hidden" name="csrf_token" value="{{ form.csrf_token.current_token }}">
+  </form>
+  {% for message in form.csrf_token.errors %}<div class="ui negative message">{{ message }}</div>{% endfor %}
+
+  {% if result %}
+    <h2 class="ui header">{{ _("Result") }}: <span id="validation-status">{{ result.status }}</span></h2>
+
+    {% if result.warnings %}
+      <div class="ui warning message">
+        <ul class="list">{% for message in result.warnings %}<li>{{ message }}</li>{% endfor %}</ul>
+      </div>
+    {% endif %}
+
+    {% if result.errors %}
+      <table class="ui celled table">
+        <thead><tr><th>{{ _("Step") }}</th><th>{{ _("Problem") }}</th></tr></thead>
+        <tbody>
+          {% for step, message in result.errors %}<tr><td>{{ step }}</td><td>{{ message }}</td></tr>{% endfor %}
+        </tbody>
+      </table>
+      <p>
+        <i class="book icon" aria-hidden="true"></i>
+        {{ _("Vocabulary value not found?") }}
+        <a href="/vocabularies/" target="_blank" rel="noopener">{{ _("Browse the vocabularies") }}</a>
+      </p>
+    {% endif %}
+
+    {% if result.original %}
+      <h3 class="ui header">{{ _("Original") }}</h3>
+      <pre class="ui segment" id="validation-original" style="white-space: pre-wrap; overflow-wrap: anywhere">{{ result.original }}</pre>
+    {% endif %}
+    {% if result.transformed %}
+      <h3 class="ui header">{{ _("Transformed") }}</h3>
+      <pre class="ui segment" id="validation-transformed" style="white-space: pre-wrap; overflow-wrap: anywhere">{{ result.transformed }}</pre>
+    {% endif %}
+  {% endif %}
+</div>
+{%- endblock page_body %}
