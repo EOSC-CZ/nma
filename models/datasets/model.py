@@ -49,7 +49,6 @@ from .deserializers import DataCiteJSONDeserializer, DataCiteXMLDeserializer
 from .permissions import DatasetsPermissionPolicyMixin
 from .services.components import (
     ExternalPIDComponent,
-    FetchIdentifiersComponent,
     UpdateEditorsComponent,
     UpdateMetadataComponent,
 )
@@ -253,7 +252,6 @@ datasets_model = model(
         ReplaceBaseClass("PIDField", PIDField, ExternalPIDField),
         AddServiceComponent(UpdateMetadataComponent),
         AddServiceComponent(UpdateEditorsComponent),
-        AddServiceComponent(FetchIdentifiersComponent),
         AddLink("self_persistent_html", RecordEndpointLink("pidresolver.redirect")),
         AddLink(
             "edit_html",

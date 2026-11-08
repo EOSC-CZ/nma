@@ -54,16 +54,6 @@ class RIVResolverExtension:
         )
 
     @cached_property
-    def orcid_importer(self):
-        """Return ORCID importer reading ORCID public dumps from AWS S3."""
-        from models.datasets.services.idutils import ORCIDImporter
-
-        return ORCIDImporter(
-            self.app.config["ORCID_AWS_ACCESS_KEY_ID"],
-            self.app.config["ORCID_AWS_SECRET_ACCESS_KEY"],
-        )
-
-    @cached_property
     def persistent_identifiers_resolvers(self) -> List[MetadataResolver]:
         """Return resolvers for persistent identifiers."""
         return [

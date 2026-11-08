@@ -24,4 +24,3 @@ if TYPE_CHECKING:
 
 current_riv_extension = LocalProxy(lambda: current_app.extensions["riv-extension"])  # type: ignore[assignment]
 current_resolver_registry = LocalProxy(lambda: current_riv_extension.resolver_registry)  # type: ignore[assignment]
-current_orcid_importer = LocalProxy(lambda: current_riv_extension.orcid_importer)  # type: ignore[assignment]

@@ -5,7 +5,7 @@ from flask import current_app
 from flask_login import current_user
 from invenio_access.permissions import system_identity
 from invenio_accounts.models import User
-from invenio_notifications.proxies import current_notifications_manager
+from invenio_notifications.tasks import broadcast_notification
 from invenio_rdm_records.proxies import current_rdm_records_service
 from oarepo_related_resources.resolvers.base import ResolverProblem, ResolverProblemLevel
 
@@ -22,6 +22,7 @@ def create_user_edit_grant(user: User, record_id: str) -> None:
                 "subject": {"type": "user", "id": str(user.id)},
                 "permission": "edit",
                 "notify": False,
+                "origin": "riv-registration",  # the audit log refuses a grant without it
                 "message": f"expires in: {expiration_date}",
             }
         ]
@@ -40,7 +41,8 @@ def send_user_edit_grant_notification(user: User, record_data: dict[str, Any], p
             user=user,
             expiration_time=EDIT_GRANT_EXPIRATION_DAYS,
         )
-        current_notifications_manager.broadcast(notification)
+        # not the manager's broadcast(), it calls a validate() that is commented out in invenio-notifications
+        broadcast_notification.delay(notification.dumps())
     except Exception as ex:
         current_app.logger.exception(
             "Error sending notification email for record %s.", record_data["id"]

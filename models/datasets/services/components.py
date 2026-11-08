@@ -1,14 +1,11 @@
 import datetime
 from typing import Any
 
-from flask import current_app
 from flask_login import current_user
 from flask_principal import Identity
 from invenio_accounts.models import User
 from invenio_drafts_resources.records import Record
 from invenio_records_resources.services.records.components import ServiceComponent
-
-from .idutils import resolve_identifiers
 
 
 class ExternalPIDComponent(ServiceComponent):
@@ -129,46 +126,3 @@ class UpdateEditorsComponent(ServiceComponent):
     def new_version(self, identity, draft=None, record=None, **kwargs):
         """Update draft metadata."""
         register_editor(record)
-
-
-class FetchIdentifiersComponent(ServiceComponent):
-    """Service component for fetching external identifiers."""
-
-    affects = "*"
-
-    def fetch_identifiers(self, data: dict[str, Any]) -> None:
-        """Fetch and populate identifiers from external sources."""
-        try:
-            resolve_identifiers(data, uow=self.uow)
-        except Exception as e:
-            current_app.logger.exception(
-                "Error resolving identifiers in record",
-                exc_info=e,
-            )
-
-    def create(
-        self,
-        identity: Identity,
-        data: dict[str, Any] = None,
-        record: Record = None,
-        **kwargs: Any,
-    ) -> None:
-        self.fetch_identifiers(data)
-
-    def update(
-        self,
-        identity: Identity,
-        data: dict[str, Any] = None,
-        record: Record = None,
-        **kwargs: Any,
-    ) -> None:
-        self.fetch_identifiers(data)
-
-    def update_draft(
-        self,
-        identity: Identity,
-        data: dict[str, Any] = None,
-        record: Record = None,
-        **kwargs: Any,
-    ) -> None:
-        self.fetch_identifiers(data)
