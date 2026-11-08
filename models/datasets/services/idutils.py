@@ -95,7 +95,8 @@ def dict_lookup_with_arrays(
     yield from __lookup(data, path.split("."), [], None)
 
 
-def resolve_identifiers(data: dict, uow: UnitOfWork | None = None) -> None:
+def resolve_identifiers(data: dict, uow: UnitOfWork | None = None, session: Any = None) -> None:
+    """Resolve ORCID and ROR identifiers, creating vocabulary records as needed."""
     identifier_locations = {
         "metadata.creators.person_or_org.identifiers": "names",
         "metadata.creators.affiliations": "affiliations",
@@ -109,7 +110,7 @@ def resolve_identifiers(data: dict, uow: UnitOfWork | None = None) -> None:
             loc = list(dict_lookup_with_arrays(data, location))
             for identifier, parent, path in loc:
                 try:
-                    resolve_identifier(identifier, parent, path, vocabulary, uow=uow)
+                    resolve_identifier(identifier, parent, path, vocabulary, uow=uow, session=session)
                 except Exception as e:
                     current_app.logger.exception(
                         f"Error resolving identifier {identifier} at {path}",
@@ -124,6 +125,7 @@ def resolve_identifier(
     vocabulary: str,
     vocabulary_key: str = "id",
     uow: UnitOfWork | None = None,
+    session: Any = None,
 ):
     """Resolve a single identifier dictionary."""
 
@@ -142,6 +144,7 @@ def resolve_identifier(
         check_existing=True,
         path=path,
         uow=uow,
+        session=session,
     )
     identifier[id_key] = resolved[vocabulary_key]
 
