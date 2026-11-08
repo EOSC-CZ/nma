@@ -1,0 +1,54 @@
+{%- extends config.BASE_TEMPLATE %}
+{%- set title = _("OAI-PMH source") %}
+
+{%- macro section_error(verb) %}
+  {% if info.errors and info.errors[verb] %}<div class="ui warning message">{{ verb }}: {{ info.errors[verb] }}</div>{% endif %}
+{%- endmacro %}
+
+{%- block page_body %}
+<div class="ui main container rel-mt-3 rel-mb-3">
+  <h1 class="ui header">{{ title }}</h1>
+  <p id="identify-url">{{ info.base_url }}</p>
+
+  {% if info.error %}
+    <div class="ui negative message">{{ info.error }}</div>
+  {% else %}
+    <h2 class="ui header">{{ _("Identify") }}</h2>
+    {{ section_error("Identify") }}
+    {% if info.identify %}
+      <table class="ui celled compact table">
+        <tbody>
+          {% for name, value in info.identify %}<tr><th>{{ name }}</th><td>{{ value }}</td></tr>{% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+
+    <h2 class="ui header">{{ _("Metadata formats") }}</h2>
+    {{ section_error("ListMetadataFormats") }}
+    {% if info.formats %}
+      <table class="ui celled compact table">
+        <thead><tr><th>{{ _("Prefix") }}</th><th>{{ _("Schema") }}</th><th>{{ _("Namespace") }}</th></tr></thead>
+        <tbody>
+          {% for format in info.formats %}
+            <tr><td>{{ format.metadataPrefix }}</td><td>{{ format.schema }}</td><td>{{ format.metadataNamespace }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+
+    <h2 class="ui header">{{ _("Sets") }}</h2>
+    {{ section_error("ListSets") }}
+    {% if info.sets_total %}
+      <div class="ui info message">{{ _("Showing the first %(shown)s of %(total)s sets.", shown=info.sets|length, total=info.sets_total) }}</div>
+    {% endif %}
+    {% if info.sets %}
+      <table class="ui celled compact table">
+        <thead><tr><th>{{ _("Set") }}</th><th>{{ _("Name") }}</th></tr></thead>
+        <tbody>
+          {% for set in info.sets %}<tr><td>{{ set.setSpec }}</td><td>{{ set.setName }}</td></tr>{% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  {% endif %}
+</div>
+{%- endblock page_body %}

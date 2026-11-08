@@ -137,11 +137,10 @@ def read_xml(xml: bytes, encoding: str | None = None, allow_metadata: bool = Fal
     return {"record": record}, warnings
 
 
-def read_fetch(base_url: str, metadata_prefix: str, identifier: str) -> Raw:
-    """Download one record; the oai-pmh reader has a fixed 60 s timeout and no size limit."""
+def download(base_url: str, params: dict[str, str]) -> bytes:
+    """Call an OAI-PMH source; the oai-pmh reader has a fixed 60 s timeout and no size limit."""
     check_public_url(base_url)
     deadline = time.monotonic() + FETCH_SECONDS
-    params = {"verb": "GetRecord", "metadataPrefix": metadata_prefix, "identifier": identifier}
     body = bytearray()
     with httpx.stream("GET", base_url, params=params, timeout=5) as response:
         response.raise_for_status()  # also rejects redirects, httpx doesn't follow them
@@ -151,7 +150,65 @@ def read_fetch(base_url: str, metadata_prefix: str, identifier: str) -> Raw:
                 raise ValueError(f"Response is larger than {MAX_XML_BYTES} bytes")
             if time.monotonic() > deadline:
                 raise ValueError(f"Response took longer than {FETCH_SECONDS} s")
-    return read_xml(bytes(body))
+    return bytes(body)
+
+
+def read_fetch(base_url: str, metadata_prefix: str, identifier: str) -> Raw:
+    """Download one record."""
+    params = {"verb": "GetRecord", "metadataPrefix": metadata_prefix, "identifier": identifier}
+    return read_xml(download(base_url, params))
+
+
+def oai_verb(base_url: str, verb: str) -> etree._Element:
+    """Return the element with the answer of an OAI-PMH verb; an OAI error becomes a ValueError."""
+    parser = etree.XMLParser(remove_blank_text=True, recover=True, resolve_entities=False)
+    root = etree.XML(download(base_url, {"verb": verb}), parser=parser)
+    if root is None:
+        raise ValueError("The response is not XML")
+    if (error := root.find(f"{OAI}error")) is not None:
+        raise ValueError(f"{error.get('code')}: {error.text}")
+    if (answer := root.find(f"{OAI}{verb}")) is None:
+        raise ValueError(f"The response has no {verb} element")
+    return answer
+
+
+def child_texts(element: etree._Element) -> dict[str, str]:
+    """Return the text of the direct child elements by their name without namespace."""
+    return {etree.QName(child).localname: (child.text or "").strip() for child in element.iterchildren(etree.Element)}
+
+
+def identify(base_url: str) -> dict[str, Any]:
+    """Describe a source: Identify, ListMetadataFormats and the first page of ListSets; each may fail on its own."""
+    result: dict[str, Any] = {"base_url": base_url, "identify": [], "formats": [], "sets": [], "errors": {}}
+    try:
+        check_public_url(base_url)
+    except ValueError as e:
+        result["error"] = str(e)
+        return result
+
+    try:
+        # a list and not child_texts: adminEmail may repeat; <description> holds nested XML, not text
+        result["identify"] = [
+            (etree.QName(child).localname, (child.text or "").strip())
+            for child in oai_verb(base_url, "Identify").iterchildren(etree.Element)
+            if (child.text or "").strip()
+        ]
+    except Exception as e:  # noqa: BLE001  shown next to the section, the other verbs may still work
+        result["errors"]["Identify"] = str(e)
+    try:
+        answer = oai_verb(base_url, "ListMetadataFormats")
+        result["formats"] = [child_texts(item) for item in answer.findall(f"{OAI}metadataFormat")]
+    except Exception as e:  # noqa: BLE001
+        result["errors"]["ListMetadataFormats"] = str(e)
+    try:
+        answer = oai_verb(base_url, "ListSets")
+        result["sets"] = [child_texts(item) for item in answer.findall(f"{OAI}set")]
+        token = answer.find(f"{OAI}resumptionToken")
+        if token is not None and (token.text or "").strip():
+            result["sets_total"] = token.get("completeListSize") or "?"
+    except Exception as e:  # noqa: BLE001
+        result["errors"]["ListSets"] = str(e)
+    return result
 
 
 def relation_values(node: Any, keys: list[str], location: str = "") -> Iterator[tuple[str, Any]]:
@@ -197,9 +254,10 @@ def source_texts(record_xml: etree._Element) -> list[tuple[str, str]]:
     if metadata is None:
         return []
     tree = metadata.getroottree()
+    prefix = tree.getelementpath(metadata) + "/"  # a full OAI-PMH response has GetRecord/record/ before it
     texts = []
     for element in metadata.iter(etree.Element):
-        path = re.sub(r"\{[^}]*\}|\[\d+\]", "", tree.getelementpath(element)).removeprefix("metadata/")
+        path = re.sub(r"\{[^}]*\}|\[\d+\]", "", tree.getelementpath(element).removeprefix(prefix))
         tail = None if element is metadata else element.tail
         own_text = None if etree.QName(element).localname in VOCABULARY_ELEMENTS else element.text
         texts.extend((path, " ".join(text.split())) for text in (own_text, tail) if text and text.strip())
@@ -221,13 +279,14 @@ def transformed_strings(node: Any) -> Iterator[str]:
         yield str(node)
 
 
-def not_converted(texts: list[tuple[str, str]], data: dict) -> list[dict[str, Any]]:
+def not_converted(texts: list[tuple[str, str]], data: Any) -> list[dict[str, Any]]:
     """Group the source texts missing from the transformed data by their path; one example of each."""
-    # ponytail: substring match, so a short value like "1" counts as found almost anywhere
-    haystack = "\n".join(transformed_strings(data))
+    # ponytail: substring match, so a short value like "1" counts as found almost anywhere.
+    # Ignoring case: xmlschema uppercases xs:hexBinary values such as checksums.
+    haystack = "\n".join(transformed_strings(data)).casefold()
     groups: dict[str, dict[str, Any]] = {}
     for path, text in texts:
-        if text not in haystack:
+        if text.casefold() not in haystack:
             group = groups.setdefault(path, {"path": path, "count": 0, "example": text})
             group["count"] += 1
     return list(groups.values())
@@ -322,7 +381,11 @@ def validate(  # noqa: C901, PLR0911, PLR0912, PLR0915
 
     if not errors:
         result["status"] = "valid"
-        result["not_converted"] = not_converted(texts, data)
+        # with all titles of the resolved vocabulary terms, which the record takes from the vocabulary;
+        # subjects otherwise copy only the single-language `subject`
+        for name, field in draft.relations._fields.items():  # noqa: SLF001
+            getattr(draft.relations, name).dereference(keys=[*field.keys, "title"])
+        result["not_converted"] = not_converted(texts, [data, dict(draft)])
         if count := sum(group["count"] for group in result["not_converted"]):
             warnings.append(
                 f"{count} text values of the original were not found in the transformed data. "
@@ -359,6 +422,12 @@ class ValidateForm(FlaskForm):
     identifier = StringField(_("Identifier"), filters=[clean])
 
 
+class IdentifyForm(FlaskForm):
+    """The part of the validation form needed by the Identify button."""
+
+    base_url = StringField(filters=[clean])
+
+
 def create_blueprint(app: Flask) -> Blueprint:  # noqa: ARG001  the entry point passes the app
     """Blueprint with the validation page."""
     bp = Blueprint("harvest_validate", __name__)
@@ -377,5 +446,17 @@ def create_blueprint(app: Flask) -> Blueprint:  # noqa: ARG001  the entry point 
             session[SESSION_KEY] = data
             result = validate(**data)
         return render_template("harvest_validate.html", form=form, result=result)
+
+    @bp.route("/harvest/validate/identify", methods=["POST"])  # POST with CSRF: it makes the server call the URL
+    @login_required
+    def harvest_identify() -> str:
+        form = IdentifyForm()
+        if not form.validate_on_submit():
+            info = {"base_url": "", "error": "; ".join(form.csrf_token.errors) or "Invalid request"}
+        elif not form.base_url.data:
+            info = {"base_url": "", "error": "Enter an OAI URL first"}
+        else:
+            info = identify(form.base_url.data)
+        return render_template("harvest_identify.html", info=info)
 
     return bp
