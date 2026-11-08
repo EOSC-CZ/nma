@@ -39,7 +39,7 @@ from pygments.lexers import JsonLexer, XmlLexer
 from wtforms import SelectField, StringField, TextAreaField
 from wtforms.validators import ValidationError as WTFormsValidationError
 
-from models.datasets.services.idutils import resolve_identifiers
+from ccmm_invenio.services.components.fetch_identifiers import resolve_identifiers
 
 if TYPE_CHECKING:
     from collections.abc import Iterator

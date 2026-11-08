@@ -23,6 +23,7 @@ grant_data = {
             "subject": {"type": "role", "id": RIV_CURATORS_GROUP_ID},
             "permission": "manage",
             "notify": True,  # TODO: Could be False?
+            "origin": "riv-registration",  # the audit log refuses a grant without it
         }
     ]
 }

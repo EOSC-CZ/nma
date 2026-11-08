@@ -11,10 +11,7 @@ from idutils import normalize_doi
 from invenio_jobs.jobs import JobType, PredefinedArgsSchema
 from marshmallow import fields
 
-from models.datasets.services.idutils import (
-    resolve_orcid,
-    resolve_ror,
-)
+from oarepo_related_resources.services import resolve_orcid, resolve_ror
 
 from ..utils import create_session_with_retries
 

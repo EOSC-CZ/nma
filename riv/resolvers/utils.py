@@ -14,7 +14,7 @@ CREATORS_PLACEHOLDER = [
 ]
 PUBLICATION_DATE_PLACEHOLDER = "2025-01-01"
 TITLE_PLACEHOLDER = "Unknown title"
-RESOURCE_TYPE_PLACEHOLDER = "c_1843" #=other
+RESOURCE_TYPE_PLACEHOLDER = "dataset"
 
 def validate_date(value: str) -> bool:
     return bool(DATE_REGEX.fullmatch(value))
