@@ -62,11 +62,11 @@ Raw = tuple[dict[str, Record], list[str]]
 
 
 class TimedSession(requests.Session):
-    """Session with a default timeout, so an unresponsive ROR cannot hold a worker."""
+    """Session with a short timeout, so an unresponsive ROR cannot hold a web worker."""
 
     def request(self, *args: Any, **kwargs: Any) -> requests.Response:
-        """Pass a timeout unless the caller set one."""
-        kwargs.setdefault("timeout", FETCH_SECONDS)
+        """Use the page's timeout, not the longer ROR_TIMEOUT that harvests use."""
+        kwargs["timeout"] = FETCH_SECONDS
         return super().request(*args, **kwargs)
 
 

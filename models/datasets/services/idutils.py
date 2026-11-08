@@ -103,6 +103,7 @@ def resolve_identifiers(data: dict, uow: UnitOfWork | None = None, session: Any 
         "metadata.contributors.person_or_org.identifiers": "names",
         "metadata.contributors.affiliations": "affiliations",
         "metadata.funding.funder": "funders",
+        "metadata.related_resources.funding.funder": "funders",
         "metadata.funding.award.identifiers": "funders",
     }
     for location, vocabulary in identifier_locations.items():
@@ -425,7 +426,7 @@ def resolve_ror(
     session = session or create_session_with_retries()
     headers = {"Accept": "application/json", "Client-ID": client_id}
     url = f"https://api.ror.org/v2/organizations/{quote(ror)}"
-    resp = session.get(url, headers=headers)
+    resp = session.get(url, headers=headers, timeout=current_app.config.get("ROR_TIMEOUT", 30))
     if resp.status_code != 200:
         raise ValidationError(f"ROR ID {ror} could not be resolved.", field_name=path)
     data = StreamEntry(entry=resp.json())
