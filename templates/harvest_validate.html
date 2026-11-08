@@ -6,6 +6,8 @@
   <h1 class="ui header">{{ title }}</h1>
   <form method="post" class="ui form">
     {{ form.hidden_tag() }}
+    {# the first submit button of a form is what Enter presses; without this one it would be Identify #}
+    <button type="submit" tabindex="-1" aria-hidden="true" style="position: absolute; left: -9999px"></button>
     {% macro render_field(field, help=None) %}
       <div class="field {{ 'error' if field.errors }}">
         {{ field.label }}
@@ -26,7 +28,14 @@
         {{ render_field(form.oai_xml) }}
       </div>
       <div class="column">
-        {{ render_field(form.base_url) }}
+        <div class="field {{ 'error' if form.base_url.errors }}">
+          {{ form.base_url.label }}
+          <div class="ui action input">
+            {{ form.base_url() }}
+            <button class="ui button" type="submit" formaction="{{ url_for('harvest_validate.harvest_identify') }}" formtarget="_blank">{{ _("Identify") }}</button>
+          </div>
+          {% for message in form.base_url.errors %}<div class="ui pointing red basic label">{{ message }}</div>{% endfor %}
+        </div>
         {{ render_field(form.metadata_prefix) }}
         {{ render_field(form.identifier) }}
       </div>

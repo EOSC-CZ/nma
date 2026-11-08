@@ -81,6 +81,7 @@ class StubField:
 
     _value_key_suffix = "id"
     _cache_key = "affiliations"
+    keys = ()
 
     def __init__(self, bad_ids=()):
         self.bad_ids = set(bad_ids)
@@ -91,6 +92,9 @@ class StubField:
     def validate(self):
         if self.bad_ids:
             raise RelationError(f"Invalid value {next(iter(self.bad_ids))}.")
+
+    def dereference(self, keys=None):
+        """Nothing to dereference in the stubs."""
 
 
 class StubRelations:
@@ -491,4 +495,65 @@ def test_invalid_record_skips_the_comparison(monkeypatch):
 def test_source_texts_skip_vocabulary_iris_and_labels():
     metadata = '<a xmlns="urn:x"><role><iri>https://x.org/1</iri><label>Author</label></role><name>Jane</name></a>'
     assert texts_of(metadata) == [("a/name", "Jane")]
+
+
+def test_source_texts_paths_start_after_metadata_in_a_full_response():
+    response = f'<OAI-PMH xmlns="{OAI}"><GetRecord>{RECORD}</GetRecord></OAI-PMH>'.replace("<a xmlns", "<a>x</a><c xmlns")
+    entry, _ = read_xml(response.encode())
+    assert source_texts(entry["record"].xml) == [("a", "x")]
+
+
+def test_not_converted_ignores_case():
+    assert not_converted([("checksum", "d652c7")], {"checksum": "D652C7"}) == []
+
+
+def test_not_converted_searches_all_given_data():
+    assert not_converted([("subject/title", "Fyzika")], [{"id": "ford:1"}, {"title": {"cs": "Fyzika"}}]) == []
+
+
+def oai_response(body):
+    return f'<OAI-PMH xmlns="{OAI}">{body}</OAI-PMH>'.encode()
+
+
+def test_identify_describes_the_source(monkeypatch):
+    answers = {
+        "Identify": oai_response(
+            "<Identify><repositoryName>Repo</repositoryName><adminEmail>a@x.org</adminEmail>"
+            "<adminEmail>b@x.org</adminEmail><description><x xmlns='urn:x'>nested</x></description></Identify>"
+        ),
+        "ListMetadataFormats": oai_response(
+            "<ListMetadataFormats><metadataFormat><metadataPrefix>ccmm</metadataPrefix>"
+            "<schema>https://x.org/s.xsd</schema><metadataNamespace>urn:n</metadataNamespace>"
+            "</metadataFormat></ListMetadataFormats>"
+        ),
+        "ListSets": oai_response(
+            '<ListSets><set><setSpec>a</setSpec><setName>A</setName></set>'
+            '<resumptionToken completeListSize="7">next</resumptionToken></ListSets>'
+        ),
+    }
+    monkeypatch.setattr(harvest_validate, "download", lambda _url, params: answers[params["verb"]])
+    info = harvest_validate.identify("https://1.1.1.1/oai")
+    assert info["identify"] == [("repositoryName", "Repo"), ("adminEmail", "a@x.org"), ("adminEmail", "b@x.org")]
+    assert info["formats"] == [
+        {"metadataPrefix": "ccmm", "schema": "https://x.org/s.xsd", "metadataNamespace": "urn:n"}
+    ]
+    assert info["sets"] == [{"setSpec": "a", "setName": "A"}]
+    assert info["sets_total"] == "7"
+    assert info["errors"] == {}
+
+
+def test_identify_reports_each_verb_on_its_own(monkeypatch):
+    def download(_url, params):
+        if params["verb"] == "ListSets":
+            return oai_response('<error code="noSetHierarchy">No sets</error>')
+        return oai_response(f"<{params['verb']}/>")
+
+    monkeypatch.setattr(harvest_validate, "download", download)
+    info = harvest_validate.identify("https://1.1.1.1/oai")
+    assert info["errors"] == {"ListSets": "noSetHierarchy: No sets"}
+
+
+def test_identify_refuses_internal_urls_without_any_request(monkeypatch):
+    monkeypatch.setattr(harvest_validate, "download", lambda *_args: pytest.fail("must not be called"))
+    assert "public address" in harvest_validate.identify("http://127.0.0.1/")["error"]
 
