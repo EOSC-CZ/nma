@@ -8,13 +8,16 @@
 from types import SimpleNamespace
 
 import pytest
+import requests
 from flask import Flask
+from marshmallow import ValidationError as MarshmallowValidationError
 from markupsafe import Markup, escape
 from pygments.lexers import JsonLexer, XmlLexer
 from invenio_records.systemfields.relations import RelationError
 from lxml import etree
 from wtforms.validators import ValidationError as WTFormsValidationError
 
+from models.datasets.services import idutils
 from ui import harvest_validate
 from ui.harvest_validate import (
     MAX_XML_BYTES,
@@ -557,3 +560,44 @@ def test_identify_refuses_internal_urls_without_any_request(monkeypatch):
     monkeypatch.setattr(harvest_validate, "download", lambda *_args: pytest.fail("must not be called"))
     assert "public address" in harvest_validate.identify("http://127.0.0.1/")["error"]
 
+
+@pytest.mark.parametrize(("config", "expected"), [({}, 30), ({"ROR_TIMEOUT": 7}, 7)])
+def test_ror_timeout_is_configurable(monkeypatch, config, expected):
+    monkeypatch.setattr(idutils, "current_service_registry", SimpleNamespace(get=lambda _name: None))
+    calls = []
+
+    class Session:
+        def get(self, _url, **kwargs):
+            calls.append(kwargs)
+            return SimpleNamespace(status_code=404)
+
+    app = Flask("test")
+    app.config.update(ROR_CLIENT_ID="test", **config)
+    with app.app_context(), pytest.raises(MarshmallowValidationError):
+        idutils.resolve_ror("037n8p820", "funders", check_existing=False, session=Session())
+
+    assert calls[0]["timeout"] == expected
+
+
+def test_page_timeout_wins_over_the_ror_timeout(monkeypatch):
+    calls = []
+    monkeypatch.setattr(requests.Session, "request", lambda _self, *_args, **kwargs: calls.append(kwargs))
+
+    harvest_validate.TimedSession().get("https://api.ror.org/", timeout=30)
+
+    assert calls[0]["timeout"] == harvest_validate.FETCH_SECONDS
+
+
+def test_funders_of_related_resources_are_resolved(monkeypatch):
+    """A related resource loaded by DOI may have a funder that is not in the vocabulary yet."""
+    resolved = []
+    monkeypatch.setitem(
+        idutils.identifier_resolvers,
+        ("funders", None),
+        lambda ror, **_kwargs: resolved.append(ror) or {"id": ror},
+    )
+    data = {"metadata": {"related_resources": [{"funding": [{"funder": {"id": "01pv73b02", "name": "GACR"}}]}]}}
+
+    idutils.resolve_identifiers(data)
+
+    assert resolved == ["01pv73b02"]
