@@ -64,6 +64,20 @@
       </p>
     {% endif %}
 
+    {% if result.not_converted %}
+      <details class="rel-mb-1">
+        <summary>{{ _("Not found in the transformed data") }}</summary>
+        <table class="ui celled compact table">
+          <thead><tr><th>{{ _("Path") }}</th><th>{{ _("Values") }}</th><th>{{ _("Example") }}</th></tr></thead>
+          <tbody>
+            {% for group in result.not_converted %}
+              <tr><td>{{ group.path }}</td><td>{{ group.count }}</td><td>{{ group.example }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </details>
+    {% endif %}
+
     {% if result.original %}
       <h3 class="ui header">{{ _("Original") }}</h3>
       <pre class="ui segment" id="validation-original" style="white-space: pre-wrap; overflow-wrap: anywhere">{{ result.original }}</pre>
