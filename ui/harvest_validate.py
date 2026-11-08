@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import ipaddress
 import json
+import re
 import socket
 import time
 from typing import TYPE_CHECKING, Any
@@ -48,6 +49,8 @@ MODEL = "datasets"
 MAX_XML_BYTES = 1_000_000
 FETCH_SECONDS = 15
 SESSION_KEY = "harvest_validate_form"
+VOCABULARY_ELEMENTS = {"iri", "label"}  # vocabulary references become ids, so their values are expected to go
+SOURCE_COPY_KEYS = {"ccmm_xml"}  # holds the source XML itself, so everything would seem converted
 
 # Addresses that are_global() still calls public, but that a server must not contact.
 NAT64_PREFIXES = (
@@ -188,6 +191,48 @@ def exception_messages(exc: Exception) -> list[str]:
     return flatten(exc.normalized_messages()) if isinstance(exc, ValidationError) else [str(exc) or repr(exc)]
 
 
+def source_texts(record_xml: etree._Element) -> list[tuple[str, str]]:
+    """Return (path without namespaces and indexes, whitespace-normalized text) of the <metadata> text nodes."""
+    metadata = record_xml.find(f"{OAI}metadata")
+    if metadata is None:
+        return []
+    tree = metadata.getroottree()
+    texts = []
+    for element in metadata.iter(etree.Element):
+        path = re.sub(r"\{[^}]*\}|\[\d+\]", "", tree.getelementpath(element)).removeprefix("metadata/")
+        tail = None if element is metadata else element.tail
+        own_text = None if etree.QName(element).localname in VOCABULARY_ELEMENTS else element.text
+        texts.extend((path, " ".join(text.split())) for text in (own_text, tail) if text and text.strip())
+    return texts
+
+
+def transformed_strings(node: Any) -> Iterator[str]:
+    """Yield the string and number values of the transformed data, except for copies of the source."""
+    if isinstance(node, dict):
+        for key, value in node.items():
+            if key not in SOURCE_COPY_KEYS:
+                yield from transformed_strings(value)
+    elif isinstance(node, list):
+        for value in node:
+            yield from transformed_strings(value)
+    elif isinstance(node, str):
+        yield " ".join(node.split())
+    elif isinstance(node, int | float) and not isinstance(node, bool):
+        yield str(node)
+
+
+def not_converted(texts: list[tuple[str, str]], data: dict) -> list[dict[str, Any]]:
+    """Group the source texts missing from the transformed data by their path; one example of each."""
+    # ponytail: substring match, so a short value like "1" counts as found almost anywhere
+    haystack = "\n".join(transformed_strings(data))
+    groups: dict[str, dict[str, Any]] = {}
+    for path, text in texts:
+        if text not in haystack:
+            group = groups.setdefault(path, {"path": path, "count": 0, "example": text})
+            group["count"] += 1
+    return list(groups.values())
+
+
 def validate(  # noqa: C901, PLR0911, PLR0912, PLR0915
     transformer: str,
     oai_xml: str,
@@ -201,7 +246,7 @@ def validate(  # noqa: C901, PLR0911, PLR0912, PLR0915
     records.
     """
     errors, warnings = [], []
-    result = {"status": "invalid", "errors": errors, "warnings": warnings, "original": None, "transformed": None}
+    result = {"status": "invalid", "errors": errors, "warnings": warnings, "original": None, "transformed": None, "not_converted": []}
 
     has_paste = bool(oai_xml.strip())
     has_fetch = bool(base_url and metadata_prefix and identifier)
@@ -224,6 +269,7 @@ def validate(  # noqa: C901, PLR0911, PLR0912, PLR0915
     warnings.extend(xml_warnings)
 
     # before the transformer: herbarium-fix edits this XML in place
+    texts = source_texts(raw["record"].xml)
     result["original"] = colored(etree.tostring(raw["record"].xml, pretty_print=True, encoding="unicode"), XmlLexer())
 
     try:
@@ -276,6 +322,12 @@ def validate(  # noqa: C901, PLR0911, PLR0912, PLR0915
 
     if not errors:
         result["status"] = "valid"
+        result["not_converted"] = not_converted(texts, data)
+        if count := sum(group["count"] for group in result["not_converted"]):
+            warnings.append(
+                f"{count} text values of the original were not found in the transformed data. "
+                "This may be fine, or the data may have been lost; see below."
+            )
     return result
 
 

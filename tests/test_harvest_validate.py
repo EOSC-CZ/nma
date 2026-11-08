@@ -12,6 +12,7 @@ from flask import Flask
 from markupsafe import Markup, escape
 from pygments.lexers import JsonLexer, XmlLexer
 from invenio_records.systemfields.relations import RelationError
+from lxml import etree
 from wtforms.validators import ValidationError as WTFormsValidationError
 
 from ui import harvest_validate
@@ -19,8 +20,10 @@ from ui.harvest_validate import (
     MAX_XML_BYTES,
     check_public_url,
     colored,
+    not_converted,
     read_xml,
     relation_values,
+    source_texts,
     validate,
 )
 
@@ -440,4 +443,52 @@ def test_pasted_non_metadata_is_refused(xml):
 def test_fetched_response_is_never_wrapped():
     with pytest.raises(ValueError, match="Expected one"):
         read_xml(b'<a xmlns="urn:x"/>')
+
+
+def texts_of(metadata):
+    return source_texts(etree.fromstring(f'<record xmlns="{OAI}">{HEADER}<metadata>{metadata}</metadata></record>'))
+
+
+def test_source_texts_cover_only_metadata_without_namespaces_or_indexes():
+    metadata = '<a xmlns="urn:x"><b>  one\n two </b><b>three</b><c/>tail</a>'
+    assert texts_of(metadata) == [("a/b", "one two"), ("a/b", "three"), ("a/c", "tail")]
+
+
+def test_not_converted_groups_missing_values_by_path():
+    texts = [("a/b", "kept"), ("a/b", "lost 1"), ("a/b", "lost 2"), ("a/c", "also lost")]
+    assert not_converted(texts, {"metadata": {"title": "kept"}}) == [
+        {"path": "a/b", "count": 2, "example": "lost 1"},
+        {"path": "a/c", "count": 1, "example": "also lost"},
+    ]
+
+
+def test_not_converted_finds_numbers_and_parts_of_longer_values():
+    texts = [("a/size", "11298"), ("a/title", "part")]
+    assert not_converted(texts, {"size": 11298, "note": "a part of it", "flag": True}) == []
+
+
+def test_not_converted_ignores_copies_of_the_source():
+    assert not_converted([("a", "lost")], {"ccmm_xml": "<a>lost</a>"}) == [{"path": "a", "count": 1, "example": "lost"}]
+
+
+def test_valid_record_warns_about_values_not_converted(monkeypatch):
+    stub_validation(monkeypatch, {"metadata": {}})
+    xml = f'<record xmlns="{OAI}">{HEADER}<metadata><a xmlns="urn:x">lost</a></metadata></record>'
+    result = validate("oai-import", xml, "", "", "")
+    assert result["status"] == "valid"
+    assert result["not_converted"] == [{"path": "a", "count": 1, "example": "lost"}]
+    assert "1 text values" in result["warnings"][0]
+
+
+def test_invalid_record_skips_the_comparison(monkeypatch):
+    stub_validation(monkeypatch, {"metadata": {}}, schema_error=TypeError("broken"))
+    xml = f'<record xmlns="{OAI}">{HEADER}<metadata><a xmlns="urn:x">lost</a></metadata></record>'
+    result = validate("oai-import", xml, "", "", "")
+    assert result["status"] == "invalid"
+    assert result["not_converted"] == []
+
+
+def test_source_texts_skip_vocabulary_iris_and_labels():
+    metadata = '<a xmlns="urn:x"><role><iri>https://x.org/1</iri><label>Author</label></role><name>Jane</name></a>'
+    assert texts_of(metadata) == [("a/name", "Jane")]
 
