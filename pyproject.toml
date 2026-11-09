@@ -71,6 +71,10 @@ load_identifiers_from_riv_dump = "riv.tasks:LoadIdentifiersFromRIVDumpJob"
 [project.entry-points."invenio_access.actions"]
 manage_record_action = "models.datasets.permissions:manage_record_action"
 
+# `invenio rdm-records add-to-fixture communities` creates the missing communities
+[project.entry-points."oarepo.fixtures"]
+communities = "common.fixtures:CommunitiesFixture"
+
 [tool.uv]
 # Force these versions regardless of older constraints declared by other
 # packages (e.g. oarepo-communities still declares oarepo-requests<10 and
