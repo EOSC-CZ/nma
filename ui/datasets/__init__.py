@@ -24,6 +24,7 @@ from invenio_records_resources.services.errors import (
     PermissionDeniedError,
 )
 from markupsafe import Markup, escape
+from oarepo_related_resources.errors import PIDDoesNotExistError as UnresolvablePIDError
 from oarepo_related_resources.errors import PIDProcessingError, UnsupportedPIDError
 from oarepo_runtime.typing import record_from_result
 from oarepo_ui.overrides import UIComponent
@@ -262,7 +263,7 @@ class DatasetsUIResource(CCMMRecordsUIResource):
                     "error",
                 )
 
-            except PIDDoesNotExistError:
+            except UnresolvablePIDError:
                 flash(
                     _(
                         "The provided identifier does not exist. "
