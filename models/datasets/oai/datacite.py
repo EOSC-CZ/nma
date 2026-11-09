@@ -28,6 +28,7 @@ import json
 from typing import TYPE_CHECKING, Any
 from urllib import parse as urlparse
 
+from ccmm_invenio.related_resources.datacite import map_datacite_access
 from flask import current_app
 from invenio_vocabularies.datastreams.readers import BaseReader
 from invenio_vocabularies.datastreams.transformers import (
@@ -167,4 +168,5 @@ class DataciteTransformer(BaseTransformer):
             "metadata": metadata,
             "files": {"enabled": False},
             "media_files": {"enabled": False},
+            **map_datacite_access(data, metadata),
         }
