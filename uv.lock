@@ -7,7 +7,7 @@ prerelease-mode = "allow"
 
 [manifest]
 overrides = [
-    { name = "ccmm-invenio", specifier = ">=2.5.2,<3.0.0" },
+    { name = "ccmm-invenio", specifier = ">=2.5.3,<3.0.0" },
     { name = "oarepo-model", specifier = ">=6.2.3,<7.0.0" },
     { name = "oarepo-oai-pmh-harvester", specifier = ">=9.6.1,<10.0.0" },
     { name = "oarepo-rdm", specifier = ">=9.2.0,<10.0.0" },
@@ -458,7 +458,7 @@ wheels = [
 
 [[package]]
 name = "ccmm-invenio"
-version = "2.5.2"
+version = "2.5.3"
 source = { registry = "https://gitlab.cesnet.cz/api/v4/projects/1408/packages/pypi/simple" }
 dependencies = [
     { name = "idutils" },
@@ -475,9 +475,9 @@ dependencies = [
     { name = "shapely" },
     { name = "xmlschema" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7e/16/c18135afc19cd673a7546a3110826a774446b9680f957ffdc6c340a23d5d/ccmm_invenio-2.5.2.tar.gz", hash = "sha256:c6db15648ece2eb4e9179a61f0a9c0d93a835ec0805623d3cff5e3a2fa839692", size = 1020077, upload-time = "2026-11-09T07:52:34.111Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ad/43/57308248647f006c78436f9b470d355a36b0ac8048b6dd097186b8b1b726/ccmm_invenio-2.5.3.tar.gz", hash = "sha256:2ad25f9d431284846799ae84d9697f3161089090ee0f3b41ea0296c3143ff7b5", size = 1020111, upload-time = "2026-11-09T09:51:36.252Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d8/85/0f37aa95dbb6e676fc3df06a69b7bda67f1a70acd01c821674babc307ce8/ccmm_invenio-2.5.2-py3-none-any.whl", hash = "sha256:9d019eb9cc9025c76798a5ae90706a41ecd4129934f76606462c38f2259142cb", size = 1193622, upload-time = "2026-11-09T07:52:32.443Z" },
+    { url = "https://files.pythonhosted.org/packages/2a/85/c438222761959b14214295a233baab8c77783b98f77eaafe555cb27c8fb6/ccmm_invenio-2.5.3-py3-none-any.whl", hash = "sha256:e92aecd0897e9e9d55de83a521ff372de3aa8f6ee6082c151f8247c8b90336ae", size = 1193643, upload-time = "2026-11-09T09:51:34.801Z" },
 ]
 
 [[package]]
@@ -3539,7 +3539,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "beautifulsoup4" },
-    { name = "ccmm-invenio", specifier = ">=2.5.2,<3.0.0" },
+    { name = "ccmm-invenio", specifier = ">=2.5.3,<3.0.0" },
     { name = "json5" },
     { name = "oarepo", extras = ["s3", "rdm"], specifier = ">=14.0.0,<15.0.0" },
     { name = "oarepo-app", extras = ["ccmm-development", "development", "oaipmh-harvester-development"], specifier = ">=7.0.0,<8.0.0" },
