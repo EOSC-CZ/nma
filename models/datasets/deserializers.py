@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from typing import Any, override
 
+from ccmm_invenio.related_resources.datacite import map_datacite_access
 from flask_resources.deserializers.json import JSONDeserializer
 from lxml import etree
 from lxml.etree import QName
@@ -37,6 +38,7 @@ class DataCiteJSONDeserializer(JSONDeserializer):
             "metadata": metadata,
             "files": {"enabled": False},
             "media_files": {"enabled": False},
+            **map_datacite_access(data, metadata),
         }
 
 
@@ -494,14 +496,8 @@ class DataCiteXMLDeserializer(DataCiteJSONDeserializer):
             if rights_uri := rights_elem.get("rightsURI"):
                 rights["rightsUri"] = rights_uri
 
-            # TODO: commented out because we do not have the correct vocabulary
-            # items yet
-            # if rights_id := rights_elem.get("rightsIdentifier"):
-            #     rights["rightsIdentifier"] = rights_id
-            #     # Zenodo always includes rightsIdentifierScheme when rightsIdentifier exists
-            #     # Set to null if not present to match Zenodo format
-            #     rights_id_scheme = rights_elem.get("rightsIdentifierScheme")
-            #     rights["rightsIdentifierScheme"] = rights_id_scheme
+            if rights_id := rights_elem.get("rightsIdentifier"):
+                rights["rightsIdentifier"] = rights_id
 
             if scheme_uri := rights_elem.get("schemeUri"):
                 rights["schemeUri"] = scheme_uri
