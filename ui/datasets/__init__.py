@@ -274,7 +274,7 @@ class DatasetsUIResource(CCMMRecordsUIResource):
             except PIDProcessingError:
                 flash(
                     _(
-                        "We were unable to resolve metadata at the moment, please try it again later."
+                        "We were unable to resolve metadata at the moment, please try it again later. "
                         'If the problem persists, please contact support at <a href="mailto:info@eosc.cz">info@eosc.cz</a>.'
                     ),
                     "error",
