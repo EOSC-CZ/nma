@@ -409,4 +409,20 @@ def create_registered_blueprint(app):
     return bp
 
 
+COMMUNITY_BLUEPRINTS = {"invenio_app_rdm_communities"}
+
+
+def create_community_header_blueprint(app):
+    """Hide the 'New upload' button in the community header."""
+    bp = Blueprint("nma_community_header", __name__)
+
+    @bp.app_context_processor
+    def community_header_flags():
+        if request.blueprint in COMMUNITY_BLUEPRINTS:
+            return {"community_use_jinja_header": True}
+        return {}
+
+    return bp
+
+
 # TODO: register init_menu to finalize_app similarly blueprints & webpack is registered
