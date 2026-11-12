@@ -168,8 +168,8 @@ class DatasetsUIResource(CCMMRecordsUIResource):
         """Return search page.
 
         This method receives a query string and these steps follow:
-        1. The query string is normalized so it forms a resolvable URL (starts with https://).
-           Normalization accepts raw DOIs (`10.xxxx/...`) and prefixed identifiers (`doi:10.xxxx/...` or `DOI:10.xxxx/...`)
+        1. The query string is normalized so it forms a resolvable URL (starts with https://)
+           Normalization accepts raw DOIs (`10.xxxx/...`), prefixed identifiers (`doi:10.xxxx/...` or `DOI:10.xxxx/...`) and URLs starting with only `http://`
         2. Check if the URL is resolvable (supported by our resolvers)
         3. Convert it to our internal ID format
         4. Check if a record with that ID exists

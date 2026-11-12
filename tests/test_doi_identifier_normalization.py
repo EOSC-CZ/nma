@@ -32,7 +32,7 @@ def test_valid_doi_normalization(input_id, expected):
             "https://doi.org/10.5281/zenodo.20434110",
             "https://doi.org/10.5281/zenodo.20434110",
         ),
-        ("http://doi.org/10.1000/182", "http://doi.org/10.1000/182"),
+        ("http://doi.org/10.1000/182", "https://doi.org/10.1000/182"),
         ("https://hdl.handle.net/11012/255869", "https://hdl.handle.net/11012/255869"),
         (
             "http://hdl.handle.net/20.500.12281/123",
