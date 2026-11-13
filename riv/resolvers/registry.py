@@ -74,7 +74,7 @@ class ResolverRegistry:
         collected_messages.extend(problems)
         if metadata is None:
             raise Exception("Implementation error.")
-        metadata["persistent_url"] = persistent_url
+        metadata["persistent_url"] = normalized_persistent_url
 
         return {
             "metadata": metadata,
