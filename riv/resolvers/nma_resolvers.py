@@ -25,10 +25,12 @@ class NMADataciteResolver(DataciteResolver):
         raise ValueError(f"Could not generate pid from url: {identifier}")
 
     def normalize(self, identifier: str) -> str:
-        """DOIs are case-insensitive, so we lowercase them."""
+        """Normalize a DOI using the shared resolver normalizer."""
         if identifier.startswith("http://"):
             identifier = identifier.replace("http://", "https://", 1)
-        return unicodedata.normalize("NFC", identifier.strip())
+        identifier = unicodedata.normalize("NFC", identifier.strip())
+        doi = self.normalize_identifier(identifier)
+        return f"https://doi.org/{doi}"
 
     def exists(self, persistent_url: str) -> bool:
         datacite_url = current_app.config.get("DATACITE_URL")
@@ -51,10 +53,12 @@ class NMACrossrefResolver(CrossrefResolver):
         raise ValueError(f"Could not generate pid from url: {identifier}")
 
     def normalize(self, identifier: str) -> str:
-        """DOIs are case-insensitive, so we lowercase them."""
+        """Normalize a DOI using the shared resolver normalizer."""
         if identifier.startswith("http://"):
             identifier = identifier.replace("http://", "https://", 1)
-        return unicodedata.normalize("NFC", identifier.strip())
+        identifier = unicodedata.normalize("NFC", identifier.strip())
+        doi = self.normalize_identifier(identifier)
+        return f"https://doi.org/{doi}"
 
     def exists(self, persistent_url: str) -> (dict | None, list[ResolverProblem]):
         crossref_url = current_app.config["CROSSREF_URL"]
@@ -93,10 +97,12 @@ class NMAHandleResolver(HandleResolver):
         ]
 
     def normalize(self, identifier: str) -> str:
-        """Handles are case-insensitive, so we lowercase them."""
+        """Normalize a Handle using the shared resolver normalizer."""
         if identifier.startswith("http://"):
             identifier = identifier.replace("http://", "https://", 1)
-        return unicodedata.normalize("NFC", identifier.strip())
+        identifier = unicodedata.normalize("NFC", identifier.strip())
+        handle = self.normalize_identifier(identifier)
+        return f"https://hdl.handle.net/{handle}"
 
     def generate_id(self, identifier: str) -> str:
         pattern = r"https?://hdl.handle.net/(.+)"
