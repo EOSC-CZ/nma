@@ -188,6 +188,18 @@
     - 'oai-import{"model":"datasets"}'
     - "id-from-pid"
 
+# Records carry only an ARK (ark:12661/nrp1HERB/...), the record id is ark/12661/nrp1HERB/...
+- id: herbarium
+  name: "Herbarium (Plant and Fungal) Photo Collections"
+  base-url: "https://herbarium.biodiversity.cz/oai-pmh"
+  metadata-prefix: "ccmm-xml"
+  model: datasets
+  community: herbarium
+  loader: oai-pmh
+  transformer:
+    - 'oai-import{"model":"datasets"}'
+    - "id-from-pid"
+
 - id: czu-agris
   name: "Czech University of Life Sciences Prague Agris repository harvester"
   base-url: "https://rdm.damp.pef.czu.cz/oai2d"

@@ -15,17 +15,26 @@ if TYPE_CHECKING:
 
 # persistent identifier schemes usable as record id, in order of preference,
 # with the idutils check matching the regexp that normalize_pid relies on
+# (ARK support in idutils is patched by ccmm_invenio.idutils_ark)
 PID_SCHEMES = {
     "doi": idutils.is_doi,
     "handle": idutils.is_handle,
+    "ark": idutils.is_ark,
 }
 
 
-class IdFromPIDTransformer(BaseTransformer):
-    """Sets the record id and persistent url from its DOI, falling back to its Handle.
+def normalize_ark(value: str) -> str:
+    """Return the ARK without its label: ``ark:/12661/x`` and ``ARK:12661/x`` -> ``12661/x``."""
+    value = idutils.normalize_pid(value, "ark")
+    return value.split(":", 1)[1].lstrip("/")
 
-    The id is ``<scheme>/<identifier>``, e.g. ``doi/10.1234/abc`` or
-    ``handle/11104/0312345`` (the same as LINDAT records).
+
+class IdFromPIDTransformer(BaseTransformer):
+    """Sets the record id and persistent url from its DOI, falling back to its Handle, then ARK.
+
+    The id is ``<scheme>/<identifier>``, e.g. ``doi/10.1234/abc``,
+    ``handle/11104/0312345`` (the same as LINDAT records) or ``ark/12661/nrp1HERB/PRC/37/2``
+    (the ARK without its ``ark:`` / ``ark:/`` label).
     """
 
     def __init__(self, *_args: Any, **_kwargs: Any) -> None:
@@ -51,13 +60,18 @@ class IdFromPIDTransformer(BaseTransformer):
                 if not is_valid(value):
                     invalid.append(f"{scheme}:{value}")
                     continue
-                value = idutils.normalize_pid(value, scheme)
+                if scheme == "ark":
+                    value = normalize_ark(value)
+                    url = idutils.to_url(f"ark:{value}", scheme, url_scheme="https")
+                else:
+                    value = idutils.normalize_pid(value, scheme)
+                    url = idutils.to_url(value, scheme, url_scheme="https")
                 rec["id"] = f"{scheme}/{value}"
-                rec["metadata"]["persistent_url"] = idutils.to_url(value, scheme, url_scheme="https")
+                rec["metadata"]["persistent_url"] = url
                 return stream_entry
 
         stream_entry.filtered = True
-        message = "Missing DOI or Handle identifier for record."
+        message = "Missing DOI, Handle or ARK identifier for record."
         if invalid:
             message += f" Invalid identifiers: {', '.join(invalid)}."
         stream_entry.errors.append(message)
