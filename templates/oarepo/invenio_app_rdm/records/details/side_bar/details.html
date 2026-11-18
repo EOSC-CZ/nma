@@ -22,7 +22,7 @@
         <dt class="ui tiny header inline">{{ _('Deposited at') }}</dt>
         <dd class="flex align-items-center">
           <a class="inline-block mr-10" href="{{ persistent_url }}" target="_blank" rel="noopener noreferrer">{{ persistent_url }}</a>
-          <ClipboardCopyButton copyText={{ persistent_url }} />
+           <span class="copy-doi-button inline-block ml-5" data-value="{{ persistent_url }}" data-size="medium"></span>
         </dd>
       {% endif %}
       {{ show_detail(_('Publication date'), record_ui["ui"]["publication_date_l10n_long"]) if record_ui["ui"].get("publication_date_l10n_long") }}
