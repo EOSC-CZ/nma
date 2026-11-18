@@ -11,6 +11,34 @@
 {%- from "invenio_app_rdm/records/macros/detail.html" import
   list_languages, show_detail, show_detail_conference, show_detail_thesis %}
 
+{% macro show_more_accordion(values, group, limit=6) %}
+  {% if values | length <= limit %}
+      {{ values | join(", ") }}
+    {% else %}
+      <div class="ui accordion">
+        {{ values[:limit] | join(", ") }}, ...
+        <div class="title">
+          <button type="button"
+                  class="ui affiliations-button trigger button mini mr-0"
+                  aria-controls="{{ group }}-more"
+                  aria-expanded="false"
+                  data-open-text="{{ _('Show more') }}"
+                  data-close-text="{{ _('Show less') }}">
+            {{ _('Show more') }}
+          </button>
+        </div>
+        <div class="content" id="{{ group }}-more">
+          {{ values[limit:] | join(", ") }}
+        </div>
+      </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro show_count_limited_detail(label, values, group, limit=6) %}
+  {% set values = values | list %}
+  {{show_detail(label, show_more_accordion(values, group, limit))}}
+{% endmacro %}
+
 {%- set persistent_url = record_ui.get("metadata", {}).get("persistent_url") %}
 
 <div class="sidebar-container">
@@ -39,8 +67,8 @@
       {{ show_detail_thesis(_('Thesis'), record_ui["ui"]["publishing_information"]["thesis"]) if record_ui["ui"].get('publishing_information', {}).get('thesis', {}) }}
       {{ show_detail(_('Conference'), show_detail_conference(record_ui["ui"]["conference"])) if record_ui["ui"]["conference"] }}
       {{ show_detail(_('Languages'), list_languages(record_ui["ui"]["languages"])) if record_ui["ui"]["languages"] }}
-      {{ show_detail(_('Formats'), ", ".join(metadata.formats)) if metadata.formats }}
-      {{ show_detail(_('Sizes'), ", ".join(metadata.sizes)) if metadata.sizes }}
+      {{ show_count_limited_detail(_('Formats'), metadata.formats, 'formats') if metadata.formats }}
+      {{ show_count_limited_detail(_('Sizes'), metadata.sizes, 'sizes') if metadata.sizes }}
     </dl>
   </div>
 </div>
