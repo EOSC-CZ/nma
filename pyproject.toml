@@ -7,21 +7,12 @@ authors = []
 dependencies = [
     "json5",
     "oarepo[s3,rdm]>=14.0.0,<15.0.0",
-    "oarepo-app[ccmm-development,development,oaipmh-harvester-development]>=7.0.0,<8.0.0",
+    "oarepo-app[ccmm,production,oaipmh-harvester]>=8.0.0,<9.0.0",
     "python-dotenv",
     "beautifulsoup4",
     "rapidfuzz",
     "traceback-with-variables",                    # for better error logging
     "prometheus-flask-exporter",                   # to expose Flask app /metrics to prometheus
-    "ccmm-invenio>=2.5.3,<3.0.0",
-    "oarepo-model>=6.2.3,<7.0.0",
-    "oarepo-rdm>=9.2.0,<10.0.0",
-    "oarepo-related-resources>=6.1.0,<7.0.0",
-    "oarepo-requests>=10.0.0,<11.0.0",
-    "oarepo-workflows>=8.0.1,<9.0.0",
-    "oarepo-oai-pmh-harvester>=9.6.1,<10.0.0",
-    "oarepo-runtime>=7.13.0,<8.0.0",
-    "oarepo-formats>=1.0.2,<2.0.0",
 ]
 requires-python = ">=3.14,<3.15"
 
@@ -72,19 +63,6 @@ load_identifiers_from_riv_dump = "riv.tasks:LoadIdentifiersFromRIVDumpJob"
 manage_record_action = "models.datasets.permissions:manage_record_action"
 
 [tool.uv]
-# Force these versions regardless of older constraints declared by other
-# packages (e.g. oarepo-communities still declares oarepo-requests<10 and
-# oarepo-workflows<8).
-override-dependencies = [
-    "ccmm-invenio>=2.5.3,<3.0.0",
-    "oarepo-model>=6.2.3,<7.0.0",
-    "oarepo-rdm>=9.2.0,<10.0.0",
-    "oarepo-related-resources>=6.1.0,<7.0.0",
-    "oarepo-requests>=10.0.0,<11.0.0",
-    "oarepo-workflows>=8.0.1,<9.0.0",
-    "oarepo-oai-pmh-harvester>=9.6.1,<10.0.0",
-    "oarepo-runtime>=7.13.0,<8.0.0",
-]
 
 # CESNET GitLab package index - hosts CI-built artifacts pinned by oarepo
 # that are not published on PyPI (e.g. citeproc-py-styles==0.1.5.45528422).
