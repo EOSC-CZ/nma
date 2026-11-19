@@ -6,10 +6,12 @@ from functools import wraps
 from ccmm_invenio.ui import CCMMRecordsUIResource, CCMMRecordsUIResourceConfig
 from flask import (
     Blueprint,
+    Flask,
     abort,
     current_app,
     flash,
     g,
+    has_request_context,
     redirect,
     render_template,
     request,
@@ -353,10 +355,40 @@ def search_redirect():
     return redirect(url_for("datasets_ui.search", **request.args))
 
 
+#: Blueprints whose views render the community header. invenio-communities serves
+#: about/curation-policy/members/settings, invenio-app-rdm the records and browse
+#: tabs, and request detail pages live under invenio_app_rdm_requests.
+COMMUNITY_HEADER_BLUEPRINTS = frozenset(
+    {
+        "invenio_app_rdm_communities",
+        "invenio_app_rdm_requests",
+        "invenio_communities",
+    }
+)
+
+
+def hide_community_upload_button(app: Flask) -> None:
+    """Hide the "New upload" button in the community header.
+
+    Nobody can deposit into a community here: NMACommunitiesPermissionPolicy only
+    lets SystemProcess submit, so the button either sits there greyed out or leads
+    to the RIV form. Both the invenio-communities header and oarepo-communities'
+    override of it already skip the button when ``community_use_jinja_header`` is
+    set, which is cheaper than overriding the template (see EOSC-CZ/nma#268).
+    """
+
+    @app.context_processor
+    def _hide_community_upload_button() -> dict[str, bool]:
+        if has_request_context() and request.blueprint in COMMUNITY_HEADER_BLUEPRINTS:
+            return {"community_use_jinja_header": True}
+        return {}
+
+
 def finalize_app(app):
     """Finalize app"""
     init_menu(app)
     ui_overrides(app)
+    hide_community_upload_button(app)
 
 
 def create_blueprint(app):
