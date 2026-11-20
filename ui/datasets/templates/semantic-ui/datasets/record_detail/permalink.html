@@ -10,10 +10,10 @@
         <span class="identifier-link" data-testid="record-detail-title-persistent-identifier">
             {% if persistent_url %}
             <strong>{{ persistent_url | trim }}</strong>
-            <span class="copy-doi-button inline-block ml-5" data-value="{{ persistent_url }}" data-size="medium"></span>
+            <span class="copy-doi-button inline-block ml-5" data-value="{{ persistent_url }}" data-size="small"></span>
             {% else %}
             <strong>{{ record_permalink | trim }}</strong>
-            <span class="copy-doi-button inline-block ml-5" data-value="{{ record_permalink }}" data-size="medium"></span>
+            <span class="copy-doi-button inline-block ml-5" data-value="{{ record_permalink }}" data-size="small"></span>
             {% endif %}
         </span>
     </div>
