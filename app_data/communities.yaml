@@ -118,6 +118,12 @@
     description: "Analytical archaeological data (geospatial, laboratory, anthropological, 3D, databases) harvested from ArchaeoVault, the Czech Archaeological Repository for Analytical Data operated by Masaryk University."
   access: *access
 
+- slug: herbarium
+  metadata:
+    title: "Herbarium (Plant and Fungal) Photo Collections"
+    description: "Images of preserved plant and fungal herbarium specimens harvested from the Herbarium Photo Collections of the Faculty of Science, Charles University (herbarium.biodiversity.cz)."
+  access: *access
+
 - slug: czu-agris
   logo: czu-agris.svg
   metadata:
