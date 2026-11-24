@@ -37,9 +37,6 @@
       word-break: break-word;
       font-size: @h3;
       font-weight: bold;
-      .ui.button {
-        font-size: @h3;
-      }
     }
     background-color: lighten(@lightGrey, 5%);
     .segment-header {

@@ -7,13 +7,13 @@
         {{ _("Primary persistent identifier of the record") }}
     </div>
     <div class="content mt-15">
-        <span class="identifier-link" data-testid="record-detail-title-persistent-identifier">
+        <span class="identifier-link flex align-items-center" data-testid="record-detail-title-persistent-identifier">
             {% if persistent_url %}
             <strong>{{ persistent_url | trim }}</strong>
-            <ClipboardCopyButton className="ml-5" copyText={{persistent_url}} />
+            <span class="copy-doi-button flex ml-10" data-value="{{ persistent_url }}" data-size="small"></span>
             {% else %}
             <strong>{{ record_permalink | trim }}</strong>
-            <ClipboardCopyButton className="ml-5" copyText={{record_permalink}} />
+            <span class="copy-doi-button flex ml-10" data-value="{{ record_permalink }}" data-size="small"></span>
             {% endif %}
         </span>
     </div>
@@ -28,9 +28,9 @@
         {{ _("Persistent link (RIV only)") }}
     </div>
     <div class="content mt-15">
-        <span class="identifier-link" data-testid="record-detail-title-permanent-link">
+        <span class="identifier-link flex align-items-center" data-testid="record-detail-title-permanent-link">
             {{ record_permalink | trim }}
-            <ClipboardCopyButton className="ml-5" copyText={{record_permalink}} />
+            <span class="copy-doi-button flex ml-10" data-value="{{ record_permalink }}" data-size="small"></span>
         </span>
     </div>
     <p class="mt-10">
