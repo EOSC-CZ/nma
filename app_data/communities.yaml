@@ -143,3 +143,10 @@
     title: "DataCite"
     description: "Datasets with Czech affiliations harvested from DataCite, not available from any other harvested repository."
   access: *access
+
+- slug: zenodo-mendelu
+  logo: zenodo-mendelu.jpg
+  metadata:
+    title: "Mendel University in Brno"
+    description: "Datasets of Mendel University in Brno harvested from Zenodo."
+  access: *access
