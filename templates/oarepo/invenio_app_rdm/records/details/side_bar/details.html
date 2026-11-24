@@ -11,32 +11,9 @@
 {%- from "invenio_app_rdm/records/macros/detail.html" import
   list_languages, show_detail, show_detail_conference, show_detail_thesis %}
 
-{% macro show_more_accordion(values, group, limit=6) %}
-  {% if values | length <= limit %}
-      {{ values | join(", ") }}
-    {% else %}
-      <div class="ui accordion">
-        {{ values[:limit] | join(", ") }}, ...
-        <div class="title">
-          <button type="button"
-                  class="ui affiliations-button trigger button mini mr-0"
-                  aria-controls="{{ group }}-more"
-                  aria-expanded="false"
-                  data-open-text="{{ _('Show more') }}"
-                  data-close-text="{{ _('Show less') }}">
-            {{ _('Show more') }}
-          </button>
-        </div>
-        <div class="content" id="{{ group }}-more">
-          {{ values[limit:] | join(", ") }}
-        </div>
-      </div>
-    {% endif %}
-{% endmacro %}
-
-{% macro show_count_limited_detail(label, values, group, limit=6) %}
-  {% set values = values | list %}
-  {{show_detail(label, show_more_accordion(values, group, limit))}}
+{% macro show_count_limited_detail(label, values, group, limit=None) %}
+  {% set rendered %}<ShowMore values={{ values }} group={{ group }} limit={{ limit }} />{% endset %}
+  {{ show_detail(label, rendered) }}
 {% endmacro %}
 
 {%- set persistent_url = record_ui.get("metadata", {}).get("persistent_url") %}
