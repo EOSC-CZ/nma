@@ -67,12 +67,13 @@
 - id: lindat
   name: "LINDAT/CLARIN repository harvester"
   base-url: "https://lindat.mff.cuni.cz/repository/server/oai/request"
-  metadata-prefix: "cmdi"
+  metadata-prefix: "ccmm-xml"
   model: datasets
   community: lindat
   loader: oai-pmh
   transformer:
-    - "lindat"
+    - 'oai-import{"model":"datasets"}'
+    - "id-from-pid"
 
 - id: av
   name: "Academy of Sciences repository harvester"
@@ -239,3 +240,15 @@
     - "datacite"
     - "id-from-pid"
     - 'skip-if-owned{"model":"datasets"}'
+
+# https://zenodo.org/communities/mendelu
+- id: zenodo-mendelu
+  name: "Zenodo MENDELU community harvester"
+  base-url: "https://zenodo.org"
+  metadata-prefix: "mendelu"
+  model: datasets
+  community: zenodo-mendelu
+  loader: zenodo
+  transformer:
+    - "zenodo"
+  setspec: 'communities:mendelu AND resource_type.type:dataset'
