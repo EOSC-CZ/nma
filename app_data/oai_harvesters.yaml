@@ -67,12 +67,13 @@
 - id: lindat
   name: "LINDAT/CLARIN repository harvester"
   base-url: "https://lindat.mff.cuni.cz/repository/server/oai/request"
-  metadata-prefix: "cmdi"
+  metadata-prefix: "ccmm-xml"
   model: datasets
   community: lindat
   loader: oai-pmh
   transformer:
-    - "lindat"
+    - 'oai-import{"model":"datasets"}'
+    - "id-from-pid"
 
 - id: av
   name: "Academy of Sciences repository harvester"
