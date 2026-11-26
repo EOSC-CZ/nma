@@ -11,8 +11,8 @@
 {%- from "invenio_app_rdm/records/macros/detail.html" import
   list_languages, show_detail, show_detail_conference, show_detail_thesis %}
 
-{% macro show_count_limited_detail(label, values, limit=None) %}
-  {% set rendered %}<ShowMore values={{ values }} limit={{ limit }}/>{% endset %}
+{% macro show_count_limited_detail(label, values) %}
+  {% set rendered %}<ShowMore value={{ values }} />{% endset %}
   {{ show_detail(label, rendered) }}
 {% endmacro %}
 
