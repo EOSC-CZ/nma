@@ -53,7 +53,7 @@ class RIVResolverExtension:
             "ORCID_PUBLIC_DUMP_S3_BUCKET_NAME", config.ORCID_PUBLIC_DUMP_S3_BUCKET_NAME
         )
 
-    @cached_property
+    @property
     def persistent_identifiers_resolvers(self) -> List[MetadataResolver]:
         """Return resolvers for persistent identifiers."""
         return [
