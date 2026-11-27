@@ -1,0 +1,22 @@
+{% extends "semantic-ui/invenio_communities/details/header.html" %}
+{% from "semantic-ui/invenio_communities/details/header.html" import button_for_membership with context %}
+
+{%- block subheader_buttons %}
+<div class="sixteen wide mobile sixteen wide tablet five wide computer right aligned middle aligned column">
+    {{ button_for_membership(community_ui) }}
+    {% if community_ui['children'] and community_ui['children']['allow'] and can_create_community() %}
+    <a href="{{ url_for('invenio_communities.communities_new_subcommunity', pid_value=community_ui['slug']) }}"
+        class="ui button labeled icon rel-mt-1">
+        <i class="sitemap icon" aria-hidden="true"></i>
+        {{ _("Add sub-community") }}
+    </a>
+    {% endif %}
+    {% if permissions.can_moderate %}
+    <a href="{{ url_for('administration.communities', q='slug:'+community_ui['slug']) }}"
+        class="ui button labeled icon rel-mt-1">
+        <i class="cog icon" aria-hidden="true"></i>
+        {{ _("Manage community") }}
+    </a>
+    {% endif %}
+</div>
+{%- endblock subheader_buttons %}
